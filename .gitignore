@@ -1,0 +1,61 @@
+# Ignore everything
+*
+
+# But don't ignore these files and directories
+!/.gitignore
+!/README.md
+
+# Include these directories
+!/kb-html/
+!/kb-workflow-tools/
+
+# But ignore .gitkeep files in these directories
+**/.gitkeep
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore Python cache and virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Ignore environment variables and secrets
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
