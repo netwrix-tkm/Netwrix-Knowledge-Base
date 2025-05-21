@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Availability ? Enter or Exit a Failover State Using NPS.HaMgr.exe</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-04-21T16:56:14.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2024-01-12T07:41:38.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-04-21T16:57:17.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000HDhCCAW">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000HDhCCAW">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-12T07:42:06.000Z">
+    <meta name="LastPublishedDate" content="2024-01-10T14:08:57.000Z">
+    <meta name="Meta_Description__c" content="High Availability. How to enter or exit a failover state using NPS.HaMgr.exe">
+    <meta name="Meta_Title__c" content="High Availability. How to enter or exit a failover state using NPS.HaMgr.exe">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8569">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDhCCAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>High Availability ? Enter or Exit a Failover State Using NPS.HaMgr.exe</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>Failover is required in upgrade scenarios, as well as disaster recovery scenarios. This article discusses how to fail over a secondary node in a high availability (HA) pair, and how to re-establish high availability after failing over.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<h4>Step 1 ? Fail over a secondary node</h4>
+
+<div>
+<ol><li>
+	<p>In the secondary server, locate <code>NPS.HaMgr.exe</code>. As per the recommendations, it should be located in the <code>\%ProgramFiles%\Stealthbits\PAM\HA Tools</code> directory on the drive where Netwrix Privilege Secure is installed. Otherwise, it will be in the <strong>Extras</strong> folder where the Netwrix Privilege Secure archive file was extracted. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HfOCAU.html" target="_self">How to Configure High Availability (HA) Using SbPAM.HaMgr.exe</a>.</p>
+	</li><li>
+	<p>Start the HA Manager Tool <code>NPS.HaMgr.exe</code>.</p>
+	</li><li>
+	<p>Click the <strong>Failover</strong> button ? this button appears only when HA Tool is running in the secondary server, and the secondary node is actively replicating the primary node.</p>
+	</li><li>
+	<p>Shortly PostgreSQL replication will stop. The secondary node should no longer indicate <strong>Running Replica</strong> in the HaMgr interface, and the <strong>Failover</strong> button should be replaced with the <strong>Configure HA</strong> button.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Clicking <strong>Failover</strong> swaps the IP Address of the Primary and the Secondary hosts, moving the secondary IP address to the primary IP address field. After failing over, the HA Tool confirms replication is inactive.</p>
+</blockquote>
+</div>
+
+<h4>Step 2 ? Re-establish the HA connection between the primary and secondary nodes</h4>
+
+<div>
+<ol><li>
+	<p>Launch the HA Tool in the secondary node.</p>
+	</li><li>
+	<p>Enter the primary IP address into the <strong>Primary IP</strong> text box.</p>
+	</li><li>
+	<p>Enter the secondary IP address into the <strong>Secondary IP</strong> text box.</p>
+	</li><li>
+	<p>Click the <strong>Configure HA</strong> button.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>When re-establishing a High Availability pair, confirm the correct IP addresses for both the primary and secondary nodes. These should correspond to the same IP addresses as before the failover was performed. Contact Technical Support for assistance in case the nodes are swapped, and HA is improperly re-established: <a href="https://www.netwrix.com/support.html" target="_blank">Netwrix Support · Netwrix &#129125;</a>.</p>
+</blockquote>
+</div>
+
+<h2>Related links</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HfOCAU.html" target="_self">How to Configure High Availability (HA) Using SbPAM.HaMgr.exe</a></p>
+	</li><li>
+	<p><a href="https://www.netwrix.com/support.html" target="_blank">Netwrix Support · Netwrix &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

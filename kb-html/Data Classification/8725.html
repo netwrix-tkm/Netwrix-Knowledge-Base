@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus Exclusions for Netwrix Data Classification</title>
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-08-10T15:07:42.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2024-08-06T15:09:50.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-10T15:08:42.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001111WCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001111WCAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-08-06T15:11:34.000Z">
+    <meta name="LastPublishedDate" content="2024-08-05T18:53:48.000Z">
+    <meta name="Meta_Description__c" content="How to Add Exclusions if Antivirus Slows down NDC or Locks Files">
+    <meta name="Meta_Title__c" content="How to Add Exclusions if Antivirus Slows down NDC or Locks Files">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8725">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001111WCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Antivirus Exclusions for Netwrix Data Classification</h1>
+    <h2>Symptoms</h2>
+
+<p>An antivirus suite can slow down or even prevent correct operation of Netwrix Data Classification:</p>
+
+<ul><li>
+	<p>Reduced speed of processing</p>
+	</li><li>
+	<p>Locked index files or temporary collected files</p>
+	</li></ul>
+
+<h2>Cause</h2>
+
+<p>Netwrix Data Classification writes information to CSE files in small chunks at short intervals  an antivirus will attempt to read the entire file looking for threats after each writing session.</p>
+
+<p>This considerably slows down processes of the service, as each short writing session is expected to occur frequently, while a full read of a file might take a long time (especially in a larger environment).</p>
+
+<h2>Resolution</h2>
+
+<p>Add the following exclusions for the antivirus:</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>In NDC v5.6, the first path to exclude is <code>C:\Program Files\Conceptseraching\Index</code></p>
+</blockquote>
+
+<ol><li>
+	<p>NDC Index databases: CSE files, located by default <code>C:\Program Files\Netwrix\Data Classification\Index</code></p>
+	</li><li>
+	<p>Temp files: <code>C:\Users\SERVICEACCOUNTNAMEHERE\AppData\Local\Temp\Netwrix\Data Classification\Collector</code></p>
+	</li></ol>
+
+<p>During data collection, a collector uses a specific to store copies of the files it is currently collecting and then places them in the temp location until they have been processed and moved on to the <strong>Indexer</strong> and <strong>Classifier</strong> services.</p>
+
+<h2>Related articles</h2>
+
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PcvZCAS.html" target="_blank">How to back up NDC Index</a></p>
+	</li></ul>
+</body>
+</html>

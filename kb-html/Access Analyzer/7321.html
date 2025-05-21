@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleted Objects in ADInventory</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:41:34.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-06-30T07:53:21.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:41:34.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IpGCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IpGCAU">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-06-30T07:55:32.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:41:34.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Deleted Objects in ADInventory">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7321">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IpGCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Deleted Objects in ADInventory</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> IsDeleted column is not being populated in AD Inventory Users view</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Objects are not being flagged as deleted by ADInventory.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="color: #1f497d;">ADInventory uses LDAP queries to enumerate objects from Active Directory.  </span><br><span style="color: #1f497d;">A full scan will query all objects, updating the full data set each time.  </span><br><br><span style="color: #1f497d;">The option to &quot;collect only changes&quot; only returns user, group and computer objects that have changed since the last scan.  <br>This works by scoping the scan to objects having a USNChanged value greater than the highest value recorded for that domain controller at the start of the previous scan. </span><br><br><span style="color: #1f497d;">In order for the IsDeleted column to be updated properly, you must either have:</span></p>
+<ul><li>
+<span style="color: #1f497d;">Access to all Containers with </span><span style="color: #1f4e79;">Users/Computers/Groups/tombstone objects</span>
+</li></ul>
+<p><span style="color: #1f497d;">OR</span></p>
+<ul><li><span style="color: #1f497d;">You must deselect the option to &quot;Collect only updates since the last scan&quot;.  </span></li></ul>
+<p><span style="color: #1f497d;">If you go the route of granting the service account increased access, the Domain Admins group is not necessarily sufficient to gain proper access in all environments. </span><br><span style="color: #1f497d;">The ACL on the all containers including the &quot;delete objects&quot; container should be checked to ensure that the service account has been granted the proper access.</span><br>   <br><span style="color: #1f497d;">To verify your account has access to the &quot;Deleted Objects&quot; Container, you require log on to a computer with ADAC (Active Directory Administrative Center):</span></p>
+<ol><li>      <span style="color: #1f497d;">Log on with the account used in the connection profile.</span>
+</li><li>      <span style="color: #1f497d;">Open ADAC</span>
+</li><li>      <span style="color: #1f497d;">Select you domain for the environment you are running Active Directory Inventory</span>
+</li><li>      <span style="color: #1f497d;">On the right hand pane double click to open &quot;Deleted Objects&quot;</span>
+</li></ol>
+<p><span style="color: #1f497d;">This will list the deleted objects, if you are unable to view this with the connection profile account, you will need to ensure that the correct permissions have been assigned.</span><br><span style="color: #1f497d;">By default the Builtin Administrators group has access to this container (BUILTIN\Administrators)</span><br> <br><span style="color: #1f497d;">One method to grant a credential the necessary rights on the &quot;Deleted Objects&quot; container is using the DACLS command with an account that does have access to the container.  <br><br>Schema admins may be required to execute this.  <a href="https://technet.microsoft.com/en-us/library/cc771151%28v=ws.11%29.aspx?f=255&amp;MSPPError=-2147217396" target="_blank">See Dsacls Technet Article here.</a></span><br><br><span style="color: #1f497d;">dsacls &quot;CN=Deleted Objects,DC=Contoso,DC=com&quot; /G \:LCRP</span><br> <br>This article shows how to modify the permissions on the deleted items container: <br>https://technet.microsoft.com/en-us/library/cc816824(v=ws.10).aspx<br><br><span style="color: #1f4e79;">So, if it helps at all, here&#39;s an article with some other information: </span><span style="color: #1f4e79;"><a href="https://technet.microsoft.com/en-us/library/dd379509(v=WS.10).aspx#BKMK_1" target="_blank">https://technet.microsoft.com/en-us/library/dd379509(v=WS.10).aspx#BKMK_1</a></span><br> <br><span style="color: #1f4e79;">By default, builtin\administrator has access to this container.  So, by default, domain admins should have access to it.  </span><br> <br><span style="color: black;"><span style="font-family: segoe ui semibold,sans-serif;"><span style="font-size: 17.5pt;">Displaying the Deleted Objects container</span></span></span><br><span style="color: #2a2a2a;"><span style="font-family: segoe ui,sans-serif;"><span style="font-size: 10pt;">When Active Directory objects are deleted, they are placed in the Deleted Objects container. By default, the CN=Deleted Objects container is not displayed. You can use the Ldp.exe administration tool in Active Directory Domain Services (AD DS) to display the Deleted Objects container.</span></span></span><br> <br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ADInventory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> all<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1193</p>
+</body>
+</html>

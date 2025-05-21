@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Reset System Administrator Account</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="threat_manager">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:43:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IwBCAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-03-18T16:55:56.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:43:02.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IwBCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IwBCAU">
+    <meta name="LastModifiedById" content="005Qk0000017MRRIA2">
+    <meta name="LastModifiedDate" content="2025-03-18T16:56:24.000Z">
+    <meta name="LastPublishedDate" content="2025-02-13T20:28:14.000Z">
+    <meta name="Meta_Description__c" content="360008304072/StealthDEFEND Default Admin Account Password Reset/How to Reset System Administrator Account">
+    <meta name="Meta_Title__c" content="StealthDEFEND Default Admin Account Password Reset/How to Reset System Administrator Account">
+    <meta name="OwnerId" content="0054u000007osjSAAQ">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7343">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IwBCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Reset System Administrator Account</h1>
+    <h2>Overview</h2>
+<div>
+<p>This article covers the steps to reset the password for the system administrator account in Netwrix Threat Manager.</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<p>Refer to the following steps to reset the system administrator account password in Threat Manager:</p>
+<ol><li>
+<p>Find the <code>psqlbuddy_v3.zip</code> file at the bottom of this article. Download and extract the contents of the archive on the Threat Manager server.</p>
+</li><li>
+<p>Run the <code>psqlbuddy_v3.ps1</code> file in elevated PowerShell.</p>
+<pre class="has-inner-focus"><code class="lang-Registry">cd %target_path%
+.\psqlbuddy_v3.ps1</code></pre>
+</li><li>
+<p>Specify the <code>PSQL.exe</code> path depending on the installation path. Refer to the following default path for the latest Threat Manager versions:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">C:\Program Files\STEALTHbits\Postgres14\bin\psql.exe</code></pre>
+</li><li>
+<p>In the <strong>Select Operation</strong> drop-down list, select the <strong>Reset StealthDEFEND Admin Password V2.8+</strong> option.</p>
+</li><li>
+<p>Click the <strong>Execute Operation</strong> buttonthe script prompts a pop-up to input a database password. Submit the default password<code>StealthDEFEND1234!!</code></p>
+<blockquote><span class="Note"><strong>NOTE:</strong></span> The prompt will remain blank while typing the password. Ensure the password is manually entered. Copying and pasting the password may result in input errors.</blockquote>
+</li><li>
+<p>Review the output. The following line stands for a successful reset of the password:</p>
+<pre class="has-inner-focus">Output: Delete from &quot;AspNetUsers&quot; where user_name = &#39;ADMIN&#39;;  DELETE 1</pre>
+</li><li>
+<p>Log out of Threat Managerit should prompt a pop-up to set a new administrator password.</p>
+</li></ol>
+</div>
+<h2>Related links</h2>
+<div>
+<ul><li>
+<p><a href="https://dl.netwrix.com/products/utilities/psqlbuddy_v3/psqlbuddy_v3.zip" target="_blank">psqlbuddy_v3</a></p>
+</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.0_SP1_002</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:49:05.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:13:32.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:49:06.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000J12CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000J12CAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:13:32.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:49:06.000Z">
+    <meta name="Meta_Description__c" content="360012217712">
+    <meta name="Meta_Title__c" content="Hotfix: SA_7.0_SP1_002">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7647">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J12CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.0_SP1_002</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> DFS Bulk Import Re-write</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Modules Included <br>- DCFSAA.dll 7.0.566 <br>- FSAASrv.dll 7.0.566 <br>- sqlite3.dll 3.9.2.0 <br>- msvcr100.dll 10.0.40219.325 <br>- GROUP_FileSystem\GROUP_0.Collection\JOB_2-FSAA Bulk Import\DataAnalysisTasks.xml <br>- GROUP_FileSystem\GROUP_0.Collection\JOB_2-FSDFS Bulk Import\DataAnalysisTasks.xml <br><br>YouTrack/Escalations <br>- SAFS-527\ Escalations 5263: DFS Bulk Import Re-write <br><br>Customers <br>- WL Gore <br><br>Cumulative List of fixes included since Service Pack: <br>- SAFS-116: Maximum concurrent threads per proxy. <br>- SAFS-194: Scheduled Activity BI throws FK violation error in 7.0 <br>- RMT 7848\SAFS-23: FSAA: Local Group Members incorrectly marked as having been deleted in TBL_FSAA_TrusteeEquivalence <br>- RMT 9353\SAFS-25: FSAA: When the &#39;Scan for File Ages&#39; check box is the only option enabled on the content page of an FSAA query, no data is collected <br>- SAFS-254: SQL Query is filling transaction logs during FSAC Bulk Import <br>- RMT 9362\SAFS-26: FSAA: 1727 Error enumerating local users <br>- SAFS-267: &quot;-&quot; Replacement Issue <br>- SAFS-299: FSAA DFS bulk import times have recently blown up to 11hrs <br>- SAFS-302: Bulk Import CAST error <br>- SAFS-303: Update SQLite library so it will wait if it gets Table_Locked and notify when it gets shared lock <br>- SAFS-375: FSAA: RightsProxyID is set to NULL by DLP bulk import <br>- SAFS-385: FSAC Proxy scan not leveraging proxy properly for windows host <br>- SAFS-527: Develop New DFS Bulk Import <br>- RMT 9081\SAFS-8: FSAA: transaction log fills up during bulk import <br>- RMT 9443\SAFS-82: FSAA: Merge during first FSAA bulk import after upgrade to 7 fills transaction log <br>- SAFS-96: Client Issue: DFS Scan could not find standalone namespace</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="color: #1f497d;"><a href="http://downloads.stealthbits.com/access/files/SAHotFixes/7.0/SA_7.0_SP1_002.zip" target="_blank">http://downloads.stealthbits.com/access/files/SAHotFixes/7.0/SA_7.0_SP1_002.zip</a></span> 
+</p><ol><li>Update all files in appropriate directories under SA Install Dir
+</li><li>Confirm there are no customizations on the affected jobs before updating with included files. Once confirmed, update the job files into the respective job directories.</li></ol><p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - DFS;SA - Solution Set - File System<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.0 SP1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-527<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	DCFSAA.dll	7.0.566
+-	FSAASrv.dll	7.0.566
+-	sqlite3.dll	3.9.2.0
+-	msvcr100.dll	10.0.40219.325
+-	GROUP_FileSystem\GROUP_0.Collection\JOB_2-FSAA Bulk Import\DataAnalysisTasks.xml
+-	GROUP_FileSystem\GROUP_0.Collection\JOB_2-FSDFS Bulk Import\DataAnalysisTasks.xml<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1137<br></p>
+</body>
+</html>

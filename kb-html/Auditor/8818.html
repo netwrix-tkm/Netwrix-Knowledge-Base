@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account and Password Expiration Mismatch in Netwrix Auditor Password Expiration Notifier</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-09-26T08:38:22.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-09-27T07:06:00.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-26T08:38:42.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111FiCAI">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111FiCAI">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-09-27T07:06:14.000Z">
+    <meta name="LastPublishedDate" content="2023-09-26T08:38:42.000Z">
+    <meta name="Meta_Description__c" content="Account and Password Expiration Mismatch in Netwrix Auditor Password Expiration Notifier">
+    <meta name="Meta_Title__c" content="Account and Password Expiration Mismatch in Netwrix Auditor Password Expiration Notifier">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8818">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111FiCAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Account and Password Expiration Mismatch in Netwrix Auditor Password Expiration Notifier</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Reports in Netwrix Auditor Password Expiration Notifier (PEN) state users are to expire sooner than what is stated in Active Directory. What could be causing this?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Password Expiration Notifier may include data on expiring accounts, if enabled. If the account is to expire sooner than the password, the account expiration date will be stated in the report instead of the password expiration date. Refer to the following steps to either track both expiring passwords and accounts or disable the option to track expiring accounts:</p>
+
+<ol><li>
+	<p>In your <strong>Start</strong> menu, select <strong>Netwrix Auditor</strong> &gt; <strong>Netwrix Auditor Password Expiration Notifier</strong>.</p>
+	</li><li>
+	<p>Select the monitoring plan, and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>Select the <strong>Advanced</strong> tab, and either check or uncheck the <strong>Include data on expiring accounts</strong>.</p>
+	</li><li>
+	<p>The next report will be affected.</p>
+	</li></ol>
+</div>
+
+<div><img height="511" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117wO&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MQhR" width="580"></img></div>
+
+<div>
+<p>To verify the account expiration date, refer to the following steps:</p>
+
+<ol><li>
+	<p>Open <strong>Active Directory Users and Computers</strong> either via <strong>Server Manager</strong> &gt; Tools, or the Search bar.</p>
+	</li><li>
+	<p>Right-click the user, and select <strong>Properties</strong>.</p>
+	</li><li>
+	<p>The account expiration date is provided in the <strong>Account</strong> tab &gt; <strong>Account expires</strong>, and the <strong>Attribute Editor</strong> tab &gt; <strong>accountExpires</strong> attribute.</p>
+
+	<div><img height="460" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117wO&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MQmb" width="750"></img></div>
+	</li></ol>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/ms974598(v=msdn.10)?redirectedfrom=MSDN" target="_blank">How Long Until My Password Expires? ? Microsoft &#129125;</a></p>
+</div>
+</body>
+</html>

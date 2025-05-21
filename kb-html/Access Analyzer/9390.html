@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIC Cannot Connect to SQL Database</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk000001wMM9IAM">
+    <meta name="ArticleCreatedDate" content="2025-02-04T19:50:35.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1209322658629216">
+    <meta name="AssignedById" content="00570000003KXurAAG">
+    <meta name="AssignedToId" content="005Qk00000276ifIAA">
+    <meta name="AssignmentDate" content="2025-02-28T14:04:16.000Z">
+    <meta name="AssignmentDueDate" content="2025-03-17T04:00:00.000Z">
+    <meta name="AssignmentNote" content="Not sure why this was sent to me.">
+    <meta name="Case__c" content="500Qk00000L7hAfIAJ">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="005Qk000001wMM9IAM">
+    <meta name="CreatedDate" content="2025-02-04T19:50:35.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TSE">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001ybdKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001ybdKAA">
+    <meta name="LastModifiedById" content="005Qk00000276ifIAA">
+    <meta name="LastModifiedDate" content="2025-05-19T20:43:02.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="AIC cannot connect to SQL database">
+    <meta name="Meta_Title__c" content="AIC cannot connect to SQL database">
+    <meta name="OwnerId" content="005Qk00000276ifIAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9390">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001ybdKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>AIC Cannot Connect to SQL Database</h1>
+    <p><strong>Symptom:</strong> AIC users other than the &quot;admin&quot; user even with the correct password, it seems as though they cannot access AIC.</p>
+<p><strong>Cause:</strong> The AIC &gt; &quot;Home&quot; &gt; &quot;Configure Console&quot; &gt; &quot;Database&quot; &gt; DB password has expired or is not correct.</p>
+<p><strong>Resolution:</strong><br>1) Assumption: Customer has changed the password in Access Analyzer (new DB password) to access the Access Analyzer (Access Analyzer) database. <br>2) Use the default &quot;admin&quot; user and password to log into AIC.<br>3) Navigate to &quot;Home&quot; &gt; &quot;Configure Console&quot; &gt; &quot;Database&quot; and type in your new DB password for your SQL account and click the &quot;Save&quot; button.<br>4) Now AIC is working again.<br>5) Note: Other users (other than the &quot;admin&quot; user) with the correct password, it seems as though they cannot access AIC when the DB password is not current or correct.<br>6) At this point in time it is a best practice to login to AIC as the &quot;admin&quot; user in order to set a new DB password.<br><br></p>
+<p>+++++<br>Access Analyzer v11.5<br>Goal or task: Reset the SQL Server password in Access Analyzer and AIC<br>+++++</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to remove old Oracle Database audit events</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:09.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:45:49.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:47.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9T3CAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9T3CAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:45:49.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:47.000Z">
+    <meta name="Meta_Description__c" content="Remove Oracle Database audit events">
+    <meta name="Meta_Title__c" content="How to remove old Oracle Database audit events">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="588">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9T3CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to remove old Oracle Database audit events</h1>
+    How to remove old audit events when auditing Oracle Database?
+<hr></hr> Netwrix recommends removing old audit events periodically to reduce load on the database server while auditing. You can use the following Oracle Database packages:
+<ul><li><b>DBMS_SCHEDULER</b>Refer to the following Oracle Database online documentation: <a href="https://docs.oracle.com/database/121/ARPLS/d_sched.htm#ARPLS72235" target="_blank">https://docs.oracle.com/database/121/ARPLS/d_sched.htm#ARPLS72235 </a></li><li><b>DBMS_AUDIT_MGMT</b>Refer to the following Oracle Database online documentation: <a href="https://docs.oracle.com/database/121/ARPLS/d_audit_mgmt.htm#ARPLS241" target="_blank">https://docs.oracle.com/database/121/ARPLS/d_audit_mgmt.htm#ARPLS241</a></li></ul>
+The example below describes how to create the job to remove audit events by the following criteria:
+
+<ul><li><b>Audit type</b>Unified Auditing</li><li><b>Event Age</b>Older than one day</li></ul>
+The job is triggered once a day. <i><b>Review the example:</b></i><br><br><span style="font-family: courier new,courier,monospace;">BEGIN</span> <span style="font-family: courier new,courier,monospace;"> DBMS_SCHEDULER.create_job( job_name =&gt; &#39;cleanup_unified_audit_job&#39;, job_type =&gt; &#39;PLSQL_BLOCK&#39;, job_action =&gt; &#39;BEGIN DBMS_AUDIT_MGMT.SET_LAST_ARCHIVE_TIMESTAMP( audit_trail_type =&gt; DBMS_AUDIT_MGMT.AUDIT_TRAIL_UNIFIED, last_archive_time =&gt; TRUNC(SYSDATE)-1); DBMS_AUDIT_MGMT.CLEAN_AUDIT_TRAIL( audit_trail_type =&gt; DBMS_AUDIT_MGMT.AUDIT_TRAIL_UNIFIED, use_last_arch_timestamp =&gt; TRUE); END;&#39;, start_date =&gt; SYSTIMESTAMP, auto_drop =&gt; FALSE, enabled =&gt; TRUE, repeat_interval =&gt; &#39;FREQ=DAILY;INTERVAL=1&#39;); END;</span><br><br><i><b>Run the following queries to review results:</b></i>
+
+<ul><li><span style="font-family: courier new,courier,monospace;"><span style="color: #000000;">SELECT * FROM USER_SCHEDULER_JOB_RUN_DETAILS where JOB_NAME = &#39;CLEANUP_UNIFIED_AUDIT_JOB&#39;;</span></span></li><li><span style="font-family: courier new,courier,monospace;"><span style="color: #000000;">SELECT * FROM DBA_SCHEDULER_JOBS WHERE JOB_NAME = &#39;CLEANUP_UNIFIED_AUDIT_JOB&#39;;</span></span></li></ul>
+</body>
+</html>

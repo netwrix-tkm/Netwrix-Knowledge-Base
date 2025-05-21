@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enforced Encryption(EasyLock) License Shows Expired When EPP Server Has Valid License</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B7BKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000001nViKIAU">
+    <meta name="AssignmentDate" content="2025-03-19T17:34:09.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:26:12.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B7BKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B7BKAU">
+    <meta name="LastModifiedById" content="005Qk000001nViKIAU">
+    <meta name="LastModifiedDate" content="2025-05-09T16:06:40.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9851">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B7BKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Enforced Encryption(EasyLock) License Shows Expired When EPP Server Has Valid License</h1>
+    <h2><strong>Question:</strong></h2>
+<p>How do I reassign a valid Enforced Encryption (EasyLock) License from the Endpoint Protector Server to the USB Storage Device?</p>
+<h2><strong>Answer:</strong></h2>
+<p>To resolve the issue of &quot;License Expired&quot; for Enforced Encryption (EasyLock) please follow the below steps:</p>
+<p> </p>
+<ol><li>Set the USB device on allow right under &quot;Device Control&quot; &gt; &quot;Devices&quot; &gt; &quot;Right Click on the device &gt; &quot;Manage Rights&quot;(be sure that the USB storage device is accessible). Alternatively you can connect the USB storage device to a computer which does not have Endpoint Protector installed.</li><li>Navigate to hidden folder &quot;.EasyLock Settings&quot; and delete the file labeled &quot;cs14c7el.data&quot;.</li><li>Delete the executable file &quot;EasyLock.exe&quot; from the root of the USB storage device.</li><li>Download the EasyLock utility executable from the following link: <a href="https://download.endpointprotector.com/Support_files/EasyLock_util.zip" target="_blank">https://download.endpointprotector.com/Support_files/EasyLock_util.zip</a></li><li>Extract the file &quot;EasyLock_util.exe&quot; to the root location of the USB Storage Device and run it.</li><li>Download EasyLock package from the Endpoint Protector Server and copy it directly to the root of the selected USB storage device, extract all files and overwrite existing files.</li><li>Open the EasyLock &quot;EasyLock.exe&quot; from the USB Storage device and enter password.</li></ol>
+<p> </p>
+</body>
+</html>

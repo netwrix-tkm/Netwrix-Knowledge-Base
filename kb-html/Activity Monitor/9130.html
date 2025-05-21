@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Ini Section Does Not Have LOG_FILE</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="activity_monitor">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2024-04-11T16:48:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-07-29T10:58:00.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-04-11T17:04:28.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000axxKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000axxKAA">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-07-29T10:58:43.000Z">
+    <meta name="LastPublishedDate" content="2024-07-29T10:57:43.000Z">
+    <meta name="Meta_Description__c" content="ERROR: FILESYSTEMACCESS TFileSystemProcessor.RunFileSystemActivity">
+    <meta name="Meta_Title__c" content="ERROR: FILESYSTEMACCESS TFileSystemProcessor.RunFileSystemActivity">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9130">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000axxKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Ini Section Does Not Have LOG_FILE</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>This is an unvalidated article. The product R&amp;D team has yet to review some or all of information below.</p>
+</blockquote>
+
+<h2>Symptom</h2>
+
+<div>
+<p>Netwrix Enterprise Auditor prompts the following error during the File Server Activity auditing (FSAC) scan:</p>
+
+<pre class="has-inner-focus">
+ERROR FILESYSTEMACCESS TFileSystemProcessor.RunFileSystemActivity
+Error during processing: GetFSACIniAttributeValue: 
+Error: Ini section for &lt;HOST&gt; does not have LOG_FILE \\\C$\Program Files\Stealthbits\StealthAUDIT\FSAC\SBTFileMon.ini </pre>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Depending on the Netwrix Activity Monitor version, the <code>SBTFileMon.ini</code> file can be located in one of the following folders:</p>
+
+<p>For Activity Monitor v6.9 and earlier:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">C:\Program Files\Stealthbits\StealthAUDIT\FSAC</code></pre>
+
+<p>For Activity Monitor v7.0 and newer:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">C:\ProgramData\Netwrix\Activity Monitor\Agent</code></pre>
+</blockquote>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <code>SBTFileMon.ini</code> file is corrupted.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Keep copies of edited files to back up reference values.</p>
+</blockquote>
+
+<div>
+<p>Refer to the following steps to resolve the issue:</p>
+
+<ol><li>
+	<p>Locate the affected <code>SBTFileMon.ini</code> file on the affected Activity Monitor agent.</p>
+	</li><li>
+	<p>Replace the corrupted <code>SBTFileMon.ini</code> file with an .ini file from a working Activity Monitor agent.</p>
+	</li><li>
+	<p>Modify the <code>HOST=</code> and <code>LOG_FILE=</code> values to match the intended values. Refer to the following example:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">HOST=FILESERVER01
+LOG_FILE=C:\ProgramData\Netwrix\Activity Monitor\Agent\ActivityLogs\FILESERVER01_Log_.tsv</code></pre>
+	</li><li>
+	<p>Verify that the replacement ini file is correctly configured.</p>
+	</li><li>
+	<p>Test the Activity Monitor agent to ensure it can successfully collect FSAC scan data without encountering the error.</p>
+	</li></ol>
+
+<p>Alternatively, you can delete or rename the <code>SBTFileMon.ini</code> file to allow the Activity Monitor agent to recreate it. However, this approach would require reconfiguring the monitored host outputs for file and syslog and monitoring configurations, making it a slightly more time-consuming option.</p>
+</div>
+</body>
+</html>

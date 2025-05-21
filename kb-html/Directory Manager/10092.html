@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjust Heap Size for Elasticsearch Service</title>
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XNAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-20T21:21:25.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002CRhKAM">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210253842294922?focus=true">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008F1XNAA0">
+    <meta name="CreatedDate" content="2025-05-14T17:47:33.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-05-14T17:47:19.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002CRhKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002CRhKAM">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-05-14T17:57:20.000Z">
+    <meta name="LastPublishedDate" content="2025-05-14T17:57:20.000Z">
+    <meta name="Meta_Description__c" content="How To: Adjust Heap Size for Netwrix Directory Manager v11.1 Elasticsearch Service">
+    <meta name="Meta_Title__c" content="How To: Adjust Heap Size for Netwrix Directory Manager v11.1 Elasticsearch Service">
+    <meta name="OwnerId" content="0054u000008F1XNAA0">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10092">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002CRhKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Adjust Heap Size for Elasticsearch Service</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11.1</p>
+<h2>Overview</h2>
+<p>This article explains how to increase the Java heap size for the Elasticsearch service in Netwrix Directory Manager (formerly GroupID) v11.1. Adjusting the heap size can improve search performance and help prevent memory-related issues. <br><br>Elasticsearch relies on allocated heap memory for storing and processing data. If the heap size is too small, it can cause performance degradation or service instability. Allocating too much memory can also negatively affect system resources.</p>
+<p><br>Heap size settings are defined in the registry and control the minimum and maximum memory allocated to Elasticsearch:</p>
+<ul><li>Xms: Initial heap size</li><li>Xmx: Maximum heap size</li></ul>
+<p>It is recommended to set both values to the same amount to maintain performance consistency.</p>
+<h2>Instructions</h2>
+<ol><li>Open the <strong>Registry Editor</strong> on the server running Elasticsearch.</li><li>Navigate to the following registry path:<br><code class="lang-Registry">HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Apache Software Foundation\Procrun 2.0\GroupIDElasticSearchService11\Parameters\Java</code></li><li>Locate the parameters for heap size:
+<ul><li><code class="lang-Registry">-Xms</code> (Initial heap size)</li><li><code class="lang-Registry">-Xmx</code> (Maximum heap size)</li></ul>
+</li><li>Modify both values as needed. For example, to allocate 4 GB of memory:
+<ul><li><code class="lang-Registry">-Xms4g</code></li><li><code class="lang-Registry">-Xmx4g</code></li></ul>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Make sure both <code class="lang-Registry">Xms</code> and <code class="lang-Registry">Xmx</code> values are the same.</p>
+</blockquote>
+</li><li><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dv0T&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BSBWr" alt="Registry Editor showing Xms and Xmx heap size parameters for Elasticsearch"></img></li><li>Close the <strong>Registry Editor</strong> after saving the changes.</li><li>Restart the <strong>GroupIDElasticSearchService11</strong> service for the changes to take effect.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>To restart the service, open <strong>Services</strong> (<code class="lang-Registry">services.msc</code>), locate <strong>GroupIDElasticSearchService11</strong>, right-click it, and select <strong>Restart</strong>.</p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Change the portal URL in workflow email notifications</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="content_type" content="ct_workflow">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XJAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-27T08:52:13.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002ElFKAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1XJAA0">
+    <meta name="AssignedToId" content="0054u000008F1XJAA0">
+    <meta name="AssignmentDate" content="2025-03-27T08:52:13.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1XJAA0">
+    <meta name="CreatedDate" content="2025-03-27T08:52:13.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002ElFKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002ElFKAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-09T13:00:30.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="This article explains the method to change the portal URL that appears in the email notifications triggered from workflows.">
+    <meta name="Meta_Title__c" content="How To: Change the portal URL in workflow email notifications">
+    <meta name="OwnerId" content="0054u000008F1XJAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10111">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002ElFKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Change the portal URL in workflow email notifications</h1>
+    <h2><b>Applies To</b></h2>
+<p>Directory Manager 11</p>
+<h2><b>Business Case:</b></h2>
+<p>I have configured the Directory Manager Self-Service portal to use a different hostname than the default one, which was created using the servers FQDN. However, the email notifications that Directory Manager generates for workflows still contain the old FQDN-based portal URL.</p>
+<p>Is there a way to change this URL in email notifications?</p>
+<h2><b>Solution:</b></h2>
+<p>Directory Manager enables you to link the URL of a Self-Service portal with a workflow email. Email notifications for the workflows contain this URL to redirect recipients to that portal for taking any necessary action, such as approving or denying workflow requests.</p>
+<p>In case the portal URL is changed, you must link the new URL to your workflows.</p>
+<h4><b>Methodology:</b></h4>
+<p>To change the Self-Service portal URL for a workflow, follow these steps.</p>
+<ol start="1"><li>In the Directory Manager Admin portal, click the <b>Identity Stores</b> tab.</li><li>On the <b>Identity Stores</b> tab, click on the three dots button to edit the properties.</li></ol>
+<p><img height="202" width="624" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D0NB&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Ba63l"></img></p>
+<ol start="3"><li>Click the <b>Workflow</b>s tab. Select the workflow that you want to change the portal URL for, and click <b>Edit</b>.<br>For example, to change the URL in email notifications that alert group owners to approve or deny membership requests, select Workflow to Join a Group.<br><br><img alt="Text Box:" height="321" width="558" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D0NB&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Ba629"></img></li><li>Click on the Portal URL box and select the portal URL you want to use.</li></ol>
+<p><img height="323" width="624" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D0NB&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Ba65N"></img><br><br></p>
+<ol start="5"><li>Click <b>Update Workflow </b>and Save your changes. Now the URL that will be embedded in the email will be the one you have specified here. You can apply this change to all your workflows one by one.</li></ol>
+</body>
+</html>

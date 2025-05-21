@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Dependencies for Netwrix Activity Monitor</title>
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="activity_monitor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk000001wMM9IAM">
+    <meta name="ArticleCreatedDate" content="2025-04-16T02:00:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002LBdKAM">
+    <meta name="Article_Reviewer__c" content="005Qk000001wMM9IAM">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1209997742137869">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="005Qk000001wMM9IAM">
+    <meta name="CreatedDate" content="2025-04-28T09:21:04.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-04-22T19:28:11.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002LBdKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002LBdKAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T09:25:53.000Z">
+    <meta name="LastPublishedDate" content="2025-04-22T19:28:11.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="005Qk000001wMM9IAM">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10143">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002LBdKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>.NET Dependencies for Netwrix Activity Monitor</h1>
+    <h2>Related Query</h2>
+<div>
+<ul><li>
+<p>&quot;.NET on the Netwrix application server is End-Of-Life (EOL). Is it safe to remove it?&quot;</p>
+</li></ul>
+</div>
+<h2>Question</h2>
+<div>
+<p>Which version of .NET is required for Netwrix Activity Monitor?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>.NET Framework 4.7.2 or newer is required. You can also navigate to the <a href="https://helpcenter.netwrix.com/category/activitymonitor" target="_self">Netwrix Activity Monitor</a> landing page for the product <strong>Requirements</strong> located under <strong>Getting Started</strong>.</p>
+<div>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>.NET Framework is not the same as ASP.NET Core, and having one does not mean you have the other. ASP.NET Core and .NET Desktop Runtime should appear on the list of installed Apps &amp; Features; however, .NET Framework does not appear on that list. You can check which versions of .NET Framework you have installed by running the following command in PowerShell:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Get-ChildItem &#39;HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP&#39; -Recurse | 
+Get-ItemProperty -Name version -EA 0 | Where { $_.PSChildName -Match &#39;^(?!S)\p{L}&#39;} | 
+Select PSChildName, version</code></pre>
+<p>Example:</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSCz&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BprDf" alt="PowerShell Example Output" width="709" height="153"></img></p>
+</blockquote>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/category/activitymonitor" target="_self">Netwrix Activity Monitor</a></li><li><a href="https://helpcenter.netwrix.com/category/enterpriseauditor" target="_self">Netwrix Access Analyzer</a></li><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002DxFKAU.html" target="_self">.NET Dependencies for Netwrix Threat Prevention</a></li><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002DyrKAE.html" target="_self">.NET Dependencies for Netwrix Recovery for Active Directory</a></li><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002E25KAE.html" target="_self">.NET Dependencies for Netwrix Threat Manager </a></li></ul>
+</div>
+</div>
+</body>
+</html>

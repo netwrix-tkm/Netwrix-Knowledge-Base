@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Updating SQL Schema in Collector Service</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-15T11:30:14.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008ic83AAA">
+    <meta name="AssignedToId" content="0054u000008ic83AAA">
+    <meta name="AssignmentDate" content="2024-04-15T11:30:14.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-04-15T11:30:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000bKXKAY">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000bKXKAY">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-02-06T08:26:38.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Error Updating SQL Schema in Collector Service">
+    <meta name="Meta_Title__c" content="Error Updating SQL Schema in Collector Service">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9135">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000bKXKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error Updating SQL Schema in Collector Service</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>When you attempt to run Netwrix Data Classification (NDC), your browser prompts the following error:</p>
+
+	<pre class="has-inner-focus">
+Internal Server Error (500)  Invalid Config Detected</pre>
+	</li><li>
+	<p>The Collector Service in Service Viewer prompts the following error message:</p>
+
+	<pre class="has-inner-focus">
+Invalid configuration: Error updating SQL schema</pre>
+	</li></ul>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ol><li>
+	<p>NDC services use a local system or service account to run instead of a dedicated Netwrix service account.</p>
+	</li><li>
+	<p>The service account to connect to the dedicated SQL database does not have the <code>db_owner</code> role.</p>
+	</li><li>
+	<p>After a recent migration, your NDC instance cannot connect to the dedicated NDC SQL database.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Refer to the following article to learn more about requirements for the NDC service account: <a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Requirements/AccountReqs.htm" target="_self">Requirements to Install Netwrix Data Classification ? Accounts and Required Permissions · v5.7</a>.</p>
+</blockquote>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ol><li>
+	<p>Verify the account used to run NDC services is a Windows domain account.</p>
+
+	<ol><li>
+		<p>In your NDC server, run <strong>Services</strong>.</p>
+		</li><li>
+		<p>Locate the three NDC services in the list, NDC Classifier, NDC Collector, and NDC Indexer. Review the <strong>Log On As</strong> column for the servicesverify a Windows domain account runs all services instead of local system or service.</p>
+		</li><li>
+		<p>If required, change the <strong>Log On As</strong> accountright-click the affected account and select <strong>Properties</strong>.</p>
+		</li><li>
+		<p>In the <strong>Log On</strong> tab, specify the domain account you&#39;d like to use. Once you specify it, click <strong>Apply</strong> to save changes.</p>
+		</li><li>
+		<p>Restart the services and start NDC to verify the fix.</p>
+		</li></ol>
+	</li><li>
+	<p>Verify the service account has the <code>db_owner</code> role for the NDC database. Refer to the following steps:</p>
+
+	<ol><li>
+		<p>In your SQL server, run <strong>SQL Server Management Studio</strong> and connect to your SQL Server instance.</p>
+		</li><li>
+		<p>In the left pane, proceed to <strong>Security</strong> &gt; <strong>Logins</strong> &gt; <strong>target_account</strong>. Right-click the account and select <strong>Properties</strong>.</p>
+		</li><li>
+		<p>In the left pane, select <strong>User Mapping</strong>. Locate the NDC database, highlight it, and verify the <code>db_owner</code> role is assigned. If not, assign the role. Save the changes.</p>
+		</li></ol>
+	</li><li>
+	<p>Verify the NDC database still exists in your SQL server. If none exists, you can create a new database to use instead. Refer to the following article for additional information on NDC database configuration: <a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Requirements/NDCSQLDatabase.htm" target="_self">Install Netwrix Data Classification ? Configure NDC SQL Database · v5.7</a>.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>To alter the server name in case of a recent SQL Server migration, run the NDC installer to select the <strong>Repair</strong> option. You can specify the new SQL Server instance there.</p>
+	</blockquote>
+	</li></ol>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Requirements/AccountReqs.htm" target="_self">Requirements to Install Netwrix Data Classification ? Accounts and Required Permissions · v5.7</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Requirements/NDCSQLDatabase.htm" target="_self">Install Netwrix Data Classification ? Configure NDC SQL Database · v5.7</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

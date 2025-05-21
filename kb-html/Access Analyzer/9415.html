@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports in custom group do not display in reporting console.</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk000002AJWTIA4">
+    <meta name="ArticleCreatedDate" content="2025-02-24T16:09:58.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="005Qk000001wMM9IAM">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="005Qk000002AJWTIA4">
+    <meta name="AssignedToId" content="005Qk000002AJWTIA4">
+    <meta name="AssignmentDate" content="2025-02-24T16:09:58.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000M8I4lIAF">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="005Qk000002AJWTIA4">
+    <meta name="CreatedDate" content="2025-02-24T16:09:58.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk00000023ufKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk00000023ufKAA">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-04-17T20:30:24.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Custom job">
+    <meta name="Meta_Title__c" content="Custom job">
+    <meta name="OwnerId" content="005Qk000002AJWTIA4">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9415">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000023ufKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Reports in custom group do not display in reporting console.</h1>
+    <h2><span>Symptom</span></h2>
+<p><span>When creating a report in a custom group. After publishing the report, it does not show up in the reporting web interface.</span></p>
+<p><span>The customer group also shows up with a truncated name.</span></p>
+<p> </p>
+<h2><span>Cause</span></h2>
+<p>Access Analyzer truncates &quot;Jobs&quot; or &quot;_Jobs&quot; from the end of all group names as this is an internal name. </p>
+<p>The truncated name then gets displayed in the Reporting console and settings for published reports in this group may be have unpredictably.</p>
+<p><strong>Example:</strong> A group named &quot;Custom_Jobs&quot; would display in the reporting module as &quot;Custom_&quot; and any reports under this group may not apply settings appropriately.</p>
+<p>Group View:</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CW0v&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AxazR"></img></p>
+<p>Reporting Module View:</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CW0v&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Axnrl"></img></p>
+<p> </p>
+<h2>Resolution</h2>
+<p>To correct the issue, rename any custom group using the word &quot;Jobs&quot;, to something that does not include the word &quot;Jobs&quot; to prevent truncation.</p>
+</body>
+</html>

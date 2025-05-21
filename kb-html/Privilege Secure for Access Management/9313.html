@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuring High Availability Without Using the High Availability Manager Tool (HaMgr) on the Secondary Server</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2024-11-04T22:39:47.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001fFdKAI">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2025-05-13T19:14:22.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-11-04T23:38:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001fFdKAI">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001fFdKAI">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-05-13T19:30:08.000Z">
+    <meta name="LastPublishedDate" content="2025-05-13T19:30:08.000Z">
+    <meta name="Meta_Description__c" content="Configuring High Availability Without Using the High Availability Manager Tool (HaMgr)">
+    <meta name="Meta_Title__c" content="Configuring High Availability Without Using the High Availability Manager Tool (HaMgr)">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9313">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001fFdKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configuring High Availability Without Using the High Availability Manager Tool (HaMgr) on the Secondary Server</h1>
+    <h2>Overview</h2>
+<p>This article provides instructions for setting up active-passive PostgreSQL replication without using the NPS HA Manager tool.</p>
+<p><em>It is recommended that you use the <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HfOCAU.html" target="_blank">standard high availability process using HA Manager</a>, unless specifically directed to follow this article by Netwrix support.</em></p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>All commands and configuration file edits must be performed with Administrator privileges.</p>
+</blockquote>
+<h2>Instructions</h2>
+<p>The HA Manager tool is needed to prepare the primary server for replication. It creates the <strong>repuser</strong> service account and updates the <strong>pg_hba.conf</strong> files to allow that user to connect from the secondary server.</p>
+<h4>Default Configurations</h4>
+<p>This article assumes that the following default configuration values are being used. If your environment differs, update all references to these values when following these instructions.</p>
+<ul><li>Primary PostgreSQL port: 5432</li><li>Secondary PostgreSQL port: 5432</li><li>Replication username: <strong>repuser</strong></li><li>Replication password: <strong>!@#$Txl__23xL1297xx</strong></li><li>PostgreSQL data directory: <code class="lang-Registry">C:\ProgramData\Stealthbits\PostgresSQL16</code></li></ul>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Any bracketed text in this article, such as <code class="lang-Registry">[PRIMARY_IP_ADDRESS]</code>, should be updated to the appropriate value.</p>
+</blockquote>
+<h4>Verifying the Primary Server Configuration</h4>
+<p>On the primary server, verify that the following settings are present in <code class="lang-Registry">C:\ProgramData\Stealthbits\PostgresSQL16\pg_hba.conf</code>:</p>
+<pre class="has-inner-focus">host  replication  repuser  [SECONDARY_IP_ADDRESS]/32  md5
+host  all  all  [SECONDARY_IP_ADDRESS]/32  md5
+</pre>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>This file is case sensitive.</p>
+</blockquote>
+<h4>Moving the Existing Data Directory on the Secondary Server</h4>
+<p>Perform the following steps on the secondary server.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Ensure there is enough disk space on the secondary server to store <strong>two</strong> copies of the database before performing the next steps. If this is not the case, move the existing database to a drive that has enough space.</p>
+</blockquote>
+<ol><li>Log on to the secondary server.</li><li>Stop NPS, IIS, and PostgreSQL by running the following commands:
+<pre class="has-inner-focus">Stop-Service SbPAM* -Force
+Stop-Service w3svc
+Stop-Service postgresql-x64-16
+</pre>
+</li><li>Move the PostgreSQL data directory to your intended backup location (for example, <code class="lang-Registry">D:\pg-backup\</code>):
+<pre class="has-inner-focus">if (!(Test-Path D:\pg-backup)) {
+   New-Item -ItemType Directory D:\pg-backup
+}
+Move-Item C:\ProgramData\Stealthbits\PostgresSQL16\* D:\pg-backup\
+</pre>
+</li><li>Verify that <code class="lang-Registry">C:\ProgramData\Stealthbits\PostgresSQL16</code> is empty.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The PostgreSQL, IIS, and NPS services that were stopped in this section should remain stopped. They will be started later.</p>
+</blockquote>
+<h4>Creating the Base Backup on the Secondary Server</h4>
+<p>Perform the following steps on the secondary server.</p>
+<ol><li>Run the following commands in PowerShell:
+<pre class="has-inner-focus"># Should still be stopped, but just in case!
+Stop-Service postgresql-x64-16
+# Make sure your shell is on the drive PG is installed (default is C:)
+C:
+# Change to PG installation bin directory
+cd &quot;\Program Files\Stealthbits\PostgresSQL16\bin&quot;
+# Setting the password for repuser 
+$ENV:PGPASSWORD = &#39;!@#$Txl__23xL1297xx&#39;
+&amp; .\pg_basebackup.exe -h [PRIMARY_IP_ADDRESS] -w -D &quot;C:\ProgramData\Stealthbits\PostgresSQL16&quot; -P -U repuser -p 5432 --wal-method=fetch --verbose --checkpoint=fast
+# Unset password
+$ENV:PGPASSWORD = $null
+</pre>
+</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The <strong>repuser</strong> account only has replication rights, and <strong>pg_hba.conf</strong> is configured to allow connections only from the secondary. The default <strong>repuser</strong> password represents a low risk. However, you can change the <strong>repuser</strong> password by updating the <code class="lang-Registry">appsettings.json</code> file for NPS.HaMgr on both the primary and secondary servers, as well as updating the replication connection information.</p>
+</blockquote>
+<h4>Configure Replication Settings on the Secondary</h4>
+<p>Perform the following steps on the secondary server.</p>
+<ol><li>Confirm (or set) these replication settings in <code class="lang-Registry">C:\ProgramData\Stealthbits\PostgresSQL16\postgresql.conf</code>:
+<pre class="has-inner-focus">listen_addresses = &#39;*&#39;
+wal_level = replica
+max_wal_senders = 10
+wal_keep_segments = 64
+hot_standby = on
+</pre>
+</li><li>Add <code class="lang-Registry">primary_conninfo</code> to <code class="lang-Registry">postgresql.conf</code>:
+<pre class="has-inner-focus">primary_conninfo = &#39;host=[PRIMARY_IP_ADDRESS] port=5432 user=repuser password=!@#$Txl__23xL1297xx&#39;</pre>
+</li><li>Create a file named <code class="lang-Registry">standby.signal</code> in the PostgreSQL data directory. This file should remain empty.</li><li>Confirm (or set) these replication settings in <code class="lang-Registry">C:\ProgramData\Stealthbits\PostgresSQL16\pg_hba.conf</code>:
+<pre class="has-inner-focus">host  replication  repuser  [PRIMARY_IP_ADDRESS]/32  md5
+host  all  all  [PRIMARY_IP_ADDRESS]/32  md5
+</pre>
+</li><li>Update database settings for NPS in <code class="lang-Registry">C:\ProgramData\Stealthbits\PAM\Database\appsettings.db.json</code>:
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>There are more settings in the file. The ones listed here <em>must</em> be set. The other settings should be left <em>as is</em>.</p>
+</blockquote>
+<pre class="has-inner-focus">{
+    &quot;Database&quot;: {
+       &quot;Type&quot;: &quot;PostgreSQL&quot;,
+       &quot;Host&quot;: &quot;[PRIMARY_IP_ADDRESS]&quot;,
+       &quot;Port&quot;: 5432
+    }
+}
+</pre>
+</li></ol>
+<h4>Start PostgreSQL on the Secondary and Confirm Settings</h4>
+<ol><li>Start the PostgreSQL service and check the PostgreSQL logs:
+<pre class="has-inner-focus"># Clear old logs - these came from primary so you can delete them all
+Remove-Item C:\ProgramData\Stealthbits\PostgresSQL16\log\*
+Start-Service postgresql-x64-16
+# Get logs to verify server has started in standby
+Get-Content C:\ProgramData\Stealthbits\PostgresSQL16\log\*
+</pre>
+</li><li>Start NPS and IIS:
+<pre class="has-inner-focus">Start-Service SbPAM*
+Start-Service w3svc
+</pre>
+</li></ol>
+<p>High availability should now be established. You can verify that all services are operational by logging in to the secondary server&#39;s NPS web service.</p>
+</body>
+</html>

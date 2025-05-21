@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEFEND services fail to start after upgrade | Error 1503</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:44:28.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:51.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:44:28.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IxOCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IxOCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:52.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:44:28.000Z">
+    <meta name="Meta_Description__c" content="360008304072">
+    <meta name="Meta_Title__c" content="DEFEND services fail to start after upgrade | Error 1503">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7368">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IxOCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>DEFEND services fail to start after upgrade | Error 1503</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Following an upgrade in place to the latest SD version (1.2.342 at time of this KB), several service can be found stopped.  Attempting to start them results in an error message: &quot;Could not start the ... service on Local Computer. Error 1053: the service did not respond to the start or control request in a timely fashion.&quot;  Despite this being an error for a timeout that should occur after 30 seconds or more, the error happens immediately.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Several services will not start upon upgrading from 1.2.341 to 1.2.342.  This may affect other versions as well, but legacy releases were not tested.  Any attempt to start them will result immediately in the following 1053 error message: &quot;Could not start the ... service on Local Computer. Error 1053: the service did not respond to the start or control request in a timely fashion.&quot;<br><img alt="User-added image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lcaov&amp;d=%2Fa%2F4u000000Lyhv%2FQdgOmuULi2QMzyckWwXPwgp3AirUnJMoNqyrOnLNQHw&amp;asPdf=false" width="500" height="205"></img><br> <br><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">Without the ability to start all SD services, SD will not be receive events.  This is possibly caused due to the services being installed in debug, not release mode.  </span></span></p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The simplest way to reinstall the services is using the same installer used for the upgrade.  Launch the installer again, and select the &#39;Repair&#39; option.  It will go through a similar process as during the upgrade.  Upon completion, all SD services should be running as expected. <br> </p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthDEFEND<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> StealthDEFEND - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 1.2<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> TBD<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2249<br></p>
+</body>
+</html>

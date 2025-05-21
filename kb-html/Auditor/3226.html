@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Size Exceeds Fixed Maximum Message Size Error in Health Log</title>
+    <meta name="content_type" content="ct_reporting">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-08-18T10:24:55.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:28.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9WZCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9WZCA0">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-08-18T10:25:53.000Z">
+    <meta name="LastPublishedDate" content="2023-08-18T10:24:51.000Z">
+    <meta name="Meta_Description__c" content="maximum email size limit on our Exchange server">
+    <meta name="Meta_Title__c" content="How to deal with large html reports that are above the maximum email size limit?">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="807">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WZCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Message Size Exceeds Fixed Maximum Message Size Error in Health Log</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>You&#39;ve encountered one of the following errors in your Health Log:</p>
+
+<pre class="has-inner-focus">
+Netwrix Auditor was unable to send Activity Summary to %email_address%. 
+Error: SMTP Exception: The server rejected the message: %message%
+Message size exceeds fixed maximum message size.  
+Check your SMTP settings. Make sure the Exchange server is up and running and recipient&#39;s mailbox is accessible.
+</pre>
+
+<pre class="has-inner-focus">
+Netwrix Auditor was unable to deliver the subscription %subscription_name% due to the following error: 
+The following subscriptions could not be sent to the recipient %email_address%: 
+Error: Exceeded storage allocation. The server response was: %message%
+Message size exceeds fixed maximum message size.
+</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>Size of the attached report exceeds the maximum message size.</p>
+	</li><li>
+	<p>Your Exchange server is affected by a connectivity issue.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Activity Summaries in large environments may exceed the maximum message size.</p>
+
+	<ol><li>
+		<p>In the main Netwrix Auditor menu, select <strong>Monitoring plans</strong>, select the affected monitoring plan in the left pane, and click <strong>Edit</strong>.</p>
+		</li><li>
+		<p>In the right pane, click <strong>Edit settings</strong> under the <strong>Monitoring plan</strong> section.</p>
+		</li><li>
+		<p>In the left pane, select <strong>Notifications</strong>.</p>
+		</li><li>
+		<p>Check the <strong>Compress attachment before sending</strong> checkbox, and click <strong>Save</strong>.</p>
+		</li></ol>
+	</li><li>
+	<p>Subscription reports in large environments may exceed the maximum message size.</p>
+
+	<ol><li>
+		<p>In the main Netwrix Auditor menu, select <strong>Subscriptions</strong>, select the affected subscription, and click <strong>Edit</strong>.</p>
+		</li><li>
+		<p>In the left pane, select the <strong>General</strong> tab.</p>
+		</li><li>
+		<p>Under the <strong>Specify delivery options</strong>, select <strong>CSV</strong> in the drop-down <strong>File format</strong> list.</p>
+		</li><li>
+		<p>Click <strong>Save</strong> to save changes.</p>
+		</li></ol>
+	</li><li>
+	<p>Restart your Exchange server to verify the issue is not related to the server.</p>
+	</li></ul>
+</div>
+</body>
+</html>

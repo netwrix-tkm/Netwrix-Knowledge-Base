@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMZ installation: Server.CreateObject failed</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:51.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-07-11T15:58:48.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:48.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9aoCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9aoCAC">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-11T15:59:01.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:48.000Z">
+    <meta name="Meta_Description__c" content="DMZ installation: Server.CreateObject failed
+
+Administrative and Helpdesk portals return Server.CreateObject failed
+
+Self-service portal does not work">
+    <meta name="Meta_Title__c" content="DMZ installation: Server.CreateObject failed">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1314">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9aoCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>DMZ installation: Server.CreateObject failed</h1>
+    Administrative and Helpdesk portals return the Server.CreateObject failed
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OPS" alt="User-added image" width="500" height="85"></img>
+
+meanwhile Self-Service portal does not work at all
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OPX" alt="User-added image" width="500" height="268"></img>
+
+<hr></hr>
+
+Server.CreateObject failed means that there is no Netwrix Password manager Service registered on the server where the frontend tries to connect to, or the service is not running.
+
+<hr></hr>
+
+First of all, make sure that DCOM settings on the frontend server are configured properly to point to the backend server as follows:
+<ol><li>Navigate to <strong>Start</strong> <span style="font-family: wingdings;">à</span> <strong>Run</strong> and execute the <em>dcomcnfg.exe</em> command to run <strong>Component Services</strong>.</li><li>In the <strong>Component Services</strong> snap-in navigate to <strong>Console Root</strong> <span style="font-family: wingdings;">à</span> <strong>Component Services</strong> <span style="font-family: wingdings;">à</span> <strong>Computers</strong> <span style="font-family: wingdings;">à</span> <strong>My Computer</strong> <span style="font-family: wingdings;">à</span> <strong>DCOM Config</strong>.</li><li>Right-click <strong>Netwrix Password Manager</strong> and select <strong>Properties</strong>.</li><li>Go to the <strong>Location</strong> tab and disable the <strong>Run</strong> <strong>application on this computer</strong> checkbox.</li><li>Then enable the <strong>Run application on the following computer</strong> option, and enter the <strong>Netbios</strong> or <strong>FQDN</strong> name or <strong>IP</strong> address of the back-end server you have installed.</li><li>Then click <strong>OK</strong>.</li></ol>
+<div style="margin-left: 80px;"><strong>NOTE.</strong> Try reapplying the settings if they are in place.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OPc" alt="User-added image" width="500" height="357"></img></div>
+Also please make sure that the Password manager service is running on the backend server. Refer to the <a href="https://kb.netwrix.com/1332" target="_blank">KB1332</a>
+</body>
+</html>

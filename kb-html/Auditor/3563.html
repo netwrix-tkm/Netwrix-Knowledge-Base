@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot insert the value NULL into column &#x27;owner&#x27;, table &#x27;tempdb.dbo&#x27;</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:50:34.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:43.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9c5CAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9c5CAC">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:50:35.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:29:43.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Auditor for SQL Server uses the &amp;#039;sp_helpdb&amp;#039; stored procedure. This stored procedure will fail if any database on the SQL Server does not have an owner.">
+    <meta name="Meta_Title__c" content="Cannot insert the value NULL into column &#x27;owner&#x27;, table &#x27;tempdb.dbo&#x27;">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1409">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9c5CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot insert the value NULL into column &#x27;owner&#x27;, table &#x27;tempdb.dbo&#x27;</h1>
+    The change report from Netwrix Auditor for SQL Server contains the following warning: Collect &#39;Database&#39; information warning on server: MSSQLSERVER DB: master. Cannot insert the value NULL into column &#39;owner&#39;, table &#39;tempdb.dbo&#39;
+<hr></hr> Netwrix Auditor for SQL Server uses the &#39;sp_helpdb&#39; stored procedure. This stored procedure will fail if any database on the SQL Server does not have an owner.
+<hr></hr> Perform the following steps to find the database(s) with the &#39;NULL&#39; owner:
+<ol><li>Connect to the &#39;MSSQLSERVER&#39; server.</li><li>Run the following statement: use master select name, suser_sname(sid) from sysdatabases</li><li>Look for database without username in second field.</li><li>Please run the following script to change the owner of the database: use problematic_database_name exec sp_changedbowner &#39;user name&#39; Note: Replace &#39;user name&#39; with the user name of the account for the database Example: use problematic_database exec sp_changedbowner &#39;sa&#39;</li></ol>
+</body>
+</html>

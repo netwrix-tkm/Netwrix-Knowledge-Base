@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!REMOVED-...&quot; host name in AIC</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:53:39.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JE1CAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-04-25T18:57:07.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:53:40.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JE1CAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JE1CAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-25T19:03:06.000Z">
+    <meta name="LastPublishedDate" content="2025-04-25T19:03:06.000Z">
+    <meta name="Meta_Description__c" content="360008944451">
+    <meta name="Meta_Title__c" content="!REMOVED-...&quot; host name in AIC">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7960">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JE1CAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>!REMOVED-...&quot; host name in AIC</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> You have used the &quot;Remove host data&quot; category, a machine name like &quot;!REMOVED_q3402349803480583&quot; is displayed</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span>You have used the &quot;Remove host data&quot; option in the File System Access Data Collector to try and remove host data, but the job timed out.  Now instead of the machine name you were trying to remove, you see a machine name like &quot;!REMOVED_q3402349803480583&quot; in the Access Information Center and other places that list hosts in the product.</span></span></p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Change the job timeout to a longer value.  (Right click job, choose Properties, adjust Timeout minutes setting in General tab.)  Setting this value to 1440 minutes (24 hours) for safety should good, although the job is unlikely to actually take that long. </span></span>
+</li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Re-run the removal job, targeting the same hostname you previously did.  The removal job will know to associate the &quot;!REMOVED.&quot; machine with the original hostname and both will be removed when the job completes successfully.  (This process can take a long time if there is a lot of data in the database or for the individual machine, so the recommendation in general is to change this timeout to a longer value than 20 minutes when using this utility function.)</span></span></li></ol><br><img alt="User-added image" src=""></img><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><b>Extra info:  How to create the &quot;Remove host&quot; job with the File System Access Data Collector</b></span></span> 
+<ol><li>
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Create a blank job</span></span>
+</li><li>
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Create a query that uses File System Access Data Collector</span></span>
+</li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Configure the query, and on the Query Selection (first page), choose &quot;Remove host data&quot;.  [Picture below shows AUDIT 9.0 version]</span></span></li></ol><img alt="User-added image" src="" width="500" height="418"></img><br><br> <p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All modern versions of AUDIT<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2637<br></p>
+</body>
+</html>

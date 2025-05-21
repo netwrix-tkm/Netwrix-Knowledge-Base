@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSAC/SmartLOG Alternative for Parsing FSAC Logs</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:35:31.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:32.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:35:31.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IfRCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IfRCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:32.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:35:31.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="FSAC/SmartLOG Alternative for Parsing FSAC Logs">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7231">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IfRCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>FSAC/SmartLOG Alternative for Parsing FSAC Logs</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Uses PowerShell to parse activity event logs for a given host. May be adapted to events selectively based on modifying the Regular Expression</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> If time is tight or if FSAC and SmartLOG aren&#39;t working properly, or would require forklifting of data to collect relevant file system activity data, this is a good and flexible alternative</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The <em>JOB_PoShLogCollect</em> PowerShell job in <a target="_blank">\\sbitsinc.com\public\Escalation\KB Attachments</a> pulls in the events from a specified host (you only have to modify the log folder location as shown below):<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lcaba&amp;d=%2Fa%2F4u000000LyXB%2FkxS6jSR.DKOGd_E3Zp9P5JMWFWON8Vnu.FtGgEabFmk&amp;asPdf=false" alt="mceclip0.png"></img><br><br>After importing, it uses ADI data to resolve SIDs<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lcabf&amp;d=%2Fa%2F4u000000LyxD%2F0yjDCOnGrXKmweHD8arZjHrb5ze.xGxcdrnUF5nKIg4&amp;asPdf=false" alt="mceclip1.png"></img><br><br>This job should be able to be used for pulling a report of activity within a certain directory or by a certain user (you just have to modify the RegEx used in the PowerShell).<br> <br><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">Note: Due to Core/PowerShell Data Collector limitations, this solution does not support Unicode characters</span></span></p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity;SA - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> V6.x, V7.x<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1486</p>
+</body>
+</html>

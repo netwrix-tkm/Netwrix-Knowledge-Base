@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission Manifests for Auditing Office 365 and Microsoft Entra ID (Auditor v10.0 and Older)</title>
+    <meta name="product" content="auditor">
+    <meta name="product" content="Azure_AD_and_Office_365">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006ati4AAA">
+    <meta name="ArticleCreatedDate" content="2022-05-06T11:16:28.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006ati4AAA">
+    <meta name="CreatedDate" content="2024-01-15T12:55:44.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-05-06T11:16:50.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000K9VCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000K9VCAU">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2024-01-15T12:57:20.000Z">
+    <meta name="LastPublishedDate" content="2024-01-15T12:57:20.000Z">
+    <meta name="Meta_Description__c" content="Permission Manifests for Auditing Office 365 and Azure AD">
+    <meta name="Meta_Title__c" content="Permission Manifests for Auditing Office 365 and Azure AD">
+    <meta name="OwnerId" content="0050g000006ati4AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8431">
+    <meta name="VersionNumber" content="9">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K9VCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Permission Manifests for Auditing Office 365 and Microsoft Entra ID (Auditor v10.0 and Older)</h1>
+    <blockquote><strong><span style="color: #ff0000;">IMPORTANT:</span></strong> For Netwrix Auditor v10.6 and later, refer to the following documentation articles: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/MicrosoftEntraID/Permissions.htm" target="_blank">Microsoft 365  Permissions for Microsoft Entra ID Auditing ? v10.6</a>, <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/ExchangeOnline/Permissions.htm" target="_self">Microsoft 365  Permissions for Exchange Online Auditing ? v10.6</a>, <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/SharePointOnline/Permissions.htm" target="_self">Microsoft 365  Permissions for SharePoint Online Auditing ? v10.6</a>, <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/Teams/Permissions.htm" target="_self">Microsoft 365  Permissions for Teams Auditing ? v10.6</a>.</blockquote>
+
+<h2>Question</h2>
+
+<div>
+<p>How to set up permissions for Microsoft 365 and Microsoft Entra ID (formerly Azure AD) in Netwrix Auditor v10.0 and older?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>This article contains permission manifests for for Microsoft 365 and Microsoft Entra ID ease the permissions configuration for Netwrix Auditor versions 10.0 and older. Refer to the following steps to configure the application manifest:</p>
+</div>
+
+<ol><li>
+	<p>Visit the Entra ID portal: <a href="https://entra.microsoft.com" target="_blank">Microsoft Entra Admin Center ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>In the left pane, select <strong>Applications</strong> &gt; <strong>App registrations</strong>.</p>
+	</li><li>
+	<p>Select the app you would like to configure.</p>
+	</li><li>
+	<p>In the left pane of the new <strong>Overview</strong> window, select the <strong>Manifest</strong> tab. You can either edit the manifest in the web-based manifest editor, or select <strong>Download</strong> to edit the manifest locally to <strong>Upload</strong> it to reapply it to your application.</p>
+
+	<div><img height="608" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001LQb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dDVg" width="750"></img></div>
+
+	<p> </p>
+	</li><li>
+	<p>After opening the manifest file, replace the contents of <strong>requiredResourceAccess</strong> with data provided below.</p>
+	</li><li>
+	<p>Once changes are introduced, save the manifest and grant administrator permissions in the <strong>API Permissions</strong> tab.</p>
+	</li></ol>
+
+<p>You can use the following screenshots for permissions reference:</p>
+
+<ul><li>
+	<p>SharePoint Online</p>
+
+	<div><img height="310" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001LQb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dDVq" width="501"></img></div>
+	</li><li>
+	<p>Exchange Online</p>
+
+	<div><img height="334" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001LQb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dDVv" width="501"></img></div>
+	</li><li>
+	<p>Microsoft Entra ID</p>
+
+	<div><img height="241" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001LQb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dDVr" width="501"></img></div>
+	</li></ul>
+
+<h4>Manifest for Sharepoint Online<a id="SPO" name="SPO"></a></h4>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">   &quot;requiredResourceAccess&quot;: [
+        {
+            &quot;resourceAppId&quot;: &quot;00000003-0000-0000-c000-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;7ab1d382-f21e-4acd-a863-ba3e13f7da61&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;c5393580-f805-4401-95e8-94b7a6ef2fc2&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;594c1fb6-4f81-4475-ae41-0c394909246c&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;00000002-0000-0000-c000-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;5778995a-e1bf-45b8-affa-663a9f3f4d04&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                },
+                {
+                    &quot;id&quot;: &quot;1cda74f2-2616-4834-b122-5cb1b07f8a59&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;00000003-0000-0ff1-ce00-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;678536fe-1083-478a-9c59-b99265e6b0d3&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        }
+    ],</code></pre>
+
+<h4>Manifest for Exchange Online<a id="EXO" name="EXO"></a></h4>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">
+    &quot;requiredResourceAccess&quot;: [
+        {
+            &quot;resourceAppId&quot;: &quot;00000003-0000-0000-c000-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;693c5e45-0940-467d-9b8a-1022fb9d42ef&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                },
+                {
+                    &quot;id&quot;: &quot;7ab1d382-f21e-4acd-a863-ba3e13f7da61&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;00000002-0000-0000-c000-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;5778995a-e1bf-45b8-affa-663a9f3f4d04&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                },
+                {
+                    &quot;id&quot;: &quot;1cda74f2-2616-4834-b122-5cb1b07f8a59&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;00000002-0000-0ff1-ce00-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;dc50a0fb-09a3-484d-be87-e023b12c6440&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;c5393580-f805-4401-95e8-94b7a6ef2fc2&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;594c1fb6-4f81-4475-ae41-0c394909246c&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        }
+    ],</code></pre>
+
+<h4>Manifest for Microsoft Entra ID<a id="AAD" name="AAD"></a></h4>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">
+&quot;requiredResourceAccess&quot;: [
+        {
+            &quot;resourceAppId&quot;: &quot;00000002-0000-0000-c000-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;5778995a-e1bf-45b8-affa-663a9f3f4d04&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;00000003-0000-0000-c000-000000000000&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;b0afded3-3588-46d8-8b3d-9842eff778da&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                },
+                {
+                    &quot;id&quot;: &quot;7ab1d382-f21e-4acd-a863-ba3e13f7da61&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        },
+        {
+            &quot;resourceAppId&quot;: &quot;c5393580-f805-4401-95e8-94b7a6ef2fc2&quot;,
+            &quot;resourceAccess&quot;: [
+                {
+                    &quot;id&quot;: &quot;594c1fb6-4f81-4475-ae41-0c394909246c&quot;,
+                    &quot;type&quot;: &quot;Role&quot;
+                }
+            ]
+        }
+    ],</code></pre>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/MicrosoftEntraID/Permissions.htm" target="_blank">Microsoft 365  Permissions for Microsoft Entra ID Auditing ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/ExchangeOnline/Permissions.htm" target="_self">Microsoft 365  Permissions for Exchange Online Auditing ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/SharePointOnline/Permissions.htm" target="_self">Microsoft 365  Permissions for SharePoint Online Auditing ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/Teams/Permissions.htm" target="_self">Microsoft 365  Permissions for Teams Auditing ? v10.6</a></p>
+
+<p><a href="https://entra.microsoft.com" target="_blank">Microsoft Entra Admin Center ? Microsoft &#129125;</a></p>
+</div>
+</body>
+</html>

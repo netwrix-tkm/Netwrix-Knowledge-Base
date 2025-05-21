@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo Commands - Optimising Queries for CT  This is Optional but may improve performance</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:59:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:18:17.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:59:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JfaCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JfaCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:17.000Z">
+    <meta name="LastPublishedDate" content="2022-02-07T00:59:55.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Mongo Commands - Optimising Queries for CT  This is Optional but may improve performance">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8297">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfaCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Mongo Commands - Optimising Queries for CT  This is Optional but may improve performance</h1>
+    <p><br></p><p>When upgrading the system from a .57 version or under the guise of a general check-up that agents and planned changes are not configured in a way that could impact Change Tracker performance.</p><p><br></p><p><strong>Remove<u> All Report results</u> from Agent </strong></p><p>Prior to R2, some report result information was stored on the Agent record in mongo. This is no longer used and can be removed, which will speed up all query operations related to agents.</p><p>(IIS restart NOT required)</p><p><br></p><p>use NNTHubService</p><p>db.SystemDirectory.update({ OrganizationId: 0, _t: &quot;MongoAgentMember&quot; }, { $pull : { &quot;Agent.AgentPolicyResults&quot; : { } } }, { multi: true } );</p><p><br></p><p><strong>Find and Unset all Agents in Diagnostic Mode</strong></p><p>Agents in diagnostic mode can result in a lot of extra events being recorded, and a <u>lot</u> of extra entries on the Event History of an event. <em>In normal running of the system no agents should be in diagnostic mode</em>.</p><p>These commands identify whether any are, and provide a means to take them all out of diagnostic mode. (NB after the update command IIS must be restarted to refresh its cached information)</p><p><br></p><p>1 - Find any agents in diagnostic mode</p><p>use NNTHubService</p><p>db.SystemDirectory.find({_t: &#39;MongoAgentMember&#39;,&#39;Agent.DiagnosticModeEnabled&#39;: true}).count()</p><p><br></p><p>2 - Take all agents OUT of diagnostic mode</p><p>db.SystemDirectory.update({_t: &#39;MongoAgentMember&#39;,&#39;Agent.DiagnosticModeEnabled&#39;: true}, { $set: { &#39;Agent.DiagnosticModeEnabled&#39;: false } }, { multi: true })</p><p><br></p><p><strong>Set/Unset all Agents into Event-Send Blocked Mode</strong></p><p>If agents are causing problems with hub performance / access to the UI due to the number of events they are sending in they can all be put into event send blocked mode, where they will continue to be able to poll in and pick up new tracking configurations, but wont be able to deliver events. When they are re-enabled they will send the backlog of events  as normal.</p><p>(NB after the update command IIS must be restarted to refresh its cached information)</p><p><br></p><p>* NOTE: Agents can be individually taken out of blocked state in the UI on the Admin&gt;Devices page</p><p><br></p><p>1 - Find count of any agents that are already blocked</p><p>use NNTHubService</p><p>db.SystemDirectory.find({_t: &#39;MongoAgentMember&#39;,&#39;Agent.<strong>EventBlockEnabled</strong>&#39;: true}).count()</p><p><br></p><p>2 - Set all agents to event send blocked</p><p>// set any not blocked TO blocked</p><p>db.SystemDirectory.update({_t: &#39;MongoAgentMember&#39;,&#39;Agent.<strong>EventBlockEnabled</strong>&#39;: false}, { $set: { &#39;Agent.<strong>EventBlockEnabled</strong>&#39;: true } }, { multi: true })</p><p><br></p><p>3 - Clear event block on all agents</p><p>// unblock any blocked</p><p>db.SystemDirectory.update({_t: &#39;MongoAgentMember&#39;,&#39;Agent.<strong>EventBlockEnabled</strong>&#39;: true}, { $set: { &#39;Agent.<strong>EventBlockEnabled</strong>&#39;: false } }, { multi: true })</p><p><br></p><p><strong>Find and Update any Planned Changes in Recording mode</strong></p><p>Lots of planned changes in recording mode can impact on performance, these queries check how many are, and provide a means to take them all out of recording mode.</p><p>(NB after the update command IIS must be restarted to refresh its cached information)</p><p><br></p><p>1 - Find count of planned changes in recording mode</p><p>use NNTHubService</p><p>db.PlannedChangeInstances.find({&#39;InRecordingMode&#39;: true}).count()</p><p><br></p><p>2 - Take all planned changes out of recroding mode</p><p>// take all out of recording mode</p><p>db.PlannedChangeInstances.update({&#39;InRecordingMode&#39;: true}, { $set: {&#39;InRecordingMode&#39;: false} }, { multi: true })</p><p><br></p><p>// Optimising Queries for CT  This is Optional but may improve performance</p><p>// ====================================================================================================================</p><p><br></p><p>use NNTHubService</p><p><br></p><p>// Remove All Report results from Agent</p><p>db.SystemDirectory.update({ OrganizationId: 0, _t: &quot;MongoAgentMember&quot; }, { $pull : { &quot;Agent.AgentPolicyResults&quot; : { } } }, { multi: true } );</p><p><br></p><p>// Find all Agents in Diagnostic Mode</p><p>db.SystemDirectory.find({_t: &#39;MongoAgentMember&#39;,&#39;Agent.DiagnosticModeEnabled&#39;: true}).count()</p><p><br></p><p>// Unset all Agents in Diagnostic Mode</p><p>db.SystemDirectory.update({_t: &#39;MongoAgentMember&#39;,&#39;Agent.DiagnosticModeEnabled&#39;: true}, { $set: { &#39;Agent.DiagnosticModeEnabled&#39;: false } }, { multi: true })</p><p><br></p><p>// Find any Planned Changes in Recording mode</p><p>db.PlannedChangeInstances.find({&#39;InRecordingMode&#39;: true}).count()</p><p><br></p><p>// Update any Planned Changes in Recording mode</p><p>db.PlannedChangeInstances.update({&#39;InRecordingMode&#39;: true}, { $set: {&#39;InRecordingMode&#39;: false} }, { multi: true })</p><p><strong> </strong></p><p><br></p>
+</body>
+</html>

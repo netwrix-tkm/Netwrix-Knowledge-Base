@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- What ports are used by the Endpoint Protector Client to communicate with the Endpoint Protector Server</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:35:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BDyKAM">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000003xRAXIA2">
+    <meta name="AssignmentDate" content="2025-03-19T17:40:25.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:35:15.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002BDyKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002BDyKAM">
+    <meta name="LastModifiedById" content="005Qk000003xRAXIA2">
+    <meta name="LastModifiedDate" content="2025-04-22T14:33:22.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9992">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BDyKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- What ports are used by the Endpoint Protector Client to communicate with the Endpoint Protector Server</h1>
+    <p><strong>1.The Endpoint Protector Client natively uses port 443 for HTTPS communication with the Endpoint Protector Server. </strong></p>
+<p>As an example, you have it set by default when trying to download the package from &#39;&#39;Client Software&#39;&#39; as exemplified below:</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crrq&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C7FeY"></img></p>
+<p><strong>2.In addition to that, it may be good to assume that port 80 will be used as an alternative to allow for HTTP communication between the Client and Server. </strong></p>
+<p>Port 80 is also being used to apply the latest security updates from the <em><strong>&#39;&#39;Live Update&#39;&#39;</strong></em> section:</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crrq&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C7Glt"></img></p>
+<p> </p>
+<p>This information may be useful in a scenario when the Endpoint Protector Client machines are being administered from a Server that is on a separate LAN network. An example of when this scenario could occur: Users are remote or decentralized (i.e. Server is at a Central site office, and employees are working from home). By configuring perimeter firewalls aligning with the Endpoint Protector Server to accept traffic from the network(s) where the Client machines reside, the agent is able to successfully report into the Server and present logs as well as accept any relevant configuration edits.</p>
+</body>
+</html>

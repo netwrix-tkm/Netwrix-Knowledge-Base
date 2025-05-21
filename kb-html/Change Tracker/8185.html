@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why am I receiving fileaccessed events in Change Tracker?</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:46:26.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JYjCAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T04:14:29.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:46:27.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JYjCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JYjCAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T04:18:41.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Why am I receiving fileaccessed events in Change Tracker?">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8185">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JYjCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why am I receiving fileaccessed events in Change Tracker?</h1>
+    <h2 id="WhyamIreceivingfileaccessedeventsinChangeTracker?-ThisarticlewilldescribewhyyouarereceivingFileAccesseventsinChangeTracker,whattheyare,andhowtodisableorenablethem.">This article will describe why you are receiving File Access events in Change Tracker, what they are, and how to disable or enable them.</h2><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(23,43,77);">The &quot;fileaccessed&quot; event you are seeing is a &quot;read&quot; operation for the file shown in the details. This does not mean someone changed the file, it simply means the file was accessed (or read), whether that be a person or software doing so. Think of it as someone opening a word document. If you where tracking that, you would see the same notification for the word document simply being opened.</span></p><p><br></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKIB&amp;d=%2Fa%2F4u000000LzjE%2Fcd3X1mt3ENeD2fx9u0gx5LT4Knhwzafl3CqahQthYCA&amp;asPdf=false"></img></span></p><p><br></p><h2 id="WhyamIreceivingfileaccessedeventsinChangeTracker?-HowtoEnableorDisable">How to Enable or Disable &quot;fileaccessed&quot; Events in Change Tracker</h2><p>The steps below will show you how to enable or disable these event types in Change Tracker.</p><p><br></p><div class="panel conf-macro output-block" style="background-color: #fff;border-width: 1px;"><div class="panelHeader" style="background-color: #fff;"><b>Disabling File Access Events</b></div><div class="panelContent" style="background-color: #fff;">
+To enable file access events, follow the steps below:<br><ol><li>This setting is configured from a device &quot;Configuration Template&quot; which is appended to a group. Devices within that group then receive the template.</li><li>Go to the Settings Tile &gt; Click on the &quot;Configuration Templates&quot; Navigation button to the left</li><li>Find the Configuration Template that you want to use for these event types, or create a new one by pressing the Create a Template button</li><li>Click the Edit button on the template you want to modify</li><li>For the desired path, locate the &quot;Tracked Attributes&quot; Column. Click the &quot;Edit&quot; button and change this to <span style="color: rgb(23,43,77);">&quot;File attributes (excluding contents) only&quot; (See Screenshot Below)</span></li><li><span style="color: rgb(23,43,77);">Click &quot;Save Changes&quot; at the top of the page.</span></li><li><span style="color: rgb(23,43,77);">If this is a new template, apply it to the group of devices by going to Settings &gt; Groups &gt; Select the group &gt; Device Templates &gt; Add a template.</span></li></ol><p><span style="color: rgb(255,0,0);">Please note, when you update a configuration template, the agent does a re-baseline of the files within the defined parameters. Changes to the files will not be seen until after the baseline is completed. A baseline typically takes about 15-20 minutes to complete on a windows device. If you are going to test a change on this folder, and you update it as per the instructions above, please test it about 30 minutes after you have saved the change to the template so that the agent has adequate time to complete its baseline process.</span></p>
+</div></div><div class="panel conf-macro output-block" style="background-color: #fff;border-width: 1px;"><div class="panelHeader" style="background-color: #fff;"><b>Enabling File Access Events</b></div><div class="panelContent" style="background-color: #fff;">
+To enable file access events, follow the steps below:<br><ol><li>This setting is configured from a device &quot;Configuration Template&quot; which is appended to a group. Devices within that group then receive the template.</li><li>Go to the Settings Tile &gt; Click on the &quot;Configuration Templates&quot; Navigation button to the left</li><li>Find the Configuration Template that you want to use for these event types, or create a new one by pressing the Create a Template button</li><li>Click the Edit button on the template you want to modify</li><li>For the desired path, locate the &quot;Tracked Attributes&quot; Column. Click the &quot;Edit&quot; button change this to &quot;<span style="color: rgb(23,43,77);">All file and folder attributes excluding contents&quot;<span style="color: rgb(23,43,77);">(See Screenshot Below)</span></span></li><li><span style="color: rgb(23,43,77);">Click &quot;Save Changes&quot; at the top of the page.</span></li><li><span style="color: rgb(23,43,77);">If this is a new template, apply it to the group of devices by going to Settings &gt; Groups &gt; Select the group &gt; Device Templates &gt; Add a template.</span></li></ol><p><span style="color: rgb(255,0,0);">Please note, when you update a configuration template, the agent does a re-baseline of the files within the defined parameters. Changes to the files will not be seen until after the baseline is completed. A baseline typically takes about 15-20 minutes to complete on a windows device. If you are going to test a change on this folder, and you update it as per the instructions above, please test it about 30 minutes after you have saved the change to the template so that the agent has adequate time to complete its baseline process.</span></p>
+</div></div><h2 id="WhyamIreceivingfileaccessedeventsinChangeTracker?-"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKQs&amp;d=%2Fa%2F4u000000LztN%2FyRXwPRqZsMNh6L2pKXYcjMwVtkWEWBCUWabLI5bmCx8&amp;asPdf=false"></img></span></h2><p><br></p><p><br></p><p><br></p><p><br></p><h2 id="WhyamIreceivingfileaccessedeventsinChangeTracker?-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+</p><ul class="content-by-label conf-macro output-block"><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8313" target="_blank">How to fix &quot;Error, the requested event counts summary size cannot be smaller than the system event count window size&quot; message</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8161" target="_blank">The Netwrix FAST Cloud Usage Considerations</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8300" target="_blank">HTTP Error 500.19 - Internal Server Error - Error Code 0x8007007e</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8286" target="_blank">Redis - QFork.dat Files Taking Up Large Amounts Of Disk Space?</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8276" target="_blank">Netwrix Gen 7 Agent - Hub Connection Test Error (WinHttp.WinHttpRequest)</a>
+                        
+                        
+                    </div>
+    </li></ul>
+<p><br></p><p><br></p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK9x&amp;d=%2Fa%2F4u000000Lzvc%2FB7kznCt15N_PvtMJ3DcJVb8WU9QhgPSTRRes0pShjEY&amp;asPdf=false" target="_blank">image2018-1-12_17-10-47.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK3u&amp;d=%2Fa%2F4u000000LzqJ%2FKKXAUZwSCeprXZsqzYuhzM69v.P0arwr3Ft3XCOs3OQ&amp;asPdf=false" target="_blank">attrib.PNG</a> <br>
+</body>
+</html>

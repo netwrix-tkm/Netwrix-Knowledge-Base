@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to control the size of NetwrixSQLCRAudit databases on SQL instances? And what it is needed for?</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:47:33.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:28.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9WcCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9WcCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:47:33.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:28.000Z">
+    <meta name="Meta_Description__c" content="SQLCRAudit database, Database content audit, database size, control size, Netwrix Auditor - SQL server">
+    <meta name="Meta_Title__c" content="How to control the size of NetwrixSQLCRAudit databases on SQL instances? And what it is needed for?">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="803">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WcCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to control the size of NetwrixSQLCRAudit databases on SQL instances? And what it is needed for?</h1>
+    How to control the size of NetwrixSQLCRAudit databases on SQL instances and what they are used for.
+<hr></hr> If &quot;Audit data changes&quot; option is enabled as a part of SQL Server audit, Netwrix Auditor creates an additional database - NetwrixSQLCRAudit against each monitored SQL server, the database is used as a temporary storage of all changes performed to other server databases. In order to control the size of NetwrixSQLCRAudit database the following two options are suggested:<br>1. Disable the &quot;Audit data changes&quot; option, if you are not interested in content changes and delete the NetwrixSQLCRAudit database(s) from the SQL Server(s).<br>2. Shrink NetwrixSQLCRAudit database(s) via MSSQL Management Studio. For additional information about how Netwrix Auditor for SQL Server works, please refer to the following the KB: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VMCA0.html" target="_blank">https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VMCA0.html</a>
+</body>
+</html>

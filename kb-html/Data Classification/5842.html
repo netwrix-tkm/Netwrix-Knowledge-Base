@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removing conceptClassifier Solution</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000005YG2zAAG">
+    <meta name="ArticleCreatedDate" content="2021-01-18T19:42:43.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000005YG2zAAG">
+    <meta name="CreatedDate" content="2023-05-08T10:20:07.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-01-18T19:42:47.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000XmEpCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000XmEpCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:20:07.000Z">
+    <meta name="LastPublishedDate" content="2021-01-18T19:42:47.000Z">
+    <meta name="Meta_Description__c" content="Removing conceptClassifier Solution">
+    <meta name="Meta_Title__c" content="Removing conceptClassifier Solution">
+    <meta name="OwnerId" content="0050g000005YG2zAAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5842">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmEpCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Removing conceptClassifier Solution</h1>
+    To remove conceptClassifier for SharePoint cleanly you must perform two steps:
+<ol><li>Roll Back the installation using the conceptClassifier Wizard</li><li>Run the conceptClassifier SETUP utility and select the Remove option.</li></ol>
+To remove conceptClassifier cleanly <b>it is important to perform these two steps in the order shown</b> otherwise all of the facilities installed may not be removed completely.<br><b>DO NOT remove the conceptClassifier Solution from SharePoint Central Admin.</b><br> 
+<hr></hr>
+<h2>Roll Back the Installation</h2>
+
+<ol><li>Select the <b>conceptClassifier EMM Wizard</b> from the Site Settings area of SharePoint:
+
+	<ul><li><img alt="User-added image" height="321" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFw&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001r8PV" width="500"></img></li></ul>
+	</li><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">You will see the following screen:</span></span></span>
+	<ul><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">???????<img alt="User-added image" height="305" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFw&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001r8Pa" width="500"></img></span></span></span></li></ul>
+	</li><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">Click the Roll back previous changes button to perform the Rollback.</span></span></span></li><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">Click Start Rollback to confirm the procedure. You will then see a screen like this:</span></span></span>
+	<ul><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><img alt="User-added image" height="356" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFw&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001r8Pk" width="500"></img></span></span></span></li><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">This will remove all of the conceptClassifier site columns and event handlers installed when the Wizard was first run.</span></span></span></li></ul>
+	</li><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">The final screen should look like this:</span></span></span>
+	<ul><li><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFw&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001r8Pu"></img>???????</span></span></span></li></ul>
+	</li></ol>
+ 
+
+<h2>Remove the Solution</h2>
+<span style="font-size: 11.0pt;"><span style=""><span style="">To remove the Solution run the original conceptClassifier SETUP routine and the existing Solution should be detected:<br><br><img alt="User-added image" height="389" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFw&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001r8Q4" width="500"></img><br><br>Select the <b>Remove</b> option to remove the Solution:<br><img alt="User-added image" height="388" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFw&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001r8QJ" width="500"></img></span></span></span>
+</body>
+</html>

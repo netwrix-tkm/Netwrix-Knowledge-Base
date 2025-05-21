@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j. Gen 7 Settings Page - Agent Registration Process and Control</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:30:47.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JRTCA2">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-11T16:44:00.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:30:47.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JRTCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JRTCA2">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-11T16:52:58.000Z">
+    <meta name="LastPublishedDate" content="2022-04-12T16:16:05.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="j. Gen 7 Settings Page - Agent Registration Process and Control">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8077">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JRTCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>j. Gen 7 Settings Page - Agent Registration Process and Control</h1>
+    <h1 id="j.Gen7SettingsPage-AgentRegistrationProcessandControl-_Toc484003720AgentDiscovery/RegistrationProcess"><span class="confluence-anchor-link conf-macro output-inline" id="j.Gen7SettingsPage-AgentRegistrationProcessandControl-_Toc484003720"><span class="confluence-anchor-link" id="_Toc484003720"> </span></span><span style="color: rgb(46,116,181);"><strong>Agent Discovery/Registration Process</strong></span></h1><p>An Netwrix Agent is a highly automated and intelligent piece of software with extensive capabilities for monitoring and reporting on your secure endpoints.<br> It is therefore critical that the agent is securely governed by the controlling Gen 7 system and there are a range of operations involved when registering and driving the agent.</p><ol><li><span class="confluence-anchor-link conf-macro output-inline" id="j.Gen7SettingsPage-AgentRegistrationProcessandControl-_First_Run_"><span class="confluence-anchor-link" id="_First_Run_"> </span></span><strong><em>First Run  HubDetails.xml file</em></strong></li></ol><p>The Agent configuration settings are controlled by the Hub during operations but the initial registration necessitates a basic config file for registration with the Hub.<br> The HubDetails.xml file includes some details unique to your deployment of Change Tracker Gen 7, hence it requiring your intervention to make sure settings are as needed.<br> The key tags within the file are as follows:<br> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="260" width="625" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJzi&amp;d=%2Fa%2F4u000000LzVQ%2F1PKnf_fFu1CRZ0V.AxL05UTfG3gqsOf55LvTJNgCYug&amp;asPdf=false"></img></span><br> *The Thumbprint uniquely identifies the Web Server certificate, see more here <a class="external-link" href="https://msdn.microsoft.com/en-us/library/ms734695(v=vs.110).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/ms734695(v=vs.110).aspx</a>. <br> Note: Netwrix&#39;s Gen 7 Agent also supports additional nodes  NamePrefix, NameSuffix<br> Note: Gen 7 Agent does not need the UseNewHub node to be defined  this will default to true<br> -Open IIS<br> -Select the server from the list on the left hand side<br> -Select Server Certificates<br> -Double click your certificate in the list to open the certificates permissions<br> -Open the Details tab<br> -Scroll to the bottom of the list and highlight the Thumbprint field<br> -The thumbprint value will then be displayed  transpose this to your HubDetails.xml file</p><ol><li><strong><em>Registration</em></strong></li></ol><p>Provided the Agent can connect to the Hub /api page (referenced in the HubDetails.xml), the registration process takes place. The Agent presents its Username and Password (referenced in the HubDetails.xml) and is authenticated against credentials held at the Hub (or Active Directory server if used).<br> The Agent will then download and run the assigned Registration Report* which determines the Gen 7 Device Group that the Device will be assigned to. The Registration Report is similar to a full Compliance Report in that it can provision trackers to gather config data from the device and process the returned data using rule expressions, with the results governing Group assignment.<br> In this example, the group regex match (<span style="text-decoration: line-through;">WEBSERVER</span>|<span style="text-decoration: line-through;">EPOS</span>|<span style="text-decoration: line-through;">APPSERVER</span>) extracts only those substrings if present, then the &quot; <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="203" width="503" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJyM&amp;d=%2Fa%2F4u000000LzX1%2FxZbswZLNS2ad332aBBUowLmqzcJQkoNxoZZeB0xOjgU&amp;asPdf=false"></img></span><br> You can view and edit the Default Registration Report from the System page. In conjunction with the Registration Report, the optional Registration Script parameters can be used, providing a GUI option for post-processing Registration Report results in order to control group allocation. In the example below it is assumed the report has a variable called &quot;regvalue_variable&quot; i.e. reading a value from the registry, and the custom code reads this value and appends it to the text &quot;Custom&quot;. So if the registry value contained &quot;WebServer&quot;, the device would be placed in the &quot;CustomWebServer&quot; group if it exists, falling back on &quot;New Devices&quot; if it doesn&#39;t.<br> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="213" width="439" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK48&amp;d=%2Fa%2F4u000000LzX6%2Fx1XfMsUrMWDVIxnNXTwIx9MYkExhtADFgeg29cN_KJU&amp;asPdf=false"></img></span></p>
+</body>
+</html>

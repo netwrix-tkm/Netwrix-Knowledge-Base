@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SD 2.1.326</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:26:13.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IJLCA2">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T03:14:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:26:14.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IJLCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IJLCA2">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T03:23:22.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:26:14.000Z">
+    <meta name="Meta_Description__c" content="360012018632">
+    <meta name="Meta_Title__c" content="Hotfix: SD 2.1.326">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6802">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IJLCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SD 2.1.326</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This Hotfix addresses an issue with the job services being unable to properly process a large backlog of events, and a problem with the Action Service being unable to communicate when a self-signed certification is in use for the Threat Manager web service.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Summary:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>This Hotfix addresses an issue with the job services being unable to properly process a large backlog of events, and a problem with the Action Service being unable to communicate when a self-signed certification is in use for the Threat Manager web service.</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior before Fix: </span></strong></span></span></span>
+</p><ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Large Backlogs of Events could enter a state, whereas the job service would not process the queue.</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Action Service could have trouble connecting to Threat Manager when self-signed certificates are in use.</span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior after Fix: </span></strong></span></span></span>
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">More efficient backlog processing by the Job service should resolve any issues relating to large/stuck event backlogs</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Action Service Configuration can now optionally &quot;ignore&quot; potentially warnings that are a side effect of using Self Signed Certificates.</span></span></span></li></ul><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Lee Berg</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Prior versions of 2.1</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Dev Ticket:</span></strong></span></span></span><br><br>  
+<table align="center" class="SbTable2-withVerticals1" style="width: 498.2pt;" width="664"><tbody><tr style="height: 15pt;"><td colspan="1" rowspan="1" style="height: 15pt;width: 63.25pt;" width="84"><span><span style="color: white;">Case</span></span></td><td colspan="1" rowspan="1" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: white;">Description</span></span></td><td colspan="1" rowspan="1" style="height: 15pt;width: 70.95pt;" width="95"><span><span style="color: white;">Escalations</span></span></td></tr><tr style="height: 15pt;"><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 63.25pt;" width="84"><span><span style="color: black;">SDFS-7669</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: black;">Services page reports Action Service not running</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 70.95pt;" width="95"><span><span style="color: black;">37317</span></span></td></tr><tr style="height: 15pt;"><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 63.25pt;" width="84"><span><span style="color: black;">SDFS-7838</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: black;">Threat Manager | Backlog Growing</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 70.95pt;" width="95"><span><span style="color: black;">38221</span></span></td></tr></tbody></table><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Resolved in Version: </span></strong><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">2.1.326</span></span></span></span></span><br> <p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <a href="http://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.1.326.zip" target="_blank">http://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.1.326.zip</a></p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Threat Manager<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Threat Manager - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> Prior versions of 2.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SDFS-7669
+SDFS-7838<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 2.1.326<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2507<br></p>
+</body>
+</html>

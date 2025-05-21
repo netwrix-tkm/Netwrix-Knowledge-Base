@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure User Activity to Trigger a Recording Session on Program Execution</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:47:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:26.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9WTCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9WTCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:47:16.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:26.000Z">
+    <meta name="Meta_Description__c" content="User Session Activity, trigger on program execution, record a program, record when program opened, window title, application description">
+    <meta name="Meta_Title__c" content="How to Configure User Activity to Trigger a Recording Session on Program Execution">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="802">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WTCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure User Activity to Trigger a Recording Session on Program Execution</h1>
+    How to configure User Activity to start recording when a particular program is launched?
+<hr></hr> Netwrix Auditor for User Activity offers three options:<br>1) Record when any application is run.<br>2) Record when a specific application is run.<br>3) Record when any application is run except the ones specified.<br><br>This article addresses #2 and #3 specifically as the way in which the application names are entered is the same for both. Note: It is required that the program has a window with a title. For example programs executed via command line without a GUI would not apply.<br><br>There are two ways to find the application description:
+<ol><li>Launch the application you want to monitor and start Task Manager. In the Task Manager dialog, open the <strong>Processes</strong> tab and look for the application description in the <strong>Description</strong> column.</li><li>Locate the executable file for the application you want to monitor, right-click it and select <strong>Properties</strong>. In the <strong>Properties</strong> dialog, switch to the <strong>Details</strong> tab and look for the application description in the <strong>File Description </strong>field.</li></ol>
+Note: Although the video recording will only start when a particular application is opened, it still records the entire screen.<br><strong>Example:</strong> If you want to configure to record each time Notepad is open you would use <em>Notepad</em> as the Application Description and for the Window Title you can use something like *Notepad* as the word &quot;Notepad&quot; is always in the Window Title regardless of the name of the document open.
+</body>
+</html>

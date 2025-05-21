@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling-Log Fix: &quot;Couldn&#x27;t get credentials for remote platform discovery on&quot;</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T01:00:34.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JcUCAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T04:27:51.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T01:00:34.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JcUCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JcUCAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T04:39:09.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Rolling-Log Fix: &quot;Couldn&#x27;t get credentials for remote platform discovery on&quot;">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8306">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JcUCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rolling-Log Fix: &quot;Couldn&#x27;t get credentials for remote platform discovery on&quot;</h1>
+    <p>This problem can occur if the Netwrix Gen 7 Agents ProxiedDevices.json file does not automatically update its fields with the proxy device you have configured on the console.</p>
+<div class="">
+    <table class=""><tbody><tr><td colspan="" rowspan="" class="">
+                    <div class="" style="">
+                        <div class="">
+                            <pre class=""># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                   Example Message:                                                      #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+2019-11-19 09:40:54,551 [9] INFO  Message - Hub connection failed  (403 Server message: Invalid Permission)
+2019-11-19 09:40:54,551 [9] INFO  Message - Couldn&#39;t get credentials for remote platform discovery on 1,28 HostNameOrIp: ORCL. Returning a default platform with OSType.Unspecified
+2019-11-19 09:40:54,552 [9] INFO  Message - task 370 - DeviceConfigTask-28 cannot execute, cannot discover proxied device platform details: 1,28 HostNameOrIp: ORCL
+2019-11-19 09:40:54,559 [9] INFO  Message - Entering configuration problem state for 28. Retry at: 19/11/2019 09:43:24</pre>
+                        </div>
+                    </div>
+                </td></tr></tbody></table>
+</div>
+<h2 id="">How to Fix</h2>
+<ul><li>
+        <p>Remote onto the Netwrix Gen 7 Agent device you are using to proxy.</p>
+    </li><li>
+        <p>Navigate into: </p>
+    </li></ul>
+<p><strong>Windows: </strong>C:\ProgramData\NNT\gen7agent.service</p>
+<p><strong>Linux: </strong>/var/nnt/gen7agent.service</p>
+<ul><li>
+        <p>Stop the <strong>nntgen7agent </strong>service from running on the server.</p>
+    </li><li>
+        <p>Edit the <strong>ProxiedDevices.json</strong> file.</p>
+    </li><li>
+        <p>Within the [] brackets, you will need to manually fill in the proxy devices details, please view the example below:</p>
+    </li></ul>
+<p>On the Change Tracker Console, please edit the proxy device in question to view its details:</p><span class=""><img class="" width="" src=""></img>  </span> <p>Now looking at the console, you can fill out the details as seen below:</p>
+    <p><em><strong>NOTE: </strong>The AgentID &amp; DeviceID of the proxy device can be found in the rolling log file.</em></p>
+    <p>[{&quot;AgentId&quot;:&quot;1&quot;,&quot;DeviceId&quot;:&quot;28&quot;,&quot;DeviceName&quot;:&quot;ORCL&quot;,&quot;PollPeriodSeconds&quot;:30,&quot;PingTimeoutSeconds&quot;:15,&quot;HostType&quot;:&quot;Database&quot;,&quot;HostNameOrIp&quot;:&quot;ORCL&quot;}]</p>
+    <ul><li>
+            <p>Once you have entered the details of the proxy device manually, please save the file.</p>
+        </li><li>
+            <p>Start the <strong>nntgen7agent</strong> service.</p>
+        </li><li>
+            <p>Now, please check to see if the proxy device appears online on the Change Tracker Console and it operates as expected.</p>
+        </li></ul>
+    <p></p>
+    <p></p>
+    <h2 id="">Related articles</h2>
+    <p></p>
+    <ul class=""><li>
+            <div>
+                <span class="" title="">Page:</span> </div>
+            <div class="">
+                <a href="" target="_blank">How to Backup / Restore / Move your MongoDB Database</a>
+            </div>
+        </li><li>
+            <div>
+                <span class="" title="">Page:</span> </div>
+            <div class="">
+                <a href="" target="_blank">Monitoring Oracle Databases using Change Tracker</a>
+            </div>
+        </li><li>
+            <div>
+                <span class="" title="">Page:</span> </div>
+            <div class="">
+                <a href="" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a>
+            </div>
+        </li><li>
+            <div>
+                <span class="" title="">Page:</span> </div>
+            <div class="">
+                <a href="" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a>
+            </div>
+        </li><li>
+            <div>
+                <span class="" title="">Page:</span> </div>
+            <div class="">
+                <a href="" target="_blank">How to Add Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen7</a>
+            </div>
+        </li></ul> <br><b>Attachments:</b><br><a href="" target="_blank">image-20191119-100938.png</a> <br>
+</body>
+</html>

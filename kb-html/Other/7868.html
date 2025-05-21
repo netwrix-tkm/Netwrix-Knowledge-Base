@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.2_055</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:52:11.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:15:49.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:52:12.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JFXCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JFXCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:15:49.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:52:12.000Z">
+    <meta name="Meta_Description__c" content="360012326351">
+    <meta name="Meta_Title__c" content="Hotfix: SA_8.2_055">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7868">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JFXCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.2_055</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> ADI Differential Scan Takes Longer Than Full Scan / Multi-value attributes and change tracking causing deadloc</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong><br>SAT-5818 - ADI Differential Scan Takes Longer Than Full Scan<br>SAT-5411 Multi-value attributes and change tracking causing deadloc<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Justin Giemza<br><strong><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></strong><br>SAT-5259 - 33708 - ADInventory error &#39;Error while searching &#39;SA_ADInventory_DistinguishedNames&#39;<br>SAT-5137 - Error while resolving distinguishedName conflicts<br>SAT-5019 - Deadlock during ADI collection<br>SAT-5016 - ExtendedAttributes Pivot view breaks with &#39;Name&#39; attribute being collected<br>SAT-4979 - 32180 - Active Directory Inventory deadlock error on differential scan against multiple domains<br>SAT-4824 - 31552 - ADInventory long running scan time<br>SAT-5411 - Multi-value attributes and change tracking causing deadlock<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>Private Assemblies:<br>               Stealthbits.StealthAUDIT.DataCollectors.ADInventory.UI.dll v 8.2.112<br>               Stealthbits.StealthAUDIT.DataCollectors.ADInventory.dll v 8.2.112<br>DC:<br>               DCADInventory.DLL v 8.2.112<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SA - DC - ADInventory<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SAT-5818<br>SAT-5411<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>8.2<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong>Bug<br><strong><span style="font-family: calibri,sans-serif;">Issue:</span></strong><br>SAT-5818 - ADI Differential Scan Takes Longer Than Full Scan<br>SAT-5411 Multi-value attributes and change tracking causing deadlock<br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Unblock the hotfix zip file in the windows property dialog if an unblock button exists there.<br>2. Close all instances of StealthAUDIT (check task manager under processes for all users)<br>3. Exit StealthAUDIT console<br>4. Copy and replace files from the included folder into SA Install dir.<br>  
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_055.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_055.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ADInventory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-5818
+SAT-5411<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> Private Assemblies:
+	Stealthbits.StealthAUDIT.DataCollectors.ADInventory.UI.dll v 8.2.112
+	Stealthbits.StealthAUDIT.DataCollectors.ADInventory.dll v 8.2.112
+
+DC:
+	DCADInventory.DLL v 8.2.112<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2381<br></p>
+</body>
+</html>

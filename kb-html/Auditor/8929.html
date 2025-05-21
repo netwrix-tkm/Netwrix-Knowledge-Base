@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Do I get Multiple Events on Password Changing in Reports?</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2023-11-30T16:55:34.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2023-11-30T20:14:50.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-11-30T16:55:39.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000wnt1CAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000wnt1CAA">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2023-11-30T20:15:19.000Z">
+    <meta name="LastPublishedDate" content="2023-11-30T20:15:19.000Z">
+    <meta name="Meta_Description__c" content="Why Do I get Multiple Events on Password Changing in Reports?">
+    <meta name="Meta_Title__c" content="Why Do I get Multiple Events on Password Changing in Reports?">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8929">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnt1CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why Do I get Multiple Events on Password Changing in Reports?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Why do I get multiple activity records of the following format?</p>
+
+<div>
+<pre class="has-inner-focus">
+Who:CORP\ITSQLTR$
+Action:Modified
+Object type:Local User
+What:System Information\Local Users\ITSQLARC$
+When:11/15/2023 4:25:09 AM
+Where:DCD003.CORP.net
+Data source:Windows Server
+Monitoring plan:DC Monitoring Plan
+Item: DCD003.CORP.net&#39; (Computer)
+RID:2023111500000000000000000000000000
+Details:Password changed  
+</pre>
+</div>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The event you are seeing is an automatic password change for a computer account in Active Directory, which occurs every 30 days by default. Since Domain Controllers are in the auditing scope, the domain computer account was picked up and interpreted as a local user for the DC.</p>
+</div>
+</body>
+</html>

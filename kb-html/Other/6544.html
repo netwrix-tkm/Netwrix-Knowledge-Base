@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powershell - Get Mapped Drives</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:20:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:06:48.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:20:16.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IQFCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IQFCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:06:48.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:20:16.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Powershell - Get Mapped Drives">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6544">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IQFCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Powershell - Get Mapped Drives</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> PowerShell Syntax to get Mapped Drives</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> PowerShell Syntax to get Mapped Drives</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: medium;"><span style="font-family: calibri;">Not sure why, but sometimes space information isn&#39;t returned. But here it is anyway.</span></span></p>
+<pre>#$JobCredential=Get-Credential<br>#$TgtHost=&#39;SBNJDEV07&#39;<br>$TgtHost = &#39;[SAHOSTNAME]&#39;<br> <br>if ($TgtHost -eq $env:ComputerName -or $TgtHost -eq &#39;localhost&#39;) {<br>    $Drives = Get-WmiObject win32_mappedlogicaldisk -ComputerName $TgtHost<br>    $Sessions = Get-WmiObject win32_loggedonuser -ComputerName $TgtHost | Select-Object Antecedent, Dependent<br>}<br>else {<br>    $Drives = Get-WmiObject win32_mappedlogicaldisk -ComputerName $TgtHost -Credential $JobCredential<br>    $Sessions = Get-WmiObject win32_loggedonuser -ComputerName $TgtHost -Credential $JobCredential | Select-Object Antecedent, Dependent<br>}<br>$AllDrives = @()<br>foreach ($Drive in $Drives) {<br>$Drive<br>    foreach ($Session in $Sessions) {<br>        $Obj = &#39;&#39; | Select-Object DeviceID, Caption, Name, VolumeName, FileSystem, ProviderName, DriveSessionID, SessionID, UserDomain, UserName, FreeSpaceGB, SizeGB, PercentFreeSpace<br>        [long]$SessionID = $session.Dependent[($session.Dependent.indexof(&#39;&#39;&#39;)+1)..($session.Dependent.lastindexof(&#39;&#39;&#39;) - 1)] -join (&#39;&#39;)<br>        $Domain = $session.Antecedent[($session.Antecedent.indexof(&#39;Domain=&#39;&#39;)+8)..($session.Antecedent.indexof(&#39;&#39;,&#39;) - 1)] -join (&#39;&#39;)<br>        $UserName = $session.Antecedent[($session.Antecedent.indexof(&#39;Name=&#39;&#39;)+6)..($session.Antecedent.lastindexof(&#39;&#39;&#39;) - 1)] -join (&#39;&#39;)<br>        $Obj.DeviceID = $Drive.DeviceID<br>        $Obj.Caption = $Drive.Caption<br>        $Obj.Name = $Drive.Name<br>        $Obj.VolumeName = $Drive.VolumeName<br>        $Obj.FileSystem = $Drive.FileSystem<br>        $Obj.ProviderName = $Drive.ProviderName<br>        [long]$Obj.DriveSessionID = $Drive.SessionID<br>        [long]$Obj.SessionID = $SessionID<br>        $Obj.UserDomain = $Domain<br>        $Obj.UserName = $UserName<br>        if ($Null -ne $Drive.Size) {<br>            [long]$Obj.FreeSpaceGB = [MATH]::Round($Drive.FreeSpace/1GB, 2)<br>            [long]$Obj.SizeGB = [MATH]::Round($Drive.Size/1GB, 2)<br>            [long]$Obj.PercentFreeSpace = [MATH]::Round(100*$Drive.FreeSpace/$Drive.Size, 2)<br>        }<br>        else {<br>            [long]$Obj.FreeSpaceGB = $null<br>            [long]$Obj.SizeGB = $null<br>            [long]$Obj.PercentFreeSpace = $null<br>        }<br>        $AllDrives += $Obj<br>    }<br>}<br>$TrueDrives = $AllDrives | Where-Object { $_.SessionID -eq $_.DriveSessionID }<br>$TrueDrives </pre>
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001084</p>
+</body>
+</html>

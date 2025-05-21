@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The conceptQS Application Pool crashes on startup</title>
+    <meta name="product" content="auditor">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:51:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:05.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9eCCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9eCCAS">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:51:16.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:05.000Z">
+    <meta name="Meta_Description__c" content="The conceptQS Application Pool crashes on startup">
+    <meta name="Meta_Title__c" content="The conceptQS Application Pool crashes on startup">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="3533">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eCCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The conceptQS Application Pool crashes on startup</h1>
+    The <strong>conceptQS</strong> <strong>Application</strong> <strong>Pool </strong>crashes on startup with multiple errors entered into the <strong>Windows </strong>? <strong>Application</strong> event logs.
+
+The error message may look like the below:
+<p style="">Log Name: Application
+Source: Application Error
+Date: XX.XX.XXXX XX:XX:XX
+Event ID: 1000
+Task Category: (100)
+Level: Error
+Keywords: Classic
+User: N/A
+Computer: &lt;COMPUTERNAME&gt;
+Description:
+Faulting application name: w3wp.exe, version: 8.0.9200.16384, time stamp: 0x50108835
+Faulting module name: PerfMon64.dll, version: 8.0.10918.0, time stamp: 0x577fd168
+Exception code: 0xc0000409
+Fault offset: 0x0000000000149794
+Faulting process id: 0x2c38
+Faulting application start time: 0x01d24405d195eb6a
+Faulting application path: c:windowssystem32inetsrvw3wp.exe
+Faulting module path: C:Program FilesMicrosoft Monitoring AgentAgentAPMDOTNETAgentV8.0.10918.0PerfMon64.dll</p>
+This issue can occur when the <strong>Microsoft Monitoring Agent </strong>is installed on the server. In order to resolve this issue, follow the steps below:
+<ol><li>Open the <strong>Control Panel</strong></li><li>Open <strong>Programs and Features</strong></li><li>Select the &quot;<strong>Microsoft Monitoring Agent</strong>&quot; and select &quot;<strong>Remove</strong>&quot;/&quot;<strong>Uninstall</strong>&quot;</li><li><strong>Restart</strong> the server</li><li>Test accessing the <strong>conceptQS</strong> application</li></ol>
+</body>
+</html>

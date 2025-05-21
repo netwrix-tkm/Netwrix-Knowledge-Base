@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common deployment types</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:00.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-07-11T13:21:46.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9djCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9djCAC">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-11T13:22:02.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:00.000Z">
+    <meta name="Meta_Description__c" content="Common deployment types">
+    <meta name="Meta_Title__c" content="Common deployment types">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2799">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9djCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Common deployment types</h1>
+    There are four ways in which Password Manager can be deployed. Below is a short summary of common deployment types.<br><br>1. Single Server Installation &quot; All roles (the service and web-portals) located on a single server deployed internally only or both internally and externally with a NAT through the external firewall. This is the most common and easiest deployment type: <a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KSE&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004vJL" target="_blank"><img alt="User-added image" height="266" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116dB&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004vJL" width="500"></img></a><br><br>2. Dual server install, Web roles separate from Core server &quot; The Core Password Manager Service is installed on the internal server (that does not have web portals) and the web portals are installed on a separate server within the DMZ. This allows all web roles to be accessed externally. This deployment scenario is described in detail in the Administrator`s guide in paragraph 4.4 page 19 <a href="http://www.netwrix.com/download/documents/NetWrix_Password_Manager_Administrator_Guide.pdf" target="_blank">http://www.netwrix.com/download/documents/NetWrix_Password_Manager_Administrator_Guide.pdf</a> <a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KSE&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004vJQ" target="_blank"><img alt="User-added image" height="240" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116dB&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004vJQ" width="500"></img></a><br><br>3.Another type of dual server install is full Password Manager installation on the internal server (both the service and web portals) and the Self-service Web portal only installed on the DMZ server. This allows all web roles to be accessed internally and only the Self-service portal to be accessed from outside the network. It is the most secure deployment: <a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KSE&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004vJV" target="_blank"><img alt="User-added image" height="266" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116dB&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004vJV" width="500"></img></a><br><br>4. Cluster Install &quot;Cluster of the Front and/or Back End servers. The Front End server can be clustered in an Active/Active role for Load-Balancing and the Back End server can be clustered in an Active/Passive mode only for Failover. Clustering of only Back-end or only Front-end is allowed. It is also possible to cluster a single-server installation. All this can be done by means of built-in Windows features. <a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KSE&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004vJa" target="_blank"><img alt="User-added image" height="272" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116dB&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004vJa" width="500"></img></a>
+</body>
+</html>

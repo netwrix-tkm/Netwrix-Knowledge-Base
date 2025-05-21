@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1267 ? 1273 in Health Log</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2024-01-04T09:51:24.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:46.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9cRCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9cRCAS">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-04T09:51:45.000Z">
+    <meta name="LastPublishedDate" content="2024-01-04T09:35:11.000Z">
+    <meta name="Meta_Description__c" content="The KB provides resolution steps depending on Event ID returned by Netwrix Auditor System Health log.">
+    <meta name="Meta_Title__c" content="Netwrix Auditor System Health log - Event IDs 1267-1273">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2257">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cRCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1267 ? 1273 in Health Log</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>Either of the following error messages under Event ID 1267, 1268, 1269, 1270, 1271, 1272, and 1273 is prompted in Health Log for your SharePoint monitoring plan.</p>
+</div>
+
+<h2>Causes and Resolutions</h2>
+
+<div>
+<p>Refer to the following possible causes and resolutions:</p>
+
+<table><tbody><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;text-align: center;">Event Description</td><td colspan="1" rowspan="1" style="width: 40%;height: 24px;text-align: center;">Cause</td><td colspan="1" rowspan="1" style="width: 40%;height: 24px;text-align: center;">Resolution</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1267 ? Unable to report changes to SharePoint farm %affected_Shapoint_farm% correctly, as the current, previous, or both snapshots are partially invalid.</p>
+			</td><td colspan="1" rowspan="7" style="width: 40%;height: 24px;">
+			<ul><li>
+				<p>Access to the affected web site has been blocked.</p>
+				</li><li>
+				<p>Access is denied (Exception from HRESULT: 0x80070005 (E_ACCESSDENIED)).</p>
+				</li><li>
+				<p>Some or all identity references could not be translated.</p>
+				</li><li>
+				<p>The previous data collection completed with an error.</p>
+				</li></ul>
+			</td><td colspan="1" rowspan="7" style="width: 40%;height: 24px;">
+			<p>Refer to the following resolutions depending on the cause:</p>
+
+			<ul><li>
+				<p>In SharePoint Central Administration, navigate to <strong>Application Management</strong> &gt; <strong>Configure Quotas and Locks</strong> &gt; <strong>%affected_web_application%</strong>, and change the status to <strong>Not locked</strong>.</p>
+				</li><li>
+				<p>In SharePoint Central Administration, navigate to <strong>Web Applications</strong> &gt; <strong>%affected_web_application%</strong> &gt; <strong>User Permissions</strong>, and verify the security settings. The minimum required permissions are <strong>Manage Web Site</strong>.</p>
+				</li><li>
+				<p>This error could be caused by the account running SharePoint service or SharePoint WebApplication Pool removed from the AD domain but left in the service accounts portion of SharePoint. Remove this account from SharePoint service accounts, or join it back to the domain.</p>
+				</li><li>
+				<p>Navigate to <strong>Monitoring Plans</strong> &gt; select the <strong>%affected_monitoring_plan%</strong> and click <strong>Edit</strong> &gt; click <strong>Update</strong>.</p>
+				</li></ul>
+			</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1268 ? Unable to report changes to web application &lt;ID&gt; correctly as the current, previous, or both snapshots are partially invalid.</p>
+			</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1269 ? Unable to report changes to site collection &lt;ID&gt; correctly as the current, previous, or both snapshots are partially invalid.</p>
+			</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1270 ? Unable to report changes to feature &lt;ID&gt; correctly as the current, previous, or both snapshots are partially invalid.</p>
+			</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1271 ? Unable to report changes to solution &lt;ID&gt; correctly as the current, previous, or both snapshots are partially invalid.</p>
+			</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1272 ? Unable to report changes to permission policy &lt;ID&gt; correctly as the current, previous, or both snapshots are partially invalid.</p>
+			</td></tr><tr style="height: 24px;"><td colspan="1" rowspan="1" style="width: 20%;height: 24px;">
+			<p>1273 ? Unable to report changes to server &lt;ID&gt; correctly as the current, previous, or both snapshots are partially invalid.</p>
+			</td></tr></tbody></table>
+
+<p>Learn more on management of the SharePoint site lock status via PowerShell in <a href="https://learn.microsoft.com/en-us/sharepoint/sites/manage-the-lock-status-for-site-collections#manage-the-lock-status-for-a-site-collection-by-using-microsoft-powershell" target="_blank">Manage Lock Status for Site Collections in SharePoint Server ? Manage Lock Status for Site Collection via Microsoft PowerShell ? Microsoft &#129125;</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://learn.microsoft.com/en-us/sharepoint/sites/manage-the-lock-status-for-site-collections#manage-the-lock-status-for-a-site-collection-by-using-microsoft-powershell" target="_blank">Manage Lock Status for Site Collections in SharePoint Server ? Manage Lock Status for Site Collection via Microsoft PowerShell ? Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

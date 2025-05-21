@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incorrect Date and Time Format in Netwrix Auditor for Network Devices Logs</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="content_type" content="ct_troubleshooting">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2023-11-02T11:56:30.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000000wnlqCAA">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2025-03-27T12:36:20.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2023-11-02T11:56:35.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000wnlqCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000wnlqCAA">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-03-27T12:37:37.000Z">
+    <meta name="LastPublishedDate" content="2025-03-27T12:37:37.000Z">
+    <meta name="Meta_Description__c" content="Incorrect Date and Time Format in Netwrix Auditor for Network Devices Logs">
+    <meta name="Meta_Title__c" content="Incorrect Date and Time Format in Netwrix Auditor for Network Devices Logs">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8889">
+    <meta name="VersionNumber" content="6">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnlqCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Incorrect Date and Time Format in Netwrix Auditor for Network Devices Logs</h1>
+    <h2>Symptom</h2>
+<p>Activity Records and logs collected by Netwrix Auditor for Network Devices contain incorrect date and time values.</p>
+<h2>Cause</h2>
+<p>The time zone of network devices might be different from the Auditor Server time zone.</p>
+<h2>Resolution</h2>
+<ul><li>
+<p>Customize the time format in the events at the device end so it does not include UTC.</p>
+<p><code class="lang-Registry">Oct 27 10:51:05</code> instead of <code class="lang-Registry">Oct 27 10:51:05 UTC</code>.</p>
+<p>For Cisco devices, use the following instructions: <a href="https://www.cisco.com" target="_blank">service timestamps ? Cisco &#129125;</a></p>
+</li><li>
+<p>Adjust the time zone settings in the Netwrix Auditor configuration file.</p>
+<ol><li>
+<p>On the Auditor Server, stop the <strong>Netwrix Auditor Configuration Server Service</strong>.</p>
+</li><li>
+<p>Navigate to the <code class="lang-Registry">Configuration.xml</code> file and make a backup. (<code class="lang-Registry">%Working Folder%\AuditCore\ConfigServer\Configuration.xml</code>)</p>
+</li><li>
+<p>Open the <code class="lang-Registry">Configuration.xml</code> file in an editor and search for the name/IP address of your network device as it appears in your monitoring plan.</p>
+</li><li>
+<p>Locate the entry where <strong>audit_item_value</strong> is equal to your devices identifier (name or IP).</p>
+</li><li>
+<p>Adjust the time zone by modifying the <strong>v=&quot; &quot;</strong> parameter next to the <strong>tz</strong> attribute.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D0Td&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BaE69" alt="Screenshot of Configuration.xml file showing audit_item_value parameter"></img></li><li>
+<p>If you have multiple devices in the Network Devices plan, repeat these steps for each device.</p>
+</li><li>
+<p>Once complete, save the file and restart the <strong>Netwrix Auditor Configuration Server Service</strong>.</p>
+</li></ol>
+</li></ul>
+</body>
+</html>

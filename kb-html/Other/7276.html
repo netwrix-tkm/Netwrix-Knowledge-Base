@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regain Access to SI Console</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:38:02.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:10:44.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:38:03.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IkBCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IkBCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:10:44.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:38:03.000Z">
+    <meta name="Meta_Description__c" content="360008304132">
+    <meta name="Meta_Title__c" content="Regain Access to SI Console">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7276">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IkBCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Regain Access to SI Console</h1>
+    <p><span class="wysiwyg-font-size-medium"><strong>Summary:</strong></span></p>
+<p><span class="wysiwyg-font-size-medium"><strong>Issue:</strong> If you lose access to a StealthINTERCEPT admin console and customer doesn&#39;t know the credentials to regain access, here&#39;s how to fix it.</span></p>
+<p><span class="wysiwyg-font-size-medium"><strong>Instructions:</strong> <span style="color: #ff0000;"><strong><span style="font-size: 16px;">NOTE: SENSITIVE SECURITY INFORMATION - INTERNAL ONLY</span><br><span style="font-size: 14px;">Please be careful who this is distributed to.  </span></strong></span></span><br><br><span class="wysiwyg-font-size-medium">There are different functionalities depending on the version of StealthINTERCEPT.  </span><br><span class="wysiwyg-font-size-medium">I&#39;m not sure of the exact version the change was made in.  </span><br><br><span class="wysiwyg-font-size-medium"><strong>3.x &amp; Older</strong></span><br><span class="wysiwyg-font-size-medium">Username: Simon</span><br><span class="wysiwyg-font-size-medium">Password: Password$</span><br><br><span class="wysiwyg-font-size-medium"><strong>3.x &amp; Newer</strong></span><br><span class="wysiwyg-font-size-medium" style="color: #1f497d;">Uses windows authentication and stores security descriptors for who can login in the dbo.Folder table of the NvMonitorConfig database.  <br>To re-gain control over SI, you can nullify securityDescriptor-s in that table.  </span></p>
+<p><span class="wysiwyg-font-size-medium" style="color: #1f4e79;">Step 1: Run this command against the NvMonitorConfig database:</span></p>
+<div style="margin-left: 80px;"><span class="wysiwyg-font-size-medium"><span style="color: blue;"><span style="font-family: courier new;"><span style="font-size: 10pt;">update</span></span></span><span style="font-family: courier new;"><span style="font-size: 10pt;"> dbo<span style="color: gray;">.</span>Folder<br><span style="color: blue;">set</span> securityDescriptor <span style="color: gray;">=</span> <span style="color: gray;">null</span></span></span></span></div>
+<p><span class="wysiwyg-font-size-medium"></span></p>
+<p><span class="wysiwyg-font-size-medium"><strong>Product:</strong> StealthINTERCEPT</span><br><span class="wysiwyg-font-size-medium"><strong>Module:</strong> SI - Admin Console</span><br><span class="wysiwyg-font-size-medium"><strong>Legacy Article ID:</strong> 1221</span></p>
+</body>
+</html>

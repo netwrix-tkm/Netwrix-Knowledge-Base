@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new certificate for the Access Analyzer web reports port when one is already in place</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:37:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000ITtCAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-05T11:04:48.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:37:08.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000ITtCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000ITtCAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T11:19:49.000Z">
+    <meta name="LastPublishedDate" content="2022-02-22T13:35:40.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Add a new certificate for the Access Analyzer web reports port when one is already in place">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7261">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000ITtCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Add a new certificate for the Access Analyzer web reports port when one is already in place</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> You have a need to add a new certificate for Access Analyzer web reports (to utilize HTTPS) but you already have one in place. When you try to add a new cert you get an error that the certificate add failed.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">When creating or issued a new certificate to use with Access Analyzer web reports you may show errors when trying to bind it to the web reports port with the error: </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">&quot;<span style="font-size: 10pt;">SSL Certificate add failed, error: 183</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">Cannot create a file when that file already exists.</span>&quot;</span></span><br><br><img alt="User-added image" height="194" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaeU&amp;d=%2Fa%2F4u000000Lyx9%2FrLVtU0_6OHe1X4BwDyWfvd_3lrcX7by65YsGmXxBU1U&amp;asPdf=false" width="500"></img></p>
+
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">The way to resolve this issue is to clear out the current certificate from the port before you add the new one. Use this powershell command to clear it out:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: blue;">netsh</span></span> <span style="font-size: 9pt;"><span style="color: blueviolet;">http</span></span> <span style="font-size: 9pt;"><span style="color: blueviolet;">delete</span></span> <span style="font-size: 9pt;"><span style="color: blueviolet;">sslcert</span></span> <span style="font-size: 9pt;"><span style="color: blueviolet;">ipport=0.0.0.0:8082 </span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">*Please note that this command assumes that you are using the port 8082 for your Access Analyzer web reports. In your environment it may be different.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="color: black;">Once this is done, you can use the new cert hash from the new cert and put it into below powershell commands to bind it to the port. Use the thumbprint value from the desired cert - use the PowerShell command:</span> <span style="font-size: 9pt;"><span style="color: blue;">dir</span></span> <span style="font-size: 9pt;"><span style="color: blueviolet;">cert:\localmachine\my </span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> to list it, then put the value into the $certHash variable below. Make sure not to use the <span style="font-size: 9pt;"><span style="color: orangered;">$guid</span></span> variable by accident.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: orangered;">$guid</span></span> <span style="font-size: 9pt;"><span style="color: darkgray;">=</span></span> <span style="font-size: 9pt;"><span style="color: darkred;">&quot;bdd5710f-7cbe-4f85-b8c1-da4bddf485a8&quot;</span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: orangered;">$certHash</span></span> <span style="font-size: 9pt;"><span style="color: darkgray;">=</span></span> <span style="font-size: 9pt;"><span style="color: darkred;">&quot;80F78FD2566793D2F39E748CDF6DED09B6F57A82&quot;</span></span> <span style="font-size: 9pt;"><span style="color: darkgreen;"># the &#39;Thumbprint&#39; value</span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: orangered;">$ip</span></span> <span style="font-size: 9pt;"><span style="color: darkgray;">=</span></span> <span style="font-size: 9pt;"><span style="color: darkred;">&quot;0.0.0.0&quot;</span></span> <span style="font-size: 9pt;"><span style="color: darkgreen;"># this means all IP addresses</span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: orangered;">$port</span></span> <span style="font-size: 9pt;"><span style="color: darkgray;">=</span></span> <span style="font-size: 9pt;"><span style="color: darkred;">&quot;8082&quot;</span></span> <span style="font-size: 9pt;"><span style="color: darkgreen;"># the default HTTPS port</span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: darkgreen;">#build command and pipe to the netsh command </span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9pt;"><span style="color: darkred;">&quot;http add sslcert ipport=</span></span><span style="font-size: 9pt;"><span style="color: black;">$(</span></span><span style="font-size: 9pt;"><span style="color: orangered;">$ip</span></span><span style="font-size: 9pt;"><span style="color: black;">)</span></span><span style="font-size: 9pt;"><span style="color: darkred;">:</span></span><span style="font-size: 9pt;"><span style="color: orangered;">$port</span></span><span style="font-size: 9pt;"><span style="color: darkred;"> certhash=</span></span><span style="font-size: 9pt;"><span style="color: orangered;">$certHash</span></span><span style="font-size: 9pt;"><span style="color: darkred;"> appid={</span></span><span style="font-size: 9pt;"><span style="color: orangered;">$guid</span></span><span style="font-size: 9pt;"><span style="color: darkred;">}&quot;</span></span> <span style="font-size: 9pt;"><span style="color: darkgray;">|</span></span> <span style="font-size: 9pt;"><span style="color: blue;">netsh </span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"> </span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">You should now get a successful output message and your web reports port is now ready for use with HTTPS.</span></span><br> </p>
+
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - Reporting<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2417</p>
+</body>
+</html>

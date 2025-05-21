@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Identify Active Transactions Filling the TempDB</title>
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006QqyEAAS">
+    <meta name="ArticleCreatedDate" content="2025-01-17T16:33:05.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000KdazTIAR">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0050g000006QqyEAAS">
+    <meta name="CreatedDate" content="2025-02-26T15:16:57.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-02-06T15:43:13.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001sETKAY">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001sETKAY">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-02-26T15:17:31.000Z">
+    <meta name="LastPublishedDate" content="2025-02-06T15:43:13.000Z">
+    <meta name="Meta_Description__c" content="A0775-APP2356-S: The transaction log for database &#x27;tempdb&#x27; is full due to &#x27;ACTIVE_TRANSACTION&#x27;.">
+    <meta name="Meta_Title__c" content="A0775-APP2356-S: The transaction log for database &#x27;tempdb&#x27; is full due to &#x27;ACTIVE_TRANSACTION&#x27;.">
+    <meta name="OwnerId" content="0050g000006QqyEAAS">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9375">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001sETKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Identify Active Transactions Filling the TempDB</h1>
+    <h2>Related Query</h2>
+<div>
+<ul><li>
+<p>&quot;Our application is not functioning, and we are receiving reports that the TempDB is full. What is filling up the TempDB?&quot;</p>
+</li></ul>
+</div>
+<h2>Question</h2>
+<div>
+<p>How can you identify which transactions are active and clogging the TempDB?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>The following statements will help to identify which transactions are active and filling the TempDB. Analysis of these results will help to isolate which transactions are at fault.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The data in TempDB is retained until the restart of the server. If you are in critical need of space after running the below queries, please restart your SQL Server as a temporary fix.</p>
+</blockquote>
+<ul><li>
+<p>Determines Size and Usage of Transaction Log:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">DBCC SQLPERF(LOGSPACE);</code></pre>
+</li><li>
+<p>Checks for Active Transactions:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">SELECT 
+    database_id,
+    DB_NAME(database_id) AS DatabaseName,
+    log_reuse_wait_desc
+FROM 
+    sys.databases;</code></pre>
+</li><li>
+<p>Finds Open Transactions:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">DBCC OPENTRAN;</code></pre>
+</li><li>
+<p>Checks for Uncommitted Transactions</p>
+<pre class="has-inner-focus"><code class="lang-Registry">SELECT 
+    transaction_id,
+    transaction_state,
+    name AS TransactionName,
+    transaction_begin_time
+FROM 
+    sys.dm_tran_active_transactions;</code></pre>
+</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error message when you try to visit admin or helpdesk portal page: &quot;HTTP Error 401.2 - Unauthorized&quot;</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:49:35.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:34.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9ZKCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9ZKCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:49:35.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:34.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Password Manager. When you try to visit the Admin or Helpdesk portal page, you may receive the following error message: &amp;quot;401 - Unauthorized: Access is denied due to invalid credentials&amp;qu...">
+    <meta name="Meta_Title__c" content="Error message when you try to visit admin or helpdesk portal page: &quot;HTTP Error 401.2 - Unauthorized&quot;">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1245">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZKCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error message when you try to visit admin or helpdesk portal page: &quot;HTTP Error 401.2 - Unauthorized&quot;</h1>
+    When you try to visit the Admin or Helpdesk portal page, you may receive the following error message:
+<div>&quot;401 - Unauthorized: Access is denied due to invalid credentials&quot;</div>
+However Authentication settings are correct - Windows authentication is enabled, all other disabled.
+
+<hr></hr>
+
+The Integrated Windows authentication native module section of the <strong>ApplicationHost.config</strong> file or of the <strong>Web.config</strong> file is not valid.
+
+<hr></hr>
+
+<div>Add the Integrated Windows authentication native module in IIS Manager:</div>
+<div></div>
+<div>1. Open Internet Information Services (IIS) Manager;</div>
+<div>2. In the Connections pane, expand the computer that is running IIS, expand Web Sites, and then click Default Web Site.</div>
+<div>3. On the Default Web Site Home page, double-click Modules.</div>
+<div>4. In the Actions pane, click Add Native Module.</div>
+<div>
+
+5. In the Add Native Module dialog box, click to select the WindowsAuthenticationModule check box, and then click OK.
+
+If it is not present there, please create it:
+-  In the Connections pane, click on the computer node that is running IIS and then click Modules on the right;
+- In the Actions pane, click Configure Native Modules;
+- In the Configure Native Modules dialog box, click to Register;
+- Specify WindowsAuthenticationModule in the Name field and %windir%System32inetsrvauthsspi.dll under path, and then click OK.
+
+</div>
+</body>
+</html>

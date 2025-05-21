@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Directory Permissions Analyzer reports are outdated</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-04-25T10:44:22.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2023-05-08T10:19:12.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-04-25T10:45:08.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000HDhRCAW">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000HDhRCAW">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:19:12.000Z">
+    <meta name="LastPublishedDate" content="2023-04-25T10:45:08.000Z">
+    <meta name="Meta_Description__c" content="Active Directory Permissions Analyzer reports are outdated">
+    <meta name="Meta_Title__c" content="Active Directory Permissions Analyzer reports are outdated">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8571">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDhRCAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Active Directory Permissions Analyzer reports are outdated</h1>
+    <h1>Symptoms</h1>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Old data in the Active Directory Permissions Analyzer <b>(ADPA)</b> reports from deprecated Domains.<br>Example of the incorrect data:<br><img alt="Chart  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aiy" style="width: 541px;height: 332px;"></img></span></span></span>
+
+<h1>Cause</h1>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">ADPA Data is not cleared when running only the ADInventory (ADI): Category &gt;&gt; Drop Domain  Remove host domain related data from SQL server option seen under the following:<br><a href="https://helpcenter.netwrix.com/bundle/StealthAUDIT_11.5/page/Content/StealthAUDIT/Data_Collectors/ADInventory_Data_Collector/ADInventory_Query_Configuration/Category.htm" style="color: #0563c1;text-decoration: underline;" target="_blank">https://helpcenter.netwrix.com/bundle/StealthAUDIT_11.5/page/Content/StealthAUDIT/Data_Collectors/ADInventory_Data_Collector/ADInventory_Query_Configuration/Category.htm</a></span></span></span><br> 
+<h1>Resolution</h1>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">We will need to create a new Job to work with the APDA data in question.<br>To do so we can follow the steps below.</span></span></span>
+
+<ol><li style="margin-left: 2px;"><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Create a new Job in the StealthAUDIT (SA) console:</span></span></span> <span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">right click the <strong>Jobs Node</strong> in the left-hand window and select <strong>Create Job</strong>:</span></span></span></li></ol>
+
+<p><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;"><img alt="Graphical user interface, application  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aiz" style="width: 220px;height: 328px;"></img><br>Select the <strong>Local host</strong> in the jobs host list:</span></span></span></p>
+
+<p><br><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;"><img alt="Graphical user interface, application  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aj0" style="width: 597px;height: 406px;"></img></span></span></span></p>
+
+<ol start="2"><li style="margin-left: 2px;"><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Click on the <strong>Create Query</strong>:</span></span></span><br>	<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;"><img alt="Graphical user interface, application, Word  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aj1" style="width: 602px;height: 339px;"></img></span></span></span></li><li style="margin-left: 2px;"><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Configure the jobs query Properties.<br>	Under the <strong>Data Sources</strong> tab, select the <b>ADPERMISSIONS</b> option from the dropdown menu then click on <strong>Configure</strong>.<br>	<img alt="Graphical user interface, application, Word  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aj2" style="width: 600px;height: 368px;"></img><br>	<br>	Select <strong>Remove Tables</strong> and click <strong>Next</strong>:<br>	<img alt="Graphical user interface, text, application, email  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aj3" style="width: 601px;height: 459px;"></img><br>	<br>	<br>	Check the Results option: Click <strong>Next</strong> </span><span style="font-family: Wingdings;">à</span><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;"> <strong>Finish</strong> </span><span style="font-family: Wingdings;">à</span><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;"><strong>Ok</strong>.<br>	<img alt="Graphical user interface, text, application  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDV&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084aj4" style="width: 601px;height: 459px;"></img></span></span></span></li><li style="margin-left: 2px;"><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Now Run the new Job.</span></span></span></li><li style="margin-left: 2px;"><span style="font-size: 12pt;"><span style="tab-stops: 150.95pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Once the job completes run the ADPA report, it should complete with an error.<br>	Examples:<br>	Invalid object name &#39;<strong>dbo.SA_ADPerms_PermissionsView</strong>&#39;.<br>	Invalid object name &#39;<strong>dbo.SA_ADPerms_Permissions*View</strong>&#39;.</span></span></span></span></li></ol>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">Now we can run the Active Directory Permissions Analyzer Job Group to repopulate for the active Domains. </span></span></span><br><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Segoe UI Semilight&quot;,sans-serif;">This will recreate the needed ADPA Tables and Views needed for the Reports.</span></span></span><br> 
+</body>
+</html>

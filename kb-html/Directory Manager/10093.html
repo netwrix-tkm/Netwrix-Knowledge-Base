@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Export and Sort All Smart Groups and Dynasties</title>
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XNAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-20T22:11:13.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002CWXKA2">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210253842294933?focus=true">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008F1XNAA0">
+    <meta name="CreatedDate" content="2025-05-14T17:57:57.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-05-14T17:57:40.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002CWXKA2">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002CWXKA2">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-05-14T18:03:34.000Z">
+    <meta name="LastPublishedDate" content="2025-05-14T18:03:34.000Z">
+    <meta name="Meta_Description__c" content="How To: Bulk Export and Sort All Smart Groups and Dynasties">
+    <meta name="Meta_Title__c" content="How To: Bulk Export and Sort All Smart Groups and Dynasties">
+    <meta name="OwnerId" content="0054u000008F1XNAA0">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10093">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002CWXKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Bulk Export and Sort All Smart Groups and Dynasties</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11</p>
+<h2>Overview</h2>
+<p>This article explains how to export all managed groups and Dynasties from Netwrix Directory Manager (formerly GroupID) to a CSV file and sort them by group type using the Directory Manager Management Shell. This process is useful for analyzing and managing large numbers of groups in your directory.<br><br></p>
+<p>The <strong>ManagedGroupType</strong> attribute identifies the type of each group and returns the following values:</p>
+<ul><li><strong>1</strong> = Non-managed group</li><li><strong>2</strong> = Smart Group</li><li><strong>3</strong> = Parent Dynasty</li><li><strong>4</strong> = Middle Dynasty</li><li><strong>5</strong> = Leaf Dynasty</li><li><strong>6</strong> = Password Expiry SmartGroup</li></ul>
+<h2>Instructions</h2>
+<ol><li>Launch the <strong>Directory Manager Management Shell</strong>.</li><li>Log in to the Management Shell with your service account.</li><li>Run the following cmdlet to retrieve Smart Groups and Dynasties, sort them by <strong>ManagedGroupType</strong>, and export them to a CSV file:
+<pre class="has-inner-focus">Get-SmartGroup | select DisplayName, ManagedGroupType | Sort-Object ManagedGroupType | Export-CSV &quot;C:\list.csv&quot; NoTypeInformation</pre>
+</li><li>The above cmdlet will:
+<ul><li>Retrieve all managed groups using <code class="lang-Registry">Get-SmartGroup</code>.</li><li>Select the <code class="lang-Registry">DisplayName</code> and <code class="lang-Registry">ManagedGroupType</code> attributes.</li><li>Sort the results in ascending order based on the <code class="lang-Registry">ManagedGroupType</code> attribute.</li><li>Export the sorted list to a CSV file named <strong>list.csv</strong> at <code class="lang-Registry">C:\list.csv</code>.</li></ul>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>You can change the export directory by updating the file path in the cmdlet (for example, <code class="lang-Registry">D:\exports\list.csv</code>).</p>
+</blockquote>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DvA9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BSFdi" alt="Exported CSV file example"></img> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DvA9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BSG3V" alt="Directory Manager Management Shell output"></img></li><li>To retrieve additional details, you can append more attributes to the cmdlet. Example attributes include:
+<ul><li><code class="lang-Registry">smartGroupType</code></li><li><code class="lang-Registry">expiration</code></li><li><code class="lang-Registry">managedBy</code></li><li><code class="lang-Registry">whenCreated</code></li><li><code class="lang-Registry">UPN</code></li><li><code class="lang-Registry">criteria</code></li><li><code class="lang-Registry">SearchContainer</code></li><li><code class="lang-Registry">SearchContainersScopeList</code></li><li><code class="lang-Registry">Identity</code></li><li><code class="lang-Registry">ShouldReturnCollection</code></li><li><code class="lang-Registry">MaxItemsToDisplay</code></li><li><code class="lang-Registry">ObjectType</code></li><li><code class="lang-Registry">LdapFilter</code></li><li><code class="lang-Registry">SmartFilter</code></li></ul>
+</li></ol>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security log settings do not apply via GPO</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000004OzLTAA0">
+    <meta name="ArticleCreatedDate" content="2023-05-16T08:52:42.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000004OzLTAA0">
+    <meta name="CreatedDate" content="2023-05-16T12:51:47.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-05-16T11:16:29.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000HDk6CAG">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000HDk6CAG">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-05-16T12:53:50.000Z">
+    <meta name="LastPublishedDate" content="2023-05-16T11:16:29.000Z">
+    <meta name="Meta_Description__c" content="A registry setting preventing security log size change via GPO">
+    <meta name="Meta_Title__c" content="Setting max security event log size via registry">
+    <meta name="OwnerId" content="00570000004OzLTAA0">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8584">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDk6CAG.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Security log settings do not apply via GPO</h1>
+    <h1>Symptoms</h1>
+When configuring maximum security event log size via Group Policy, you may notice that after the policy is applied, the log size on a specific computer is still not set to the value specified in the GPO (Group Policy Object).
+
+<h1>Cause</h1>
+A legacy registry setting overwrites the GPO. 
+
+<h1>Resolution</h1>
+Open a regedit on the problematic server and check if the following key exists:
+
+<pre class="ckeditor_codeblock">
+KEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security\</pre>
+The values inside this key, like <strong>MaxSize</strong>, are legacy and usually set by ADMX templates. Check in your current domain and local policies applied to the problematic computer, if the following section is configured:<br><strong>Computer Configuration </strong>&gt;<strong> Administrative Templates </strong>&gt;<strong> Windows Components</strong> &gt;<strong> Event Log Service </strong>&gt;<strong> Security</strong><br>The easiest way to find the right policy is using a gpresult tool.<br>To fix the issue, simply set the policy back to <strong>Not configured</strong> and execute gpupdate.
+</body>
+</html>

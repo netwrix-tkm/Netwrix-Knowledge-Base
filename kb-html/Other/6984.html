@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIWindowsAgent_3.4.2.166_4.0.0.682</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:28:49.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:10:22.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:28:49.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IisCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IisCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:10:22.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:28:49.000Z">
+    <meta name="Meta_Description__c" content="360008877892">
+    <meta name="Meta_Title__c" content="SIWindowsAgent_3.4.2.166_4.0.0.682">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6984">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IisCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SIWindowsAgent_3.4.2.166_4.0.0.682</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> adtrace logs filling domain controllers disk space</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:  </span></strong>adtrace logs filling domain controllers disk space<br><b><i>Before fix:  </i></b>Events were logged to AdTrace logs when IPC buffer is full. Even when logging.ini has trace set to &#39;FALSE&#39;<br><strong><i><span style="font-family: calibri,sans-serif;">After fix: </span></i></strong>
+</p><ul><li>&#39;update code to NOT write actual events to log if IPC buffer is full even when logging.ini has trace set to &#39;FALSE&#39;
+</li><li>log &quot;HookNlpLogonSamLogon: exiting, auth monitoring disabled&quot; on Debug level only
+</li><li>remove &quot;valid address wasn&#39;t found&quot;
+</li><li>move &quot;read error, assuming pipe broken and reconnecting... &quot; to Debug level</li></ul> <br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>3.3          No Patch created at this time<br>3.4.0      No Patch created at this time<br>3.4.1      No Patch created at this time<br>3.4.2      SIWindowsAgent_3.4.2.166_SI-3256<br>4.0.0      SIWindowsAgent_4.0.0.682_SI-3256<br> <p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Stop SIWindowsAgent service<br>2. Extract attached archive to the &quot;C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder<br>3. Start SIWindowsAgent service<br> </p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 3.4.2, 4.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3256<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> SI 3.4.2.166
+SI 4.0.0.682<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1531<br></p>
+</body>
+</html>

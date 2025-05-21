@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Connection in Active Directory Sync Integration Fails</title>
+    <meta name="visibility" content="public_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="threat_manager">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-09-20T14:01:24.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-10-01T10:15:11.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-09-20T14:02:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001RRBKA2">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001RRBKA2">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-10-01T11:00:31.000Z">
+    <meta name="LastPublishedDate" content="2024-10-01T11:00:31.000Z">
+    <meta name="Meta_Description__c" content="Test Connection in Active Directory Sync Integration Fails">
+    <meta name="Meta_Title__c" content="Test Connection in Active Directory Sync Integration Fails">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9279">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001RRBKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Test Connection in Active Directory Sync Integration Fails</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>Refer to the following symptoms present in your environment:</p>
+
+<ul><li>
+	<p>In Netwrix Threat Manager (NTM), the test connection fails when you attempt to configure the Active Directory Sync Integration.</p>
+	</li><li>
+	<p>The Threat Manager Console is configured to use the HTTPS protocol.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The Active Directory Service is misconfigured and cannot be connected to via HTTPS.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Edit the Active Directory Service configuration to implement the HTTPS protocol. Refer to the following steps:</p>
+
+<ol><li>
+	<p>Proceed to the Web Service folder and locate the <code>appsettings.json</code> file to manage the service settings. Refer to the following default location:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\Program Files\Stealthbits\StealthDEFEND\WebService</code></pre>
+	</li><li>
+	<p>Locate the <code>&quot;ADService&quot;</code> node and alter the <code>Scheme</code> value to state <code>https</code>. Refer to the following example:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;ADService&quot;: {
+&quot;Host&quot;: &quot;localhost&quot;,
+&quot;Scheme&quot;: &quot;https&quot;,
+&quot;Port&quot;: &quot;55556&quot;
+},</code></pre>
+	</li><li>
+	<p>Locate or create the <code>JWT</code> node. Specify the relevant certificate values. Refer to the following example:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;Jwt&quot;: {
+    &quot;CertificateFile&quot;: &quot;C:\\ProgramData\\Stealthbits\\StealthDEFEND\\WebService\\%certificateName%.pfx&quot;,
+    &quot;CertificatePassword&quot;: &quot;%password%&quot;,
+    &quot;CertificateThumbprint&quot;: &quot;%thumbprint%&quot;,
+    &quot;Version&quot;: 2
+},</code></pre>
+	</li><li>
+	<p>Save the changes.</p>
+	</li></ol>
+
+<p>Refer to the following example of the <code>appsettings.json</code> file:</p>
+
+<div><img height="317" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000005sxR&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000007sh3x" width="688"></img></div>
+</div>
+</body>
+</html>

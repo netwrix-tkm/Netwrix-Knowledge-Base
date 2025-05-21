@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disconnected-mode password reset</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:00.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-07-11T11:51:29.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9dxCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9dxCAC">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-11T11:51:48.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Password Manager - Logon Prompt Extension: resetting password with no access to the Domain (offline mode).">
+    <meta name="Meta_Title__c" content="Disconnected-mode password reset">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2817">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dxCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Disconnected-mode password reset</h1>
+    <div>The disconnected-mode reset enables the GINA extension on the Windows logon screen to reset a user&#39;s cached password, even when the machine is not connected to the domain.</div>
+<div>Netwrix Password Manager is able to reset password in a local cache if both of the following is true:</div>
+<ol><li>The Password manager Logon Prompt Extension is installed</li><li>The user is enrolled through the local enrollment wizard, which is a part of the Logon Prompt Extension.</li></ol>
+<div>In this case, if the Password Manager server cannot be reached, the Password Manager client can reset password locally, in the cache, but this password will be applied only to the current machine and will become invalid as soon as this machine connects back to the domain.</div>
+<div></div>
+<div>To be sure that all users enroll through the enrollment wizard, enable force enrollment by creating the key PRM_SuppressLaterEnrollment with the value of 1 in HKLMSoftwareWow6432NodePoliciesNetWrixPassword Manager (Wow6432Node only for x64 OS).</div>
+<div></div>
+<div>If you want to prohibit the reset of password in the local cache create DWORD PRM_ResetCredentialsCache with the value of 0 in HKLMSoftwareWow6432NodePoliciesNetWrixPassword Manager (Wow6432Node only for x64 OS).</div>
+<div></div>
+<div>All the above keys can be applied to all machines via Group Policy, using the template provided with Netwrix Password Manager.</div>
+<div>Refer to the paragraph 3.3 procedure 4 of Administrators guide for detailed information on applying the template:</div>
+<div><a href="https://www.netwrix.com/download/documents/NetWrix_Password_Manager_Administrator_Guide.pdf" target="_blank">https://www.netwrix.com/download/documents/NetWrix_Password_Manager_Administrator_Guide.pdf</a>.</div>
+</body>
+</html>

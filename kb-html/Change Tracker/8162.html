@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to install the Change Tracker Pre-Requisit Server Roles &amp; Features using Powershell</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:41:38.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:17:22.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:41:38.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JXCCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JXCCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:17:23.000Z">
+    <meta name="LastPublishedDate" content="2022-04-12T16:06:18.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to install the Change Tracker Pre-Requisit Server Roles &amp; Features using Powershell">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8162">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JXCCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to install the Change Tracker Pre-Requisit Server Roles &amp; Features using Powershell</h1>
+    <h5 id="HowtoinstalltheChangeTrackerPre-RequisitServerRoles&amp;FeaturesusingPowershell-ThisisonlyapplicableforWindowsServer2012R2orLaterversions-EarlierversionssuchasServer2008R2willnotbeabletorunthisscript.">This is only applicable for Windows Server 2012R2 or Later versions - Earlier versions such as Server 2008R2 will not be able to run this script.</h5><p><br></p><p>Below you will find the link to the powershell script that will install the prerequisite roles and features. If you cannot download the powershell scrit - a .TXT file has been attached that can be renamed </p><p><br></p><pre>Powershell Script - PS1: <a href="/wiki/download/attachments/30539813/Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.ps1?version=1&amp;modificationDate=1505166531068&amp;cacheVersion=1&amp;api=v2" target="_blank">Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.ps1</a></pre><pre>Powershell Script - TXT: <a href="/wiki/download/attachments/30539813/Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.txt?version=1&amp;modificationDate=1505166298388&amp;cacheVersion=1&amp;api=v2" target="_blank">Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.txt</a></pre><p><br></p><p>In the case that you have manually installed the roles and features - the script can be run to make sure that nothing was missed. If something was missed during the manual process, it will install it; otherwise it will skip over it.</p><h3 id="HowtoinstalltheChangeTrackerPre-RequisitServerRoles&amp;FeaturesusingPowershell-Hereistousethescript:">Here is to use the script:</h3><blockquote><p>If you have decided to go with the TXT version - Please rename this from <strong><span style="color: rgb(255,0,0);">Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.txt</span> TO <span style="color: rgb(0,128,0);">Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.ps1</span></strong></p></blockquote><p><br></p><ol><li><p>open powershell as administrator, and navigate to the script directory using a &quot;cd&quot; command - For the downloads folder, an example is below:</p></li></ol><pre>              a.  cd &quot;C:\Users\My Username\Downloads&quot;</pre><p>       2. Issue the following Command:</p><pre>              a.  <strong>./Gen7-Roles-and-Features-Install-Script-Server-2012-and-Later.ps1</strong></pre><p><br></p><p><strong>Note:</strong> you may need to issue a &quot;Set-ExecutionPolicy Unrestricted&quot; command prior to running the powershell script. Once complete, to reset this to default, please run a &quot;Set-ExecutionPolicy Restricted&quot; command.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" width="900" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKIV&amp;d=%2Fa%2F4u000000LzV7%2F6PXw6JNc4laSCunAPM_B3VplcWwYPs5kMDV1Rx1h_tY&amp;asPdf=false"></img></span></p><p><br><strong>Also:</strong> You may also need to allow powershell to run an unsigned script if you have downloaded the &quot;.ps1&quot; - You can go ahead and type in &quot;R&quot; and hit enter.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="900" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK87&amp;d=%2Fa%2F4u000000LzOv%2Fkz3xju4nCEW6RCceZ6DPG4cHFqBmRs3FfFvaRWldJ6g&amp;asPdf=false"></img></span></p>
+</body>
+</html>

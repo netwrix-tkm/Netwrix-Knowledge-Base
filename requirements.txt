@@ -1,0 +1,4 @@
+pandas
+html2markdown
+python-slugify
+python-frontmatter 

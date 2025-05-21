@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Server name instead of User in reports</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:09.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:49:53.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:41.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9ZzCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9ZzCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:49:53.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:41.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Auditor report shows Exchange server name instead of user name in the Who changed column for group membership changes.  Default Exchange 2013 Administrator Audit Log parameter LogLevel">
+    <meta name="Meta_Title__c" content="Exchange Server name instead of User in reports">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1284">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZzCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exchange Server name instead of User in reports</h1>
+    Netwrix Auditor report shows Exchange server name instead of user name in the Who changed column for group membership changes.
+<hr></hr> This happens because by default LogLevel parameter of the Administrator Audit Log is set to None, and the <code>CmdletName</code>, <code>ObjectName</code>, <code>Parameters</code> (values), and the <code>Caller</code>, <code>Succeeded</code>, and <code>RunDate</code> properties are included in log entries. But the data required to show correct Who changed is missing because <code>ModifiedProperties</code> (old and new) and <code>ModifiedObjectResolvedName</code> properties are NOT included in the log entries.
+
+<hr></hr> In order to solve this issue, the LogLevel parameter should be changed from None to Verbose to provide <code>ModifiedProperties</code> (old and new) and <code>ModifiedObjectResolvedName</code> properties. To enable the parameter, run the following cmdlet with Exchange Management Shell: <strong>Set-AdminAuditLogConfig -LogLevel Verbose</strong><br>The output should be like this:<br><span style="font-size: 12px;"><span style="font-family: verdana,geneva,sans-serif;"><span style="color: #ffff00;"><span style="background-color: #000000;">[PS]</span></span> <span style="color: #a9a9a9;"><span style="background-color: #000000;">C:Windowssystem32&gt;Set-AdminAuditLogConfig -LogLevel Verbose</span></span> <span style="color: #ffff00;"><span style="background-color: #000000;">WARNING: The admin audit log configuration change you specified could take up to 60 minutes to take effect.</span></span></span></span><br>After that run the <strong>Get-AdminAuditLogConfig</strong> cmdlet and check that LogLevel is set to verbose now:<br><span style="color: #a9a9a9;"><span style="font-size: 12px;"><span style="font-family: verdana,geneva,sans-serif;"><span style="background-color: #000000;">LogLevel : Verbose</span></span></span></span>
+</body>
+</html>

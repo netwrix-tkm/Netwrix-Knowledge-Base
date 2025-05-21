@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting WMI</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:42:20.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:35.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:42:20.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IvSCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IvSCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:35.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:42:20.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Troubleshooting WMI">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7327">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IvSCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Troubleshooting WMI</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Suggested steps for troubleshooting WMI issues</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> If you receive wmi related errors, here&#39;s where to start:</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong>  <br> <span style="color: #1f4e79;">Is there a firewall in place?  </span></p>
+<p> <span style="color: #1f4e79;">Verify you have permissions to wmi:  </span></p>
+<p> <br><strong><span style="color: #2a2a2a;"><span style="font-family: inherit;"><span style="font-size: 10pt;">Permission for the user to the WMI namespace</span></span></span></strong><br> </p>
+<ol><li><span style="color: #2a2a2a;"><span style="font-family: verdana,sans-serif;"><span style="font-size: 10pt;">Open WMImgmt.msc</span></span></span></li><li><span style="color: #2a2a2a;"><span style="font-family: verdana,sans-serif;"><span style="font-size: 10pt;">Go to the Properties of WMI Control</span></span></span></li><li><span style="color: #2a2a2a;"><span style="font-family: verdana,sans-serif;"><span style="font-size: 10pt;">Go to the Security Tab</span></span></span></li><li><span style="color: #2a2a2a;"><span style="font-family: verdana,sans-serif;"><span style="font-size: 10pt;">Select &quot;Root&quot; and open &quot;Security&quot;</span></span></span></li><li><span style="color: #2a2a2a;"><span style="font-family: verdana,sans-serif;"><span style="font-size: 10pt;">Ensure &quot;Authenticated Users&quot; has &quot;Execute Methods&quot;, &quot;Provider Right&quot; and &quot;Enable Account&quot; right; ensure Administrators has all permission.</span></span></span></li></ol>
+<div style="margin-left: 40px;"> <br><span style="color: #1f4e79;">(from here: <a href="https://social.technet.microsoft.com/Forums/Windows/en-US/4f33837b-1cb1-4648-85b1-3ba87cbfe93e/wmi-remote-access-denied?forum=winserverManagement" target="_blank">https://social.technet.microsoft.com/Forums/Windows/en-US/4f33837b-1cb1-4648-85b1-3ba87cbfe93e/wmi-remote-access-denied?forum=winserverManagement</a>)</span><br><span style="color: #1f4e79;">There&#39;s some other interesting steps to try in there too.  </span>
+</div>
+<div style="margin-left: 40px;"><span style="color: #1f4e79;"><br>Here is a list of common reasons for wmi connection failures:</span></div>
+<p><span style="color: #1f4e79;"><a href="https://msdn.microsoft.com/en-us/library/aa394603%28v=vs.85%29.aspx?f=255&amp;MSPPError=-2147217396" target="_blank">https://msdn.microsoft.com/en-us/library/aa394603%28v=vs.85%29.aspx?f=255&amp;MSPPError=-2147217396</a></span><br> <br> <br> <br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1253</p>
+</body>
+</html>

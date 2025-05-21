@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo - Steve&#x27;s Count Quirk</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T01:00:43.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:18:19.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T01:00:43.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JgECAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JgECAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:19.000Z">
+    <meta name="LastPublishedDate" content="2022-02-07T01:00:43.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Mongo - Steve&#x27;s Count Quirk">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8309">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JgECAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Mongo - Steve&#x27;s Count Quirk</h1>
+    <p>I just wanted to share this with you as it was something I saw today that didnt seem to make sense.</p><p> </p><p>I wanted to see how many documents were in the background task queue so executed : </p><p> </p><p>&gt; db.BackgroundTaskQueue.count();</p><p>156</p><p> </p><p>yet breaking this down by task type revealed a totally different figure :</p><p> </p><p>&gt; db.BackgroundTaskQueue.aggregate([ { $group: {_id:  { t : &quot;$_t&quot; }, count: { $sum : 1 } } } ]);</p><p>{ &quot;_id&quot; : { &quot;t&quot; : [ &quot;BackgroundTask&quot;, &quot;GenerateReportDataBackgroundTask&quot; ] }, &quot;count&quot; : 54 }</p><p>{ &quot;_id&quot; : { &quot;t&quot; : [ &quot;BackgroundTask&quot;, &quot;DeliverReportResultBackgroundTask&quot; ] }, &quot;count&quot; : 2 }</p><p>{ &quot;_id&quot; : { &quot;t&quot; : [ &quot;BackgroundTask&quot;, &quot;RenderReportBackgroundTask&quot; ] }, &quot;count&quot; : 3 }</p><p>{ &quot;_id&quot; : { &quot;t&quot; : [ &quot;BackgroundTask&quot;, &quot;CollateComplianceReportDataBackgroundTask&quot; ] }, &quot;count&quot; : 3 }</p><p> </p><p>(i.e 62)</p><p> </p><p>Browsing the collection in Compass also showed strange behaviour when I tried page past what was really there :</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKd8&amp;d=%2Fa%2F4u000000M09e%2FZCarcW_7npvu236NDKulwxvy3GVKMz5QCYYYbZkvelE&amp;asPdf=false"></img></span><p></p><p> </p><p>i.e just a blank page.</p><p> </p><p>Apparently this can happen when Mongo experiences a crash (although Im fairly sure my Mongo hadnt crashed at any point) but luckily the fix is easy :</p><p> </p><p>&gt; db.BackgroundTaskQueue.validate(true)</p><p>{</p><p>                        &quot;ns&quot; : &quot;NNTHubService.BackgroundTaskQueue&quot;,</p><p>                        &quot;nInvalidDocuments&quot; : NumberLong(0),</p><p>                        &quot;nrecords&quot; : 62,</p><p>                        &quot;nIndexes&quot; : 2,</p><p>                        &quot;keysPerIndex&quot; : {</p><p>                                                &quot;_id_&quot; : 62,</p><p>                                                &quot;SubmittedDateTimeUtc_1&quot; : 62</p><p>                        },</p><p>                        &quot;indexDetails&quot; : {</p><p>                                                &quot;SubmittedDateTimeUtc_1&quot; : {</p><p>                                                                        &quot;valid&quot; : true</p><p>                                                },</p><p>                                                &quot;_id_&quot; : {</p><p>                                                                        &quot;valid&quot; : true</p><p>                                                }</p><p>                        },</p><p>                        &quot;valid&quot; : true,</p><p>                        &quot;warnings&quot; : [ ],</p><p>                        &quot;errors&quot; : [ ],</p><p>                        &quot;extraIndexEntries&quot; : [ ],</p><p>                        &quot;missingIndexEntries&quot; : [ ],</p><p>                        &quot;ok&quot; : 1</p><p>}</p><p>&gt; db.BackgroundTaskQueue.count({});</p><p>62</p><p> </p><p> </p>
+</body>
+</html>

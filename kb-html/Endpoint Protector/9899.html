@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up a &quot;Report Only&quot; Content Aware Protection Policy</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:17.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B9FKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000001nViKIAU">
+    <meta name="AssignmentDate" content="2025-03-24T14:21:17.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:26:17.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B9FKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B9FKAU">
+    <meta name="LastModifiedById" content="005Qk000001nViKIAU">
+    <meta name="LastModifiedDate" content="2025-05-09T16:14:32.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9899">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B9FKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Setting up a &quot;Report Only&quot; Content Aware Protection Policy</h1>
+    <p>To complement the &quot;Allow All&quot; Device Control Policy, it is recommended that your next create a &quot;Report only&quot; Content Aware Protection</p>
+<p>Policy. This is your first step in understanding the movement of files across your endpoints. This should only be used on a smaller scale and not all the computers as Report Only policies generate a lot of logs.</p>
+<p> </p>
+<h4><strong>How to create it:</strong></h4>
+<ol><li>Create a &quot;Report only&quot; CAP policy by navigating to Content Aware Protection -&gt; &quot;Content Aware Policies&quot; within the Endpoint Protector Management Console.</li><li>Click the &quot;Create Custom Policy&quot; button.</li><li>Define the OS Type, provide a Policy Name(it is suggested to include &quot;Reporting&quot; or &quot;Report only&quot; within the Name or Description), and be sure to select Report only for the &quot;Policy Action:&quot; field.</li><li>Scroll to the bottom of this page and choose the Save button - this action will return you to the Policies viewing window.</li></ol>
+<p>If you are managing more than one Operating System type in the environment, follow the same procedure to create the Policy framework(s) for the other platform(s).</p>
+<p> </p>
+<p>After your Report only policy framework(s) has been established, select your first policy within the window and choose the icon for edit. This &quot;Edit&quot; icon can be found on the right-hand side of the policy(look for the pen and paper icon). This will bring you back to the&quot;Edit Policy&quot; page where you will select the Exit Points of focus, and the items which you may later deliver blocking restrictions against.</p>
+<p> </p>
+<p>Although the terminology used in this policy is &quot;Denylists&quot;, by setting the policy to Report only you are implementing no restrictions. In a later section, you will be guided through creating locking actions for your policies so that automatic remediation occurs.</p>
+<p> </p>
+<p>Additionally, since the CAP feature module focuses on in-motion objects solely, it consumes minimal endpoint resources. With this said, it is best to set within the policy only the variables which are found in a given environment where agents are to be installed. This will ensure no unnecessary processing takes place at the point of detection.</p>
+<p> </p>
+<p>Most commonly, the Applications tab under &quot;Exit Points&quot; is used for common email clients and/or web browsers in a given environment.</p>
+<p> </p>
+<p>Alongside this, the Storage Devices tab can be used if you intend to later restrict the transfer of sensitive files to storage media.</p>
+<p> </p>
+<p>The Denylists section provides methods for determining which objects to focus classification and determination on. If it is desired to audit activity around given files, the &quot;File Type&quot; tab will provide several options for common files types in systems. If the focus is more regulatory-bound, using the &quot;Predefined Content&quot; tab may be more appropriate.</p>
+<p> </p>
+<p>If true customization is required the &quot;Custom Content&quot; tab allows for mapping of items such as list file entries, or the Regular Expression tab allows for the use of logical operators.</p>
+<p> </p>
+<p>A best practice with regards to your Denylists selection may include Credit Card Numbers(CCN), Social Security Numbers (SSN), or even Personal Identifiable Information (PII). Sample entries or files can be found at the site:</p>
+<p>DLPTest.com: <a href="https://dlptest.endpointprotector.com" target="_blank">https://dlptest.endpointprotector.com</a> under the Sample Data section.<br><br></p>
+<p>At this point, you are able to scroll to the bottom of the Policy edit page and choose to Save again - do this for each &quot;Report only&quot; policy created. Once you have progressed through the section for Deploying Agents, you will return to the policies created here and select the target Client Systems that will utilize these policies.</p>
+</body>
+</html>

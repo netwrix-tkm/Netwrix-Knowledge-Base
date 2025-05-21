@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emails Are Missing in Password Expiration Notifier</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-03-25T06:28:14.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-04-02T12:10:53.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-04-02T12:10:49.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000XATKA2">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000XATKA2">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-04-02T12:11:02.000Z">
+    <meta name="LastPublishedDate" content="2024-04-02T12:10:49.000Z">
+    <meta name="Meta_Description__c" content="Emails Are Missing in Password Expiration Notifier">
+    <meta name="Meta_Title__c" content="Emails Are Missing in Password Expiration Notifier">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9085">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000XATKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Emails Are Missing in Password Expiration Notifier</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Email notifications and reports from Netwrix Password Expiration Notifier (PEN) are missing.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <strong>Display the following From address in email notifications</strong> option is enabled for a service account with insufficient permissions.</p>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Disable the <strong>Display the following From address in email notifications</strong> option in PEN:</p>
+
+	<ol><li>
+		<p>Launch Password Expiration Notifier, select the affected monitoring plan, and click <strong>Edit</strong>.</p>
+		</li><li>
+		<p>In the <strong>Notifications</strong> tab, uncheck the <strong>Display the following From address in email notifications</strong> checkbox, and click <strong>Save</strong>.</p>
+		</li></ol>
+	</li><li>
+	<p>Grant the appropriate <strong>Send As</strong> or <strong>Send on Behalf</strong> permissions to the service account sending emails in Password Expiration Notifier.</p>
+	</li></ul>
+</div>
+</body>
+</html>

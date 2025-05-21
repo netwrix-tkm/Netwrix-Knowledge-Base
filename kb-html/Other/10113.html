@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Hide Synchronize, Reports, and Entitlements Tabs from the Portal</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XNAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-27T19:35:32.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002F2zKAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1XNAA0">
+    <meta name="AssignedToId" content="0054u000008F1XNAA0">
+    <meta name="AssignmentDate" content="2025-03-27T19:35:32.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1XNAA0">
+    <meta name="CreatedDate" content="2025-03-27T19:35:32.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002F2zKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002F2zKAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-09T13:00:30.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="How To: Hide Synchronize, Reports, and Entitlements Tabs from the Portal">
+    <meta name="Meta_Title__c" content="How To: Hide Synchronize, Reports, and Entitlements Tabs from the Portal">
+    <meta name="OwnerId" content="0054u000008F1XNAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10113">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002F2zKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Hide Synchronize, Reports, and Entitlements Tabs from the Portal</h1>
+    <h2><strong>Applies To:</strong></h2>
+<p>Netwrix Directory Manager 11  Portal</p>
+<h2><strong>Business Scenario:</strong></h2>
+<p>In the <strong>Directory Manager User Portal</strong>, the <strong>Synchronize, Reports, and Entitlements</strong> tabs are displayed on the navigation bar. Organizations that do not want to provide users access to these options can hide them.</p>
+<p>Directory Manager allows administrators to set an <strong>access level</strong> for each option on the navigation bar, determining which user roles can view specific links.</p>
+<p>In this article, we will walk through the process of hiding the <strong>Reports, Entitlements, and Synchronize</strong> tabs from the navigation bar.</p>
+<p style="text-align: center;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D16L&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BbHoM" alt=""></img></p>
+<h2><strong>Solution:</strong></h2>
+<p>To restrict access to these tabs, you need to modify their <strong>access level settings</strong> in the <strong>Admin Center</strong>.</p>
+<h2><strong>Steps to Hide the Tabs from the Navigation Bar:</strong></h2>
+<ol><li>
+<p>Go to the <strong>Admin Center</strong>.</p>
+</li><li>
+<p>Navigate to <strong>Applications</strong>.</p>
+</li><li>
+<p>Open the <strong>Settings</strong> of the Portal where you want to apply the changes.</p>
+</li></ol>
+<p style="text-align: center;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D16L&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BbBHX" alt=""></img></p>
+<ol start="4"><li>
+<p>Go to <strong>Design Settings</strong> and expand <strong>Identity Store</strong>.</p>
+</li><li>
+<p>Select <strong>Navigation Bar</strong>.</p>
+</li><li>
+<p>Click the <strong>Dropdown List</strong> and select <strong>External Links</strong>.</p>
+</li></ol>
+<p style="text-align: center;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D16L&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BbIFm" alt=""></img></p>
+<ol start="7"><li>
+<p>Edit <strong>Entitlements</strong>.</p>
+</li><li>
+<p>In the <strong>Access Level</strong> list, select a security role:</p>
+<ul><li>
+<p>The <strong>Entitlements</strong> link will be visible to users of this role and any roles with a higher priority.</p>
+</li><li>
+<p>To <strong>hide</strong> the link from all users, select <strong>Never</strong>.</p>
+</li><li>
+<p>If you want only <strong>Administrators</strong> to see it, choose <strong>Administrator</strong> (users in roles below Administrator will not have access).</p>
+</li></ul>
+</li></ol>
+<p style="text-align: center;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D16L&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BbH6o" alt=""></img></p>
+<ol start="9"><li>
+<p>Click <strong>OK</strong> and <strong>Save</strong> the changes.</p>
+</li><li>
+<p>Log in to the <strong>Portal</strong> to verify the changes.</p>
+</li></ol>
+<p style="text-align: center;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D16L&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BbJN7" alt=""></img></p>
+<ol start="11"><li>
+<p>Repeat the same process for the <strong>Reports</strong> and <strong>Synchronize</strong> tabs:</p>
+<ul><li>
+<p>Edit each one individually.</p>
+</li><li>
+<p>Change the <strong>Access Level</strong> setting as needed.</p>
+</li></ul>
+</li></ol>
+<p>Once configured, users without the required access level will no longer see the <strong>Reports, Entitlements, and Synchronize</strong> tabs in the portal.<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D16L&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BbJYP" alt=""></img> </p>
+</body>
+</html>

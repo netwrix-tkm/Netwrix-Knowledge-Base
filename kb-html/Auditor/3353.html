@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout Expired Error on SharePoint Core Service Deployment</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-12-26T15:32:32.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:27.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9YfCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9YfCAK">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-12-26T15:33:03.000Z">
+    <meta name="LastPublishedDate" content="2023-12-26T14:33:27.000Z">
+    <meta name="Meta_Description__c" content="Version(s) 6.5 and older, 7.0-8.5, 9.0-9.7 The &amp;quot;Timeout Expired&amp;quot; error is returned on Netwrix Auditor Agent for SharePoint deployment.">
+    <meta name="Meta_Title__c" content="Netwrix: Error is returned on Netwrix Auditor Agent for SharePoint deployment">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1201">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9YfCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Timeout Expired Error on SharePoint Core Service Deployment</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The <code>Timeout Expired</code> error is prompted during the deployment of <strong>Netwrix Auditor for SharePoint Core Service</strong>.</p>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ol><li>
+	<p>One or several servers are unreachable.</p>
+	</li><li>
+	<p>The SharePoint Administration (SPAdminV4) service is not started in any of the servers.</p>
+	</li><li>
+	<p>Your SharePoint farm exceeds the recommended capacity limits.</p>
+	</li><li>
+	<p>The .NET Framework instance installed in the SharePoint Central Administration host of the audited SharePoint farm is outdated.</p>
+	</li></ol>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ol><li>
+	<p>Make sure the servers within your SharePoint farm are available.</p>
+	</li><li>
+	<p>Enable SharePoint Administration Service in your SharePoint farm servers ? refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/SharePoint/Overview.htm#enable_sharepoint_administration_service" target="_self">Configuration ? SharePoint · v10.6</a>.</p>
+	</li><li>
+	<p>Review the boundaries and limits applicaple to the SharePoint instance set up in your environment ? learn more in <a href="https://learn.microsoft.com/en-us/sharepoint/install/software-boundaries-limits-2019" target="_blank">Software Boundaries and Limits for SharePoint Servers 2016 and 2019 ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>Refer to the following article to learn more about software requirements for SharePoint monitoring: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/Software.htm" target="_blank">Requirements ? Software Requirements · v10.6</a>.</p>
+	</li></ol>
+
+<p>For additional information on manual deployment of SharePoint Core Service, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Install/SharePointCoreService.htm" target="_self">Installation ? Install for SharePoint Core Service · v10.6</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/SharePoint/Overview.htm#enable_sharepoint_administration_service" target="_self">Configuration ? SharePoint · v10.6</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sharepoint/install/software-boundaries-limits-2019" target="_blank">Software Boundaries and Limits for SharePoint Servers 2016 and 2019 ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/Software.htm" target="_blank">Requirements ? Software Requirements · v10.6</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Install/SharePointCoreService.htm" target="_self">Installation ? Install for SharePoint Core Service · v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

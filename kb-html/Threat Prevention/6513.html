@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enabling debug logging on the SteathINTERCEPT Windows agent</title>
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:18:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000I2dCAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T04:44:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:18:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000I2dCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000I2dCAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T04:49:06.000Z">
+    <meta name="LastPublishedDate" content="2022-04-13T15:38:24.000Z">
+    <meta name="Meta_Description__c" content="360008304132">
+    <meta name="Meta_Title__c" content="Enabling debug logging on the SteathINTERCEPT Windows agent">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6513">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I2dCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Enabling debug logging on the SteathINTERCEPT Windows agent</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary: </span></strong><span class="wysiwyg-font-size-large">Enabling debug logging on the SteathINTERCEPT Windows agent</span></p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> How to enable debug logging on the SteathINTERCEPT Windows agent.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+
+<p>There are two options. </p>
+
+<p><strong>Option 1.</strong><br>-Access the server with the SI Windows agent running.<br>-Open the Windows Agent installation folder. The default location is ...\STEALTHbits\StealthINTERCEPT\SIWindowsAgent\</p>
+
+<p>-Edit the file named SIWindowsAgent.log.config in favorite text editor.<br>-Change WARN to DEBUG in the following portion of that file:</p>
+
+<p><img alt="LogConfig.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DmDJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004d1hf"></img><br>-Save the .log.config file and restart the SIWindowsAgent service.<br><br><strong>Option 2.</strong><br>-Open Threat Prevention Administration Console on the SI management server.<br>-Select &#39;Agents&#39;<br>-Click on the Pencil icon at the top left of the window.<br>-Change the drop-down under New Agent Log Level to DEBUG<br>-Highlight desired agents you wish to change the log level of from the list below..<br>-Click the Update Log Levels button.</p>
+
+<p>After collecting debug logs, set Threat Prevention Windows agent logging back to WARN.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001064</p>
+</body>
+</html>

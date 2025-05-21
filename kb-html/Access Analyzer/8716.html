@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requested Federation Realm Object Does Not Exist</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-08-07T13:21:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000001110JCAQ">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-05-09T03:38:45.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-07T13:35:05.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001110JCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001110JCAQ">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T03:45:31.000Z">
+    <meta name="LastPublishedDate" content="2023-08-07T13:35:05.000Z">
+    <meta name="Meta_Description__c" content="Requested Federation Realm Object Does Not Exist">
+    <meta name="Meta_Title__c" content="Requested Federation Realm Object Does Not Exist">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8716">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001110JCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Requested Federation Realm Object Does Not Exist</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>After entering credentials in the login page, the following error is prompted:</p>
+
+<pre class="has-inner-focus">
+Sorry, but we&#39;re having trouble with signing you in.
+AADSTS50101:  The requested federation realm object %Object-ID% does not exist.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>A wrong IssuerURI within the <strong>Issuer</strong> field in the Security Assertion Markup Language (SAML) response is returned.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to the following steps to resolve the issue:</p>
+
+<ol><li>
+	<p>Connect to Azure AD using the MSONLINE module. To check if the module is installed, open PowerShell and execute the following command:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">get-module MSONLINE -ListAvailable</code></pre>
+
+	<ul><li>
+		<p>To install the module, refer to the article <a href="https://learn.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1#install-the-azure-ad-module" target="_blank">Azure Active Directory (MSOnline) ? Microsoft &#129125;</a>.</p>
+		</li></ul>
+	</li><li>
+	<p>Run the following commands to verify the preferred authentication protocol of the federated domain:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">$federationSettings=Get-MsolDomainFederationSettings -DomainName domain.com
+
+$federationSettings.PreferredAuthenticationProtocol</code></pre>
+
+	<ul><li>
+		<p>If the <code>PreferredAuthenticationProtocol</code> value shows <strong>WSFED</strong>, run the following command to update the IssuerURI:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">Set-MsolDomainFederationSettings -DomainName domain.com -IssuerUri &quot;value of federated realm object listed in the authentication failure message&quot;</code></pre>
+
+		<p>The IssuerURI value is listed by Azure AD in the authentication failure message.</p>
+		</li><li>
+		<p>If the <code>PreferredAuthenticationProtocol</code> value shows SAMLP (SAML Protocol), run the following command to update the IssuerURI:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">Set-MsolDomainFederationSettings -DomainName domain.com -IssuerUri &quot;value of federated realm object listed in the authentication failure message&quot; -PreferredAuthenticationProtocol samlp</code></pre>
+
+		<p>The IssuerURI value is listed by Azure AD in the authentication failure message.</p>
+		</li></ul>
+	</li></ol>
+</div>
+
+<blockquote>
+<p><span style="color: #ee0808;"><strong>IMPORTANT: </strong></span>The following error can be prompted once the IssuerURI was updated:</p>
+
+<pre class="has-inner-focus">
+Sorry, but we&#39;re having trouble with signing you in.
+AADSTS51004: The user account %User-Account-ID% does not exist in the %Directory% directory.
+To sign into this application, the account must be added to the directory.</pre>
+</blockquote>
+
+<div>
+<p>Refer to the following steps for possible solutions:</p>
+
+<ul><li>
+	<p>Log in Azure AD and delete the Azure application you&#39;re trying to register with the PowerShell script. Refer to the following link to see the list of apps: <a href="https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade" target="_blank">App registrations ? Microsoft Azure &#129125;</a>.</p>
+
+	<ul><li>
+		<p>Once you&#39;ve deleted the Azure application, rerun the PowerShell script to recreate the Azure app, and grant all required permissions. You should successfully get authenticated on Azure AD and be able to grant all permissions at the end of script job. Refer to the following article for the script: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JwWCAU.html" target="_blank">Access Analyzer SharePoint Online Automated Permissions Configuration</a>.</p>
+		</li></ul>
+	</li><li>
+	<p>Alternatively, you can remove the users account in the Azure AD Connect Server from the SYNC and re-add the User to the SYNC.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>This can only be performed by the administrative permissions on the Azure AD Connect SYNC Server.</p>
+	</blockquote>
+	</li></ul>
+</div>
+</body>
+</html>

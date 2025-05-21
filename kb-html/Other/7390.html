@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIC showing folders named something different (environmental causes)</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:45:23.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:23.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:45:23.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IeXCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IeXCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:23.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:45:23.000Z">
+    <meta name="Meta_Description__c" content="360008944451">
+    <meta name="Meta_Title__c" content="AIC showing folders named something different (environmental causes)">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7390">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IeXCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>AIC showing folders named something different (environmental causes)</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Administrator has deleted a disabled user&#39;s folders from a share on a file server, however when accessing the share resource from the AIC, those folder are still visible even after a full rescan and bulk import. FSAA scan job and bulk import shows no errors. Running below hotfixes did not help resolve, either.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> In this case even though the customer deleted a disabled users folder, there was still a duplicate folder of the same object name that was &quot;hidden&quot; in the same root directory on the share. It was hidden in the fact that instead of displaying the correct folder name in CIFS, it showed as a folder called &quot;Documents&quot;.  When we right clicked&gt;Properties and went to the security tab we could see that the &quot;Object Name&quot; was in fact named the same as the original folder structure. So, AIC was able to pick up on this and correctly display it as such.<br> <br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> A good way to see if CIFS is actually reporting the correct name of the folders displayed as either &quot;Documents&quot; or &quot;public Documents&quot; is to bring up file explorer in Windows and go to the share that contains those folders, choose another column header by right clicking on the columns and choosing .More, then locate and select the Filename attribute. Once you do this you will now see the true name of the folder. Issue seems to stem from something that Microsoft is doing or something that is CIFS related. In any case, it doesn&#39;t appear that StealthAUDIT is to blame.<br> <br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaqD&amp;d=%2Fa%2F4u000000LyyW%2FdBi9zLG4GfhQ4suDd_OT4lf9P0mcgKUTjkfMzA5UHfw&amp;asPdf=false" alt="mceclip0.png"></img><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> AIC<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> AIC - Entitlement Review;AIC - Remediate Open Shares;AIC - Reporter;SA - DC - FSAA - Activity;SA - DC - FSAA - Permissions<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> Windows File Servers (Likely not windows OS specific). Not Reproducible<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2380</p>
+</body>
+</html>

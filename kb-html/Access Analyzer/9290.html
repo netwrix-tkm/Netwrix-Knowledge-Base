@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Upgrade WorkflowAccess Information Center</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="content_type" content="ct_installupgrade">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-09-26T08:26:32.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001SzxKAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-05-05T10:17:37.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2024-09-26T08:47:19.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001SzxKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001SzxKAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T10:25:19.000Z">
+    <meta name="LastPublishedDate" content="2025-01-31T17:17:20.000Z">
+    <meta name="Meta_Description__c" content="Access Analyzer Upgrade WorkflowAccess Information Center">
+    <meta name="Meta_Title__c" content="Access Analyzer Upgrade WorkflowAccess Information Center">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9290">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001SzxKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Upgrade WorkflowAccess Information Center</h1>
+    <blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> Return to the main workflow page via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001T1ZKAU.html" target="_self">Access Analyzer Upgrade Workflow</a>.</p>
+<p>Return to the previous section via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001SyLKAU.html" target="_self">Access Analyzer Upgrade WorkflowPost-Upgrade</a>.</p>
+</blockquote>
+<h2 id="ovrvw">Overview</h2>
+<div>
+<p>This article lists the steps to perform the Access Information Center (AIC) upgrade.</p>
+</div>
+<h2 id="AICupg">Upgrade</h2>
+<div>
+<p>Refer to the following steps:</p>
+<ol><li>
+<p>Download the latest version of Netwrix AIC from the Netwrix Customer Portal in <a href="https://www.netwrix.com/my_products_int.html" target="_blank">My Products · Netwrix</a>.</p>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Unblock the installerin <strong>Properties</strong>, select the <strong>Unblock</strong> checkbox and save the changes.</p>
+</blockquote>
+</li><li>
+<p>To upgrade the AIC application to a newer version, simply run the new <code>AccessInformationCenter.msi</code> executable. You do not need to uninstall the existing version. See the <a href="https://helpcenter.netwrix.com/bundle/AIC_11.6/page/Content/Access/InformationCenter/Installation/Install.htm" target="_self">Install the Access Information Center</a> topic for additional information.</p>
+</li><li>
+<p>Hold <kbd>Shift</kbd>, right-click the latest AIC installer, and select <strong>Copy as path</strong>. In an elevated Command Prompt instance, paste the path and run it to start the installation.</p>
+</li><li>
+<p>Complete the installation.</p>
+</li></ol>
+</div>
+<h2 id="postAICupg">Post-Upgrade</h2>
+<div>
+<p>Refer to the following steps to complete the AIC upgrade:</p>
+<ol><li>
+<p>If you have SSL implemented, alter the <code>BindingURL</code> node of the AIC configuration file to work with HTTPS. Refer to the following example:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">&lt;add key=&quot;BindingUrl&quot; value=&quot;http://+:82&quot; /&gt;</code></pre>
+<ul><li>
+<p>If you have SSO implemented, alter the <code>AuthAllowWindowsAuthentication</code> node of the AIC configuration file to allow SSO. Refer to the following example:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">&lt;add key=&quot;AuthAllowWindowsAuthentication&quot; value=&quot;True&quot; /&gt;</code></pre>
+</li><li>
+<p>Refer to the following default path for the AIC configuration file:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">C:\Program Files\STEALTHbits\Access Information Center</code></pre>
+</li></ul>
+</li><li>
+<p>Have a user with the correct permissions log into the AIC to confirm the operability.</p>
+</li><li>
+<p>Verify the AIC Configuration settings to match the settings saved during the preparation phase.</p>
+</li><li>
+<p>Verify that the built-in admin for the AIC is either disabled or that the password has been changed.</p>
+</li></ol>
+</div>
+</body>
+</html>

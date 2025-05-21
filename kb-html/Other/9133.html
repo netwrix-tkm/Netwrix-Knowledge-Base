@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_value</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-15T10:45:28.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008ic83AAA">
+    <meta name="AssignedToId" content="0054u000008ic83AAA">
+    <meta name="AssignmentDate" content="2024-04-15T10:45:28.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-04-15T10:45:28.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000bHJKAY">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000bHJKAY">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-02-06T08:26:38.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="test_value">
+    <meta name="Meta_Title__c" content="test_value">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9133">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000bHJKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>test_value</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The hub service log file in Netwrix Change Tracker contains the following error:</p>
+
+<pre class="has-inner-focus">
+MongoDB.Driver.MongoConnectionException: An exception occurred while receiving a message from the server.
+
+System.IO.IOException: Unable to read data from the transport connection: 
+A connection attempt failed because the connected party did not properly respond after a period of time,
+or established connection failed because connected host has failed to respond.
+
+System.Net.Sockets.SocketException (10060): 
+A connection attempt failed because the connected party did not properly respond after a period of time,
+or established connection failed because connected host has failed to respond.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Requests between Change Tracker Hub and MongoDB instance time out.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Increase the IIS pool size and the timeout limit to prevent requests from timing out:</p>
+
+<ol><li>
+	<p>Stop your IIS instance. Run the following line in elevated Command Prompt:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">iisreset /stop</code></pre>
+	</li><li>
+	<p>Navigate to <code>C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) Hub\Configs\</code> and locate the <code>appsettings.Production.json</code> file.</p>
+	</li><li>
+	<p>Back up the file and open the original file. In the file, locate the following line:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;connectionString&quot;: &quot;mongodb://%IP_address%&quot;</code></pre>
+
+	<p>Edit the line to reflect the following changes:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;connectionString&quot;: &quot;mongodb://%IP_address%/?maxPoolSize=500&amp;connectTimeoutMS=120000&quot;</code></pre>
+	</li><li>
+	<p>Save the changes and start your IIS instance. Run the following line in elevated Command Prompt:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">iisreset /start</code></pre>
+	</li></ol>
+</div>
+</body>
+</html>

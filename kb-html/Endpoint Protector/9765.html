@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- Setting up SMTP - Gmail</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B4LKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000001nViEIAU">
+    <meta name="AssignmentDate" content="2025-03-19T17:26:01.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:26:04.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B4LKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B4LKAU">
+    <meta name="LastModifiedById" content="005Qk000001nViEIAU">
+    <meta name="LastModifiedDate" content="2025-04-25T09:45:48.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9765">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B4LKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- Setting up SMTP - Gmail</h1>
+    <p>To set up SMTP:</p>
+<p>- Please open the EPP Web Console<br>- Go to System Configuration -&gt; System Settings <br>- In the Email Server Settings, please choose SMTP from the Email Type field.<br>After that, please fill in all fields with the correct options, and make sure you use the correct port for the encryption type used.<br> E-mail Type: SMTP<br> Hostname: smtp.gmail.com<br> SMTP Port: 587<br> Require SMTP Authentication: (checked)<br> Username: add your email address<br> Password: add the app password generated in your Google Account as<br>previously detailed<br> Encryption Type: TLS<br> Send test email to my account: (checked)<br> No-reply email address: Default</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CrgU&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BuX4c"></img><br>Select Custom in the custom no-reply e-mail address, and you can either leave the default email address or fill in with your own.</p>
+<p>When using Gmail as your SMTP provider, please make sure you are using an App password instead of the account password.</p>
+<p>To create and use app passwords, please follow the steps from this link:<br><a href="https://security.google.com/settings/security/apppasswords" target="_blank">https://security.google.com/settings/security/apppasswords</a></p>
+<p>- Go to your Google Account.<br>- Select Security.<br>- Under &quot;Signing in to Google,&quot; select 2-Step Verification.<br>- At the bottom of the page, select App passwords.<br>- Enter a name that helps you remember where you will use the app password.<br>- Select Generate.<br>- To enter the app password, follow the instructions on your screen. The app password is the 16-character code that is generated on your device.<br>- Select Done.</p>
+<p>When all fields are filled, scroll to the bottom and press Save, then return and select &quot;send test email to my account&quot; and press Save again.<br>If all fields are correctly filled, after pressing sav,e you should see a green banner stating that a test email was sent</p>
+</body>
+</html>

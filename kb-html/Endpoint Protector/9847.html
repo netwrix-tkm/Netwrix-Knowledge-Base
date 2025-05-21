@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up a AD administrator sync</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B77KAE">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000001nViKIAU">
+    <meta name="AssignmentDate" content="2025-03-19T17:34:09.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:26:12.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B77KAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B77KAE">
+    <meta name="LastModifiedById" content="005Qk000001nViKIAU">
+    <meta name="LastModifiedDate" content="2025-05-09T16:03:14.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9847">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B77KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Setting up a AD administrator sync</h1>
+    <p> </p>
+<p>To bring your AD administrators to EPP you can set up an Active Directory Authentication feature.</p>
+<p> </p>
+<p>Please follow the below steps:</p>
+<ol><li>Please log into the EPP Web console and go to System Configuration -&gt; System Settings and in the Active Directory Authentication section please fill in the required fields.</li><li>Check the &quot;Enable Active Directory Authentication&quot; check box to enable the feature.</li><li>Select the connection type depending on your AD server settings.</li><li>Fill in the IP and port used by the server.</li><li>In the Domain Name field, just add the domain controller without an OU (ex. DDC=domain,DC=local for &quot;domain.local&quot;).</li><li>The account suffix used by the administrator directory (ex. @domain.local). In some cases, the domain will be required before the username (ex. DOMAIN\User).<br><br>Active Directory Administrators Group can contain any other groups of users except for the primary groups which are limited from this action by Microsoft. Only users that are part of this AD group will be synced and imported as Super Administrators for Endpoint Protector. Any additional administrators(with different access control levels) can be created manually from the System Administrators section.<br><br></li><li>Next scroll to the bottom of the page and press the &quot;Save button&quot; to save all changes. This action will prompt a banner at the top of the page with a success message.</li><li>Return to the Active Directory Authentication section and test the connection, and after confirming the connection is working you can press &quot;Sync AD Administrators&quot; to bring the administrator accounts into EPP.</li></ol>
+</body>
+</html>

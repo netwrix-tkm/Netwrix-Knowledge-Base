@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Auditing of Directory Service Access is not enabled for this DC.</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:58.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:47:56.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:38.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9XcCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9XcCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:47:56.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:38.000Z">
+    <meta name="Meta_Description__c" content="Auditing  Directory Service Access Report Error">
+    <meta name="Meta_Title__c" content="Error: Auditing of Directory Service Access is not enabled for this DC.">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1138">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XcCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Auditing of Directory Service Access is not enabled for this DC.</h1>
+    The product report contains error: &quot; DC collection warnings: Domain Controller. The message is: [ERROR] Auditing of Directory Service Access is not enabled for this DC.
+
+<hr></hr>
+
+The error indicates that auditing of Directory Service Access is not enabled for the specified domain controller.
+
+<hr></hr>
+
+To troubleshot this issue, log on to the Domain controller indicated in the error message and perform the following steps:
+<ol><li>Select<strong> Start -&gt; Run</strong> and type <strong>rsop.msc.</strong></li><li>Navigate to<strong> Computer Configuration -&gt; Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; Audit policy.</strong></li><li>Make sure <strong>Audit directory service acces</strong>s policy is set to<em> Success</em>.</li></ol>
+If these the policy is set to <em>Success</em> and still there are errors (red icon), perform the following steps:
+<ol><li>Select<strong> Start -&gt; Run</strong> and type <strong>secpol.msc.</strong></li><li>Navigate to<strong> Local Policies -&gt; Audit policy</strong>.</li><li>Make sure <strong>Audit directory service access</strong> policy is set to <em>Success</em> (GPO may be successfully distributed but not applied to the Domain Controller).</li></ol>
+</body>
+</html>

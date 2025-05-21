@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Non-domain-joined Windows Computers with Privilege Secure</title>
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2022-07-05T15:20:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2023-11-13T16:05:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-07-08T14:08:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000Tt1TCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000Tt1TCAS">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-11-13T16:06:27.000Z">
+    <meta name="LastPublishedDate" content="2023-11-10T16:25:56.000Z">
+    <meta name="Meta_Description__c" content="Managing Non-domain-joined Windows Computers with Netwrix SbPAM">
+    <meta name="Meta_Title__c" content="Managing Non-domain-joined Windows Computers with Netwrix SbPAM">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8453">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Tt1TCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Managing Non-domain-joined Windows Computers with Privilege Secure</h1>
+    <h1><span style="line-height: normal;"><b>Overview</b></span></h1>
+
+<p><span style="font-size: 12px;"><span style="line-height: normal;">This article describes the process for managing a non-domain-joined Windows computer with Privilege Secure.</span></span></p>
+
+<h1><span style="line-height: normal;"><b>Before You Begin</b></span></h1>
+
+<p><span style="font-size: 12px;"><span style="line-height: normal;">Make sure that you have the following:</span></span></p>
+
+<ul><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">A local Administrator account on the target computer, for which you know the password</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">PowerShell Remoting enabled on the target computer (<a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7.2" target="_blank">Enable-PSRemoting ? Microsoft &#129125;</a>)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Port 5985 open for connections from the SbPAM server (and any hosts running remote action services, if applicable)</span></span></li></ul>
+
+<h1><span style="line-height: normal;"><b>Instructions</b></span></h1>
+
+<h3><span style="line-height: normal;"><b>Adding the SbPAM Service Account</b></span></h3>
+
+<ol><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">As a user with the Administrator role, open Privilege Secure. Navigate to the &quot;Configuration &gt; Service Accounts&quot; page.</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click the green plus button to create a new Service Account</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Enter the required information</span></span>
+	<ol><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Name (a friendly name that is displayed in the rest of the UI for this account)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Description (additional text for identifying this account)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Domain (This MUST be the NETBIOS name of the target computer)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Username (A Local Administrator account on the target computer)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Password (The password for the local administrator account)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Platform (Windows)</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Vault Connecter (&lt;none&gt;)</span></span></li></ol>
+	</li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click &quot;Save&quot;</span></span></li></ol>
+
+<div style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;"><img alt="User-added image" height="246" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000ww6m&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052ZhJ" width="500"></img></span></span></div>
+
+<h3><span style="line-height: normal;"><b>Adding the Computer to SbPAM</b></span></h3>
+
+<ol><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Navigate to the &quot;Resources&quot; page</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click the Add button</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Select New Server from the dropdown list</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click the Add Manually radio button</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Enter the FQDN of the target computer</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click Add</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">In the lower right, select the Service Account you created above.</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click Add</span></span></li></ol>
+<span style="font-size: 12px;"><span style="line-height: normal;">This will start the scanning step, you can close the dialog or wait for the scan to complete. If there are failures during the scan you can review the logs by navigating to the resource page.<br><img alt="User-added image" height="195" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000ww6m&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052ZhE" width="500"></img></span></span>
+
+<h3><span style="line-height: normal;"><b>Troubleshooting a Failed Scan</b></span></h3>
+<span style="font-size: 12px;"> <span style="line-height: normal;">If the scan fails, you can troubleshoot it by viewing the scan logs on the &quot;Resources&quot; page.</span></span>
+
+<ol><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Search for the computer you attempted to add</span></span></li></ol>
+
+<ol start="2"><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click on the Resource name of the computer</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Click on the History tab</span></span></li><li style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;">Select the last scan event and click View Logs</span></span></li></ol>
+
+<div style="margin-bottom: 11px;"><span style="font-size: 12px;"><span style="line-height: normal;"><img alt="User-added image" height="94" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000ww6m&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052Zh9" width="500"></img></span></span></div>
+
+<h3 style="margin-bottom: 11px;"><span style="line-height: normal;"><b>Additional Troubleshooting: &quot;Access Denied&quot;</b></span></h3>
+In the event that you see &quot;Access Denied&quot; when investigating the logs, refer to <a href="https://kb.netwrix.com/8526" target="_blank">SbPAM: Resolving &quot;Access Denied&quot; When Connecting to a Non-domain-joined Windows Resource</a> .
+
+<h1><span style="line-height: normal;"><b>Summary</b></span></h1>
+
+<p><span style="font-size: 12px;"><span style="line-height: normal;">After going through this process, you can use this computer&#39;s resource in Activities. A non-domain joined Windows computer can be used in any activity that doesnt require Active Directory. You can create local Activity Token users and local managed accounts. Requester and accounts that require Active Directory will not work.<br><br>To configure a local Activity Token/Managed Account activity, when creating the activity remove the %targetdomain%\ portion of the default Login Account Format. Make sure to use the Windows Platform as well.</span><br><br><img alt="User-added image" height="135" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000ww6m&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052Zh4" width="500"></img></span></p>
+</body>
+</html>

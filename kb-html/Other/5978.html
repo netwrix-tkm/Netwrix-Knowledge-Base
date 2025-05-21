@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturing CMode NetApp TCP Dump Traces for Investigation</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T17:51:26.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T09:57:59.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T17:51:27.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000HsNCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000HsNCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:57:59.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T17:51:27.000Z">
+    <meta name="Meta_Description__c" content="360008816812">
+    <meta name="Meta_Title__c" content="Capturing CMode NetApp TCP Dump Traces for Investigation">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5978">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HsNCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Capturing CMode NetApp TCP Dump Traces for Investigation</h1>
+    <p><strong>Summary:</strong> Recent Netapp versions have introduced latency issues in some cases.  TCP Dump Traces can help dev investigation and can also help netapp support, if they become involved.</p>
+<p> </p>
+<p><strong>Issue:</strong> Instructions on how to capture TCP Dump Traces for netapp. Can be useful for the following cases:</p>
+<ul><li>Increased latency</li><li>User operations fail or time out</li><li>No errors in SAM logs, FPolicy is configured correctly, but activity is not coming</li></ul>
+<p> </p>
+<p><strong>Instructions:</strong> </p>
+<p>1.</p>
+<p> </p>
+<p><strong>Start trace...</strong></p>
+<p> </p>
+<p>specify agent IP Address for -address to filter, and include only agent communication (incoming or outgoing). Otherwise omit -address</p>
+<p> </p>
+<pre>network tcpdump start -node cluster1-01 -port e0c -address 192.168.10.10</pre>
+<p> </p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p><strong>Reproduce issue</strong></p>
+<p> </p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p><strong>Stop Trace...</strong></p>
+<p> </p>
+<pre>network tcpdump stop -node cluster1-01 -port e0c</pre>
+<p> </p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p><strong>Check generated trace files and names...</strong></p>
+<p> </p>
+<pre>network tcpdump trace show</pre>
+<p> </p>
+<p> </p>
+<p>5.</p>
+<p><strong>Download trace file(s) and send to SB for dev / netapp support for review...</strong></p>
+<p> </p>
+<p>Can get trace(s) by going here (will need cluster login)...</p>
+<p> </p>
+<pre>https://[ClusterIP]/spi/[NodeName]/etc/log/packet_traces/<br><br>https://192.168.25.235/spi/cluster1-01/etc/log/packet_traces/</pre>
+<p> </p>
+<p> </p>
+<p>can also go here and navigate... under &#39;logs&#39; ...</p>
+<p> </p>
+<pre>https://[ClusterIP]/spi</pre>
+<p> </p>
+<p> </p>
+<p>should be .TRC file(s) located here.</p>
+<p> </p>
+<p> </p>
+<p>6.</p>
+<p>It might also make sense to <strong>delete these traces from netapp</strong> after sent to SB / Netapp (if not needed anymore), so it doesn&#39;t take up extra space...</p>
+<p> </p>
+<pre>network tcpdump trace delete -node cluster1-01</pre>
+<p> </p>
+<p><strong>Channel:  </strong>Internal</p>
+<p><strong>Submitted by:</strong>  Kevin Duddy</p>
+<p><strong>Product:</strong> All</p>
+<p><strong>Affected Versions:</strong> N/A</p>
+<p><strong>Affected Module:</strong> NetApp</p>
+<p><strong>Dev Ticket:</strong> N/A</p>
+<p><strong>Resolved In Version:</strong> N/A</p>
+<p><strong>KB Type:</strong>  How To</p>
+<p> </p>
+</body>
+</html>

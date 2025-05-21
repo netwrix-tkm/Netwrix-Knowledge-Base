@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIInstaller_7.3.5.145</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006RPEQAA4">
+    <meta name="ArticleCreatedDate" content="2022-02-11T21:30:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006RPEQAA4">
+    <meta name="CreatedDate" content="2023-05-08T10:18:41.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-11T21:30:12.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JmgCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JmgCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:41.000Z">
+    <meta name="LastPublishedDate" content="2022-03-04T18:39:04.000Z">
+    <meta name="Meta_Description__c" content="SI without interactive logon permissions">
+    <meta name="Meta_Title__c" content="Hotfix: SIInstaller_7.3.5.145">
+    <meta name="OwnerId" content="0054u000006RPEQAA4">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8374">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JmgCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIInstaller_7.3.5.145</h1>
+    <span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Summary: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">84910: SI without interactive logon permissions</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Behavior before Fix: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Win auth SQL user was logged with help of external PS script with the &#39;Run as&#39; verb</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Behavior after Fix: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">User is impersonated with help of the LogonUser(,,,LOGON32_LOGON_NETWORK_CLEARTEXT,,) in MSI custom actions. And the installer does not touch the &#39;SeInteractionLogon&#39; flag anymore.</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><b>Changes since Last Hotfix:</b></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">84910: SI without interactive logon permissions</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Maxim Sidarau   </span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SI 7.x.x</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Affected Module:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SI - Installer</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Dev Ticket:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">84910</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Resolved in Version:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">7.3.5.145</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">KB Type: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Hotfix</span></span></span></span><br><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;"><b>Modules Included: </b>SI - Installer</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><b>YouTrack/Escalations: </b><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">84910</span></span></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><strong><span style="">Instructions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Install SI using new version of SI Server installer</span></span></span></span></span><br><br> 
+</body>
+</html>

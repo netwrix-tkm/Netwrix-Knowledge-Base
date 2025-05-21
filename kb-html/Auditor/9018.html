@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Save Subscription File to a Shared Location</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2024-01-23T15:59:22.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-01-26T10:37:58.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-01-23T15:59:41.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000PKzKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000PKzKAM">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-01-26T10:38:22.000Z">
+    <meta name="LastPublishedDate" content="2024-01-26T10:38:22.000Z">
+    <meta name="Meta_Description__c" content="Unable to Save Subscription File to a Shared Location">
+    <meta name="Meta_Title__c" content="Unable to Save Subscription File to a Shared Location">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9018">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000PKzKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to Save Subscription File to a Shared Location</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When configuring subscriptions, the product unable to upload the subscription file to a shared file server location. The configuration completes with the following error:</p>
+</div>
+
+<div>
+<pre class="has-inner-focus">
+        Could not find a part of the path.   </pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Insufficient permissions for the account specified in the monitoring plan settings.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Perform the following steps to fix the error:</p>
+
+<ol><li>
+	<p>Check the user specified for the problematic monitoring plan with your AD user via <b>Active Directory Users and Computers</b> (permission or membership). The account should be a <b>domain admin</b> account or member of the <b>domain admins</b> group.</p>
+	</li><li>
+	<p>Add this computer account to the target file share.</p>
+	</li></ol>
+</div>
+
+<h3>Related Article</h3>
+
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/ActiveDirectory/Permissions.htm" target="_blank">Data Source Configuration  Permissions for Active Directory Auditing  v10.6</a></li></ul>
+</div>
+</body>
+</html>

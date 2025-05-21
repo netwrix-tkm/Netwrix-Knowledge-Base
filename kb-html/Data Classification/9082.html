@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Exclude Directory from Workflow</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2024-03-22T16:29:57.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-03-22T16:29:57.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-03-22T16:30:54.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000WuLKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000WuLKAU">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-03-22T16:30:54.000Z">
+    <meta name="LastPublishedDate" content="2024-03-22T16:30:54.000Z">
+    <meta name="Meta_Description__c" content="How to Exclude Directory from Workflow">
+    <meta name="Meta_Title__c" content="How to Exclude Directory from Workflow">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9082">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000WuLKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Exclude Directory from Workflow</h1>
+    <blockquote>
+<div><span style="color: #c0392b;"><strong>!</strong></span> This article is currently under review. Some of the information below may not be up to date.</div>
+</blockquote>
+
+<h2>Question</h2>
+
+<div>
+<p>Is there a way to exclude a directory from a workflow rule but still have it classified?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>To exclude a directory from a workflow you need to create an exclusion for a workflow using a custom taxonomy as a condition (in this specific case, a taxonomy with a negative clue scored at -999 with the directory path). For that:</p>
+
+<ol><li>
+	<p>Access your NDC web interface and head to your <b>Taxonomy</b> page. Head to <b>Global settings</b>.</p>
+	</li><li>
+	<p>Click <b>Add</b> and create a new taxonomy.</p>
+	</li><li>
+	<p>We will call the Taxonomy <em>Exclusions</em> for future use and clarity as to its purpose.</p>
+	</li><li>
+	<p>Head back to the <b>Term Management</b> tab and use the drop-down list of taxonomies to select your <b>Exclusions</b> taxonomy. Right click on the term <b>Exclusions</b> and then click on <b>Add child term</b>.</p>
+	</li><li>
+	<p>Name the new term the same as your server where you are wanting to add your exclusion, for example, <em>ASMITH-DC</em> (this is to have reference for the future, in case you want to add exclusions for specific servers, you can give it some order for easier understanding in case you want to remove any exclusions).</p>
+	</li><li>
+	<p>Click on the new term and to the right, create a <b>Standard</b> clue structed as follows:</p>
+
+	<ul><li>
+		<p>cse-folders=folder you want to exclude</p>
+		</li><li>
+		<p>Give it a score of <b>-999</b>.</p>
+		</li></ul>
+	</li><li>
+	<p>Move to your <b>Workflows</b> page, get on your workflow that you needed the exclusion for. Click on the workflow, then on the name of the workflow again. You should get the window below. Click on <b>conditions</b>.</p>
+	</li><li>
+	<p>To the right click <b>Edit</b> and copy these settings to add your exclusion to the workflow.</p>
+	</li><li>
+	<p>Save the condition, enable your workflow. Run your workflow and it should no longer work on your excluded directory.</p>
+	</li></ol>
+</div>
+
+<h3>Related Articles:</h3>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Admin/Taxonomies/Create.htm" target="_blank">Content Configuration  Taxonomies  Create a Taxonomy  v5.7</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Admin/Taxonomies/AddClue.htm#score" target="_blank">Content Configuration  Clues (Classification Rules)  Score  v5.7</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

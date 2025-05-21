@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWinConsole_SIEntManager_5.2.0.221</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:28:58.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:51.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:28:58.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IgECAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IgECAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:52.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:28:58.000Z">
+    <meta name="Meta_Description__c" content="360008877892">
+    <meta name="Meta_Title__c" content="Hotfix: SIWinConsole_SIEntManager_5.2.0.221">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6995">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IgECAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWinConsole_SIEntManager_5.2.0.221</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> password enforcer fails to block setting password</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong>password enforcer fails to block setting password<br><strong><span style="font-family: calibri,sans-serif;">Behavior before Fix: </span></strong><br>Unicode pwd values were converted to ASCII format on saving or restoring pwds list in WinConsole. Due to this agent did not block some values from the pwd list.<br><strong><span style="font-family: calibri,sans-serif;">Behavior after Fix: </span></strong><br>Unicode pwd values should be blocked by the agent after saving or restoring or loading from file a pwd list in WinConsole.<br><b>Changes since Last Hotfix:</b><br>I-4150 [LINK - CapOne] SI-3680 28304 - password enforcer fails to block setting password<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau  <br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>5.2.0      SIWinConsole_SIEntManager_5.2.0.221_SI-3680<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Console<br>SI - Enterprise Manager<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br><em><span style="font-family: calibri,sans-serif;">I-4150</span></em><br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>5.2.0.194<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br> <br><b>Modules Included: </b>SI - Windows Console<br><b>YouTrack/Escalations: </b>SI-3680 / 28304<br><b>Customers:  </b>Capital One Services, LLC<br><b>Cumulative List of fixes included since Service Pack:</b><br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The following modules should be patched:<br> <br>* SI Enterprise Manager<br>* SI Windows Console<br> <br>Applying patch for Enterprise Manager:<br>1. Stop &#39;SIEnterpriseManager&#39; service.<br>2. Extract files from attached &#39;SIEnterpriseManager&#39; folder to the C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIEnterpriseManager folder<br>3. Start &#39;SIEnterpriseManager&#39; service<br> <br>Applying patch for SI Windows Console:<br>1. Close the SI Win Console<br>2. Extract files from attached &#39;SIWinConsole&#39; folder to the C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWinConsole folder<br>3. Start SI Win Console.<br> <br>Password list should be restored to default list by the following:<br>1. Open Password Enforcement policy \ Password Rules and click &quot;Manage Passwords&quot; button<br>2. Click &quot;Default List&quot; button<br>3. Click &quot;Ok&quot;<br>  
+</p><table cellspacing="0" cellpadding="0" width="531" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="531"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.2.0/SIWinConsole_SIEntManager_5.2.0.221_SI-3680.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.2.0/SIWinConsole_SIEntManager_5.2.0.221_SI-3680.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Admin Console;SI - Enterprise Manager<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.2.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3680<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 5.2.0.221<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2114<br></p>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Repair Netwrix Auditor Installation</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-09-05T09:49:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-09-07T13:15:56.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-05T09:49:22.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001119QCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001119QCAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-09-07T13:16:20.000Z">
+    <meta name="LastPublishedDate" content="2023-09-05T09:49:22.000Z">
+    <meta name="Meta_Description__c" content="How to Repair Netwrix Auditor Installation">
+    <meta name="Meta_Title__c" content="How to Repair Netwrix Auditor Installation">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8783">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001119QCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Repair Netwrix Auditor Installation</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to repair a Netwrix Auditor installation in our environment?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Before proceeding, run the following command in elevated PowerShell to stop all Netwrix Services and prevent any possible complications during the repair process:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -Displayname Netwrix*</code></pre>
+</blockquote>
+
+<ol><li>
+	<p>Establish the Netwrix Auditor version and build you&#39;re currently running in your environment. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110rMCAQ.html" target="_self">How to Find Out My Netwrix Auditor Version</a>.</p>
+	</li><li>
+	<p>Proceed to your <strong>My Products</strong> page to download the executable for the corresponding version. Refer to the following link: <a href="https://www.netwrix.com/my_products.html" target="_blank">Netwrix  My Products</a>.</p>
+	</li><li>
+	<p>Run the downloaded executable. Once the files are extracted, a setup screen will be prompted.</p>
+
+	<div><img height="458" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117fh&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MBTP" width="750"></img></div>
+	</li><li>
+	<p>Select <strong>Install</strong> under <strong>Install Netwrix Auditor</strong>.</p>
+	</li><li>
+	<p>Click <strong>Next</strong>, and select <strong>Repair</strong>.</p>
+	</li><li>
+	<p>Confirm the selection by clicking <strong>Repair</strong>.</p>
+	</li><li>
+	<p>Allow the repair process to complete.</p>
+	</li><li>
+	<p>Restart your Netwrix Auditor server to complete the repair.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110rMCAQ.html" target="_self">How to Find Out My Netwrix Auditor Version</a></p>
+</div>
+</body>
+</html>

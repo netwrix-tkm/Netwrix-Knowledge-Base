@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- Does the Endpoint Protector Administration Interface have a timeout?</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:35:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BDxKAM">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000003xRAXIA2">
+    <meta name="AssignmentDate" content="2025-03-19T17:40:25.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:35:15.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002BDxKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002BDxKAM">
+    <meta name="LastModifiedById" content="005Qk000003xRAXIA2">
+    <meta name="LastModifiedDate" content="2025-04-22T15:03:46.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9991">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BDxKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- Does the Endpoint Protector Administration Interface have a timeout?</h1>
+    <p>There is a timeout for the Management User Interface on the Endpoint Protector Server.</p>
+<p>It could be found under <span style="text-decoration: underline;"><em><strong>System Configuration-&gt; System Settings-&gt;Session Settings:</strong></em></span></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crrp&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C7Bfn"></img></p>
+<p>You can modify the following session timeout settings:</p>
+<ul><li>Session Timeout  set the amount of time the user is inactive until the session expires between 5 and 60 minutes </li><li>Timeout counter  set the amount of time for the session timeout countdown between 5 seconds and Session Timeout minus one minute </li></ul>
+<p><span style="color: #1abc9c;">Example: If you define the Session Timeout to 5 minutes and the Timeout counter to 60 seconds, then after 4 minutes of inactivity you will be notified by the pop-up window that in 60 seconds you will be logged out. </span></p>
+<p>If you remain idle for the defined amount of time, then Endpoint Protector stops responding and displays a message that indicates the session will expire in the predefined countdown.</p>
+<p>You can choose to log out or continue your session, resetting the session timeout interval. </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crrp&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C7LTp"></img></p>
+<p><br>In an effort to support strong Security within the Management console, this timeout allows for better protection around unexpected or potentially malicious action. Consider this item a complement to our other System Security configuration items, as well as the Role-based access controls available with Endpoint Protector.</p>
+</body>
+</html>

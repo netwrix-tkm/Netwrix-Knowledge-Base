@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate long-running PowerShell DC queries faster</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:34:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:11:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:34:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000Iq8CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000Iq8CAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:11:52.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:34:04.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Validate long-running PowerShell DC queries faster">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7204">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Iq8CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Validate long-running PowerShell DC queries faster</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Some PowerShell validations can result in long retrieval time, making even small changes take hours to effect. This method allows for quicker validation for job change purposes and then a full query upon job execution.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Customer had designed a custom PowerShell query to their Exchange server where only the production server was available to validate against.  Given the large number of mailboxes, each validation ran an hour, which was very inefficient when testing and building reports.  The customer inquired if there was a way to limit the validation but still get the full results during a scheduled run.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The PowerShell Collector needs to validate the PS code in order to know what the return objects are.  (This is also why the results/column selection comes after validation-it doesn&#39;t know what columns to offer you without seeing the return itself first.)<br> <br>Adding &quot;Get-Content -TotalCount 5&quot; or &quot;| select -First 5&quot; to their query allows for a quick validation return.  Depending on the script, &quot;Get-Content -TotalCount&quot; should be faster, but in our customer&#39;s example they used the &quot;| select&quot; method which works similarly:<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaYv&amp;d=%2Fa%2F4u000000LyuY%2FqaOKpdBo1xFEPSijO3S4qfoTCnVAqYUuIIrKdAi_X9s&amp;asPdf=false" alt="mceclip0.png"></img><br>This allows for quick validation while still providing the proper column selection.  However it must be changed back once finalized, and doing so requires re-validation.  This can be circumvented by altering the job&#39;s XML file.</p>
+<ol><li>At the query properties screen, click the view XML button:</li></ol>
+<p></p>
+</body>
+</html>

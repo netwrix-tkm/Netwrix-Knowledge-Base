@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Console Migration Workflow: Step 3 - Rebuild the Console</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="partners_v">
+    <meta name="visibility" content="customers_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="content_type" content="ct_workflow">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="product" content="access_info_center">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007MiY9AAK">
+    <meta name="ArticleCreatedDate" content="2025-04-28T21:18:58.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002Or3KAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000007MiY9AAK">
+    <meta name="AssignedToId" content="0054u000007MiY9AAK">
+    <meta name="AssignmentDate" content="2025-04-28T21:18:58.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007MiY9AAK">
+    <meta name="CreatedDate" content="2025-04-28T21:18:58.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002Or3KAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002Or3KAE">
+    <meta name="LastModifiedById" content="0054u000007MiY9AAK">
+    <meta name="LastModifiedDate" content="2025-04-30T14:47:54.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000007MiY9AAK">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10161">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002Or3KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Console Migration Workflow: Step 3 - Rebuild the Console</h1>
+    <blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> Return to the main workflow page via this link: <a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTIjIAO/view" target="_self">Access Analyzer Console Migration Workflow</a>.</p>
+<p>Return to the previous section via this link: <a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTU1IAO/view?ws=%2Flightning%2Fr%2FGeneral__kav%2Fka0Qk000000DTIjIAO%2Fview" target="_self">Access Analyzer Console Migration Workflow: Step 2 - Prepare the Database</a>.</p>
+<p>Proceed to the next section via this link: <a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTXFIA4/view?ws=%2Flightning%2Fr%2FGeneral__kav%2Fka0Qk000000DTIjIAO%2Fview" target="_self">Access Analyzer Console Migration Workflow: Step 4 - Validating the Migration</a></p>
+</blockquote>
+<h2 id="ovrvw">Overview</h2>
+<div>
+<p>This article lists the steps to rebuild the Access Analyzer console during the NAA Migration.</p>
+</div>
+<h2 id="neaCUpg">Installing the NAA Console</h2>
+<div>
+<p dir="auto">Now on the new server, we will begin to rebuild the Netwrix Access Analyzer (NAA) Console using the steps below.<span class="Caution"><strong> </strong></span>Before installation, ensure the NAA_Migration folder with the StealthAUDIT.lic license file is stored locally on the new Netwrix Access Analyzer Console to be referenced during the installation process.</p>
+</div>
+<div>
+<ol><li dir="auto">Confirm the prerequisites have been met on the NAA Console Server.
+<ul><li dir="auto"><a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Requirements/Overview.htm" target="_blank">Netwrix Help Center | Netwrix Access Analyzer 12.0 System Requirements</a></li></ul>
+</li><li dir="auto">Install the NAA application, as well as the Access Information Center (AIC) if the server will host both.<br><blockquote><span class="Caution"><strong>IMPORTANT: </strong></span>Do <strong>NOT</strong> start the Netwrix Access Analyzer or Access Information Center applications at this time!</blockquote>
+</li></ol>
+<h2>Restoring the Backup Files</h2>
+<ol><li dir="auto">
+<p dir="auto">After the initial installation of NAA and the AIC, restore the following contents of the NAA_Migration folder:</p>
+<div class="table-wrapper">
+<table style="border-color: #000000;border-style: solid;" border="1"><tbody><tr><th colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">File/Folder</p>
+</th><th colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Purpose</p>
+</th></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\Jobs</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains the jobs from the SA jobs tree.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\StealthAUDIT.lic</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">The license key for the StealthAUDIT product</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\Reports</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">This will ensure that you dont have to go and republish all reports</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\CLU</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains any Command Line Utility parameters.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\ODBCProfiles\Custom</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains any custom ODBC connect strings for SQL.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\SADatabase\Views</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains the host list definitions.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\SecurityMap</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains all of the connection profiles.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\GlobalOptions.xml</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains the Global Options.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\SPProfiles.XML</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains the Storage Profiles.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\rba.conf</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains the Role Based Access Configuration.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\rba-reporting.conf</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Published Reports role-based access.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\DC\patternsdef.xml</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Configured SDD Criteria</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\DC\mypatternsdef.xml</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Custom SDD Criteria</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">%SAInstallDir%\FSAA</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains short term data related to file server collections</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">C:\Windows\System32\Tasks</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Specifically tasks names beginning with SA*.job</p>
+</td></tr></tbody></table>
+</div>
+</li><li dir="auto">
+<p dir="auto">After you have copied in the Reports folder to the New server, the report hostname path has to be changed in order to show it in the webserver: %SAInstallDir%Reports\v3\<strong>&lt;NewServerHostName&gt;.</strong></p>
+</li><li dir="auto">
+<p dir="auto">After you have copied in the Scheduled Tasks to C:\Windows\System32\Tasks, run the script below from a Admin PowerShell to register them:</p>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>$InstallPath=Get-ItemPropertyValue -Path HKLM:\SOFTWARE\WOW6432Node\STEALTHbits\StealthAUDIT -Name &#39;InstallPath&#39; 
+$NewServerInstallerPath =$InstallPath+&#39;StealthAuditStart.exe&#39;  
+$ScheduledTaskFilePath=&quot;C:\Windows\System32\Tasks&quot; 
+
+Get-ChildItem -Path $ScheduledTaskFilePath -Filter SA*.job | Foreach-Object { 
+
+$content = [xml] (Get-Content $_.FullName) 
+$oldServerInstallerPath= $content.Task.Actions.Exec.Command 
+
+If($oldServerInstallerPath -ne $NewServerInstallerPath) 
+{ 
+ $Content.Task.Actions.Exec.Command = $NewServerInstallerPath 
+ $Content.Save($_.FullName) 
+} 
+
+$taskName = ([System.IO.Path]::GetFileNameWithoutExtension($_.FullName)) 
+$TaskExist=Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue  
+
+if (!$TaskExist)  
+{ 
+$UserID=$Content.Task.Principals.Principal.UserId 
+Register-ScheduledTask -Xml (get-content $_.FullName | out-string) -TaskName $taskName -User $UserID -Force 
+}   
+ }  </code></pre>
+</li><li dir="auto">
+<p dir="auto">Open \NAA_Migration\NAA\Web\webserver.exe.config and copy the content between &lt;appSettings&gt;&lt;/appSettings&gt; and paste it in place of the &lt;appSettings&gt;&lt;/appSettings&gt; block in <strong>%SAInstallDir%Web\webserver.exe.config</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTVd&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFkgO" alt=""></img><br><span class="Caution"><strong></strong></span></p>
+<blockquote><span class="Caution"><strong>NOTE: </strong></span>Open the destination webserver.exe.config as administrator by doing the following:
+<div class="notice-block info">
+<div class="content">
+<ol><li>
+<p dir="auto">Search Notepad in Start menu.</p>
+</li><li>
+<p dir="auto">Right-click &gt; Run as administrator.</p>
+</li><li>
+<p dir="auto">In Notepad, File &gt; Open %SAInstallDir%Web\webserver.exe.config.</p>
+</li></ol>
+</div>
+</div>
+</blockquote>
+</li><li dir="auto">
+<p dir="auto">Open \NAA_Migration\AIC\AccessInformationCenter.Service.exe.config and copy the content between &lt;appSettings&gt;&lt;/appSettings&gt; and paste it in place of the &lt;appSettings&gt;&lt;/appSettings&gt; block in <strong>\Program Files\STEALTHbits\Access Information Center\AccessInformationCenter.Service.exe.Config</strong>.</p>
+<blockquote><span class="Caution"><strong>NOTE: </strong></span>Open the destination AccessInformationCenter.Service.exe.config as administrator by doing the following:
+<div class="notice-block info">
+<div class="content">
+<ol><li>
+<p dir="auto">Search Notepad in Start menu.</p>
+</li><li>
+<p dir="auto">Right-click &gt; Run as administrator.</p>
+</li><li>
+<p dir="auto">In Notepad, File &gt; Open \Program Files\STEALTHbits\Access Information Center\AccessInformationCenter.Service.exe.Config.</p>
+</li></ol>
+</div>
+</div>
+</blockquote>
+</li><li dir="auto">
+<p dir="auto">Open the Netwrix Access Analyzer application follow through the NAA Configuration Wizard, selecting Choose a StealthAUDIT root folder path to copy from if prompted.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTVd&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFxaL" alt=""></img></p>
+<ol><li dir="auto">More information on the Netwrix Access Analyzer Configuration Wizard can be found here in the Help Center: <a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Install/Application/FirstLaunch.htm" target="_blank">https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Install/Application/FirstLaunch.htm</a></li></ol>
+</li><li dir="auto">
+<p dir="auto">After completing the Configuration Wizard, the NAA Application should open automatically.</p>
+</li><li dir="auto">
+<p dir="auto">In the NAA Console, navigate to Settings &gt; Reporting, and set the Website URL to contain the new console servers name.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTVd&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFqfK" alt=""></img></p>
+</li><li dir="auto">
+<p dir="auto"><em>If using Windows Authentication to connect NAA to its database</em> (see Settings &gt; Storage), open services.msc and set the <strong>Netwrix Access Analyzer Web Server</strong> service to log on as a Windows service account with appropriate permissions on the NAA database.</p>
+</li></ol>
+<h2>Additional Considerations</h2>
+<p>If using any of the below, please recreate the certificate for the new NAA Console Server:</p>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/Config/SharePointOnline/Access.htm#create_selfsigned_certificate" target="_self">NAA for SharePoint Online</a></li><li><a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/Config/ExchangeOnline/Access.htm#create_selfsigned_certificate" target="_self">NAA for Exchange Online</a></li><li><a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Install/Application/Reports/Secure.htm" target="_self">Secured Published Reports Site (HTTPS)</a></li><li><a href="https://helpcenter.netwrix.com/bundle/AIC_12.0/page/Content/Access/InformationCenter/Installation/Secure.htm" target="_self">Secured AIC Site (HTTPS)</a></li></ul>
+</div>
+</body>
+</html>

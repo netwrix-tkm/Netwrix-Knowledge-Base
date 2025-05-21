@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_10.0_018</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:16:45.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:05:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:16:45.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IM8CAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IM8CAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:05:52.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:16:45.000Z">
+    <meta name="Meta_Description__c" content="360012326391">
+    <meta name="Meta_Title__c" content="Hotfix: SA_10.0_018">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6461">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IM8CAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_10.0_018</h1>
+    <p><strong>Summary: </strong> Add SharePoint Server Health Monitoring to log files. SPAA will log the current status of the SharePoint Servers Health at the beginning of the scan. SPAA will then log any changes in the health status throughout the scan. Warnings will be thrown if SharePoint status reaches 4 or higher.</p>
+<p><strong>Submitted by: </strong></p>
+<p>Michael Burrofato</p>
+<p><strong>Affected Versions:</strong></p>
+<p>10.0</p>
+<p><strong>Affected Module:</strong></p>
+<p>SA  DC  SPAA</p>
+<p><strong> </strong></p>
+<p><strong>Dev Ticket:</strong></p>
+<ul><li>SAFS-19207</li></ul>
+<p><strong>Resolved in Version:</strong></p>
+<ul><li>SPAA build 0.0.761</li></ul>
+<p><strong>KB Type: </strong></p>
+<p>               Hotfix</p>
+<p><strong> </strong></p>
+<p><strong>YouTrack/Escalations</strong></p>
+<p><strong> </strong></p>
+<p><strong>-              SAFS-17585</strong></p>
+<p><strong> </strong></p>
+<p><strong>Customers</strong></p>
+<p><strong>-              N/A</strong></p>
+<p><strong> </strong></p>
+<p><strong>Cumulative List of fixes included since Service Pack:</strong></p>
+<p>-              SAFS-18532 SPAA scans are marking web applications as deleted</p>
+<p>-              SAFS-18637 SPAA: Add debug logging around SSL connection code</p>
+<p><strong>-              </strong>SAFS-18788 SPAA: Add more logging around SSL connection</p>
+<p>-              SAFS-18672 50188 - Unable to perform SP Bulk Import</p>
+<p><strong>-              </strong>SAFS-18517 135 - Add option to enable or disable differential scans to the SPAA DC UI</p>
+<p>-              SAFS-18716 SPAA: Duplicate key issues<br> -              SAFS-18942 51083 - SPAA SDD scans have hard-coded timeout of 60 minutes</p>
+<p>-              SAFS-17418 SPAA DC Should be able to check service account access based on scan configuration<br> -              SAFS-18943 51078 - SPO scan errors: &quot;Unable to establish connection for resource... ...ThreadID:XX&quot;</p>
+<p>-              SAFS-19027 51375 - SP Activity BI errors</p>
+<p>-              SAFS-18594 SPAC is rewriting resource types for document libraries to lists</p>
+<p>-              SAFS-19223 51977 - SharePoint Tier 2 DB bulk imports performance decrease importing SA_SPDLP_Matches</p>
+<p>-              SAFS-19207 51915 - SPSEEK bulk import fails with PK constraint: Cannot insert duplicate key in object &#39;dbo.SA_SPDLP_MatchHits&#39;</p>
+<p> </p>
+<p><strong>List of changes since last Hotfix</strong></p>
+<p>-              SAFS-17585 SPAA - Add SharePoint Server Health Monitoring to log files</p>
+<p> </p>
+<p><strong>Comments:</strong></p>
+<p><strong>Instructions:</strong></p>
+<ol><li><strong>Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </strong></li><li>Close all instances of StealthAUDIT (check task manager under processes for all users)</li><li><strong>Update all DC files in your %SAInstallDir%DC folder</strong></li><li><strong>Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</strong></li><li><strong>Update all Agent files in your %SAInstallDir%Agent folder</strong></li><li><strong>If using Agent mode, please install SPAA Agent version 10.0.0.38 or later</strong></li></ol>
+<p> </p>
+<p><strong><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/10.0/SA_10.0_018.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/10.0/SA_10.0_018.zip</a></strong></p>
+</body>
+</html>

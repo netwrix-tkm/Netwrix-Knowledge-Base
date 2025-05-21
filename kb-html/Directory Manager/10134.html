@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Increase the Idle Timeout Duration in GroupID 11</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="customers_v">
+    <meta name="content_type" content="ct_productconfig">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1X8AAK">
+    <meta name="ArticleCreatedDate" content="2025-04-11T00:17:40.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002JjJKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008F1X8AAK">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1X8AAK">
+    <meta name="AssignedToId" content="0054u000008F1X8AAK">
+    <meta name="AssignmentDate" content="2025-04-11T00:17:40.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000NnC9IIAV">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008F1X8AAK">
+    <meta name="CreatedDate" content="2025-04-11T00:17:40.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002JjJKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002JjJKAU">
+    <meta name="LastModifiedById" content="0054u000008F1X8AAK">
+    <meta name="LastModifiedDate" content="2025-05-03T00:01:44.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008F1X8AAK">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10134">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002JjJKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Increase the Idle Timeout Duration in GroupID 11</h1>
+    <h2>Related Queries</h2>
+<ul><li>&quot;In order to update the portal timeout settings, change/update the timeout values in the following files:&quot;</li><li>&quot;How to change GroupID portal timeout&quot;</li></ul>
+<h2>Overview</h2>
+<p>This article explains how to update the session timeout settings for GroupID Portal and GroupID Security Service by modifying the <code>timeout</code> parameter in the relevant <code>appsettings.json</code> files. An IIS reset is required for the changes to take effect.</p>
+<h2>Instructions</h2>
+<ol><li>Open the following file in a text editor:<br><code class="lang-Registry">X:\Program Files\Imanami\GroupID 11.0\GroupIDSecurityService\Inetpub\GroupIDSecurityService\Web\appsettings.json</code>
+<ul><li>Locate the <strong>timeout</strong> parameter.</li><li>The value is in <strong>seconds</strong>. The default is <strong>1200</strong> (20 minutes).</li><li>Update the value as needed.</li></ul>
+</li><li>Open the following file in a text editor:<br><code class="lang-Registry">X:\Program Files\Imanami\GroupID 11.0\GroupIDPortal\Inetpub\GroupIDPortal\Web\appsettings.json</code>
+<ul><li>Locate the <strong>timeout</strong> parameter.</li><li>The value is in <strong>minutes</strong>. The default is <strong>20</strong>.</li><li>Update the value as needed.</li></ul>
+</li><li>After saving your changes, perform an IIS reset to apply the new timeout settings.</li></ol>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Always back up the <code>appsettings.json</code> files before making any changes.</p>
+</blockquote>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong>Here the X denotes the installation drive of Netwrix Directory Manager (formerly GroupID)</span></p>
+<p><span class="Note"><strong>NOTE: </strong></span>The timeout values in the two files use different units (seconds and minutes). Ensure you set the correct value in each file.</p>
+</blockquote>
+<h2>Related Articles</h2>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/groupid/page/kA00g000000H9TKCA0.html" target="_blank">How to Configure GroupID Portal Settings</a></li></ul>
+</body>
+</html>

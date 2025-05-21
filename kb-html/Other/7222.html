@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG_InstalledApplications job may causes performance issues on targets</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:35:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:10:22.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:35:07.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IioCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IioCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:10:22.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:35:07.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="SG_InstalledApplications job may causes performance issues on targets">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7222">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IioCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SG_InstalledApplications job may causes performance issues on targets</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> The SG_InstalledApplications uses a WMI class known to cause performance issues on target systems.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Microsoft recommends against using the Win32_Product class, since it causes performance issues on target machines by triggering consistency checks of the installed applications. This not only causes performance issues, but goes against the principles of read-only auditing, especially since failed consistency checks may result in changes being done outside of client maintenance windows.<br> <br>From Microsoft:<br>&quot;On Windows Server 2003, Windows Vista, and newer operating systems, querying Win32_Product will trigger Windows Installer to perform a consistency check to verify the health of the application. This consistency check could cause a repair installation to occur. You can confirm this by checking the Windows Application Event log. You will see the following events each time the class is queried and for each product installed&quot;<br> <br><strong>&quot;If you have an application that makes use of the above class, please contact the vendor to get an updated version that does not use this class.&quot;</strong><br> <br>Win32_product Class is not query optimized. Queries such as &quot;select * from Win32_Product where (name like &#39;Sniffer%&#39;)&quot; require WMI to use the MSI provider to enumerate all of the installed products and then parse the full list sequentially to handle the &quot;where&quot; clause. This process also initiates a consistency check of packages installed, verifying and repairing the install. With an account with only user privileges, as the user account may not have access to quite a few locations, may cause delay in application launch and an event 11708 stating an installation failure.<br> <br><a href="https://support.microsoft.com/en-us/help/974524/event-log-message-indicates-that-the-windows-installer-reconfigured-al" target="_blank">https://support.microsoft.com/en-us/help/974524/event-log-message-indicates-that-the-windows-installer-reconfigured-al</a> - KB for issue<br><a href="https://blogs.technet.microsoft.com/heyscriptingguy/2011/11/13/use-powershell-to-quickly-find-installed-software/" target="_blank">https://blogs.technet.microsoft.com/heyscriptingguy/2011/11/13/use-powershell-to-quickly-find-installed-software/</a> - article that describes the issue in more detail and proposes an alternative approach (registry), which is similar to the collection used in the Applications_Installed instant job<br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Recommend disabling/removing this job until it&#39;s updated to collect the info using another method or class. The the Applications_Installed instant job is a good surrogate, but has its own issues as of the time of this KB (11/9/2018), as documented in Escalation 29155.</p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SMPC-5322<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2140</p>
+</body>
+</html>

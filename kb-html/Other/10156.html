@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Force Users to Validate their Directory Profiles</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1WUAA0">
+    <meta name="ArticleCreatedDate" content="2025-04-28T17:15:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002OcXKAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1WUAA0">
+    <meta name="AssignedToId" content="0054u000008F1WUAA0">
+    <meta name="AssignmentDate" content="2025-04-28T17:15:08.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1WUAA0">
+    <meta name="CreatedDate" content="2025-04-28T17:15:08.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002OcXKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002OcXKAU">
+    <meta name="LastModifiedById" content="0054u000008F1WUAA0">
+    <meta name="LastModifiedDate" content="2025-04-28T17:24:40.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Force Users to Validate their Directory Profiles">
+    <meta name="Meta_Title__c" content="How To: Force Users to Validate their Directory Profiles">
+    <meta name="OwnerId" content="0054u000008F1WUAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10156">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002OcXKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Force Users to Validate their Directory Profiles</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>Organizations make an effort to ensure that employee profiles remain accurate and up-to-date in the directory. HR collaborates with IT teams to assign resources to the mundane task of manually updating user information. But somehow that doesnt seem to work. Most of the time, organizations have to work with incorrect or outdated information.</p>
+<p>Is there a more reliable and efficient way to keep employee information updated in the directory?</p>
+<h2><span style="color: #2980b9;"><b>Solution:</b></span></h2>
+<p> A practical approach to this problem is to force users to self-update their personal and official information in the directory.</p>
+<p>The Profile Validation feature in Directory Manager does exactly that. It forces users to periodically review, validate, and update important fields in their directory profiles.</p>
+<h2><span style="color: #2980b9;"><b>Explanation:</b></span></h2>
+<p>In the portal, users can view and update their directory profiles. But since this is a matter of choice, they barely bother.</p>
+<p>The profile validation function makes it mandatory for users to validate and update their profiles. The administrator can specify the attributes (fields) to expose for profile validation.</p>
+<h2><span style="color: #2980b9;"><b>How does User Profile Validation work in Directory Manager?</b></span></h2>
+<p>The profile validation function involves several simple steps.</p>
+<ul><li><a href="#configure">Step 1</a>: Configure user profile validation for an identity store.</li><li><a href="#define_job">Step 2</a>: Define a scheduled User Life Cycle job for the identity store.</li><li><a href="#schema">Step 3</a>: Specify the fields to be displayed in a portal for profile validation.</li><li><a href="#ssp">Step 4</a>: Users are forced to validate their profiles using the portal. The Directory Manager expires the users who fail to do so within a specified time frame. Expired users cannot log in using their organizational accounts.</li><li><a href="#extension">Step 5</a>: The administrator or a Helpdesk user can grant an extension period to expired users, so they can validate their profiles and avoid inconvenience.</li></ul>
+<h2><span style="color: #2980b9;"><b>Step 1: Configure User Profile Validation for an Identity Store</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFDR3" height="1" width="1"></img></b></span></h2>
+<p>1. In the Admin center , click the <b>Identity Stores</b> node.</p>
+<p>2. On the <b>Identity Stores</b> tab, go to the settings of the required identity store.</p>
+<p>3. On the <b>Configurations</b> tab, click the <b>Profile Validation</b> option in the left pane.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFDqr" alt="" width="721" height="335"></img></p>
+<p> </p>
+<p>4.  In the <b>Profile Criteria</b> area, specify a group to apply profile validation to. Members of this group will have to validate their profiles using the portal.</p>
+<p>5. In the<b> Users Profile Validation Life Cycle </b>box, the profile validation life cycle period defaults to 100 days, which means that users must validate their profiles once during each cycle of 100 days. When a user validates his or her profile, the current cycle closes and the next cycle begins for him or her.</p>
+<p>6. In the <b>Extension Period Settings</b> area, specify the number of days that would be granted as extension period to expired users.</p>
+<p>7. In the <b>Reminder Notification Settings</b> area, add/edit the email notification info. These notifications serve as reminders, directing the user to validate his/her profile.</p>
+<p>8. Click <b>OK</b>.</p>
+<h2><span style="color: #2980b9;"><b>Step 2: Define a User Life Cycle job for the Identity Store</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFEuz" height="1" width="1"></img></b></span></h2>
+<p>The profile validation feature in Directory Manager is monitored by the User Life Cycle job. This job checks for the profile validation dates of users who fall in the specified group. It initiates reminder notifications for these users and expires those who do not validate their profiles within the given period.</p>
+<p>1. In the Admin center, click on identity store node and open the properties of the required identity store. </p>
+<p>2. Click on Schedules Node and create new schedule for <strong>User lifecycle Job</strong>. </p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CF5F2" alt="" width="720" height="295"></img></p>
+<p>3. Provide Schedule Name and Portal URL. </p>
+<p>4. Set Trigger time and Authentication for the schedule job. </p>
+<p>5. Click on Create Schedule and Save the changes. </p>
+<h2><span style="color: #2980b9;"><b>Step 3: Specify Schema Attributes for Validation</b></span><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFG2L" height="1" width="1"></img></b></h2>
+<p>1. In the Admin, click on applications and go to the settings of the Portal. </p>
+<p>2. Select an identity store to specify fields for profile validation.</p>
+<p>3. Click the Property Validation tab.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFGrx" alt="" width="721" height="336"></img></p>
+<p> </p>
+<p>4.  From the <b>Select</b> <b>Directory</b> <b>Object</b> list, select <b>User</b>.<br>All fields currently available for profile validation in the portal are listed under <b>Display</b> <b>Name</b>.</p>
+<ul><li style="list-style-type: none;">
+<ul><li>You can <strong>add</strong> a new field.</li><li>You can <strong>edit</strong> a field. </li><li>You can <strong>remove</strong> a field. </li></ul>
+</li></ul>
+<p>5. To add a new field (schema attribute) for profile validation, click<strong> + sign.</strong></p>
+<p> </p>
+<p><strong><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFFMR" alt="" width="720" height="689"></img></strong></p>
+<p> </p>
+<p>6. Use the <b>Field(s)</b> box to specify a schema attribute.</p>
+<p>7. In the <b>Display</b> <b>Name</b> box, specify a name to display as the fields label in the portal.</p>
+<p>8. From the <b>Display</b> <b>Type</b> drop-down list, select a display type to use for rendering the attribute(s) in the portal.</p>
+<p>9. From the <b>Visibility</b> <b>Role</b> drop-down list, select a security role. The field would be visible to users of the selected role and to roles with a priority value higher than the selected role.</p>
+<p>10. Use the <b>Exclude Role</b> option to exclude a higher priority role or roles from getting visibility on the field.</p>
+<p>11. Specify a tooltip for the field, the maximum number of characters the field can store as value, and other attributes.</p>
+<p>12. Click <b>OK</b> to close the dialog box.</p>
+<p>13. <strong>Save </strong>the changes. </p>
+<h2><span style="color: #2980b9;"><b>Step 4: Profile Validation in the Portal</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFGlY" height="1" width="1"></img></b></span></h2>
+<p>Multiple alerts in the Directory Manager direct the user to validate his or her profile by a certain date. Reminder notifications are sent in due course of time. The <b>My Profile</b> card on the portals dashboard changes color to depict the warning level. </p>
+<p>1.Launch the  portal. </p>
+<p>2. Click the <b>My Profile</b> card on the dashboard to launch the <b>Validate Profile Properties</b> window.</p>
+<p> </p>
+<p> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFHeM" alt="" width="720" height="555"></img> </p>
+<p> </p>
+<p>3. Users can update the attributes the administrator has exposed for profile validation. In the default portal template, a user can:</p>
+<ul><li style="list-style-type: none;">
+<ul><li>Update his or her office info, such as address and contact numbers.</li><li>Specify or change his or her primary manager.</li><li>Transfer his or her direct reports to another manager.</li><li>Terminate his or her direct reports.</li></ul>
+</li></ul>
+<p>4.  After verifying and updating the information, click the <b>Validate Now</b> button.</p>
+<h2><span style="color: #2980b9;"><b>Step 5: Grant an Extension Period to Expired Users</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CF6pP" height="1" width="1"></img></b></span></h2>
+<p>Directory Manager expired the users who do not validate their profiles within the required time frame. An expired user is disabled in the directory.</p>
+<p>Expired users can request the administrator or Helpdesk to unlock their accounts temporarily and grant an extension period. If they do not validate their profile information within that extension period either, Directory Manager expires them again and notifies their managers by email. To reactivate these accounts, users managers must send a request to Helpdesk.</p>
+<p>1. To grant an extension, log on to the portal.</p>
+<p>2. Click <b>Users</b> in the left pane and select <strong>My Direct Reports</strong>.</p>
+<p>3. Click on <b>Disabled Users</b> tab.</p>
+<p>4. Select an expired user and click <b>Extend</b> on the toolbar.<br>On extension, the user&#39;s account is temporarily unlocked for the duration specified in profile validation configurations. See <strong>Step 1</strong>. <br><br></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSw9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFJt3" alt="" width="833" height="221"></img></p>
+</body>
+</html>

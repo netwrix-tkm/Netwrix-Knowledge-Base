@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Create a Service Mesh Between App Servers</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="2">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2022-02-18T19:26:39.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JqxCAE">
+    <meta name="Article_Reviewer__c" content="005Qk000001wMM9IAM">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2025-05-12T18:57:01.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2022-03-01T16:48:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JqxCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JqxCAE">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-05-12T20:13:05.000Z">
+    <meta name="LastPublishedDate" content="2024-09-27T18:19:18.000Z">
+    <meta name="Meta_Description__c" content="How to Configure a High-Availability (HA) Cluster / How to Create a Service Mesh Between App Servers">
+    <meta name="Meta_Title__c" content="How to Configure a High-Availability (HA) Cluster / How to Create a Service Mesh Between App Servers">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8381">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JqxCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Create a Service Mesh Between App Servers</h1>
+    <h2>Overview</h2>
+<div>
+<p>This article outlines the steps to configure a service mesh in Netwrix Privilege Secure (NPS).</p>
+<ul><li>
+<p>If you have two app servers with internal PostgreSQL on each, you must configure high availability (HA) before configuring a service mesh. For additional information on the HA setup, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K8ICAU.html" target="_blank">Configure and Upgrade NPS in High Availability Mode and Using Remote Services Configurations</a>.</p>
+</li><li>
+<p>In both PostgreSQL <em>and</em> SQL Server deployments, you must complete the key exchange in your environment before configuring a service mesh. For additional information on the key exchange setup, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000rYzKAI.html" target="_blank">How to Configure Encryption Keys in Multiple NPS Server Environments</a>.</p>
+</li></ul>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Multi-factor authentication should be disabled for the NPS Administrator account, if used. While this will be indicated by an error message when running <code>sbpam-proxy.exe</code>, the error will not indicate the missing 2FA or the need to disable it prior to running.</p>
+</blockquote>
+<p>Refer to the following article for additional information on used protocols and ports: <a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.2/page/Content/PrivilegeSecure/AccessManagement/Install/Overview.htm#system_architecture" target="_blank">Installation  System Architecture · v4.2</a>.</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>For the following steps, when the <strong>C</strong> drive is referenced, these configuration files are on the C drive. If the application was installed to a dedicated drive, then replace <strong>X</strong> with your appropriate application drive letter for steps with this example.</p>
+</blockquote>
+<ol><li>
+<p>On the primary NPS server, locate the Web directory. Refer to the following default path:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">C:\ProgramData\Stealthbits\PAM\Web\</code></pre>
+<p>Copy the entire contents of this directory to the corresponding path in the secondary NPS server.</p>
+</li><li>
+<p>On the primary NPS server, locate the <code>appsettings.jwt.json</code> file. Refer to the following default path:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">C:\ProgramData\Stealthbits\PAM\WebService\appsettings.jwt.json</code></pre>
+<p>In the primary <code>.json</code> file, locate the <code>Jwt</code> node. Copy it to the <code>appsettings.jwt.json</code> file in the secondary NPS server.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The <code>Jwt</code> node consists of the contents found within the <code>{}</code> braces following <code>Jwt</code>. Typically, the <code>Jwt</code> node will be the only node defined in the file. The entire file can be copied from one server to another, as in the following example.</p>
+<div><img height="246" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Drg1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004AOpx" width="650"></img></div>
+</blockquote>
+</li><li>
+<p>Copy the file referenced in <strong>appsettings.jwt.json</strong> from the primary to the secondary server.</p>
+</li><li>
+<p>On the secondary NPS server, open IIS Manager and restart the web server.</p>
+</li><li>
+<p>On the secondary NPS server, restart all NPS services.</p>
+</li><li>
+<p>Start NPS on the secondary server. Log in, click your <strong>User Name</strong> in the upper-right corner, and select <strong>Settings</strong>. Click <strong>Register Services</strong>.</p>
+</li><li>
+<p>Review the <code>sbpam_node.json</code> file on both the primary and secondary servers. Refer to the following default path:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">C:\ProgramData\Stealthbits\PAM\ProxyService\sbpam_node.json</code></pre>
+<p>The default <code>advertise</code> value is blank by default. In the <code>advertise</code> value, specify the IP address, FQDN, and netbios name of the server where the <code>sbpam_node.json</code> file is located. Refer to the following example of the contents of the <code>sbpam_node.json</code> file on a primary NPS server:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">{
+    &quot;advertise&quot;: [
+        &quot;192.168.1.123&quot;,
+        &quot;NPS-PRI.test.lab&quot;,
+        &quot;NPS-PRI&quot;
+    ],
+    &quot;tags&quot;: []
+}</code></pre>
+</li><li>
+<p>On both servers, remove the file <code>sbpam-node.crt</code>. Refer to the following default path:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">C:\ProgramData\Stealthbits\PAM\tls\certs\sbpam-node.crt</code></pre>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The <code>sbpam-node.crt</code> file may reappear immediately following deletion ? this behavior is expected.</p>
+</blockquote>
+</li><li>
+<p>On the primary server, run the following line in elevated Command Prompt to obtain the CA hash:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">&quot;X:\Program Files\Stealthbits\PAM\ProxyService\sbpam-proxy.exe&quot; register ca-hash</code></pre>
+<p>Copy the returned hash value and use it in the following step.</p>
+</li><li>
+<p>On the secondary server, run the following command in elevated Command Prompt to register the server as a cluster on the primary server:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">&quot;X:\Program Files\Stealthbits\PAM\ProxyService\sbpam-proxy.exe&quot; register -s &lt;%primary.address%&gt; -u &lt;%admin%&gt; -P Cluster -H &lt;%HASH%&gt;</code></pre>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Replace the placeholders with corresponding values. The <code>%admin%</code> value should represent the NPS administrator account in the <code>domain\samaccountname</code> format. The NPS administrator account used must <strong>temporarily</strong> have MFA disabled in the <strong>Users &amp; Groups</strong> section of the Web Interface.</p>
+</blockquote>
+<p>The output should resemble the following structure:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Registration successful (remotes: [192.168.1.123:6523], routes: [192.168.1.123:6524])</code></pre>
+</li><li>
+<p>Restart <strong>all NPS services</strong> on the secondary node <strong>&quot;Restart-Service SbPAM* -Force&quot;</strong> in PowerShell and then IIS <strong>&quot;Restart-Service w3svc&quot;</strong>.</p>
+</li></ol>
+</div>
+<h2>Enabling Recording Replication (Optional)</h2>
+<p>In order to enable replication of session recordings (.webm files for web sessions, .iolog files for non-web sessions), perform the following steps:</p>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This must be done on both servers. Also, the sbpam_iolog.json file is generated on the C drive regardless of the location from which the command is run.</p>
+</blockquote>
+<ol><li>
+<p>Generate the <strong>iolog config</strong> by opening a command prompt, navigating to <code>X:\Program Files\Stealthbits\PAM\ProxyService</code> and running the following command:</p>
+<pre class="ckeditor_codeblock">sbpam-proxy.exe cfg -c sbpam_iolog</pre>
+</li><li>
+<p>Open the <strong>sbpam_iolog.json</strong> file that has just been created and ensure that a <strong>replicas</strong> setting exists and is set to <strong>2</strong>. Ensure that the resulting file is properly comma-separated. Then, save the <strong>sbpam_iolog.json file</strong>.</p>
+<pre class="ckeditor_codeblock">&quot;replicas&quot;: 2</pre>
+</li><li>
+<p>Once the file is saved, restart the proxy service and recording replication should occur.</p>
+</li></ol>
+<h2>Related articles</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K8ICAU.html" target="_blank">Configure and Upgrade NPS in High Availability Mode and Using Remote Services Configurations</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000rYzKAI.html" target="_blank">How to Configure Encryption Keys in Multiple NPS Server Environments</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.2/page/Content/PrivilegeSecure/AccessManagement/Install/Overview.htm#system_architecture" target="_blank">Installation  System Architecture · v4.2</a></p>
+</li></ul>
+</div>
+</body>
+</html>

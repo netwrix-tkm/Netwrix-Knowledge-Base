@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String or Binary Data Would Be Truncated Error in SQL</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-10-10T11:26:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-10-10T11:27:08.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-10-10T11:27:03.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111KOCAY">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111KOCAY">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-10T11:27:14.000Z">
+    <meta name="LastPublishedDate" content="2023-10-10T11:27:03.000Z">
+    <meta name="Meta_Description__c" content="String or Binary Data Would Be Truncated">
+    <meta name="Meta_Title__c" content="String or Binary Data Would Be Truncated">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8851">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111KOCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>String or Binary Data Would Be Truncated Error in SQL</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error is prompted upon a job performance in Netwrix StealthAUDIT:</p>
+
+<pre class="has-inner-focus">
+String or binary data would be truncated in table &#39;NETWRIX_SA.dbo.SA_AIC_FlexibleResources&#39;, column &#39;ResourcePath&#39;.
+Truncated value: &#39;%value%&#39;.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The characters limit for the <code>Resource</code> column has been reached.</p>
+</div>
+
+<h2>Resolutions</h2>
+
+<h4>Expand the ResourcePath column</h4>
+
+<div>
+<p>Expand the affected column in the SQL database:</p>
+
+<ol><li>
+	<p>In your SQL server, launch <strong>Microsoft SQL Server Management Studio</strong>.</p>
+	</li><li>
+	<p>Connect to the SQL Server instance.</p>
+	</li><li>
+	<p>Click <strong>New Query</strong>.</p>
+	</li><li>
+	<p>Select the database to run the query against (e.g., <code>NETWRIX_SA</code>).</p>
+	</li><li>
+	<p>Use the following query to expand the column:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">ALTER TABLE SA_AIC_Flexibleresources ALTER COLUMN ResourcePath NVARCHAR (1600);</code></pre>
+	</li><li>
+	<p>Execute the query and save the changes.</p>
+	</li></ol>
+</div>
+
+<h4>Expand other affected column</h4>
+
+<div>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span><code>nvarchar</code> in the query stands for the data type. Unless the target column is of the <code>nvarchar</code> data type, the query will return an error.</p>
+</blockquote>
+
+<p>You can manually edit the character limit for the column. Refer to the following steps:</p>
+
+<ol><li>
+	<p>In your SQL server, launch <strong>Microsoft SQL Server Management Studio</strong>.</p>
+	</li><li>
+	<p>Connect to the SQL Server instance.</p>
+	</li><li>
+	<p>Based on the error prompted, locate the affected table:</p>
+
+	<ul><li>E.g., in <code>NETWRIX_SA.dbo.SA_AIC_FlexibleResources</code>, <code>NETWRIX_SA</code> stands for the database, and <code>dbo.SA_AIC_FlexibleResources</code> stands for the table in the databased.</li></ul>
+	</li><li>
+	<p>Expand the table node, locate and expand the <strong>Columns</strong> folder to find the affected column.</p>
+	</li><li>
+	<p>Right-click the affected column and click <strong>Modify</strong>.</p>
+	</li><li>
+	<p>In the <strong>Data Type</strong> column of the affected column, edit the value in round brackets. Save the changes.</p>
+	</li></ol>
+</div>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>For the performance purposes, it is recommended to use the exact value required. Alternatively, the <code>MAX</code> value can be used, although it might take up an unnecessary large amount of storage (up to 2 GB).</p>
+</blockquote>
+</body>
+</html>

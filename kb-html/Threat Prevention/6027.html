@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Prevention Agent Install Fails With Error 643</title>
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T17:52:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000HvvCAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-05T11:07:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T17:52:48.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000HvvCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000HvvCAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T11:21:14.000Z">
+    <meta name="LastPublishedDate" content="2022-02-22T13:18:17.000Z">
+    <meta name="Meta_Description__c" content="360008304132">
+    <meta name="Meta_Title__c" content="Threat Prevention Agent Install Fails With Error 643">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6027">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HvvCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Threat Prevention Agent Install Fails With Error 643</h1>
+    <p><strong>Symptom</strong><br>Agent deployment from the Threat Prevention Console fails with &quot;Installer error 643&quot;.</p>
+
+<p>Error 643 information found in verbose installer log on agent (C:\Windows\Temp\SIAenbt-install-{date}_MainPackage64.log) will show the following error if the installer is set to verbose logging:</p>
+
+<pre class="wikicode prettyprint prettyprinted">
+<code><span class="typ">RequestCertsCA</span><span class="pun">:</span>  <span class="typ">Getting</span><span class="pln"> root cert </span><span class="kwd">from</span><span class="pln"> EM
+</span><span class="typ">RequestCertsCA</span><span class="pun">:</span> <span class="typ">Exception</span><span class="pun">:</span>  <span class="typ">System</span><span class="pun">.</span><span class="pln">IO</span><span class="pun">.</span><span class="typ">IOException</span><span class="pun">:</span> <span class="typ">Unable</span><span class="pln"> to read data </span><span class="kwd">from</span><span class="pln"> the transport connection</span><span class="pun">:</span><span class="pln"> A connection attempt failed because the connected party did </span><span class="kwd">not</span><span class="pln"> properly respond after a period </span><span class="kwd">of</span><span class="pln"> time</span><span class="pun">,</span> <span class="kwd">or</span><span class="pln"> established connection failed because connected host has failed to respond</span><span class="pun">.</span> <span class="pun">---&gt;</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Net</span><span class="pun">.</span><span class="typ">Sockets</span><span class="pun">.</span><span class="typ">SocketException</span><span class="pun">:</span><span class="pln"> A connection attempt failed because the connected party did </span><span class="kwd">not</span><span class="pln"> properly respond after a period </span><span class="kwd">of</span><span class="pln"> time</span><span class="pun">,</span> <span class="kwd">or</span><span class="pln"> established connection failed because connected host has failed to respond
+   at </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Net</span><span class="pun">.</span><span class="typ">Sockets</span><span class="pun">.</span><span class="typ">NetworkStream</span><span class="pun">.</span><span class="typ">Read</span><span class="pun">(</span><span class="typ">Byte</span><span class="pln"> buffer</span><span class="pun">,</span> <span class="typ">Int32</span><span class="pln"> offset</span><span class="pun">,</span> <span class="typ">Int32</span><span class="pln"> size</span><span class="pun">)</span>
+   <span class="pun">---</span> <span class="typ">End</span> <span class="kwd">of</span><span class="pln"> inner exception stack trace </span><span class="pun">---</span><span class="pln">
+   at </span><span class="typ">Org</span><span class="pun">.</span><span class="typ">BouncyCastle</span><span class="pun">.</span><span class="typ">Crypto</span><span class="pun">.</span><span class="typ">Tls</span><span class="pun">.</span><span class="typ">TlsProtocol</span><span class="pun">.</span><span class="typ">SafeReadRecord</span><span class="pun">()</span><span class="pln">
+   at </span><span class="typ">Org</span><span class="pun">.</span><span class="typ">BouncyCastle</span><span class="pun">.</span><span class="typ">Crypto</span><span class="pun">.</span><span class="typ">Tls</span><span class="pun">.</span><span class="typ">TlsProtocol</span><span class="pun">.</span><span class="typ">BlockForHandshake</span><span class="pun">()</span><span class="pln">
+   at SI_Agent_CustomActions</span><span class="pun">.</span><span class="typ">Certificates</span><span class="pun">.</span><span class="typ">RemoteTlsCertificateRetrieval</span><span class="pun">.</span><span class="typ">RetrieveCertificatesFromTlsHost</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> serverHostName</span><span class="pun">,</span> <span class="typ">Int32</span><span class="pln"> serverPort</span><span class="pun">)</span><span class="pln">
+   at SI_Agent_CustomActions</span><span class="pun">.</span><span class="typ">CustomActions</span><span class="pun">.</span><span class="typ">RetrieveCertificates</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> serverHostName</span><span class="pun">,</span> <span class="typ">Int32</span><span class="pln"> serverPort</span><span class="pun">)</span><span class="pln">
+   at SI_Agent_CustomActions</span><span class="pun">.</span><span class="typ">CustomActions</span><span class="pun">.</span><span class="typ">RequestCertsCA</span><span class="pun">(</span><span class="typ">Session</span><span class="pln"> session</span><span class="pun">)</span>
+<span class="typ">RequestCertsCA</span><span class="pun">:</span> <span class="typ">Ended</span></code></pre>
+
+<p><strong>Further Verification Steps</strong></p>
+
+<ul class="wiki-list0"><li>telnet / test-netconnection confirms port 3741 is accessible.</li><li>OpenSSL.exe s_client -connect {INTERCEPT IP ADDRESS} -port 3741
+	<ul class="wiki-list1"><li>Works from another machine but not on one with the error</li><li>Does not connect to the server with error shown something like the following:</li></ul>
+	</li></ul>
+
+<pre class="wikicode prettyprint prettyprinted">
+<code><span class="pln">CONNECTED</span><span class="pun">(</span><span class="lit">0000011C</span><span class="pun">)</span><span class="pln"> 
+write</span><span class="pun">:</span><span class="pln">errno</span><span class="pun">=</span><span class="lit">10060</span> 
+<span class="pun">---</span> 
+<span class="kwd">no</span><span class="pln"> peer certificate available 
+</span><span class="pun">---</span> 
+<span class="typ">No</span><span class="pln"> client certificate CA names sent 
+</span><span class="pun">---</span><span class="pln"> 
+SSL handshake has read </span><span class="lit">0</span><span class="pln"> bytes </span><span class="kwd">and</span><span class="pln"> written </span><span class="lit">293</span><span class="pln"> bytes 
+</span><span class="typ">Verification</span><span class="pun">:</span><span class="pln"> OK 
+</span><span class="pun">---</span> 
+<span class="typ">New</span><span class="pun">,</span> <span class="pun">(</span><span class="pln">NONE</span><span class="pun">),</span> <span class="typ">Cipher</span> <span class="kwd">is</span> <span class="pun">(</span><span class="pln">NONE</span><span class="pun">)</span> 
+<span class="typ">Secure</span> <span class="typ">Renegotiation</span><span class="pln"> IS NOT supported 
+</span><span class="typ">No</span><span class="pln"> ALPN negotiated 
+</span><span class="typ">Early</span><span class="pln"> data was </span><span class="kwd">not</span><span class="pln"> sent 
+</span><span class="typ">Verify</span> <span class="kwd">return</span><span class="pln"> code</span><span class="pun">:</span> <span class="lit">0</span> <span class="pun">(</span><span class="pln">ok</span><span class="pun">)</span> 
+</code></pre>
+
+<p><strong>Resolution</strong><br>The network / firewall team will need to be contacted. This is most likely the result of a firewall blocking communication on port 3741 from the host where the Agent is being installed to the Threat Prevention host. It may also be the result of SSL inspection between Threat Prevention host and the host where the Agent is being installed. </p>
+</body>
+</html>

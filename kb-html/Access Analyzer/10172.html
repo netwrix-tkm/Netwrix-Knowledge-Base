@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPAC System Scan Error - Invalid URI: The format of the URI could not be determined.</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="content_type" content="ct_troubleshooting">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000007MiY9AAK">
+    <meta name="ArticleCreatedDate" content="2025-05-05T15:56:38.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002QjBKAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000007MiY9AAK">
+    <meta name="AssignedToId" content="0054u000007MiY9AAK">
+    <meta name="AssignmentDate" content="2025-05-05T15:56:38.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007MiY9AAK">
+    <meta name="CreatedDate" content="2025-05-05T15:56:38.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002QjBKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002QjBKAU">
+    <meta name="LastModifiedById" content="0054u000007MiY9AAK">
+    <meta name="LastModifiedDate" content="2025-05-07T14:50:34.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000007MiY9AAK">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10172">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002QjBKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SPAC System Scan Error - Invalid URI: The format of the URI could not be determined.</h1>
+    <blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Symptom</h2>
+<p>When running the SPAC System Scan against a SharePoint Online host in Netwrix Access Analyzer (NAA), the following error is received:</p>
+<pre class="has-inner-focus">Invalid URI: The format of the URI could not be determined.
+</pre>
+<h2>Cause</h2>
+<p><span>The invalid URLs in the SPAC tier2 database came from the SPAA database during the data migration. This migration happens whenever the SPAC SQLite database version is upgraded from versions lower than 10602.</span></p>
+<p><span><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dc97&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CO7cY"></img></span></p>
+<h3><span>Test</span></h3>
+<p><span>Using DB Browser for SQLite, run the below code against the %SAInstallDir%Jobs\SA_CommonData\SHAREPOINTACCESS\TENANT.sharepoint.com\<strong>SPAA.db3</strong>. If it returns any results, there is a high likelihood this error will occur.</span></p>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>SELECT ID, RelativePath as URL FROM Resources WHERE Type = 2 AND RelativePath NOT LIKE &#39;http%&#39;;</code></pre>
+<h2>Resolutions</h2>
+<p>To address these causes, refer to the following steps.</p>
+<ol><li>Stop all SPAC System Scans and SPAC Bulk Imports jobs currently running.</li><li>Open the SPAC.db3 database with <a href="https://sqlitebrowser.org/" target="_self">DB Browser for SQLite</a>. The SPAC.db3 sqlite database can be found at <em>%SAInstallDir%Jobs\SA_CommonData\SHAREPOINTACCESS\TENANT.SHAREPOINT.COM</em>. 
+<blockquote><strong>NOTE</strong>: The SQLite Engine used with DB Browser must be at least v3.44. You can use this command in DB Browser to check the currently installed engine version: <code>SELECT sqlite_version();</code></blockquote>
+</li><li>Run the following code:<br><pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>UPDATE ActivitySiteCollections SET URL = CONCAT(&#39;https://TENANT-my.sharepoint.com/personal/&#39; , SUBSTR(URL,11,INSTR(SUBSTR(URL,11,LENGTH(URL)),&#39;/&#39;)-1)) WHERE URL LIKE &#39;/personal/%&#39;;
+
+UPDATE ActivitySiteCollections SET URL = CONCAT(&#39;https://TENANT.sharepoint.com/sites/&#39; , SUBSTR(URL,8,INSTR(SUBSTR(URL,8,LENGTH(URL)),&#39;/&#39;)-1)) WHERE URL LIKE &#39;/sites/%&#39;;
+
+UPDATE ActivitySiteCollections SET URL = CONCAT(&#39;https://TENANT.sharepoint.com/teams/&#39; , SUBSTR(URL,8,INSTR(SUBSTR(URL,8,LENGTH(URL)),&#39;/&#39;)-1)) WHERE URL LIKE &#39;/teams/%&#39;;</code></pre>
+<blockquote><strong>IMPORTANT</strong>: Replace TENANT with the correct tenant name for the environment.</blockquote>
+</li><li>After running the first code, run the following code (this should return 0 results if successful):<br><pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>SELECT * FROM ActivitySiteCollections WHERE URL NOT LIKE &#39;http%&#39;;</code></pre>
+</li><li>Select &quot;Write Changes&quot; in DB Browser.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dc97&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CO314"></img></li><li>Run SPAC System scan and bulk import.</li></ol>
+<blockquote>
+<p><strong>IMPORTANT: </strong>If the above solution does not work or the &quot;SELECT&quot; statement in Step #4 returns results, escalate to R&amp;D.</p>
+</blockquote>
+</body>
+</html>

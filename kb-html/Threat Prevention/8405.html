@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIInstaller_7.3.5.158</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006RPEQAA4">
+    <meta name="ArticleCreatedDate" content="2022-03-28T20:10:30.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006RPEQAA4">
+    <meta name="CreatedDate" content="2023-05-08T10:18:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-03-28T20:11:14.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000K0iCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000K0iCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:52.000Z">
+    <meta name="LastPublishedDate" content="2022-03-28T20:11:14.000Z">
+    <meta name="Meta_Description__c" content="Corrupt App Token Issue">
+    <meta name="Meta_Title__c" content="Hotfix: SIInstaller_7.3.5.158">
+    <meta name="OwnerId" content="0054u000006RPEQAA4">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8405">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K0iCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIInstaller_7.3.5.158</h1>
+    <span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Summary: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Corrupt App Token Issue</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Behavior before Fix: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Unique encryption key &#39;instanceID&#39; was overwritten by the SI installer in upgrade scenario with Win auth DB access.</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Behavior after Fix: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">The SI installer creates a new &#39;instanceID&#39; key only when it is empty with Win auth DB access.</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><b>Changes since Last Hotfix:</b></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">100682: Corrupt App Token Issue</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Maxim Sidarau   </span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">7.3.5.157 and older</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Module:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SI - Installer</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Dev Ticket:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">100682</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Resolved in Version:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">7.3.5.158</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">KB Type: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Hotfix</span></span></span></span><br><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;"><b>Modules Included: </b>SI - Installer</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><b>YouTrack/Escalations: </b><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">100682 </span></span></span></span></span><br><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Instructions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Install SI using new version of SI Server installer</span></span></span></span></span><br> 
+</body>
+</html>

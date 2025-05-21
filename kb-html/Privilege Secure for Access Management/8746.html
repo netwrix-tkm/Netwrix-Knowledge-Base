@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cache Settings for JavaScript Files to Improve NPS Page Load Performance</title>
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2023-08-18T09:24:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2023-12-13T20:51:33.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-18T09:35:53.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001113mCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001113mCAA">
+    <meta name="LastModifiedById" content="0054u000006gpnvAAA">
+    <meta name="LastModifiedDate" content="2023-12-13T20:51:48.000Z">
+    <meta name="LastPublishedDate" content="2023-08-23T10:30:39.000Z">
+    <meta name="Meta_Description__c" content="Add Cache Settings for JavaScript Files to Improve NPS Page Load Performance">
+    <meta name="Meta_Title__c" content="Add Cache Settings for JavaScript Files to Improve NPS Page Load Performance">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8746">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001113mCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Add Cache Settings for JavaScript Files to Improve NPS Page Load Performance</h1>
+    <h1>Summary</h1>
+
+<p>The main ReactJS bundle for the SbPAM Website is 6.5MB. This is sent with the HTTP header <code>Cache-Control: no-cache, no-store</code> This causes SAML Logins to sometimes fail, as downloading the ReactJS module during each login can cause the SAML token cache to expire.</p>
+
+<p>To address this issue, you can create an IIS configuration setting that will update the <code>Cache-Control</code> header for all JavaScript files that are downloaded from the NPS Web Service. This will improve the performance of the website and lower the burden on the webservice.</p>
+
+<h1>Instructions</h1>
+
+<ol><li>
+	<p>On all NPS servers, download and install the Url Rewrite module.</p>
+
+	<p><a href="https://www.iis.net/downloads/microsoft/url-rewrite" target="_blank">https://www.iis.net/downloads/microsoft/url-rewrite</a> </p>
+	</li><li>
+	<p>Navigate to your NPS Web directory (by default, <code>C:\Program Files\Stealthbits\PAM\Web\) </code>and make a copy of the web.config file.</p>
+	</li><li>
+	<p>Open the file <code>C:\Program Files\Stealthbits\PAM\Web\web.config</code> in a text editor. Find this line:</p>
+
+	<pre>
+<code>&lt;system.webServer&gt;
+</code></pre>
+	</li><li>
+	<p>Add the following XML after that line:</p>
+
+	<pre>
+<code>&lt;rewrite&gt;
+   &lt;outboundRules&gt;
+     &lt;rule name=&quot;Set cache for JS&quot;&gt;
+       &lt;match serverVariable=&quot;RESPONSE_Cache_Control&quot; pattern=&quot;.*&quot; /&gt;
+       &lt;conditions&gt;
+         &lt;add input=&quot;{REQUEST_URI}&quot; pattern=&quot;\.js$&quot; /&gt;
+       &lt;/conditions&gt;
+       &lt;action type=&quot;Rewrite&quot; value=&quot;max-age=604800&quot;/&gt;
+     &lt;/rule&gt;
+   &lt;/outboundRules&gt;
+ &lt;/rewrite&gt;
+```xml
+</code></pre>
+	</li><li>
+	<p>Save the file</p>
+	</li><li>
+	<p>Launch a PowerShell window and restart IIS using the command:</p>
+
+	<pre>
+<code>iisreset
+</code></pre>
+	</li><li>
+	<p>To verify the file is now cached, open Chrome or Edge and then open the developer tools.</p>
+	</li><li>
+	<p>Open your NPS web page and look at the <code>Network</code> tab in the developer tools Window.</p>
+	</li><li>
+	<p>See the page download:<br>	<img alt="001.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000zjR&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M2O1"></img></p>
+	</li><li>
+	<p>Reload the page, see it is loaded from the cache:<br>	<img alt="002.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000zjR&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M2O6"></img></p>
+	</li><li>
+	<p>Copy the updated <code>web.config</code> to <code>C:\Program Files\Stealthbits\PAM\Web\web.config.rewrite</code>, you will need this for future upgrades.</p>
+	</li></ol>
+
+<h1 id="user-content-upgrade-notes">Upgrades</h1>
+
+<ol><li>After an upgrade of NPS, you will need to copy the <code>C:\Program Files\Stealthbits\PAM\Web\web.config.rewrite</code> file to <code>C:\Program Files\Stealthbits\PAM\Web\web.config</code> in order to restore the cache settings.</li></ol>
+</body>
+</html>

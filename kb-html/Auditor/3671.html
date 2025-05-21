@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Server Service Terminated ? Raised an Exception</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:00.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2024-01-25T10:23:39.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:02.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9dpCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9dpCAC">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-25T10:23:47.000Z">
+    <meta name="LastPublishedDate" content="2024-01-25T10:23:34.000Z">
+    <meta name="Meta_Description__c" content="Configuration Server Service Terminated ? Raised an Exception">
+    <meta name="Meta_Title__c" content="Netwrix Auditor Configuration Server Service fails to start">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="3284">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dpCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configuration Server Service Terminated ? Raised an Exception</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Auditor Configuration Server Service stopped. When attempting to restart the service, the following error is prompted:</p>
+
+<pre class="has-inner-focus">
+The Netwrix Auditor Configuration Server Service service terminated with the following error 0x80040208:
+A user-supplied component or subscriber raised an exception.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<p>Any of the following potential causes may lead to corruption of the configuration server status file:</p>
+</div>
+
+<ul><li>
+	<p>The C drive of the Netwrix Auditor server has reached or is running out of its capacity.</p>
+	</li><li>
+	<p>Unexpected shutdown of the Netwrix Auditor server (e.g. due to the power outage).</p>
+	</li><li>
+	<p>Cross-program interaction (e.g. antivirus software blocks an operation performed by Netwrix Auditor).</p>
+	</li></ul>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to the following steps to troubleshoot the issue:</p>
+</div>
+
+<ol><li>
+	<p>Stop all Auditor services in the server via elevated PowerShell:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Auditor *&quot;</code></pre>
+	</li><li>
+	<p>Navigate to <code>%Working Folder%\AuditCore\ConfigServer</code> and back up the contents of the <strong>ConfigServer</strong> folder except for the <strong>StorageBackups</strong> directory.</p>
+	</li><li>
+	<p>Delete the contents of <strong>ConfigServer</strong> folder except for the <strong>StorageBackups</strong> directory.</p>
+	</li><li>
+	<p>In the <strong>StorageBackups</strong> directory, locate the previous to the latest <code>Configuration.xml</code> file and copy it to the <strong>ConfigServer</strong> folder.</p>
+	</li><li>
+	<p>Run the following line in elevated PowerShell to start all Netwrix services:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Auditor *&quot;</code></pre>
+	</li></ol>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEN 7 Agent Deployment Options</title>
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:42:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JSTCA2">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T04:33:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:42:48.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JSTCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JSTCA2">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T04:39:14.000Z">
+    <meta name="LastPublishedDate" content="2025-05-09T04:39:14.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="GEN 7 Agent Deployment Options">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8165">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JSTCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>GEN 7 Agent Deployment Options</h1>
+    <h1 id="GEN7AgentDeploymentOptions-InstallingGen7AgentforWindows"><span>Installing Gen 7 Agent for Windows</span></h1>
+<p><strong><em>Note: Microsoft .NET Framework 4.5 is required  Enable this using Roles/Features  Add Features or<span> download the </span></em></strong><strong><em>official Microsoft installer from  </em></strong><span><a class="external-link" href="https://www.microsoft.com/en-gb/download/details.aspx?id=30653" target="_blank"><strong><em>https://www.microsoft.com/en-gb/download/details.aspx?id=30653</em></strong></a></span></p>
+<h2 id="GEN7AgentDeploymentOptions-"><span> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJzs&amp;d=%2Fa%2F4u000000Lzpf%2Fq6GXKCy66tI5GzR2qjRC9ERtU2s6IBIa8Y1AT4BjvBQ&amp;asPdf=false"></img></span></span></h2>
+<h2 id="GEN7AgentDeploymentOptions-.1"><span> </span></h2>
+<h2 id="GEN7AgentDeploymentOptions-User-AttendedGen7Agent.exeinstaller"><span>User-Attended Gen 7 Agent .exe installer</span></h2>
+<p><span>The Hub API page must be entered together with Access Credentials</span></p>
+<p><span>By default the Agent username is agent with password passWord121 but these can be changed via <a target="_blank">User Settings</a> </span></p>
+<p><span> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJzs&amp;d=%2Fa%2F4u000000Lzpf%2Fq6GXKCy66tI5GzR2qjRC9ERtU2s6IBIa8Y1AT4BjvBQ&amp;asPdf=false"></img></span></span></p>
+<p><span>By default the Agent will register using the Name of the server but there is an opportunity to customize this during installation (or post-installation via an edit of the <a href="#_Check_Agent_Operation">Hub Details file</a>  see more here)</span></p>
+<p><br> <span>During installation this can also be performed using the Advanced Configuration stage of the exe installation, and there is also an option to test agent connectivity (strongly recommended)</span></p>
+<p><strong><span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKBC&amp;d=%2Fa%2F4u000000LzXZ%2FPMntE8vK2z8OLlAPpvC.RD.KDdAWCvi70fGSnARKj0U&amp;asPdf=false"></img></span></span></strong></p>
+<p><strong><span>*IMPORTANT* </span></strong><span>In order to maximize performance, Gen 7 Agent operational files are located in %PROGRAMDATA%\NNT\gen7agent.service, so if you need to <a target="_blank">edit the HubDetails.xml file</a> for the Agent this is where the file can be found, similarly if you are ever required to provide a rolling-log.txt file to Netwrix Support this is where it is located.</span></p>
+<p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKL9&amp;d=%2Fa%2F4u000000Lzij%2FYdMf8vZpVM72tMau.eCJIMTaZvi9pQ5PuvIPcsjkOH0&amp;asPdf=false"></img></span></span></p>
+<h2 id="GEN7AgentDeploymentOptions-Gen7AgentUI"><span>Gen 7 Agent UI</span></h2>
+<p><span>A local UI for the Gen 7 Agent provides visibility of operation for troubleshooting purposes. It is available from the hosting platform e.g. <a class="external-link" href="http://localhost:8096/" target="_blank">http://localhost:8096</a> and requires credentials of username admin and password password</span></p>
+<h2 id="GEN7AgentDeploymentOptions-.2"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKKM&amp;d=%2Fa%2F4u000000Lzqc%2FZakQG8OdHrtuIqb._Yd9Q9CLVPeeCubmdymDxiW3DZU&amp;asPdf=false"></img></span></h2>
+<h2 id="GEN7AgentDeploymentOptions-Scripted/CommandLineuseofGen7Agent.exeinstaller"><span>Scripted/Command Line use of Gen 7 Agent .exe installer</span></h2>
+<p><span>By co-locating a pre-configured HubDetails.xml file in the same folder as the Gen 7 Agent installer these details will be used by the installer for the installed agent</span></p>
+<div class="table-wrap">
+    <table class="wrapped confluenceTable" style="width: 100.0%;"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd">
+                    <p><strong> </strong></p>
+                </td></tr></tbody></table>
+</div>
+<p><span>Use of the /SP- /VERYSILENT /SUPPRESSMSGBOXES switches will ensure the installation is silent and operates unattended.</span></p>
+<p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJta&amp;d=%2Fa%2F4u000000Lzqh%2F4hZsvcN6eBo4UfabxXbTviE6F990SC986KnM3CuzEHc&amp;asPdf=false"></img></span><br></span></p>
+<p><span>Alternatively, a full command line installation can be used, with individual arguments used to specify HubDetails settings.</span></p>
+<p><br> <span>For example </span></p>
+<p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKC0&amp;d=%2Fa%2F4u000000LzqO%2Fu_dG3YuyUcgMRLzfZAL8_OKGZEqkCYxB5JARm6SmHs8&amp;asPdf=false"></img></span></span></p>
+<p><br></p>
+<p><span><a target="_blank">Full details of HubDetails.xml nodes and their settings can be found here</a></span></p>
+<h1 id="GEN7AgentDeploymentOptions-InstallingGen7AgentforLinux"><span>Installing Gen 7 Agent </span><span>for Linux</span></h1>
+<h2 id="GEN7AgentDeploymentOptions-UsinglocalRPMfiles"><span>Using local RPM files</span></h2>
+<p><span>Netwrix Gen 7 Agent can also be installed on Linux and Unix platforms. In a similar way to the Windows Agent, the Agent requires a runtime and an Agent executable. For Linux, the runtime is Mono, the open source parallel to Microsoft .NET.</span></p>
+<p><span>Installation simply requires the Netwrix-Mono and Netwrix-Gen7 Agent RPMs to be installed as follows</span></p>
+<p><span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJoN&amp;d=%2Fa%2F4u000000Lzqm%2Fkb5lKrR7dT97tjLjVaq..0OUQSbHHqwfGe8Ae559S5s&amp;asPdf=false"></img></span></span></p>
+<div class="table-wrap">
+    <table class="wrapped confluenceTable" style="width: 100.0%;"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"><br></td></tr></tbody></table>
+</div>
+<p><span>Once installed, the HubDetails.xml file must be configured  this can be done directly by editing a HubDetails.xml on the /var/nnt/gen7agent.service path or by using the /opt/nnt/gen7agent//configure-gen7agent.sh script.</span></p>
+<p><span> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK7c&amp;d=%2Fa%2F4u000000LzRe%2FqYq.svlEHnJrAgbyl_ibS71z6nKyc4Pjac76ZbmRlPo&amp;asPdf=false"></img></span></span></p>
+<p> <span>The Agent service can then be started using</span></p>
+<p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKIL&amp;d=%2Fa%2F4u000000LzV4%2F9dfNHPQeTTtxhGZSJxsxoxfZ_cfecXVQtb2aiUiF5d8&amp;asPdf=false"></img></span></span></p>
+<h2 id="GEN7AgentDeploymentOptions-ScriptedinstallationofGen7AgentRPMinstaller"><span>Scripted installation of Gen 7 Agent RPM installer</span></h2>
+<p><span><span> </span> <span>The entire process outlined above can be completed using a single command as follows</span></span></p>
+<p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKLE&amp;d=%2Fa%2F4u000000Lzh0%2FlS98a4UbzWxCHgEWaKwDSl81TNCcTV0ovSAPEuZFFJ8&amp;asPdf=false"></img></span></span></p>
+<p><br></p>
+<p><span>(<strong><em>Note:</em></strong> Removal <strong>rpm -evv nnt-mono-4.6.1-5.x86_64 nnt-changetracker-gen7agent-7.0.0.15-7.noarch)</strong></span></p>
+<h2 id="GEN7AgentDeploymentOptions-ForDebianLinux"><span>For Debian Linux</span></h2>
+<p><span>Netwrix provide packages for Debian distributions so please download the relevant Gen 7 Agent package then install using:</span></p>
+<p> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKAh&amp;d=%2Fa%2F4u000000Lzal%2F62991j1y.IaE1KE16V8dCWS9UCiYEF4dLF7b.P.B1og&amp;asPdf=false"></img></span></p>
+<p><span>You can then use the same steps for <a href="#_Using_local_RPM">configuring your HubDetails.xml file as in the previous section</a>.</span></p>
+<p><span>Note: To uninstall the Gen 7 Agent on Debian, use</span></p>
+<p><strong><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJy6&amp;d=%2Fa%2F4u000000Lzhd%2FzlhZbdYUS_em3DlsWkANZtV3BXI8.3KFCKdGvYBa9VQ&amp;asPdf=false"></img></span></strong></p>
+<p><span>Youll then want to remove the Netwrix Gen 7 Agent files which will be found at</span></p>
+<p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKLJ&amp;d=%2Fa%2F4u000000LzPz%2Fhvffk5ODTuqFR9W87y8ABj.EJ56e0brKkF6hGwnEE6U&amp;asPdf=false"></img></span></span></p>
+<p><br></p>
+<p><br></p>
+<h2 id="GEN7AgentDeploymentOptions-Gen7AgentUI.1"><span>Gen 7 Agent UI</span></h2>
+<p><span>A local UI for the Gen 7 Agent provides visibility of operation for troubleshooting purposes. It is available from the hosting platform e.g. <a class="external-link" href="http://localhost:8096/" target="_blank">http://localhost:8096</a> and requires credentials of username admin and password password</span></p>
+<h1 id="GEN7AgentDeploymentOptions-.3"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKLO&amp;d=%2Fa%2F4u000000Lzqr%2FhnxhDYRpOQsy5r2e5FOZu8.1I625q_vDiInnLvmyRQI&amp;asPdf=false"></img></span></h1>
+<h1 id="GEN7AgentDeploymentOptions-TroubleshootingConnectivity"><span>Troubleshooting Connectivity</span><span>  </span></h1>
+<h2 id="GEN7AgentDeploymentOptions-CheckAgentOperation"><span>Check Agent Operation</span><span>  </span></h2>
+<p><span>For any agent on any platform there is a local agent status interface which can be viewed via the local web browser at <a class="external-link" href="http://localhost:8096" target="_blank">http://localhost:8096</a></span></p>
+<p><span> </span></p>
+<p><span>If the Agent UI is not available, then it is likely that the agent service is stopped/has failed.</span></p>
+<p><span>Windows  Check Task Manager and Services Console</span></p>
+<p><span>Linux  </span>service nntGen7agent status</p>
+<p><span> </span></p>
+<p><span>The below shows that the agent service is running correctly but it has been unable to register with the </span></p>
+<p><span>Change Tracker Hub. </span></p>
+<p><br></p>
+<p> <span>The Agent should report the URL for the Hub it is registered as in the green pop-out boxes</span></p>
+<p><span><span><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKLT&amp;d=%2Fa%2F4u000000LzX3%2FBxUUYL2l_qKUbGzcmWXKNqd3vasr7KNVA2XUxF6JoHk&amp;asPdf=false"></img></span></span></span></p>
+<p><span>If the Hub URL referenced is not correct, you can edit the HubDetails.xml file and correct this. Likewise, the Agent username and password settings can be reset by editing this file.</span></p>
+<p><span>Windows - C:\ProgramData\NNT\gen7agent.service\HubDetails.xml</span></p>
+<p><span>Linux - /var/nnt/gen7agent.service/HubDetails.xml</span><span> </span></p>
+<h1 id="GEN7AgentDeploymentOptions-TheHubDetails.xmlFile"><span>The HubDetails.xml File</span></h1>
+<p><span>The Agent configuration settings are controlled by the Hub during operations but the initial registration necessitates a basic config file for registration with the Hub.</span></p>
+<p>The HubDetails.xml file includes some details unique to your deployment of Change Tracker Gen 7, hence it requiring your intervention to make sure settings are as needed.</p>
+<p>The key tags within the file are as follows:</p>
+<p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKLY&amp;d=%2Fa%2F4u000000LzWk%2FNCPf5ZuxRDfCES7PcRm0ISKD0gcYwE5YkdtTQP.pyCA&amp;asPdf=false"></img></span></p>
+<div class="table-wrap">
+    <table class="wrapped confluenceTable" style="width: 100.0%;"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd">
+                    <p><span> </span></p>
+                </td></tr></tbody></table>
+</div>
+<div class="table-wrap">
+    <table class="wrapped confluenceTable" style="width: 100.0%;"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"><br></td></tr></tbody></table>
+</div>
+<p><br></p>
+<p><strong><em><span>Note</span></em></strong><span>: An unencrypted password means the Agent didnt initialize and suggests a bad installation or .NET Framework issue  remember the Agent on Windows requires .NET Framework V3.5, Linux/Solaris requires the latest Netwrix Mono runtime.</span></p>
+<p><strong><em>Note</em></strong>: Netwrixs Gen 7 Agent also supports additional nodes  NamePrefix, NameSuffix</p>
+<p> </p>
+<p>*The Thumbprint uniquely identifies the Web Server certificate, see more here <span><a class="external-link" href="https://msdn.microsoft.com/en-us/library/ms734695(v=vs.110).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/ms734695(v=vs.110).aspx</a></span>.</p>
+<p>-               Open IIS</p>
+<p>-               Select the server from the list on the left hand side</p>
+<p>-               Select Server Certificates</p>
+<p>-               Double click your certificate in the list to open the certificates permissions</p>
+<p>-               Open the Details tab</p>
+<p>-               Scroll to the bottom of the list and highlight the Thumbprint field</p>
+<p>-               The thumbprint value will then be displayed  transpose this to your HubDetails.xml file</p>
+<p><span> </span></p>
+<p><span>The next step is to check that there is network connectivity to the Hub URL from the Agents host</span></p>
+<div class="table-wrap">
+    <table class="wrapped confluenceTable" style="width: 100.0%;"><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd">
+                    <p><strong><em><span>NOTE: Where the Change Tracker Hub has been installed on a Windows/IIS platform then the Hub URL will be <u><a class="external-link" href="https://192.168.1.36" target="_blank">https://192.168.1.36</a></u></span></em></strong></p>
+                </td></tr></tbody></table>
+</div>
+<h1 id="GEN7AgentDeploymentOptions-Finally,theAgentwillmaintainarolling-logofitsactivityGen7AgentRollingLogFile">Finally, the Agent will maintain a rolling-log of its activity<span>Gen 7 Agent  Rolling Log File</span></h1>
+<p><span>Windows - C:\ProgramData\NNT\gen7agent.service\rolling-log.txt</span></p>
+<p><span>Linux - /var/nnt/gen7agent.service/rolling-log.txt</span></p>
+<p><span>This will also provide diagnostic information if the agent is not functioning correctly.</span></p>
+<h1 id="GEN7AgentDeploymentOptions-FinallyPleasecontactNNTSupportifyouneedhelpatanystage"><span>Finally  Please contact support if you need help at any stage</span></h1>
+<p><br></p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclude deleted resources from Broken Inheritance report</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:36:24.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:05.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:36:25.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IrVCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IrVCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:05.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:36:25.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Exclude deleted resources from Broken Inheritance report">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7243">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IrVCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exclude deleted resources from Broken Inheritance report</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Resources that have been collected but have no permissions (either from FSAC scans w/o FSAA, or a deleted resource,) dilute the broken inheritance report with numerous rows of unusable data.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> StealthAUDIT collects resources that may have been deleted, or were caught by FSAC agents as activity only but has not had an FSAA scan against it yet.  In these cases, StealthAUDIT will recognize the delta between the parent (with permissions) and the resource with no permissions as a &quot;broken Inheritance&quot; situation.  While this is technically true, it can clutter up the Broken Inheritance report with what to a customer feels like a false positive-it doesn&#39;t add any value and misses the intent of the report.  This can be especially true in a very active share, where resources without permissions can greatly outnumber the amount of actual broken inheritance situations.<br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<ul><li>Navigate to the customer&#39;s name/location of the &#39;3. Broken Inheritance&#39; job group.  Click on the &#39;Analysis&#39; node within the job.</li><li>Select &#39;Create Analysis&#39;.  Name appropriately or according to the customer&#39;s wishes.  Analysis module from dropdown is &#39;SQLscripting&#39;.  Click &#39;Configure Analysis&#39;</li></ul>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcadR&amp;d=%2Fa%2F4u000000Lyyu%2Fv4rD5cFp3uQvCDJekdHVxntYwe2kHZQXalR38O4ZF00&amp;asPdf=false" alt="mceclip0.png"></img></p>
+<ul><li>The following SQL should be copy/pasted into the new Analysis.  It joins the current Broken Inheritance tables to the FSAA resources tables to determine which resources have NULL permissions:</li></ul>
+<p><span style="font-family: courier new;">DELETE FROM [dbo].[SA_FS_BrokenInheritance_UniqueTrusteesPivot] </span><br><span style="font-family: courier new;">  WHERE [Resource] in</span><br><span style="font-family: courier new;">  (select distinct b.[Resource] FROM</span><br><span style="font-family: courier new;">  [dbo].[SA_FS_BrokenInheritance_Details] b</span><br><span style="font-family: courier new;">  LEFT JOIN [dbo].[SA_FSAA_Resources] r</span><br><span style="font-family: courier new;">  ON b.[HostID] = r.[Host]</span><br><span style="font-family: courier new;">  AND b.[ResourceID] = r.[ID]</span><br><span style="font-family: courier new;">  WHERE r.[RightsProxyID] IS NULL);</span><br><span style="font-family: courier new;">GO</span><br> <br><span style="font-family: courier new;">DELETE</span><br><span style="font-family: courier new;">  FROM [dbo].[SA_FS_BrokenInheritance_Details] </span><br><span style="font-family: courier new;">  WHERE [ResourceID] IN (SELECT distinct b.[ResourceID] FROM</span><br><span style="font-family: courier new;">  [dbo].[SA_FS_BrokenInheritance_Details] b</span><br><span style="font-family: courier new;">  LEFT JOIN [dbo].[SA_FSAA_Resources] r</span><br><span style="font-family: courier new;">  ON b.[HostID] = r.[Host]</span><br><span style="font-family: courier new;">  AND b.[ResourceID] = r.[ID]</span><br><span style="font-family: courier new;">  WHERE r.[RightsProxyID] IS NULL);</span><br><span style="font-family: courier new;">GO</span></p>
+<ul><li>The new analysis <strong>MUST</strong> be placed in the proper sequence so that it occurs after the Broken Inheritance tables are populated, but before further analysis and reporting is done.  The proper placement is in between analysis 4 and 5 in the out-of-the-box solution.  Use drag-and-drop or the &#39;Move Up&#39;/&#39;Move Down&#39; buttons at the bottom of the screen, ensure placement is similar to the example:</li></ul>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcXXz&amp;d=%2Fa%2F4u000000Lypt%2F7XazHpQmIUQUgMSiBvFZU4FF_g17LJEkx.3JM697JPw&amp;asPdf=false" alt="mceclip1.png"></img></p>
+<ul><li>No other changes are required, the job can now be scheduled/run as before.</li></ul>
+<p> <br>Customer should be made aware that this does leave a small chance for a resource that has not been deleted, but was caught by FSAC and has not yet been scanned by FSAA.  In this situation, we will not have permissions details for the new resource yet.  However, upon the next FSAA scan it will rectify the misclassification.  Since this takes some understanding of our scanning processes, the following steps may help illustrate to them with an example:</p>
+<ul><li>Create New folder</li><li>Assign distinct permissions (breaking inheritance, making it eligible for the broken inheritance report)</li><li>FSAC scans pick this up, add a new resource entry to the resources table.  No permission have been collected yet, so the permissions are listed as NULL even though they do exist.</li><li>Run Broken Inheritance Job, it sees no permissions and now due to the new deletion steps, will remove it from the report even though it should belong.</li></ul>
+<p>This can be mitigated by only running the Broken Inheritance job as soon as possible after an FSAA scan.  It is also considered a low chance/low risk occurrence, and was deemed acceptable by the customer when weighed against an unusable report as the alternative.<br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Solution Set - File System<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1+<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-806 / SF00029158<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2200</p>
+</body>
+</html>

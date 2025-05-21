@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Skew Is Too Great</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-12-22T11:04:36.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-01-08T12:06:01.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-12-22T11:05:06.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000LdxKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000LdxKAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-08T12:14:52.000Z">
+    <meta name="LastPublishedDate" content="2023-12-22T11:05:06.000Z">
+    <meta name="Meta_Description__c" content="Clock Skew Is Too Great">
+    <meta name="Meta_Title__c" content="Clock Skew Is Too Great">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8982">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LdxKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Clock Skew Is Too Great</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Failed logons are reported in Netwrix Auditor with the following <strong>Cause</strong> specified:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Clock skew is too great:
+The workstation&#39;s clock too far out of sync with the DC&#39;s</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The reported workstation and the DC processing the Kerberos request have a time difference of 5 of more minutes.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>In both the DC and affected workstation, perform the following steps in elevated Command Prompt:</p>
+
+<ol><li>
+	<p>Run the following line to get the current system time:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">time /T</code></pre>
+	</li><li>
+	<p>Run the following line to establish the time zone set up:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">systeminfo | findstr /C:&quot;Time Zone&quot;</code></pre>
+	</li><li>
+	<p>Run the following line to confirm the source for the machine:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">w32tm /query /status</code></pre>
+	</li><li>
+	<p>Run the following line to force sync the time:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">w32tm /resync</code></pre>
+	</li><li>
+	<p><strong>Optional:</strong> Run the following line again to verify the time was synced:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">time /T</code></pre>
+	</li></ol>
+</div>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>You may encounter the following error when attempting to sync your server to the domain controller time:</p>
+
+<pre class="has-inner-focus">
+Sending resync command to local computer
+The computer did not resync because no time data was available.</pre>
+
+<p>Verify the time source specified in the output of the <code>w32tm /query /status</code> line. In case the <strong>Source</strong> line states either <strong>Local CMOS Clock</strong> or <strong>Free-running System Clock</strong>, enable time synchronization with your DC. Run the following lines in elevated Command Prompt:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">w32tm /config /syncfromflags:domhier /update
+
+net stop w32time &amp;&amp; net start w32time</code></pre>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduled Tasks Not Running in Windows</title>
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:03:40.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2024-06-07T16:11:45.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:03:41.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000I7rCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000I7rCAE">
+    <meta name="LastModifiedById" content="005Qk0000017MRRIA2">
+    <meta name="LastModifiedDate" content="2024-07-18T19:32:08.000Z">
+    <meta name="LastPublishedDate" content="2024-07-18T19:32:08.000Z">
+    <meta name="Meta_Description__c" content="Scheduled Tasks Not Running in Windows">
+    <meta name="Meta_Title__c" content="Scheduled Tasks Not Running in Windows">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6224">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I7rCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Scheduled Tasks Not Running in Windows</h1>
+    <h2>Overview</h2>
+
+<p>This article describes how to troubleshoot Netwrix Enterprise Auditor tasks not initiating at scheduled times.</p>
+
+<h2>Instructions</h2>
+
+<p>To troubleshoot Netwrix Enterprise Auditor/Windows Task Scheduler issues, follow the steps below:</p>
+
+<h3>Re-create the issue:</h3>
+
+<ol><li>Open the <strong>Netwrix Enterprise Auditor Console</strong>.</li><li>Click <strong>Schedules</strong>.</li><li>Right-click on a job (preferably one that runs quickly) and select <strong>Run</strong>.</li><li>Right-click the <strong>job</strong> and select <strong>Open Task Scheduler</strong>.</li><li>Locate the job within Windows Task Scheduler and check to see if the job is running.</li><li>If the task is not running, start the task in the Task Scheduler.</li><li>Click <strong>History</strong> and check for errors or warnings.</li></ol>
+
+<h3>Determine the issue with Windows Event Viewer:</h3>
+
+<p>Open <strong>Windows Event Viewer</strong> &gt; Click <strong>Applications and Services Logs</strong> &gt; <strong>Netwrix Enterprise Auditor</strong> &gt; look in the timeframe of the above job. If errors/warnings are seen, here is what to check:</p>
+
+<h3>1. Permissions Check</h3>
+
+<p>Navigate to <strong>Netwrix Enterprise Auditor</strong> &gt; <strong>Settings</strong> &gt; <strong>Schedule</strong> and ensure the user in this job has the following permissions:</p>
+
+<ul><li>Is in the Local Administrators group for the Netwrix Enterprise Auditor Server.</li><li>Has the appropriate security rights:
+	<ul><li>Go to <strong>Administrative Tools</strong> &gt; <strong>Local Security Policy</strong> &gt; <strong>Local Policies</strong> &gt; <strong>User Rights Assignment</strong> &gt; <strong>Log On As Batch Job</strong></li><li>GPO: Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Log On As Batch Job</li></ul>
+	</li></ul>
+
+<p> </p>
+
+<p> </p>
+
+<h3>2. Console Administrators Group</h3>
+
+<p>If the error in the Netwrix Enterprise Auditor logs located in <code>%SAINSTALLDIR%SADatabase\Logs\Application</code> states that <code>User is not a member of the console administrators group</code>, add the user to the Administrator role by navigating to <strong>Netwrix Enterprise Auditor</strong> &gt; <strong>Settings</strong> &gt; <strong>Access</strong> and add the user to the Administrator role of the console access.</p>
+
+<h3>3. Database Access</h3>
+
+<p>If there are database access errors, ensure that the user is in the <strong>Settings</strong> &gt; <strong>Storage</strong> group to access the database, add them as in step 1.</p>
+
+<h3>4. Filesystem Access</h3>
+
+<p>If there are file system access errors, ensure that the schedule user has at least Read/Write/Create access to the C:\windows\tasks and C:\windows\system32\tasks folders.</p>
+</body>
+</html>

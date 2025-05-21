@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing the Active Directory OU Where Users Get Created</title>
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006ati4AAA">
+    <meta name="ArticleCreatedDate" content="2021-10-12T12:34:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006ati4AAA">
+    <meta name="CreatedDate" content="2023-10-24T20:39:54.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-10-12T13:37:02.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000HQsCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000HQsCAM">
+    <meta name="LastModifiedById" content="0054u000006gpnvAAA">
+    <meta name="LastModifiedDate" content="2023-10-24T20:40:45.000Z">
+    <meta name="LastPublishedDate" content="2023-10-24T20:40:45.000Z">
+    <meta name="Meta_Description__c" content="Changing the Active Directory OU Where Users Get Created">
+    <meta name="Meta_Title__c" content="Changing the Active Directory OU Where Users Get Created">
+    <meta name="OwnerId" content="0050g000006ati4AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5906">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HQsCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Changing the Active Directory OU Where Users Get Created</h1>
+    <h1>Summary</h1>
+
+<p>The Active Directory OU where SbPAM Users get created can be customized, by modifying the <strong>appsettings.json</strong> file in SbPAM&#39;s ProgramData directory.</p>
+
+<h1>Instructions</h1>
+
+<p>Open the following file in Notepad, noting the drive letter may differ depending on the specific SbPAM installation:</p>
+
+<pre class="ckeditor_codeblock">
+C:\ProgramData\Stealthbits\PAM\WebService\appsettings.json</pre>
+
+<p>Locate and change the following value (if a &quot;ManagedOUs&quot; setting does not exist, then manually add it prior to the final closing brace, making sure to append a comma to the preceding line):</p>
+
+<pre class="ckeditor_codeblock">
+&quot;ManagedOUs&quot;: {
+    &quot;Users&quot;: &quot;SbPAM Users&quot;
+}</pre>
+
+<p>So if the desired OU&#39;s Distinguished Name (DN) is <strong>OU=Prod,OU=PAM,OU=SbPAM Users,DC=lab,DC=local</strong>, then change &quot;<strong>SbPAM Users</strong>&quot; in the example above to &quot;<strong>Prod,OU=PAM,OU=SbPAM Users</strong>&quot;.</p>
+
+<p><span class="wysiwyg-color-red90"><em><strong>NOTE: </strong>The leading &quot;OU=&quot; and trailing &quot;DC=&quot;s are dropped.</em></span></p>
+
+<p>After the change, this now looks like:</p>
+
+<pre class="ckeditor_codeblock">
+&quot;ManagedOUs&quot;: {
+    &quot;Users&quot;: &quot;Prod,OU=PAM,OU=SbPAM Users&quot;
+}</pre>
+
+<p>After this change, users created or managed by SbPAM will be created or managed in the newly specified Active Directory OU.<br><br><strong><em>NOTE:</em></strong> Activities that are run with Managed login accounts, and were run before this configuration change was made, may still create user account objects in the SbPAM Users OU. To circumvent this behavior, change the Login Account Template on the activity. This will prevent the activity from referencing any historical Postgres data referring to the SbPAM Users OU.</p>
+</body>
+</html>

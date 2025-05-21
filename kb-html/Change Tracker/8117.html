@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Agentless File Integrity Monitoring (FIM) in Netwrix Change Tracker</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:36:32.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JUICA2">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-04-28T09:20:57.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:36:32.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JUICA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JUICA2">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T09:26:16.000Z">
+    <meta name="LastPublishedDate" content="2025-04-23T21:27:50.000Z">
+    <meta name="Meta_Description__c" content="How to Configure Agentless File Integrity Monitoring (FIM) in Netwrix Change Tracker">
+    <meta name="Meta_Title__c" content="How to Configure Agentless File Integrity Monitoring (FIM) in Netwrix Change Tracker">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8117">
+    <meta name="VersionNumber" content="6">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JUICA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Agentless File Integrity Monitoring (FIM) in Netwrix Change Tracker</h1>
+    <h2>Overview</h2>
+<p>Netwrix Change Tracker supports an Agentless approach to monitoring, which is useful for endpoints such as firewalls, routers, switches, appliances, or legacy Unix hosts. This approach is also ideal for quick, software-free implementations for monitoring Windows/Linux systems. Agentless File Integrity Monitoring (FIM) is performed using a dedicated Proxy Agent or the Proxy Agent function of the Netwrix Change Tracker Agent.</p>
+<p>Agentless scanning options include SSH, Telnet with full shell/command operation, CLI interaction, and Windows SMB/Named Pipe. Scans can be operated using the NNT-FileHash binary, a dissolvable/transient program that simplifies system integrity monitoring where file hash-based tracking is required. The Proxy Agent concept provides advantages in that setup and control of Agentless monitoring is consistent with Agent-based monitoring.</p>
+<h2>Instructions</h2>
+<p>Follow these steps to configure a device for Agentless monitoring:</p>
+<ol><li>Register the Proxy Agent to the Change Tracker Hub.</li><li>Select the Proxy Agent to use for Agentless monitoring.</li><li>Enter the details of the new endpoint device for Agentless monitoring:</li><ul><li>Name/IP Address</li><li>(Optional) Device Type</li><li>(Optional) Display IP/Name</li><li>Credentials used for connection (select from the dropdown list of stored credentials)</li></ul><li>(Optional) If hash-based FIM is required, locate the relevant NNT_FILEHASH binary onto the host and add the path for the binary to the login script. This generates a cryptographic hash value for a file, providing a unique &quot;DNA fingerprint&quot; for the file that changes substantially even for minor modifications.</li></ol>
+<h4>Agentless FIM Concepts</h4>
+<p>Conceptually, all endpoint devices that need to be monitored using an Agentless approach must be associated with a Proxy Agent. This allows appropriate relationships to be established between the most local or best-resourced Proxy Agent and the endpoints to be monitored. For example, all devices at Customer Site A would naturally be associated with a Proxy Agent deployed to this site.</p>
+<p><img class="confluence-embedded-image" height="400" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKDt&amp;d=%2Fa%2F4u000000Lzgx%2FYHbZczaH9kROWzZjxUdyx8II4RfaskBt33wiehTwHQw&amp;asPdf=false" alt="Screenshot showing the Proxy Agent configuration screen in Netwrix Change Tracker."></img></p>
+<h2>Related Articles</h2>
+<ul><li><a href="https://kb.netwrix.com/8064" target="_blank">Change Tracker Gen 7 Admin Guide</a></li></ul>
+</body>
+</html>

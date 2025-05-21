@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Get a Daily List of Users Added/Removed From Any AD Group?</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2023-08-28T12:19:26.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-01-15T14:29:22.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-28T12:19:33.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001116qCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001116qCAA">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-01-15T14:30:03.000Z">
+    <meta name="LastPublishedDate" content="2024-01-15T14:30:03.000Z">
+    <meta name="Meta_Description__c" content="This article contains instructions on how to get a list of users that have been added or removed from an AD group on a regular basis.">
+    <meta name="Meta_Title__c" content="How to Get a Daily List of Users Added/Removed From Any AD Group?">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8769">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001116qCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Get a Daily List of Users Added/Removed From Any AD Group?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to get the list of users added/removed from an Active Directory group on a regular basis (for example, daily)?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Create a subscription to Netwrix search results with following parameters:</p>
+
+<ul><li>
+	<p>Filters.<br>	<img alt="User-added image" height="175" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001LaH&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M5Wm" width="500"></img></p>
+
+	<p>Windows records users adding or removal as a change to the group itself, since the group is an AD object. So, that is why the <b>Action</b> filter type is suggested to be <em>Modified</em>.</p>
+	</li><li>
+	<p>Schedule = Daily.</p>
+
+	<p>Set the schedule to whatever frequency you want  the Subscription returns all events that occurred after the latest Subscription delivery. The initial one may have a lot.</p>
+	</li></ul>
+
+<p>For additional information on how to create subscriptions, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Subscriptions/Overview.htm" target="_blank">Administration  Subscriptions</a>.</p>
+</div>
+</body>
+</html>

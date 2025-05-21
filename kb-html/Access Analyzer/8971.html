@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Is Offline Error</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-12-19T12:24:32.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-12-22T06:46:26.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-12-19T12:25:21.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000L2rKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000L2rKAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-12-22T06:47:07.000Z">
+    <meta name="LastPublishedDate" content="2023-12-19T12:25:21.000Z">
+    <meta name="Meta_Description__c" content="Host Is Offline Error in NEA">
+    <meta name="Meta_Title__c" content="Host Is Offline Error in NEA">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8971">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000L2rKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Host Is Offline Error</h1>
+    <h2>Symptom</h2>
+
+<div>
+<ul><li>
+	<p>The following error is prompted upon a job run in Netwrix Enterprise Auditor:</p>
+
+	<pre class="has-inner-focus">
+Host is offline</pre>
+	</li><li>
+	<p>The remote server is up and functional.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <strong>Skip Hosts that do not respond to PING</strong> option is enabled in the affected job. This might directly affect the job in case the target host has been configured to not respond to ping requests.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Disable the <strong>Skip Hosts that do not respond to PING</strong> option in the affected job. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/Jobs/Job/Properties/Performance.htm" target="_blank">Job Properties ? Performance Tab · v11.6</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/Jobs/Job/Properties/Performance.htm" target="_blank">Job Properties ? Performance Tab · v11.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

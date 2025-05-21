@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info: How GroupID classifies groups and types</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="customers_v">
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="content_type" content="ct_howto">
+    <meta name="content_type" content="ct_productconfig">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XJAA0">
+    <meta name="ArticleCreatedDate" content="2025-04-18T11:10:14.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002LrZKAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1XJAA0">
+    <meta name="AssignedToId" content="0054u000008F1XJAA0">
+    <meta name="AssignmentDate" content="2025-04-18T11:10:14.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1XJAA0">
+    <meta name="CreatedDate" content="2025-04-18T11:10:14.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002LrZKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002LrZKAU">
+    <meta name="LastModifiedById" content="0054u000008F1XJAA0">
+    <meta name="LastModifiedDate" content="2025-05-14T09:10:19.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="This article explains the broad categories of Groups in GroupID.">
+    <meta name="Meta_Title__c" content="How GroupID classifies groups">
+    <meta name="OwnerId" content="0054u000008F1XJAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10147">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002LrZKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Info: How GroupID classifies groups and types</h1>
+    <h2><b>Applies To:</b></h2>
+<p>GroupID 11</p>
+<h2><b>Summary:</b></h2>
+<p>GroupID classifies groups into two broad categories: <b>Unmanaged</b> and <b>Managed</b>.</p>
+<h2><b>More Information:</b></h2>
+<h4><b>Unmanaged Groups</b></h4>
+<p>An unmanaged group, also called a static group, is one you would normally create in a directory (for example, by using the Users and Computers option in Active Directory). Though such groups can be created using GroupID application portal, GroupID does not support dynamic updates to them. Any changes to the membership have to be done manually.</p>
+<h4><b>Managed Groups</b></h4>
+<p>A managed group, also known as a Smart Group, is one that dynamically maintains its membership based on rules. These rules are applied in the form of a user-defined LDAP query. This query is defined once and scheduled for membership update using a Smart Group Update job. When the Smart Group Update job runs, it applies the defined rules to update the group&#39;s memberships.</p>
+<p>A dynasty is also a collection of Smart groups that are created based on the values of the defined attribute of the dynasty. They are governed by a parent group called as &#39;Parent&#39; dynasty. For the updates of these groups, you only have to update the parent dynasty. When you update the Parent dynasty, its middle and leaf dynasties are automatically updated. </p>
+<p>This automated group management allows administrators to easily maintain large distribution lists and security groups without having to manually add or remove members.</p>
+<p>You can create and manage Smart Groups using the GroupID application portal.</p>
+<h2><b>Security Types of Groups:-</b></h2>
+<h4>For both Unmanaged and Managed groups, GroupID classifies the groups into 3 security types. These security types define the access level for a group. These 3 types are as follows:-</h4>
+<p><strong> Private groups:</strong></p>
+<p>A private group is one whose membership is determined solely by the group owner. The owner determines who can join and leave the group. Additional owners can also manage group membership. However, users cannot even request to join or leave a private group. By default, the groups that are created directly in your directory, i.e., unmanaged groups, are classified as Private. You can change their security type from GroupID.</p>
+<p><strong> Semi-private groups:</strong></p>
+<p>Semi-private groups, like private groups, have an owner who determines membership, except that members can request to join and leave the group.</p>
+<p><strong>Public groups:</strong></p>
+<p>A public group is open to all users. Users can join and leave a public group without requiring owner permission. The administrator can configure email notifications to be sent to the group owner when a member joins or leaves the group. </p>
+<p> </p>
+</body>
+</html>

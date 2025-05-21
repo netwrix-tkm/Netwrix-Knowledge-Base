@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot access the Help-Desk portal</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:46:31.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:57.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9U1CAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9U1CAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:46:31.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:57.000Z">
+    <meta name="Meta_Description__c" content="I keep getting prompted for a password after I type in the correct one in the NetWrix Account Lockout Examiner Web portal. Even if I enter a correct password I cannot log in">
+    <meta name="Meta_Title__c" content="Cannot access the Help-Desk portal">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="651">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9U1CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot access the Help-Desk portal</h1>
+    When using the web portal for Netwrix Account Lockout Examiner, I keep getting prompted for a password after I type in the correct one. Why does the password never get accepted?
+
+<hr></hr>
+
+This error indicates your authentication settings need to be adjusted to comply with the following:
+<ol><li>The account you are using to access the Help-Desk portal is added to the local Administrators group or at least granted the <strong>Help-desk operator security role</strong>. For detailed information on the security roles, refer to the following Netwrix KB article: <a href="https://kb.netwrix.com/2735" target="_blank">How to restrict access to the Help-Desk portal and the Administrative Console</a>.</li><li>All authentication types excepting <strong>Windows authentication </strong>or <strong>Basic authentication </strong>are disabled in the <strong>Internet Information Services (IIS) Manager</strong>, and either Windows or Basic authentication is enabled.
+
+To ensure the required settings are enabled in <strong>IIS6,</strong> do the following:
+a) In the <strong>IIS Manager </strong>left pane, navigate to <strong>ALE</strong> virtual directory (by default  &lt;your computer name&gt; -&gt; Web Sites -&gt; Default Web Site -&gt; ALE).
+b) Right-click the <strong>ALE</strong> folder and select <strong>Properties</strong>.
+c) In the<strong> Properties </strong>dialog, open the <strong>Directory Security </strong>tab, and select <strong>Edit </strong>for <strong>Authentication and Access Control</strong>.
+d) In the <strong>Authentication Methods </strong>dialog, select either the <strong>Integrated Windows authentication </strong>box or <strong>Basic authentication </strong>(password is sent in clear text), and clear all other authentication options for Authentication access.</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xES" alt="User-added image" width="325" height="375"></img>
+<p style="margin-left: 40px;">To ensure the required settings are enabled in<strong> I<strong>IS7</strong>,</strong> do the following:
+a) In the <strong>IIS Manager </strong>left pane, navigate to  ALE virtual directory (by default  &lt;your computer name&gt; -&gt; Sites -&gt; Default Web Site -&gt; ALE).
+b) In the Manager central pane, double-click the <strong>Authentication o</strong>ption.
+c) In the Authentication list, enable either the <strong>Windows Authentication </strong>option or <strong>Basic Authentication</strong>, and disable all other authentication options.</p>
+<img style="width: 446px;height: 326px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xEN" alt="User-added image" width="500" height="379"></img>
+<ol start="3"><li>Your proxy server is disabled or bypassed. To check the proxy settings, do the following:
+a) Go to <strong>Control panel -&gt; Internet options</strong>.
+b) In the <strong>Internet Properties </strong>dialog, open the <strong>Connections</strong> tab and click the <strong>LAN settings </strong>button.
+c) Make sure the <strong>Use a proxy server for your LAN </strong>option is not enabled. Otherwise, make sure the <strong>Bypass proxy server for local addresses </strong>option is enabled too; in this case the Help-Desk portal must be a member of the <strong>Local intranet zone</strong>, or specified as exception.</li></ol>
+<img style="width: 421px;height: 421px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xEI" alt="User-added image" width="500" height="481"></img>
+<ol start="4"><li>The account you are using has READ access to the physical directory of the Web-portal (by default C:Program Files (x86)NetWrixAccount Lockout ExaminerWeb)</li></ol>
+</body>
+</html>

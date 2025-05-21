@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell DC: How to use $credential and $input  in invoke session</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:18:57.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:06:27.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:18:58.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IOdCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IOdCAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:06:27.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:18:58.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="PowerShell DC: How to use $credential and $input  in invoke session">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6517">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IOdCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PowerShell DC: How to use $credential and $input  in invoke session</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> $credential and $input are unusable when running an invoke statement that uses a session to a remote server</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> $credential and $input variables are unusable when running an invoke statement that uses a session to a remote server<br><br>Invoke can be done with or without a session. Invokes with sessions are used when running a command that will take a long time and you want it to process it locally on a remote server and/or the commandlet you need to run doesn&#39;t have the common -computername argument to handle it easily.<br> <br>The invoke command takes a scriptblock(required), and argument list(not required) to be passed to a scriptblock.<br>When invoking locally, you can simply put variables defined outside of the scriptblock in the scriptblock directly as it has access to them through the runspace.<br> <br>When you invoke with a session it starts the collection process on the target server in a new runspace, thus not having access to the variables defined outside of the scriptblock unless specifically passed in via the argument flag previously mentioned.<br> <br><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">This net result as it applies to StealthAUDIT is, when you invoke with a session you would not have access to the special variables $input and $credential unless you pass them with the -arguments flag.</span></span></p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> In order to retrieve data from the runspace that is setup during an invoke with variables is to include the value in a return statement that gets stored into a variable in the runspace that initiated the session or stuff them into the output pipe, which is shared. This is done by the preceding &quot;$returnedobject =&quot; portion of the invoke line and the &quot;return $returneddata&quot; line.<br> <br>Below is a sample script that shows how to use $input and $credential objects when targeting a remote server in local mode through an invoke statement, that returns a result.<br> <br>$targetserver = &quot;[SAHOSTNAME]&quot;<br>$PowershellObject = @()<br> <br>    $input = @()<br>    $something = &quot;&quot; | select Something<br>    $something.Something = &#39;ASDF&#39;<br>    $input2 = $something<br>#&gt;<br> <br>#Transform $input from the &quot;whatever it is that is not a PowerShell object&quot; to a Powershell object<br>foreach ($i in $input){<br>                                                $datatemp = &quot;&quot; | select Value<br>                                                $datatemp.Value = $i.something<br>                                                $PowershellObject += $datatemp<br>        }<br> <br>$relaxed = new-pssessionoption -skipCACheck -SkipCNCheck -SkipRevocationCheck<br>$erroractionpreference = &quot;silentlycontinue&quot;<br>$session_winrm = new-pssession -computername $targetserver -sessionoption $relaxed -credential $credential<br>$erroractionpreference = &quot;continue&quot;<br>                                 <br>$scriptblock = {                                                                                    <br>            #create an object to store results<br>            $returneddata = @()<br>               <br>            #copy arguments to new variables<br>            $UsePowershellVariable = $args[0]               <br>            $UsePowershellObject = $args[1]<br>            $CredentialInInvoke = $args[2]<br>           <br>             foreach ($object in $UsePowershellObject){<br>                #do additional processing on passed object<br>                $datatemp = &quot;&quot; | select something<br>                $datatemp.something = $object.value<br>                $returneddata += $datatemp           <br> <br>               }<br>return $returneddata<br>}                    <br> <br>#perform invoke<br>$returnedobject = invoke-command -argumentlist $PowershellVariable, $PowershellObject $credential -scriptblock $scriptblock<br>foreach ($result in $returnedobject){<br>    #do additional processing<br>    #output results<br>    $result<br>}<br><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> V6.x, V7.x<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001452</p>
+</body>
+</html>

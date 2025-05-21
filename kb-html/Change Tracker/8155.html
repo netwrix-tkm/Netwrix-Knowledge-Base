@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add an SSL Certificate to a Linux Change Tracker</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:41:11.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:17:21.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:41:11.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JWiCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JWiCAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:17:21.000Z">
+    <meta name="LastPublishedDate" content="2022-04-12T16:06:18.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to Add an SSL Certificate to a Linux Change Tracker">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8155">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JWiCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Add an SSL Certificate to a Linux Change Tracker</h1>
+    <p><em>### Stop services ###</em> </p><p># <strong>service nnthubservice stop</strong></p><p># <strong>service nginx stop</strong></p><p> </p><p><em>### Copy custom .crt and .key to server hosting ChangeTracker ###</em> </p><p>Files need to be stored in <strong>/etc/nginx/nnt_ssl</strong></p><p>My Example:     </p><p><strong>changetracker.demo.crt</strong></p><p><strong>changetracker.demo.key</strong></p><p> </p><p><em>### Change Nginx config to use custom cert ###</em> </p><p># <strong>vi /etc/nginx/conf.d/nnt.conf</strong></p><p>---------------------------------------------------------------------------</p><p> </p><p>server {</p><p>#       listen 80;</p><p>        listen 443 ssl;</p><p>        root /usr/share/nginx/V7_UI;</p><p>        index index.html;</p><p>        <strong>ssl_certificate </strong><strong>/etc/nginx/nnt_ssl/changetracker.demo.crt</strong><strong>;</strong></p><p><strong>        ssl_certificate_key </strong><strong>/etc/nginx/nnt_ssl/changetracker.demo.key</strong><strong>;</strong></p><p>        location /api/ {</p><p>                fastcgi_pass 127.0.0.1:9000;</p><p>                include /etc/nginx/nnt_fastcgi_params;</p><p>                fastcgi_read_timeout 120s;</p><p>        } </p><p>---------------------------------------------------------------------------                               </p><p># <strong>!wq</strong></p><p> </p><p><em>### Start services ###</em></p><p># <strong>service nginx start</strong></p><p># <strong>service nnthubservice start</strong></p><p> </p><p><em>### Agents then fail to connect to the server because they don&#39;t like the cert ###</em></p><p> </p><p><strong>ERROR DesktopServerCertificateValidation - Certificate thumbprint does not match trusted (BAD1067FBAB59CCED21786657C672F6AB5BE824C/6F7F11707C0C93CD0F7E92D5BC0F1C9345D68A64). Consider setting Thumbprint in HubDetails.xml. Server certificate details:\r\n[Version]</strong></p><p> </p><p><em>### Add custom Thumbrpint to HubDetails.xml, restart agent service and the agent registers successfully ###</em></p><p><br></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKJr&amp;d=%2Fa%2F4u000000Lzkc%2FX0i12CG7kf_.dPDWY4a7PXYeceTu8w_nwUdvvhVk1nw&amp;asPdf=false"></img></span></p><p> </p>
+</body>
+</html>

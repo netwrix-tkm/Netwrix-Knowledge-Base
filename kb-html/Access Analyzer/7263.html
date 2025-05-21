@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Re-enable the Built-in AIC Admin Account via SQL Server</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="access_info_center">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:37:23.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000Is4CAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1207989570445301">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-03-19T19:30:57.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:37:24.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000Is4CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000Is4CAE">
+    <meta name="LastModifiedById" content="005Qk0000017MRRIA2">
+    <meta name="LastModifiedDate" content="2025-04-29T20:05:53.000Z">
+    <meta name="LastPublishedDate" content="2024-08-30T07:41:31.000Z">
+    <meta name="Meta_Description__c" content="360008944451">
+    <meta name="Meta_Title__c" content="How to re-enable the built-in AIC (Access Information Center) Admin account via the SQL server">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7263">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Is4CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Re-enable the Built-in AIC Admin Account via SQL Server</h1>
+    <h2>Overview</h2>
+<div>
+<p>In your Netwrix Access Information Center (AIC) environment, you have disabled the built-in admin account as per the best security practices. Your current Windows authentication account is locked out or compromised in the Active Directory. This article covers the steps to re-enable the built-in admin account on the SQL backend of Netwrix Access Analyzer without access to the AIC</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<p>Refer to the following steps to re-enable the built-in admin account on the SQL backend:</p>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This will only enable the account and will not reset it to the default password.</p>
+</blockquote>
+<ol><li>
+<p>Log in to SQL Management Studio with the Access Analyzer service account or another account with dbo permissions on the Access Analyzer database.</p>
+</li><li>
+<p>Right-click the Tables folder of the Access Analyzer database and select <strong>Filter</strong> &gt; <strong>Filter</strong> settings. Type <code>AIC</code> into the <strong>Value</strong> field.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Verify that you are referencing the Access Analyzer database and not another database.</p>
+</blockquote>
+<div><img height="335" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CsuH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000007Bbxt" width="649"></img><br><br></div>
+</li><li>
+<p>Locate the <strong>SA_AIC_Authentication</strong> table. Right-click it and select <strong>Edit Top 200 rows</strong>.</p>
+</li><li>
+<p>For the <code>Builtin</code> Administrator role, set the <strong>IsEnabled</strong> field value to <code>1</code> and click <strong>Save</strong>.</p>
+<div><img height="69" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CsuH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000007BbzV" width="429"></img></div>
+</li></ol>
+</div>
+</body>
+</html>

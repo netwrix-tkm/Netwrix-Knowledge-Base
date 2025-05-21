@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Threat Manager Licensing Error: License Activation Error 2</title>
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="threat_manager">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000007oss5AAA">
+    <meta name="ArticleCreatedDate" content="2025-02-11T19:42:09.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1209459980599320">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000LblGoIAJ">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000007oss5AAA">
+    <meta name="CreatedDate" content="2025-02-11T19:42:09.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-02-21T22:29:13.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk00000020TlKAI">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk00000020TlKAI">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-02-21T22:29:13.000Z">
+    <meta name="LastPublishedDate" content="2025-02-21T22:29:13.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Threat Manager Licensing Error: &quot;License activation error 2&quot;">
+    <meta name="Meta_Title__c" content="Netwrix Threat Manager Licensing Error: License activation error 2">
+    <meta name="OwnerId" content="0054u000007oss5AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9403">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000020TlKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Threat Manager Licensing Error: License Activation Error 2</h1>
+    <h2>Symptom</h2>
+<div>
+<p>After navigating to the <strong>Licensing</strong> page when attempting to update the license in Netwrix Threat Manager, you receive the following error:</p>
+<pre class="has-inner-focus">License activation error 2.</pre>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CDMT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Asaf3" alt="" width="1304" height="383"></img></p>
+</div>
+<h2>Cause</h2>
+<div>
+<p>There is a corruption in the existing license file.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<ol><li>
+<p>Stop all <strong>Netwrix Threat Manager</strong> services.</p>
+<ul><li>
+<p>You can stop each one individually.</p>
+</li><li>
+<p>Alternatively, you can use the below PowerShell command to simultaneously stop them all:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Threat Manager*&quot; -verbose</code></pre>
+</li></ul>
+</li><li>
+<p>Delete the <strong>StealthDEFEND.lic</strong> file from Netwrix Threat Manager&#39;s data directory.</p>
+<ul><li>
+<p>Depending on your deployment, it could be located in either of the following file paths:</p>
+<ul><li>
+<p><code>C:\ProgramData\STEALTHbits\StealthDEFEND\LicenseService</code></p>
+</li><li>
+<p><code>C:\ProgramData\Netwrix\Netwrix Threat Manager\LicenseService</code></p>
+</li></ul>
+</li></ul>
+</li><li>
+<p>Restart all <strong>Netwrix Threat Manager</strong> services.</p>
+<ul><li>
+<p>You can restart each one individually.</p>
+</li><li>
+<p>Otherwise, you can use the following PowerShell command to simultaneously restart them all:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Threat Manager*&quot; -verbose</code></pre>
+</li></ul>
+</li><li>
+<p>If you now see an error or red message that the license is not uploaded, navigate to the <strong>Netwrix Threat Manager Web Console</strong> and add the license again.</p>
+<ul><li>
+<p>For assistance with applying the license, please refer to the Configuration Guide: <a href="https://helpcenter.netwrix.com/bundle/ThreatManager_3.0/page/Content/ThreatManager/Administration/Configuration/SystemSettings/Licensing.htm" target="_self">Licensing Page</a>.</p>
+</li></ul>
+</li></ol>
+</div>
+<h2>Related Article</h2>
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/ThreatManager_3.0/page/Content/ThreatManager/Administration/Configuration/SystemSettings/Licensing.htm" target="_self">Licensing Page</a></li></ul>
+</div>
+</body>
+</html>

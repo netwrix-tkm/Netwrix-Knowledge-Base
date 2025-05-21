@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to configure Disk Space Monitor reporting</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005700000042ELcAAM">
+    <meta name="ArticleCreatedDate" content="2020-05-07T12:43:14.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="005700000042ELcAAM">
+    <meta name="CreatedDate" content="2023-05-08T09:51:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-05-07T12:57:18.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000PbdcCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000PbdcCAC">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:51:53.000Z">
+    <meta name="LastPublishedDate" content="2020-05-07T12:57:18.000Z">
+    <meta name="Meta_Description__c" content="Disk Space Monitor - configuring email notifications.">
+    <meta name="Meta_Title__c" content="[not provided]">
+    <meta name="OwnerId" content="005700000042ELcAAM">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2812">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbdcCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to configure Disk Space Monitor reporting</h1>
+    To configure the Disk Space Monitor software reporting, perform the following steps:
+
+1) Run the software configurator tool.
+
+2) Enter the names of the servers you want to monitor. Format examples (enter without quotes):
+- Entire server: &quot;myserver&quot;
+- UNC Path: &quot;<a target="_blank">\myserverpublic</a>&quot;
+- Individual drive: &quot;myserverc:&quot;
+- Mount point: &quot;myserver<a target="_blank">c:foldernamemount_point_name</a>&quot;
+
+3) Specify the threshold in MB of free space or percentage of available space (100 percent, for example).
+
+4) Check &quot;Send notifications in real-time if you want the software to check the servers every 10 minutes.
+
+4) Supply a comma-separated list of e-mail addresses to send reports to (at least one e-mail is required).
+
+5) Specify SMTP server settings (name, port, from address).
+
+6) Click OK and enter an account name and password which will be used to generate reports.
+
+This account must be powerful enough to connect to all managed servers using WMI.
+
+It will work as follows:
+-------------------------------------
+The product task begins to work on a scheduled basis and repeats every 10 minutes, so disks are monitored in real-time.
+When &quot;Send notifications in real-time&quot; checkbox is checked, the software sends notifications on the detected servers with low free disk space if disk capacity change occurs.
+The default summary report schedule is daily at 3:00 AM.
+</body>
+</html>

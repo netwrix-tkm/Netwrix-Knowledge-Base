@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Errors for User Activity Monitoring Plan</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-08-04T08:42:24.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-08-08T11:32:38.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-04T08:42:45.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110zkCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110zkCAA">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-08-08T11:32:54.000Z">
+    <meta name="LastPublishedDate" content="2023-08-04T08:42:45.000Z">
+    <meta name="Meta_Description__c" content="Access Errors for User Activity Monitoring Plan">
+    <meta name="Meta_Title__c" content="Access Errors for User Activity Monitoring Plan">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8712">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110zkCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Errors for User Activity Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>A User Activity (UAVR) monitoring plan generates errors on missing access permissions:</p>
+
+<pre class="has-inner-focus">
+Requested registry access is not allowed</pre>
+
+<pre class="has-inner-focus">
+Cannot open HKEY_Local_Machine: error while opening key</pre>
+
+<pre class="has-inner-focus">
+Access is denied</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>Misconfigured Remote Registry service.</p>
+	</li><li>
+	<p>Misconfigured permissions for the <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurePipeServers\winreg</code> registry subkey on the affected client.</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ul><li>
+	<p>Review the Remote Registry service configuration. Refer to the following article for additional information on configuration steps: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Configuration/EventLog/Overview.htm" target="_self">Configure IT Infrastructure  Windows Event Logs</a>.</p>
+	</li><li>
+	<p>Review the permissions to the <code>SYSTEM\CurrentControlSet\Control\winreg</code> registry subkey. Refer to the following steps to configure the permissions for the affected client:</p>
+
+	<ol><li>
+		<p>Run Registry Editor on the affected client.</p>
+		</li><li>
+		<p>Either expand the registry nodes in the left pane to reach the subkey, or enter the following path in the corresponding path window:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurePipeServers\winreg</code></pre>
+		</li><li>
+		<p>Right-click <strong>winreg</strong>, and click <strong>Permissions</strong>.</p>
+		</li><li>
+		<p>Click <strong>Add</strong>, and enter <strong>local service</strong> in the <strong>Enter the object names to select</strong>. Click <strong>OK</strong> to save the changes.</p>
+		</li><li>
+		<p>Select the <strong>LOCAL SERVICE</strong> user and check the <strong>Read  Allow</strong> checkbox under the <strong>Permissions</strong> section. Click <strong>Apply</strong> to save the changes.</p>
+		</li><li>
+		<p>Restart the client.</p>
+		</li></ol>
+	</li></ul>
+</div>
+</body>
+</html>

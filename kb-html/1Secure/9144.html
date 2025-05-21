@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1Secure ? Unsuccessful Data Collection</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="onesecure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-17T14:39:36.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-07-10T08:14:46.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-04-17T14:39:51.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000c6vKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000c6vKAA">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-07-10T08:15:11.000Z">
+    <meta name="LastPublishedDate" content="2024-04-17T14:39:51.000Z">
+    <meta name="Meta_Description__c" content="1Secure ? Unsuccessful Data Collection">
+    <meta name="Meta_Title__c" content="1Secure ? Unsuccessful Data Collection">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9144">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000c6vKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>1Secure ? Unsuccessful Data Collection</h1>
+    <blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span> Return to the main workflow page via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000bxFKAQ.html" target="_self">1Secure Troubleshooting Workflow</a>.</p>
+
+<p>Return to the previous page via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000c5JKAQ.html" target="_self">1Secure ? Successful Data Collection</a>.</p>
+
+<p>Proceed to the next section via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000c8XKAQ.html" target="_self">1Secure ? Escalation to R&amp;D</a>.</p>
+</blockquote>
+
+<h2>Overview</h2>
+
+<div>
+<p>This article covers the troubleshooting steps to follow in case of unsuccessful data collection in 1Secure. The article also includes locations of service-specific logs.</p>
+</div>
+
+<h2>Unsuccessful data collection ? Analyze data collection</h2>
+
+<div>
+<p>Refer to the following recommended steps:</p>
+
+<ol><li>
+	<p>Review the Netwrix Cloud Agent event log. The log may contain errors to explain the connector issues.</p>
+	</li><li>
+	<p>Review the data collection logs.</p>
+	</li></ol>
+
+<h2>Locations of service-specific logs</h2>
+
+<p>Refer to the locations of data collection logs for specific services:</p>
+
+<ul><li>
+	<p>Active Directory Activity logs:</p>
+
+	<pre class="has-inner-focus">
+    C:\ProgramData\Netwrix Cloud Agent\Logs\ActiveDirectory\  ADA logs
+    C:\ProgramData\Netwrix Cloud Agent\Logs\DataCollectionCore\AgentDataCollectionCoreSvc\  1Secure task manager logs
+    C:\ProgramData\Netwrix Cloud Agent\ShortTerm\AD Changes\STA\  short-term storage</pre>
+	</li><li>
+	<p>Active Directory Logons logs:</p>
+
+	<pre class="has-inner-focus">
+    C:\ProgramData\Netwrix Cloud Agent\Logs\DataCollectionCore\NetwrixCloudNLASvc\  NLA logs
+    C:\ProgramData\Netwrix Cloud Agent\NLA\Data\  short-term storage</pre>
+	</li><li>
+	<p>File Server Activity logs:</p>
+
+	<pre class="has-inner-focus">
+    C:\ProgramData\Netwrix Cloud Agent\Logs\DataCollectionCore\NetwrixCloudFSASvc\  FSA logs
+    C:\ProgramData\Netwrix Cloud Agent\FileStorageAuditor\Data\  short-term storage</pre>
+	</li><li>
+	<p>Common infrastructure:</p>
+
+	<pre class="has-inner-focus">
+    C:\ProgramData\Netwrix Cloud Agent\Logs\CloudAgentCoreSvc\  logs
+    C:\ProgramData\Netwrix Cloud Agent\Logs\Archive\  all archive logs
+    C:\ProgramData\Netwrix Cloud Agent\AgentCore\MetricsStorage\  internal risk counters database </pre>
+	</li></ul>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000bxFKAQ.html" target="_self">1Secure Troubleshooting Workflow</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000c5JKAQ.html" target="_self">1Secure ? Successful Data Collection</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000c8XKAQ.html" target="_self">1Secure ? Escalation to R&amp;D</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

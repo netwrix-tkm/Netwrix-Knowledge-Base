@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SD_1.1_006</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:28:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:10:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:28:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IiACAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IiACAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:10:14.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:28:55.000Z">
+    <meta name="Meta_Description__c" content="360012019592">
+    <meta name="Meta_Title__c" content="Hotfix: SD_1.1_006">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6991">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IiACAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SD_1.1_006</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> StealthDEFEND not processing High Risk Permissions</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <b>Instructions to resolve issue: 27086 - Stealth Defend not processing High Risk Permissions</b><br>Attached is a ZIP file containing a python file &quot;open_access.py&quot; This is a &quot;patched&quot; version of the python job that evaluates events for Dangerous Permissions.<br><br>The issue you have encountered was resolved in our 1.2 Version (releasing in August 2018) so we have simply delivered this patched file to resolve the issue.<br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <b>Installing the Patch</b> 
+</p><ol><li style="margin-left: 0in;">Extract the &quot;open_access.py&quot; file in the attached ZIP file into &quot;C:\Program files\STEALTHbits\StealthDEFEND\JobService\Python\Jobs&quot; directory and overwrite the existing python file. This will &quot;install&quot; the new patched version of High Risk Permissions.</li></ol>  
+<ol><li style="margin-left: 0in;">Next you should restart the Windows Service named &quot;StealthDEFEND Job Manager&quot; - this will ensure the updated job is running.</li></ol> <br>At this point your backlogged High Risk Permission events should be evaluated and new threats will be created for any threats found in the backlogged events. It may take a few minutes for the backlogged high risk permission queue to start decreasing.<br><br>  
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="64"><a href="https://downloads.stealthbits.com/access/files/SDHotfixes/SD_1.1_006.zip" target="_blank">https://downloads.stealthbits.com/access/files/SDHotfixes/SD_1.1_006.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthDEFEND<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> StealthDEFEND - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 1.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SDFS-4140<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 1.1 HF 006 (Not included in CU builds)<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2037<br></p>
+</body>
+</html>

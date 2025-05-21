@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Prevention License Has Prematurely Expired</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-01-09T14:37:45.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000Mq9KAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-05-05T10:29:28.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-01-09T14:37:58.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000Mq9KAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000Mq9KAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T10:32:41.000Z">
+    <meta name="LastPublishedDate" content="2024-01-09T14:37:58.000Z">
+    <meta name="Meta_Description__c" content="Threat Prevention License Has Prematurely Expired">
+    <meta name="Meta_Title__c" content="Threat Prevention License Has Prematurely Expired">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8996">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Mq9KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Threat Prevention License Has Prematurely Expired</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>The following message is prompted in Threat Prevention Enterprise Manager:</p>
+
+	<pre class="has-inner-focus">
+Your Threat Prevention license has expired, please install a new license in order to run.
+Your machineID is: %machineID%, please reference your machineID when requesting a license.</pre>
+	</li><li>
+	<p>The license is supposed to be active and valid.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The account used to run Threat Prevention Enterprise Manager Service is not included in the local administrators group.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Include the service account used to run Threat Prevention Enterprise Manager Service in the local administrators group. Refer to the following article for additional information on requierements for installation and application use: <a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/System_Requirements/Server.htm" target="_self">Requirements ? Console Server Requirements · v7.3</a>.</p>
+</div>
+
+<h2>Troubleshooting License Issues</h2>
+
+<div>
+<p>Refer to the following steps in case adding the account to the local administrators group did not help:</p>
+
+<ul><li>
+	<p>Verify the license file has the <strong>Unblock</strong> check checked. Right-click the license file &gt; select <strong>Properties</strong> &gt; check the <strong>Unblock</strong> check and click <strong>Apply</strong>.</p>
+	</li><li>
+	<p>Rename the file to <strong>StealthIntercept</strong> (keeping the original extension) and make sure the original file is cut and pasted to the <code>SIEnterpriseManager</code> directory instead of being copied.</p>
+	</li></ul>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/System_Requirements/Server.htm" target="_self">Requirements ? Console Server Requirements · v7.3</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

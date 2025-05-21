@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powershell code to update thread count on all jobs in the job tree</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:20:17.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:06:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:20:18.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IQUCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IQUCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:06:52.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:20:18.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Powershell code to update thread count on all jobs in the job tree">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6547">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IQUCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Powershell code to update thread count on all jobs in the job tree</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This PowerShell syntax will update the Threads to 50 unless modified.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> PowerShell code to update thread count on all jobs in the job tree:</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<p>$jobpathandname = gci D:\Desktop\GROUP_VPS -rec job*xml | select-object fullname, name<br> $debug = &#39;true&#39;<br><br> foreach ($job in $jobpathandname){<br> $match = &#39;false&#39;<br> #write-host $job.fullname<br> [xml]$jobxml = Get-Content $job.fullname<br> if ($debug -eq &#39;true&#39;){<br> write-host &#39;1:&#39; $jobxml.job.settings.threads<br> }<br> <br> $jobxml.job.settings.threads = &#39;50&#39;<br> $jobxml.Save($job.fullname);<br> }</p>
+<p>Additional Comments:<br><br>Job Path Name should be modified to match path of job/groups you were trying to update. If there are spaces in the path ensure to enclose the path in single quotes, e.g.;</p>
+<p>&#39;C:\Program Files (x86)\Stealthbits\StealthAUDIT\Jobs\GROUP_.Active Directory Inventory\JOB_1-AD_Scan&#39;</p>
+<p>Additionally, you will need to either refresh the job tree or close and re-open StealthAUDIT for the change to be noted in the Job Properties Performance tab</p>
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core;SA - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001086</p>
+</body>
+</html>

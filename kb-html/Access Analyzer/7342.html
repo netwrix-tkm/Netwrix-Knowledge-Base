@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Does &quot;Licensed Host Count Exceeded&quot; Mean in the Access Analyzer Banner?</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:42:53.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IvdCAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-05T11:04:36.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:42:53.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IvdCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IvdCAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T11:19:43.000Z">
+    <meta name="LastPublishedDate" content="2022-02-22T13:38:17.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="What Does &quot;Licensed Host Count Exceeded&quot; Mean in the Access Analyzer Banner?">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7342">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IvdCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>What Does &quot;Licensed Host Count Exceeded&quot; Mean in the Access Analyzer Banner?</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> The Access Analyzer license mechanism is based on the number of rows in host inventory for legacy reasons. Because the product is now typically licensed based on count of Active Directory users, the banner indicating a problem with licensing can cause concern.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;">User opens the Access Analyzer Console and the application banner contains the message Licensed Host Count Exceeded</span></p>
+
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">This message is generated when someone has added more hosts to their database than they have been licensed for. To find out how many hosts an environment is licensed for, go to the menu bar and select <strong>Help</strong> &gt; <strong>About</strong> in the Access Analyzer console. This displays  a window that shows all licensed modules and a licensed hosts section. This number is controlled by the license file. </span></span></p>
+
+<p><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">To increase the host count, contact your account manager or email <a href="mailto:sales@stealthbits.com" style="text-decoration: underline;color: #0563c1;" target="_blank">sales@stealthbits.com</a>. </span></span><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">In most cases, there is no associated cost because the product is licensed on a per user basis rather than on a per host basis. Access Analyzer for Windows and Access Analyzer for Systems Governance are notable rare exceptions where licensing may be server-based instead of user-based. The error has no impact on functionality of the product, and reports will still be generated for all hosts scanned. The only other noticeable result of exceeding a host count is that there is a watermark on the published report.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Most often, the reason that there are too many hosts is that there is a host discovery task that is looking at too broad of a scope such as an IP Sweep or an active directory query that looks at every OU instead of a single OU. If this is what happened in your environment, you can reach out to <a href="mailto:support@stealthbits.com" style="text-decoration: underline;color: #0563c1;" target="_blank">support@stealthbits.com</a> and an engineer can assist you in removing the excess hosts and properly scoping the discovery query. </span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong>Internal Note:</strong> Even though they may just need a new license file with a higher host limit, the number of hosts can be considered a proxy for the size of an organization. As such, the &quot;Licensed host count exceeded: message may be an indication that a true-up is in order. Perform a health check on the ADInventory job group and verify the number of AD Users in production.</span></span><br> </p>
+
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - Core<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2423</p>
+</body>
+</html>

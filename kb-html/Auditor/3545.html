@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Policy shows SID instead of settings</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="content_type" content="ct_reporting">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:50:30.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:39.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9bnCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9bnCAC">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:50:30.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:29:39.000Z">
+    <meta name="Meta_Description__c" content="You received Group Policy Change Report showing some changes you do not believe you made. The changes of Group Policy settings look as if they were renamed from human readable text to a computer speci...">
+    <meta name="Meta_Title__c" content="Group Policy shows SID instead of settings">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1386">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bnCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Group Policy shows SID instead of settings</h1>
+    You received Group Policy Change Report showing some changes you do not believe you made. The changes of Group Policy settings look as if they were renamed from human readable text to a computer specific SID.
+
+<hr></hr>
+
+By default the product uses a domain controller for the data collection which is most available. Some of the domain controllers may not resolve the Security Identifiers (SID) correctly. The product may connect to the domain controller that does not resolve SIDs, hence it gathers the SIDs of the settings instead of their names. The SID of the group policy setting will be considered as a change when comparing to the previous snapshot.
+
+<hr></hr>
+
+To prevent this from happening we recommend using the same domain controller for collecting Group Policy changes.
+In order to determine the domain controller that should be used, please submit a ticket to Netwrix Technical Support and provide the following information:
+1. The problematic Group Policy Change report (it should contain the date and time the report was received).
+2. The Group Policy Change Reporter tracing logs (the entire content of the tracing folder) - the default location is C:Program Files (x86)NetWrixAD Change Reporter Full VersionGPOExecTracing
+3. The tracing of the Active Directory Change Report module - the entire content of the Tracing subfolder located in the installation folder of the product.
+</body>
+</html>

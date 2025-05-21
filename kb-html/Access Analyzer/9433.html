@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Request for Downloading Published Reports Failed</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="00570000003KXurAAG">
+    <meta name="ArticleCreatedDate" content="2025-03-13T15:26:20.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk000000297FKAQ">
+    <meta name="Article_Reviewer__c" content="005Qk000001wMM9IAM">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1209702329323069">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000MeECWIA3">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="00570000003KXurAAG">
+    <meta name="CreatedDate" content="2025-04-28T09:21:17.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-04-22T14:30:28.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk000000297FKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk000000297FKAQ">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T09:25:03.000Z">
+    <meta name="LastPublishedDate" content="2025-04-22T14:30:28.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="00570000003KXurAAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9433">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk000000297FKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Request for Downloading Published Reports Failed</h1>
+    <h2>Symptoms</h2>
+<p>Either of the following symptoms is present in your environment:</p>
+<ul><li>Upon opening the Reporting web page, you receive the following error:
+<pre class="has-inner-focus">! Request for downloading published reports failed: Internal Server Error</pre>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSGD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C2keA" alt="Error message indicating &#39;Request for downloading published reports failed: Internal Server Error&#39;" width="689" height="211"></img> <br><br></li><li>If the file is corrupted, the following error could appear when opening the Netwrix Access Analyzer (formerly Netwrix Enterprise Auditor) console.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSGD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C2hzg" alt="Console pop-up showing the error message &#39;Hexadecimal value 0x00, is an invalid character.&#39;" width="325" height="138"></img> <br><br><ul><li>Log entry example:
+<pre class="has-inner-focus"><code class="lang-Registry">DEBUG Netwrix Enterprise Auditor IsGroupPublished &quot;Data at the root level is invalid. Line 1, position 1.&quot;
+<br>%sainstalldir%\SADatabase\Logs\Application\SADebug-20250306124900-10776.TSV</code></pre>
+</li></ul>
+</li></ul>
+<h2>Cause</h2>
+<p>The issue is caused by a corrupted<strong> </strong>Reports.xml. </p>
+<h2>Resolution</h2>
+<p>To resolve these errors, follow the steps below.</p>
+<ol><li>Rebuild the Reports folder under the install path. If you want to back up the folder, you should archive it prior to deleting the original.
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>To find the install path, enter the following environmental variable into the application server&#39;s Windows File Explorer: <code>%sainstalldir%</code>. Then, right-click the <strong>Reports</strong> folder to archive and/or delete it. </p>
+</blockquote>
+</li><li>Close and reopen the Access Analyzer Console to rebuild the folder.</li><li>To publish the report(s) again, right-click a needed Job Group (e.g., <strong>Jobs</strong>), and select <strong>Publish</strong> to publish the reports from the selected job group or job without regenerating the report. <br><br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSGD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzUfZ" alt="" width="234" height="455"></img> <br><br></li><li>Select <strong>Publish Reports</strong> and click <strong>Next</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSGD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzScA" alt="Navigation and publishing actions in Access Analyzer" width="531" height="339"></img><br><br></li><li>Select objects as needed. Then, click <strong>Next</strong> to run the report.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSGD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzbFd" alt="" width="531" height="406"></img> <br><br></li><li>Once the report has run successfully, click <strong>Finish</strong> to close out of the Reporting web page.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSGD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzVN9" alt="" width="531" height="416"></img> </li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Additionally, reports will be rebuilt when the related job completes its next run.</p>
+</blockquote>
+</body>
+</html>

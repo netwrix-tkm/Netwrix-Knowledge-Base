@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 5804 in Health Log</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="auditor">
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-07-12T10:08:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-07-30T09:36:06.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-07-12T10:08:35.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001H6rKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001H6rKAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-07-30T09:36:49.000Z">
+    <meta name="LastPublishedDate" content="2024-07-12T10:08:35.000Z">
+    <meta name="Meta_Description__c" content="Event ID 5804 in Health Log">
+    <meta name="Meta_Title__c" content="Event ID 5804 in Health Log">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9216">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001H6rKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 5804 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Auditor prompts the following error in the Health Log:</p>
+
+<pre class="has-inner-focus">
+Event ID: 5804
+Unable to establish an activity session.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<p>Review the <strong>Reason</strong> field in the event description.</p>
+
+<blockquote>
+<p><strong>TIP:</strong> Here are the examples of the possible <strong>Reason</strong> values:</p>
+
+<ul><li>
+	<p>Reason: 0x80190190 Bad request (400)</p>
+
+	<ul><li>
+		<p>Unable to find requested credential by username</p>
+		</li><li>
+		<p>Unable to find requested resource by DnsHostName</p>
+		</li><li>
+		<p>Unable to find requested activity: %activity%</p>
+		</li></ul>
+	</li><li>
+	<p>Reason: 0x80190193 Forbidden (403)</p>
+
+	<ul><li>
+		<p>Either NA or NPS has invalid certificate.</p>
+		</li></ul>
+	</li><li>
+	<p>Reason: 0x80072EE2 The operation timed out</p>
+	</li></ul>
+</blockquote>
+</div>
+
+<h2>Possible Resolutions</h2>
+
+<div>
+<p>Depending on the environment, review the following options:</p>
+
+<ul><li>
+	<p>Review the NPSAM logs to learn more about possible issues.</p>
+	</li><li>
+	<p>If needed, increase the timeout value in Auditor:</p>
+
+	<ol><li>
+		<p>Locate the <code>CredentialResolverService.acconf</code> file in the following folder:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">C:\Program Files (x86)\Netwrix Auditor\Audit Core\</code></pre>
+		</li><li>
+		<p>Locate the <code>MaxWaitForActiveStatusS</code> node and alter the timeout value (seconds):</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">&lt;a n=&quot;MaxWaitForActiveStatusS&quot; v=&quot;300&quot;/&gt;</code></pre>
+
+		<p>Save the changes and restart the <code>NwCfgServerSvc</code> service to apply the changes.</p>
+		</li></ol>
+
+	<blockquote>
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Auditor overwrites <code>.acconf</code> files on NA upgrades and repairs.</p>
+	</blockquote>
+	</li></ul>
+</div>
+</body>
+</html>

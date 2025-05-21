@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Bulk Export the Owner and Additional Owners of Groups through Management Shell</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XNAA0">
+    <meta name="ArticleCreatedDate" content="2025-04-10T21:34:36.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002JbFKAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1XNAA0">
+    <meta name="AssignedToId" content="0054u000008F1XNAA0">
+    <meta name="AssignmentDate" content="2025-04-10T21:34:36.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1XNAA0">
+    <meta name="CreatedDate" content="2025-04-10T21:34:36.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002JbFKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002JbFKAU">
+    <meta name="LastModifiedById" content="0054u000008F1XNAA0">
+    <meta name="LastModifiedDate" content="2025-04-10T21:55:41.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="How To: Bulk Export the Owner and Additional Owners of Groups">
+    <meta name="Meta_Title__c" content="How To: Bulk Export the Owner and Additional Owners of Groups">
+    <meta name="OwnerId" content="0054u000008F1XNAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10132">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002JbFKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Bulk Export the Owner and Additional Owners of Groups through Management Shell</h1>
+    <p><strong>Applies To:</strong><br>Directory Manager 11 - Directory Manager Management Shell</p>
+<p><strong>Business Requirement:</strong><br>In cases where there are a large number of groups and dynasties in the directory, it is essential to track the owners and additional owners of these groups. This process will help ensure proper management and visibility of ownership across groups.</p>
+<p><strong>More Information:</strong><br>When adding an owner and additional owner to a group, it is necessary to resolve the distinguished names of the users. To generate a .csv list, the resolve query can be used to fetch the owner and additional owners via the Directory Manager Management Shell.</p>
+<p><strong>Solution:</strong><br>The following procedure outlines the steps to bulk export both the owners and additional owners for both managed and unmanaged groups (static &amp; smart).</p>
+<h3><strong>Steps:</strong></h3>
+<ol><li>
+<p>Launch the Directory Manager Management Shell.</p>
+</li><li>
+<p>Log in to the Management Shell with your service account.</p>
+</li><li>
+<p><strong>Export Owners and Additional Owners for Smart Groups:</strong></p>
+<p>Run the following cmdlet for smart groups:</p>
+<div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary">
+<div class="sticky top-9"> </div>
+<div class="overflow-y-auto p-4" dir="ltr">
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>Get-SmartGroup | Select Name, @{Name=&quot;Owner&quot;; Expression={ (Get-User -Identity $_.ManagedBy).Name }}, @{Name=&quot;AdditionalOwner&quot;; Expression={ ($_.AdditionalOwner.split(&quot;,&quot;) | ForEach-Object { (Get-User -Identity $_).Name }) -join &quot;, &quot; }} | Export-Csv &quot;C:\smartgroups.csv&quot; -NoTypeInformation</code></pre>
+</div>
+</div>
+<p>This cmdlet will export all the owners and additional owners for the smart groups.</p>
+<p> </p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DC1l&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BuCxp"></img></li></ol>
+<p>             </p>
+<p>           The CSV file will be saved to the <code>C:\</code> directory with the name <code>smartgroups.csv</code>.</p>
+<ol><li style="list-style-type: none;">
+<ul><li>
+<p><strong>Note:</strong> To change the directory, replace <code>C:\smartgroups.csv</code> with the desired directory path.</p>
+</li></ul>
+</li><li>
+<p><strong>Export Owners and Additional Owners for All Types of Groups:</strong></p>
+<p>To export the owner and additional owner list for all types of groups (managed and unmanaged), run the following command:</p>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code> Get-Group | Select Name, @{Name=&quot;Owner&quot;; Expression={ (Get-User -Identity $_.ManagedBy).Name }}, @{Name=&quot;AdditionalOwner&quot;; Expression={ ($_.AdditionalOwner.split(&quot;,&quot;) | ForEach-Object { (Get-User -Identity $_).Name }) -join &quot;, &quot; }} | Export-Csv &quot;C:\Groups.csv&quot; -NoTypeInformation </code></pre>
+</li><li>
+<p><code class="whitespace-pre!"><span class="hljs-keyword"></span></code>This cmdlet will provide the owner and additional owner information for all types of groups.</p>
+</li><li>
+<p><strong>Customize the Output (Optional):</strong></p>
+<p>If additional information is required, you can append the desired attributes to the cmdlet. Examples of additional attributes include:</p>
+<ul><li>
+<p><code>smartGroupType</code></p>
+</li><li>
+<p><code>security</code></p>
+</li><li>
+<p><code>expiration</code></p>
+</li><li>
+<p><code>whencreated</code></p>
+</li><li>
+<p><code>UPN</code></p>
+</li><li>
+<p><code>criteria</code></p>
+</li><li>
+<p><code>SearchContainer</code></p>
+</li><li>
+<p><code>Identity</code></p>
+</li><li>
+<p><code>MaxItemsToDisplay</code></p>
+</li><li>
+<p><code>ObjectType</code></p>
+</li><li>
+<p><code>LdapFilter</code></p>
+</li><li>
+<p><code>SmartFilter</code></p>
+</li></ul>
+<p>These attributes can be added to the <code>Select</code> statement in the cmdlet to gather more detailed information for each group.</p>
+</li></ol>
+</body>
+</html>

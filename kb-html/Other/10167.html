@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Change the Display Name Format to First.Last in GroupID Portal</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XNAA0">
+    <meta name="ArticleCreatedDate" content="2025-05-02T19:24:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002QKzKAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1XNAA0">
+    <meta name="AssignedToId" content="0054u000008F1XNAA0">
+    <meta name="AssignmentDate" content="2025-05-02T19:24:08.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1XNAA0">
+    <meta name="CreatedDate" content="2025-05-02T19:24:08.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002QKzKAM">
+    <meta name="Knowledge_Article_ID__c" content="nan">
+    <meta name="LastModifiedById" content="0054u000008F1XNAA0">
+    <meta name="LastModifiedDate" content="2025-05-02T19:24:08.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="How To: Change the Display Name Format to First.Last in GroupID Portal">
+    <meta name="Meta_Title__c" content="How To: Change the Display Name Format to First.Last in GroupID Portal">
+    <meta name="OwnerId" content="0054u000008F1XNAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10167">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Change the Display Name Format to First.Last in GroupID Portal</h1>
+    <h3><strong>Applies To:</strong></h3>
+<p>Netwrix GroupID 11  Portal</p>
+<h3><strong>Business Scenario:</strong></h3>
+<p>By default, GroupID formats a user&#39;s display name as <strong>Last, First</strong> during user creation through the portal. However, in some environments, there may be a requirement to use the <strong>First.Last</strong> format instead.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DXsb&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CMSQA" alt=""></img></p>
+<p>This article explains how to make this customization by modifying the underlying JavaScript file used by the GroupID Portal.</p>
+<h3><strong>Solution:</strong></h3>
+<p>To change the display name format, you need to make a code-level modification to one of the portals script files.</p>
+<blockquote>
+<p><strong>Note:</strong> This change should be applied carefully and ideally tested in a non-production environment first. Always back up original files before making any modifications.</p>
+</blockquote>
+<h3><strong>Steps to Modify the Display Name Format:</strong></h3>
+<blockquote>
+<ol><li>
+<p>Navigate to the following directory on your GroupID server:<br><code>C:\Program Files\Imanami\GroupID 11.0\GroupIDPortal\Inetpub\&lt;PortalName&gt;\Web\wwwroot\Scripts</code></p>
+</li><li>
+<p>Locate the files named:</p>
+<ul><li>
+<p><code>CreateWizard.js</code></p>
+</li><li>
+<p><code>CreateWizard.min.js</code></p>
+</li></ul>
+</li><li>
+<p>Rename the file <code>CreateWizard.min.js</code> to <code>CreateWizard.min.backup.js</code>.</p>
+</li><li>
+<p>Open <code>CreateWizard.js</code> in <strong>Notepad++</strong>.</p>
+</li><li>
+<p>Search for the function named <code>getFullName</code>, or go directly to <strong>line 392</strong> in Notepad++.</p>
+</li><li>
+<p>Replace the existing function:<code><span style="font-size: 9.0pt;font-family: &#39;Segoe UI&#39;, sans-serif;color: #666666;"></span></code></p>
+<div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary">
+<div class="overflow-y-auto p-4" dir="ltr">
+<p style="margin: 12pt 0in 0in 0.5in;line-height: normal;font-size: 11pt;font-family: Aptos, sans-serif;"><code><span style="font-size: 9pt;font-family: &#39;Segoe UI&#39;, sans-serif;color: #666666;"></span></code></p>
+<pre class="language-javascript" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>function getFullName(firstNameText, lastNameText) {
+
+    var comma = &quot;,&quot;;
+
+    if (firstNameText === &quot;&quot; || lastNameText === &quot;&quot;) {
+
+        comma = &quot;&quot;;
+
+    }
+
+    return lastNameText + comma + firstNameText
+
+}</code></pre>
+<p style="margin: 12pt 0in 0in 0.5in;line-height: normal;font-size: 11pt;font-family: Aptos, sans-serif;"><code><span style="font-size: 9pt;font-family: &#39;Segoe UI&#39;, sans-serif;color: #666666;"></span></code><code><span style="font-size: 9pt;font-family: &#39;Segoe UI&#39;, sans-serif;color: #666666;"></span></code></p>
+</div>
+</div>
+<p>with the following version:</p>
+<div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary">
+<div class="overflow-y-auto p-4" dir="ltr">
+<p style="margin: 12pt 0in 0in 0.5in;line-height: normal;font-size: 11pt;font-family: Aptos, sans-serif;"><code><span style="font-size: 9.0pt;font-family: &#39;Segoe UI&#39;, sans-serif;color: #666666;"></span></code><code></code></p>
+<pre class="language-javascript" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>function getFullName(firstNameText, lastNameText) {
+
+    var comma = &quot;.&quot;;
+
+    if (firstNameText === &quot;&quot; || lastNameText === &quot;&quot;) {
+
+        comma = &quot;&quot;;
+
+    }
+
+    return firstNameText + comma + lastNameText
+
+}</code></pre>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DXsb&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CMbrd" alt=""></img></p>
+</div>
+</div>
+</li><li>
+<p>Save the file.</p>
+</li><li>
+<p>Rename <code>CreateWizard.js</code> to <code>CreateWizard.min.js</code>.</p>
+</li><li>
+<p>Open <strong>Command Prompt</strong> as Administrator and run the following command:</p>
+<div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary">
+<div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre!"><span class="hljs-attribute">iisreset</span>
+</code></div>
+</div>
+</li><li>
+<p>Once the IIS reset is complete, log in to the portal and try creating a new user.<br>The <strong>Display Name</strong> will now appear in the <strong>First.Last</strong> format.</p>
+</li></ol>
+<p style="text-align: left;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DXsb&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CMby5" alt=""></img></p>
+</blockquote>
+</body>
+</html>

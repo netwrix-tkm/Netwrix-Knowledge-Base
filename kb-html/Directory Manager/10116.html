@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Moderators for Exchange Distribution Lists in the Portal</title>
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XIAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-28T22:54:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002FivKAE">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1209914423921303/f">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008F1XIAA0">
+    <meta name="CreatedDate" content="2025-04-28T09:22:23.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-03-28T23:00:05.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002FivKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002FivKAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T09:22:51.000Z">
+    <meta name="LastPublishedDate" content="2025-04-15T20:31:34.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008F1XIAA0">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10116">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002FivKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Display Moderators for Exchange Distribution Lists in the Portal</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11 or above</p>
+<h2>Overview</h2>
+<p>This article outlines the process of modifying the Netwrix Directory Manager (formerly Netwrix GroupID) portal to show moderator settings for distribution lists configured in Microsoft Exchange, using specific Active Directory attributes.</p>
+<div> </div>
+<p>The following attributes are associated with message moderation for on-premise Microsoft Exchange:</p>
+<ul><li><strong>msExchEnableModeration</strong>: Enables or disables message moderation for a distribution group. When enabled, messages sent to the group require moderator approval before delivery.</li><li><strong>msExchModeratedByLink</strong>: Associates a moderated recipient with a distribution list or security group whose members serve as moderators.</li><li><strong>msExchBypassModerationLink</strong>: Associates a moderated recipient with a distribution list or security group whose members are allowed to bypass message moderation.</li></ul>
+<p>By utilizing these attributes, you can create a customized view in the Directory Manager Portal to display the appropriate message approvers for distribution lists. This customization helps manage message moderation effectively within your organization&#39;s Exchange environment.</p>
+<h2>Instructions</h2>
+<p>Follow the instructions below to configure the Directory Manager Portal:</p>
+<ol><li>
+<p>Open the <strong>Identity Stores</strong> tab in <strong>Directory Manager Admin Center</strong> and click <strong>Edit</strong> under the ellipses menu on the appropriate Identity Store card.</p>
+</li><li>
+<p>On the <strong>Replication</strong> tab, click <strong>Add Replication Attributes</strong> and add the required attributes.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPOP" alt="Replication attribute screenshot"></img></div>
+</li><li>
+<p>Click <strong>Settings</strong>. A new page will appear.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdNHn" alt="Portal settings screenshot"></img></div>
+</li><li>
+<p>Select the appropriate <strong>Identity Store</strong>.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPHx" alt="Identity Store selection screenshot"></img></div>
+</li><li>
+<p>Under the <strong>Properties</strong> tab, select <strong>Group</strong> from the <strong>Select Directory Object</strong> list.</p>
+</li><li>
+<p>Select <strong>Advanced</strong> in the <strong>Name</strong> list and click the <strong>Pencil</strong> icon.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPRd" alt="Advanced group design"></img></div>
+</li><li>
+<p>On the Edit Design Category dialog box, click <strong>Add Field</strong>.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPJZ" alt="Add Field screenshot"></img></div>
+</li><li>
+<p>Select <strong>mxExchEnableModeration</strong> from the <strong>Field</strong> list, enter the display name as <strong>Is Moderation Enabled</strong> and set the display type to <strong>Check</strong>.</p>
+</li><li>
+<p>Click <strong>OK</strong> and then click <strong>Add Fields</strong> again.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPLB" alt="ModeratedByLink field screenshot"></img></div>
+</li><li>
+<p>Select <strong>mxExchModeratedByLink</strong>, enter the display name as <strong>Moderators</strong>, and set the display type to <strong>DNs</strong>.</p>
+</li><li>
+<p>Click <strong>OK</strong> and then click <strong>Add Fields</strong> again.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdDrv" alt="A screenshot of adding attribute."></img></div>
+</li><li>
+<p>Select <strong>mxExchBypassModerationLink</strong>, enter the display name as <strong>Bypass Moderation</strong>, and set the display type to <strong>DNs</strong>.</p>
+</li><li>
+<p>Click <strong>OK</strong> and then click the <strong>Save</strong> icon at the top of the page.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPMn" alt="Bypass moderators field screenshot"></img></div>
+</li><li>
+<p>Launch the <strong>Directory Manager Portal</strong>. The new attributes should appear under the <strong>Groups</strong> tab under <strong>Advanced</strong>.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DRdW&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BdPQ1" alt="Final portal attributes screenshot"></img></div>
+</li></ol>
+</body>
+</html>

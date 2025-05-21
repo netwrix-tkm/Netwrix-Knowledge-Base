@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Error 500.19 - Internal Server Error - Error Code 0x8007007e</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T01:00:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-25T14:59:10.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T01:00:01.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JfkCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JfkCAE">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-05-25T15:01:50.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="HTTP Error 500.19 - Internal Server Error - Error Code 0x8007007e">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8300">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfkCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>HTTP Error 500.19 - Internal Server Error - Error Code 0x8007007e</h1>
+    <h1 id="">Problem and Cause</h1>
+
+<p><span style=""><span style="">The requested page cannot be accessed because the related configuration data for the page is invalid.This problem is related to the XPress compression schema module <span style="">(suscomp.dll) which gets installed with WSUS. Compression schemes are defined globally and they try to load in every Application Pool. It will result in this error when the 64 Bit version of suscomp.dll attempts to load in an Application Pool which is running in 32 Bit mode <code>[enable32BitAppOnWin64]</code><span style="">. 32 Bit mode is needed for SafeGuard Enterprise Server to run.</span></span></span></span><br><img alt="500.19 ERROR.PNG" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Qmbn&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007cew7" style="width: 879px;height: 541px;"></img></p>
+Operating Systems:<br>Windows Server 2008 (R2)<br>Windows Server 2012 (R2)
+<h1 id="">Resolution</h1>
+
+<ol><li><span style="">Navigate to <span style="">%WINDIR%\system32\inetsrv\config\</span></span></li><li><span style="">Create a backup copy of the file </span><span style=""><strong>applicationhost.config </strong></span><span style="">and save it to a different location</span></li><li><span style="">Open the </span><span style=""><strong>applicationhost.config </strong></span><span style="">in the Notepad</span></li><li><span style=""><span style="">Search for the following entry:</span></span></li><li><span style=""><span style=""><span style=""><span style="">Remove / Disable the XPress compression schema line from the configuration<span>file</span></span></span></span></span></li><li><span style=""><span style=""><span style=""><span style=""><span><span style="">Save the </span><strong><span style="">applicationhost.config </span></strong><span style="">and restart IIS services.</span></span></span></span></span></span></li></ol>
+For more information, read the <a href="https://learn.microsoft.com/ru-ru/archive/blogs/webtopics/troubleshooting-http-500-19-errors-in-iis-7" target="_blank"><span style=""><span style=""><span style=""><span style=""><span><span style="">Troubleshooting HTTP 500.19 Errors in IIS 7</span></span></span></span></span></span></a> <span style=""><span style=""><span style=""><span style=""><span><span style=""> article. </span></span></span></span></span></span>
+
+<h3 id=""><span style=""><span style=""><span style=""><span style=""><span><span style="">Related articles</span></span></span></span></span></span></h3>
+<span style=""><span style=""><span style=""><span style=""><span><span style=""> </span></span></span></span></span></span>
+
+<ul><li>
+	<div><span style=""><span style=""><span style=""><span style=""><span><span style=""><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JWTCA2.html" target="_blank">How to Backup / Restore / Move your MongoDB Database</a></span></span></span></span></span></span></div>
+	</li><li>
+	<div><span style=""><span style=""><span style=""><span style=""><span><span style=""><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfVCAU.html" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a></span></span></span></span></span></span></div>
+	</li><li>
+	<div><span style=""><span style=""><span style=""><span style=""><span><span style=""><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JemCAE.html" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a></span></span></span></span></span></span></div>
+	</li><li>
+	<div><span style=""><span style=""><span style=""><span style=""><span><span style=""><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JgJCAU.html" target="_blank">How to Change the Admin Password of your Mongo Database</a></span></span></span></span></span></span></div>
+	</li></ul>
+<span style=""><span style=""><span style=""><span style=""><span><span style=""> </span></span></span></span></span></span>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint scans are being throttled by Microsoft - Error 429, Error 503</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:54:50.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IitCAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-11T17:15:13.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:54:52.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IitCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IitCAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-11T17:21:18.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:54:52.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="SharePoint scans are being throttled by Microsoft - Error 429, Error 503">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8028">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IitCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SharePoint scans are being throttled by Microsoft - Error 429, Error 503</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SharePoint Online scans are being throttled by Microsoft, as a result we have enhanced SPAA to use &#39;exponential back-off&#39; to avoid SharePoint Online throttling.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Title: SharePoint scans are being throttled by Microsoft - Error 429, Error 503</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Summary: </span></strong> SharePoint Online scans are being throttled by Microsoft, as a result we have enhanced SPAA to use &#39;exponential back-off&#39; to avoid SharePoint Online throttling. </span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Before Fix: SPO scans will be throttled if you send a lot of requests at once.</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>After fix: </span></strong><span style="font-size: 10.5pt;"><span><span><span><span style="color: #1f2326;">SPAA can recognize that a throttle is going to be hit and leverage the exponential backoff technique to avoid hitting a throttle.</span></span></span></span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Christopher Nieves          </span></span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">9.0</span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Module:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Access Analyzer - DC - SPAA</span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Dev Ticket:</span></strong></span></span></span> 
+</p><ul><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: black;">SAFS-16792</span></span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Resolved in Version:</span></strong></span></span></span> 
+<ul><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SPAA build                                  9.0.0.822</span></span></span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>KB Type: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">                Hotfix</span></span></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span>YouTrack/Escalations</span></strong></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span>-              SAFS-16792</span></strong></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span>Customers</span></strong></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span>-              Thorogood, Fairfax County Government, NY Jets</span></strong></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>Comments:</b></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>In the logs look for error codes 429, 500 and/or 503 - these will appear first followed by 401 errors due to our session being blocked completely via the throttle mechanism. In the event that we are still being throttled after updating the customer&#39;s build then you should reduce the thread allocation on the job.</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>To do this navigate to the PrivateAssemblies folder and open up the Stealthbits.StealthAUDIT.DataCollectors.SPAA.Common.dll file and change the &quot;MaxScanThreadsPerHost&quot; setting to a lower number. By default this is set to 8, I would recommend trying 6 or 4 threads in the event of further throttling. </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><img style="height: 220px;width: 672px;" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcavW&amp;d=%2Fa%2F4u000000LzCr%2FUhCNhonavpghcfvhyOeYsufvzt20DSpDbTXvsga.d_4&amp;asPdf=false"></img></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Instructions:</span></strong></span></span></span> 
+<ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b><span style="font-size: 15pt;"><span style="color: red;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </span></span></b></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Close all instances of Access Analyzer (check task manager under processes for all users)</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all DC files in your %SAInstallDir%DC folder</span></strong></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></strong></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all Agent files in your %SAInstallDir%Agent folder</span></strong></span></span></span></li></ol><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Instructions:</span></strong></span></span></span> 
+</p><ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b><span style="font-size: 15pt;"><span style="color: red;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </span></span></b></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Close all instances of Access Analyzer (check task manager under processes for all users)</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all DC files in your %SAInstallDir%DC folder</span></strong></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></strong></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all Agent files in your %SAInstallDir%Agent folder</span></strong></span></span></span></li></ol>Hotfix KB: <a href="https://na103.salesforce.com/articles/General/Hotfix-Access Analyzer-9-0-030" target="_blank">https://na103.salesforce.com/articles/General/Hotfix-Access Analyzer-9-0-030</a><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - DC - SPAA - Activity;Access Analyzer - DC - SPAA - Permissions;Access Analyzer - DC - SPAA - Sensitive Data<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 9.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-16792<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> SPAA build			9.0.0.822<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2552<br></p>
+</body>
+</html>

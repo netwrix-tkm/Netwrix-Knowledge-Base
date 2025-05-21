@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_11.5_046</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006RPEQAA4">
+    <meta name="ArticleCreatedDate" content="2023-04-18T15:41:42.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000000HDgECAW">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006RPEQAA4">
+    <meta name="CreatedDate" content="2025-05-09T03:52:18.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-04-18T15:41:49.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000HDgECAW">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000HDgECAW">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T03:55:50.000Z">
+    <meta name="LastPublishedDate" content="2023-04-18T15:41:49.000Z">
+    <meta name="Meta_Description__c" content="Error in collection for AD Perms">
+    <meta name="Meta_Title__c" content="Hotfix: SA_11.5_046">
+    <meta name="OwnerId" content="0054u000006RPEQAA4">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8565">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDgECAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_11.5_046</h1>
+    <span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Summary: </span></strong>  <span style="background: white;"><span style="color: black;">Error in collection for AD Perms</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><b>Submitted<strong><span style="font-family: &quot;Calibri&quot;,sans-serif;"> by: </span></strong></b></span></span></span><br><span style="font-size: 11pt;"><span style="tab-stops: 71.1pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Justin Giemza</span></span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">11.5</span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Module:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">Access Analyzer  DC  ADP</span></span></span><br><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Dev Ticket:</span></strong></span></span></span>
+<ul><li style="margin-bottom: 11px;margin-left: 8px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span style="color: black;">272748</span></span></span></span></li></ul>
+<span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Resolved in Version:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">DC\DCADPermissions.DLL v. 11.5.42.0</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.ADP.dll v. 11.5.42.0</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.ADP.UI.dll v. 11.5.42.0</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">KB Type: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">               Hotfix</span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Escalation</span></strong></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">-              369525</span></strong></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Instructions:</span></strong></span></span></span>
+
+<ol><li style="margin-left: 32px;margin-bottom: 11px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </span></span></span></li><li style="margin-left: 32px;margin-bottom: 11px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;">Close all instances of Access Analyzer (check task manager under processes for all users)</span></span></span></li><li style="margin-left: 32px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Update all DC files in your %SAInstallDir%DC folder</span></strong></span></span></span></li><li style="margin-left: 32px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></strong></span></span></span></li></ol>
+
+<div style="margin-left: 32px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">https://downloads.stealthbits.com/access/files/SAHotFixes/11.5/SA_11.5_046.zip</span></strong></span></span></span><br> </div>
+</body>
+</html>

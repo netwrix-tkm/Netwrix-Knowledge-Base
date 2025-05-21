@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script to Report on OWA Hits Per User for the Last 30 Days</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:40:39.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:26.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:40:40.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IuFCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IuFCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:26.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:40:40.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Script to Report on OWA Hits Per User for the Last 30 Days">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7306">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IuFCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Script to Report on OWA Hits Per User for the Last 30 Days</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Just a simple script that was put together because a customer wanted to see how many OWA hits a user was generating over a 30 day period instead of seeing total OWA hits for the full 6 month period of history retention Customers who are looking to check the performance of their CAS Load Balancing may find this useful as OWA Hit Count indicates how often a user us creating RPC traffic on a CAS (Client Access Server) by accessing their email via Outlook Web Access (OWA)</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> The issue that the customer was having is that they were seeing an extreme amount of RPC Traffic on their CAS server and they couldn&#39;t determine where it was coming from. They wanted to know if it was coming from a specific user or if it was spread out across their entire organization.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<ol><li style="color: #1f497d;">Before running this analysis task the customer must already be running the CAS Metrics Job Group</li><li style="color: #1f497d;">The attached job can be run from the sandbox or from within the out of the box Exchange Solution as part of the CAS Metrics Group</li></ol>
+<p><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">if</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> <span style="color: fuchsia;">object_ID</span><span style="color: gray;">(</span><span style="color: red;">&#39;SA_EX_OWATrafficStats_UserHits30Days&#39;</span><span style="color: gray;">,</span><span style="color: red;">&#39;table&#39;</span><span style="color: gray;">)</span> <span style="color: gray;">is</span> <span style="color: gray;">not</span> <span style="color: gray;">null</span></span></span><br><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">Drop</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> <span style="color: blue;">table</span> SA_EX_OWATrafficStats_UserHits30Days</span></span><br> <br><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">Select</span></span></span><br><span style="font-family: consolas;"><span style="font-size: 9.5pt;">  [User]</span></span><br><span style="color: gray;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">,</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> <span style="color: fuchsia;">SUM</span><span style="color: gray;">(</span>Hits<span style="color: gray;">)</span> <span style="color: blue;">as</span> [UserHits]</span></span><br><span style="color: gray;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">,</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> <span style="color: fuchsia;">cast</span> <span style="color: gray;">(</span><span style="color: fuchsia;">min</span> <span style="color: gray;">(</span><span style="color: blue;">date</span><span style="color: gray;">)</span> <span style="color: blue;">AS</span> <span style="color: blue;">varchar </span><span style="color: gray;">(</span>60<span style="color: gray;">))</span> <span style="color: gray;">+</span> <span style="color: red;">&#39;  to  &#39;</span> <span style="color: gray;">+</span> <span style="color: fuchsia;">CAST</span><span style="color: gray;">(</span> <span style="color: fuchsia;">MAX</span><span style="color: gray;">(</span><span style="color: blue;">date</span><span style="color: gray;">)</span> <span style="color: blue;">AS</span> <span style="color: blue;">varchar </span><span style="color: gray;">(</span>60<span style="color: gray;">))</span> <span style="color: blue;">AS</span> [Activity Range]</span></span><br><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">into</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> SA_EX_OWATrafficStats_UserHits30Days</span></span><br><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">from</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> sa_ex_OWATraffic_Details</span></span><br><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">where</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> [date] <span style="color: gray;">&gt;=</span> <span style="color: fuchsia;">DATEADD</span><span style="color: gray;">(</span><span style="color: fuchsia;">day</span><span style="color: gray;">,-</span>30<span style="color: gray;">,</span><span style="color: fuchsia;">Getdate</span><span style="color: gray;">())</span></span></span><br><span style="color: blue;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">group</span></span></span><span style="font-family: consolas;"><span style="font-size: 9.5pt;"> <span style="color: blue;">by</span> [USER]</span></span><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ExchangeMailbox<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2250</p>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Protocols in Password Policy Enforcer</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="password_policy_enforcer">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-06-10T10:48:02.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-06-14T08:03:47.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-06-10T10:48:25.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001CgfKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001CgfKAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-06-14T08:04:19.000Z">
+    <meta name="LastPublishedDate" content="2024-06-10T10:48:25.000Z">
+    <meta name="Meta_Description__c" content="Communication Protocols in Password Policy Enforcer">
+    <meta name="Meta_Title__c" content="Communication Protocols in Password Policy Enforcer">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9196">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001CgfKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Communication Protocols in Password Policy Enforcer</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>This article covers communication protocols used in Netwrix Password Policy Enforcer (PPE). In PPE v10.2 and newer, you can select a communication protocol to be used between the Password Policy Server and Client installations.</p>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Before implementing the RPC protocol, update all Password Policy Clients in your environment to the latest version (v10.2 and later).</p>
+</blockquote>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>PPE/Web v7.11 and Netwrix Password Reset v3.3 do not yet support the RPC protocol. Do not implement the RPC protocol in the NPR and PPE/Web environments.</p>
+</blockquote>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>Refer to the following steps to set up PPE to use one of the available communication protocols:</p>
+
+<ul><li>
+	<p>To use the UDP protocol, specify the Server port in Password Policy Server Properties:</p>
+
+	<ol><li>
+		<p>In the main PPE screen, select <strong>Password Policy Server</strong> in the left pane &gt; <strong>PPS Properties</strong>.</p>
+		</li><li>
+		<p>In the <strong>General</strong> tab, specify the used port in the <strong>Password Policy Server Port</strong> field.</p>
+		</li></ol>
+	</li><li>
+	<p>To use the RPC protocol, set the Server port to <code>0</code> and set up <strong>Communication settings</strong> in the domain group policy:</p>
+
+	<ol><li>
+		<p>In the main PPE screen, select <strong>Password Policy Server</strong> in the left pane &gt; <strong>PPS Properties</strong>.</p>
+		</li><li>
+		<p>In the <strong>General</strong> tab, specify <code>0</code> in the <strong>Password Policy Server Port</strong> field.</p>
+		</li><li>
+		<p>In the Group Policy Management Console, locate the domain policy governing the PPE domain. Right-click the policy and click <strong>Edit...</strong>.</p>
+		</li><li>
+		<p>In the left pane, proceed to <strong>Computer Configuration</strong> &gt; <strong>Policies</strong> &gt; <strong>Administrative Templates</strong> &gt; <strong>Netwrix Password Policy Enforcer</strong> &gt; <strong>Netwrix Password Policy Client</strong>.</p>
+		</li><li>
+		<p>Right-click the <strong>Communication settings</strong> setting and select <strong>Edit</strong>.</p>
+		</li><li>
+		<p>Switch the <strong>Type of communication</strong> value to <strong>RPC</strong> and click <strong>OK</strong> to save changes.</p>
+		</li></ol>
+	</li></ul>
+</div>
+</body>
+</html>

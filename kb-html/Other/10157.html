@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to : How To Join or Leave a Group on behalf of another User</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1WUAA0">
+    <meta name="ArticleCreatedDate" content="2025-04-28T18:44:19.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002OkbKAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1WUAA0">
+    <meta name="AssignedToId" content="0054u000008F1WUAA0">
+    <meta name="AssignmentDate" content="2025-04-28T18:44:19.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1WUAA0">
+    <meta name="CreatedDate" content="2025-04-28T18:44:19.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002OkbKAE">
+    <meta name="Knowledge_Article_ID__c" content="nan">
+    <meta name="LastModifiedById" content="0054u000008F1WUAA0">
+    <meta name="LastModifiedDate" content="2025-04-28T18:44:19.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="How To Join or Leave a Group on behalf of another User">
+    <meta name="Meta_Title__c" content="How to : How To Join or Leave a Group on behalf of another User">
+    <meta name="OwnerId" content="0054u000008F1WUAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10157">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to : How To Join or Leave a Group on behalf of another User</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>El is a Finance manager at Tyrell Corporation and would like his direct report, Abbey, to join a communication group named Fintech, so that he can remain updated about an upcoming project. The Fintech group, however, is managed by a different team/owner. Abbey can request to join the group on his own, but it would be much easier if El could just place a <i>join</i> request on behalf of his subordinates. The idea of responsibly introducing a subordinate to a new working group by placing a join request on his or her behalf would also make the approval decision easy for the Fintech group owner.</p>
+<h2><span style="color: #2980b9;"><b>Explanation:</b></span></h2>
+<p>The Directory Manager introduced the <i>group types</i> feature, where users can request to join or leave a <a target="_blank" href="https://support.imanami.com/hc/en-us/articles/115000333554-FAQ-GroupID-group-security-types#semi">semi-private</a> group.</p>
+<p>Directory Manager has a feature where managers and peers can generate a request on behalf of other users, and any user can place a request to join or leave a group on behalf of any user.</p>
+<p>But before we move towards the actual steps for placing a request, here is a summary table for what we are about to do.</p>
+<p> </p>
+<table cellpadding="0" cellspacing="0" border="1"><tbody><tr><td colspan="1" rowspan="1" style="width: 96.75pt;">
+<p><b>Feature</b></p>
+</td><td colspan="1" rowspan="1" style="width: 3.75in;">
+<p><b>Description</b></p>
+</td><td colspan="1" rowspan="1" style="width: 296.25pt;">
+<p><b>Identity Store Permission</b></p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 96.75pt;">
+<p><a href="#direct">Join/Leave on Behalf of Direct Reports</a></p>
+</td><td colspan="1" rowspan="1" style="width: 3.75in;">
+<p>A manager can place a request to join or leave a group on behalf of users directly reporting to him/her.</p>
+</td><td colspan="1" rowspan="1" style="width: 296.25pt;">
+<p><i>Manage my Direct Reports</i><br>permission should be set to <i>Allow</i> for the security r<i>ole</i> the requesting manager belongs to.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 96.75pt;">
+<p><a href="#peers">Join/Leave on Behalf of Peers</a></p>
+</td><td colspan="1" rowspan="1" style="width: 3.75in;">
+<p>Users can place a request to join or leave a group on behalf of their peers. (Users who report to the same manager are peers to each other.)</p>
+</td><td colspan="1" rowspan="1" style="width: 296.25pt;">
+<p><i>Join/Leave on Behalf of Peer</i> permission should be set to <i>Allow</i> for the security r<i>ole</i> the requesting user belongs to.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 96.75pt;">
+<p><a href="#Other">Join/Leave on Behalf of Any User</a></p>
+</td><td colspan="1" rowspan="1" style="width: 3.75in;">
+<p>Any user can place a request to join or leave a group on <br>behalf of any other user.</p>
+</td><td colspan="1" rowspan="1" style="width: 296.25pt;">
+<p><i>Join/Leave on Behalf of Any User </i>permission should be set to <i>Allow</i> for the security r<i>ole</i> the requesting user belongs to.</p>
+</td></tr></tbody></table>
+<h2><b></b></h2>
+<h2><span style="color: #2980b9;"><b>Manager to Request on Behalf of Direct Reports:</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFNVI" height="1" width="1"></img></b></span></h2>
+<p><b>Required Permission:</b></p>
+<p>1. In the Admin center, click on the identity store node. </p>
+<p>2. Go to the properties of the required identity store </p>
+<p>3. On the <b>Security Roles</b> tab, select the security role El falls in and click <b>Edit</b>.</p>
+<p>4. On the <b>Permissions</b> tab, set the <i>Manage My Direct Reports</i> permission to <i>Allow</i></p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFKxE" alt="" width="720" height="621"></img></p>
+<p> </p>
+<h2><span style="color: #2980b9;"><b>Steps to Request on Behalf of Direct Reports:</b></span></h2>
+<p>1. In the portal, search the Fintech group and open its properties.</p>
+<p>2.  Click <b>Join</b>; a box is displayed.</p>
+<p>3. Since El wants to place this request on behalf of a direct report, click <b>Other.</b></p>
+<p>4. Search and select the desired direct report and click <b>Join</b>.</p>
+<p>5. An email notification will be sent to both the group owner as well as to Abbey. Once the request is approved, all the parties will be notified of the decision.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFJt4" alt="" width="720" height="566"></img></p>
+<p> </p>
+<h2><span style="color: #2980b9;"><b>Request on Behalf of Peers:</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFWWw" height="1" width="1"></img></b></span></h2>
+<p><b>Required Permission:</b></p>
+<p>1. In the Admin center, click on the identity store node. </p>
+<p>2. Go to the properties of the required identity store </p>
+<p>3. On the <b>Security Roles</b> tab, select the specific security role and click <b>Edit</b>.</p>
+<p>4. On the <b>Permissions</b> tab, set the <i>Join/Leave on behalf of Peer</i> permission to <i>Allow</i>.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFXMX" alt="" width="720" height="542"></img></p>
+<p> </p>
+<h2><span style="color: #2980b9;"><b>Steps to Request on Behalf of Peers:</b></span></h2>
+<p>1. In the portal, search the Fintech group and open its properties.</p>
+<p>2. Click <b>Join</b>; a box is displayed.</p>
+<p>3. Now click <strong>Other.</strong> </p>
+<p>4. Search and select the desired peer and click <b>Join.</b></p>
+<p>5. An email notification will be sent to both the group owner as well as to the peer. Once the request is approved, all the parties will be notified of the decision.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFXrB" alt="" width="719" height="547"></img></p>
+<p> </p>
+<h2><span style="color: #2980b9;"><b>Request on Behalf of Any User</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFXsn" height="1" width="1"></img> </b></span></h2>
+<p><b>Required Permission:</b></p>
+<p>1. In the Admin center, click on the identity store node. </p>
+<p>2. Go to the properties of the required identity store </p>
+<p>3. On the <b>Security Roles</b> tab, select the specific security role and click <b>Edit</b>.</p>
+<p>4. On the <b>Permissions</b> tab, set the <i>Join/Leave on behalf of Any User</i> permission to <i>Allow</i>.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFMJ4" alt="" width="720" height="624"></img></p>
+<p> </p>
+<h2><span style="color: #2980b9;"><b>Steps to Request on Behalf of Any User:</b></span></h2>
+<p>1. In the portal, search the Fintech group and open its properties.</p>
+<p>2. Click <b>Join</b>; a box is displayed.</p>
+<p>3. Now click <strong>Other</strong>. </p>
+<p>4. Search and select the desired user and click <b>Join</b>.</p>
+<p>5. An email notification will be sent to both the group owner as well as to the user. Once the request is approved, all the parties will be notified of the decision.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DTCH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CFMhH" alt="" width="721" height="520"></img></p>
+<p> </p>
+<p> </p>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs Not Clearing Automatically  Insufficient Space in Access Analyzer Console Drive</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-09-11T11:54:34.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u00000111CKCAY">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-05-05T10:36:24.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-11T11:55:07.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111CKCAY">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111CKCAY">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T10:42:56.000Z">
+    <meta name="LastPublishedDate" content="2023-09-11T11:55:07.000Z">
+    <meta name="Meta_Description__c" content="Logs Not Clearing Automatically  Insufficient Space in Access Analyzer Console Drive">
+    <meta name="Meta_Title__c" content="Logs Not Clearing Automatically  Insufficient Space in Access Analyzer Console Drive">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8800">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111CKCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Logs Not Clearing Automatically  Insufficient Space in Access Analyzer Console Drive</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>Insufficient space in the Access Analyzer console drive.</p>
+	</li><li>
+	<p>Access Analyzer FSAA logs consume a large portion of disk space. For additional information on Access Analyzer logs, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IvcCAE.html" target="_self">Access Analyzer Logs</a>.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>FSAA logs are not clearing up automatically.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>Download the Log Maintenance job group attached to the article, and add it to Access Analyzer.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>It is recommended to add the job group to the Sandbox folder, if available.</p>
+	</blockquote>
+	</li><li>
+	<p>Set the target host list for the job group to match the location of the FSAA logs to be cleared (e.g., either localhost or the FSAA proxies).</p>
+	</li><li>
+	<p>In the <strong>1- LogCleanup</strong> job, configure the query to the FSAA location. If Access Analyzer or proxies are using different paths, job query will need to be run separately against Access Analyzer and proxies, modifying the query accordingly depending on host target.</p>
+
+	<div><img alt="image001.png" height="538" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZCr&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MNH6" width="600"></img></div>
+	</li><li>
+	<p><strong>Optional</strong>. In the <strong>1-LogCleanup</strong> job homepage, configure the <strong>How many days of logs to keep from being removed</strong> setting. The default settings is 7 days.</p>
+
+	<div><img alt="image003.png" height="117" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZCr&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MNHG" width="449"></img></div>
+	</li></ol>
+</div>
+
+<h4>Attached files</h4>
+
+<div>
+<p><a href="https://dl.netwrix.com/products/utilities/SA_Log_Maintenance.zip" target="_blank">Log Maintenance job group</a></p>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IvcCAE.html" target="_self">Access Analyzer Logs</a></p>
+</div>
+</body>
+</html>

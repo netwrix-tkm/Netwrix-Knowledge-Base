@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Connect to Remote Server</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2023-09-08T11:20:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2023-11-28T14:26:44.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-08T11:21:02.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111AdCAI">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111AdCAI">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-11-28T14:26:49.000Z">
+    <meta name="LastPublishedDate" content="2023-11-28T14:26:41.000Z">
+    <meta name="Meta_Description__c" content="This article provides resolution steps for the error to connect to the remote server.">
+    <meta name="Meta_Title__c" content="Error to Connect to Remote Server">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8795">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111AdCAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to Connect to Remote Server</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When trying to run reports in web browser, the following error message appears:</p>
+
+<pre class="has-inner-focus">
+Unable to connect to the remote server.</pre>
+
+<p>Subscriptions may also be affected by this error.</p>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The <b>SQL Server Reporting Services</b> service has stopped in your SQL server.</p>
+	</li><li>
+	<p>In case of the recent SQL Server upgrade, the SQL Server suite could be corrupted.</p>
+	</li><li>
+	<p>The SSRS instance evaluation license has expired.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<p>In case the <strong>SQL Server Reporting Services</strong> service has stopped ? enable the service and disable disable timeout for reports. Refer to the following articles for additional information:</p>
+
+<ul><li>
+	<p>Learn how to enable the <strong>SQL Server Reporting Services</strong> service in <a href="https://learn.microsoft.com/en-us/sql/reporting-services/report-server/start-and-stop-the-report-server-service?view=sql-server-ver16" target="_blank">Start and Stop the Report Server Service · Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>Learn more on timeouts in <a href="https://learn.microsoft.com/en-us/sql/reporting-services/report-server/setting-time-out-values-for-report-and-shared-dataset-processing-ssrs?view=sql-server-ver16" target="_blank">Setting Time-out Values for Report and Shared Dataset Processing (SSRS) · Microsoft &#129125;</a>.</p>
+	</li></ul>
+</div>
+
+<div>
+<p>In case of the failed SQL Server upgrade, repair your SQL Server installation. Learn more in <a href="https://learn.microsoft.com/en-us/sql/database-engine/install-windows/repair-a-failed-sql-server-installation?view=sql-server-ver16" target="_blank">Repair a Failed SQL Server Installation · Microsoft &#129125;</a>.</p>
+</div>
+
+<div>
+<p>For additional information on expired evaluation license in SSRS, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PoK9CAK.html" target="_self">Error 503 ? Reports and Subscriptions Not Working</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PoK9CAK.html" target="_self">Error 503 ? Reports and Subscriptions Not Working</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/reporting-services/report-server/start-and-stop-the-report-server-service?view=sql-server-ver16" target="_blank">Start and Stop the Report Server Service · Microsoft &#129125;</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/reporting-services/report-server/setting-time-out-values-for-report-and-shared-dataset-processing-ssrs?view=sql-server-ver16" target="_blank">Setting Time-out Values for Report and Shared Dataset Processing (SSRS) · Microsoft &#129125;</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/database-engine/install-windows/repair-a-failed-sql-server-installation?view=sql-server-ver16" target="_blank">Repair a Failed SQL Server Installation · Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

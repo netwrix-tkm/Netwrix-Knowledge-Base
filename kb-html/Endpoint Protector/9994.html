@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- How does the File size threshold apply to uploads</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:35:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BE0KAM">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000003xRAXIA2">
+    <meta name="AssignmentDate" content="2025-03-19T17:40:25.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:35:15.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002BE0KAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002BE0KAM">
+    <meta name="LastModifiedById" content="005Qk000003xRAXIA2">
+    <meta name="LastModifiedDate" content="2025-04-23T12:22:53.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9994">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BE0KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- How does the File size threshold apply to uploads</h1>
+    <p>The <strong>&quot;File size threshold&quot; </strong>is designed to limit at the individual file level, versus at the aggregate level. By managing limits at the individual level, more granularity is afforded when multiple files are uploaded through web-facing applications.</p>
+<p>To activate the option, go to<strong> Content Aware Protection-&gt;Content Aware Policies-&gt;Select your CAP policy and enable the below option</strong>:</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crrr&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C8iL7"></img></p>
+<p> </p>
+<p><span style="color: #e74c3c;"><strong>Note: If a File Size Threshold is set, it will be applied to the whole policy, regardless of what file types or custom contents are checked inside the policy. The value used in the File Size Threshold must be a positive, whole number. </strong></span></p>
+<p>To best understand how the individual limit applies follow the below example:</p>
+<p>Consider the File size threshold is set to <strong>1024</strong> (MB). Since the threshold variable registers as MB, anything less than <strong>1 GB</strong> should be acceptable. In essence, if ten <strong>200 MB</strong> files are uploaded, there will be no restriction. However, with this same threshold in place, if one of the ten files uploaded happens to be <strong>1.5 GB</strong>, there will be a block in the upload attempt.</p>
+</body>
+</html>

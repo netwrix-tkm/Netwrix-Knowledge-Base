@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWinConsole_5.0.0.762</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:27:57.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:57.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:27:58.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IgwCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IgwCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:57.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:27:58.000Z">
+    <meta name="Meta_Description__c" content="360008877892">
+    <meta name="Meta_Title__c" content="Hotfix: SIWinConsole_5.0.0.762">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6929">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IgwCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWinConsole_5.0.0.762</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SI web Reports do not populate</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:  </span></strong>SI web Reports do not populate<br><strong><span style="font-family: calibri,sans-serif;">Before fix</span></strong><b>:</b> empty crystal report for failed authentications policy due to linked report contains only successful authentication events.<br><strong><span style="font-family: calibri,sans-serif;">After fix:</span></strong>  crystal report contains correct data for the policy based on failed auth template.<br><br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>3.4.0      No Patch created at this time<br>3.4.1      No Patch created at this time<br>3.4.2      No Patch created at this time<br>4.0.0      No Patch created at this time<br>4.1.0      No Patch created at this time<br>5.0.0      SIWinConsole_5.0.0.762_SI-3512<br><br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Console<br> <br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>I-3602<br><br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>SI 5.0.0.762<br><br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br> <br><b>Escalations: </b>24493<br><br><b>Customers: </b>Textron<br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Steps to apply the patch:<br> <br>1. Open SI Console<br>2. Select &#39;Templates&#39; node<br>3. Remove the following templates:<br> - Templates\Microsoft\Active Directory\Authentication\Administrative Accounts\&quot;AD: Failed Administrator Account Authentications&quot;<br> - Templates\Microsoft\Active Directory\Authentication\&quot;AD: Failed Account Authentications&quot;<br> - Templates\Microsoft\Active Directory\Authentication\Service Accounts\&quot;AD: Failed Service Account Authentications&quot;<br>4. Extract attached &quot;FixedTemplates.xml&quot; to temp folder<br>5. Select Tools\Import in SI Console<br>6. Select extracted &quot;FIxedTemplates.xml&quot; from temp folder for Import<br>7. Run Import<br> - !!! Select &#39;Apply to All&#39; and then &#39;Skip&#39; for existed Collections during import<br>8. Create new SI Policies using mentioned above SI Templates<br>  
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWinConsole_5.0.0.762_SI-3512.ZIP" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWinConsole_5.0.0.762_SI-3512.ZIP</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Alerts<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3512<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 5.0.0.762<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1896<br></p>
+</body>
+</html>

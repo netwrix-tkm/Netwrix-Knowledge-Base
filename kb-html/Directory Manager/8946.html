@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices for Preventing Accidental Data Leakage</title>
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2023-12-07T11:22:18.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000IPxKAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2025-05-08T10:27:07.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-12-07T11:22:27.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000IPxKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000IPxKAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-08T10:32:57.000Z">
+    <meta name="LastPublishedDate" content="2023-12-18T14:19:43.000Z">
+    <meta name="Meta_Description__c" content="Best Practices for Preventing Accidental Data Leakage">
+    <meta name="Meta_Title__c" content="Best Practices for Preventing Accidental Data Leakage">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8946">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000IPxKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Best Practices for Preventing Accidental Data Leakage</h1>
+    <h2>Applies To:</h2>
+
+<div>
+<p>Directory Manager 10 or above</p>
+</div>
+
+<h2>Business Scenario:</h2>
+
+<div>
+<p>Our objective is to establish and enforce best practices to prevent external and internal data breaches while using Directory Manager, ensuring the security and confidentiality of sensitive information.</p>
+</div>
+
+<h2>Best Practices:</h2>
+
+<div>
+<p>Following are some of the Best Practices to avoid any kind of external/internal Data breaches while using Directory Manager.</p>
+</div>
+
+<h3>Using Security Roles to Limit Scope of Search</h3>
+
+<div>
+<p>Directory Manager uses RBAC model through which you can define Security Roles and can delegate permissions accordingly to different users. We can set Directory Manager search in such a way that AD objects (e.g., Groups, Users, Contacts) can only be searched within a specific OU and filtered based on Active Directory attributes.</p>
+
+<p>For more information on how to setup a limit on the search scope for a particular Security Role, visit the following KB Article:</p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HQfKAM.html" target="_blank">Walkthrough Search Policy - Define Scope and Filter Results</a>.</p>
+</div>
+
+<h3>Using Security Roles to Specify Specific Area Where Groups Can be Created or Have a Fixed and Hidden Path.</h3>
+
+<div>
+<p>In Directory Manager, you can apply policies to security roles, so that role members can use Directory Manager in keeping with the policy restrictions. Directory Managers New Object policy enables you to restrict role members to create new groups in a specific OU only.  </p>
+
+<p>For more information on how to setup a New Object policy for specific security roles, visit the following KB Article.</p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">How To Enforce Users to Create Groups in a Specific OU</a>.</p>
+</div>
+
+<h3>Importing Membership via Directory Manager Bulk Membership Import Feature for Groups</h3>
+
+<div>
+<p>Many times, organizations create groups (Security and Distributions) in advance i.e., before the actual usage of groups. To avoid any critical information being leaked out, it is recommended that such groups be created without populating membership upon its creation.</p>
+
+<p>Instead, you can use the <b>Bulk Import Membership</b> feature of Directory Manager to update groups with the correct memberships just before their actual usage starts. Bulk import allows for external source files like a CSV or an Excel Sheet to import membership when it is needed.</p>
+
+<p>In Directory Manager, bulk import of memberships is possible using the Import Wizard available in Directory Manager Portal. Following KB Article provides step-by-step instructions to bulk import members in a group.</p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HthKAE.html" target="_blank">How To Import Members to a Group Using Self-Service Import Wizard</a>.</p>
+</div>
+
+<h3>Creating Smart Group Without Updating Memberships</h3>
+
+<div>
+<p>Another way to ensure that the group memberships do not update beforehand, if a group has been created in advance, is by just previewing the query results of a Smart group without updating the group memberships. </p>
+
+<p>A query based dynamic &quot;<em>smart group</em>&quot; is one whose membership is determined by the supplied criteria. The results can be previewed but not acted upon until needed.  Keeping out of update schedule ensures only when manually updated that membership is updated. </p>
+
+<p><img alt="User-added image" height="261" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg6H&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001iOqr" width="500"></img></p>
+</div>
+
+<h3>Keep Group Hidden from GAL Until it is Ready to be Used</h3>
+
+<div>
+<p>Keeping a group and its membership hidden from discoverability from external tools like Outlook can also help comply to organizational policies for ensuring secrecy.</p>
+
+<p>Using Directory Manager Portal, if a mail-enabled group is created, we can hide the Group and its membership from Address Book and GAL in the following way.</p>
+
+<p><img alt="User-added image" height="222" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg6H&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001iOsT" width="500"></img></p>
+</div>
+
+<h3>Selecting Appropriate Security Type for Groups</h3>
+
+<div>
+<p>During the creation of a group via Directory Manager Portal, the security type can be designated as Private, Semi-Private, or Public. This classification, serving as a pseudo attribute within Directory Manager, governs the permission levels for joining the group. It is always recommended to choose Private as the Security Type for Sensitive Groups.</p>
+
+<ul><li>
+	<p><b>Private</b>  A closed group where the group owner solely determines group membership.</p>
+	</li><li>
+	<p><b>Semi-Private</b>  The group owner approves users&#39; requests to join or leave the group.</p>
+	</li><li>
+	<p><b>Public</b>  An open group that anyone can join or leave.</p>
+	</li></ul>
+</div>
+
+<h3>Setting up Delivery Restrictions on Mail-Enabled Groups</h3>
+
+<div>
+<p>It is always recommended to ensure/limit the inflow of Email Messages received by the critical groups with the production environment. Directory Manager allows you to set Delivery Restrictions on such groups by leveraging the <b>AuthOrig</b> and <b>UnAuthOrig</b> attributes from Active Directory. Both Self-Service and Automate give Group Owners and Administrators the ability to set rules for Accepting/Rejecting Emails from certain users for a particular group.</p>
+
+<p>To set Delivery Restrictions via Directory Manager portal, simply search for the Group and navigate to <b>Delivery Restriction</b> tab in <b>Group Properties</b>.</p>
+
+<p><img alt="User-added image" height="295" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg6H&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001iOu5" width="500"></img></p>
+</div>
+
+<h3>Setting up Approver Workflows for the Creation of New Groups</h3>
+
+<div>
+<p>One of the most efficient methods to effectively manage the number/quality of groups being created by end users is the implementation of a continuous monitoring process where Admins can approve the group being created.</p>
+
+<p>Directory Manager allows you to setup customized workflow approval processes with tailored filters to cater to use case specific triggering. This process ensures that whenever a group is created an approval request is sent to concerned Authorities for approval.  </p>
+
+<p>For more information of implementing such workflows, visit the following KB Article.</p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HwvKAE.html" target="_blank">How to Trigger a workflow When a User ?reates a Group</a>.</p>
+</div>
+
+<h3>Setting up Message Moderators for Mail-Enabled Groups</h3>
+
+<div>
+<p>Another way to ensure that no unauthorized message is sent to critical groups, administrators can setup moderator approval processes for Microsoft Exchange. Directory Manager can be easily customized to provide the necessary attributes in the Group Properties visible on the portal to initiate a Message Approval process and assign moderators for certain critical DLs.  </p>
+
+<p>For more information on customization to the portal, visit the following KB Article.   </p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HyXKAU.html" target="_blank">How To Add Message Approvers in Group Properties in Self-Service</a>.</p>
+</div>
+
+<h3>Other Best Practices to Improve Compliance.</h3>
+
+<div>
+<p>In addition to the above-mentioned best practices for making sure the production environment is secure and comply to the company policy, visit the following KB Article to know about the best practices for controlling changes to group memberships after creation.</p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000I4zKAE.html" target="_blank">Best Practices for Controlling Changes to Group Membership</a>.</p>
+</div>
+
+<h3>Related Articles:</h3>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HQfKAM.html" target="_blank">Walkthrough Search Policy - Define Scope and Filter Results</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">How To Enforce Users to Create Groups in a Specific OU</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HthKAE.html" target="_blank">How To Import Members to a Group Using Self-Service Import Wizard</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HwvKAE.html" target="_blank">How to Trigger a workflow When a User ?reates a Group</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HyXKAU.html" target="_blank">How To Add Message Approvers in Group Properties in Self-Service</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">Best Practices for Controlling Changes to Group Membership</a>.</p>
+	</li></ul>
+</div>
+</body>
+</html>

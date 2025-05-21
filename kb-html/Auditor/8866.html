@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor and Parse Synology Messages in Network Devices Monitoring Plan</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-10-20T15:37:50.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-10-26T10:58:54.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-10-20T15:38:09.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000wnhFCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000wnhFCAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-26T11:01:17.000Z">
+    <meta name="LastPublishedDate" content="2023-10-20T15:38:09.000Z">
+    <meta name="Meta_Description__c" content="Monitor and Parse Synology 7.2 Messages in Network Devices Monitoring Plan">
+    <meta name="Meta_Title__c" content="Monitor and Parse Synology 7.2 Messages in Network Devices Monitoring Plan">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8866">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnhFCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Monitor and Parse Synology Messages in Network Devices Monitoring Plan</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong>These changes to Configuration.xml must be performed after the Team Lead and RnD approval!</span></p>
+</blockquote>
+
+<h2>Question</h2>
+
+<div>
+<p>How to set up a Network Devices monitoring plan to parse Synology messages?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Refer to the following steps:</p>
+
+<ol><li>
+	<p>In the Netwrix Auditor server, stop Configuration Server, Network Devices Audit, and Logs Collection services. Run the following lines in elevated PowerShell:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Auditor Configuration Server Service&quot;
+Stop-Service -DisplayName &quot;Netwrix Auditor for Network Devices Audit Service&quot;
+Stop-Service -DisplayName &quot;Netwrix Auditor Logs Collection Service&quot;</code></pre>
+	</li><li>
+	<p>Backup the <code>Configuration.xml</code> file. You can find the <code>configuration.xml</code> file by following the provided path:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">%Working_Folder%\AuditCore\ConfigServer\</code></pre>
+	</li><li>
+	<p>Open the <code>Configuration.xml</code> file and locate the <code>NetworkDevicesParsers</code> node. Insert the following lines:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&lt;n n=&quot;91A79832-E1E5-49F1-8290-F27AB5AEE843&quot;&gt;
+&lt;a n=&quot;Device&quot; v=&quot;Synology&quot;/&gt;
+&lt;a n=&quot;Group&quot; v=&quot;Synology NAS&quot;/&gt;
+&lt;a n=&quot;Name&quot; v=&quot;Successful authentication attempts&quot;/&gt;
+&lt;/n&gt;
+&lt;n n=&quot;9DA8BFF6-F724-4506-BFAD-9FD042A19B56&quot;&gt;
+&lt;a n=&quot;Device&quot; v=&quot;Synology&quot;/&gt;
+&lt;a n=&quot;Group&quot; v=&quot;Synology NAS&quot;/&gt;
+&lt;a n=&quot;Name&quot; v=&quot;Failed authentication attempts&quot;/&gt;
+&lt;/n&gt;
+&lt;n n=&quot;99792BE0-3C4C-4F58-BD12-7ADA170FCBA9&quot;&gt;
+&lt;a n=&quot;Device&quot; v=&quot;Synology&quot;/&gt;
+&lt;a n=&quot;Group&quot; v=&quot;Synology NAS&quot;/&gt;
+&lt;a n=&quot;Name&quot; v=&quot;Configuration changes&quot;/&gt;
+&lt;/n&gt;
+&lt;n n=&quot;9229BB52-4882-409E-A2B4-F9815E1DEE81&quot;&gt;
+&lt;a n=&quot;Device&quot; v=&quot;Synology&quot;/&gt;
+&lt;a n=&quot;Group&quot; v=&quot;Synology NAS&quot;/&gt;
+&lt;a n=&quot;Name&quot; v=&quot;VPN logons&quot;/&gt;
+&lt;/n&gt;</code></pre>
+
+	<p>Save the changes.</p>
+	</li><li>
+	<p>Start the previously stopped services:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Auditor Configuration Server Service&quot;
+Start-Service -DisplayName &quot;Netwrix Auditor for Network Devices Audit Service&quot;
+Start-Service -DisplayName &quot;Netwrix Auditor Logs Collection Service&quot;</code></pre>
+	</li><li>
+	<p>Create an item in the <strong>Network Devices</strong> monitoring plan. Prior steps create a separate tab for Synology NAS.</p>
+
+	<div><img height="536" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvuv&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008pOyp" width="700"></img></div>
+	</li><li>
+	<p>After the item is added, a folder with parsing rules for Synology is created:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\ProgramData\Netwrix Auditor\SyslogCollection\Data\*\Config.xml</code></pre>
+	</li></ol>
+</div>
+</body>
+</html>

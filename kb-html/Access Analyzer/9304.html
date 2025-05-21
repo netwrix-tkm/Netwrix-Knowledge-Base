@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEEK System Scan Error:  Could Not Load File or Assembly</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="2">
+    <meta name="ArticleCreatedById" content="0054u000007MdqrAAC">
+    <meta name="ArticleCreatedDate" content="2024-10-15T20:56:47.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000007MdqrAAC">
+    <meta name="CreatedDate" content="2024-12-09T17:22:03.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-12-05T21:52:32.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001YpFKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001YpFKAU">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2024-12-09T17:24:24.000Z">
+    <meta name="LastPublishedDate" content="2024-12-05T21:52:32.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000007MdqrAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9304">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001YpFKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SEEK System Scan Error:  Could Not Load File or Assembly</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Symptom</h2>
+<div>
+<p>When running a File System SEEK scan in Enterprise Auditor, the system generates the following error message:</p>
+<pre class="has-inner-focus">Error during processing: Could not load file or assembly &#39;System.Data.SQLite, <br>Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139&#39; or one of its dependencies. <br>The located assembly&#39;s manifest definition does not match the assembly reference. <br>(Exception from HRESULT: 0x80131040)</pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>The System.Data.SQLite.dll versions may be outdated or mismatched.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>To resolve this error, please refer to the following steps:</p>
+<ol><li>
+<p>Within the PowerShell prompt, navigate to the <code><strong>%sainstalldir%</strong></code> folder path by running the PowerShell script below:</p>
+<pre><span><span dir="ltr">      Get-ChildItem -Recurse -Filter &quot;system.data.sqlite.dll&quot; | Format-List -property *version*</span></span> </pre>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>The default install path is <code>\Program Files (x86)\StealthAudit</code>.</p>
+</blockquote>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000BTzZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008Bsa0" alt="image (5).png" width="728" height="420"></img></li><li>
+<p>Once the proper .dll file has been identified, replace the outdated or mismatched .dll file with the <strong>updated 1.0.117.0 version</strong>.</p>
+</li></ol>
+</div>
+</body>
+</html>

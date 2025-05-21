@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception While Connecting Error During Installation</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="threat_manager">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-10T08:10:31.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000aebKAA">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210055394434606?focus=true">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-04-23T18:14:33.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2024-04-23T10:15:12.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000aebKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000aebKAA">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-04-23T18:16:54.000Z">
+    <meta name="LastPublishedDate" content="2024-04-23T10:15:12.000Z">
+    <meta name="Meta_Description__c" content="Exception While Connecting Error During Installation">
+    <meta name="Meta_Title__c" content="Exception While Connecting Error During Installation">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9123">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000aebKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exception While Connecting Error During Installation</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The PostgreSQL installation wizard prompts the following error:</p>
+
+<pre class="has-inner-focus">
+Creating Default User
+Exception while Connecting
+Retry Installer Action?</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Security measures in your environment block the Netwrix-based PostgreSQL (PSQL) installation wizard from executing.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Perform the following steps to deploy PostgreSQL in your environment.</p>
+
+<ol><li>
+	<p>Download the native PostgreSQL v14 installer: <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" target="_blank">Download PostgreSQL · EnterpriseDB &#129125;</a>.</p>
+	</li><li>
+	<p>Run the installation wizard as an administrator.</p>
+	</li><li>
+	<p>Install PostgreSQL to <code>Program Files\Stealthbits\PostgreSQL14</code>.</p>
+	</li><li>
+	<p>Select the data directory in <code>ProgramData\Stealthbits\PostgreSQL14</code>.</p>
+	</li><li>
+	<p>Specify port <strong>5435</strong>.</p>
+	</li><li>
+	<p>Set the password to this: <code>StealthDEFEND1234!!</code></p>
+	</li><li>
+	<p>Once the installer prompts the error, perform the following steps:</p>
+
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Verify the drive letter in both lines.</p>
+
+	<ol><li>
+		<p>On the server, run a non-elevated Command Prompt.</p>
+		</li><li>
+		<p><code>Chdir</code> to <code>Program Files\Stealthbits\PostgreSQL14\bin</code>.</p>
+		</li><li>
+		<p>Run the following line:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">initdb -D &quot;x:\ProgramData\Stealthbits\PostgreSQL14 -E UTF8 -U postgres&quot;</code></pre>
+
+		<p>Start the database:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">postgres -D &quot;x:\ProgramData\Stealthbits\PostgreSQL14&quot;</code></pre>
+		</li></ol>
+	</li><li>
+	<p>Create a service account for Threat Manager to interact with the database. In an elevated Command Prompt, run the following lines:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;psql.exe -U postgres&quot;</code></pre>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">CREATE ROLE stealthbits LOGIN PASSWORD &#39;StealthDEFEND1234!!&#39; superuser inherit createdb createrole replication;</code></pre>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Refer to the default path for <code>psql.exe</code>:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\Program Files\Stealthbits\PostgreSQL14\bin\psql.exe</code></pre>
+	</blockquote>
+	</li><li>
+	<p>Download TimescaleDB for PSQL v14 in <a href="https://docs.timescale.com/self-hosted/latest/install/" target="_blank">Install TimescaleDB · Timescale &#129125;</a>.</p>
+	</li><li>
+	<p>Extract the <code>.zip</code> contents. In the target folder, run the following line in an elevated Command Prompt:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">setup.exe -pgconfig x:\Program Files\Stealthbits\PostgreSQL14\pg_config.exe&quot; -no-tune -wait-before-exit=false</code></pre>
+
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Verify the drive letter in the <code>pg_config.exe</code> path.</p>
+	</li><li>
+	<p>Stop the PSQL database by pressing <code>Ctrl+C</code> in the PSQL Command Prompt window.</p>
+	</li><li>
+	<p>Modify the <code>postgresql.conf</code> file located in <code>x:\Program Files\Stealthbits\PostgreSQL14\</code>. Refer to the list of modifications below.</p>
+	</li><li>
+	<p>Once the modifications are introduced, create the PSQL service. In an elevated Command Prompt, <code>Chdir</code> to <code>Program Files\Stealthbits\PostgreSQL14\bin</code> and run the following line:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">pg_ctl.exe register -N &quot;PostgreSQL&quot; -U &quot;NT AUTHORITY\NetworkService&quot; -D &quot; x:\ProgramData\Stealthbits\PostgreSQL14&quot; -w</code></pre>
+
+	<p>Once created, run the PSQL service.</p>
+	</li><li>
+	<p>Install Netwrix Threat Manager.</p>
+	</li></ol>
+</div>
+
+<h4>Appendix: Modifications to the postgreSQL.conf File</h4>
+
+<div>
+<pre class="has-inner-focus">
+<code class="lang-Registry">port = 5435
+listen_addresses = &#39;*&#39;
+shared_preload_libraries = &#39;timescaledb&#39;
+wal_level = logical
+checkpoint_timeout = 30min
+wal_buffers = 16MB
+max_wal_size = 2048MB
+min_wal_size = 1024MB
+checkpoint_completion_target = 0.7
+max_connections = 100
+default_statistics_target = 100
+max_worker_processes = 8
+max_parallel_workers_per_gather = 2
+max_locks_per_transaction = 300
+#Add the following at the very bottom under custom settings:
+timescaledb.max_background_workers = 8
+timescaledb.last_tuned = &#39;2022-11-09T14:35:44PM-06:00&#39;
+timescaledb.last_tuned_version = &#39;0.11.0&#39;
+timescaledb.telemetry_level = off
+#The following need to be calculated manually
+effective_cache_size = 24455MB              #(Total Server Memory (MBs) * .75)
+shared_buffers = 512MB                      #(totalMemory / 4 or 512MB max for windows OS)
+work_mem = 54MB                             #Use formula and a minimum of 64KB: ((totalMemory - shared_buffers) / (max_connections * 3) max_parallel_workers_per_gather)
+maintenance_work_mem = 2038MB               #(totalMemory / 16 with a maximum of 2038MB)
+random_page_cost = 1.1                      #(1.1 if installed on a SSD or 4 if on HDD)</code></pre>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" target="_blank">Download PostgreSQL · EnterpriseDB &#129125;</a></p>
+	</li><li>
+	<p><a href="https://docs.timescale.com/self-hosted/latest/install/" target="_blank">Install TimescaleDB · Timescale &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

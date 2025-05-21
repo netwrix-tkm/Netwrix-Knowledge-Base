@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Tracker Tags Facility</title>
+    <meta name="product" content="change_tracker">
+    <meta name="product" content="log_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:54:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:18:04.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:54:48.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JdUCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JdUCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:04.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Log Tracker Tags Facility">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8267">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JdUCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Log Tracker Tags Facility</h1>
+    <p>As of Version 5-7-1, Log Tracker has introduced a new &quot;Tags&quot; facility, that can be used to tag messages with keywords, including dynamically parsing a keyword from a received message. This allows new capabilities in organizing data.</p>
+<p>The &quot;Tags&quot; screen is available via the &quot;Messages &gt; Config &gt; Tags&quot; tab of the system. The user enters match keywords, and then tags that are appended to the end of messages when those messages match a tag keyword. The tags can then be correlated (via a thread) or tags can be viewed on a dashboard gadget (via the &quot;Parse Thread&quot; gadget.)</p>
+<p>Several applications and features exist with this new feature, as follows:</p>
+<ul><li>A message can be tagged with multiple tags, and tags are appended in the order that the keywords match the message. The order of tags is modified via a special &quot;Re-Order Tags&quot; screen, accessed at the bottom of the &quot;Tags&quot; screen (when more than one tag exists.) Therefore, you can tag a message with multiple keywords such as (Tag: security warning windows development), where the order of tags remains the same for all matched messages.<br><br></li><li>A message tag can be a static keyword or a parse function. For example, to tag all messages with the second username (if it exists in a message) you can make the &quot;tag&quot; value a parse function such as &quot;$skip(username, 1, username: *)&quot;<br><br></li><li>In particular, the parse function used to tag a value can be the $maplist() parse function, which can be used to enrich a message with new content that exists in a list macro. For example, you can tag a windows event number with a textual description via some &quot;tag&quot; value such as $maplist(Security *:, my_list_macro)&quot;, which will cause the tag value to be the second column of the &quot;my_list_macro&quot; (created by the end user.)</li></ul>
+<p>Note that the $maplist() function, described above, is especially powerful when used with the Tag facility, because it can be used to augment a message with new data that might not otherwise exist in the message (See the $maplist() parse function for additional information and a description of its usage.)</p>
+<p>Specifically, using the $maplist() function as a tag value permits easy &quot;data enrichment&quot; capabilities. For example, using the $maplist() function it would be possible to append an organization full name to a message, or any other descriptive text, adding new information to messages, and allowing new ways for messages to be correlated.</p>
+<p><em>One obvious application of the &quot;Tag: facility would be to append the country code for any message where an external IP address exists. This can be accomplished with a tag value such as &quot;$geo ( $extip() )&quot;, where the $extip() parse function returns the first external IP address found in the message, and the $geo() parse function converts that value to a standard Geo-location country code. This would add a tag such as &quot;Tag: AU&quot; to any message containing an Australian IP address, or some other country code depending upon the content of the message.</em></p>
+<p>See the screenshot below for an example of a way to configure the above Geo-location application.</p>
+<p>Various other applications of this new facility may exist.</p>
+<p><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Change Tracker - How to Review Changes Made To The Console</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker Tags Facility</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p>
+</body>
+</html>

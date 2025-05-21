@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use CloseTicket.exe to Immediately Close Log Tracker Tickets</title>
+    <meta name="product" content="change_tracker">
+    <meta name="product" content="log_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:54:47.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:16:31.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:54:47.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JQRCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JQRCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:16:31.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to use CloseTicket.exe to Immediately Close Log Tracker Tickets">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8266">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JQRCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to use CloseTicket.exe to Immediately Close Log Tracker Tickets</h1>
+    <p>It may be the case that some tickets, when opened, can be immediately closed on the system. This may be useful for example if the ticket runs some e-mail (or other action) and can then be immediately dismissed.</p>
+<p>The standard Log Tracker Server includes the &quot;system\CloseTicket.exe&quot; program as a regular command line utility, which can be used in a &quot;Correlation &gt; Action&quot; script so that when a ticket is opened that contains specific text, the ticket can immediately be closed.</p>
+<p>The &quot;CloseTicket.exe&quot; program can be executed at a command prompt (with no arguments) to see the syntax as follows:</p>
+<div class=""><span class=""> </span>
+    <div class="">
+        <p>Usage: CloseTicket  -uid   &quot;(ticketuid)&quot;  [ &quot;(resolution)&quot; ]</p>
+        <p>Also:  CloseTicket  -user  &quot;(assignee)&quot; [ &quot;(resolution)&quot; ]</p>
+        <p>Also:  CloseTicket  -match &quot;(matchpatt)&quot; [ &quot;(resolution)&quot; ]</p>
+    </div>
+</div>
+<p>As shown above, the CloseTicket.exe program can close tickets by a specific ticket UID, or all tickets for a specified user, or for all tickets that match a specified pattern or keyword.</p>
+<p>For the purposes of the procedure below, the &quot;-match&quot; option will be used and will be configured to close a ticket based on a keyword within the ticket text defined by the user on the &quot;Alarms&quot; screen.</p>
+<p>To configure this at the Log Tracker Server, perform the following steps: (1) The user creates a simple batch file wrapper in the &quot;actions&quot; folder of the server; (2) The user creates a &quot;Correlation &gt; Action&quot; entry via the &quot;Correlation &gt; Actions &gt; Wizard&quot; screen which immediately closes the ticket when a message occurs indicating the ticket has been opened.</p>
+<h2 id="">Step-by-step guide</h2>
+<ol><li>
+        <p class="">First, gain access to the Log Tracker Server &quot;actions&quot; folder and create a simple batch file called &quot;CLOSE_TICKET.bat&#39;. This batch file can consist of a single line as follows:</p>
+        <div class=""><span class=""> </span>
+            <div class="">
+                <p>..\system\CloseTicket.exe %1 %2 %3</p>
+            </div>
+        </div>
+    </li><li>Next, identify some text, keyword, or phrase associated with the ticket you want to close. Note that the text is defined by the user on the &quot;Alerts&quot; screen, and there should be some keyword or phrase associated with tickets (or tickets) you want to close.<br><br></li><li>When you are ready to configure the action, go to the &quot;Correlation &gt; Actions&quot; tab and click the &quot;Wizard&quot; button to add a new action.<br><br></li><li>On the first screen of the wizard, select &quot;User Defined&quot; as the &quot;Action Type&quot; (from the drop-down selection) and click the &quot;Next&quot; button.<br><br></li><li>On the second screen of the wizard, enter the text you identified in step 2 above. Then click the &quot;Next&quot; button.<br><br></li><li>On the third screen of the wizard, use all defaults EXCEPT can specify the &quot;Match IP Address / Group&quot; to be 127.0.0.1. (Note -- this is not absolutely required, but is good for safety and efficiency, since a syslog message is always sent to &quot;127.0.0.1&quot; when a ticket is opened.) When finished, click the &quot;Next&quot; button.<br><br></li><li>
+        <p class="">On the fourth screen of the wizard, enter: &quot;CLOSE_TICKET.bat&quot; as the &quot;Action Program Name&quot;. (Note - This is the batch file configured in step 1 above.) For the &quot;Action Arguments&quot;, enter three arguments as follows:</p>
+        <div class=""><span class=""> </span>
+            <div class="">
+                <p>-match &quot;(keyword)&quot; &quot;Ticket auto-closed&quot;</p>
+            </div>
+        </div>
+        <p class="">Note that the first argument is &quot;-match&quot;; the second (keyword) argument is the keyword selected in step 2, and used in step 5; the third argument is the optional ticket resolution that will appear when the ticket is closed, which in the above case is &quot;Ticket auto-closed&quot;, but can be something more specific at your site. When finished, click the &quot;Finish&quot; button to save the action program.</p>
+    </li></ol>
+<p style="">8. When finished with the wizard, the action will appear on the top-level &quot;Correlation &gt; Actions&quot; screen. Test the system by generating some test messages, via the &quot;Messages &gt; Search &gt; Post New Message&quot; link, necessary to open a ticket. Note that the CLOSE_TICKET.bat file produces debug output, and the ticket will appear in the &quot;Tickets &gt; Closed&quot; tab as soon as it is opened (after triggering any action programs, such as sending e-mail.) The resolution for these closed tickets will be &quot;Ticket auto-closed&quot; (as configured above.)</p>
+<p>A simple example of the correlation action screen, after performing the above steps, is shown in the screenshot below:</p>
+<p><span class=""><img class="" width="" src=""></img>  </span> </p> <p><em>Note that a common error is to select a keyword associated with the ticket that is a message keyword. This is not correct. For best results, simply define a tag that gets included in the ticket text content of all alarms that are to be auto-closed, such as &quot;TICKET AUTO CLOSE&quot;. Or, create a ticket group called &quot;auto-close&quot; and assign all tickets that are to auto-closed to that ticket group.</em></p>
+<p>The &quot;Correlation &gt; Action&quot; facility passes a number of environmental variables to the batch file, which permits easy extension of the facility. These environmental variables documented in the User Manual and examples can be found in the &quot;actions\TEMPLATE.bat&quot; file that comes with the system. Additional information on applications such as this correlation action can be found in a variety of locations, including the Command Line Interface User Manual.</p>
+<p>Finally, note that when a ticket is opened or closed, this can execute a &quot;Ticket Action&quot;, which is a facility similar to the &quot;Correlation Action&quot; described here. Note that these two facilities operate in a similar fashion, but are actually completely separate. (Correlation Actions are executed on incoming messages, whereas Ticket Actions are executed when tickets are opened and / or closed.)</p>
+<p><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Change Tracker - How to Review Changes Made To The Console</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker Tags Facility</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p> <br><b>Attachments:</b><br><a href="" target="_blank">Capture.PNG</a> <br>
+</body>
+</html>

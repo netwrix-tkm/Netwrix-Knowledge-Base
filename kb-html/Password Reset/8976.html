@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="password_reset_manager">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-12-20T09:48:00.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-12-20T14:30:07.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-12-20T09:48:21.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000LAvKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000LAvKAM">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-12-20T14:30:31.000Z">
+    <meta name="LastPublishedDate" content="2023-12-20T09:48:21.000Z">
+    <meta name="Meta_Description__c" content="Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay">
+    <meta name="Meta_Title__c" content="Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8976">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LAvKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay</h1>
+    <h2>Question</h2>
+
+<div>
+<p>When settings up verification emails via Microsoft 365 SMTP relay, emails still do not reach the users. How to troubleshoot the SMTP relay?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Learn more about setting up a connector in <a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#option-3-configure-a-connector-to-send-emails-using-microsoft-365-or-office-365-smtp-relay" target="_blank">Set Up Multifunction Device or Application to Send Emails Using Microsoft 365 or Office 365 ? Configure Connector to Send Emails Using Microsoft 365 or Office 365 (SMTP Relay) · Microsoft &#129125;</a>.</p>
+</blockquote>
+
+<p>Refer to the following steps to troubleshoot the setup:</p>
+
+<ol><li>
+	<p>In your Netwrix Password Reset server, run the following line in elevated PowerShell to log in Microsoft 365:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">$msolcred = get-credential</code></pre>
+
+	<p>Enter the Microsoft 365 credentials to use them when troubleshooting the relay.</p>
+	</li><li>
+	<p>Once you&#39;ve logged in, use the following line in the same PowerShell window to send a test email from your server to the relay:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Send-MailMessage From %From_email% To %To_email% Subject Test Body TESTING RELAY -SmtpServer %Relay_Servername% -Credential $msolcred -UseSsl -Port %port_used%</code></pre>
+
+	<p>Refer to the following example of the line using the default Microsoft 365 SMTP server and port:</p>
+
+	<pre class="has-inner-focus">
+Send-MailMessage From testlab@testdom.com To testlab@testdom.com Subject Test Body TESTING RELAY -SmtpServer smtp.office365.com -Credential $msolcred -UseSsl -Port 587</pre>
+	</li><li>
+	<p>Review the console output for possible errors.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#option-3-configure-a-connector-to-send-emails-using-microsoft-365-or-office-365-smtp-relay" target="_blank">Set Up Multifunction Device or Application to Send Emails Using Microsoft 365 or Office 365 ? Configure Connector to Send Emails Using Microsoft 365 or Office 365 (SMTP Relay) · Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Exclude System Account From Event Log</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2023-09-15T12:38:16.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2023-09-19T11:52:48.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-15T12:38:22.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111DNCAY">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111DNCAY">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2023-09-19T11:53:02.000Z">
+    <meta name="LastPublishedDate" content="2023-09-19T11:53:02.000Z">
+    <meta name="Meta_Description__c" content="This article explains how to exclude SYSTEM account from Event Log.">
+    <meta name="Meta_Title__c" content="How to Exclude System Account From Event Log">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8809">
+    <meta name="VersionNumber" content="6">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111DNCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Exclude System Account From Event Log</h1>
+    <h1>Question</h1>
+
+<div>
+<p>In some cases, for example, if an Antivirus running under the SYSTEM account generates multiple events and saturates the Windows logs, you might want to exclude the SYSTEM account from being shown in the Windows Event Logs or got monitored at all.</p>
+
+<p>This article answers the question on how to exclude the SYSTEM account from logs.</p>
+</div>
+
+<h1>Answer</h1>
+
+<div>
+<p>You can do that in two ways:</p>
+
+<ul><li>
+	<p>Set a filter for the SYSTEM account to not show in the event logs. Learn more in <a href="https://learn.microsoft.com/en-us/host-integration-server/core/how-to-filter-events2" target="_blank">Windows Event Viewer  How to Filter Events ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p>Change the audit policy for the SYSTEM account to not get monitored. Learn more in <a href="https://learn.microsoft.com/en-us/host-integration-server/core/windows-event-viewer1" target="_blank">Windows Event Viewer ? Microsoft &#129125;</a></p>
+
+	<p> </p>
+	</li></ul>
+</div>
+</body>
+</html>

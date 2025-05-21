@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Remove NTP Management of NAM Agents</title>
+    <meta name="content_type" content="ct_administration">
+    <meta name="content_type" content="ct_howto">
+    <meta name="content_type" content="ct_productconfig">
+    <meta name="product" content="activity_monitor">
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007MiY9AAK">
+    <meta name="ArticleCreatedDate" content="2025-01-08T19:31:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000007MiY9AAK">
+    <meta name="CreatedDate" content="2025-02-13T21:06:45.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-02-13T19:39:49.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001quDKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001quDKAQ">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-02-13T21:09:34.000Z">
+    <meta name="LastPublishedDate" content="2025-02-13T19:39:49.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000007MiY9AAK">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9364">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001quDKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Remove NTP Management of NAM Agents</h1>
+    <h2>Question</h2>
+<div>
+<p>How can you remove the Netwrix Threat Prevention (NTP) management of Netwrix Activity Monitor (NAM) agents?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>To adjust the management of the NAM agents, follow the steps below:</p>
+<ol><li>
+<p>Edit the <strong>SIWindowsAgent.exe.Config</strong> file in the agent install directory with an Admin notepad.</p>
+</li><li>
+<p>Change the original <strong>managerAddress</strong> to:</p>
+<ul><li>
+<pre class="has-inner-focus"><code class="lang-Registry"></code>&lt;add key=&quot;managerAddress&quot; value=&quot;file://.\SAMConfig.xml&quot; /&gt;</pre>
+</li></ul>
+</li><li>
+<p>Restart the agent service.</p>
+</li></ol>
+</div>
+</body>
+</html>

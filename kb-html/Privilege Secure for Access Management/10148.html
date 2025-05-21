@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolving Unsupported Locale Error During Upgrade (v4.2.1626 or Higher)</title>
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2025-04-18T14:17:22.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002LunKAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2025-04-18T14:21:47.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-04-18T14:19:17.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002LunKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002LunKAE">
+    <meta name="LastModifiedById" content="0054u000006gpnvAAA">
+    <meta name="LastModifiedDate" content="2025-04-18T14:25:08.000Z">
+    <meta name="LastPublishedDate" content="2025-04-18T14:19:17.000Z">
+    <meta name="Meta_Description__c" content="Resolving Unsupported Postgres Locale Error During Upgrade (v4.2.1626 or Higher)">
+    <meta name="Meta_Title__c" content="Resolving Unsupported Postgres Locale Error During Upgrade (v4.2.1626 or Higher)">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10148">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002LunKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Resolving Unsupported Locale Error During Upgrade (v4.2.1626 or Higher)</h1>
+    <h1>Summary</h1>
+<p><span>When upgrading from a pre-4.2.1626 version of Privilege Secure to a post-4.2.1626 version of Privilege Secure, it is possible that the following error occurs:</span></p>
+<p><code><span>PostgreSQL is unable to support this locale, please change Windows Regional settings to supported locale. US English is recommended.</span></code></p>
+<p><span>This would indicate that an unsupported locale is configured, which creates an issue during the migration from Postgres 12 (pre-4.2.1626) to Postgres 16 (4.2.1626 or higher).</span></p>
+<h1><span>Instructions</span></h1>
+<p><span>The Privilege Secure installer executes the <strong>initdb</strong> command as part of the migration to Postgres 16. In order for this command to succeed, the user who is executing <strong>initdb </strong>must have regional settings enabled that correspond to a locale supported by Postgres 16. To resolve this issue, ensure that during upgrade, you are logged in as a user whose locale settings are English (United States) (en-US). Then proceed with the upgrade as usual.</span></p>
+</body>
+</html>

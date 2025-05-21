@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Policy settings for PCI Compliance</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000H9SHCA0">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2025-04-28T08:46:06.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:40.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9SHCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9SHCA0">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T08:54:26.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:40.000Z">
+    <meta name="Meta_Description__c" content="Audit Policy configuration required for PCI Compliance">
+    <meta name="Meta_Title__c" content="Audit Policy settings for PCI Compliance">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="221">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SHCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Audit Policy settings for PCI Compliance</h1>
+    This article describes the audit policiy required for <strong>PCI Compiance.</strong><br><br>The following <strong>Audit Policy</strong> is required for <strong>PCI Compliance</strong>:
+<ul><li><strong>Account Logon Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Account Management Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Directory Service Access Events</strong>  <strong>Failure</strong></li><li><strong>Logon Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Object Access Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Policy Change Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Privilege Use Events</strong> - <strong>Failure</strong></li><li><strong>Process Tracking</strong>  <strong>No Auditing</strong></li><li>System Events  <strong>Success</strong> and <strong>Failure</strong></li></ul>
+<br><strong>Directory Service Access Events</strong> available on a <strong>Domain Controller</strong> only.<br><strong>Object Access</strong>  Used in conjunction with <strong>Folder and File Auditing</strong>. Auditing Failures reveals attempted access to forbidden secure objects which may be an attempted security breach. Auditing Success is used to provide an Audit Trail of all access to secured data, for example, card data in a settlement/transaction file/folder.<br><br>We recommend to use <strong>Netwrix File Server Change Reporter</strong> to monitor the files changes, do not enable this audit policy for <strong>Event Log Manager</strong>.<br><strong>NOTE:</strong> when using <strong>Windows Server 2008 / Windows 7</strong> or later, there is an <strong>Advanced Audit Policy Configuration</strong> option available which allows more precise application of auditing of <strong>Object Access</strong> events and is useful in eliminating unwanted events. If available, enable the <strong>Audit File System</strong> option only for <strong>Success</strong>, and optionally <strong>Failure</strong>, but leave other settings as <strong>Not Configured</strong><br><br><strong>Process Tracking</strong>  not recommended as this will generate a large number of events.<br><br>We recommend to configure the following policies and to leave the other policies as is:
+<ul><li><strong>System Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Policy Change Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Account Management Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Account Logon Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Logon Events</strong>  <strong>Success</strong> and <strong>Failure</strong></li><li><strong>Privilege Use</strong>  <strong>No auditing</strong></li></ul>
+</body>
+</html>

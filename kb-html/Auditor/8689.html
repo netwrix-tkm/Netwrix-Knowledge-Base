@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Given Key Was Not Present in the Dictionary  ADFS</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-07-26T07:59:31.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-07-28T08:55:48.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-07-26T08:00:22.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110wMCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110wMCAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-07-28T08:56:13.000Z">
+    <meta name="LastPublishedDate" content="2023-07-26T08:00:22.000Z">
+    <meta name="Meta_Description__c" content="Given Key Was Not Present in the Dictionary Error in ADFS">
+    <meta name="Meta_Title__c" content="Given Key Was Not Present in the Dictionary Error in ADFS">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8689">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110wMCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Given Key Was Not Present in the Dictionary  ADFS</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error appears in your ADFS Health Log after upgrading the Windows OS on your ADFS server:</p>
+
+<pre class="has-inner-focus">
+Failed to retrieve the state of windows feature.
+Reason: The given key was not present in the dictionary.</pre>
+</div>
+
+<h2>Diagnosing the issue</h2>
+
+<div>
+<ol><li>
+	<p>Run the following command in PowerShell on your Auditor server to a target ADFS server replacing <strong>%TARGET_NAME%</strong> with an actual target server name:</p>
+
+	<pre class="has-inner-focus">
+Get-WindowsFeature -ComputerName %TARGET_NAME%</pre>
+	</li><li>
+	<p>The command returns the following error:</p>
+
+	<pre class="has-inner-focus">
+Get-WindowsFeature The given key was not present in the dictionary.
+CategoryInfo: NotSpecified: (:) [Get-WindowsFeature], KeyNotFoundException
+</pre>
+
+	<p>The error indicates a Windows-related issue.</p>
+	</li></ol>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The cache <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache</code> registry key was corrupted.</p>
+	</li><li>
+	<p>A faulty registry item is present in the XML file that is associated with the Group Policy registry settings.</p>
+	</li></ul>
+</div>
+
+<h2>Solutions</h2>
+
+<div>
+<ul><li>
+	<p>Recreate the ServerComponentCache registry key:</p>
+
+	<ol><li>
+		<p>Locate the <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache</code> registry key in Registry Editor on your ADFS server.</p>
+		</li><li>
+		<p>Right-click the key and rename it to <code>ServerComponentCache.old</code>.</p>
+		</li><li>
+		<p>Run the PowerShell command from your Auditor server again or refresh the view in Server Manager. This will recreate the key and rebuild the server feature information.</p>
+		</li></ol>
+	</li><li>
+	<p>Re-create the Group Policy and registry settings. Learn more in <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/group-policy/cannot-run-group-policy-modeling-wizard" target="_blank">Group Policy error: &quot;The given Key was not present in the dictionary&quot; ? Microsoft &#129125;</a>.</p>
+	</li></ul>
+</div>
+</body>
+</html>

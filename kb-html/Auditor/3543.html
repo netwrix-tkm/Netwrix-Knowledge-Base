@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports do not contain logon/logoff events of users on workstations</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="content_type" content="ct_legacy">
+    <meta name="content_type" content="ct_reporting">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2025-02-26T19:05:38.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:39.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9blCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9blCAC">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-02-26T19:05:51.000Z">
+    <meta name="LastPublishedDate" content="2025-02-26T19:05:51.000Z">
+    <meta name="Meta_Description__c" content="logon logoff users workstation">
+    <meta name="Meta_Title__c" content="Reports do not contain logon/logoff events of users on workstations">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1383">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9blCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Reports do not contain logon/logoff events of users on workstations</h1>
+    <blockquote><span class="Caution"><strong>IMPORTANT:</strong> This article is outdated and is no longer applicable.</span></blockquote>
+<div><strong>SQL reports</strong> do not contain <strong>logon/logoff</strong> events of users on <strong>workstations</strong>.</div>
+<div>The <strong>NetWrix Logon Reporter Event Detail</strong> e-mail report does not contain <strong>logon/logoff</strong> events of users on <strong>workstations</strong>.</div>
+<hr></hr>
+<p><strong>NetWrix Logon Reporter</strong> is not configured to collect the <strong>logon/logoff</strong> events from the <strong>workstations</strong> by default. Tracking <strong>logon/logoff</strong> events only on <strong>domain controllers</strong> is not enough to get the information about users&quot; <strong>logons/logoffs</strong> on their <strong>workstations</strong>.</p>
+<hr></hr>
+<p>Enable the workstations event logs collecting:</p>
+<ul><li>start <strong>NetWrix Logon Reporter</strong>;</li><li>in the <strong>Scope</strong> tab, enable the <strong>Workstations</strong> check box;</li><li>click the<strong> Apply </strong>button to apply changes.</li></ul>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ca9N&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yNk" alt="Enable Workstations"></img></p>
+</body>
+</html>

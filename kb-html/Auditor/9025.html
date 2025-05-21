@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why A Registry Key is Missing in Both: GPMC and Local?</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2024-01-25T14:03:21.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-01-25T17:07:26.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-01-25T14:03:27.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000Po1KAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000Po1KAE">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-01-25T17:07:53.000Z">
+    <meta name="LastPublishedDate" content="2024-01-25T17:07:53.000Z">
+    <meta name="Meta_Description__c" content="Why A Registry Key is Missing in Both: GPMC and Local?">
+    <meta name="Meta_Title__c" content="Why A Registry Key is Missing in Both: GPMC and Local?">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9025">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Po1KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why A Registry Key is Missing in Both: GPMC and Local?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Why a registry key is missing in both: Group Policy Management Console and Local Audit Policies?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Registry audit settings are required for some data sources, for example, for Logon Activity Auditing. In some cases, the required registry keys might be missing. Follow the steps below to create the key(s) manually via Group Policy Management Console:</p>
+
+<ol><li>
+	<p>Open <b>Group Policy Management Console</b>.</p>
+	</li><li>
+	<p>Navigate to <b>Computer Configuration</b> -&gt; <b>Policies</b> -&gt; <b>Windows Settings</b> -&gt; <b>Security Settings</b> -&gt; <b>Registry</b>.</p>
+	</li><li>
+	<p>Click <b>Add key</b>.</p>
+	</li><li>
+	<p>Add the key you are trying to add permissions to, then click <b>OK</b>.</p>
+	</li><li>
+	<p>On this screen that pops up, add the required permissions.</p>
+	</li><li>
+	<p>On the next screen, you&#39;ll be prompted to configure the key, then how you want the settings to be applied; or not allow permission to be replaced.</p>
+	</li><li>
+	<p>Manually add the path to the Registry Key in the <b>Selected Key</b> dialog.<br>	<img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001VD3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000002dT5q"></img></p>
+	</li></ol>
+
+<p>This will apply the key settings to the GPO, and all computers affected by the GPO.</p>
+</div>
+</body>
+</html>

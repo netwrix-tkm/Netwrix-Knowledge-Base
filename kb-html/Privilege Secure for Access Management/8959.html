@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack Integration: Send Slack Message</title>
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2023-12-12T19:10:31.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2024-01-04T15:13:04.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-12-12T19:37:32.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000JqfKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000JqfKAE">
+    <meta name="LastModifiedById" content="0054u000006gpnvAAA">
+    <meta name="LastModifiedDate" content="2024-01-04T15:13:33.000Z">
+    <meta name="LastPublishedDate" content="2023-12-12T19:37:32.000Z">
+    <meta name="Meta_Description__c" content="Slack Integration: Send Slack Message">
+    <meta name="Meta_Title__c" content="Slack Integration: Send Slack Message">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8959">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000JqfKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Slack Integration: Send Slack Message</h1>
+    <h1>Summary</h1>
+This article describes how to set up a custom &quot;Send Slack Message&quot; action step in Netwrix Privilege Secure, which can then be added to activities.
+
+<h1>Instructions</h1>
+
+<h2>Preparing Your Slack App</h2>
+
+<p>A custom Slack application must be created for this integration.<br><br>    1. In Slack, navigate to the &quot;Your Apps&quot; page: <a href="https://api.slack.com/apps/" target="_blank">https://api.slack.com/apps/</a><br>    2. Click &quot;Create New App&quot;<br>    3. Select &quot;From an app manifest&quot; and paste the following YAML into the provided field:</p>
+
+<pre class="ckeditor_codeblock">
+display_information: 
+name: NPS App 
+settings: 
+org_deploy_enabled: false 
+socket_mode_enabled: false 
+is_hosted: false 
+token_rotation_enabled: false </pre>
+
+<p>    4. On the &quot;Your Apps&quot; page, select &quot;Incoming Webhooks&quot;.<br>    5. Under &quot;Activate Incoming Webhooks&quot;, click &quot;Add New Webhook to Workspace&quot;.<br>    <a id="URL2" name="URL2">6.</a> Search for the channel you would like NPS to message. Click &quot;Allow&quot;. Copy the provided URL.</p>
+
+<h2>Importing the Action Step</h2>
+    1. Download the <a href="https://dl.netwrix.com/additional/Send-SlackMessage.Addon.zip" target="_blank">Send-SlackMessage.zip</a>  archive to the SbPAM server.<br>    2. Extract the archive, which contains a README file, an ActionTemplates directory, and an Install-Addon.ps1 script file. Right-click Install-Addon.ps1 and select &quot;Run with PowerShell&quot;.<br>    3. When prompted, select &quot;Y&quot; to proceed.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001ELt&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001pkUr"></img><br>    4. The PowerShell window should quickly execute the script and close.<br>    5. Log in to the SbPAM console. (If SbPAM was already open, be sure to refresh the console.)<br>    6. In SbPAM, navigate to Activities, select an Activity, and click the green plus sign in either the Pre-Session or Post-Session. Note that the &quot;Send Message to Slack&quot; activity step is now available.<br>    7. Provide the URL from <a href="#URL2">step 6 of Preparing Your Slack App</a>  when configuring the action step.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001ELt&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001ovYn"></img>
+</body>
+</html>

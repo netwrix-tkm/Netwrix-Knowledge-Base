@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Change the Default Ports in Netwrix Auditor User Activity Video Recording</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:52.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2025-02-26T15:19:45.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:17.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9VcCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9VcCAK">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-02-26T15:20:15.000Z">
+    <meta name="LastPublishedDate" content="2025-02-20T20:57:04.000Z">
+    <meta name="Meta_Description__c" content="User Activity Video Recording  Custom Ports">
+    <meta name="Meta_Title__c" content="How to set up non-default ports for agent and server?">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="742">
+    <meta name="VersionNumber" content="6">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VcCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Change the Default Ports in Netwrix Auditor User Activity Video Recording</h1>
+    <h2>Related Query</h2>
+<div>
+<ul><li>
+<p>&quot;Is there a way to configure the agent to use different ports instead of 9003 and 9004 for User Activity Video Recording?&quot;</p>
+</li></ul>
+</div>
+<h2>Question</h2>
+<div>
+<p>How can you change the default ports in Netwrix Auditor User Activity Video Recording?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>Yes, you can configure the agent to use different ports by modifying the registry settings on both the Netwrix Auditor host server and the target servers. Follow these steps:</p>
+<h4>On the Netwrix Auditor Host Server</h4>
+<ol><li>
+<p>Open <strong>Registry Editor</strong> and navigate to:</p>
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\(Wow6432Node)\NetWrix Auditor\User Activity Video Reporter</code></li><li>
+<p>Create a new <strong>DWORD (32-bit)</strong> value named <strong>ServerPort</strong> (default: <code>9004</code>).</p>
+</li></ol>
+<h4>On Each Target Machine</h4>
+<ol><li>
+<p>Open <strong>Registry Editor</strong> and navigate to:</p>
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\(Wow6432Node)\NetWrix\User Activity Video Reporter Agent</code></li><li>
+<p>Create a new <strong>String</strong> value named <strong>ServerPort</strong> (this should match the value specified on the Netwrix host).</p>
+</li><li>
+<p>Create another <strong>String</strong> value named <strong>CallbackPort</strong> (default: <code>9003</code>).</p>
+</li><li>
+<p>Specify the desired ports in both values.</p>
+</li><li>
+<p>Restart the <strong>UAVR Service</strong> on each target machine to apply the changes.</p>
+</li></ol>
+</div>
+</body>
+</html>

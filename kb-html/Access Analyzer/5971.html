@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Exchange Online Permissions with PowerShell</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T17:51:06.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2024-06-07T15:03:29.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T17:51:07.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000HroCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000HroCAE">
+    <meta name="LastModifiedById" content="005Qk0000017MRRIA2">
+    <meta name="LastModifiedDate" content="2024-06-07T15:04:22.000Z">
+    <meta name="LastPublishedDate" content="2024-06-07T15:04:22.000Z">
+    <meta name="Meta_Description__c" content="How to Configure Exchange Online Permissions with PowerShell">
+    <meta name="Meta_Title__c" content="How to Configure Exchange Online Permissions with PowerShell">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5971">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HroCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Exchange Online Permissions with PowerShell</h1>
+    <h2>Overview</h2>
+
+<p>This article includes a PowerShell script that automates the process of configuring the required permissions for scanning Exchange Online with StealthAUDIT versions 11.5+.</p>
+
+<h2>Instructions</h2>
+
+<p><strong>Step 1.</strong> Configure/confirm prerequisites for the ExchangeModernAuth_App_SelfSignedCert.ps1 (script pasted below).</p>
+
+<p><br>a. Make sure you have the TLS version set to TLS 1.2 (required to install the AzureAD Powershell module):</p>
+
+<pre>
+ [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12</pre>
+
+<p><br>b. The PowerShell script requires scripting to be enabled in Internet Options. Refer to the following link on how to enable scripting on your console: <a href="https://www.enablejavascript.io/en/how-to-enable-javascript-on-internet-explorer" target="_blank">https://www.enablejavascript.io/en/how-to-enable-javascript-on-internet-explorer</a></p>
+
+<p><br>c. The PowerShell script requires PS version 5 or newer.</p>
+
+<p><br><strong>Step 2.</strong> Open the ExchangeModernAuth_App_SelfSignedCert.ps1 script and update the following variables for your environment:</p>
+
+<pre>
+$appName - (line 9) Exchange Azure app name (must be unique)
+Default - $appName = &#39;StealthAUDIT Exchange&#39;
+
+$pwd - (line 13) password of your choosing that will be used later for the self-signed certificate
+Default - $pwd = &#39;YourPasswordHere&#39;
+
+$certYears  (line 16) number of years for certificate validity
+Default - $certYears = 2
+
+$saInstallCheck  (line 19) checks StealthAUDIT is installed by checking an environment variable
+Default - $saInstallCheck = $true
+
+$verbose  (line 22) enables additional logging
+Default - $verbose = $true
+
+$testApp  (line 25) tests the Azure app and self-signed cert creation by connecting to EXO
+Default - $testApp = $true
+
+$saConnProfileName  (line 30) creates a SA connection profile with this name using the organization, email address, app Id and thumbprint generated in this script
+Default - $saConnProfileName = ExModernAuth
+
+$AzureEnvironmentName  (line 34) optional configuration variable to connect to additional tenant types: (&#39;AzureChinaCloud&#39;, &#39;AzureCloud&#39;, &#39;AzureGermanyCloud&#39;, &#39;AzurePPE&#39;, &#39;AzureGovernment&#39;, &#39;AzureGovernment2&#39;, &#39;AzureGovernment3&#39;) 
+Default - $AzureEnvironmentName = $null</pre>
+
+<p><br>Save the script.</p>
+
+<p><br><strong>Step 4.</strong> Run Powershell as an Adminstrator on the SA console server and run ExchangeModernAuth_App_SelfSignedCert.ps1.</p>
+
+<ul><li>If prompted, agree to install NuGet provider which will allow PowerShell to connect and download the AzureAD (and optionally ExchangeOnlineManagement) module(s).</li><li>If prompted, agree to install the AzureAD module from the PSGallery.</li><li>When prompted, sign in to your Azure tenant with credentials that are able to create and manage Azure app registrations as well as assign permissions and owners to that app.</li><li>When prompted, sign in to your Azure tenant with the same credentials as before and grant admin consent on the permissions assigned to the app.</li><li>(If optionally enabled) If prompted, agree to install the ExchangeOnlineManagement module from the PSGallery.</li></ul>
+
+<p><br><strong>Step 5.</strong> If you were unable to grant permissions using the script, find the App in EXO (Azure Active Directory &gt; App registrations) and grant admin consent. To grant admin consent: click the app&#39;s name, click API Permissions, then click the option to grant admin consent.</p>
+
+<p> </p>
+
+<p><strong>Step 6.</strong> If you did not generate a StealthAUDIT connection profile using the $saConnProfileName variable. Copy and paste the below values returned by the script into a connection profile in SA.</p>
+
+<p><em>To configure the connection profile in StealthAUDIT, select the Exchange Modern Authentication Type and configure the values as follows:</em></p>
+
+<ul><li>Organization  Paste the Organization of the Azure AD Application</li><li>Email Address  Paste the email address for the account used to register the app</li><li>AppID  Paste the App ID for the registered app</li><li>Certificate Thumbprint  Paste the certificate thumbprint generated by the script and found on the certificate created for the registered app</li></ul>
+
+<p><br><strong>Step 7.</strong> If you did generate a StealthAUDIT connection profile using the $saConnProfileName variable but you had StealthAUDIT running during script execution, you will have to restart StealthAUDIT in order to see the newly created connection profile.</p>
+
+<p><br><em><strong>The script is attached to this KB article but it can also be found below</strong></em></p>
+
+<p> </p>
+
+<pre>
+##############################################################################################
+# Version control:
+# -19JAN2022 (added version control)
+##############################################################################################
+# Variables
+
+# This is the name of the app as it will apear in the Azure Applications list
+# Do not change this without justification
+$appName = &#39;StealthAUDIT Exchange&#39;
+
+# This is the password used to encrypt the certificate file in the local file system;
+# Change to something more secure before running in a production environment
+$pwd = &#39;YourPasswordHere&#39;
+
+# Number of years of certificate validity
+$certYears = 2
+
+# StealthAUDIT install check, only continue if StealthAUDIT is installed on this machine
+$saInstallCheck = $true
+
+# Enables verbose logging
+$verbose = $true
+
+# Tests the app authentication after script completion
+$testApp = $true
+
+# SA connection profile name
+# Set to $null to not automatically create a connection profile
+# $saConnProfileName = $null
+$saConnProfileName = &#39;ExchangeModernAuth&#39;
+
+# Azure Environment Name for standard Azure tenants leave set to $null
+# Additional options are (&#39;AzureChinaCloud&#39;,&#39;AzureCloud&#39;,&#39;AzureGermanyCloud&#39;,&#39;AzurePPE&#39;,&#39;AzureGovernment&#39;,&#39;AzureGovernment2&#39;,&#39;AzureGovernment3&#39;)
+$AzureEnvironmentName = $null
+
+##############################################################################################
+
+##############################################################################################
+
+# Check if AzureAd module installed and install if not present
+if (!(Get-InstalledModule AzureAd -ErrorAction SilentlyContinue)) {
+Install-Module AzureAD
+if (Get-InstalledModule AzureAd) {
+Write-Verbose &quot;AzureAD module installed.&quot; -Verbose:$verbose
+}
+else {
+Write-Error &quot;Could not install AzureAD module.&quot;
+pause
+exit
+}
+}
+
+# AzureAD Module Version requires at least 2.0.2.135, tested with version 2.0.2.135, 2.0.2.140
+if($($admod.Version) -lt 2.0.2.135) {
+Write-Error &quot;AzureAD Module Version: $($admod.Version) (requires at least 2.0.2.135)&quot;
+pause
+exit
+}
+else {
+Write-Verbose &quot;AzureAD Module Version: $($admod.Version) (requires at least 2.0.2.135)&quot; -Verbose:$verbose
+
+}
+
+##############################################################################################
+
+##############################################################################################
+
+# Check for StealthAUDIT install
+if($saInstallCheck) {
+if (!$env:SAINSTALLDIR) {
+Write-Error &quot;SAINSTALLDIR environment variable is missing&quot;
+Write-Error &quot;Ensure StealthAUDIT is installed&quot;
+pause
+exit
+}
+}
+
+##############################################################################################
+
+##############################################################################################
+
+# Generate and save certificates
+$certPath = (Join-Path &quot;$($env:SAINSTALLDIR)&quot; &#39;PrivateAssemblies\exchange_cert.cer&#39;)
+$pfxPath = (Join-Path &quot;$($env:SAINSTALLDIR)&quot; &#39;PrivateAssemblies\exchange.pfx&#39;)
+
+# Check for an existing cert
+$cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object { $_.Subject -eq &quot;CN=$appName&quot; }
+if ($cert){
+Write-Verbose &quot;Removing existing certificate from local certificate store&quot; -Verbose:$verbose
+$cert | Remove-Item
+}
+
+# Generate self signed cert
+Write-Verbose &quot;Generating certificate&quot; -Verbose:$verbose
+$currentDate = Get-Date
+$endDate = $currentDate.AddYears($certYears).Date
+$sscert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName stealthbits.com -Subject &quot;CN=$appName&quot; -FriendlyName $appName -KeyAlgorithm RSA -KeyLength 2048 -KeyExportPolicy Exportable -Provider &quot;Microsoft Enhanced RSA and AES Cryptographic Provider&quot; -NotAfter $endDate
+$thumb = $sscert.Thumbprint
+Write-Verbose &quot;Certificate created for $appName which expires on $endDate&quot; -Verbose:$verbose
+
+# Save the certificates
+$pwd = ConvertTo-SecureString -String $pwd -Force -AsPlainText
+Write-Verbose &quot;Saving certificate CER file to $certPath&quot; -Verbose:$verbose
+Export-Certificate -Cert &quot;Cert:\CurrentUser\My\$thumb&quot; -Force -FilePath $certPath -Type CERT | Out-Null
+Write-Verbose &quot;Saving certificate PFX file to $pfxPath&quot; -Verbose:$verbose
+Export-PfxCertificate -cert &quot;Cert:\CurrentUser\My\$thumb&quot; -Force -FilePath $pfxPath -Password $pwd | Out-Null
+
+# Load the certificates
+$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate($certPath, $pwd)
+$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate($pfxPath, $pwd)
+$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+##############################################################################################
+
+##############################################################################################
+
+# Login to azure 
+# To connect to other azure environments add -AzureEnvironmentName AzureChinaCloud (or AzureUSGovernment or AzureGermanyCloud as required)
+if($AzureEnvironmentName) {
+$userAuth = Connect-AzureAd -AzureEnvironmentName $AzureEnvironmentName
+}
+else {
+$userAuth = Connect-AzureAd
+}
+
+if (!$UserAuth) {
+Write-Error &quot;Could not connect to Azure AD.&quot;
+pause
+exit
+}
+Write-Verbose &quot;Connected to tenantID: $($userAuth.TenantId)&quot; -Verbose:$verbose
+$usr = Get-AzureADUser -ObjectId $userAuth.Account
+if (!$usr) {
+Write-Error &quot;Could not authenticate with Azure AD, logged in user not returned.&quot;
+pause
+exit
+}
+Write-Verbose &quot;User: $($usr.UserPrincipalName)&quot; -Verbose:$verbose
+
+##############################################################################################
+
+##############################################################################################
+# Get API permission details
+
+# Get the Office 365 Exchange Online API details
+$api = (Get-AzureADServicePrincipal -Filter &quot;AppID eq &#39;00000002-0000-0ff1-ce00-000000000000&#39;&quot;)
+if(!$api) {
+Write-Error &#39;Unable to return AzureAD service principal.&#39;
+pause
+exit
+}
+
+# Get the API permission ID
+$permissions = $api.AppRoles | Where-Object {
+$_.Value -eq &#39;Exchange.ManageAsApp&#39; `
+-or $_.Value -eq &#39;full_access_as_app&#39;
+}
+
+if($permissions.Count -ne 2) {
+Write-Error &#39;Correct permissions not returned, please verify permission names have not changed from Exchange.ManageAsApp and full_access_as_app.&#39;
+pause
+exit
+}
+
+# Build the API permission object (TYPE: Role = Application, Scope = User)
+$resourceAccesses = @();
+foreach ($permission in $permissions)
+{
+$resourceAccesses += [Microsoft.Open.AzureAD.Model.ResourceAccess]@{
+Id = $permission.Id ;
+Type = &quot;Role&quot;
+}
+}
+
+$apiPermission = [Microsoft.Open.AzureAD.Model.RequiredResourceAccess]@{
+ResourceAppId = $api.AppId;
+ResourceAccess = $resourceAccesses;
+}
+##############################################################################################
+
+##############################################################################################
+
+# Register the new Azure AD App with API Permissions
+$app = Get-AzureADApplication -Filter &quot;DisplayName eq &#39;$($appName)&#39;&quot;
+if(!$app) {
+$app = New-AzureADApplication -DisplayName $appName -ReplyUrls &#39;https://stealthbits.com&#39; -RequiredResourceAccess $apiPermission
+if (!$app) {
+Write-Error &#39;Unable to create Azure App.&#39;
+pause
+exit
+}
+else {
+Write-Verbose &quot;App: $($appName) created.&quot; -Verbose:$verbose
+}
+} else {
+Write-Error &quot;`&quot;$($appName)`&quot; application already exists! Delete application in Azure Admin Console and rerun script.&quot;
+pause
+exit
+}
+Write-Verbose &quot;AppID: $($app.AppId)&quot; -Verbose:$verbose
+Write-Verbose &quot;ObjectId: $($app.ObjectId)&quot; -Verbose:$verbose
+
+## Enable the Service Principal
+$sp = New-AzureADServicePrincipal -AppID $app.AppID
+if (!$sp) {
+Write-Error &#39;Unable to create Azure service principal.&#39;
+pause
+exit
+}
+
+##############################################################################################
+
+##############################################################################################
+# Assigning an Azure AD Role to the Application
+
+## The role to assign to your app
+$directoryRole = &#39;Exchange Administrator&#39;
+
+## Find the ObjectID of &#39;Exchange Administrator&#39;
+$RoleId = (Get-AzureADDirectoryRole | Where-Object {$_.displayname -eq $directoryRole}).ObjectID
+if (!$RoleId) {
+Write-Error &quot;$($directoryRole) role not found in Azure, ensure the role name did not change.&quot;
+pause
+exit
+}
+
+## Add the service principal to the directory role
+Add-AzureADDirectoryRoleMember -ObjectId $RoleId -RefObjectId $sp.ObjectID -Verbose
+
+##############################################################################################
+
+###############################################################################################
+
+# Upload the certificate as an application key credential
+if ($app.KeyCredentials.Exists({[System.Text.Encoding]::ASCII.GetString($args[0].CustomKeyIdentifier) -eq $appName })){
+Write-Error &quot;App key credential already defined.&quot; -Verbose:$verbose
+Write-Error &quot;Delete application in Azure Admin Console and rerun script.&quot;
+pause
+exit
+}
+$appCert = New-AzureADApplicationKeyCredential -ObjectId $app.ObjectId -CustomKeyIdentifier $appName -StartDate $currentDate -EndDate $endDate -Type AsymmetricX509Cert -Usage Verify -Value $keyValue
+if(!$appCert){
+Write-Error &quot;App key credentials not registered with Azure.&quot;
+pause
+exit
+}
+Write-Verbose &quot;App key credentials registered with Azure.&quot; -Verbose:$verbose
+
+##############################################################################################
+
+##############################################################################################
+
+if($saConnProfileName) {
+$fileText = &#39;GVqLtWFNmgwd2WchuWgMrw==replaceOrgreplaceEmailreplaceAppIDreplaceCertThumbprint&#39;
+$fileText = $fileText -replace &#39;replaceOrg&#39;,&quot;$($userAuth.TenantDomain)&quot;
+$fileText = $fileText -replace &#39;replaceEmail&#39;,&quot;$($userAuth.Account.Id)&quot;
+$fileText = $fileText -replace &#39;replaceAppID&#39;,&quot;$($app.AppId)&quot;
+$fileText = $fileText -replace &#39;replaceCertThumbprint&#39;,&quot;$($thumb)&quot;
+$secMapPath = Join-Path $env:SAINSTALLDIR &#39;SecurityMap&#39;
+$filePath = Join-Path $secMapPath &quot;$($saConnProfileName).xml&quot;
+$file = Get-Item -Path $filePath -ErrorAction SilentlyContinue
+if(!$file) {
+New-Item -Path $secMapPath -Name &quot;$($saConnProfileName).xml&quot; -ItemType File
+}
+Set-Content -Path $filePath -Value $fileText -Force
+Write-Host &quot;Connection Profile: $($saConnProfileName) created/updated.&quot;
+}
+
+##############################################################################################
+
+##############################################################################################
+
+# Wait for app to register with Azure
+$t = 0
+$secSleep = 5
+$tries = 24
+$totalWait = $secSleep*$tries
+do {
+$app2 = Get-AzureADApplication -Filter &quot;DisplayName eq &#39;$($appName)&#39;&quot; -ErrorAction SilentlyContinue
+if (!$app2) {
+sleep($secSleep);
+$t++
+$seconds = 5*$t
+Write-Host &quot;Seconds: $seconds waiting for app to be returned from Azure tenant. Waiting up to $($totalWait) seconds&quot;
+}
+} until ($app2 -ne $null -or $t -ge $tries)
+
+##############################################################################################
+
+##############################################################################################
+
+# All done
+Write-Host &#39;Registration complete. Record the following IDs and Thumbprint.&#39;
+Write-Host &quot;Organization: $($userAuth.TenantDomain)&quot; -ForegroundColor Yellow
+Write-Host &quot;Email Address: $($userAuth.Account.Id)&quot; -ForegroundColor Yellow
+Write-Host &quot;AppID: $($app.AppId)&quot; -ForegroundColor Yellow
+Write-Host &quot;ObjectId: $($app.ObjectId)&quot; -ForegroundColor Yellow
+Write-Host &quot;Cert Thumbprint: $($thumb)&quot; -ForegroundColor Yellow
+Write-Host &quot;Press enter to launch the Azure Admin Consent page:`&quot;https://login.microsoftonline.com/$($userAuth.TenantId)/adminconsent?client_id=$($app.AppId)`&quot;.&quot;
+Write-Host &#39;Displays stealthbits.com after consent is granted.&#39;
+if($testApp) {Write-Host &#39;After confirming Admin consent, return here and press enter again to continue to testing the connection using Modern Auth.&#39;}
+pause
+
+Start-Process &quot;https://login.microsoftonline.com/$($userAuth.TenantId)/adminconsent?client_id=$($app.AppId)&quot;
+
+$confirmation = Read-Host &#39;Were you able to grant consent without error? y/n&#39;
+if($confirmation -eq &#39;n&#39;) {
+Do {
+Write-Host &#39;Apps can take a moment or a few mintues to appear in Azure.&#39;
+Write-Host &#39;If you got an error indicating the app does not exist on the tenant, you may want to attempt registration again.&#39;
+$confirmation2 = Read-Host &#39;Would you like to attempt registration again? y/n&#39;
+if($confirmation2 -eq &#39;y&#39;) {
+Start-Process &quot;https://login.microsoftonline.com/$($userAuth.TenantId)/adminconsent?client_id=$($app.AppId)&quot;
+$confirmation3 = Read-Host &#39;Were you able to grant consent without error? y/n&#39;
+}
+}
+until($confirmation3 -eq &#39;y&#39; -or $confirmation2 -eq &#39;n&#39;)
+}
+
+##############################################################################################
+
+##############################################################################################
+
+# Test the modern auth credentials to connect to the specified tenant
+if($testApp) {
+Write-Host &#39;If app registration was not successful on the first attempt, please wait at least 30 seconds, to allow Azure to recognize the changes, before pressing enter to test the connection.&#39;
+pause
+
+# Check if EOM module is installed and install if not present
+if (!(Get-InstalledModule ExchangeOnlineManagement -ErrorAction SilentlyContinue)) {
+Install-Module ExchangeOnlineManagement
+if (Get-InstalledModule ExchangeOnlineManagement) {
+Write-Verbose &quot;ExchangeOnlineManagement module installed.&quot; -Verbose:$verbose
+}
+else {
+Write-Error &quot;Could not install ExchangeOnlineManagement module.&quot;
+pause
+exit
+}
+}
+
+Import-Module ExchangeOnlineManagement
+Connect-ExchangeOnline -Organization &quot;$($userAuth.TenantDomain)&quot; -AppId &quot;$($app.AppId)&quot; -CertificateThumbprint &quot;$($thumb)&quot; -ShowBanner:$false
+$mbx = Get-EXOMailbox -ResultSize 1
+if($mbx) {
+Write-Host &#39;Connection using Modern Auth successful, press enter to close the connection and complete the script.&#39; -ForegroundColor Green
+pause
+}
+else {
+Write-Error &#39;Unable to run Get-EXOMailbox cmd using Modern Auth against Exchange Online.&#39;
+pause
+exit
+}
+Disconnect-ExchangeOnline -Confirm:$false
+}
+
+##############################################################################################
+
+</pre>
+<br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUdU&amp;d=%2Fa%2F4u000000Ly7q%2FiOjKaMVn1OCn7v5xF3vPxS0VbovHBunzV2hKZ_VjvJU&amp;asPdf=false" target="_blank">ExchangeModernAuth_App_SelfSignedCert.ps1</a>
+</body>
+</html>

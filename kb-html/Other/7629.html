@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: Patch 2.2.196 for Threat Manager 2.2</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:48:52.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000J8bCAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-05T11:09:50.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:48:52.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000J8bCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000J8bCAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T11:22:00.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:48:52.000Z">
+    <meta name="Meta_Description__c" content="360012018672">
+    <meta name="Meta_Title__c" content="Hotfix: Patch 2.2.196 for Threat Manager 2.2">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7629">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J8bCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: Patch 2.2.196 for Threat Manager 2.2</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This Hotfix addresses two primary issues:
+1.	Threats created via investigations not properly evaluating hosts used in the rule builder filter controls. 
+2.	The ransomware job can fail if the Threat Manager server does not have internet access.
+This update also has some minor performance improvements and quality of life improvements.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Summary:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>This Hotfix addresses two primary issues:</span></strong></span></span></span> 
+</p><ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Threats created via investigations not properly evaluating hosts used in the rule builder filter controls. </span></strong></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>The ransomware job can fail if the Threat Manager server does not have internet access.</span></strong></span></span></span></li></ol><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>This update also has some minor performance improvements and quality of life improvements.</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior before Fix: </span></strong></span></span></span>
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Custom Threats created via investigations could sometimes improperly evaluate hosts.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Ransomware Job could fail if the Threat Manager server does not have an internet connection</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">AD Sync performance impacted when a large number of contacts are stored in Active Directory</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">SSL Configuration susceptible to failure when invalid characters are copy/pasted with the thumbprint</span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior after Fix: </span></strong></span></span></span>
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Custom Threats created via investigations properly evaluate hosts.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Ransomware job works appropriately in &quot;offline&quot; / non-internet connected environments</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Improved performance of AD Sync when a large number of contacts are stored in Active Directory</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">SSL Configuration handling for invalid characters in the thumbprint ID of the certificate</span></span></span></li></ul><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Lee Berg</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Prior versions of Threat Manager 2.2</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Dev Ticket:</span></strong></span></span></span><br><br>  
+<table class="SbTable2-withVerticals1" style="width: 706.1pt;" width="941"><tbody><tr style="height: 15pt;"><td colspan="1" rowspan="1" style="height: 15pt;width: 203.15pt;" width="271"><span><span style="color: white;">Case</span></span></td><td colspan="1" rowspan="1" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: white;">Description</span></span></td><td colspan="1" rowspan="1" style="height: 15pt;width: 138.95pt;" width="185"><span><span style="color: white;">Escalations</span></span></td></tr><tr style="height: 15pt;"><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 203.15pt;" width="271"><span><span style="color: black;">SDFS-8050</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: black;">Ransomware Job failing on non-internet connected machine</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 138.95pt;" width="185"><span><span style="color: black;">N/A</span></span></td></tr><tr style="height: 15pt;"><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 203.15pt;" width="271"><span><span style="color: black;">SDFS-7817</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: black;">Ad user count is different in StealthDefend then AD</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 138.95pt;" width="185"><span><span style="color: black;">37779</span></span></td></tr><tr style="height: 15pt;"><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 203.15pt;" width="271"><span><span style="color: black;">SDFS-8150</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 364pt;" width="485"><span><span style="color: black;">Investigation Threat never honored to or from host filters</span></span></td><td colspan="1" rowspan="1" valign="top" style="height: 15pt;width: 138.95pt;" width="185"><span><span style="color: black;">N/A</span></span></td></tr></tbody></table><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Resolved in Version: </span></strong><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">2.2.196</span></span></span></span></span><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <a href="https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.2.196.zip" target="_blank">https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.2.196.zip</a></p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Threat Manager<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Threat Manager - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> Prior versions of Threat Manager 2.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SDFS-8050	Ransomware Job failing on non-internet connected machine
+SDFS-7817	Ad user count is different in StealthDefend then AD - 37779
+SDFS-8150	Investigation Threat never honored to or from host filters<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 2.2.196<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2536<br></p>
+</body>
+</html>

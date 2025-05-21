@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How AIC resource reviews work under the hood</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:02:05.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:03:13.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:02:06.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000I6ACAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000I6ACAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:03:13.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:02:06.000Z">
+    <meta name="Meta_Description__c" content="360008944451">
+    <meta name="Meta_Title__c" content="How AIC resource reviews work under the hood">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6192">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I6ACAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How AIC resource reviews work under the hood</h1>
+    <p><strong>Issue:</strong> You need information about the tables that drive the AIC resource review process.</p>
+<p> </p>
+<p>Reference: Stealthbits_SMP_AIC_DC_Schema PDF (Find in internal documentation folder &quot;\\sbitsinc.com\public\Documentation\Schema&quot;)</p>
+<p> </p>
+<p><strong>How AIC resource reviews work under the hood</strong></p>
+<p>NOTE: This information assumes you already have knowledge of how Access Information Center resource ownership and resource review workflows operate.  It discusses the implications of those things and how they interact with the database tables for them.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUmc&amp;d=%2Fa%2F4u000000LyJU%2FNFeTSMUKiXS_49_pDudnhYcX3_U2C6i5ZC9XzLSEnZk&amp;asPdf=false" alt="mceclip0.png"></img></p>
+<p> </p>
+<p> </p>
+<p><strong>Creating a resources and assigning owners</strong></p>
+<p>Lets start by looking at the table SA_AIC_Resources (before we add a new resource).</p>
+<p>SA_AIC_Resources:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWCB&amp;d=%2Fa%2F4u000000LyQ9%2FM89mqRHdjkmig9zRc2v02eEEXRpFoDuUobBhKOl82zc&amp;asPdf=false" alt="mceclip1.png"></img><br>This table simply keeps the list of resources that have had reviews requested.  Resource types are: 0=FileSystemShare, 1=SharePointResource, 2=ActiveDirectoryGroup, 3=ActiveDirectoryDistributionList, 4=LocalGroup, 5=FileSystemExport</p>
+<p> </p>
+<p> </p>
+<p>Then lets create a new resource, afterwards looking to see what the same table looks like.  I assigned a new owner for \\FS.SPIDER.LAB\TypicalDocuments.  Now my Resource Owners page in the AIC looks like this:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUVj&amp;d=%2Fa%2F4u000000LyIf%2FDIv8KVR_4LooLKUXfZ0n_mXINYfx.z.0jSvAHYxFqHc&amp;asPdf=false" alt="mceclip2.png"></img></p>
+<p>Heres SA_AIC_Resources (after the change note the new entry with ID 5):</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWCG&amp;d=%2Fa%2F4u000000LyQE%2FpUh_Gixer9CL3RyIwuHevSu103vE__PN7.fQuPquf1M&amp;asPdf=false" alt="mceclip3.png"></img><br>And here is SA_AIC_ResourceOwners:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUmr&amp;d=%2Fa%2F4u000000LyPq%2F7zaFL0smOceNTOLwiczOyBBEitMEajkaA5gBgCYqzL4&amp;asPdf=false" alt="mceclip4.png"></img></p>
+<p>There is our newly added resource, ID 5 in SA_AIC_Resources.  Youll see its not confirmed yet either by the owner in SA_AIC_ResourceOwners.</p>
+<p><em>SIDE NOTE:  You might also notice that there is NOT an entry in the AIC for \\SA10TWO.SPIDER.LAB\TypicalDocs, but there IS any entry for that on line 4 of SA_AIC_Resources.  Whats going on with that you ask?  Resources that have been deleted in and have no owner are still retained in SA_AIC_Resources table.  This is so old resource review history can still be viewed for them.  (I actually deleted it because the name was the same as the one I was going to add, but on a different server, forgetting it worked this way.  So I will just have to trust that you are going to look at the whole UNC and not get confused.)</em></p>
+<p>Once the owner confirms that they do own the resource, SA_AIC_ResourceOwners is updated.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVdc&amp;d=%2Fa%2F4u000000LyIq%2FpIxObczTR3mJnoUyyYcCKgje5xr0Giva1r0zTeEegEM&amp;asPdf=false" alt="mceclip5.png"></img></p>
+<p>(If for some reason the owner confirmation was that they did NOT own the resource, ConfirmResponse would be set to 0 but ConfirmTime would still be set.  Youd still see the resource on the resource owners, list it just would say it was NOT confirmed with a red X under the confirmed column in the AIC.)</p>
+<p>We will also see that SA_AIC_ResourceOptions lets us know if the resource allows adhoc permissions changes by the owner, or self-service access requests by users, plus the description field.  (In our case no resources allow either of those, hence the 0 for all resources in both AllowAdHoc and AllowRequests.)</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWFZ&amp;d=%2Fa%2F4u000000LyQJ%2F7rUBfMhO3k5Kg1AQ7LLgjjukaVyNXskFKlS9wQXw2rk&amp;asPdf=false" alt="mceclip6.png"></img></p>
+<p>If you use the edit notes option for the resource, you can add a note.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWFe&amp;d=%2Fa%2F4u000000LyQO%2FvcgLGr7GRuLmh2oYSvKLIrrtpMxYEV9pTP0wRXVwdOU&amp;asPdf=false" alt="mceclip7.png"></img></p>
+<p>This also shows in the interface with a visual indicator when there is a note.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWFj&amp;d=%2Fa%2F4u000000LyQT%2F8beyotMYLopdru8thoR2IdEQRLQuSufU1HiuoswcBsg&amp;asPdf=false" alt="mceclip8.png"></img></p>
+<p> </p>
+<p>Now we know what happens when a new resource is created and the owner confirmed, and the tables associated with those actions.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWFo&amp;d=%2Fa%2F4u000000LyQY%2FHsOBsAVVaIUsrz7fPK4OSx1QfmhSH5y59wYA64A.EdY&amp;asPdf=false" alt="mceclip9.png"></img></p>
+<p>Additionally, there is a view with additional details about the resource owners - SA_AIC_ResourceOwnersView.  Here is an example:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUYn&amp;d=%2Fa%2F4u000000LyQd%2FyWX.CnHyEFwxSpZadvsGZty3FstqAvo6s5ufULqsfKU&amp;asPdf=false" alt="mceclip10.png"></img></p>
+<p> </p>
+<p> </p>
+<p><strong>Access Requests</strong></p>
+<p>To set up for the next section, I made 3 groups, gave them read/modify/full_control, rescanned FSAA and ADI.  Then I could edit a resource to enable the options to allow AdHoc permissions changes by the resource owners and allow access requests from users.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVNx&amp;d=%2Fa%2F4u000000LyQi%2FiVabV6Q4kULZCHtdNGNUVLHc3Fk9lqFOm5kG2ci9kZg&amp;asPdf=false" alt="mceclip11.png"></img></p>
+<p>Here is SA_AIC_Resource_options after that change.  Note ID 3 which corresponds to the resource we changed.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWFy&amp;d=%2Fa%2F4u000000LyQn%2FQUvGQFU7GR0uxzuJ9Zblpz8hFYVWF1acGskN0cXHvnc&amp;asPdf=false" alt="mceclip12.png"></img></p>
+<p>We also see an update to SA_AIC_ResourceAccessGroups.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWG3&amp;d=%2Fa%2F4u000000LyQs%2F98w8Pq3ZNSMF51cSsy0_bS7_vKPpCShWtPFnbP1JD8o&amp;asPdf=false" alt="mceclip13.png"></img></p>
+<p> </p>
+<p>Now that users can request access, lets submit a request.  Previously SA_AIC_ResourceAccessRequests was blank, but after submitting an access request we can see that entry.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWG8&amp;d=%2Fa%2F4u000000LyBj%2Fvxn.x7m3BB1stVKUiYRNveznOeYb879qq2LYAwcbqGA&amp;asPdf=false" alt="mceclip14.png"></img></p>
+<p>When the owner approves the request, we will see that same table be updated again.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWGD&amp;d=%2Fa%2F4u000000LyQx%2FvEMuAV5INSh1P_zYUNBlF4x3lUBoBO7PLmkz6NDhhqk&amp;asPdf=false" alt="mceclip15.png"></img></p>
+<p>If the AIC is NOT set up to automate the changes, the approval record will still be in the table!  It just wont actually be in effect until whatever manual process is required to move the user into the right group happens. </p>
+<p>If you DO have the AIC set up to allow the AIC itself to automate changes, and the owner has permission to make ad-hoc changes to a users access on a resource, the owner will also have the change access button available when they select a resource from the Manage My Resources (Resource Ownership) page.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWBs&amp;d=%2Fa%2F4u000000LyR2%2FRxUKksBJW9buimJ1GE2PRX4qkzJ7Z6EoU.hUAsJfonM&amp;asPdf=false" alt="mceclip16.png"></img></p>
+<p>(If AIC is not set to automate the changes in Configure Console, then this button will not be available. )</p>
+<p>If a users access is changed with this method, it will also also show up in the SA_AIC_ResourceAccessRequests table.</p>
+<p> </p>
+<p>We have seen the tables related to Access Requests and how they change during the request (or access change) process.</p>
+<p>(Note that these examples show tables are from V10 StealthAUDIT.  V11 has additional fields in some of the tables, but the basic concepts are the same.)</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUTi&amp;d=%2Fa%2F4u000000LyKb%2FXYwLG6Jmtq2W5.PZIBiF89hAuVwfFabSp.P1EOL2xKg&amp;asPdf=false" alt="mceclip17.png"></img></p>
+<p> </p>
+<p> </p>
+<p><strong>Resource Reviews</strong></p>
+<p>Now that we have covered the basics, we will delve into the complexities of Resource Reviews.   Although there are more tables, we will look at how they are connected and what they store.</p>
+<p>[I have deleted all resource reviews from my test machine before starting so all the resourcereview tables are empty.]</p>
+<p><strong><em>Create Review</em></strong></p>
+<p>First we will create a resource review.  I created an access review for one of my resources as an example, and named it access review 1.</p>
+<p>Lets see how the resource review tables and view look after doing that.</p>
+<p> </p>
+<p>SA_AIC_ResourceReviews:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWJW&amp;d=%2Fa%2F4u000000LyFM%2FX5KRuAoKNlfFuiUidBCzdRbJIMHlxO5BDRGR4epc55E&amp;asPdf=false" alt="mceclip18.png"></img><br>This table simply shows the name, type, create time, and creator for the review.  Type 0 happens to be an access review.  You can find the access types in Appendix D of the AIC schema documentation, but for clarity I will list them here as well.  Review types: 0=access, 1=permissions, 2=membership, 3=sensitive data, 4=file review. <br><br></p>
+<p>SA_AIC_ResourceReviewResponses:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUch&amp;d=%2Fa%2F4u000000LyR7%2F3atKpUUrhN0vOBuNeN9LGxxyZL76dG2gKa4yV118ZFc&amp;asPdf=false" alt="mceclip19.png"></img></p>
+<p>This table is indicating who did the review AND allowing us to associate the ID of the review itself to the individual responses.  (Reponses will reference ID 19, but the review itself is ID 8.  These are two separate lists of things.)  This table also shows us the ResourceID, which refers to the ID of the resource as listed in SA_AIC_Resources (see info about that table above in Resource Owners section).<br><br></p>
+<p>Be aware that there is also a related view called SA_AIC_ResourceReviewResponsesView.  This is simply a view that gives us more info joined to the info in SA_AIC_ResourceReviewResponses, to make it more useful for humans when viewing the info.  (We wont look at the view unless there is something specific to call out in the rest of this discussion, but be aware it exists and can provide you extra contextual information.)</p>
+<p> </p>
+<p>SA_AIC_ResourceReviewData:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWJb&amp;d=%2Fa%2F4u000000LyPg%2FMRgod_iiRkXjxBXXLjYocsaiAkrqo5h_7xYb8apwydM&amp;asPdf=false" alt="mceclip20.png"></img><br>This table shows all the data about all trustees with access.  (This is the purpose of the reviewto show and let someone flag/comment on each trustee.)  You can see that each row has the responseID set to 19.  This is telling us each of those entries belongs to the review with the ID 19 in SA_AIC_ResourceReviewResponses.  In turn, the reviewID column in <em>that</em> table points us back to the actual review it with ID 8 in the table SA_AIC_ResourceReviews.</p>
+<p>SA_AIC_ResourceReviewResponseDetails and SA_AIC_ResourceReviewResponseDetailsView:</p>
+<p>Both empty for now, but when someone reviews that data these will be populated.</p>
+<p> </p>
+<p><strong><em>Begin Review</em></strong></p>
+<p>Lets log into the AIC as the owner of the resource with the review, and see what it looks like there.  When we click Begin Review, we see the list of trustees and their current permissions.  These correspond directly to the items in SA_AIC_ResourceReviewData.  Even though we dont know the SIDs from that table, we can see there are three trustees with read access and three with full control.  (In this case each item is in the same order, but this is not guaranteed when selecting from the table.)</p>
+<p>One item to note is the recommendation for one trustee that says None: No domain login for 60 days.  This is auto-populated for us based on the trustee not having logged in to the domain for a long time. </p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWJl&amp;d=%2Fa%2F4u000000LyRC%2FDDGhAIXNJ92e9daWjoaaGBN6eB.x94Qst4jKgsG9.e0&amp;asPdf=false" alt="mceclip21.png"></img></p>
+<p><br><strong><em>Recommend Change</em></strong><br><br>If we make a change, we can observe the results in the associate tables.  After changing the Authenticated Users trustee to recommend modify permissions and clicking SAVE (without clicking next to finish the review), we will see an addition to the following tables/views:</p>
+<p>SA_AIC_ResourceReviewResponseDetails:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWJq&amp;d=%2Fa%2F4u000000LyCO%2Fq5Tqi_SNIlnO.D3zRp5MigZp2OfKqn0dDC6dyXjzzV4&amp;asPdf=false" alt="mceclip22.png"></img></p>
+<p>You can see that SA_AIC_ResourceReviewResponseDetails is recording our suggested permissions change in the DesiredValue column.  The ResponseID, ItemName, and TrusteeType are used to associate this response back to the item with the same values in the table SA_AIC_ResourceReviewData (which contains the initial values info).</p>
+<p>Be aware there is a related view named SA_AIC_ResourceReviewResponseDetailsView, which simply gives more info about the items in SA_AIC_ResourceReviewResponseDetails.  (We wont look at the view unless there is something specific to call out in the rest of this discussion, but be aware it exists and can provide you extra contextual information.)</p>
+<p> </p>
+<p><strong><em>Submit Changes</em></strong></p>
+<p>If we click NEXT in the resource review, we will then be allowed to enter any notes about our recommended changes.  I will enter one we can see for our one suggested change, and then hit Submit.</p>
+<p>We will see that SA_AIC_ResourceReviewResponseDetails now has our Note for that user:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWJv&amp;d=%2Fa%2F4u000000LyRH%2FIKu7qHSJ0nXnx64igf7epaTvBaxRy1en1lrKD0s0_NQ&amp;asPdf=false" alt="mceclip23.png"></img></p>
+<p>SA_AIC_ResourceReviewResponses also has been updated with the review info, now that the review has been completed and submitted:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVdl&amp;d=%2Fa%2F4u000000LyRM%2FSVEloB7BQx31jpmD_H.FEdY6RSITYUyrWtynPWQp.kE&amp;asPdf=false" alt="mceclip24.png"></img></p>
+<p><strong><em>Approve/Deny Changes</em></strong></p>
+<p>The review now goes back to the original requestor, who will look at the recommendations made and approve or deny the individual responses.  In this case, I will accept our change on the individual trustee.  This updates the table SA_AIC_ResourceReviewResponseDetails with the AdminResponse (0=accept, 1=decline, 2=defer), as well as the AdminTime and AdminSID columns.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUdz&amp;d=%2Fa%2F4u000000LyRR%2FwyAx5wM.X2ljPwVdosf_MtblaLTBXtqtJYRvGASlFHI&amp;asPdf=false" alt="mceclip25.png"></img></p>
+<p><em>SIDE NOTE: This document does not discuss the process changes option.  Maybe it just bulk agrees or denies the suggested changes?</em></p>
+<p><strong><em>Finish Review</em></strong></p>
+<p>If the review requestor then returns to the Manage Reviews screen, they will have the ability to use the Mark Completed button to finalize the review process.  When they do, SA_AIC_ResourceReviews will be updated with the FinishTime.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWBT&amp;d=%2Fa%2F4u000000LyRW%2FNsdTBuQWsOZZLZRu4Vek4pFl..z4vuB1MBYT0pXw5yo&amp;asPdf=false" alt="mceclip26.png"></img></p>
+<p><strong><em>Run Again</em></strong></p>
+<p>If the Run Again button is chosen for a completed review, a new copy of it (with a new ID) is created in SA_AIC_ResourceReviews, and the entire process begins again for that new review.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUqU&amp;d=%2Fa%2F4u000000LyRb%2F0Pi5wTYTPZIffS9ETm31sMdEsy7c_ujsQ_dl2fgWB8Q&amp;asPdf=false" alt="mceclip27.png"></img></p>
+<p> </p>
+<p><strong>Conclusion + Review process steps</strong></p>
+<p>This was a basic walkthrough of how the various tables are used to keep track of items in the Resource Owners and Resource Reviews portion of the AIC.  In a real environment, there would likely be more trustees and perhaps different recommendations for each, but they would just be recorded in the appropriate tables.  </p>
+<p>I hope this walkthrough was useful to you.  Here is an overview of the steps in the review process that make changes to the various review tables. </p>
+<table><tbody><tr><td colspan="1" rowspan="1" width="312">
+<p>CREATE REVIEW [Requestor]</p>
+</td><td colspan="1" rowspan="1" width="312">
+<p>Adds entries to SA_AIC_ResourceReviews, SA_AIC_ResourceReviewResponses,</p>
+<p>and SA_AIC_ResourceReviewData</p>
+</td></tr><tr><td colspan="1" rowspan="1" width="312">
+<p>RECOMMEND CHANGES + ADD NOTES [Reviewer]</p>
+</td><td colspan="1" rowspan="1" width="312">
+<p>Updates values in SA_AIC_ResourceReviewResponseDetails</p>
+</td></tr><tr><td colspan="1" rowspan="1" width="312">
+<p>SUBMIT CHANGES [Reviewer]</p>
+</td><td colspan="1" rowspan="1" width="312">
+<p>Updates value in SA_AIC_ResourceReviewResponses</p>
+</td></tr><tr><td colspan="1" rowspan="1" width="312">
+<p>APPROVE/DENY CHANGES [Requestor]</p>
+</td><td colspan="1" rowspan="1" width="312">
+<p>Updates values in SA_AIC_ResourceReviewResponseDetails</p>
+</td></tr><tr><td colspan="1" rowspan="1" width="312">
+<p>FINISH REVIEW [Requestor]</p>
+</td><td colspan="1" rowspan="1" width="312">
+<p>Updates value in SA_AIC_ResourceReviews</p>
+</td></tr></tbody></table>
+<p> </p>
+<p>Channel: Internal</p>
+<p>Submitted by: Robert Parsons</p>
+<p>Product: Access Information Center (AIC)</p>
+<p>Affected Versions: all, but written with info from version 10</p>
+<p>Affected Module: Access Information Center (resource reviews)</p>
+<p>Dev Ticket: N/A</p>
+<p>Resolved In Version: N/A</p>
+<p>KB Type: How to</p>
+</body>
+</html>

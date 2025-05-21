@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic user enrollment failed: The certificate authority is invalid or incorrect</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:10.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-07-11T13:15:27.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:50.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9TOCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9TOCA0">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-11T13:15:42.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:50.000Z">
+    <meta name="Meta_Description__c" content="The enrollment wizard returns the following error:
+&quot;Automatic user enrollment failed: The certificate authority is invalid or incorrect (Error code: 12045)&quot;">
+    <meta name="Meta_Title__c" content="Automatic user enrollment failed: The certificate authority is invalid or incorrect">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="610">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TOCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Automatic user enrollment failed: The certificate authority is invalid or incorrect</h1>
+    <div>On the startup, the enrollment wizard does not start and returns the following error:</div>
+
+<div>&quot;Automatic user enrollment failed: The certificate authority is invalid or incorrect (Error code: 12045)&quot;<br> </div>
+
+<hr></hr>
+
+<div>This issue occurs when you use a self-signed SSL certificate for the Self-Service portal.<br>To resolve the issue, either obtain a signed third-party SSL certificate, or deploy the self-signed certificate to root CA (certificate authority) of all problematic workstations. </div>
+
+<div> </div>
+
+<div>To deploy a self-signed certificate
+<ol><li>Save certificate to file locally. In order to do this browse to the web-site you have assigned a certificate to, click Agree to continue on a notification screen, in address bar find certificate and open certificate information (see screenshots  View certificates or Certificate information)</li></ol>
+<img alt="User-added image" height="228" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116cj&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yH3" width="500"></img>
+<ol><li>Go to the <strong>Details</strong> tab and click <strong>Copy to file</strong> button, a wizard opens</li><li>Select <strong>Cryptographic Message Syntax Standard (PKCS #7)</strong> and click <strong>Next</strong></li><li>Select a Path to save the file and click <strong>Next</strong>, then <strong>Finish</strong>.</li><li>Copy the file to the machine where Group Policy Manager is installed</li><li>Start <strong>Group Policy Manager </strong>and edit <strong>Default Domain Policy</strong></li><li>In the Group Policy Object Editor, navigate down to: <strong>Computer Configuration - Windows Settings  Security Settings - Public Key Policies - Trusted Root Certification Authorities</strong>, right-click and select <strong>Import</strong>.</li><li>In wizard specify the file we have created earlier and click <strong>Next</strong>,</li><li>Leave Certificate Store as default and click <strong>Next</strong>, then click <strong>Finish</strong></li><li>Run <em>gpupdate /force </em>or wait until policy applies automatically</li></ol>
+<img alt="User-added image" height="377" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116cj&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yHD" width="303"></img></div>
+
+<div> </div>
+
+<div>Also, make sure that the name of the server stored in the certificate matches the name you specified on the Password Manager client setup.<br><br>More screenshots here <a href="http://unixwiz.net/techtips/deploy-webcert-gp.html" target="_blank"><font color="#333435">Deploying a Self-Signed Root Certificate with Group Policy</font></a></div>
+</body>
+</html>

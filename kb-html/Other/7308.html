@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where to get Netwrix (File) Activity Monitor agent installer for a manual installation</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:40:44.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IuPCAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-05T11:30:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:40:44.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IuPCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IuPCAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T11:39:25.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:40:44.000Z">
+    <meta name="Meta_Description__c" content="360008602431">
+    <meta name="Meta_Title__c" content="Where to get Netwrix (File) Activity Monitor agent installer for a manual installation">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7308">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IuPCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Where to get Netwrix (File) Activity Monitor agent installer for a manual installation</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> You are unable to deploy the agent for Netwrix (File) Activity Monitor remotely from the console, and there is no standalone download link for the agent.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> You are unable to deploy the agent for Netwrix (File) Activity Monitor remotely from the console, and there is no standalone download link for the agent. </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The agent installer file can be copied to the target machine and used to install the agent manually.<br> <br>There is a folder containing the agent installers on the machine where the Netwrix Activity Monitor console is installed. By default the folder location for the agent installers is <em>C:\Program Files (x86)\File Monitoring\Agents.  </em>In that folder you will find <em>x64</em> and <em>x86</em> folders which contain the respective versions of the agent installers.  The filenames are <em>SBFileMonAgent.msi </em>(32 bit version) and <em>SBFileMonAgent64.msi</em> (64 bit version).<br> <br>NOTE:  If you use WinZip or a similar utility that can open MSI files to view their contents, you can also simply extract SBFileMonAgent.msi or SBFileMonAgent64.msi from the SAM/SFAM MSI file.<br>Example: finding the agent installer files in SAM_3.1_SBActivityMonitorSetup.msi with WinZip<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lcajt&amp;d=%2Fa%2F4u000000Lz44%2FWDOlIO3_3wbAbRR62Py_xqx_wCIEQDB9EI7ZMA6vlF0&amp;asPdf=false" alt="mceclip0.png"></img><br> <br>NOTE:  Failure to deploy via the console can indicate issues that need troubleshooting on the machine the agent is being installed on.  It may be useful to run the installer with verbose logging from command line, specifying the location of the output log file.  An example of how to do this while logging the install log file to c:\temp\SAMinstall.log would be:<br><em>msiexec.exe /i SBFileMonAgent.msi /L*V c:\temp\SAMinstall.log</em><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Netwrix File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra;File Activity Monitor - NetApp;File Activity Monitor - Windows<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 2.5+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2251</p>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploying the Report Server Database</title>
+    <meta name="content_type" content="ct_reporting">
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:02.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-10-25T14:25:47.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:09.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9eUCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9eUCAS">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-25T14:25:53.000Z">
+    <meta name="LastPublishedDate" content="2023-10-25T14:25:43.000Z">
+    <meta name="Meta_Description__c" content="Deploying the Report Server Database">
+    <meta name="Meta_Title__c" content="Deploying the Report Server Database">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="4060">
+    <meta name="VersionNumber" content="8">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Deploying the Report Server Database</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to set up SQL Server Reporting Services for the first time or during the Netwrix Auditor migration?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>In case you are configuring SQL Server Reporting Services for the first time, grant the appropriate role permissions to the user. Refer to the following link for additional info: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServerReportingService.htm" target="_blank">Requirements  SQL Server Reporting Services · v10.6</a>. Launch the Report Server Configuration Manager and connect to the Report Server.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>In most cases, there is only one Report Server to be hosted locally on the same server as SQL.</p>
+</blockquote>
+</div>
+
+<h4>Set Up Web Service URL and Web Portal URL</h4>
+
+<div>
+<p>In your SQL server, run <strong>Report Server Configuration Manager</strong>. Select the SQL Server to connect to, and click <strong>Connect</strong>. Refer to the folowing steps to configure your Report Server instance:</p>
+
+<ul><li>
+	<p>In the left pane, select <strong>Web Service URL</strong>. Click <strong>Apply</strong> ? this will initialize the Report Server URL.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>This action is required only during the initial setup.</p>
+	</blockquote>
+	</li><li>
+	<p>In the left pane, select <strong>Web Portal URL</strong>. Click <strong>Apply</strong> ? this will initialize the Report Manager URL.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>This action is required only during the initial setup.</p>
+	</blockquote>
+	</li></ul>
+</div>
+
+<h4>Set Up Report Server Database</h4>
+
+<div>
+<ol><li>
+	<p>In the left pane of Report Server Configuration Manager, select <strong>Database</strong>. Click <strong>Change Database</strong>.</p>
+	</li><li>
+	<p>Check the <strong>Create a new report server database</strong> check and click <strong>Next</strong>.</p>
+	</li><li>
+	<p>In the <strong>Database Server</strong> tab, confirm the SQL Server instance and click <strong>Next</strong>.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>In case you are unable to proceed with the authentication type specified, make sure the user has the appropriate role permissions. If you need to review the SQL permissions, refer to the following link: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Reports/Types/StateInTime/SQLServerOverview.htm" target="_blank">SQL Server State-In-Time Reports · v10.6</a>.</p>
+	</blockquote>
+	</li><li>
+	<p>In the <strong>Database</strong> tab, you can use the default database name or change it. Click <strong>Next</strong> to proceed to the next setup stage.</p>
+	</li><li>
+	<p>In the <strong>Credentials</strong> tab, provide the credentials for the service account to connect to the Report Server database. You can also input credentials for any account with <strong>db_owner</strong> and <strong>db_creator</strong> roles. Click <strong>Next</strong> to proceed.</p>
+	</li><li>
+	<p>Review the summary and confirm the configuration by clicking <strong>Next</strong>.</p>
+	</li></ol>
+</div>
+
+<h4>Set Up Audit Database in Netwrix Auditor</h4>
+
+<div>
+<p>Once the database has been successfully deployed, provide the Report Server URL and Report Manager URL in Netwrix Auditor settings.</p>
+
+<ol><li>
+	<p>In the main Netwrix Auditor screen, click <strong>Settings</strong>. In the left pane, select the <strong>Audit Database</strong> tab and click <strong>Modify</strong> under the <strong>Audit Database</strong> section.</p>
+
+	<div><img height="503" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvtY&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008pRVW" width="700"></img></div>
+	</li><li>
+	<p>Input the credentials and click <strong>Next</strong>.</p>
+	</li><li>
+	<p>Input the Web Service URL in the <strong>Report Server URL</strong> field. Input the Web Portal URL in the <strong>Report Manager URL</strong> field. Click <strong>Finish</strong> to save changes.</p>
+	</li></ol>
+
+<p>Netwrix Auditor should now be able to process and generate reports.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServerReportingService.htm" target="_blank">Requirements  SQL Server Reporting Services · v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Reports/Types/StateInTime/SQLServerOverview.htm" target="_blank">SQL Server State-In-Time Reports · v10.6</a></p>
+</div>
+</body>
+</html>

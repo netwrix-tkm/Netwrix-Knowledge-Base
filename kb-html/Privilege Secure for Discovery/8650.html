@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnprocessableEntityError: SSH Connection Error: Encountered RSA Key, Expected OPENSSH Key</title>
+    <meta name="product" content="privilege_secure_discovery">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-07-07T11:18:21.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2023-07-11T10:26:03.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-07-07T11:18:44.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110pVCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110pVCAQ">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-11T10:27:23.000Z">
+    <meta name="LastPublishedDate" content="2023-07-07T11:18:44.000Z">
+    <meta name="Meta_Description__c" content="UnprocessableEntityError: SSH Connection Error: Encountered RSA Key, Expected OPENSSH Key">
+    <meta name="Meta_Title__c" content="UnprocessableEntityError: SSH Connection Error: Encountered RSA Key, Expected OPENSSH Key">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8650">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110pVCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>UnprocessableEntityError: SSH Connection Error: Encountered RSA Key, Expected OPENSSH Key</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span>
+<h1>Symptom</h1>
+Example of error when running registration via Postman:
+
+<pre>
+{
+    &quot;name&quot;: &quot;UnprocessableEntityError&quot;,
+    &quot;message&quot;: &quot;SSH connection error: encountered RSA key, expected OPENSSH key&quot;,
+    &quot;code&quot;: 9999
+}</pre>
+
+<h1>Causes</h1>
+
+<h4>Cause 1</h4>
+This error can occur if SSH access is being limited to specific accounts. Example is having account specified in <code>/etc/ssh/sshd_config</code> file using options parameters like <code>AllowUsers</code> or <code>AllowGroups</code>. Go to <a href="#R1">Resolution 1</a>.
+
+<h4>Cause 2</h4>
+This registration error can happen when a system was already registered in Netwrix Privilege Secure for Discovery and a user was removed from the system (even if the user is manually added back in). Go to <a href="#R2">Resolution 2</a>.
+
+<h4>Cause 3</h4>
+The use of Ubuntu 22.04+ and RSA SSH keys which are not allowed. Go to <a href="#R3">Resolution 3</a>.
+
+<h1>Resolutions</h1>
+
+<h4><a id="R1" name="R1">Resolution 1</a></h4>
+Either change configuration to allow SSH to all users, or add the service account, default name is &quot;secureone&quot;, to necessary line(s) to allow SSH connectivity. And then restart the sshd service.
+
+<h4><a id="R2" name="R2">Resolution 2</a></h4>
+
+<ol><li>Remove the user and home directory from the system:
+	<pre>
+sudo deluser --remove-home secureone</pre>
+	If the user was remove but the home directory remains, please remove home directory <strong>manually</strong>:
+
+	<pre>
+sudo rm -r /home/secureone</pre>
+	</li><li>Remove the system from the Netwrix Privilege Secure for Discovery database.
+	<ol><li>SSH into a node and log into the database:
+		<ul><li>For cluster deployment, use <code>s1 db</code></li><li>For a single node deployment: <code> s1 --single-node db</code></li></ul>
+		</li><li>Locate the systems, ip-10-100-11-115 is used as an example hostname:
+		<pre>
+db.ldap_store.find({ &quot;cn&quot; : &quot;ip-10-100-11-115&quot;}).count()</pre>
+		</li><li>Remove all ldap_store record of that system:
+		<pre>
+db.ldap_store.deleteMany({ &quot;cn&quot; : &quot;ip-10-100-11-115&quot;})</pre>
+		</li></ol>
+	</li></ol>
+
+<h4><a id="R3" name="R3">Resolution 3</a></h4>
+
+<ol><li>Add the following line:
+	<pre>
+PubkeyAcceptedKeyTypes +ssh-rsa</pre>
+	</li><li>To the bottom of: <code>/etc/ssh/sshd_config</code></li><li>Restart sshd:
+	<pre>
+sudo systemctl restart sshd</pre>
+	</li></ol>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where does Netwrix Auditor collect security logs?</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:10.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:45:57.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:52.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9TUCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9TUCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:45:57.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:52.000Z">
+    <meta name="Meta_Description__c" content="Security event logs domain controller lightweight agent">
+    <meta name="Meta_Title__c" content="Where does Netwrix Auditor collect security logs?">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="617">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TUCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Where does Netwrix Auditor collect security logs?</h1>
+    Where does Netwrix Auditor collect security logs? What are the Lightweight Agents designed for?
+
+<hr></hr>
+
+Security logs are automatically collected from all domain controllers. The Agents can also be enabled to improve and speed up this process in highly loaded networks. An agent is a lightweight executable that runs on domain controllers, collects data, pre-filters it and then sends it to Netwrix Auditor in a highly compressed format.<br><br>To enable Agents, navigate to <strong>Netwrix Auditor -&gt; &lt;your_Managed_object&gt; -&gt; Active Directory</strong> and check &quot;Enable Lightweight Agents&quot; option. By default, this option will enable agents on all domain controllers. You can also enable agent during the Managed Object creation.<br><br>The <strong>agent.ini</strong> file in the program installation folder provides for more specific and granular control over the agent behavior. This file can be used to specify the domain controllers to be processed by the agents with the following options:<br><br>Remote: process a domain controller without agent<br>Agent: process a domain controller with agent<br>Skip: do not process a domain controller<br> 
+<div style="margin-left: 40px;"><em><strong>Example</strong></em>:<br>You have 6 domain controllers; 5 of them are located in New York and 1  in Seattle. You do not need to use agents in the New York domain controllers since they have fast network connections while the one loocated in Seattle is slow due to its distance from the main office. You can enable Lightweight Agents in Netwrix Auditor, open <strong>agent.ini</strong> and specify the agent monitoring as follows:</div>
+
+<div style="margin-left: 40px;"><br><a href="http://NY1.acme.com" target="_blank">NY1.acme.com</a>=remote<br><a href="http://NY2.acme.com" target="_blank">NY2.acme.com</a>=remote<br><a href="http://NY3.acme.com" target="_blank">NY3.acme.com</a>=remote<br><a href="http://NY4.acme.com" target="_blank">NY4.acme.com</a>=remote<br><a href="http://NY5.acme.com" target="_blank">NY5.acme.com</a>=remote<br><a href="http://Seattle.acme.com" target="_blank">Seattle.acme.com</a>=agent</div>
+</body>
+</html>

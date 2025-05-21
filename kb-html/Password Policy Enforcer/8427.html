@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing the PPE Mailer</title>
+    <meta name="product" content="password_policy_enforcer">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006ati4AAA">
+    <meta name="ArticleCreatedDate" content="2022-05-03T13:11:30.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006ati4AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:18:57.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-05-03T13:11:47.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000K96CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000K96CAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:57.000Z">
+    <meta name="LastPublishedDate" content="2022-05-03T13:11:47.000Z">
+    <meta name="Meta_Description__c" content="Installing the PPE Mailer">
+    <meta name="Meta_Title__c" content="Installing the PPE Mailer">
+    <meta name="OwnerId" content="0050g000006ati4AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8427">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K96CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Installing the PPE Mailer</h1>
+    The PPE Mailer is not installed by default. Only install it on one server in each domain. The PPE Mailer can be installed on any server, including a domain controller. To install the PPE Mailer:
+<ol><li>Start the PPE installer (PPE912.exe).</li><li>Read the license agreement, and then click Yes if you accept all the license terms and conditions.</li><li>Select the <b>Advanced </b>option, and then click <b>Next</b>.</li><li>Double-click the <b>PPE912.msi </b>file.</li><li>If you are prompted to Modify, Repair, or Remove the installation, then select <b>Modify </b>and then click <b>Next</b>. <i>Skip to step 11. Do not disable the other features as described below.</i></li><li>Click <b>Next </b>when the PPE Installation Wizard opens.</li><li>Select<b> I accept the license agreement</b>, and then click Next.</li><li>Select the <b>Custom </b>option, and then click <b>Next</b>.</li><li>Click the icon beside the <b>Password Policy Server </b>feature, and then click <b>PPE Mailer Service</b>.Entire feature will be unavailable.</li><li> Repeat the previous step for the <b>Management Console, Documentation</b>, and <b>Dictionaries </b>features unless you also want to configure PPE from this server.</li><li>Click the icon beside the <b>PPE Mailer Service </b>feature, and then click Will be installed on local hard drive.</li><li>Click <b>Next </b>twice.</li><li>Wait for the PPE Mailer to install, and then click <b>Finish </b>twice.</li></ol>
+<br>You can run the PPE Mailer from the command line to deliver e-mail immediately, or to troubleshoot problems. PPEMail.exe is copied into the \Program Files (x86)\Password Policy Enforcer\ folder when the PPE Mailer is installed.<br>Running PPEMail.exe with the /send parameter disables simulation mode. Any e-mails that are due to be sent today are sent immediately. PPEMail.exe can identify a wider range of configuration errors when run in this mode. Use the /send parameter judiciously to avoid sending duplicate e-mails to users.<br><br>To test <a href="https://helpcenter.netwrix.com/bundle/PPEAdmin_9.12/page/Introduction.html#_bookmark77" target="_blank">e-mail delivery options</a> without sending any e-mails to users, run PPEMail.exe with the /test parameter followed by your e-mail address. For example, PPEMail.exe /test testaccount@netwrix.com. This will send one test e-mail to your mail server or <a href="https://helpcenter.netwrix.com/bundle/PPEAdmin_9.12/page/Introduction.html#_bookmark77" target="_blank">pickup folder</a>.<br><br> 
+</body>
+</html>

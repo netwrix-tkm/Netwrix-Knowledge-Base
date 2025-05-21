@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Retrieve the history corresponding to a specific timestamp from the SQL database in Netwrix Directory Manager V10</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1WUAA0">
+    <meta name="ArticleCreatedDate" content="2025-04-21T16:23:16.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002MKbKAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1WUAA0">
+    <meta name="AssignedToId" content="0054u000008F1WUAA0">
+    <meta name="AssignmentDate" content="2025-04-21T16:23:16.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1WUAA0">
+    <meta name="CreatedDate" content="2025-04-21T16:23:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002MKbKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002MKbKAM">
+    <meta name="LastModifiedById" content="0054u000008F1WUAA0">
+    <meta name="LastModifiedDate" content="2025-05-13T14:59:35.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Retrieve the history corresponding to a specific timestamp from the SQL database in Netwrix Directory Manager V10">
+    <meta name="Meta_Title__c" content="How To: Retrieve the history corresponding to a specific timestamp from the SQL database in Netwrix Directory Manager V10">
+    <meta name="OwnerId" content="0054u000008F1WUAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10149">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002MKbKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Retrieve the history corresponding to a specific timestamp from the SQL database in Netwrix Directory Manager V10</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 10</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>We want a SQL query that will provide the list of all the modifications that are made by the Directory Manager from 1<sup>st</sup> January 2024 till 31<sup>st</sup> December 2024.</p>
+<h2><span style="color: #2980b9;"><b>Solution:</b></span></h2>
+<p>Run the SQL script below to fetch all history events between January 1, 2024, and December 31, 2024, for this use case. </p>
+<p>1. Kindly open the SQL Management Studio, right-click on the Directory Manager database, and select New Query.</p>
+<p>2. Now paste the Query below:</p>
+<p> </p>
+<p><code><b>Select id,<br>IdentityStoreID,<br>JSON_Value(JsonData,&#39;$.EventID&#39;) as EventID,<br>JSON_Value(JsonData,&#39;$.IdentityStoreID&#39;) as IdentityStoreID,<br>JSON_Value(JsonData,&#39;$.ObjectGUID&#39;) as ObjectGUID,<br>JSON_Value(JsonData,&#39;$.ObjectClass&#39;) as ObjectClass,<br>JSON_Value(JsonData,&#39;$.ObjectName&#39;) as ObjectName,<br>JSON_Value(JsonData,&#39;$.AttributeName&#39;) as AttributeName,<br>JSON_Value(JsonData,&#39;$.Action&#39;) as Action,<br>ActionName,<br>JSON_Value(JsonData,&#39;$.DateTimeDetected&#39;) as DateTimeDetected,<br>JSON_Value(JsonData,&#39;$.DateTimeLogged&#39;) as DateTimeLogged,<br>JSON_Value(JsonData,&#39;$.UserAccount&#39;) as UserAccount,<br>JSON_Value(JsonData,&#39;$.MachineName&#39;) as MachineName,<br>JSON_Value(JsonData,&#39;$.ClientMachineName&#39;) as ClientMachineName,<br>JSON_Value(JsonData,&#39;$.UserDN&#39;) as UserDN,<br>JSON_Value(JsonData,&#39;$.UserGUID&#39;) as UserGUID,<br>JSON_Value(JsonData,&#39;$.NewValue&#39;) as NewValue,<br>JSON_Value(JsonData,&#39;$.NewValueResolved&#39;) as NewValueResolved,<br>JSON_Value(JsonData,&#39;$.OldValue&#39;) as OldValue,<br>JSON_Value(JsonData,&#39;$.OldValueResolved&#39;) as OldValueResolved,<br>JSON_Value(JsonData,&#39;$.NewMembers&#39;) as NewMembers,<br>JSON_Value(JsonData,&#39;$.OldMembers&#39;) as OldMembers,<br>JSON_Value(JsonData,&#39;$.Comments&#39;) as Comments,<br>JSON_Value(JsonData,&#39;$.ChangeMadeBy&#39;) as ChangeMadeBy,<br>SVC.Client.Name,<br>JSON_Value(JsonData,&#39;$.RequestedAction&#39;) as RequestedAction,<br>JSON_Value(JsonData,&#39;$.WorkflowRequester&#39;) as WorkflowRequester,<br>JSON_Value(JsonData,&#39;$.WorkflowRequesterGUID&#39;) as WorkflowRequesterGUID,<br>JSON_Query(JsonData,&#39;$.HistoryDetails&#39;) as HistoryDetails,<br>JSON_Value(JsonData,&#39;$.DisplayName&#39;) as DisplayName,<br>JSON_Value(JsonData,&#39;$.HistoryObjectAttributes&#39;) as HistoryObjectAttributes,<br>JSON_Value(JsonData,&#39;$.DescriptiveData&#39;) as DescriptiveData,<br>JSON_Value(JsonData,&#39;$.HasDetails&#39;) as HasDetails,<br>JSON_Value(JsonData,&#39;$.listOfAttributes&#39;) as listOfAttributes,<br>JSON_Value(JsonData,&#39;$.UserDisplayName&#39;) as UserDisplayName,<br>JSON_Value(JsonData,&#39;$.TicDateTime&#39;) as TicDateTime,<br>JSON_Value(JsonData,&#39;$.ClientType&#39;) as ClientType,<br>JSON_Value(JsonData,&#39;$.NewImageValue&#39;) as NewImageValue,<br>JSON_Value(JsonData,&#39;$.OldImageValue&#39;) as OldImageValue from svc.BackUpHistory, Event.Action, SVC.Client where ActionID = JSON_Value(JsonData,&#39;$.Action&#39;) AND Secret = JSON_Value(JsonData,&#39;$.ChangeMadeBy&#39;) AND cast(JSON_Value(JsonData,&#39;$.DateTimeLogged&#39;) as date) BETWEEN &#39;2024-01-1&#39; AND &#39;2024-12-31&#39;;</b></code></p>
+<p><code><b> </b></code></p>
+<p> </p>
+<p>3. Execute the Query and you will get the results between 1<sup>st</sup> January 2024 till 31<sup>st</sup> December 2024.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DKlh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C5cIh" alt="" width="721" height="492"></img></p>
+<p> </p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manually Removing Stale Activity Data</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:22:50.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:07:11.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:22:51.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000ISQCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000ISQCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:07:12.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:22:51.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Manually Removing Stale Activity Data">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6585">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000ISQCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Manually Removing Stale Activity Data</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to manually removing stale activity data</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> to delete activity older than the retention period, manually</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> -------------------------------------------------------------------<br>--  Copyright (C) 2015 STEALTHbits Technologies, Inc.<br>--  Written by:     Matt Squicciarini<br>--  Date:          5/13/2015<br>--  Updated:      9/1/2016 for removing activity older than a certain date <br><br>--update the getdate()-90 / getdate()-120 to whatever date range you want <br><br>--notice that 90 days is default for detailed activity while 120 is default in the bottom query for daily activity<br><br>---------------------------------------------------------------------<br><br>--activity <br><br>deleteMore: if object_id(&#39;SA_fsac_permissionchanges&#39;,&#39;table&#39;) is not null <br>DELETE TOP(100000) SA_fsac_permissionchanges where host in (1,2,3) and activityid in (select id from sa_fsac_activityevents where accesstime &lt; getdate()-90 and host in (1,2,3) )<br>IF @@ROWCOUNT != 0 goto deleteMore<br>go<br>deleteMore: if object_id(&#39;SA_fsac_renametargets&#39;,&#39;table&#39;) is not null <br>DELETE TOP(100000) SA_fsac_renametargets where host in (1,2,3) and activityid in (select id from sa_fsac_activityevents where accesstime &lt; getdate()-90 and host in (1,2,3) )<br>IF @@ROWCOUNT != 0 goto deleteMore<br><br>go<br>deleteMore: if object_id(&#39;SA_FSAC_OwnerChanges&#39;,&#39;table&#39;) is not null <br>DELETE TOP(100000) SA_FSAC_OwnerChanges where host in (1,2,3) and activityid in (select id from sa_fsac_activityevents where accesstime &lt; getdate()-90 and host in (1,2,3) )<br>IF @@ROWCOUNT != 0 goto deleteMore<br><br>go<br>deleteMore: if object_id(&#39;SA_fsac_activityevents&#39;,&#39;table&#39;) is not null <br>DELETE TOP(100000) SA_fsac_activityevents where host in (1,2,3) and accesstime &lt; getdate()-90<br>IF @@ROWCOUNT != 0 goto deleteMore<br>go<br><br><br>deleteMore: if object_id(&#39;SA_fsac_DailyActivity&#39;,&#39;table&#39;) is not null <br>DELETE TOP(100000) SA_fsac_DailyActivity where host in (1,2,3) and activitydate &lt; getdate()-120<br>IF @@ROWCOUNT != 0 goto deleteMore<br>go<br><br><br><br><br><br><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.0 +<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001323</p>
+</body>
+</html>

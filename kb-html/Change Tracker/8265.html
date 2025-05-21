@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Tracker  How to Create a Custom Tracked Attributes Filter Within a Configuration Template</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:53:58.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JcSCAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T04:12:45.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:53:59.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JcSCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JcSCAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T04:17:53.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Change Tracker  How to Create a Custom Tracked Attributes Filter Within a Configuration Template">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8265">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JcSCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Change Tracker  How to Create a Custom Tracked Attributes Filter Within a Configuration Template</h1>
+    <p>This article will guide you in creating a customized tracked attributes filter within a configuration template. This is useful for when you cannot find the correct tracked attributes filter for your requirements.</p>
+<p>For example, you may want to create a custom filter to only track security setting modifications and nothing else, and you may find that there is no default filter for this within the list. For cases like this, you can create a custom filter to track specific attributes you are interested in only.</p>
+<h2 id="">Step-by-step guide</h2>
+<ol><li>On the Change Tracker Server, please head into this directory:<strong>Windows:</strong>C:\inetpub\wwwroot\Change Tracker Generation 7 Hub\bin\Filters<strong>Linux:</strong><span style="">/opt/nnt/hubservice/bin/Filters</span></li><li><span style="">Edit the file called <strong>d</strong><strong>efault.xml</strong>.</span></li><li><span style=""><strong>default.xml</strong> contains all of the standard file and registry filters as seen on the configuration templates. Please copy the filter that is close to what you want to achieve. For this example, I will be creating a custom filter for file security changes only, so I will need to copy the following section to use as a template as seen in the screenshot below:</span><span style="">                                                                                                                                </span><span class=""><img class="" width="" src=""></img>  </span> </li><li>Once you have copied the section of interest, please head into the <strong>CustomFilters.xml</strong> file which is located within the same directory as the <strong>default.xml</strong> file.</li><li>In the<strong>CustomFilters.xml</strong> file, paste in the section you have copied in between the tags and modify the parameters by setting them to true or false. I have included a screenshot below on how I have configured my filter (Note: The description parameter is what will be displayed as the filter name on the configuration template. Also, ensure that the <strong>name</strong> parameter is unique, I have named the parameter <strong>allchanges2</strong> for this example):                                      <span class=""><img class="" width="" src=""></img>  </span> </li><li>Once you have changed the parameters to your liking, save the file.</li><li>Head into your Change Tracker Console. You should be logged out after saving that file, please log back in.</li><li>Once you are logged back in, head into your configuration template. If you have successfully followed the steps above, you will find your custom filter on the list. Below is a screenshot to show this:</li></ol>
+<p style=""><span class=""><img class="" width="" src=""></img>  </span> </p> <p><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Support Process - Enabling Change Tracker&#39;s FAST Cloud Netwrix Support Internal</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">The Netwrix FAST Cloud Usage Considerations</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">MongoDB - Pre-allocated Log Files Accumulate &amp; Result to Disk Space Errors</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Change Tracker Äì How to Create a Custom Tracked Attributes Filter Within a Configuration Template</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p> <br><b>Attachments:</b><br><a href="" target="_blank">Capture4.PNG</a> <br><a href="" target="_blank">Capture3.PNG</a> <br><a href="" target="_blank">Capture2.PNG</a> <br><a href="" target="_blank">Capture.PNG</a> <br>
+</body>
+</html>

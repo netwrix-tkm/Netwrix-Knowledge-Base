@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceptable Values for Dynamic Permission Change Actions in the FS Action Module</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:37:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:07.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:37:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IruCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IruCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:08.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:37:04.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Acceptable Values for Dynamic Permission Change Actions in the FS Action Module">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7259">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IruCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Acceptable Values for Dynamic Permission Change Actions in the FS Action Module</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> The Permission change action requires a specific string in order to use the &quot;Dynamic&quot; option when changing permissions in the Action Module. If you don&#39;t specify an expected value, an error will be thrown.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;">The dynamic permission change option isn&#39;t used often, and the documentation could be improved. &quot;Invalid rights string &#39;BadPermission&#39;&quot; will be thrown if an unexpected value is input.</span></p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">In order to use the Dynamic permission change option in the action module, the source table must contain an exact string match that the action module is expecting. The trustee being applied can also be dynamic based on table input, but the action module will attempt to resolve the trustee upon execution.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Example:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Create a source table containing the requisite columns for any action according to the documentation, as well as columns for the trustee to be granted access, and the level of access the trustee should be granted as the result of the action.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">IF OBJECT_ID(&#39;SA_DynAction_SourceTable&#39;, &#39;u&#39;) IS NOT NULL</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">DROP TABLE SA_DynAction_SourceTable</span></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">SELECT</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">      &#39; HOSTNAME &#39; as HOST</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     &#39; HOSTNAME &#39; as SA_HOST</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     CAST(getdate() as smalldatetime) as JobRunTimeKey</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     &#39;\\HOSTNAME\C$\Apps\StealthAUDIT\Jobs\GROUP_FileSystem\GROUP_0.Collection\GROUP_1-Perms\JOB_1-FSAA System Scans\Output&#39; as [UNC]</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     &#39;SATDOMAIN\Domain Admins&#39; as TrusteeToApply</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     &#39;Full Control&#39; AS PermsToApply</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     &#39;\\ HOSTNAME\C$\Apps\StealthAUDIT\Jobs\GROUP_FileSystem\GROUP_0.Collection\GROUP_1-Perms\JOB_1-FSAA System Scans\Output|SATDOMAIN\Domain Admins|FullControl&#39; AS ROWKEY</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">,     NEWID() AS RowGUID</span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10pt;">INTO SA_DynAction_SourceTable</span></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Configure an action and point it to target the file system target (in this example, it was the &quot;UNC&quot; column).</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">On the next page, select &quot;Dynamic&quot;, and then specify the Trustee to which the action should grant or deny access, as well as the column associated with the permissions the action should apply. In this example, those columns are called &quot;TrusteeToApply&quot; and &quot;PermsToApply&quot;, respectively.</span></span></p>
+<p></p>
+</body>
+</html>

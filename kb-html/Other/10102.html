@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To:  Identify Similar Groups in the Directory</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1WUAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-25T15:50:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002DlxKAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1WUAA0">
+    <meta name="AssignedToId" content="0054u000008F1WUAA0">
+    <meta name="AssignmentDate" content="2025-03-25T15:50:48.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1WUAA0">
+    <meta name="CreatedDate" content="2025-03-25T15:50:48.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002DlxKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002DlxKAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-09T13:00:29.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Identify Similar Groups in the Directory">
+    <meta name="Meta_Title__c" content="How To:  Identify Similar Groups in the Directory">
+    <meta name="OwnerId" content="0054u000008F1WUAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10102">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002DlxKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To:  Identify Similar Groups in the Directory</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11  Directory Manager Portal</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>As your organization grows, so does your directory. And there comes a point where you continue to provision new groups without knowing that similar groups have been created previously to serve the same purpose.</p>
+<p>This implies a situation where almost identical groups exist in the directory, leading to redundancy and group glut.</p>
+<p>We would like to identify similar groups in the directory as a step towards purging redundancy and keeping the directory clean.</p>
+<h2><span style="color: #2980b9;"><b>Solution:</b></span></h2>
+<p>Directory Manager enables you to compare groups for similarity based on:</p>
+<ul><li>Group type</li><li>Membership</li></ul>
+<p>Take an example of a distribution group (Group A) that has 3 members: A1, A2, and A3. Directory Manager reads the membership of distribution groups in the directory to fetch groups that have the same members as Group A; then displays these similar groups in the Self-Service portal. The more the common members, the stronger the match.</p>
+<h2><span style="color: #2980b9;"><b>Steps to View Similar Groups:</b></span></h2>
+<p>1. Log in to the Directory Manager Application.</p>
+<p>2. Click <b>Groups</b> in the left pane.</p>
+<p>3. On the <b>My Groups</b> page, click the display name of a group to view which groups in the directory are similar to it.</p>
+<p>4. On the group properties page, click the <b>Similar Groups</b> tab.</p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Cxh3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BWvT4" alt="" width="682" height="288"></img></p>
+<p> </p>
+<p>Directory Manager displays six groups that have the strongest similarity to the selected group. The similarity is calculated on the basis of <b>group type</b> and <b>membership</b>.<br><br>Take the example of a security group (Dev Group) that has 4 members. When you open this groups properties and go to the <b>Similar Groups</b> tab, the portal displays six groups that have the strongest similarity to the Dev group. To be ranked as similar to Dev, groups must be of the security type and have any or all four members that Dev has.<br><br>The six similar groups are sorted in the order of strength, with the left pane displaying the strongest match at the top.</p>
+<p>5. Click a bar for a group to view similarity details. </p>
+<p> </p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Cxh3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BX24j" alt="" width="675" height="289"></img></p>
+<p> </p>
+<p>The <b>Similarity Details</b> dialog box displays the common type and common members that both groups have.</p>
+</body>
+</html>

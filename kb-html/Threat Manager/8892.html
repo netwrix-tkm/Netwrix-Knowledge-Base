@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitelisting Quarantined Items</title>
+    <meta name="product" content="threat_manager">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-11-07T16:53:22.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2023-11-20T15:36:17.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-11-07T16:54:02.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000wnnDCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000wnnDCAQ">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-11-20T15:36:59.000Z">
+    <meta name="LastPublishedDate" content="2023-11-07T16:54:02.000Z">
+    <meta name="Meta_Description__c" content="Whitelisting Quarantined Items">
+    <meta name="Meta_Title__c" content="Whitelisting Quarantined Items">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8892">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnnDCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Whitelisting Quarantined Items</h1>
+    <h2>Question</h2>
+
+<div>
+<p>A file was quarantined and flagged as a high severity by Crowdstrike (file location: <code>E:\Program Files\STEALTHbits\StealthDEFEND\ActionService\PowerShell</code>) . How can I fix it?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Crowdstrike quarantined and flagged the Description as a high severity:</p>
+
+<pre>
+ACTIONS TAKEN
+Operation blocked
+File quarantined
+SEVERITY
+High
+OBJECTIVE
+Follow Through
+TACTIC &amp; TECHNIQUE
+Execution via Command and Scripting Interpreter
+TECHNIQUE ID
+T1059
+IOA NAME
+ScriptReverseShell
+IOA DESCRIPTION
+A script launched that appears to be related to a reverse shell established with a remote system. Review the script and investigate the process tree.
+    </pre>
+</div>
+
+<div>
+<p>Based on the following details, this will be submitted to Crowdstrike for whitelisting:</p>
+
+<pre>
+Clear-Host
+$string1 = &#39;97025086755692615c76db942a6cc51ed99b7715faad3090307b23af5c3d26ef&#39; #Hash noted in Crowdstrike
+$string2 = &#39;97025086755692615c76db942a6cc51ed99b7715faad3090307b23af5c3d26ef&#39;
+&lt;# $string2 Hash from my 2.7.1865 lab via Get-FileHash &quot;C:\Program Files\STEALTHbits\StealthDEFEND\ActionService\PowerShell\StealthDEFEND.psm1&quot;
+Algorithm Hash Path
+--------- ---- ----
+SHA256 97025086755692615C76DB942A6CC51ED99B7715FAAD3090307B23AF5C3D26EF C:\Program Files\STEALTHbits\StealthDEFEND\ActionService\PowerShell\StealthDEFEND.psm1
+#&gt;
+# Compare the two strings
+if ($string1 -eq $string2) {
+Write-Host &quot;The two strings are equal.&quot;
+} else {
+Write-Host &quot;The two strings are not equal.&quot;
+}
+    </pre>
+</div>
+</body>
+</html>

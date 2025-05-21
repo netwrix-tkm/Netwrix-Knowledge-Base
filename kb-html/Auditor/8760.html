@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Log Manager (ELM)  Internal</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-08-24T10:33:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-10-20T12:39:36.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-24T10:40:58.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001115dCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001115dCAA">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-20T12:39:54.000Z">
+    <meta name="LastPublishedDate" content="2023-08-24T10:41:07.000Z">
+    <meta name="Meta_Description__c" content="Event Log Manager  Internal">
+    <meta name="Meta_Title__c" content="Event Log Manager  Internal">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8760">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001115dCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event Log Manager (ELM)  Internal</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong>This is an internal article migrated from Support Wiki. If any changes to Configuration.xml are implied, the steps should only be performed by Tech Support in a remote session!.</span></p>
+</blockquote>
+
+<div>
+<p>Event Log Manager (ELM) enables administrators to gather sets of event log data from any computer on the network, build reports, and execute alerts for high severity event criteria.</p>
+</div>
+
+<h2>Collector Specifications</h2>
+
+<div>
+<table style="width: 600px;text-align: center;margin-left: auto;margin-right: auto;"><tbody><tr style="background-color: darkgrey;"><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Category</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Description</strong></p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Collector Process Name</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Windows Task</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Change Generation Type</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Event based</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Data Collection Frequency</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Event collection every 10 minutes </p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Compression Service</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Optional</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Auto Audit Configuration</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Not Available</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>State in Time Reporting</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Not Available</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Supported Item Types</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Computer, Container, or IP Range</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Reported Changes</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Event Log Records</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Log Location</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">%WORKING FOLDER%\Logs\Event Log Management\Tracing</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>License Model</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;">Pairs with Windows Server License bundle</p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><strong>Litmos training link</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p style="text-align: center;"><a href="https://netwrix.litmos.com/course/10392352" target="_blank">https://netwrix.litmos.com/course/10392352</a></p>
+			</td></tr></tbody></table>
+</div>
+
+<h2>General collector overview</h2>
+
+<div>
+<p>Event Log Collector (ELM) is a relatively simple but powerful tool that allows collecting data that other collector cannot. It is not recommended to use ELM instead of other collectors but only to complement them.</p>
+</div>
+
+<h2>Special things to consider</h2>
+
+<div>
+<ul><li>
+	<p>ELM does not perform any data analysis. All it does is collecting events as per selected filters and saving them in SQL/LTA</p>
+	</li><li>
+	<p>ELM does not produce Activity Records. Therefore, ELM data cannot be found using Search in Netwrix Auditor.</p>
+	</li><li>
+	<p>ELM can send Alerts, but unlike other collectors it does not store the data collected for alerts in SQL/LTA. If you want to receive alerts AND store the data in SQL/LTA for reporting needs, the same filters have to be configured in both Audit archiving filters and Alerts.</p>
+	</li></ul>
+</div>
+
+<h2>Initial product configuration</h2>
+
+<div>
+<p>ELM is not a part of the main Netwrix Auditor UI. The configurator can be found in the Start menu.</p>
+</div>
+
+<h4>Audit Database configuration</h4>
+
+<div style="text-align: center;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3Ru"></img></div>
+
+<div>
+<ul><li>
+	<p>SQL database for ELM has a predefined name Netwrix_Auditor_EventLog that cannot be changed.</p>
+	</li><li>
+	<p>Authentication method and User name are taken from the main Netwrix Auditor UI (configuration.xml) and cannot be customized.</p>
+	</li><li>
+	<p>ELM database retention is independent from the rest of the product.</p>
+	</li></ul>
+
+<p>&quot;Write event descriptions to Audit Database&quot; checkbox makes ELM save the whole event body to the SQL Database. Good thing is that reports will display more data; bad thing is that the database will grow much faster. This option should only be enabled when absolutely necessary.</p>
+</div>
+
+<h4>Event Filters configuration</h4>
+
+<div>
+<p>Event Log name, if it is not in the predefined list, should be taken from the Properties of the corresponding log (Full Name field):</p>
+</div>
+
+<div style="text-align: center;">
+<div><img alt="1.png" height="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3Tb" width="500"></img> <img alt="2.png" height="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3Tg" width="447"></img></div>
+</div>
+
+<div>
+<p>At the Event Fields tab, if a checkbox for Event Level, Computer, User or Source is not checked, this is the same as &quot;Checked for all options&quot;.</p>
+
+<p>This is how filter options correlate with actual events:</p>
+
+<div style="text-align: center;">
+<div><img alt="4.png" height="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3Tv" width="579"></img> <img alt="5.png" height="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3Tq" width="442"></img></div>
+</div>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>When configuring Archiving or Alert filters, always look at the real event that you want to capture, in order to make sure that you configured all the fields right!</p>
+</blockquote>
+
+<div>
+<p>Note that for many Windows logs, the User field will always be &quot;N/A&quot; because the events are logged by the system itself rather than the user.</p>
+
+<div style="text-align: center;"><img alt="5.1.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3eK"></img></div>
+</div>
+
+<div>
+<p>Since each event id has a unique structure, if you plan to configure Insertion Strings, make sure you specify a single event id. This is how you choose Index and Value for Insertion strings:</p>
+
+<div style="text-align: center;">
+<div><img alt="4.png" height="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3U0" width="580"></img><img alt="5.png" height="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvos&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M3TX" width="442"></img></div>
+</div>
+
+<h4>???????Network traffic compression</h4>
+
+<div>
+<p>The compression service is installed on the target machine in the C:\Windows\NWAgentShare folder. The service name is Netwrix Auditor Event Log Compression Service (nwagentsvc). The default state is &quot;Stopped&quot;. Collected events are saved to the same folder before transferring to the host.</p>
+</div>
+
+<h4>Troubleshooting</h4>
+
+<div>
+<p>If you want to see processed events in the trace log file, set TraceLevel 100 (dec).<br><br>All configured filters can be found in the %WORKING FOLDER%\Event Log Management\Rules folder. If you need to check what your customer configured, request the above folder and put it into a similar folder in your lab, so you could see the filters in the product UI, which is more convenient than reading XML.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

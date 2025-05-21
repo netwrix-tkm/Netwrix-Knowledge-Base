@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: There are no more endpoints available from the endpoint mapper.</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:04.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:48:15.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:27.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9YZCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9YZCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:48:15.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:27.000Z">
+    <meta name="Meta_Description__c" content="Version(s) 7.0-8.5, 9.0-9.7 Error: &amp;quot;There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9)&amp;quot;.">
+    <meta name="Meta_Title__c" content="Netwrix:endpoint mapper error. (Exception from HRESULT: 0x800706D9)">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1195">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9YZCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: There are no more endpoints available from the endpoint mapper.</h1>
+    Data collection for a Monitoring Plan for auditing Windows Server completed with the following error: <i>&quot;There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9)&quot;.</i>
+<hr></hr> Incorrect RpcProtocol settings on your DNS Server.
+<hr></hr> To resolve this issue, enable the <b>TCP/IP</b> protocol. You can do it<i> </i>using Registry Editor or Windows PowerShell. <i>To enable the <b>TCP/IP</b> protocol using Registry Editor:</i>
+
+<ol><li>On the audited Windows Server, navigate to <b>Start </b>-&gt; <b>Run </b>and type &quot;<i>regedit</i>&quot;.</li><li>In the <b>Registry Editor </b>snap-in, navigate to:</li></ol>
+
+<div style="margin-left: 40px;">HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesDNSParameters.</div>
+
+<ol start="3"><li>Edit the <b>RpcProtocol </b>registry key according to the regulations below.
+
+	<ul><li>The value of this entry is a bitmap.</li><li>You can set multiple bits by adding the bits together and setting the value of this entry to that sum:</li></ul>
+	</li></ol>
+
+<div style="margin-left: 80px;">
+<table border="1" style="width: 500px;"><tbody><tr><td colspan="1" rowspan="1" style="text-align: center;"><b>Bit</b></td><td colspan="1" rowspan="1" style="text-align: center;"><b>Meaning</b></td></tr><tr><td colspan="1" rowspan="1">0x0</td><td colspan="1" rowspan="1">No protocols (disables RPC for DNS)</td></tr><tr><td colspan="1" rowspan="1">0x1 (001 binary)</td><td colspan="1" rowspan="1">TCP/IP</td></tr><tr><td colspan="1" rowspan="1">0x2 (010 binary)</td><td colspan="1" rowspan="1">Named pipes</td></tr><tr><td colspan="1" rowspan="1">0x4 (100 binary)</td><td colspan="1" rowspan="1">LPC</td></tr><tr><td colspan="1" rowspan="1">0xFFFFFFFF</td><td colspan="1" rowspan="1">All protocols</td></tr></tbody></table>
+</div>
+
+<div style="margin-left: 80px;"><b>Note</b>: When completed, restart the <b>DNS Server</b> service.</div>
+
+<div> </div>
+<i>To enable the <b>TCP/IP</b> protocol using Windows PowerShell:</i>
+
+<ol><li>On the audited Windows Server, navigate to <b>Start </b>-&gt; <b>All Apps</b> -&gt; <b>Windows PowerShell </b>and run it as an Administrator.</li><li>Execute the following command:</li></ol>
+
+<div style="margin-left: 40px;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Server</span></span></span> <span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;">=</span></span></span> <span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;"><span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;"><span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;">&quot;SERVERNAME&quot;</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Setting</span></span></span> <span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;">=</span></span></span> <span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;"><span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;"><span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;">&quot;RpcProtocol&quot;</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Value</span></span></span> <span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;">=</span></span></span> <span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;"><span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;"><span style="color: #8b0000;font-family: Lucida Console;font-size: xx-small;">&quot;&quot;</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$SettingsObject</span></span></span> <span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;">=</span></span></span> <span style="color: #0000ff;font-family: Lucida Console;font-size: xx-small;"><span style="color: #0000ff;font-family: Lucida Console;font-size: xx-small;"><span style="color: #0000ff;font-family: Lucida Console;font-size: xx-small;">Get-DnsServerSetting</span></span></span> <span style="color: #000080;font-family: Lucida Console;font-size: xx-small;"><span style="color: #000080;font-family: Lucida Console;font-size: xx-small;"><span style="color: #000080;font-family: Lucida Console;font-size: xx-small;">-ComputerName</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Server</span></span></span> <span style="color: #000080;font-family: Lucida Console;font-size: xx-small;"><span style="color: #000080;font-family: Lucida Console;font-size: xx-small;"><span style="color: #000080;font-family: Lucida Console;font-size: xx-small;">-All</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$SettingsObject</span></span></span><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;">.</span></span></span><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Setting</span></span></span> <span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;"><span style="color: #a9a9a9;font-family: Lucida Console;font-size: xx-small;">=</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Value</span></span></span> <span style="color: #0000ff;font-family: Lucida Console;font-size: xx-small;"><span style="color: #0000ff;font-family: Lucida Console;font-size: xx-small;"><span style="color: #0000ff;font-family: Lucida Console;font-size: xx-small;">Set-DnsServerSetting</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$SettingsObject</span></span></span> <span style="color: #000080;font-family: Lucida Console;font-size: xx-small;"><span style="color: #000080;font-family: Lucida Console;font-size: xx-small;"><span style="color: #000080;font-family: Lucida Console;font-size: xx-small;">-ComputerName</span></span></span> <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Server</span></span></span> Where <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Server </span></span></span>is your DNS Server name and <span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;"><span style="color: #ff4500;font-family: Lucida Console;font-size: xx-small;">$Value </span></span></span>is the RcpProtocol registry key value. Specify the value according to the regulations below.
+
+<ul><li>The value of this entry is a bitmap.</li><li>You can set multiple bits by adding the bits together and setting the value of this entry to that sum:</li></ul>
+
+<div style="margin-left: 40px;">
+<table border="1" style="width: 500px;"><tbody><tr><td colspan="1" rowspan="1" style="text-align: center;"><b>Bit</b></td><td colspan="1" rowspan="1" style="text-align: center;"><b>Meaning</b></td></tr><tr><td colspan="1" rowspan="1">0x0</td><td colspan="1" rowspan="1">No protocols (disables RPC for DNS)</td></tr><tr><td colspan="1" rowspan="1">0x1 (001 binary)</td><td colspan="1" rowspan="1">TCP/IP</td></tr><tr><td colspan="1" rowspan="1">0x2 (010 binary)</td><td colspan="1" rowspan="1">Named pipes</td></tr><tr><td colspan="1" rowspan="1">0x4 (100 binary)</td><td colspan="1" rowspan="1">LPC</td></tr><tr><td colspan="1" rowspan="1">0xFFFFFFFF</td><td colspan="1" rowspan="1">All protocols</td></tr></tbody></table>
+</div>
+
+<div style="margin-left: 40px;"><b>Note</b>: When completed, restart the <b>DNS Server</b> service.</div>
+?</div>
+</body>
+</html>

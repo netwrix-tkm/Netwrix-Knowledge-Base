@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation fails with the &quot;Category does not exist&quot; message</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:59.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:48:01.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:42.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9XxCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9XxCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:48:01.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:42.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Auditor, Installation fails with the &amp;quot;Category does not exist&amp;quot; message,">
+    <meta name="Meta_Title__c" content="Installation fails with the &amp;quot;Category does not exist&amp;quot; message">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1157">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XxCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Installation fails with the &quot;Category does not exist&quot; message</h1>
+    The product installation fails, and the user is presented with the &quot;<strong>Category does not exist</strong>&quot;  message.
+
+<hr></hr>
+
+The issue may be caused by the <strong>User Account Control</strong> performance.
+
+<hr></hr>
+
+There are two ways to resolve the issue:
+
+Change the <strong>elevation prompt behavior for administrators</strong>:
+<ol><li>Open the<strong> Start</strong> menu, navigate to <strong>All Programs / Accessories / Run</strong>, type in <strong>secpol.msc</strong> and click OK.</li><li>In the <strong>Local Security Policy</strong> left pane, navigate to <strong>Local Policies / Security Options</strong>.</li><li>In the right pane, double-click the following policy: <strong>User Account Control: Behavior of the elevation prompt for administrators.</strong></li><li>On the <strong>Local Security Settings</strong> tab, select <strong>Elevate without prompting</strong> and click <strong>OK</strong>. The tasks that request elevation will automatically run as elevated without prompting administrator.</li><li>Close the <strong>Local Security Settings </strong>window.</li><li>Restart the system, if you are notified that it is needed to apply the changes.</li></ol>
+or disable <strong>User Account Control (UAC)</strong>.
+<ul><li>For <strong>Windows 2008</strong> and <strong>Windows 7</strong>, do the following:</li></ul>
+<ol><li style="margin-left: 40px;">Open the <strong>Start</strong> menu, navigate to <strong>Control Panel / User Accounts / Change User Account Control setting</strong>s.</li><li style="margin-left: 40px;">In the <strong>User Accounts Control Settings</strong> window, switch to <strong>Never notify</strong>.</li><li style="margin-left: 40px;">Restart your server to apply the changes.</li></ol>
+<ul><li>For <strong>Windows Vista</strong>, do the following:</li></ul>
+<ol><li style="margin-left: 40px;">Open the <strong>Start</strong> menu, navigate to <strong>Control Panel / User Accounts</strong>.</li><li style="margin-left: 40px;">In the <strong>User Accounts</strong> window, click <strong>User Accounts</strong>.</li><li style="margin-left: 40px;">In the <strong>User Accounts</strong> tasks window, click <strong>Turn User Account Control</strong> off.</li><li style="margin-left: 40px;">If <strong>UAC</strong> is currently configured in <strong>Admin Approval Mode</strong>, the <strong>User Account Control message appears</strong>. Click <strong>Continue</strong>.</li><li style="margin-left: 40px;">Clear the<strong> Use User Account Control (UAC) to help protect your computer</strong> check box, and then click <strong>OK</strong>.</li><li style="margin-left: 40px;">Click <strong>Restart Now</strong> to apply the change right away, or click <strong>Restart Later</strong>, and then close the <strong>User Accounts tasks</strong> window.</li></ol>
+</body>
+</html>

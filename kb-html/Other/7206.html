@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing SAM via Command Line (to a different directory)</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:34:05.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:11:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:34:05.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IqDCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IqDCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:11:52.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:34:05.000Z">
+    <meta name="Meta_Description__c" content="360008602431">
+    <meta name="Meta_Title__c" content="Installing SAM via Command Line (to a different directory)">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7206">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IqDCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Installing SAM via Command Line (to a different directory)</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Procedure to install SAM via Command line to a different directory.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Switches to install SAM via command line to different directory.<br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li style="margin-left: 0in;">
+<b>Load up Command Prompt as administrator.  </b>
+</li><li style="margin-left: 0in;">
+<b>Change Directory to install media location (must be a local directory). Ie CD C:\InstallMedia</b>
+</li><li style="margin-left: 0in;">
+<b>Run the following command </b><span style="color: #212529;"><span style="font-family: consolas;">msiexec.exe /a &quot;C:\InstallMedia\</span></span> <span style="color: #212529;"><span style="font-family: consolas;">SBActivityMonitorSetup&quot; INSTALLDIR=&quot;E:\&quot; /qn </span></span><b>(Replace C:\Installmedia\XXX with the location and Name of the SAM installer</b><span style="color: #212529;"><span style="font-family: consolas;">)</span></span>
+</li><li style="margin-left: 0in;">
+<b>Wait for the installer to run (there will no output however task manager will show &quot;Windows installer&quot; running with CPU usage. </b>
+</li><li style="margin-left: 0in;"><b>Navigate to the install folder to verify that it has installed </b></li></ol> <br>NB the switches listed above,<br>/a = Administrator  <br>/q Sets the UI Level<br>/n No UI (used in conjunction with /q)<br> <p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra;File Activity Monitor - NetApp;File Activity Monitor - Windows<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 3.0+<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SFAM-705<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2124<br></p>
+</body>
+</html>

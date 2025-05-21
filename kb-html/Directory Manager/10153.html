@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Add attributes to the list in Export option in the Application portal</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="content_type" content="ct_productconfig">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XJAA0">
+    <meta name="ArticleCreatedDate" content="2025-04-24T10:38:28.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002NQLKA2">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008F1XJAA0">
+    <meta name="AssignedToId" content="0054u000008F1XJAA0">
+    <meta name="AssignmentDate" content="2025-04-24T10:38:28.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008F1XJAA0">
+    <meta name="CreatedDate" content="2025-04-24T10:38:28.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002NQLKA2">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002NQLKA2">
+    <meta name="LastModifiedById" content="0054u000008F1XJAA0">
+    <meta name="LastModifiedDate" content="2025-04-24T10:40:59.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="This articles explains the method to add additional attributes in the export wizard of the application portal">
+    <meta name="Meta_Title__c" content="How To Add attributes to the list in Export option in the Application portal">
+    <meta name="OwnerId" content="0054u000008F1XJAA0">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10153">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002NQLKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Add attributes to the list in Export option in the Application portal</h1>
+    <h2><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><b>Applies To: </b></span></h2>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Directory Manager 11</span></p>
+<h2><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><b>Business Scenario:</b></span></h2>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">We have a members export option set up in our environment. On clicking <b>Export</b>, only the default set of attributes appears to be available to select. We would like to add other attributes to the list of attributes available to be exported.</span></p>
+<h1><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><b>Methodology:</b></span></h1>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Adding more attributes to the list in <b>Export</b> in the application portal is achievable and requires changes in the design file of the portal. Follow the steps to add more attributes to the Export list.</span></p>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">By Default, the Export option provides the following attributes to export from the application portal. We will be adding the<b> Common Name (CN) </b>attribute to this list as an example.</span><br><br><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAP1R"></img></span></p>
+<h4><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><b>Steps:<br></b><b></b></span></h4>
+<ol><li style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Log in to the Admin portal of GroupID and navigate to the Applications tab.</span><br><br><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAPFx"></img></span></li><li style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Open the settings of the Application in which you want to add the field and click on the Identity store name. </span></li></ol>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAPPd"></img></span></p>
+<p> </p>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAPRF"></img></span></p>
+<ol start="4"><li style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Navigate to the Import/Export tab.</span><br><br><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CANdy"></img></span></li><li style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Click on (+) button and from here, select the field you want to add and give it a friendly display name.</span></li></ol>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAPUT"></img></span></p>
+<p> </p>
+<ol start="6"><li style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;">Once done, save your changes, and your field should be visible in the Export wizard of the Application portal.</span><br><br><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOhF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAPXh"></img></span></li></ol>
+</body>
+</html>

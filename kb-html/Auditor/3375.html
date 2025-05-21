@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Login FailedCannot Open Database in Reports</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:06.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2024-09-05T14:30:09.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:31.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9Z1CAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9Z1CAK">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2024-09-05T14:34:31.000Z">
+    <meta name="LastPublishedDate" content="2024-09-04T17:12:27.000Z">
+    <meta name="Meta_Description__c" content="Error: &amp;quot;Error saving AD history to database: Login failed for user &amp;quot;DomainUser&amp;quot; &amp;quot; Error: &amp;quot;Cannot open database &amp;lt;Database name&amp;gt; requested by the login. %%post_excerpt%%">
+    <meta name="Meta_Title__c" content="Error: &quot;Error saving AD history to database: Login failed">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1226">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9Z1CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Login FailedCannot Open Database in Reports</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When you attempt to open a Netwrix Auditor report, you see the following error:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">An error has occurred during report processing. 
+(rsProcessingAborted) 
+Cannot create a connection to data source DS. 
+(rsErrorOpeningConnection) 
+&quot;Cannot open database &lt;%Database_name%&gt; requested by the login. 
+The login failed. Login failed for user &lt;%User_name%&gt;&quot;.</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The Audit Database Account used to connect to SQL Server does not have the required permissions to access the target SQL database <code>%database_name%.</code></p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Verify that the <strong>db_owner</strong> role for the target database is assigned to the default Audit Database Account by following the steps below:</p>
+
+<ol><li>
+	<p>Navigate to <strong>Start &gt; All Programs &gt; Microsoft SQL Server &gt; SQL Server Management Studio</strong>.</p>
+	</li><li>
+	<p>In the <strong>Object Explorer</strong> pane of SQL Server Management Studio, navigate to <strong>Security &gt; Logins &gt;</strong> <code>%Audit_Database_account%</code>. Right-click the account and select <strong>Properties</strong>.</p>
+	</li><li>
+	<p>In the <strong>User Mapping</strong> tab, locate the affected database and verify that the <strong>db_owner</strong> role is assigned. Click <strong>OK</strong> to save the changes.</p>
+	</li></ol>
+
+<p>For additional information on required access rights, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.7/page/Content/Auditor/Requirements/SQLServer.htm#configure_audit_database_account" target="_self">Configure Audit Database Account  Requirements for SQL Server to Store Audit Data · v10.7</a>.</p>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span> If your account lacks the correct permissions to assign the roles, you can run your SSMS instance in the single-user mode. Learn more in <a href="https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/start-sql-server-in-single-user-mode?view=sql-server-ver16" target="_blank">Single-user Mode for SQL Server · Microsoft &#129125;</a>.</p>
+</blockquote>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.7/page/Content/Auditor/Requirements/SQLServer.htm#configure_audit_database_account" target="_self">Configure Audit Database Account  Requirements for SQL Server to Store Audit Data · v10.7</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/start-sql-server-in-single-user-mode?view=sql-server-ver16" target="_blank">Single-user Mode for SQL Server · Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

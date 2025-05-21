@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logon Request Contained Invalid Logon Type Value in Netwrix Auditor Health Log</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-09-21T11:27:31.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-09-28T08:24:41.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-21T11:27:56.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111EVCAY">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111EVCAY">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-09-28T08:25:02.000Z">
+    <meta name="LastPublishedDate" content="2023-09-21T11:27:56.000Z">
+    <meta name="Meta_Description__c" content="Logon Request Contained Invalid Logon Type Value in Netwrix Auditor Health Log">
+    <meta name="Meta_Title__c" content="Logon Request Contained Invalid Logon Type Value in Netwrix Auditor Health Log">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8813">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111EVCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Logon Request Contained Invalid Logon Type Value in Netwrix Auditor Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<ul><li>
+	<p>The following errors are prompted in your Health Log:</p>
+
+	<pre class="has-inner-focus">
+Monitoring plan: %affected_monitoring_plan_name%
+Item: %affected_item%
+The following error has occurred:
+Failed to get a list of audited computers in %affected_item% due to the following error:
+A logon request contained an invalid logon type value</pre>
+
+	<pre class="has-inner-focus">
+Monitoring plan: %affected_monitoring_plan_name%
+Your monitoring plan does not contain items of this data source type.</pre>
+	</li><li>
+	<p>No data is collected in the affected monitoring plan.</p>
+	</li></ul>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The data collecting account credentials were specified incorrectly.</p>
+	</li><li>
+	<p>The data collecting account permissions are misconfigured.</p>
+	</li><li>
+	<p>The gMSA account was not assigned a Local Administrator role.</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To verify the data collection account credentials were specified correctly, refer to the following steps:</p>
+
+<ol><li>
+	<p>In the main Netwrix Auditor menu, select <strong>Monitoring Plans</strong>.</p>
+	</li><li>
+	<p>In the left pane, select the affected monitoring plan, and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>In the left pane, click <strong>Edit settings</strong> under the <strong>Monitoring Plan</strong> section.</p>
+	</li><li>
+	<p>In the left pane, select the <strong>Data Collection</strong> tab, and review the data collecting account credentials.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Make sure the data collecting account is specified in the domain\account name format.</p>
+	</blockquote>
+	</li><li>
+	<p>Save changes and allow the monitoring plan some time to collect data.</p>
+	</li></ol>
+
+<p>Alternatively, you might have a particular data collecting account set up for a specific item. You can review the corresponding data collecting account credentials by clicking <strong>Edit Item</strong> under the <strong>Item</strong> section.</p>
+</div>
+
+<div>
+<p>For additional information on configuring your data collecting account, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/DataAccounts.htm" target="_self">Monitoring Plans  Data Collecting Account ? v10.6</a>.</p>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/DataAccounts.htm" target="_self">Monitoring Plans  Data Collecting Account ? v10.6</a></p>
+</div>
+</body>
+</html>

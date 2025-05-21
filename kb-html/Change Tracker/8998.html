@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Templates Generated a Schema Error and Were Set as Untrusted</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2024-01-10T15:23:30.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-01-12T08:40:20.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-01-10T15:23:37.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000MyDKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000MyDKAU">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-01-12T08:40:43.000Z">
+    <meta name="LastPublishedDate" content="2024-01-12T08:40:43.000Z">
+    <meta name="Meta_Description__c" content="Policy Templates Generated a Schema Error and Were Set as Untrusted">
+    <meta name="Meta_Title__c" content="Policy Templates Generated a Schema Error and Were Set as Untrusted">
+    <meta name="OwnerId" content="0050g000006HS99AAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8998">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000MyDKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Policy Templates Generated a Schema Error and Were Set as Untrusted</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>After an upgrade, some policies under <b>Settings</b> -&gt; <b>Policy Templates</b> were set as <em>untrusted</em>. When trying to duplicate the policy and remove the old one, the following error appears:</p>
+
+<div>
+<pre class="has-inner-focus">
+ 
+    File: [policy name] fails schema validation: Error: The element &#39;UsageTags&#39; in namespace &#39;
+        </pre>
+</div>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This is a common issue after upgrading the Change Tracker application from v7.2 to v7.3 or higher.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Follow the spteps below to resolve the issue:</p>
+
+<ol><li>
+	<p>Remove any <b>Compliance Reports</b> which had been added. For that, navigate to <b>Settings</b> &gt; <b>Groups</b> &gt; <b>Templates</b>. These are noticeable as they typically contain <em>Benchmark</em> within the template name.</p>
+	</li><li>
+	<p>Once removed, navigate to <em>C:\Program Files\NNT Change Tracker Suite\Gen7\Maintenance\</em> and run the <b>NNT.Hub.Service.Maintenance.App.exe</b> file that lauches the maintenance application.</p>
+	</li><li>
+	<p>Use the <code>U</code> option in the maintenance app to verify all compliance templates.</p>
+	</li></ol>
+
+<p>This will resolve the <b>Schema Error</b> tag and set the templates to <em>Trusted</em>.</p>
+</div>
+</body>
+</html>

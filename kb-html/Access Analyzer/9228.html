@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Error Enumerating Remote SharesAccess Is Denied</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-07-29T09:40:27.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-07-29T09:40:27.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-07-29T09:41:40.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001J8fKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001J8fKAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-07-29T09:41:40.000Z">
+    <meta name="LastPublishedDate" content="2024-07-29T09:41:40.000Z">
+    <meta name="Meta_Description__c" content="Error: Error Enumerating Remote Shares &amp;mdash; Access Is Denied">
+    <meta name="Meta_Title__c" content="Error: Error Enumerating Remote Shares &amp;mdash; Access Is Denied">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9228">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001J8fKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Error Enumerating Remote SharesAccess Is Denied</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>This is an unvalidated article. The product R&amp;D team has yet to review some or all of information below.</p>
+</blockquote>
+
+<h2>Symptom</h2>
+
+<div>
+<p>Netwrix Enterprise Auditor prompts the following error:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Error enumerating remote shares: Access is denied</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The service account has insufficient rights to perform the scan.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Assign the sufficient right to the service account. Depending on the target operating system version, refer to the following required rights:</p>
+
+<ul><li>
+	<p>When you target a server running Windows Server 2022 and later, verify that the service account is a member of one of the following groups:</p>
+
+	<ul><li>
+		<p>Administrator</p>
+		</li><li>
+		<p>Access Control Assistance Operators</p>
+		</li><li>
+		<p>Server Operator</p>
+		</li></ul>
+	</li><li>
+	<p>When you target a server running Windows Server 2019 and earlier, verify that the service account is a member of one of the following groups:</p>
+
+	<ul><li>
+		<p>Administrator</p>
+		</li><li>
+		<p>Power User</p>
+		</li><li>
+		<p>Print Operator</p>
+		</li><li>
+		<p>Server Operator</p>
+		</li></ul>
+	</li></ul>
+</div>
+</body>
+</html>

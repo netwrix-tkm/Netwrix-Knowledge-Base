@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- EPP interaction with other security vendors, proxies, casb, browsers - What we recommend</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:13.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B7HKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000002i2OLIAY">
+    <meta name="AssignmentDate" content="2025-03-19T17:35:31.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:26:13.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TSE">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B7HKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B7HKAU">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-04-10T19:40:40.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9857">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B7HKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- EPP interaction with other security vendors, proxies, casb, browsers - What we recommend</h1>
+    <p>Most important tips and tricks:</p>
+<p></p>
+<p>I.</p>
+<p></p>
+<p>If network routing is properly configured</p>
+<p>And</p>
+<p>No SSL inspection occurs</p>
+<p>-&gt; The client server communication should work without any issues</p>
+<p></p>
+<p>II.</p>
+<p></p>
+<p></p>
+<p>Disable peer certificate validation must be disabled in case of other security vendors performing SSL inspection</p>
+<p></p>
+<p>Zscaler</p>
+<p>Zscaler</p>
+<p>- difficulties in making the DPI filter work because of the Zscaler +</p>
+<p>Cisco AnyConnect VPN</p>
+<p>and</p>
+<p>Cisco Umbrella VPN</p>
+<p>How to resolve</p>
+<p>Adding custom ports for the Proxies used</p>
+<p>Disabling DPI Peer Certificate Validation</p>
+<p></p>
+<p># For this, in the EPP UI, go to</p>
+<p>CAP</p>
+<p>&gt;</p>
+<p>Deep Packet Inspection</p>
+<p>and check the</p>
+<p>Custom Ports</p>
+<p>to enable them, select</p>
+<p>Proxy type</p>
+<p>and add the</p>
+<p>port</p>
+<p>used by the customer&quot;s proxy</p>
+<p></p>
+<p># Also, make sure that the</p>
+<p>Peer Certificate validation</p>
+<p>is on the OFF position</p>
+<p></p>
+<p></p>
+<p>Netskope</p>
+<p>Netskope</p>
+<p>- Netskope Logs show SLLSPLIT.exe under traffic tunnelling instead of the original Application Name (ex. Instead of MS Teams or Chrome.exe, the customer sees sslsplit.exe) Customer doesn&quot;t see in the Netskope the origin of the logs</p>
+<p>How to resolve</p>
+<p>This can be resolved by enabling &quot;Stealthy DPI driver&quot;. This can be done globally per group or per user/computer.</p>
+<p></p>
+<p>Forcepoint</p>
+<p>Forcepoint</p>
+<p>- Websites inaccessible on Firefox while Forcepoint Certificate present and DPI ON</p>
+<p>How to resolve</p>
+<p>Adding custom ports for the Proxies used by Forcepoint</p>
+<p>Disabling Peer Certificate Validation</p>
+<p></p>
+<p>Must try</p>
+<p>Clear cache for the browser</p>
+<p>Sophos</p>
+<p>Sophos</p>
+<p>() - using Sophos WebControl - URL Categories Blocking (ex: Social Media)</p>
+<p>Sophos made some updates to their product and following, our DPI prevents them from using the URL Categories Blocking.</p>
+<p></p>
+<p>Trying to establish a meeting and a collaboration with Sophos (Jono has a contact there) in order to find</p>
+<p></p>
+<p>FireFox (especially on MAC)</p>
+<p></p>
+<p>Particularly on Mac, it is common behaviour that Firefox will not use the System certificates for validation, but rather the local Firefox profile (pre-cached) certificates.</p>
+<p>To mitigate this behaviour, Firefox needs to have the security.enterprise_roots.enabled setting to be set to TRUE, as showcased in the above screenshot. This will make Firefox trust 3rd party certificates like ours.</p>
+<p></p>
+</body>
+</html>

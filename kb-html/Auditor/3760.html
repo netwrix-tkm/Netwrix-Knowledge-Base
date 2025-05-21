@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to remove Netwrix Auditor for Active Directory, Group Policy and Exchange?</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005700000042ELcAAM">
+    <meta name="ArticleCreatedDate" content="2020-05-07T12:43:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="005700000042ELcAAM">
+    <meta name="CreatedDate" content="2023-05-08T09:51:44.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-05-07T12:57:11.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000Pbd1CAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000Pbd1CAC">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:51:44.000Z">
+    <meta name="LastPublishedDate" content="2020-05-07T12:57:11.000Z">
+    <meta name="Meta_Description__c" content="[not provided]">
+    <meta name="Meta_Title__c" content="[not provided]">
+    <meta name="OwnerId" content="005700000042ELcAAM">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="671">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000Pbd1CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to remove Netwrix Auditor for Active Directory, Group Policy and Exchange?</h1>
+    How can I remove<strong> Netwrix Auditor for Active Directory, Group Policy and Exchange</strong>?
+
+<hr></hr>
+
+To completely uninstall <strong>Netwrix Auditor for Active Directory, Group Policy and Exchange Servers</strong>, perform the following steps:
+<ol><li>Remove the program using Control Panel.</li><li>Delete the entire contents of the Netwrix Auditor Audit Archive folder (to locate the folder correctly see <strong>Newtwrix Auditor console -&gt; Settings -&gt; Audit Archive</strong>). By default, C:ProgramDataNetWrixManagementConsoleData.</li><li>Delete the following directory:
+<ul><li><strong>Vista or above</strong>: &quot;C:ProgramDataNetWrix&quot;</li><li><strong>Windows XP, 2003 Server</strong>: &quot;C:Documents and SettingsAll UsersApplication DataNetWrix&quot; and  &quot;C:Program FilesCommon FilesNetWrix&quot;.</li></ul>
+</li><li>Delete all scheduled Tasks that start with &quot;NetWrix&quot;.</li><li>Delete the program installation folder.</li><li>Launch &#39;regedit&#39; and remove the following directory:
+<ul><li><strong>for 32-bit OS</strong>: &quot;HKEY_LOCAL_MACHINESOFTWARENetWrix&quot;</li><li><strong>for 64-bit OS</strong>: &quot;HKEY_LOCAL_MACHINESOFTWAREWow6432NodeNetWrix&quot;</li></ul>
+</li><li>To remove all historical data from your SQL Server, remove all Netwrix databases using MS SQL Server Management Studio.</li><li>To remove Netwrix Auditor Lightweight Agent from Domain Controllers, refer this <a href="http://www.netwrix.com/knowledge_base.html?mode=sol&amp;solution=00000818" target="_blank">KB article</a>.</li></ol>
+</body>
+</html>

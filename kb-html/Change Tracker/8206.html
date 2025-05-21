@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling-Log Fix: &quot;Hub Offline, connection retries exhausted. Sleeping until ... (Unable to connect to the remote server - No connection could be made because the target machine actively refused it ... )&quot;</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:49:58.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000Ja1CAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T04:13:19.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:49:59.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000Ja1CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000Ja1CAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T04:18:12.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Rolling-Log Fix: &quot;Hub Offline, connection retries exhausted. Sleeping until ... (Unable to connect to the remote server - No connection could be made because the target machine actively refused it ......">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8206">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Ja1CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rolling-Log Fix: &quot;Hub Offline, connection retries exhausted. Sleeping until ... (Unable to connect to the remote server - No connection could be made because the target machine actively refused it ... )&quot;</h1>
+    <div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style=""><b>Example Error Message</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre"># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+#                                                                                                      Example Message:								                                         	                                                                  #          					  
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+2017-11-25 09:22:56,446 [10] INFO  Message - Hub Offline, connection retries exhausted. Sleeping until 11/25/2017 2:24:31 PM (Unable to connect to the remote server - No connection could be made because the target machine actively refused it 192.168.1.1:443)
+
+
+</pre>
+</div></div><p><br></p><h2 id="Rolling-LogFix:"><strong><span style="color: rgb(51,153,102);">What Does It Mean?</span></strong></h2><p>This error occurs when your agent cannot reach the Netwrix Server. There are many things that can cause this issue, including but not limited to:</p><ol><li>Your Netwrix Server may actually be powered, IIS is not running, or MongoDB is not running.</li><li>Your Netwrix Server may not be on the domain, does not have a network connection, or is in the wrong subnet.</li><li>The port the agent is using is currently being used by another application and is causing a clash.</li><li>Your firewall is not allowing connection to the Netwrix Server over the specified port.</li><li>Your routes are not configured to allow communication between the Netwrix Server and the Agent.</li><li>If you configured the agent using a Fully Qualified Domain Name instead of an IP Address, the issue could be DNS related.</li><li>If your agent is on a WAN or a different LAN, you may have to configure port forwarding.</li><li>If your agent is on a WAN or a different LAN, you may need to modify NAT settings to allow communication.</li><li>If your agent is on a WAN or a different LAN, you may need to modify proxy settings if you have a Web / other proxy.</li><li>If your agent is on a Cloud Provider Network, you may need to modify the Cloud Provider&#39;s traffic variables to allow communication.</li></ol><h2 id="Rolling-LogFix:"><strong><span style="color: rgb(51,102,255);">How Can I Fix This / Should I Worry?</span></strong></h2><p>If you are receiving this error, this means the agent is currently not sending any logs to the Netwrix Server! To fix this error, check the above items and verify that everything is functioning properly.</p><p><br></p><div class="confluence-information-macro confluence-information-macro-information conf-macro output-block"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><span style="color: rgb(51,153,102);">In most cases, if it is one of the above items causing the issue, simply resolving that problem will fix the issue, if not, please restart the agent service.</span></div></div><h2 id="Rolling-LogFix:">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+</p><ul class="content-by-label conf-macro output-block"><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8133" target="_blank">How to fix the &quot;Check Log for Details&quot; message in the event details</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8302" target="_blank">Support for TLS 1.2 in the .NET Framework 3.5.1</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8285" target="_blank">MongoDB - Pre-allocated Log Files Accumulate &amp; Result to Disk Space Errors</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8265" target="_blank">Change Tracker Äì How to Create a Custom Tracked Attributes Filter Within a Configuration Template</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8284" target="_blank">How To Turn Off Bulk Email Notifications (Force Change Tracker to send one email for each change instead of compiling into one email with multiple changes)</a>
+                        
+                        
+                    </div>
+    </li></ul>
+<p><br></p><p><br></p>
+</body>
+</html>

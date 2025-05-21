@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warning.server_name: [WARNING] Auditing of Object Access Success and Auditing of Account Management Success is not enabled for this Server</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:59.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:48:00.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:42.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9XuCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9XuCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:48:00.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:42.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Auditor, Windows Server, Auditing is not enabled">
+    <meta name="Meta_Title__c" content="Auditing of Object Access Success and Auditing of Account Management Success is not enabled for this Server">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1150">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XuCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Warning.server_name: [WARNING] Auditing of Object Access Success and Auditing of Account Management Success is not enabled for this Server</h1>
+    Email reports contain the following warning: &quot;<strong>[WARNING] Auditing of Object Access Success and Auditing of Account Management Success is not enabled for this Server</strong>&quot; 
+
+<hr></hr>
+
+If <strong>Group Policy</strong> is enforced on the monitored servers, it is necessary to set the <strong>Audit Object Access</strong> policy setting to <strong>Success</strong>.
+
+<hr></hr>
+
+It is recommended to create a <strong>Group Policy Object</strong> and link it to your servers <strong>Organizational Unit</strong>.
+To do this, perform the following steps:
+<ol><li>Open the <strong>Group Policy Management </strong>console.</li><li>In the console tree, select the <strong>Organizational Unit</strong> where your servers reside. On the <strong>Action</strong> menu, click <strong>Create a GPO</strong> in this domain and <strong>Link it here</strong> &quot; </li><li>In the <strong>New Group Policy Object</strong> dialog box, type <strong>Server Configuration Change Reporter</strong> for the name of the box (for example) and click <strong>OK</strong>.</li><li>Select the newly created <strong>Server Configuration Change Reporter GPO</strong>. On the <strong>Action</strong> menu, click <strong>Edit</strong>.</li><li>In the <strong>Group Policy Management Editor</strong> console tree, expand<strong> Computer Configuration / Windows Settings / Security Settings / Local Policies</strong> and then click <strong>Audit Policy</strong>.</li><li>In the Details pane, double-click <strong>Audit Object Access</strong>.</li><li>On the <strong>Security Policy Setting</strong> tab of the <strong>Audit Object Access</strong> Properties dialog box, select the &quot;<strong>Success</strong>&quot;  checkbox and click <strong>OK</strong>.</li><li>In the Details pane, double-click <strong>Audit Account Management</strong>.</li><li>On the <strong>Security Policy Setting</strong> tab of the <strong>Audit Account Management</strong> Properties dialog box, select the &quot;<strong>Success</strong>&quot;  checkbox, and click <strong>OK</strong>.</li><li>Click <strong>OK</strong>.</li></ol>
+</body>
+</html>

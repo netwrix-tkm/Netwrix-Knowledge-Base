@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Checklist in Password Policy Enforcer</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="password_policy_enforcer">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-06-10T10:41:17.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-06-10T10:42:26.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-06-10T10:42:22.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001Cf3KAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001Cf3KAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-06-10T10:42:33.000Z">
+    <meta name="LastPublishedDate" content="2024-06-10T10:42:22.000Z">
+    <meta name="Meta_Description__c" content="Upgrade Checklist in Password Policy Enforcer">
+    <meta name="Meta_Title__c" content="Upgrade Checklist in Password Policy Enforcer">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9195">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001Cf3KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Upgrade Checklist in Password Policy Enforcer</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>This article covers steps to take when upgrading Netwrix Password Policy Enforcer (PPE) in your environment.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>Refer to the following steps to take to complete the PPE upgrade:</p>
+
+<ol><li>
+	<p>After you upgrade the PPE Server installation in one domain controller (DC), select <strong>No</strong> when a reboot is prompted.</p>
+	</li><li>
+	<p>Run the <strong>PPE Configuration</strong> tool on the DC. Upon the launch, the upgraded PPE Server instance imports the configuration.</p>
+	</li><li>
+	<p>Import the PPE licensein the <strong>PPS Properties</strong> menu, select the <strong>License</strong> tab and import the license.</p>
+	</li><li>
+	<p>Allow the Active Directory replication to replicate the configuration settings to all DCs in the domain.</p>
+	</li><li>
+	<p>Reboot the DC with the updated PPE instance.</p>
+	</li><li>
+	<p>Upgrade and reboot other DCs.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Once you complete the steps provided above, you can upgrade the PPE client installations.</p>
+</blockquote>
+</div>
+</body>
+</html>

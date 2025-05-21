@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Based Access (RBA) Error</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:41:29.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:33.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:41:30.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IutCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IutCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:33.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:41:30.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Role Based Access (RBA) Error">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7318">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IutCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Role Based Access (RBA) Error</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> StealthAUDIT opens one instance, but never starts up the application. <br>Upon starting a second instance, it will throw an error &#39;Role Based Access configuration was broken.&#39;</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:  </span></strong>Removing or modifying the configuration of RBA will remove all the existing Roles created.</p>
+<p>All roles would need to be recreated after the below steps are followed.</p>
+<p>In some instances; StealthAUDIT opens one instance, but never starts up the application (no splash page).<br>Upon starting a second instance, it will throw an error &#39;Role Based Access configuration was broken (The process cannot access the file &#39;path to PrivateAssemblies\rba-roles.conf&#39; because it is being used by another process).<br>The issue is caused by an incorrect registry key for the StealthAUDIT event log. <br>Navigate to and delete the registry folder hkeylocal and all subkeys if it exists:</p>
+<p>machine/system/currentcontrolset/services/eventlog/application/StealthAUDIT <br><br></p>
+<p>1. On the occasion that there is a message:</p>
+<p>&#39;Role Based Access configuration was broken&quot;</p>
+<p>The REG_DWORD &quot;RbaConfigured&quot; can be deleted from the following Regkey:</p>
+<p>HKEY_LOCAL_MACHINE\Software\Wow6432Node\Stealthbits\</p>
+<p><br>2. In this instance the following file also needs to be deleted:</p>
+<p>&quot;rba.conf&quot; file from the root of SA folder.</p>
+<p>Do not remove the rba.config from the private assemblies folder!</p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core;SA - RBA<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1024</p>
+</body>
+</html>

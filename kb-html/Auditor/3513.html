@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Shared Resource Does Not Exist Error in File Servers Monitoring Plan</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:52.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2024-02-12T11:19:34.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:53.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9bHCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9bHCAS">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-02-12T11:19:52.000Z">
+    <meta name="LastPublishedDate" content="2024-02-12T11:19:16.000Z">
+    <meta name="Meta_Description__c" content="Cannot obtain agent file share parameters. Error details: This shared resource does not exist., error code: -1">
+    <meta name="Meta_Title__c" content="Error: Cannot obtain agent file share parameters">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1349">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bHCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>This Shared Resource Does Not Exist Error in File Servers Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following message is prompted in Health Log for your File Servers monitoring plan in Netwrix Auditor:</p>
+
+<pre class="has-inner-focus">
+Snapshot processing for the server %affected_server% completed with errors:
+Object: %share%, Error: 0x80070906 This shared resource does not exist.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ol><li>
+	<p>Misconfigured permissions for the Auditor data collecting account.</p>
+	</li><li>
+	<p>The affected share is specified incorrectly in the coresponding monitoring plan.</p>
+	</li></ol>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ol><li>
+	<p>Verify the permissions for the data collecting account used in the File Servers monitoring plan. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Windows/Permissions.htm" target="_self">Windows File Server ? Permissions for Windows File Server Auditing · v10.6</a>.</p>
+	</li><li>
+	<p>In the affected monitoring plan, select the affected item and click <strong>Edit item</strong> to verify the UNC path or file server name.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Windows/Permissions.htm" target="_self">Windows File Server ? Permissions for Windows File Server Auditing · v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Audit a Non-Trusted Domain</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000005YG2zAAG">
+    <meta name="ArticleCreatedDate" content="2020-07-30T17:22:27.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000005YG2zAAG">
+    <meta name="CreatedDate" content="2023-09-07T12:46:01.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-07-30T17:31:12.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000PcsaCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000PcsaCAC">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-09-07T12:46:35.000Z">
+    <meta name="LastPublishedDate" content="2023-09-07T11:49:16.000Z">
+    <meta name="Meta_Description__c" content="How to Audit a Non-Trusted Domain">
+    <meta name="Meta_Title__c" content="How to Audit a Non-Trusted Domain">
+    <meta name="OwnerId" content="0050g000005YG2zAAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5809">
+    <meta name="VersionNumber" content="8">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PcsaCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Audit a Non-Trusted Domain</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to audit a non-trusted domain in Netwrix Auditor?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>A remote domain should be accessible and reachable via nslookup from domain controllers of your primary domain and from Netwrix server.</p>
+</blockquote>
+
+<p>Refer to the following steps to audit a remote domain that does not have any trust relationship with the Netwrix server or your primary domain:</p>
+
+<ol><li>
+	<p>In any of domain controllers of your primary domain, open <strong>DNS Manager</strong> console.</p>
+	</li><li>
+	<p>In the left pane under the domain controller, right-click <strong>Forward Lookup Zones</strong>, and select <strong>New zone</strong>.</p>
+	</li><li>
+	<p>In the New Zone Wizard window, click next, select <strong>Stub zone</strong> and check the <strong>Store the zone in Active Directory</strong> checkbox. Click <strong>Next</strong>.</p>
+	</li><li>
+	<p>Select the <strong>To all DNS servers running on domainc controllers in this domain</strong> option for replication, and click <strong>Next</strong>.</p>
+	</li><li>
+	<p>Enter the remote domain FQDN in the <strong>Zone name</strong> field. Click <strong>Next</strong>.</p>
+	</li><li>
+	<p>Add IP addresses for all domain controllers of the remote domain.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>It is recommended to provide multiple domain controllers to ensure redundancy.</p>
+	</blockquote>
+	</li><li>
+	<p>Click <strong>Next</strong>, and then click <strong>Finish</strong> to complete the setup.</p>
+	</li><li>
+	<p>Once the setup is completed, restart the DNS server. Right-click the server, and select <strong>Restart</strong> under <strong>All Tasks</strong>.</p>
+	</li><li>
+	<p>In your Netwrix Auditor server and domain controller, run the following command in elevated Command Prompt to flush DNS:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">ipconfig /flushdns</code></pre>
+	</li><li>
+	<p>In your Netwrix Auditor server, run the following command in elevated Command Prompt:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">nslookup</code></pre>
+
+	<ul><li>
+		<p>Once prompted, enter the remote domain FQDN you&#39;ve previously specified to make sure the newly added domain is reachable from your Netwrix Auditor server.</p>
+		</li></ul>
+	</li><li>
+	<p>Enable <strong>NetBIOS over TCP/IP</strong> support in the Netwrix Auditor server network interface:</p>
+
+	<ol><li>
+		<p>Proceed to <strong>Network Connections</strong>  you can reach the menu either via your Control Panel, or by searching by <strong>View network connections</strong>.</p>
+		</li><li>
+		<p>Right-click the current connection, and click <strong>Properties</strong>.</p>
+		</li><li>
+		<p>Select <strong>Internet Protocol Version 4 (TCP/IPv4)</strong>, and click <strong>Properties</strong>.</p>
+		</li><li>
+		<p>Click <strong>Advanced</strong>.</p>
+		</li><li>
+		<p>Select the <strong>WINS</strong> tab, and select <strong>Enable NetBIOS over TCP/IP</strong>. Click <strong>OK</strong> to save changes.</p>
+		</li></ol>
+	</li></ol>
+</div>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>If the domain still fails to get audited after completing all the steps provided, you can also specify the domainc controller name as domain.<b>tld</b>\user or user@domain.<b>tld</b> in Netwrix Auditor.</p>
+</blockquote>
+</body>
+</html>

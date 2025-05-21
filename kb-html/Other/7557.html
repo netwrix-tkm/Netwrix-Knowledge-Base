@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_6.3_SP2_002</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:47:59.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:14:17.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:47:59.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000J5rCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000J5rCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:14:17.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:47:59.000Z">
+    <meta name="Meta_Description__c" content="360008892592">
+    <meta name="Meta_Title__c" content="Hotfix: SA_6.3_SP2_002">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7557">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J5rCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_6.3_SP2_002</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Fix DC Mailbox search errors and errors in Mailbox Action Module</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Modules Included <br>- Stealthbits.StealthAUDIT.Actions.Mailbox.dll - 6.3.32 <br>- Stealthbits.Exchange.Mapi.dll - 1.2.36 <br>- MailboxSearchProcessor.dll - 6.3.101 <br>- Stealthbits.StealthAUDIT.Exchange.dll - 6.3.25 <br>- Stealthbits.StealthAUDIT.Exchange.UI.dll - 6.3.17 <br><br>YouTrack/Escalations <br>- SAT-175 MB Action: No Sampling host breaks action (RMT 9463)- <br>- SAT-601/Escalations 7195: Mailbox DC Search returns error for Mailbox <br>- SAT-603/Escalations 7195: Mailbox Action Module: Delete Contents Actions doesn&#39;t do anything <br><br>Customers <br>- MasterCard <br><br>Cumulative List of fixes included since Service Pack: <br>- Stealthbits.StealthAUDIT.Actions.Mailbox.dll <br>o RMT 7369: Support for Exchange 2013 <br>o RMT 9257/SAT-75: Mailbox settings doesn&#39;t save CAS and EntryID selections <br>o RMT 9463/SAT-175: MB Action: No Sampling host breaks action <br>o SAT-603 Mailbox Action Module: Delete Contents Actions don&#39;t do anything <br><br>- Stealthbits.Exchange.Mapi.dll - 1.2.36 (versions 33 and 35 do not exist) <br>o RMT 9462/SAT-176: Mailbox DC: words in recipient address doesn&#39;t work against exchange 2013 <br>o SAT-601/Escalations 7195: Mailbox DC Search returns error for Mailbox <br><br>- MailboxSearchProcessor.dll (version 100 does not exist) <br>o RMT9244/SAT-31: Exchange Mailbox: Improve Words Dialog <br><br>- Stealthbits.StealthAUDIT.Exchange.dll <br>o RMT9244/SAT-31: Exchange Mailbox: Improve Words Dialog <br>o SAT-603 Mailbox Action Module: Delete Contents Actions don&#39;t do anything <br><br>- Stealthbits.StealthAUDIT.Exchange.UI.dll <br>o RMT9244/SAT-31: Exchange Mailbox: Improve Words Dialog</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <a href="http://downloads.stealthbits.com/access/files/SAHotFixes/6.3/SA_6.3_SP2_002.zip" target="_blank">http://downloads.stealthbits.com/access/files/SAHotFixes/6.3/SA_6.3_SP2_002.zip</a><br><br>1. Update all files in appropriate directories under SA Install Dir</p><p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Action Module - Mailbox;SA - DC - ExchangeMailbox<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 6.3 SP2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-175, SAT-601, SAT-603<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> Stealthbits.StealthAUDIT.Actions.Mailbox.dll - 6.3.32 	Stealthbits.Exchange.Mapi.dll - 1.2.36 	MailboxSearchProcessor.dll - 6.3.101 	Stealthbits.StealthAUDIT.Exchange.dll - 6.3.25 Stealthbits.StealthAUDIT.Exchange.UI.dll - 6.3.17<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1133<br></p>
+</body>
+</html>

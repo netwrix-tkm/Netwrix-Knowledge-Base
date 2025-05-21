@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to specify Exchange Server to collect Administrator Audit Log</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000H9SFCA0">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2025-04-28T08:46:23.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:38.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9SFCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9SFCA0">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T08:54:43.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:38.000Z">
+    <meta name="Meta_Description__c" content="Exchange Administrator Audit Log AAL 2010">
+    <meta name="Meta_Title__c" content="How to specify Exchange Server to collect Administrator Audit Log">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="164">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SFCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to specify Exchange Server to collect Administrator Audit Log</h1>
+    If for some reason you cannot configure <strong>IIS</strong> (steps<strong> 5-8</strong> from<strong> Procedure 16</strong> of the<strong> Installation and Configuration Guide</strong> attached to this article) on all Exchange Servers in your organization, it is enough to configure it on just one Exchange Server.   You can specify the Exchange Server with configured IIS to be used by Netwrix products to avoid the Administrator Audit Log error appearing in reports.
+
+In order to specify properly configured servers to the product, perform the following steps:
+<ol><li>On computer where Netwrix host resides, navigate to the <em><a target="_blank">C:ProgramDataNetWrixAD</a> Change ReporterOmitlists%Managed object name%</em> folder.</li><li>Add the properly configured server&#39;s FQDN to the <strong>aal_serverlist.txt</strong> file. (Each server&#39;s FQDN in a separate line).</li><li>Click <strong>Start -&gt; Run</strong> and type <strong>regedit </strong>to open <strong>Registry Editor.</strong></li><li>Navigate to the following folder depending on your operating system:
+<ul><li><strong>32-bit OS:</strong> <em>HKLMSOFTWARENodeNetWrixAD Change ReporterAALCollectionVersion</em></li><li><strong>64-bit OS: </strong><em>HKLMSOFTWAREWow6432NodeNetWrixAD Change ReporterAALCollectionVersion</em></li></ul>
+</li><li>Check that the AALCollectionVersion key value is set to 1.</li></ol>
+<strong>Explanation:</strong> In this scenario the first server where the product will try to get the Administrator Audit Log will be the first server from the <strong>aal_serverlist.txt</strong>. If all servers from <strong>aal_serverlist.txt</strong> fail to provide the Administrator Audit Log, the product will try to collect the Administrator Audit Log from other Exchange Servers in your organization, and the Administrator Audit Log error can appear in the report.
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor System Health Log - Event ID 1284</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:57.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2024-01-04T13:05:09.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:50.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9cmCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9cmCAC">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-04T13:05:29.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:29:50.000Z">
+    <meta name="Meta_Description__c" content="Increasing timeouts for SharePoint Audit Data Collections.">
+    <meta name="Meta_Title__c" content="Netwrix Auditor System Health Log - Event ID 1284">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2372">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cmCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor System Health Log - Event ID 1284</h1>
+    Netwrix Auditor System Health Log contains the following Event ID:<b> 1284</b> &quot;<i>The Activity Summary may include incomplete data as the data collection was still in progress when it was sent. No data loss has occurred, the missing events will be listed in the next Activity Summary and added to AuditArchive</i>&quot;.
+<hr></hr> Since the data collection exceeded the predefined timeout period for its completion (1 hour), the summary email was generated while the data collection was still in progress.
+<hr></hr> No data loss has occurred, the missing events will be listed in the next summary email and added to the Audit Archive and Database. To generate a new summary email, do the following: Navigate to <b>Monitoring plans</b> --&gt; <b>&lt;your SharePoint monitoring plan name&gt;</b> --&gt; <b>Edit</b> and click <b>Update</b>. If the error persists:
+
+<ol><li>Exit <b>Netwrix Auditor</b>.</li><li>Stop the following services:
+	<ul><li>Netwrix Auditor Core Service</li><li>Netwrix Auditor Configuration Server Service</li><li>Netwrix Auditor Service for SharePoint (your_SharePoint_Monitoring_Plan_name).</li></ul>
+	</li><li>Navigate to <b>%ProgramData%Netwrix AuditorAuditCoreConfigServerConfiguration.xml. </b>Find your monitoring plan name in the configuration file:</li></ol>
+
+<div style="margin-left: 40px;">-&lt;n n=&quot;ManagedObjects&quot;&gt; ..... &lt;a n=&quot;Name&quot; t=&quot;2&quot; v=&quot;your_SharePoint_Monitoring_Plan_name&quot;/&gt;</div>
+
+<ol start="4"><li>Locate the <b>&lt;a n=&quot;SynchronizationTaskWaitTimeout&quot; t=&quot;5&quot; v=&quot;36000000000&quot;/&gt;</b> string and set <b>SynchronizationTaskWaitTimeout</b> to &quot;72000000000&quot;.</li><li>Save the <b>Configuration.xml</b> file and start the services you have stopped on the step 2. To do it, navigate to Start --&gt; Administrative Tools --&gt; Services, locate the service, right-click it and select <b>Start. </b></li></ol>
+ 
+</body>
+</html>

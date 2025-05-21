@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logon Prompt Extension deployment problems</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005700000042ELcAAM">
+    <meta name="ArticleCreatedDate" content="2020-05-07T12:43:13.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="005700000042ELcAAM">
+    <meta name="CreatedDate" content="2023-05-08T09:51:51.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-05-07T12:57:16.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000PbdXCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000PbdXCAS">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:51:51.000Z">
+    <meta name="LastPublishedDate" content="2020-05-07T12:57:16.000Z">
+    <meta name="Meta_Description__c" content="Logon Prompt Extension deployment problems">
+    <meta name="Meta_Title__c" content="[not provided]">
+    <meta name="OwnerId" content="005700000042ELcAAM">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1141">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbdXCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Logon Prompt Extension deployment problems</h1>
+    Logon Prompt Extension is not being deployed via GPO
+<hr></hr> There could be several different reason of such an issue, additional information is required for the investigation.
+<hr></hr> In order to further investigate the issue please allow GPO software installation logging as per Microsoft KB -<a href="http://support.microsoft.com/kb/249621" target="_blank">http://support.microsoft.com/kb/249621</a>:<br>1. On the problematic client computer launch regedit and navigate to the following key : H<strong>KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Diagnostics </strong> You may have to create the Diagnostics registry subkey (in case it&#39;s not present)<br>2. In Diagnostics key create new value: Type: DWORD Name: <strong>AppMgmtDebugLevel </strong> Value: 4b (HEX)<br>3. Reproduce the issue - try to install the Logon Prompt Extension via GPO.<br>4. Create new ticket on our site (<a href="https://www.netwrix.com/support_ticket.html" target="_blank">https://www.netwrix.com/support_ticket.html</a>) and send diagnostic file <strong>%SystemRoot%\DebugUserMode\Appmgmt.log </strong><br><strong>NOTE:</strong> We recommend that you delete the AppMgmtDebugLevel registry value to avoid performance degradation after sending log files to us
+</body>
+</html>

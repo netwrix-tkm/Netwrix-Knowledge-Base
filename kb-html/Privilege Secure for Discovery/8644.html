@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate License Counts with CLI Command</title>
+    <meta name="product" content="privilege_secure_discovery">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-07-07T10:23:43.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2023-07-07T10:23:43.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-07-07T10:24:06.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110pBCAQ">
+    <meta name="Knowledge_Article_ID__c" content="nan">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-07T10:24:06.000Z">
+    <meta name="LastPublishedDate" content="2023-07-07T10:24:06.000Z">
+    <meta name="Meta_Description__c" content="Generate License Counts with CLI Command">
+    <meta name="Meta_Title__c" content="Generate License Counts with CLI Command">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8644">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Generate License Counts with CLI Command</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span><br><br>The purpose of this document is to outline the steps required to get an accurate license count for the SecureONE product that is on a version older than 2.16.1.
+<blockquote>
+<div><span style="color: #2980b9;"><strong>NOTE:</strong> </span>Whether the licensing information is gathered from the script or the UI, the numbers should match as the UI is simply a reflection of the script.</div>
+</blockquote>
+
+<h1>Licensing Overview</h1>
+Netwrix Privilege Secure for Discovery is licensed based on systems successfully scanned in the last 90 days. The database queries below can be run from the CLI to get the licensing counts. Add all applicable count together to get the total licensing count.
+
+<h1>CLI Commands</h1>
+Below is a CLI command to output a count of successfully scanned systems in last 90 days. Only run the command matching the deployment type. Each block of lines is all one command, copy all the lines and paste in a node terminal (SSH) session:<br><strong>Cluster deployment command:</strong>
+
+<pre>
+CtR=$(sudo docker ps | grep mongo | cut -d&#39; &#39; -f1); \
+    DBExQ=&quot;sudo docker exec -it $CtR mongo mongodb://mongo1,mongo2,mongo3/SecureONE?replicaSet=secureone --eval&quot;; \
+    clear;echo &quot;Windows Server Count:&quot;; \
+    $DBExQ &#39;db.ldap_store.count({obj_type:&quot;computer&quot;, &quot;last_scanned&quot;:{$gte:new Date(ISODate().getTime()- 1000*86400*90)}, &quot;operatingSystem&quot;:/SERVER/i, &quot;os_type&quot;:&quot;windows&quot;})&#39; | \
+    grep -vi &quot;NETWORK\|Implicit\|MongoDB&quot;; \
+    echo;echo &quot;Windows Workstation Count:&quot;; \
+    $DBExQ &#39;db.ldap_store.count({obj_type:&quot;computer&quot;, &quot;last_scanned&quot;:{$gte:new Date(ISODate().getTime()- 1000*86400*90)}, &quot;operatingSystem&quot;:{$not:/SERVER/i}, &quot;os_type&quot;:&quot;windows&quot;})&#39; | \
+    grep -vi &quot;NETWORK\|Implicit\|MongoDB&quot;; \
+    echo;echo &quot;Linux Server Count:&quot;; \
+    $DBExQ &#39;db.ldap_store.count({obj_type:&quot;computer&quot;, &quot;last_scanned&quot;:{$gte:new Date(ISODate().getTime()- 1000*86400*90)}, &quot;os_type&quot;:&quot;linux&quot;})&#39; | \
+    grep -vi &quot;NETWORK\|Implicit\|MongoDB&quot;; echo</pre>
+<strong>Single-node deployment command:</strong>
+
+<pre>
+CtR=$(sudo docker ps | grep mongo | cut -d&#39; &#39; -f1); \
+        DBExQ=&quot;sudo docker exec -it $CtR mongo SecureONE --eval&quot;; \
+        clear;echo &quot;Windows Server Count:&quot;; \
+        $DBExQ &#39;db.ldap_store.count({obj_type:&quot;computer&quot;, &quot;last_scanned&quot;:{$gte:new Date(ISODate().getTime()- 1000*86400*90)}, &quot;operatingSystem&quot;:/SERVER/i, &quot;os_type&quot;:&quot;windows&quot;})&#39; | \
+        grep -vi &quot;NETWORK\|Implicit\|MongoDB&quot;; \
+        echo;echo &quot;Windows Workstation Count:&quot;; \
+        $DBExQ &#39;db.ldap_store.count({obj_type:&quot;computer&quot;, &quot;last_scanned&quot;:{$gte:new Date(ISODate().getTime()- 1000*86400*90)}, &quot;operatingSystem&quot;:{$not:/SERVER/i}, &quot;os_type&quot;:&quot;windows&quot;})&#39; | \
+        grep -vi &quot;NETWORK\|Implicit\|MongoDB&quot;; \
+        echo;echo &quot;Linux Server Count:&quot;; \
+        $DBExQ &#39;db.ldap_store.count({obj_type:&quot;computer&quot;, &quot;last_scanned&quot;:{$gte:new Date(ISODate().getTime()- 1000*86400*90)}, &quot;os_type&quot;:&quot;linux&quot;})&#39; | \
+        grep -vi &quot;NETWORK\|Implicit\|MongoDB&quot;; echo</pre>
+<strong>Example Output</strong><br>Below is an example of the output for the above command:
+<pre>
+Windows Server Count:
+556
+            
+Windows Workstation Count:
+3956
+            
+Linux Server Count:
+156</pre>
+</body>
+</html>

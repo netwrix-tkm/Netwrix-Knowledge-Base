@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specified Logon Session Does Not Exist Error in Netwrix Auditor</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-09-29T13:59:42.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-10-02T07:24:02.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-09-29T13:59:57.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111HPCAY">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111HPCAY">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-02T07:24:23.000Z">
+    <meta name="LastPublishedDate" content="2023-09-29T13:59:57.000Z">
+    <meta name="Meta_Description__c" content="Specified Logon Session Does Not Exist Error in Netwrix Auditor">
+    <meta name="Meta_Title__c" content="Specified Logon Session Does Not Exist Error in Netwrix Auditor">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8832">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111HPCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Specified Logon Session Does Not Exist Error in Netwrix Auditor</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When you enable <strong>Leverage Integration API</strong> in the Netwrix Auditor <strong>Settings</strong> menu, the following error is prompted:</p>
+
+<pre class="has-inner-focus">
+Cannot save the settings.
+A specified logon session does not exist. It may already have been terminated.</pre>
+
+<p>The <strong>Leverage Integration API</strong> switch is turned off subsequently.</p>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>An SSL certificate required to run Integration API is missing.</p>
+	</li><li>
+	<p>In case of a prior Netwrix Auditor migration, the previously used SSL certificate cannot be found in the certificate store of the new Netwrix Auditor server.</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Assign a new SSL certificate to Integration API. Refer to the following article for additional information on commands: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/API/Security.htm" target="_self">Integration API ? Security ? v10.6</a>.</p>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/API/Security.htm" target="_self">Integration API ? Security ? v10.6</a></p>
+</div>
+</body>
+</html>

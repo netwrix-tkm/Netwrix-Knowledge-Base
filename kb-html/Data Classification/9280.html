@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Certificate for the Source Is Due to Expire</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-09-20T14:04:32.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-10-09T21:29:11.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-09-20T14:04:59.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001RSnKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001RSnKAM">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2024-10-09T21:30:08.000Z">
+    <meta name="LastPublishedDate" content="2024-09-20T14:04:59.000Z">
+    <meta name="Meta_Description__c" content="Error: Certificate for the Source Is Due to Expire">
+    <meta name="Meta_Title__c" content="Error: Certificate for the Source Is Due to Expire">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9280">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001RSnKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Certificate for the Source Is Due to Expire</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Data Classification (NDC) prompts the following error for your Microsoft 365-based source:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Problem Details:
+
+Problem Type: Source Certificate Expiring
+Problem Severity: Error
+Problem Source: %M365_source%
+Problem Description
+    
+The certificate for the source: %M365_source% is due to expire on %datestamp%.
+Configure a new certificate and update the credentials to maintain connectivity.
+Current Certificate Name: %certificate_name%.</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The certificate used to authenticate to your Microsoft 365-based source is due to expire. This is a warning to allow you to renew the certificate before it expires and avoid any interruption in monitoring the source.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Update your certificate. Keep the existing certificate in place until you deploy the new certificate to all NDC servers and update the configuration to avoid any interruption in monitoring. Refer to the following steps for additional information: <a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Configuration/ConfigInfrastructure/AzureAppExchangeOnlineMFA.htm" target="_self">Configure Microsoft Exchange for Crawling and Classification  Create Azure AD app for Modern Authentication · v5.7</a>.</p>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Configuration/ConfigInfrastructure/AzureAppExchangeOnlineMFA.htm" target="_self">Configure Microsoft Exchange for Crawling and Classification  Create Azure AD app for Modern Authentication · v5.7</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

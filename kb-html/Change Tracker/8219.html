@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Export More than 50k Events</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:50:44.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:17:46.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:50:44.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JazCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JazCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:17:46.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to Export More than 50k Events">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8219">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JazCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Export More than 50k Events</h1>
+    <p>This article for when you need to export events to a file, but you have more than 50k events listed and the export button is greyed out.</p><h2 id="HowtoExportMorethan50kEvents-Step-by-stepguide">Step-by-step guide</h2><ol><li>First Go to <span style="color: rgb(255,0,0);">&quot;Settings&quot;</span></li><li>Scroll Down and click <span style="color: rgb(255,0,0);">&quot;Export and Import&quot;</span></li><li>For Export Type, Select <span style="color: rgb(255,0,0);">&quot;Events Only&quot;</span></li><li>For Export Format, Select <span style="color: rgb(255,0,0);">&quot;Text (CSV)&quot;</span></li><li>Select Start and End Dates to export.</li><li>Then Click <span style="color: rgb(255,0,0);">&quot;Perform Export&quot;</span></li><li>See Screenshot Below for Example:</li><li>Scroll down and download the export and unzip the CSV file.<br><br><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="1500" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKUG&amp;d=%2Fa%2F4u000000LzuH%2FpFkR9vRsetE3QgHYs3bVESe0AtEg32v7bjM3MKCtzKw&amp;asPdf=false"></img></span></li></ol><p><br></p><div class="confluence-information-macro confluence-information-macro-information conf-macro output-block"><p class="title">NOTE |  In some cases, you may need to do the following:</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p><br>Open a powershell prompt with admin privileges and change directory to the folder where the csv is located. <br><br>Run the following command: <br>&gt;Get-Content .\events.csv | Select-<span class="code-object" style="color: rgb(0,0,145);">String</span> <span class="code-quote" style="color: rgb(0,145,0);">&#39;DeviceEvent&#39;</span> | Set-Content DeviceEventsOnly.csv</p></div></div><p><br></p><h2 id="HowtoExportMorethan50kEvents-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+</p><ul class="content-by-label conf-macro output-block"><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8283" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8164" target="_blank">How to Add Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen7</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8311" target="_blank">Vulnerability Tracker - How to Change a Task&#39;s Status through the GSM Database</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8310" target="_blank">How to Change the Admin Password of your Mongo Database</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8133" target="_blank">How to fix the &quot;Check Log for Details&quot; message in the event details</a>
+                        
+                        
+                    </div>
+    </li></ul>
+<p><br></p><p><br></p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKUL&amp;d=%2Fa%2F4u000000LzYA%2FbiFGnnO6oE9ayEet.kUq8ReMR60XvlzZhkzCLgPGELM&amp;asPdf=false" target="_blank">Screenshot.PNG</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKFO&amp;d=%2Fa%2F4u000000LzzZ%2FfrflpEe6wB20AYFiZ8ek2KhG6tVCMeJLl18_VfBy.5s&amp;asPdf=false" target="_blank">r.PNG</a> <br>
+</body>
+</html>

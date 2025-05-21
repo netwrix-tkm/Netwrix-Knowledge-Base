@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Servers  Security Descriptor of File Share Is Empty</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-07-17T09:20:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-11-17T09:16:06.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-07-17T09:24:43.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110sKCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110sKCAQ">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-11-17T09:16:45.000Z">
+    <meta name="LastPublishedDate" content="2023-07-24T08:39:53.000Z">
+    <meta name="Meta_Description__c" content="security descriptor of the file share is empty">
+    <meta name="Meta_Title__c" content="security descriptor of the file share is empty">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8667">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110sKCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>File Servers  Security Descriptor of File Share Is Empty</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Your event log contains following entries for your Windows File Servers:</p>
+
+<pre class="has-inner-focus">
+Source:File Storage Audit Service
+Event ID:6131
+Snapshot processing for the server %SERVERNAME% completed with errors:
+Object: \\%SERVERNAME%\%FILESHARENAME%, Error: 0x80049611 The security descriptor of the file share is empty</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The error indicates the file share Netwrix Auditor is trying to access does not have security permissions assigned to it. The issue occurs when the security settings for the file share are misconfigured or corrupted.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>Restart your file server. A restart can resolve permission-related issues  try restarting the server to check if the error persists.</p>
+	</li><li>
+	<p>Check the share permissions. Ensure the share permissions are properly configured:</p>
+
+	<ol><li>
+		<p>Right-click the affected shared folder, select <strong>Properties</strong>, and navigate to the <strong>Sharing</strong> tab.</p>
+		</li><li>
+		<p>Click the <strong>Advanced Sharing</strong> button to verify the correct permissions are set for the intended users (e.g., the data collection account) or groups.</p>
+		</li></ol>
+	</li><li>
+	<p>Verify NTFS permissions. NTFS permissions control access to the files and folders within the shared folder.</p>
+
+	<ol><li>
+		<p>Right-click the affected shared folder, select <strong>Properties</strong>, and navigate to the <strong>Security</strong> tab.</p>
+		</li><li>
+		<p>Ensure the appropriate users (e.g., the data collection account) or groups have the sufficient permissions to access the files.</p>
+		</li></ol>
+	</li><li>
+	<p>Verify the file share path. Log in to the Netwrix Auditor server using the data collection account for the File Server monitoring plan and try accessing the affected file server.</p>
+	</li></ol>
+</div>
+</body>
+</html>

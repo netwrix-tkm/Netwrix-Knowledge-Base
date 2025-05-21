@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyset does not exist ( exception from HRESULT : 0x80090016)</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000005YG2zAAG">
+    <meta name="ArticleCreatedDate" content="2021-01-28T21:13:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000005YG2zAAG">
+    <meta name="CreatedDate" content="2023-05-08T10:20:10.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-01-28T21:13:28.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000XmHFCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000XmHFCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:20:10.000Z">
+    <meta name="LastPublishedDate" content="2021-01-28T21:13:28.000Z">
+    <meta name="Meta_Description__c" content="Keyset does not exist ( exception from HRESULT : 0x80090016)">
+    <meta name="Meta_Title__c" content="Keyset does not exist ( exception from HRESULT : 0x80090016)">
+    <meta name="OwnerId" content="0050g000005YG2zAAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5849">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmHFCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Keyset does not exist ( exception from HRESULT : 0x80090016)</h1>
+    <h3 style="color: red;">Scenario</h3>
+Netwrix Data Classification displays the following error:<br><br><b>Error: There was an error while performing this operation.<br>Details:<br>Keyset does not exist ( exception from HRESULT : 0x80090016)</b><br> 
+<h3 style="color: green;">Solution</h3>
+We can regenerate these machine keys without reinstalling IIS completely. To do that follow the below steps:
+
+<ol><li style="margin-left: 40px;">Rename the below files or move it to a different location from <b>C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\</b>
+
+	<ul><li style="margin-left: 40px;"><b> iisConfigurationKey</b> 6de9cb26d2b98c01ec4e9e8b34824aa2_GUID</li><li style="margin-left: 40px;"><b>NetFrameworkConfigurationKey</b> d6d986f09a1ee04e24c949879fdb506c_GUID</li><li style="margin-left: 40px;"><b>iisWasKey</b> 76944fb33636aeddb9590521c2e8815a_GUID</li></ul>
+	</li><li style="margin-left: 40px;">Backup <b>applicationhost.config</b>, then delete everything inside the tags below in applicationhost.config. Delete the contents within &lt;configProtectedData&gt; or &lt;providers&gt;.
+	<ul><li style="margin-left: 40px;">&lt;configProtectedData&gt;<br>		&lt;providers&gt;<br>		...<br>		&lt;/providers&gt;<br>		&lt;/configProtectedData&gt;<br>		 </li></ul>
+	</li><li style="margin-left: 40px;">Open a command prompt in admin mode and run the below command:
+	<ul><li style="margin-left: 40px;">&quot;%windir%\system32\inetsrv\iissetup.exe /install SharedLibraries&quot;</li></ul>
+	</li><li style="margin-left: 40px;">Keys should be recreated in the <b>MachineKeys</b> folder. Now the IIS App pool user can be changed. </li></ol>
+
+<div style="margin-left: 40px;"><br>These steps, along with more information, can be found <a href="https://techcommunity.microsoft.com/t5/iis-support-blog/keyset-does-not-exist-exception-from-hresult-0x8009000d-or-or/ba-p/342955" target="_blank">here </a>as well!</div>
+</body>
+</html>

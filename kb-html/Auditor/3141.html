@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why do I receive my SharePoint Online audit data too late (or do not receive at all)?</title>
+    <meta name="product" content="auditor">
+    <meta name="product" content="Azure_AD_and_Office_365">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:46:50.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:12.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9V7CAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9V7CAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:46:50.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:12.000Z">
+    <meta name="Meta_Description__c" content="Find out why your SharePoint Online audit data might be missing">
+    <meta name="Meta_Title__c" content="Why do I receive my SharePoint Online audit data afterwards (or do not receive at all)">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="720">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9V7CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why do I receive my SharePoint Online audit data too late (or do not receive at all)?</h1>
+    Why audit data for SharePoint Online is collected behind the schedule or missing?
+<hr></hr> Due to Microsoft Management Activity API limitations, Netwrix Auditor may experience delays when collecting audit data.
+<ul><li>It may take up to 12 hours since the Monitoring Plan creation to start collecting audit data. For more information, refer to the following Microsoft article: <a href="https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference" target="_blank">https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference</a></li><li>After initial configuration, it may take approximately 15 minutes for events to appear in the activity log after the change occurred.</li><li>In case of Microsoft maintenance works, audit data may be unavailable for a few days. For more information, refer to the following Microsoft article: <a href="https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US" target="_blank">https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US</a></li></ul>
+Also, Microsoft automatically removes events that are older than 7 daysNetwrix Auditor will be unable to collect them. To ensure your audit data is always complete, make sure the Monitoring plan is always active.
+</body>
+</html>

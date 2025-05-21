@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Upgrade WorkflowUpgrade</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="content_type" content="ct_installupgrade">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-09-26T08:21:36.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001SwjKAE">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-05-05T10:18:33.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-09-26T08:46:38.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001SwjKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001SwjKAE">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T10:25:47.000Z">
+    <meta name="LastPublishedDate" content="2024-09-26T08:46:38.000Z">
+    <meta name="Meta_Description__c" content="Access Analyzer Upgrade WorkflowUpgrade">
+    <meta name="Meta_Title__c" content="Access Analyzer Upgrade WorkflowUpgrade">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9288">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001SwjKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Upgrade WorkflowUpgrade</h1>
+    <blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> Return to the main workflow page via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001T1ZKAU.html" target="_self">Access Analyzer Upgrade Workflow</a>.</p>
+
+<p>Return to the previous section via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001Sv7KAE.html" target="_self">Access Analyzer Upgrade WorkflowPreparations</a>.</p>
+
+<p>Proceed to the next section via this link: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001SyLKAU.html" target="_self">Access Analyzer Upgrade WorkflowPost-Upgrade</a>.</p>
+</blockquote>
+
+<h2 id="ovrvw">Overview</h2>
+
+<div>
+<p>This article lists the steps to perform the Access Analyzer upgrade.</p>
+</div>
+
+<h2 id="neaCUpg">Upgrading Access Analyzer Console</h2>
+
+<div>
+<p>Refer to the following steps to upgrade the Access Analyzer Console:</p>
+
+<ol><li>
+	<p>Download the latest version of Netwrix Access Analyzer Management Platform from the Netwrix Customer Portal in <a href="https://www.netwrix.com/my_products_int.html" target="_blank">My Products · Netwrix</a>.</p>
+
+	<blockquote>
+	<p><span class="Caution"><strong>IMPORTANT: </strong></span>Unblock the installerin <strong>Properties</strong>, select the <strong>Unblock</strong> checkbox and save the changes.</p>
+	</blockquote>
+	</li><li>
+	<p>Verify no Access Analyzer jobs are running. Review <strong>Task Manager</strong> &gt; <strong>Details</strong> to verify.</p>
+	</li><li>
+	<p>Uninstall the Access Analyzer Console either via <strong>Control Panel</strong> or <strong>Apps &amp; Features</strong>.</p>
+	</li><li>
+	<p>Hold <kbd>Shift</kbd>, right-click the Console installer, and select <strong>Copy as path</strong>. In an elevated Command Prompt instance, paste the path and run it to start the installation.</p>
+	</li><li>
+	<p>Complete the installation and launch the Console instancethis should start the upgrade wizard.</p>
+
+	<blockquote>
+	<p><span class="Caution"><strong>IMPORTANT: </strong></span>If the upgrade wizard does not start, run the following lines in a PowerShell instance to launch the upgrade wizard:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">cd $Env:SAINSTALLDIR
+.\StealthAUDIT.EXE /Upgrade</code></pre>
+	</blockquote>
+	</li><li>
+	<p>Review the upgrade conflictsclick <strong>View Conflicts</strong> to review the conflicts. Select one from the <strong>Changes</strong> window list and click <strong>Undo</strong>.</p>
+	</li><li>
+	<p>In the <strong>Solution Set Files</strong> tab, click <strong>Advanced</strong> to verify the Active Directory solution, File System solution, and any other solution group with a custom structure in the job tree are set to <strong>Upgrade in Place</strong>.</p>
+	</li><li>
+	<p>Proceed with the upgrade wizard to complete the setup.</p>
+	</li></ol>
+</div>
+
+<h2 id="SDDUpg">Upgrading Sensitive Data Discovery</h2>
+
+<div>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>If licensed and used in the environment, Upgrade the Add-on after you upgraded the Access Analyzer Console.</p>
+</blockquote>
+
+<p>Refer to the following steps to upgrade the Sensitive Data Discovery Add-on (SDD):</p>
+
+<ol><li>
+	<p>Download the latest SDD version from the Netwrix Customer Portal in <a href="https://www.netwrix.com/my_products_int.html" target="_blank">My Products · Netwrix</a>. Transfer the installer to the Access Analyzer Console server.</p>
+
+	<blockquote>
+	<p><span class="Caution"><strong>IMPORTANT: </strong></span>Unblock the installerin <strong>Properties</strong>, select the <strong>Unblock</strong> checkbox and save the changes.</p>
+	</blockquote>
+	</li><li>
+	<p>Uninstall the older SDD version.</p>
+	</li><li>
+	<p>Hold <kbd>Shift</kbd>, right-click the SDD installer, and select <strong>Copy as path</strong>. In an elevated Command Prompt instance, paste the path and run it to start the installation. Complete the installation.</p>
+	</li></ol>
+</div>
+
+<h2 id="FSAAUpg">Upgrading File System Proxy</h2>
+
+<div>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>If used in the environment, upgrade the FSSA Proxy after you upgraded the Access Analyzer Console.</p>
+
+<p>If used for the Sensitive Data discovery and audit, upgrade the FSAA Proxy after upgrading the SDD Add-on.</p>
+</blockquote>
+
+<p>Refer to the following steps to upgrade the File System Proxy Service (FSAA Proxy):</p>
+
+<ol><li>
+	<p>Download the latest FSAA Proxy version from the Netwrix Customer Portal in <a href="https://www.netwrix.com/my_products_int.html" target="_blank">My Products · Netwrix</a>. Transfer the installer to the target Proxy servers.</p>
+
+	<blockquote>
+	<p><span class="Caution"><strong>IMPORTANT: </strong></span>Unblock the installerin <strong>Properties</strong>, select the <strong>Unblock</strong> checkbox and save the changes.</p>
+	</blockquote>
+	</li><li>
+	<p>In the target Proxy server, open <strong>Services</strong> and review the account used to run the <code>StealthAUDITFSAA</code> service.</p>
+	</li><li>
+	<p>Uninstall the older FSAA Proxy version.</p>
+	</li><li>
+	<p>Hold <kbd>Shift</kbd>, right-click the up-to-date Proxy installer, and select <strong>Copy as path</strong>. In an elevated Command Prompt instance, paste the path and run it to start the installation. Complete the installation.</p>
+	</li></ol>
+</div>
+</body>
+</html>

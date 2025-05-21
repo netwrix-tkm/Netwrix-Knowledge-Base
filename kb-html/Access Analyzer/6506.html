@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information about SQLite version in AUDIT 9.0</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:18:33.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:05:46.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:18:33.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IL6CAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IL6CAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:05:46.000Z">
+    <meta name="LastPublishedDate" content="2022-02-22T13:28:36.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Information about SQLite version in AUDIT 9.0">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6506">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IL6CAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Information about SQLite version in AUDIT 9.0</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Details on issues/situations with SQLite version updates in AUDIT 9.0</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Details about SQLite version update in AUDIT 9.0, in Q&amp;A/FAQ format.</span></span></span><br><span style="font-size: 12pt;"><strong> </strong></span><br><span style="font-size: 12pt;"><strong><span style="font-size: 11pt;"><span style="color: black;">Instructions:</span></span></strong> </span><br><span style="font-size: 12pt;"> </span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Q: <strong>Why was the version of SQLite (which is what handles T2 data files in AUDIT) updated to a newer version</strong>?</span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">A: </span></span><span style="font-size: 11pt;">We updated the version of SQLite with the original 9.0 release to try and stay on the latest and greatest of our 3rd party components (which customers usually request we do). This addressed potential security concerns, allows us to leverage new features if we choose to, and has the potential to increases performance. </span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;">An additional update was was required in a hotfix early in the 9.0 lifecycle <span style="color: black;">to address intermittent file system scanning errors that resulted in the following error (or similar) being displayed.  &quot;code = Misuse (21), message = System.Data.SQLite.SQLiteException: bad parameter or other API misuse. Failed to configure managed assembly logging.&quot;  (The newer version was needed to turn off assembly logging, which we do not leverage, and was required to suppress the error.)  This second update in the hotfix does have some minor risk of affecting the product if somehow the older DLL is used, however.</span></span></span><br><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Q: <strong>When was this hotfix SQLite version change made, and what components of StealthAUDIT are affected?</strong></span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">A: This change was made in StealthAUDIT hotfix SA_9.0_018, and are present in StealthAUDIT cumulative update 9.0.0.108 and higher.  If you are using this version or later, you must also use updated versions of the Sensitive Data Add-On (version 9.0.0.27 or higher) and the SPAA Agent (version 9.0.0.24 or higher).</span></span></span><br><span style="font-size: 12pt;"> </span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Q: <strong>What are the old and new versions of the SQLite DLLs that are affected?</strong></span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">A:   The old version is 1.0.110, and the new version is 1.0.112.0.   The affected files are System.Data.SQLite.dll and SQLite.Interop.dll.  (Note that System.Data.SQLite.dll.config is also added, and must exist anywhere </span></span><span style="font-size: 11pt;">System.Data.SQLite.dll exists.  The prior 1.0.110.0 version did not have this file included.)</span></span><br><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Q: <strong>Where might these affected files be found?</strong></span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">A: If there are questions about the version of the DLLs, they should be checked in in (Root of) %SAINSTALLDIR% and the Private Assemblies folder.  If the files appear in the root %SAINSTALLDIR% folder, the versions there will generally be used in preference to files in the specific folders.  Be aware that the Sensitive Data Add-on puts new copies of the files in the root %SAINSTALLDIR% on purpose to address prior conditions that may have caused the files to be present there.  </span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">(Informational note: The main StealthAUDIT installer updates the files in the Private Assemblies folder.  Jobs will copy the needed files from the Private Assemblies if they are newer, so only the root %SAINSTALLDIR% and Private Assembly folders need to be checked for updated files.  For example, the FSAA DC copies the DLLs from Private Assemblies to the FSAA folder if needed.  The Web folder will also potentailly contain the older version of the file, which does not affect product functionality.)</span></span></span><br><span style="font-size: 12pt;"> </span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Q: <strong>If I try to run with the wrong version of the files, what will happen?</strong>  </span></span></span><br><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">A: File system scans will likely fail, generally with an error that says &quot;System.IO.FileLoadException: </span></span>Could not load file or assembly &#39;System.Data.SQLite, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)&quot;</span><br> </p>
+
+<p> </p>
+
+<p><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Submitted by: </span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Robert Parsons</span></span></span></span><br><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Product:</span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;"> AUDIT (and Sensitive Data Add-on, when in use)</span></span></span></span><br><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Affected Versions:</span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;"> AUDIT 9.0</span></span></span></span><br><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Affected Module:</span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">mostly file system scanning, possibly others</span></span></span></span><br><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Dev Ticket:</span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;"> NA</span></span></span></span><br><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">Resolved In Version:</span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">NA</span></span></span></span><br><strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;">KB Type:</span></span></span></span></strong><span class="wysiwyg-font-size-large"><span style="font-size: 12pt;"><span style="font-size: 11pt;"><span style="color: black;"> FAQ</span></span></span></span></p>
+
+<p> </p>
+
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 9.0<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000002591</p>
+</body>
+</html>

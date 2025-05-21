@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Update to macOS 12 (Monterey) While Using Endpoint Protector Client and Deep Packet Inspection</title>
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:18.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B9UKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008icp2AAA">
+    <meta name="AssignedToId" content="005Qk000002lX5pIAE">
+    <meta name="AssignmentDate" content="2025-03-24T14:24:27.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-03-18T20:26:19.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B9UKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B9UKAU">
+    <meta name="LastModifiedById" content="005Qk000002lX5pIAE">
+    <meta name="LastModifiedDate" content="2025-05-02T16:17:04.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008icp2AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9914">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B9UKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Update to macOS 12 (Monterey) While Using Endpoint Protector Client and Deep Packet Inspection</h1>
+    <p>   Instructions</p>
+<p> </p>
+<ol><li>Update the Endpoint Protector server to version 5.9.4.2.</li><li>Go to System Settings -&gt; Server Certificate Stack -&gt; Regenerate Server Certificate Stack and hit the Regenerate button in order to regenerate the server and the client CA certificate.</li><li>Download the new CA certificate:</li></ol>
+<p>           * From System Configuration &gt; System Settings &gt; Deep Packet Inspection Certificate.</p>
+<p>           * Toggle the option and confirm by selecting &quot;Yes&quot; in the pop-up window.</p>
+<p>           * Click &quot;Download Client CA Certificate,&quot; and the ClientCerts file will download to your local directory.</p>
+<p> </p>
+<p>   4. On your macOS, open the Keychain Access application and go to System.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crlf&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CM5yF" alt=""></img> </p>
+<p>   5. Decompress the downloaded ClientCerts file.</p>
+<p>   6. Select cacert.pem ?le and drag and drop it into System &gt; Keychain Access.    <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crlf&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CM1t1" alt="" width="1146" height="557"></img></p>
+<p>7. Double click the X from the newly added certi?cate and from the Trust section, select Always Trust.       <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crlf&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CM8RR" alt=""></img></p>
+<p> </p>
+<p> 8. Save the changes.</p>
+<p> 9. Update the macOS Endpoint Protector Client to version 3.0.3.1009.</p>
+<p>10. Restart the PC.</p>
+<p>11. Update to Mac OS 12 (Monterey).</p>
+</body>
+</html>

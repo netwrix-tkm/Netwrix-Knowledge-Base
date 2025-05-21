@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimum password age violation.</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-06-29T12:47:59.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:36.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9ZSCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9ZSCA0">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-06-29T12:49:16.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:36.000Z">
+    <meta name="Meta_Description__c" content="A user receives the Minimum password age violation error when trying to reset his password via Password Manager.">
+    <meta name="Meta_Title__c" content="Minimum password age violation.">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1257">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZSCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Minimum password age violation.</h1>
+    A user receives the <strong>Minimum password age violation</strong> error when trying to reset his password via Password Manager.<br><img alt="User-added image" height="172" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116QR&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000006XCu" width="500"></img>
+<hr></hr> The error indicates that their password cannot be reset due to the Domain Password Policy limiting Minimum password age. With the current product architecture, a users password is not reset directly, but it is actually a two-step procedure The password is first reset to a random value, and then a regular password change on behalf of a user is performed. This is done to apply a password policy to the new password, otherwise, it could be possible to set any password. By design, a user cannot reset their password more often than they are allowed to change it by the policy. However, it is possible to bypass this by making Password Manager ignore Minimum length, Minimum password age and Password history policies. To do this go to the Password Manager Administrative portal, Navigate to <strong>Domains - Edit</strong> corresponding domain<br><img alt="User-added image" height="115" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116QR&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000006XFF" width="500"></img><br>and clear the <strong>Use AD password policy settings</strong> checkbox<br><img alt="User-added image" height="365" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116QR&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000006XFK" width="500"></img><br>Please note that complexity requirements will still be applied.
+</body>
+</html>

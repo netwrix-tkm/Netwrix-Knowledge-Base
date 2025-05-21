@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell: Job to Automate Copying Report Files to Alternate Location</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:07:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:03:55.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:07:15.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IAvCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IAvCAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:03:55.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:07:15.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="PowerShell: Job to Automate Copying Report Files to Alternate Location">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6277">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IAvCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PowerShell: Job to Automate Copying Report Files to Alternate Location</h1>
+    <p><strong>Summary:</strong> Need to keep all the csv files produced by the reports in a folder accessible to users. </p>
+<p><strong>Issue:</strong> Need to store all the csv files produced by a job report in a folder accessible to any user. Currently, the product report has two options that partially satisfy these requirements:</p>
+<ol><li>Publishing the report to a custom path, or;</li><li>Emailing the report csv to the users.</li></ol>
+<p>These options have drawbacks, however.</p>
+<ol><li>When publishing to a custom path, files are overwritten each time, and;</li><li>Emailing reports can inundate the end users and take up space in mailboxes.</li></ol>
+<p>Instead, a more preferable solution may be to copy the reports before they get overwritten and place them in a central location of preference. This also allows to keep as many reports as are needed. Retention options have been added to the script as well so the reports dont keep accumulating indefinitely.</p>
+<p><strong>Instructions:</strong></p>
+<p><strong><em><u>The Custom Job</u></em></strong></p>
+<ul><li>For our example, we&#39;ll be exporting the report created by the 2-AD_Changes job located in the .Active Directory Inventory group.</li></ul>
+<ol><li class="wysiwyg-text-align-left">First we&#39;ll need to create a new job by right-clicking the desired group and choosing &#39;<strong>Create Job</strong>&#39;.<img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUrY&amp;d=%2Fa%2F4u000000LyZL%2FK6PTBICEmdvIEGna8_w7_yDcPmbA8Wfy7Uhbi6UfJJs&amp;asPdf=false" alt="mceclip0.png"></img>
+<ul><li>Name the new job, for our example the job will be named &#39;MoveReportExample&#39;.</li></ul>
+</li></ol>
+<ol><li>With the &#39;MoveReportExample&#39; job selected, click &#39;<strong>CONFIGURE</strong>&#39; on the right hand pane.<img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcXB9&amp;d=%2Fa%2F4u000000LyZQ%2Fc70_x_n4ETaxyDKgcedyDxt_.ewmKPfMs4fdwGk2uMQ&amp;asPdf=false" alt="mceclip2.png" width="660" height="491"></img>
+</li><li>Click &#39;<strong>QUERIES</strong>&#39;.<img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVe1&amp;d=%2Fa%2F4u000000LyEu%2Flxxth9gsvrDBnm7zBljldc2WgxilPHhVkMzPvEIvA9Y&amp;asPdf=false" alt="mceclip3.png" width="660" height="525"></img>
+</li><li>Click &#39;<strong>Create Query</strong>&#39;.<img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVFZ&amp;d=%2Fa%2F4u000000LyZV%2FCKvHKq03ekvKXHoKH7Dv4XNlaKMS3ehu38zUkMZJffM&amp;asPdf=false" alt="mceclip4.png"></img>
+</li><li>Name the query as desired. Click the Data Source tab and select &#39;<strong>POWERSHELL</strong>&#39; from the Data Collector drop-down menu, then click the &#39;Configure&#39; button.<img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcXES&amp;d=%2Fa%2F4u000000LyUb%2FMmXkA1L4UkKBAwOUjLUpVOFUmy1SNF1GzLGcCBQFPOc&amp;asPdf=false" alt="mceclip5.png"></img> </li><li>In the PowerShell Data Collector Wizard click &#39;<strong>Next</strong>&#39; until you reach the &#39;Edit query&#39; page.</li><li>Copy the PS script below and paste into the Edit PowerShell Query in StealthAUDIT.</li></ol>
+<pre><br>Copyright 2018 STEALTHBITS TECHNOLOGIES, INC.<br>ALL RIGHTS RESERVED<br><br>Written by: Renato Espinoza<br>Date: 12/2018<br><br>Purpose: Copying and renaming output csv files to an alternate location before they get updated by the next report creation<br>#&gt;<br><br><br>################### Variable Declaration ###################<br><br>#CHANGE the path below to point to the job report files of your choosing<br>$currentLocation = &quot;C:\Program Files (x86)\STEALTHbits\StealthAUDIT\Jobs\GROUP_.Active Directory Inventory\JOB_2-AD_Changes\OUTPUT\Reports\v3\WILDTURKEY\Pages\Data&quot;<br><br>#CHANGE THE DESTINATION PATH (this is the path where all the copies of the files will reside.<br>#NOTE that the directories must exist prior to running the job, or PowerShell will return an error: &#39;Could not find a part of the path...&#39;<br>#Additionally, the service account running the job must have permissions to write to the directory<br>$destinationPath = &quot;C:\Test\SA Report Archive\JOB_2-AD_Changes&quot;<br>#Can also use UNC Path, e.g., $destinationPath = &quot; \\FileServer\c$\Custom\Reports\Path\Chosen\By\Customer&quot;<br><br>#Exported CSV are named with GUID of the report. To better know which job the report came from we can append the job and/or report name to the copied CSV file<br>$jobName = &quot;2-AD_Changes_&quot;<br><br>#CHANGE NEXT LINE; replace the number &#39;10&#39; with the number of days desired to keep reports<br>$wantToKeep = 10 #days worth of data<br><br><br>#############################################################<br><br>#Copy - Modify Name - Place in new location<br>Get-ChildItem -Path $currentLocation | ForEach-Object{<br>$extension = $_.Extension<br>if ($extension -ne &#39;.csv&#39;){return}<br>$creationTime = get-date $_.LastWriteTime -Format &quot;yyyy-MM-dd_hh_mm&quot;<br>$fileName = $_.BaseName<br>$current = $currentLocation + $fileName + $extension<br>$new = $jobName + $fileName + $creationTime + $extension<br>Copy-Item -Path $_.FullName -Destination &quot;$destinationPath\$new&quot;<br>}<br><br>$today = Get-Date<br><br>$dateToDeleteFrom = $today.AddDays($(&#39;-&#39; + $wantToKeep))<br><br>#Delete older files<br>Get-ChildItem $destinationPath | Where-Object{$_.CreationTime -lt $dateToDeleteFrom} | Remove-Item<br><br><br>#The PowerShell Data Collector Editor needs to have output, therefore the line below will give the list of the files in the destination path<br>$destinationPath | get-childitem</pre>
+<p> </p>
+<p><strong>Validation fail</strong>: Sometimes while doing validation on the PowerShell query script you will get Failed. As long as you are able to get to the $currentLocation and the $destinationPath paths from the StealthAUDIT server, you can get away with not validating and the job will still complete successfully.</p>
+<p> </p>
+<p><strong>Host List</strong>: Because this is a query you MUST select a host list (or add a single host in the Hosts) node. If you chose to have hard coded paths it should not matter which host you are targeting so can simply use Localhost.</p>
+<p>[SAHOSTNAME]: If you use this in the $destinationPath instead of the target file server name then you MUST point to the right target file server in the Hosts node.</p>
+<p> </p>
+<p>There are certainly some areas this script can be improved upon and/or have more functionality included, so feel free to optimize and update as needed.</p>
+<p> </p>
+<p><strong>Product:</strong> StealthAUDIT</p>
+<p><strong>Affected Versions:</strong> ALL</p>
+<p><strong>Affected Module:</strong> PowerShell DC, Reporting</p>
+<p><strong>Resolved In Version:</strong> NA</p>
+<p><strong>KB Type:</strong> Shared Solution</p>
+</body>
+</html>

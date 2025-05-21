@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 503 ? Unable to Access Change Tracker Login Screen</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-12-20T13:53:06.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-12-22T13:15:32.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-12-20T13:53:32.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000LFlKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000LFlKAM">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-12-22T13:15:55.000Z">
+    <meta name="LastPublishedDate" content="2023-12-20T13:53:32.000Z">
+    <meta name="Meta_Description__c" content="Error 503 After Recent Password Change">
+    <meta name="Meta_Title__c" content="Error 503 After Recent Password Change">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8977">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LFlKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error 503 ? Unable to Access Change Tracker Login Screen</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error is prompted when attempting to access Netwrix Change Tracker:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Connection to server lost
+Server unavailable since %datestamp% (local),
+(503)</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The Change Tracker web application pool is not running. This may be caused by the application pool failing to start, often due to incorrect credentials of the custom <strong>Identity</strong> user for the affected application pool.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<p>Refer to the following steps to review and specify the credentials of the custom <strong>Identity</strong> user for the application pool:</p>
+
+<div>
+<ol><li>
+	<p>In the left pane of IIS Manager, select the <strong>Application Pools</strong> page.</p>
+	</li><li>
+	<p>Locate the Change Tracker web application pool, right-click it, and select <strong>Advanced Settings...</strong></p>
+	</li><li>
+	<p>Under the <strong>Process Model</strong> section, locate the <strong>Identity</strong> node, select it and click the ellipsis button.</p>
+	</li><li>
+	<p>Click <strong>Set...</strong>, and specify new credentials for the account to run the application pool.</p>
+	</li><li>
+	<p>Click <strong>OK</strong> &gt; <strong>OK</strong> &gt; <strong>OK</strong> to save changes. Right-click the pool and select <strong>Start</strong> to run it.</p>
+	</li></ol>
+</div>
+</body>
+</html>

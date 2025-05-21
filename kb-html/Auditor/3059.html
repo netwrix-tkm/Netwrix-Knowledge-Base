@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Include Change Password Events by Users via Ctrl+Alt+Del Combination in Netwrix Auditor Reports</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:11.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-10-13T13:57:12.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9TnCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9TnCAK">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-13T13:58:15.000Z">
+    <meta name="LastPublishedDate" content="2023-08-02T08:29:18.000Z">
+    <meta name="Meta_Description__c" content="password changes in summary report ctr+alt+del">
+    <meta name="Meta_Title__c" content="How to include change password events performed by users through ctrl+alt+del key combination into product reports?">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="632">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TnCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Include Change Password Events by Users via Ctrl+Alt+Del Combination in Netwrix Auditor Reports</h1>
+    <h1>Question</h1>
+
+<div>
+<p>Is it possible to include change password events performed by users through the ctrl+alt+del key combination into product reports?</p>
+</div>
+
+<h1>Answer</h1>
+
+<div>
+<p>Yes, it is possible. Such events are omitted by default. To include them in product reports, follow the steps below:</p>
+
+<ol><li>
+	<p>Navigate to the <b> Auditor for Active Directory</b> installation folder: <em>C:\Program Files (x86)\Netwrix Auditor\Active Directory Auditing</em> by default.</p>
+	</li><li>
+	<p>Locate the <b>omitproplist.txt</b> file and open it with a text editor.</p>
+	</li><li>
+	<p>Locate the <code>*.PasswordChanged</code> line and add a <code>&quot;#&quot;</code> sign at the beginning so it looks like <code>#*.PasswordChanged</code>.</p>
+	</li><li>
+	<p>Save your edits.</p>
+	</li></ol>
+
+<p>Once these changes have been applied, password resets performed by users will be shown in the product change reports.</p>
+</div>
+</body>
+</html>

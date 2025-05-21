@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Attribute Warnings in Active Directory Inventory Scan Job</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-26T08:01:39.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-10-25T19:21:47.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-05-10T06:43:24.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000divKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000divKAA">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2024-10-25T19:33:30.000Z">
+    <meta name="LastPublishedDate" content="2024-05-10T06:43:24.000Z">
+    <meta name="Meta_Description__c" content="Active Directory Inventory Scan warnings about Custom Attributes">
+    <meta name="Meta_Title__c" content="Active Directory Inventory Scan warnings about Custom Attributes">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9151">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000divKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Custom Attribute Warnings in Active Directory Inventory Scan Job</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The Active Directory (AD) inventory scan job prompts the following warning in Netwrix Enterprise Auditor:</p>
+
+<pre class="has-inner-focus">
+The custom attribute %attribute_name% was requested, but not set in domain %domain_name% for the %class_name% class.
+A full ADI scan may be required.</pre>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>The warnings include AD schema attributes and classes. These include but are not limited to <code>AdminCount, msDS-AllowedToActOnBehalfOfOtherIdentity, msDS-AllowedToDelegateT, or PrimaryGroupID</code> attributes and <code>Computer object</code>, <code>User object</code>, or <code>Group object</code> classes.</p>
+</blockquote>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The AD inventory scan job searches for common AD schema attributes by default. The job prompts corresponding warnings if your environment does not implement these attributes.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>This behavior is expected if your environment does not implement these attributes. You can ignore the warnings or follow the steps below to remove custom attributes used in AD scans:</p>
+
+<ol><li>
+	<p>In <strong>Jobs</strong>, navigate to <strong>.Active Directory Inventory</strong> &gt; <strong>1-AD_Scan</strong> &gt; <strong>Configure</strong>.</p>
+	</li><li>
+	<p>Right-click <strong>Queries</strong> and select <strong>Properties</strong>.</p>
+	</li><li>
+	<p>In the <strong>Data Source</strong> tab, click <strong>Configure</strong>.</p>
+	</li><li>
+	<p>In the <strong>Custom Attributes</strong> step of Active Directory Inventory wizard, select the affected attribute and click <strong>Remove</strong>.</p>
+	</li><li>
+	<p>Click <strong>Next</strong> &gt; <strong>Finish</strong> &gt; <strong>OK</strong>.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/ActiveDirectoryInventory/1-AD_Scan.htm#customize_the_1adscan_query" target="_self">1-AD_Scan Job ? Customize the 1-AD_Scan Query · v11.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Export Utility Configuration</title>
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F0JoAAK">
+    <meta name="ArticleCreatedDate" content="2024-05-13T18:35:02.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210098278639755?focus=true">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008F0JoAAK">
+    <meta name="CreatedDate" content="2024-07-24T18:44:23.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2024-05-13T18:35:57.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk00000015thKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk00000015thKAA">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-04-28T17:28:05.000Z">
+    <meta name="LastPublishedDate" content="2025-04-28T17:28:05.000Z">
+    <meta name="Meta_Description__c" content="Asset Export Utility configuration">
+    <meta name="Meta_Title__c" content="Asset Export Utility configuration">
+    <meta name="OwnerId" content="0054u000008F0JoAAK">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9173">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000015thKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Asset Export Utility Configuration</h1>
+    <h2>Overview</h2>
+<p>This article provides step-by-step instructions for migrating schedules and synchronize jobs from Netwrix Directory Manager (formerly GroupID) 10 to Directory Manager 11 using the Asset Export utility. The process involves exporting assets from Directory Manager 10, preparing the Directory Manager 11 server, and importing the assets.</p>
+<h2>Instructions</h2>
+<h4>Prepare the Directory Manager 11 Server</h4>
+<ul><li>Ensure the Directory Manager 10 installation folder is present at the default location (<strong>C:\Program Files\Imanami\GroupID10</strong>) on the Directory Manager 11 server.</li><li>Copy the Directory Manager 10 folder from <strong>ProgramData</strong> to the Directory Manager 11 server.</li></ul>
+<h4>Export Assets from Directory Manager 10</h4>
+<ol><li>Run the <strong>Asset Export</strong> utility on the Directory Manager 10 server.</li><li>Select the option <strong>Directory Manager 10.0 to Directory Manager 11.0</strong>.</li><li>Select the schedules and synchronize jobs to export.</li><li>Click <strong>Export</strong> and select a folder to save the exported assets.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICn" alt="Asset Export utility main screen on Directory Manager 10" style="width: 238px;height: 274px;"></img> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICo" alt="Selecting schedules and synchronize jobs for export" style="width: 219px;height: 279px;"></img> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICp" alt="Export folder selection dialog" style="width: 203px;height: 239px;"></img></p>
+<h4>Provide the Encryption Key</h4>
+<ol><li>When prompted, enter the encryption key (passphrase) used for database encryption in Directory Manager 10. The key must match the one used in Directory Manager 10 SR 2.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICq" alt="Encryption key entry screen in Asset Export utility" style="width: 301px;height: 347px;"></img></p>
+<h4>Copy Required Folders to Directory Manager 11 Server</h4>
+<ul><li>Copy the default installation folder of Directory Manager 10 to the Directory Manager 11 server.</li></ul>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICr" alt="Default installation folder location for Directory Manager 10" style="width: 369px;height: 67px;"></img></p>
+<ul><li>Copy the <strong>ProgramData</strong> location to the Directory Manager 11 server for synchronize jobs.</li></ul>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICs" alt="ProgramData folder for synchronize jobs" style="width: 292px;height: 124px;"></img></p>
+<ul><li>Copy the <strong>Reports</strong> folder in ProgramData to the Directory Manager 11 server.</li></ul>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICt" alt="Reports folder in ProgramData on Directory Manager 11 server" style="width: 402px;height: 82px;"></img></p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The <strong>schedules</strong> and <strong>synchronize job</strong> folders should be empty (the Asset Export utility will import these files). However, for the <strong>Reports</strong> folder, copy reports from the Directory Manager 10 server for the respective schedules upgrade.</p>
+</blockquote>
+<h4>Import Assets into Directory Manager 11</h4>
+<ol><li>Run the <strong>Asset Export</strong> utility on the Directory Manager 11 server.</li><li>Select <strong>Directory Manager 10.0 to Directory Manager 11.0</strong>.</li><li>Click <strong>Browse</strong>, select the exported file, and click <strong>Import</strong>.</li><li>The schedules and synchronize jobs will be imported into the respective folders on the Directory Manager 11 server.</li><li>After import, run the upgrade on the Directory Manager 11 server.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICu" alt="Asset Export utility import screen on Directory Manager 11" style="width: 285px;height: 247px;"></img> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICv" alt="Import progress screen" style="width: 534px;height: 269px;"></img> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICw" alt="Imported schedules and synchronize jobs in Directory Manager 11" style="width: 409px;height: 216px;"></img> <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004nIH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nICx" alt="Upgrade process on Directory Manager 11 server" style="width: 448px;height: 140px;"></img></p>
+<h2>Related Links</h2>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/directory-manager/page/kA00g000000H9TKCA0.html" target="_self">How to Upgrade Directory Manager</a></li></ul>
+</body>
+</html>

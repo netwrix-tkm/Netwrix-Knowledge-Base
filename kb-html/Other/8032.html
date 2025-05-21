@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.1_050</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:54:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JAtCAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-11T17:14:30.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:54:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JAtCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JAtCAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-11T17:21:02.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:54:55.000Z">
+    <meta name="Meta_Description__c" content="360012217852">
+    <meta name="Meta_Title__c" content="Hotfix: SA_8.1_050">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8032">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JAtCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.1_050</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Multiple fixes for Weak Password Job in Active Directory Solution Set.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Summary: </span></span></strong><br><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Multiple fixes for Weak Password Job in Active Directory Solution Set. </span></span></span></strong><br> <br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Before Fix: </span></span></strong>
+</p><ol><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Weak passwords job missing drop table statement</span></span></span></strong>
+</li><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Targeting long name of domain controller returns no results in weak password details</span></span></span></strong>
+</li><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Modify hostname to domain name in weak password job</span></span></span></strong>
+</li><li><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Weak Password job fails during scheduled runs</span></span></span></strong></li></ol><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">After Fix: </span></span></strong>
+<ol><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Drop table statement has been fixed</span></span></span></strong>
+</li><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Weak Passwords job now runs against FQDN&#39;s and long host names</span></span></span></strong>
+</li><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">In Weak Password report hostname has been changed to domain</span></span></span></strong>
+</li><li><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Weak Passwords job now runs when scheduled </span></span></span></strong></li></ol><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Submitted by: </span></span></strong><br><span style="font-size: 9pt;">Justin Giemza</span><br> <br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Affected Versions:</span></span></strong><br><span style="font-size: 9pt;">8.1</span><br> <br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Affected Module:</span></span></strong><br><span style="font-size: 9pt;">Access Analyzer - Solution Set - Active Directory</span><br> <br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Dev Tickets:</span></span></strong> 
+<ul><li style="color: black;">
+<span style="font-size: 9pt;">SAT-3100</span>
+</li><li style="color: black;">
+<span style="font-size: 9pt;">SAT-3103</span>
+</li><li style="color: black;">
+<span style="font-size: 9pt;">SAT-3106</span>
+</li><li style="color: black;"><span style="font-size: 9pt;">SAT-3097</span></li></ul><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Resolved in Version:</span></span></strong><br><span style="font-size: 9pt;">JOB_AD_WeakPasswords.XML               (no version associated with file)</span><br> <br><b><span style="font-size: 9pt;">Other dependencies included:</span></b><br><span style="font-size: 9pt;">None</span><br> <br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">KB Type: </span></span></strong><br><span style="font-size: 9pt;">Hotfix</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">YouTrack/Escalations</span></span></strong> 
+<ol><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">SAT-3100/24799     </span></span></span></strong>
+</li><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">SAT-3103/24802     </span></span></span></strong>
+</li><li>
+<strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">SAT-3106/24805     </span></span></span></strong>
+</li><li><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">SAT-3097/24776</span></span></span></strong></li></ol><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Customer</span></span></strong><br><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Capital One Services, LLC</span></span></span></strong><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Cumulative List of fixes included since Service Pack:</span></span></strong><br><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">None</span></span></span></strong><br> <br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">Changes since last Hotfix</span></span></strong><br><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">None</span></span></span></strong><br> <br><b><span style="font-size: 9pt;">Comments:</span></b><br><strong><span style="font-weight: normal;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 9pt;">None</span></span></span></strong><br> <p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<span style="font-size: 9pt;">Exit Access Analyzer console</span>
+</li><li>
+<span style="font-size: 9pt;">Close all instances of Access Analyzer (check task manager under processes for all users)</span>
+</li><li><span style="font-size: 9pt;">Replace included file in this location: </span></li></ol><span style="font-size: 9pt;">StealthAUDIT\Jobs\GROUP_Active Directory\GROUP_2.Users\JOB_AD_WeakPasswords\JOB_AD_WeakPasswords.XML</span> 
+<ol><li><span style="font-size: 9pt;">You may also replace included file in this location in case the job ever needs to be recreated: </span></li></ol><span style="font-size: 9pt;">StealthAUDIT\InstantSolutions\GROUP_Active Directory\GROUP_2.Users\JOB_AD_WeakPasswords\JOB_AD_WeakPasswords.XML</span><br><br>  
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="173"><td colspan="1" rowspan="1" height="173" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_050.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_050.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - Solution Set - Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-3100
+SAT-3103
+SAT-3106
+SAT-3097<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> JOB_AD_WeakPasswords.XML               (no version associated with file)<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1949<br></p>
+</body>
+</html>

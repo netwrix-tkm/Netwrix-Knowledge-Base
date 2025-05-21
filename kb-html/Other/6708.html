@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: AIC_7.0_SP1_001</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:24:57.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:06:58.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:24:58.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IRECA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IRECA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:06:58.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:24:58.000Z">
+    <meta name="Meta_Description__c" content="360008984011">
+    <meta name="Meta_Title__c" content="Hotfix: AIC_7.0_SP1_001">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6708">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IRECA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: AIC_7.0_SP1_001</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> AIC - Can&#39;t log in with nested group</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Modules Included <br>- AccessInformationCenter.msi 7.0.59.66 <br><br>YouTrack/Escalations <br>- SMPC-335\ Escalations 5076: AIC - Can&#39;t log in with nested group <br><br>Customers <br>- SailPoint -Westpac Bank Australia/New Zealand <br><br>Cumulative List of fixes included since Service Pack: <br>- Fixing DFS at Gore where they have un-scanned links <br>- RMT #9419 Export to CSV in AIC does not include quotes for fields with commas in them <br>- RMT #9151 Installer: Not compliant with FIPS hashing algorithm <br>- RMT #9433 AIC | Ownership - Resource groups cannot be found using a nested DFS namespace <br>- Adding enumerated domains filter list - Pacific Life <br>- Catching wrong exception for resolving distribution lists - Banner Bank <br>- SMPC-200: Add better support for long CanonicalDomainNames <br>- Fixing SharePoint local group member of query <br>- Sort Trustee list. <br>- SMPC-471: &quot;Change Access&quot; button in Resource Ownership UI not visible to users with Reader role <br>- SMPC-461: Filtering in Manage Resource Ownership not functional for all columns <br>- SMPC-458: Unhandled Exception when searching for published resources in request access interface <br>- SMPC-350: Export Owners does not export owner name <br>- SMPC-509: Entitlement Review notes not refreshing properly (the issue was actually in Manage Resource Ownership page). <br>- SMPC-335: Can&#39;t log in with nested group. <br>- SMPC-613: &quot;Unable to contact Active Directory&quot; error when signing into AIC after upgrade <br>- SMPC-335: Can&#39;t log in with nested group - parameter added to the Web.config file.</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <a href="http://downloads.stealthbits.com/access/files/SAHotFixes/7.0/AIC_7.0_SP1_001.zip" target="_blank">http://downloads.stealthbits.com/access/files/SAHotFixes/7.0/AIC_7.0_SP1_001.zip</a> 
+</p><ol><li>Uninstall current version of AIC if it is already installed.
+</li><li>Install version of AIC included with this hotfix
+</li><li><i>In the web.config file the &quot;AuthUseLdapGroupMembership&quot; parameter should be set to &#39;True&#39;.</i></li></ol><p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> AIC - Reporter<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.0 SP1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SMPC-335<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	AccessInformationCenter.msi	7.0.59.66<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1140<br></p>
+</body>
+</html>

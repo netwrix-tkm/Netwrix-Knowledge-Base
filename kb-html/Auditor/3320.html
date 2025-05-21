@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;The operation you are attempting requires a secure connection (HTTPS)&quot;.</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="content_type" content="ct_reporting">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:11:00.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:48:03.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:21.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9Y5CAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9Y5CAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:48:03.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:21.000Z">
+    <meta name="Meta_Description__c" content="Netwrix Auditor, Reporting, Error: &amp;quot;The operation you are attempting requires a secure connection (HTTPS)&amp;quot;.">
+    <meta name="Meta_Title__c" content="The operation you are attempting requires secure connection">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1163">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9Y5CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;The operation you are attempting requires a secure connection (HTTPS)&quot;.</h1>
+    <h3 style="color: red;">Scenario</h3>
+
+
+
+<p>The following error occurs while report generation: &quot;System.Web.Services.Protocols.SoapException: The operation you are attempting requires a secure connection (HTTPS) ... See the log for details&quot;.</p>
+
+
+
+<p>Report Manager URL works when set to HTTPS and does not if set to HTTP.</p>
+
+
+
+<h3 style="color: orange;">Cause</h3>
+
+
+
+<p>This issue appears because the version of Netwrix Auditor you are running does not support secured connection for SQL Reporting Service Reports (SSRS). </p>
+
+
+
+<h3 style="color: green;">Solution</h3>
+
+
+
+<p>To resolve this issue, please disable secure connection:</p>
+
+
+
+<ol><li>Navigate to the <strong>RSReportServer.config</strong> file located (By Default) at&quot;C:Program FilesMicrosoft SQL Server Reporting ServicesSSRSReportServer
+sreportserver.config&quot;)</li><li>Backup the  <strong>RSReportServer.config</strong> </li><li>Open <strong>RSReportServer.config </strong>and find the following string: <em>&lt;Add Key=&quot;SecureConnectionLevel&quot; Value=&quot;2&quot;/&gt; </em></li><li><em>Set </em><strong>SecureConnectionLevel</strong> value to <em>0</em> and save it.<ul><li>Alternatively, if you have stumbled upon this article and <em>need </em>to communicate over a secure connection, change the value to 2 and save it.</li></ul></li></ol>
+
+
+
+<p>Review the following for additional information:
+The secure connection level varies, depending on its value:
+</p>
+
+
+
+<ul><li>
+3 - Most secure: use SSL for absolutely everything.
+</li><li>
+2 - Secure: use SSL for rendering and methods that pass credentials but do not insist on using it for all SOAP calls.
+</li><li>
+1 - Basic Security: accepts http but rejects any calls that might be involved in credentials transfer.
+</li><li>
+0 - Least Secure: do not use SSL at all.
+</li></ul>
+</body>
+</html>

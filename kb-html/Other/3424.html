@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows authentication doesn`t work - HTTP error 401</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:47:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-11-06T16:04:21.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:39.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9ZoCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9ZoCAK">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-11-06T16:04:38.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:39.000Z">
+    <meta name="Meta_Description__c" content="Netwrix. Admin and Helpdesk portal getting HTTP error 401 due to windows authentication. Configure windows providers via IIS">
+    <meta name="Meta_Title__c" content="Windows authentication doesn`t work - HTTP error 401">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1275">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZoCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Windows authentication doesn`t work - HTTP error 401</h1>
+    I configured Admin and Helpdesk portal per the <a href="https://kb.netwrix.com/1162" target="_blank">KB1162</a> to use Windows authentication, however I keep getting HTTP error 401.
+
+If I switch to Basic, everything works fine, but I don`t want to use Basic authentication.
+
+<hr></hr>
+
+Windows authentication in IIS depends on the providers it uses. If providers are configured incorrectly, Windows authentication won`t work.
+
+<hr></hr>
+
+Make sure Providers for Windows authentication are configured correctly.
+<ol><li>launch <strong>IIS manager</strong></li><li>Navigate to <strong>admin</strong> virtual directory (by default it is %Server name% - Sites - Default Web Site - PM - admin)</li><li>Go to<strong> Authentication</strong> configuration</li><li>Select (highlight) <strong>Windows authentication</strong></li><li>In the right pane click <strong>Providers</strong></li><li><strong>NTLM </strong>should be present. Add if needed.</li><li>Click <strong>OK </strong>to apply changes</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000ww3T&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005jlZ" alt="User-added image" width="500" height="353"></img>
+</body>
+</html>

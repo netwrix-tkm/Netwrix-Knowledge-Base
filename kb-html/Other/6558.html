@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Least Privileged Database Access for StealthAUDIT RBAC</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:20:25.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:05:31.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:20:26.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IJuCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IJuCAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:05:31.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:20:26.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Least Privileged Database Access for StealthAUDIT RBAC">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6558">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IJuCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Least Privileged Database Access for StealthAUDIT RBAC</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> When using Windows Authentication for database access in StealthAUDIT each user needs to be granted database access. Many users assume that granting a user access through RBAC will also grant that user database access. Convenient as it would be, that is not currently the case.</p>
+<p> </p>
+<p>To that end, a job has been created that will provision one database user&#39;s domain credential at a time using a least privileged access model.</p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;">In order for RBAC configuration in StealthAUDIT to be effective, StealthAUDIT should also be configured to use Windows Authentication for database access. When Windows Authentication is enabled all users provisioned to use the StealthAUDIT console need to also be provisioned with access to the database. To that end a job has been created to be used to provision database access.</span></p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<ol><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Launch StealthAUDIT with an account that has SysAdmin rights to the whole database server and Administrator rights to the StealthAUDIT application</span></span></li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Import the attached job</span></span></li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Add the new application user to ROLES (pre 9.0) or ACCESS (9.0+) in the Global Application Settings</span></span></li><li>
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Edit the analysis task in the newly imported job and change the following entries (It is easiest to do this in notepad with find &amp; replace)</span></span>
+<ol style="list-style-type: lower-alpha;"><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Change [] to [Name of StealthAUDIT Database]</span></span></li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Change [] to [domain\username]</span></span></li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Change &#39;&#39; to &#39;domain\username&#39;</span></span></li></ol>
+</li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Save and close the analysis task</span></span></li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Execute the job</span></span></li><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Launch the console as the user who was just provisioned</span></span></li></ol>
+<p><strong><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">The job can be found in the below location</span></span></strong></p>
+<p><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">&quot;\\sbitsinc.com\Public\Professional Services\SA Jobs\RBAC_SetUserDBPerms.zip&quot;</span></span></p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All StealthAUDIT Versions<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000002624</p>
+</body>
+</html>

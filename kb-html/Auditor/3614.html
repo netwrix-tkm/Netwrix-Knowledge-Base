@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1239 in Health Log</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:57.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2024-01-15T11:26:17.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:51.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9cuCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9cuCAC">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-15T11:26:23.000Z">
+    <meta name="LastPublishedDate" content="2024-01-15T11:26:13.000Z">
+    <meta name="Meta_Description__c" content="Troubleshooting SharePoint Audit issues caused by non-optimal Audit Log Trimming settings.">
+    <meta name="Meta_Title__c" content="Netwrix Auditor System Health Log - Event ID 1239">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2449">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cuCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1239 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error message under Event ID 1239 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+The Audit log trimming setting for some SharePoint sites is not configured correctly.
+The recommended period is 7 days.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The audit log trimming setting for the site collection is turned off or exceeds 7 days.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>In the affected site collection, navigate to <strong>Site Settings</strong> &gt; <strong>Site Collection Audit Settings</strong> &gt; <strong>Audit Log Trimming</strong>.</p>
+	</li><li>
+	<p>Set the <strong>Automatically trim the audit log</strong> option to <strong>Yes</strong>. Set the log retention to 7 days in the <strong>Specify the number of days of audit log data to retain</strong> field. Save the changes.</p>
+	</li><li>
+	<p>Update the monitoring plan ? select the affected monitoring plan, click <strong>Edit</strong>, and click <strong>Update</strong> in the right pane.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Verify the audit settings are set to be adjusted automatically ? in the SharePoint monitoring plan, click Edit data source and check the Configure audit settings checkbox. Save the changes.</p>
+</blockquote>
+</div>
+</body>
+</html>

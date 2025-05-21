@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Does Not Show Up in MSP Portal</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-08-10T14:16:34.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000001111RCAQ">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-05-14T13:57:41.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2023-08-10T14:16:54.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001111RCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001111RCAQ">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-05-14T15:06:35.000Z">
+    <meta name="LastPublishedDate" content="2025-05-14T15:06:35.000Z">
+    <meta name="Meta_Description__c" content="Client Does Not Show Up for MSP">
+    <meta name="Meta_Title__c" content="Client Does Not Show Up for MSP">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8724">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001111RCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Client Does Not Show Up in MSP Portal</h1>
+    <h2>Symptom</h2>
+<p>A client does not show up in the MSP Portal for the MSP.</p>
+<h2>Resolution</h2>
+<p>Follow these troubleshooting steps before reaching out to the Channel Team:</p>
+<ul><li>Check communication with the license server. Search the <code class="lang-Registry">%Working Folder%\Logs\Administrative Console</code> log for the following line:
+<pre class="has-inner-focus">Start web request to https://license.nwxcorp.com/msp/licensecount.php</pre>
+The following <code class="lang-Registry">HttpWebResponse StatusCode</code> line should resolve to <code class="lang-Registry">OK</code>.</li><li>Add the following structure to the <strong>MSP.xml</strong> file located at <code class="lang-Registry">C:\Program Files\Netwrix Auditor\Administrative Console\MSP.xml</code>:
+<pre class="has-inner-focus">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;MSPSettings&gt;
+  &lt;CustomInstanceIdentificator&gt;CompanyABCServer&lt;/CustomInstanceIdentificator&gt;
+  &lt;ServiceAccounts&gt;
+    &lt;ServiceAccount Path=&quot;domain.com/Users/Service Accounts&quot; /&gt;
+    &lt;ServiceAccount Path=&quot;domain2.com/Users/Service Accounts&quot; /&gt;
+  &lt;/ServiceAccounts&gt;
+  &lt;EntraIdServiceAccounts&gt;
+    &lt;Users&gt;
+      &lt;!--&lt;User Name=&quot;John@nwxcorp.onmicrosoft.com&quot; /&gt;--&gt;
+      &lt;!--&lt;User Name=&quot;Bob@nwxcorp.onmicrosoft.com&quot; /&gt;--&gt;
+    &lt;/Users&gt;
+  &lt;/EntraIdServiceAccounts&gt;
+&lt;/MSPSettings&gt;
+</pre>
+<p><strong>Note:</strong> The <code class="lang-Registry">&lt;EntraIdServiceAccounts&gt;</code> attribute is supported starting with version 10.7. It is used to omit unnecessary Entra ID accounts from being counted in the license counter for the Entra ID (Azure AD collector).</p>
+Use the structure with the relevant customer paths and Entra ID accounts. Once saved, run <strong>Netwrix.CallHome.MSPTool.exe</strong> located at <code class="lang-Registry">C:\Program Files\Netwrix Auditor\Administrative Console\Netwrix.NAC.MSPTool.exe</code>.</li><li>Check the <code class="lang-Registry">HKLM\SOFTWARE\Wow6432Node\Netwrix Auditor\Management Console</code> registry key for the <code class="lang-Registry">MSPErrorDateMarker</code> value containing the failure time. This value is registered if the sender fails to transfer license usage information to the server. If data has not been sent after three days, the following error will be written to the Netwrix Auditor System Health Windows event log:
+<pre class="has-inner-focus">Source: Notification Sender.
+Error text:
+Your license is out of compliance.
+Netwrix Auditor was unable to check your license online due to the following error: {0}.
+Check your firewall settings to allow access to https://www.netwrix.com or contact Netwrix Technical Support.
+</pre>
+</li><li>If no error is present after completing the provided steps, it is possible that license data is not being associated correctly to the MSP. Contact the Channel Team at <a href="mailto:netwrix.msp@netwrix.com" target="_blank">netwrix.msp@netwrix.com</a> for assistance.</li></ul>
+</body>
+</html>

@@ -1,15 +1,4 @@
-# Ignore everything
-*
-
-# But don't ignore these files and directories
-!/.gitignore
-!/README.md
-
-# Include these directories
-!/kb-html/
-!/kb-workflow-tools/
-
-# But ignore .gitkeep files in these directories
+# Ignore .gitkeep files in these directories
 **/.gitkeep
 
 # Ignore OS generated files

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customization of Logon Prompt Extension</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:26:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-06-28T14:15:28.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:29:44.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9cFCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9cFCAS">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-06-28T14:15:44.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:29:44.000Z">
+    <meta name="Meta_Description__c" content="The KB explains how to customize Logon Prompt Extension of Netwrix Password Manager.">
+    <meta name="Meta_Title__c" content="Customization of Logon Prompt Extension">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="2056">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cFCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Customization of Logon Prompt Extension</h1>
+    <div>Customization of Netwrix Logon Prompt Extension for Password Manager is done via registry values in the following keys:</div>
+<ul><li>HKEY_LOCAL_MACHINESOFTWARE[Wow6432Node]NetwrixPassword Manager Self-service Client</li><li>HKEY_LOCAL_MACHINESoftware[Wow6432Node]PoliciesNetwrixPasswordManager</li></ul>
+<div>Most of these values are not created by default installation. Values can be set manually or by means of any deployment software, which can apply .reg files (SCCM, self-written scripts, etc.)
+Policies key can also be set up via Group policy by means of Netwrixprm.adm administrative template, which is located in Password manager installation directory - it is described in the Administrator&#39;s guide.</div>
+<div></div>
+<div>The full list of values:</div>
+<div></div>
+<div>At HKEY_LOCAL_MACHINESOFTWARE[Wow6432Node]NetwrixPassword Manager Self-service Client</div>
+<div>All values are string values (REG_SZ):</div>
+<ul><li>CompanyBrand &quot; this value replaces Netwrix in all text of Logon Prompt Extension</li><li>HelpDeskPhone &quot; this value is added at the end of all message boxes in Logon Prompt Extension and Enrollment wizard</li><li>LogonCaption &quot; this value replaces the header of the Logon Prompt Extension password reset wizard</li><li>MainCaption - this value replaces the header of the Enrollment wizard.</li></ul>
+<a href="https://Netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KS4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004xhy" target="_blank"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116Nm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xhy" alt="User-added image" width="500" height="391"></img></a><a href="https://Netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KS4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004xi3" target="_blank"><img style="width: 660px;height: 443px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116Nm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xi3" alt="User-added image" width="500" height="343"></img></a>
+<div>At HKEY_LOCAL_MACHINESoftware[Wow6432Node]PoliciesNetwrixPasswordManager</div>
+<div>String values (REG_SZ):</div>
+<ul><li>PRM_Server - URL to your Password Manager web site</li><li>PRM_LogonWindowText &quot; replaces text of LPE invite on WinXP/2003 logon screen</li><li>PRM_LogonWindowButtonText &quot; replaces text which is shown up, when you point to the button of Logon Prompt Extension on WinXP/2003 logon screen</li><li>PRM_LogonWindowIconPath &quot; contain path to an .ico file, with which default icon of Logon Prompt Extension will be replaced</li><li>PRM_CredProvLogonWindowText &quot; replaces text of Logon Prompt Extension invite on WinVista/7/2008 logon screen</li><li>PRM_CurrentUserLanguage &quot; this value toggles language of Logon Prompt Exrension and Enrollment wizard. Possible values specified in the table below.</li><li>PRM_CredentialDialogText - replaces the text in the credential prompt window of Enrollment wizard</li><li>PRM_CredentialDialogCaption - replaces the header in the credential prompt window of Enrollment wizard</li><li>LPE_AccountRemark - replaces example text under the field used to enter account name</li><li>Predefine_Domain &quot; this value sets predefined domain name that will be used</li></ul>
+<a href="https://Netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KS4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004xiD" target="_blank"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116Nm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xiD" alt="User-added image"></img></a> <a href="https://Netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KS4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004xiI" target="_blank"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116Nm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xiI" alt="User-added image"></img></a>
+
+DWORD values - can be turned on (1) or off (0)
+<ul><li>PRM_ResetCredentialsCache - allows the client to reset password in the local cache in disconnected mode.</li><li>PRM_SuppressEnrollmentErrors &quot; this option disables error messages</li><li>PRM_SuppressLaterEnrollment &quot; this option make user unavailable to close the Enrollment wizard without passing through enroll procedure</li></ul>
+<div>
+
+Language values:
+<table style="width: 200px;" border="1"><thead><tr><th colspan="1" rowspan="1">Value</th><th colspan="1" rowspan="1">Language</th></tr></thead><tbody><tr><td colspan="1" rowspan="1" style="text-align: center;">cn</td><td colspan="1" rowspan="1" style="text-align: center;">Chinese</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">de</td><td colspan="1" rowspan="1" style="text-align: center;">German</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">en</td><td colspan="1" rowspan="1" style="text-align: center;">English</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">es</td><td colspan="1" rowspan="1" style="text-align: center;">Spanish</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">fr</td><td colspan="1" rowspan="1" style="text-align: center;">French</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">he</td><td colspan="1" rowspan="1" style="text-align: center;">Hebrew</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">it</td><td colspan="1" rowspan="1" style="text-align: center;">Italian</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">jp</td><td colspan="1" rowspan="1" style="text-align: center;">Japanese</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">ko</td><td colspan="1" rowspan="1" style="text-align: center;">Korean</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">pt</td><td colspan="1" rowspan="1" style="text-align: center;">Portuguese</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">ru</td><td colspan="1" rowspan="1" style="text-align: center;">Russian</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">sk</td><td colspan="1" rowspan="1" style="text-align: center;">Slovak</td></tr><tr><td colspan="1" rowspan="1" style="text-align: center;">zh</td><td colspan="1" rowspan="1" style="text-align: center;">Traditional Chinese</td></tr></tbody></table>
+<a href="https://Netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KS4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004xhe" target="_blank"><img style="width: 735px;height: 510px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116Nm&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xhe" alt="User-added image" width="500" height="355"></img></a>
+
+</div>
+</body>
+</html>

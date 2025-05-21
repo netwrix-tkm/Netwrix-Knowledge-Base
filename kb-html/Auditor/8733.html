@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Removal Tool for ADV-2023-003 Failed to Load Configuration File</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-08-16T16:26:14.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-08-21T14:59:21.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-16T16:30:35.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000001112ACAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000001112ACAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-08-21T14:59:38.000Z">
+    <meta name="LastPublishedDate" content="2023-08-16T16:30:35.000Z">
+    <meta name="Meta_Description__c" content="KDS Root Key Tool for ADV-2023-003 Failed to Load Configuration File">
+    <meta name="Meta_Title__c" content="KDS Root Key Tool for ADV-2023-003 Failed to Load Configuration File">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8733">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001112ACAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>KDS Removal Tool for ADV-2023-003 Failed to Load Configuration File</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>You&#39;re unable to run the NetwrixAuditorKDSRemoval (KDS Removal) tool to delete KDS Root Key data (ADV-2023-003). The following error is prompted showing the tool is unable to reach the <strong>Configuration.xml</strong> file:</p>
+
+<pre class="has-inner-focus">
+Failed to load configuration file.
+Could not find a part of the path</pre>
+
+<div><img height="340" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117HW&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LwaA" width="651"></img></div>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The KDS Removal tool is unable to locate the Netwrix Auditor configuration file.</p>
+</div>
+
+<h2>Solution</h2>
+
+<div>
+<ol><li>
+	<p>Check the location of the configuration file (located by default in <code>C:\ProgramData\Netwrix Auditor\AuditCore\ConfigServer\Configuration.xml</code>). If a Working Folder migration was previously done, check the <code>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride</code> key for a path.</p>
+	</li><li>
+	<p>Open the folder you&#39;ve extracted the KDS tool to. Open the <code>config.json</code> file using a text editor (e.g., Notepad++). In <strong>&quot;DataPathKey&quot;</strong> section of the file, specify the path to your Working Folder in the <strong>&quot;DefaultValue&quot;</strong> line. Refer to the following code block for an example:</p>
+
+	<pre class="has-inner-focus">
+&quot;DataPathKey&quot;: 
+    {
+        &quot;KeyPath&quot;: &quot;HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Netwrix Auditor\\DataPathOverride&quot;,
+        &quot;KeyName&quot;: &quot;&quot;,
+        &quot;DefaultValue&quot;: &quot;%PROGRAMDATA%\\Netwrix Auditor&quot;
+    },
+
+to
+
+&quot;DataPathKey&quot;: 
+    {
+        &quot;KeyPath&quot;: &quot;HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Netwrix Auditor\\DataPathOverride&quot;,
+        &quot;KeyName&quot;: &quot;&quot;,
+        &quot;DefaultValue&quot;: &quot;C:\\ProgramData\\Netwrix Auditor&quot;
+    },</pre>
+	</li><li>
+	<p>Save changes and run the tool again.</p>
+	</li></ol>
+
+<p>In case these steps did not help, contact <a href="https://www.netwrix.com/open_a_ticket.html" target="_blank">Netwrix Technical Support</a>.</p>
+</div>
+</body>
+</html>

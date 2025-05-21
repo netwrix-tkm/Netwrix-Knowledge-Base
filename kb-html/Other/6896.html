@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.1_015</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:27:35.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:26.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:27:35.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IerCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IerCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:26.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:27:35.000Z">
+    <meta name="Meta_Description__c" content="360012217852">
+    <meta name="Meta_Title__c" content="Hotfix: SA_8.1_015">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6896">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IerCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.1_015</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Exchange SDD: Error: The given value of type String from the data source cannot be converted to type nvarchar of the specified target column.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SAT-2807<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>                -DC\MailboxSearchProcessor.dll v. 8.1.109.0<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong> <br>Bug<br><strong><span style="font-family: calibri,sans-serif;">Issue:</span></strong><br>ExchangeMailbox DC encountered an error when collecting SDD data.  Error was caused by too large of data set +1000 characters.  We now correctly truncate data that is too large for tables.  This error was only seen when &quot;Store discovered sensitive data&quot; check box was checked in the SDD criteria screen. <br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li style="color: #404040;margin-left: 0in;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there.
+</li><li style="color: #404040;margin-left: 0in;">Exit StealthAUDIT console
+</li><li style="color: #404040;margin-left: 0in;">Close all instances of StealthAUDIT (check task manager under processes for all users)
+</li><li style="color: #404040;margin-left: 0in;">Update all DC file in your %SAInstallDir%DC directory</li></ol>
+<div style="color: #404040;margin-left: 0in;">  
+<table cellspacing="0" cellpadding="0" width="461" border="0"><tbody><tr height="77"><td colspan="1" rowspan="1" height="77" width="461"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_015.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_015.zip</a></td></tr></tbody></table>
+</div><p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ExchangeMailbox<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-2807<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> DC\MailboxSearchProcessor.dll v. 8.1.109.0<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1836<br></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasuni activity showing in AIC</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk000001wMM9IAM">
+    <meta name="ArticleCreatedDate" content="2025-03-18T14:57:19.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002AbBKAU">
+    <meta name="Article_Reviewer__c" content="005Qk000001wMM9IAM">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1209707550565003">
+    <meta name="AssignedById" content="0054u000006gpoAAAQ">
+    <meta name="AssignedToId" content="0054u000007osjSAAQ">
+    <meta name="AssignmentDate" content="2025-03-20T22:31:10.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000LnWqjIAF">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="005Qk000001wMM9IAM">
+    <meta name="CreatedDate" content="2025-03-18T14:57:19.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TSE">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002AbBKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002AbBKAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-09T13:00:31.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Nasuni activity showing in AIC with C:\ paths instead of UNC paths">
+    <meta name="Meta_Title__c" content="Nasuni activity showing in AIC with C:\ paths instead of UNC paths">
+    <meta name="OwnerId" content="0054u000007MdqrAAC">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9442">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002AbBKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Nasuni activity showing in AIC</h1>
+    ymptom<br><br>Activity Monitor is monitoring Nasuni activity for multiple filers fine and also resolving UNC paths for them (as can be seen in attached Activity Monitor exports for a couple of those filers). However, in AIC as can be seen in attached aicactivity.png, it shows the activity in the C:\ format instead of the UNC format. This makes it extremely difficult from a user perspective to use that activity data since all activity from each filer is being stored under the same host in AIC (AZR-NWXAPPSRV in this case which is the app server with Access Analyzer installed). I&#39;ve attached debug logs from the FSAC job, the screenshot of what we see in AIC, the tier 2 files from the AZR-NWXAPPSRV host, and the exports from Activity Monitor.<br><br>Cause<br><br>Nasuni FSAC system scans were configured to use a host query method to point to a singular host. This method caused the file system activity to be displayed all under one host in the AIC without a file system structure for all Nasuni hosts. <br><br>Resolution<br><br>Modified the query settings to point to the NAM agent that&#39;s being used as a proxy host and selected all Nasuni files within the host list assignment to be targeted. Once these settings were configured we were successfully able to scan all Nasuni host and collect permissions and activity data on those hosts. Additionally, with this new modification we were also successfully able to display a file structure for each Nasuni host in the AIC. This process now makes it more accessible to view when performing a search within the AIC for desired Nasuni host.
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_11.5_064</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006RPEQAA4">
+    <meta name="ArticleCreatedDate" content="2023-08-03T21:07:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u00000110zaCAA">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006RPEQAA4">
+    <meta name="CreatedDate" content="2025-05-09T03:38:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-08-03T21:07:08.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110zaCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110zaCAA">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T03:45:36.000Z">
+    <meta name="LastPublishedDate" content="2023-08-03T21:07:08.000Z">
+    <meta name="Meta_Description__c" content="Update the AD_PasswordStatus with Reversible Encryption columns">
+    <meta name="Meta_Title__c" content="Hotfix: SA_11.5_064">
+    <meta name="OwnerId" content="0054u000006RPEQAA4">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8711">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110zaCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_11.5_064</h1>
+    <span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Summary: </span></span></strong><span style="font-size: 12.0pt;">  Update the AD_PasswordStatus with Reversible Encryption columns</span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><b><span style="font-size: 12.0pt;">Submitted<strong><span style="font-family: &quot;Calibri&quot;,sans-serif;"> by: </span></strong></span></b></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="tab-stops: 71.1pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;"><span style="font-size: 12.0pt;">Justin </span></span></span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Versions:</span></span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12.0pt;">11.5</span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Module:</span></span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12.0pt;">SS - AD</span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Dev Ticket:</span></span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12.0pt;"><span style="color: black;">291119</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Resolved in Version:</span></span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;">GROUP_Active Directory/GROUP_2.Users/JOB_AD_PasswordStatus/DataAnalysisTasks.XML</span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;">GROUP_Active Directory/GROUP_2.Users/JOB_AD_PasswordStatus/JOB_AD_PasswordStatus.XML</span></span></span><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">KB Type: </span></span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;"><span style="font-size: 12.0pt;">              Hotfix</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Escalations</span></span></strong></span></span><br><br><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Instructions:</span></span></strong></span></span></span>
+<ol><li style="margin-left: 32px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12.0pt;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </span></span></span></span></li><li style="margin-left: 32px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12.0pt;">Close all instances of Access Analyzer (check task manager under processes for all users)</span></span></span></span></li><li style="margin-left: 32px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-size: 12.0pt;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Update all files in your %SAInstallDir%</span></span></strong></span></span></span></li></ol>
+
+<div style="margin-left: 32px;"> </div>
+https://downloads.stealthbits.com/access/files/SAHotFixes/11.5/SA_11.5_064.zip<br> 
+</body>
+</html>

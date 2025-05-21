@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Considerations: Non-Domain-Joined Netwrix Privilege Secure Server</title>
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2023-10-31T12:59:41.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2025-01-23T19:24:26.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2023-10-31T13:10:25.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000wnksCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000wnksCAA">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-01-23T19:40:42.000Z">
+    <meta name="LastPublishedDate" content="2025-01-23T19:40:42.000Z">
+    <meta name="Meta_Description__c" content="Security Considerations: Non-domain-joined Netwrix Privilege Secure Server">
+    <meta name="Meta_Title__c" content="Security Considerations: Non-domain-joined Netwrix Privilege Secure Server">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8882">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnksCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Security Considerations: Non-Domain-Joined Netwrix Privilege Secure Server</h1>
+    <h2>Question</h2>
+<div>
+<p>What is the reasoning behind the recommendation in the <a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.2/page/Content/PrivilegeSecure/AccessManagement/Requirements/ApplicationServer.htm" target="_blank">Server Requirements</a> that Netwrix Privilege Secure (NPS) servers not be joined to a managed domain?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>Netwrix recommends considering standard PAM security cogitations when deploying NPS. NPS instances should be installed on standalone servers that are hardened and have limited access rights.<br><br>The following risks are posed by joining NPS to a domain:</p>
+<ol><li>
+<p>A domain-joined server can have its security compromised through group policy controls, as policy inheritance may not be blocked for the server.</p>
+</li><li>
+<p>If a privileged domain account is compromised, the NPS server is then a potential target for lateral movement attacks.</p>
+</li><li>
+<p>A key use case of NPS is to provide dynamic domain administrator access to users. If a user is provided with domain administrator privileges, the user would then have domain administrator access to the NPS server. This would allow for malicious actions that would compromise the security of the NPS Server, up to and including tampering with the audit trail after performing malicious actions.</p>
+</li></ol>
+</div>
+</body>
+</html>

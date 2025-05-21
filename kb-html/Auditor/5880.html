@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0x800706D3 Error ? Authentication Service Is Unknown</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006ati4AAA">
+    <meta name="ArticleCreatedDate" content="2021-07-02T14:04:31.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006ati4AAA">
+    <meta name="CreatedDate" content="2023-10-27T14:30:44.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-07-02T14:06:21.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000PdInCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000PdInCAK">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-27T14:30:51.000Z">
+    <meta name="LastPublishedDate" content="2023-10-27T14:30:39.000Z">
+    <meta name="Meta_Description__c" content="File Server Auditing for EMC VNX/Unity Error cannot connect to file server (0x800706D3 The authentication service is unknown)">
+    <meta name="Meta_Title__c" content="File Server Auditing for EMC VNX/Unity Error cannot connect to file server (0x800706D3 The authentication service is unknown)">
+    <meta name="OwnerId" content="0050g000006ati4AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5880">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PdInCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>0x800706D3 Error ? Authentication Service Is Unknown</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Either of the following errors is prompted in Health Log for file server monitoring plans in Netwrix Auditor:</p>
+
+<pre class="has-inner-focus">
+Source:	File Storage Audit Service
+Event ID:6104
+Description:Monitoring plan: %File_Servers_Monitoring_Plan% 
+Item: %item_name%
+Unable to process item: Cannot connect to file server (0x800706D3 The authentication service is unknown).</pre>
+
+<pre class="has-inner-focus">
+Backup event log seek failed. Error details: Access is denied</pre>
+
+<pre class="has-inner-focus">
+Failed to open the event log. Error details: The requested operation is not supported. Error code: 800706e4</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Microsoft released security updates KB5003646/KB5003638 to fix security vulnerabilities. These updates installed in Windows Server 2019 servers would affect the Netwrix Auditor data collection. Learn more about the updates in <a href="https://support.microsoft.com/en-us/topic/june-8-2021-kb5003646-os-build-17763-1999-81e2ff5a-0769-4e56-8762-059dd6e0d6bb" target="_blank">KB5003646 · Microsoft Support</a>.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Upgrade your Netwrix Auditor instance to v10.5.11059 or the latest version available. Refer to the following article for additional information on the upgrade process: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Install/Upgrade.htm" target="_self">Installation ? Upgrade to the Latest Version · v10.6</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://support.microsoft.com/en-us/topic/june-8-2021-kb5003646-os-build-17763-1999-81e2ff5a-0769-4e56-8762-059dd6e0d6bb" target="_blank">KB5003646 · Microsoft Support</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Install/Upgrade.htm" target="_self">Installation ? Upgrade to the Latest Version · v10.6</a></p>
+
+<p><a href="https://helpcenter-be.netwrix.com/bundle/Auditor_10.5_ReleaseNotes/raw/resource/enus/Netwrix_Auditor_10.5_BugFixList.pdf" target="_blank">Netwrix Auditor v10.5 Bug Fix List</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Upgrade Netwrix Auditor</title>
+    <meta name="content_type" content="ct_monitoringplans">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:02.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000H9ePCAS">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2025-03-19T13:59:30.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:07.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9ePCAS">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9ePCAS">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-03-19T14:00:54.000Z">
+    <meta name="LastPublishedDate" content="2025-03-19T14:00:54.000Z">
+    <meta name="Meta_Description__c" content="How To Upgrade Netwrix Auditor">
+    <meta name="Meta_Title__c" content="How To Upgrade Netwrix Auditor">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="3666">
+    <meta name="VersionNumber" content="7">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ePCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Upgrade Netwrix Auditor</h1>
+    <h2>Question</h2>
+<div>
+<p>How to update Netwrix Auditor?</p>
+</div>
+<h2>Answer</h2>
+<blockquote>
+<p><strong><span style="color: #2980b9;">NOTE: </span></strong>It is highly recommended to capture a snapshot of the server.</p>
+</blockquote>
+<blockquote>
+<p><strong><span style="color: #2980b9;">NOTE: </span></strong>Before you begin, launch a PowerShell session as Administrator and execute the following command:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Stop-Service -Displayname Netwrix*</code></pre>
+<p>This will stop all Netwrix services and prevent complications during the upgrade.</p>
+</blockquote>
+<h4>Netwrix Auditor v.9.96 and later</h4>
+<div>
+<p>Refer to the following video for step-by-step instructions on upgrading to the latest Netwrix Auditor version.</p>
+<iframe frameborder="1" scrolling="auto" width="560" height="315" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/M_IfPaf_7ig" title="YouTube video player"></iframe></div>
+<div>
+<p>For the text version of the guide, refer to the following documentation article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.7/page/Content/Auditor/Install/Upgrade.htm" target="_self">Upgrade to the Latest Version</a>.</p>
+</div>
+<h4>Netwrix Auditor v.9.95 and earlier</h4>
+<blockquote>
+<p><strong><span style="color: #2980b9;">NOTE: </span></strong>For additional information on upgrade increments, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eJCAS.html" target="_self">Upgrade Increments for Netwrix Auditor</a>.</p>
+</blockquote>
+<div>
+<p>The following steps represent a scenario for upgrading from v.9.95 to v.9.96. The upgrade progress for Netwrix Auditor version 8.0 up to 9.96 will be similar. If you are upgrading from an earlier version, please view the additional steps under <strong>Post Upgrade</strong> &gt; <strong>Legacy Steps</strong> further in this article.</p>
+</div>
+<div>
+<ol><li>
+<p>When upgrading, it is recommended to log via your data collection service account.<br>Right-click the installer and choose <strong>Run as administrator</strong>. The following window will include options to view documentation for the new version.</p>
+</li><li>
+<p>Click the <strong>Install</strong> button to continue the upgrade. You&#39;ll be confirming the version you&#39;re upgrading to in the next window.</p>
+</li><li>
+<p>Confirm the version and click <strong>Next</strong>.</p>
+</li><li>
+<p>Read the EULA, check the <strong>I accept the terms of the License Agreement</strong> checkbox and click <strong>Next</strong>.</p>
+</li><li>
+<p>Click <strong>Install</strong>. Once the installation process is complete, you should see the confirmation.</p>
+</li><li>
+<p>Congratulations, you have successfully upgraded!</p>
+</li></ol>
+</div>
+<h4>Post Upgrade</h4>
+<div>
+<p>Upon completion, Netwrix Auditor will launch. To confirm integrity, run the following tests:</p>
+<ul><li>
+<p><strong>Configuration:</strong> View your Monitoring Plans and settings to confirm the configuration successfully carried over.</p>
+</li><li>
+<p><strong>SQL Connectivity:</strong> On the homepage click &quot;Search&quot; and run a search with your desired parameters. If data is returned, SQL connectivity is validated.</p>
+</li><li>
+<p><strong>SSRS Connectivity:</strong> On the homepage click &quot;Reports&quot; and attempt to view a report for a data source that you are currently auditing. If the report successfully builds, SSRS connectivity is validated.</p>
+</li><li>
+<p><strong>Legacy Steps:</strong> On version 8.5 and lower, you will need to launch the Netwrix Auditor Administrator Console and manually upgrade the Audit Databases in SQL.</p>
+<ul><li>
+<p>Click <strong>Audit Database</strong> and then click <strong>Upgrade</strong>.</p>
+<div><img alt="8.0-Upgrade-6-1.png" height="502" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Csfl&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084TwA" width="601"></img></div>
+</li></ul>
+</li></ul>
+</div>
+<h4>Related articles</h4>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.7/page/Content/Auditor/Install/Upgrade.htm" target="_self">Upgrade to the Latest Version ? 10.7</a></p>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eJCAS.html" target="_self">Upgrade Increments for Netwrix Auditor</a></p>
+</body>
+</html>

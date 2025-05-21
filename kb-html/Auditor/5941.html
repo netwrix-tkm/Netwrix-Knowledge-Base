@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus Exclusions for Netwrix Auditor</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0050g000006ati4AAA">
+    <meta name="ArticleCreatedDate" content="2022-01-14T14:16:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006ati4AAA">
+    <meta name="CreatedDate" content="2023-11-09T18:29:42.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-01-14T14:22:10.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000HirCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000HirCAE">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-01-17T15:28:22.000Z">
+    <meta name="LastPublishedDate" content="2024-01-17T15:28:22.000Z">
+    <meta name="Meta_Description__c" content="Antivirus Exclusions for Netwrix Auditor">
+    <meta name="Meta_Title__c" content="Antivirus Exclusions for Netwrix Auditor">
+    <meta name="OwnerId" content="0050g000006ati4AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5941">
+    <meta name="VersionNumber" content="13">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HirCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Antivirus Exclusions for Netwrix Auditor</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Should Netwrix Auditor-related folders be excluded from antivirus scans?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Your antivirus suite can slow down or even prevent correct operation of Netwrix Auditor. Netwrix Auditor writes information in smaller portions at short intervals  an antivirus will attempt to read the entire file looking for threats after each writing session. This considerably slows down processes of Netwrix Auditor as each short writing session is expected to occur frequently, while a full read of a file might take a long time (especially in a larger environment). This might lead to the following issues:</p>
+
+<ul><li>
+	<p>Timeouts for larger files, as your antivirus suite might require additional time to check them.</p>
+	</li><li>
+	<p>Additional strain on RAM to suit Auditor needs.</p>
+	</li><li>
+	<p>Additional strain on CPU to suit antivirus needs.</p>
+	</li><li>
+	<p>Issues when upgrading your Netwrix Auditor instance.</p>
+	</li></ul>
+</div>
+
+<div>
+<p>It is strongly recommended that you add the following paths to the list of exclusions for your antivirus:</p>
+</div>
+
+<div>
+<table border="1" style="width: 1000px;"><tbody><tr><td colspan="1" rowspan="1">Location</td><td colspan="1" rowspan="1">Paths</td></tr><tr><td colspan="1" rowspan="1">Netwrix Auditor Server</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p><strong>Long-Term Archive</strong> located by default in <code>C:\ProgramData\Netwrix Auditor\Data</code>. If you&#39;ve previously changed the default location, you can look it up in Netwrix Auditor settings:</p>
+
+				<ul><li>
+					<p><strong>Main Netwrix Auditor menu</strong> &gt; <strong>Settings</strong> &gt; <strong>Long-Term Archive</strong></p>
+					</li></ul>
+				</li><li>
+				<p><strong>Netwrix Auditor Working Folder</strong> located by default in <code>C:\ProgramData\Netwrix Auditor</code>. If you&#39;ve previously changed the default location, you can look the <strong>Default</strong> value up in the registry key:</p>
+
+				<ul><li>
+					<p><code>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride</code></p>
+					</li></ul>
+				</li><li>
+				<p><strong>Netwrix Auditor Installation Folder</strong> located by default in <code>C:\Program Files (x86)\Netwrix Auditor</code>. If you&#39;ve previously changed the default location, you can look the <strong>InstallPath</strong> value up in the registry key:</p>
+
+				<ul><li>
+					<p><code>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor</code></p>
+					</li></ul>
+				</li></ul>
+			</td></tr><tr><td colspan="1" rowspan="1">Audited servers</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p><code>C:\ProgramData\Netwrix Auditor</code></p>
+				</li><li>
+				<p><code>C:\Windows\SysWOW64\NwxExeSvc</code></p>
+				</li><li>
+				<p><code>C:\Windows\Netwrix</code></p>
+				</li><li>
+				<p><code>C:\Windows\Netwrix Auditor</code></p>
+				</li><li>
+				<p><code>C:\Program Files (x86)\Common Files\Netwrix Auditor</code></p>
+				</li><li>
+				<p><code>C:\Windows\ADCR_Agent</code></p>
+				</li><li>
+				<p><code>C:\Program Files (x86)\Netwrix Auditor\Windows Server Compression Service</code></p>
+				</li><li>
+				<p><code>C:\ProgramFiles\Microsoft SQL Server\MSSQL.MSSQLSERVER\MSSQL</code></p>
+				</li></ul>
+			</td></tr><tr><td colspan="1" rowspan="1">Access Review for Netwrix Auditor</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p><code>C:\Program Files\Netwrix\Access Information Center\AccessInformationCenter.Service.Exe</code></p>
+				</li></ul>
+			</td></tr></tbody></table>
+</div>
+
+<div>
+<blockquote>
+<p><strong>TIP:</strong> Refer to your antivirus documentation for details on how to exclude certain paths from scanning</p>
+</blockquote>
+</div>
+</body>
+</html>

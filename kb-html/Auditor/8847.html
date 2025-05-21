@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Current Site Is Not a Tenant Administration Site in Microsoft 365 Monitoring Plan</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-10-09T15:23:33.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-06-11T11:31:53.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-10-09T15:23:48.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111K4CAI">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111K4CAI">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-06-11T11:32:15.000Z">
+    <meta name="LastPublishedDate" content="2024-05-30T07:01:53.000Z">
+    <meta name="Meta_Description__c" content="SPO ? Current Site Is Not a Tenant Administration Site">
+    <meta name="Meta_Title__c" content="SPO ? Current Site Is Not a Tenant Administration Site">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8847">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111K4CAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Current Site Is Not a Tenant Administration Site in Microsoft 365 Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>A Microsoft 365-based monitoring plan in Netwrix Auditor prompts the following error in the Health Log:</p>
+
+<pre class="has-inner-focus">
+Event ID: 3229
+Description: Monitoring plan: %Monitoring_plan_name%
+Item: %item_name%
+Failed to collect state-in-time data due to the following error:
+Error get responce for GetTenant: Current site is not a tenant administration site</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The affected monitored item has an incorrect tenant name.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Review the tenant name in the affected monitoring plan.</p>
+
+<ol><li>
+	<p>In the main Auditor screen, click <strong>Monitoring Plans</strong>, select the affected monitoring plan, and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>Select a monitored item and click <strong>Edit Item</strong> in the right pane.</p>
+	</li><li>
+	<p>Review the tenant name value for the item. Refer to the Microsoft guide to locate the correct tenant ID: <a href="https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names#find-the-microsoft-azure-ad-tenant-id-and-primary-domain-name" target="_blank">Locate important IDs for a user ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>Once you introduce the changes, click <strong>Save &amp; Close</strong>. In the right pane, click <strong>Update</strong> to update your monitoring plan.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names#find-the-microsoft-azure-ad-tenant-id-and-primary-domain-name" target="_blank">Locate important IDs for a user ? Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

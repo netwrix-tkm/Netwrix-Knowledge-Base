@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 403</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:12.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:46:30.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:57.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9TwCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9TwCAK">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:46:30.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:57.000Z">
+    <meta name="Meta_Description__c" content="When I try to browse to any portal, I get  &quot;Error 403 - Forbidden&quot; or &quot;Error 403 - Access is denied&quot;">
+    <meta name="Meta_Title__c" content="Error 403">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="641">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TwCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error 403</h1>
+    When trying to browse to any portal, you get  &quot;Error 403 - Access is denied&quot;<br><br><img alt="User-added image" height="116" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yKg" width="500"></img>
+
+<hr></hr>
+
+The 403 error can be caused by several reasons. The most common reasons are:<br><br>1. You are trying to access the site via HTTP when HTTPs is required.<br>To enable access via regular HTTP make sure that <strong>Require SSL </strong>check-box is not enabled.
+<ol start="1" style="list-style-type: lower-alpha;"><li>Launch the IIS Manager</li><li>Navigate to the <strong>PM</strong> virtual directory (Default Web Site/PM by default).</li><li>In the central pane double-click <strong>SSL Settings</strong></li><li>Check settings, change if necessary</li></ol>
+<img alt="User-added image" height="315" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yKq" style="width: 424px;height: 255px;" width="500"></img>  <img alt="User-added image" height="242" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yKv" style="width: 439px;height: 217px;" width="500"></img><br><br>2. Default document IIS feature is not enabled.<br><br>To check this:
+<ol style="list-style-type: lower-alpha;"><li>Launch the IIS Manager</li><li>Navigate to the PM virtual directory (Default Web Site/PM by default).</li><li>In the central pane double-click Default Document</li><li>In the right pane click Enable (if there is no Enable option there, but Disable is, it means that the feature is enabled)</li></ol>
+
+<p><img alt="User-added image" height="381" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yL0" style="width: 391px;height: 325px;" width="500"></img>  <img alt="User-added image" height="256" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yL5" style="width: 391px;height: 231px;" width="500"></img></p>
+</body>
+</html>

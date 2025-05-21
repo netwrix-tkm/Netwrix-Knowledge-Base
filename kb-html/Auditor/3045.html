@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading log status</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:11.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:45:58.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:32:53.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9TZCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9TZCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:45:58.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:32:53.000Z">
+    <meta name="Meta_Description__c" content="Domain controller has a yellow exclamation mark in front of  the DC Name column of the Monitored Domain Controllers grid. Connection status is shown Reading log">
+    <meta name="Meta_Title__c" content="Reading log status">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="624">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TZCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Reading log status</h1>
+    In NetWrix Account Lockout Examiner Console, a domain controller has a yellow exclamation mark in front of  the <b>DC Name</b> column of the <b>Monitored Domain Controllers</b> grid. Connection status is shown <strong>Reading log</strong>. Lockout events from this domain controller cannot be read by the program as well.  <br><img alt="User-added image" height="80" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNK&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004x01" style="width: 756px;height: 155px;" width="500"></img>
+
+<hr></hr>
+
+<div>This issue can appear either right after the NetWrix Account Lockout Examiner installation, or after the NetWrix Account Lockout Examiner Service restart. The program is referring to the event logs created earlier, before the installation or restart, and fails to complete reading the logs. To fix the issue, do the following:</div>
+
+<div>
+<ol><li>Open <strong>Registry Editor</strong>: navigate to Start - Run, enter <em>regedit</em>  and click <strong>OK</strong>.</li><li>In the left pane, navigate to <strong>HKLM Software[Wow6432Node]NetWrixAccount Lockout Examiner.</strong> The step Wow6432Node is only applied to x64 OS. </li><li>In the right pane, double-click <strong>readLog</strong>, specify 0 in the Value data field and click <strong>OK</strong>.  </li><li>In NetWrix Account Lockout Examiner Console main menu bar, navigate to<strong> File - Settings </strong>and click <strong>OK</strong> to apply registry changes. <br>	<img alt="User-added image" height="249" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNK&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wzw" style="width: 640px;height: 321px;" width="500"></img></li></ol>
+</div>
+</body>
+</html>

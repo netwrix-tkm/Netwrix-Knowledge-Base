@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Send Text Messages Using Log Tracker Server</title>
+    <meta name="product" content="change_tracker">
+    <meta name="product" content="log_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:51:49.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:17:54.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:51:49.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JbYCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JbYCAU">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:17:54.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to Send Text Messages Using Log Tracker Server">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8234">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JbYCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Send Text Messages Using Log Tracker Server</h1>
+    <p><span style="">The easiest way to send a text message from Log Tracker Server is to simply send e-mail to an SMS enabled gateway. The user configures and enables the &quot;Log Tracker &gt; System &gt; SMTP&quot; settings, and then configures a simple &quot;Ticket Action&quot; batch file, such as the SENDTEXT.bat file attached here.</span></p>
+<p style=""><span style="">The SENDTEXT.bat file removes extra text, to keep the text message short and pertinent. As shown in the attachment, you configure one or more SENDTEXT.bat files to send to one of the phone carriers, using one of the e-mail addresses below:</span></p>
+<p style=""><span style="">AT&amp;T: <a class="" href="" target="_blank">number@txt.att.net</a><br>Qwest: <a class="" href="" target="_blank">number@qwestmp.com</a><br>T-Mobile: <a class="" href="" target="_blank">number@tmomail.net</a><br>Verizon: <a class="" href="" target="_blank">number@vtext.com</a><br>Sprint: <a class="" href="" target="_blank">number@messaging.sprintpcs.com</a><br>Sprint (Alt): <a class="" href="" target="_blank">number@pm.sprint.com</a><br>Virgin Mobile: <a class="" href="" target="_blank">number@vmobl.com</a><br>Nextel: <a class="" href="" target="_blank">number@messaging.nextel.com</a><br>Alltel: <a class="" href="" target="_blank">number@message.alltel.com</a><br>Metro PCS: <a class="" href="" target="_blank">number@mymetropcs.com</a><br>Powertel: <a class="" href="" target="_blank">number@ptel.com</a><br>Boost Mobile: <a class="" href="" target="_blank">number@myboostmobile.com</a><br>Suncom: <a class="" href="" target="_blank">number@tms.suncom.com</a><br>Tracfone: <a class="" href="" target="_blank">number@mmst5.tracfone.com</a><br>U.S. Cellular: <a class="" href="" target="_blank">number@email.uscc.net</a><br><br>Note that, above, the &quot;number&quot; must be entered without any punctuation marks including commas, dashes, periods, or parens.</span></p>
+<p style=""><span style="">If you want to send SMS messages directly from the Log Tracker Server (such as via a dial-out modem) this is a bit more complicated, and requires third party software to be installed. (There is no native GA code to do this in Log Tracker right now, but we have successfully integrated to several low-cost SMS gateways.)<br><br>Please see attached for an example of the SENDTEXT.bat file described above.</span></p>
+<p><a href="" target="_blank">SENDTEXT_bat.txt</a></p>
+<p><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How To Turn Off Bulk Email Notifications (Force Change Tracker to send one email for each change instead of compiling into one email with multiple changes)</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Rolling-Log Fix: &quot;ERROR AgentTaskRunner - task execution failed for task - DeviceConfigTask. Item wildcards match text must not contain separator &#39;\&#39; for MatchType.Wildcards unless ContainerMatchAppliesToWholePath is true.Äù</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker Tags Facility</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p> <br><b>Attachments:</b><br><a href="" target="_blank">SENDTEXT_bat.txt</a> <br>
+</body>
+</html>

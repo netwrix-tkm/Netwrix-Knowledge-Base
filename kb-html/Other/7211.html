@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetApp Activity Load Balancing and Fail Over</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:34:15.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:57.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:34:16.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000Ih3CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000Ih3CAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:58.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:34:16.000Z">
+    <meta name="Meta_Description__c" content="360008602431">
+    <meta name="Meta_Title__c" content="NetApp Activity Load Balancing and Fail Over">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7211">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Ih3CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>NetApp Activity Load Balancing and Fail Over</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to configure multiple SAM clients to collect activity for a single NetApp</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Customer wants to load balance activity events from a large NetApp device or create a fail over system to ensure all events are delivered.  </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<p><strong>Step 1:</strong><br>Install SAM on two separate Windows servers and configure them to both monitor the same NetApp filer/cluster<br><br><strong>Step 2: </strong></p>
+<div style="margin-left: 40px;">
+<strong>Load Balancing</strong><br>The IP address of the secondary SAM Agent needs to be added to the <u>primary</u> servers parameter of an external engine.<br> <br><span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9pt;">if multiple SAM agents are defined as primary servers, they will receive events in a round robin fashion.<br>If one fails, the other(s) will continue to receive events and no events will be lost. This would also help balance performance for a busy filer.</span></span></span><br><br><strong>Fail Over</strong><br>The IP address of the secondary SAM Agent needs to be added to the <u>secondary</u> servers parameter of an external engine.<br> </div>
+<p><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">Step 3: </span></span></strong><br><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">To collect from both SAM servers, StealthAUDIT should have two separate </span></span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">FSAC scans targeting the same NetApp.  <br>Adjust one scan&#39;s proxy setting to the primary SAM server, and the other scan&#39;s to the secondary.  </span></span><br><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - NetApp;SA - DC - FSAA - Activity<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> *<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1920</p>
+</body>
+</html>

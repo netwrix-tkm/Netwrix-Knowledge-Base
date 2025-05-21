@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure User Remediation for Device Control</title>
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_cososys">
+    <meta name="product" content="endpoint_protector">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008icp2AAA">
+    <meta name="ArticleCreatedDate" content="2025-03-18T20:26:02.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B2pKAE">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="005Qk000001nViBIAU">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210176109731252?focus=true">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008icp2AAA">
+    <meta name="CreatedDate" content="2025-05-06T18:34:33.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-05-06T18:09:51.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002B2pKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002B2pKAE">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-05-09T14:16:26.000Z">
+    <meta name="LastPublishedDate" content="2025-05-09T14:16:26.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="005Qk000001nViEIAU">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="nan">
+    <meta name="UrlName" content="9741">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B2pKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure User Remediation for Device Control</h1>
+    <h2>Overview</h2>
+<p>This article explains how to configure user remediation for Device Control in Endpoint Protector (EPP). Remediation can be set globally, at the group level, or at the computer/user level. You can also select specific devices for which remediation should be active.</p>
+<h2>Instructions</h2>
+<h4>Enable User Remediation Globally</h4>
+<ol><li>In the EPP console, navigate to <strong>System Parameters</strong> &gt; <strong>User Remediation</strong>, and set <strong>Enable User Remediation</strong> for <strong>Device Control</strong> to <strong>On</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DeNp&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CUuSU" alt=""></img> </li></ol>
+<h4>Configure User Remediation Settings (Optional)</h4>
+<ol><li>On the <strong>User Remediation</strong> page, you can:
+<ul><li>Add a custom logo and URL.</li><li>Require end users to use their credentials for remediation.</li><li>Modify the default and maximum time interval for remediation requests.</li></ul>
+</li><li>Under <strong>Justification List</strong>, review, add, edit, delete, disable, or enable justifications for remediation.</li></ol>
+<h4>Set Device-Specific Rights and Notifications</h4>
+<ol><li>Go to <strong>Device Control</strong> &gt; <strong>Rights</strong>.
+<ul><li>To set global rights, select <strong>Global Rights</strong>.</li><li>To set rights for a specific group, computer, or user, select the appropriate target.</li></ul>
+Set <strong>User Remediation</strong> to <strong>On</strong> for the desired devices.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DeNp&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CV0Xt" alt=""></img> </li><li>Go to <strong>Device Control</strong> &gt; <strong>Settings</strong>.
+<ul><li>To configure global settings, select <strong>Global Settings</strong>.</li><li>To configure settings for a specific group, computer, or user, select the appropriate target.</li></ul>
+Enable the <strong>User Remediation Pop-up</strong>.</li><li>Optional: Enable the <strong>Enforce User Remediation Pop-up</strong> setting. When this is enabled, end users cannot disable <strong>User Remediation Pop-up</strong> notifications.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> If the <strong>User Remediation Pop-up</strong> is set to <strong>OFF</strong>, end users can still self-remediate from the client UI using the dedicated button.</p>
+</blockquote>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DeNp&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bhh6b" alt="User Remediation button in Endpoint Protector client UI" width="637" height="398"></img></p>
+</body>
+</html>

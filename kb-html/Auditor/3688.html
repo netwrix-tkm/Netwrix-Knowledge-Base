@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to create a load balanced CEWS environment</title>
+    <meta name="product" content="auditor">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:51:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9e6CAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9e6CAC">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:51:14.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="Meta_Description__c" content="How to create a load balanced CEWS environment">
+    <meta name="Meta_Title__c" content="How to create a load balanced CEWS environment">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="3493">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9e6CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to create a load balanced CEWS environment</h1>
+    This article describes how to configure a basic load balanced environment for the <b>Netwrix Data Classification CEWS</b> product. In this configuration each server will run both the:
+<ul><li><strong>Netwrix Data Classification <b>QS</b> </strong><b>Administration Interface</b></li><li><strong>Netwrix Data Classification CEWS </strong><b>Web Service Endpoint</b></li></ul>
+With the CEWS endpoint leveraging the local <strong>conceptQS.asmx </strong>web service endpoint on each server.
+
+<b><em>This article assumes that the environment is currently a single server instance - not a <strong>DQS </strong>configuration.</em></b>
+<ol><li>Access the current <strong>conceptCEWS </strong>server via RDP (mstsc) and perform the following actions:
+<ol><li>Locate your <strong>conceptDB </strong>directory (default location of C:Program FilesConceptSearching)</li><li><strong>Share </strong>the <strong>conceptDB </strong>folder with an appropriate service account (we will be mapping this to each of the other servers)</li><li>Locate your <strong>conceptQS/conceptCEWS </strong>directory (default location of C:inetpubwwwroot)</li><li><strong>Copy </strong>both directories</li></ol>
+</li><li>Access the new server via RDP and perform the following actions:
+<ol><li>Map a shared drive to the share created in <strong>1(a) </strong></li><li>Navigate to the default <strong>IIS</strong> location (C:inetpubwwwroot)</li><li><strong>Paste</strong> the copied applications</li><li>Navigate into the conceptQSin folder</li><li><strong>Open</strong> conceptConfig.exe</li><li>Amend the <strong>CSE </strong>files location to the mapped network drive</li><li><strong>Open IIS Manager (Run + inetmgr)</strong></li><li>Right-click each of the two new folders and select &quot;<strong>Convert</strong> <strong>to Application</strong>&quot;</li><li>Validate that the configured <strong>Application</strong> <strong>Pool</strong> is configured for both the correct account and the correct .<strong>NET</strong> version (4.0)</li></ol>
+</li><li>Configure your <strong>Load Balancer </strong>to point to the two servers, typically: <em>http://servername/conceptQS/ContentEnrichmentWebService.svc</em></li><li>Amend the <strong>SharePoint </strong>CEWS configuration to point to the <strong>Load </strong><strong>Balancer </strong>rather than the new server. An example script is shown below for reference:</li></ol>
+<pre class="ckeditor_codeblock">$ssa = Get-SPEnterpriseSearchServiceApplication
+$config = New-SPEnterpriseSearchContentEnrichmentConfiguration
+$config.Endpoint = &quot;http://loadbalancer/conceptCEWS/ContentProcessingEnrichmentService.svc&quot;
+$config.InputProperties = &quot;Body&quot;, &quot;Title&quot;, &quot;OriginalPath&quot;, &quot;&lt;CustomField1&gt;&quot;, &quot;&lt;CustomField2&gt;&quot;, ....
+$config.OutputProperties = &quot;&lt;OutputFieldName1&gt;&quot;, &quot;&lt;OutputFieldName2&gt;&quot;, ....
+$config.SendRawData = $True
+$config.MaxRawDataSize = 8192
+$config.Timeout = 30000
+Set-SPEnterpriseSearchContentEnrichmentConfiguration -SearchApplication $ssa -ContentEnrichmentConfiguration $config</pre>
+</body>
+</html>

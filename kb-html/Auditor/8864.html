@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Redo Events in SQL Server Event Log</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="product" content="SQL_Server">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-10-18T10:57:16.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-10-18T12:32:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-10-18T10:57:49.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000111N3CAI">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000111N3CAI">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-10-18T12:32:34.000Z">
+    <meta name="LastPublishedDate" content="2023-10-18T10:57:49.000Z">
+    <meta name="Meta_Description__c" content="Parallel Redo Events in SQL Server Event Log">
+    <meta name="Meta_Title__c" content="Parallel Redo Events in SQL Server Event Log">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8864">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111N3CAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Parallel Redo Events in SQL Server Event Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following <strong>Information</strong> level events are prompted in the SQL Server event log:</p>
+
+<pre class="has-inner-focus">
+Source: MSSQLSERVER
+Event ID: 17137
+Description: Starting up database &#39;%database_name%&#39;.</pre>
+
+<pre class="has-inner-focus">
+Source: MSSQLSERVER
+Event ID: 49930
+Description: Parallel redo is started for database &#39;%database_name%&#39; with worker pool size [2].</pre>
+
+<pre class="has-inner-focus">
+Source: MSSQLSERVER
+Event ID: 49930
+Description: Parallel redo is shutdown for database &#39;%database_name%&#39; with worker pool size [2].</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The AUTO_CLOSE option for the affected database is set to <strong>ON</strong>\<strong>True</strong>.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>This behavior is expected with the AUTO_CLOSE option set to <strong>True</strong>. The AUTO_CLOSE option prompts the affected database to be closed after each use. Netwrix Auditor accesses the databases to write collected Activity Records, causing multiple 17137 and 49930 events to occur and be logged.</p>
+</blockquote>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Disable the AUTO_CLOSE option for the affected database:</p>
+
+<ol><li>
+	<p>In your SQL server, launch Microsoft SQL Server Management Studio and connect to the server.</p>
+	</li><li>
+	<p>In the <strong>Object Explorer</strong> pane, expand the <strong>Databases</strong> folder.</p>
+	</li><li>
+	<p>Right-click the affected database and select <strong>Properties</strong>.</p>
+	</li><li>
+	<p>In the left pane, select the <strong>Options</strong> tab, locate the <strong>Auto Close</strong> option under the <strong>Automatic</strong> section, and select the <strong>False</strong> option from the drop-down list.</p>
+
+	<div><img height="567" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000118GJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MgWU" width="600"></img></div>
+	</li><li>
+	<p>Click <strong>OK</strong> to save changes.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://learn.microsoft.com/en-us/sql/relational-databases/policy-based-management/set-the-auto-close-database-option-to-off?view=sql-server-ver16#for-more-information" target="_blank">Set the AUTO_CLOSE Database Option to OFF ? Microsoft &#129125;</a></p>
+</div>
+</body>
+</html>

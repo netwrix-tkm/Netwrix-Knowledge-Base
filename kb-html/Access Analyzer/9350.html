@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitymonitor-7.1.241</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="activity_monitor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006goGXAAY">
+    <meta name="ArticleCreatedDate" content="2024-12-13T19:46:10.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000006goGXAAY">
+    <meta name="AssignedToId" content="0054u000006goGXAAY">
+    <meta name="AssignmentDate" content="2024-12-13T19:46:10.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006goGXAAY">
+    <meta name="CreatedDate" content="2024-12-13T19:46:10.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001mQnKAI">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001mQnKAI">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-09T13:00:34.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="activitymonitor-7.1.241">
+    <meta name="Meta_Title__c" content="activitymonitor-7.1.241">
+    <meta name="OwnerId" content="0054u000006goGXAAY">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9350">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001mQnKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>activitymonitor-7.1.241</h1>
+    <p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Summary:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span class="test-idfield-value"><i><span style="color: #404040;">Netwrix Activity Monitor - Agent Install Assistance</span></i></span></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span class="test-idfield-value"><i><span style="color: #404040;">MS updates: SUVP 24-12 support</span></i></span></li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior Before Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Customer reported that installing agents on their Windows 2022 servers are failing resulting in access denied errors.</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> 
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Server 2022
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 12px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">AD Module will lose the ability to capture or block AD Replication events</li><li style="margin: 0in 0in 0in 12px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Expected ADMonitor_Logs Error:
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve  IDL_DRSGetNCChanges</li></ul>
+</li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Server 2019
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 12px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">AD Module will lose the ability to capture LDAP bind events</li><li style="margin: 0in 0in 0in 12px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Expected ADMonitor_Logs Error:
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve  LDAP_CONN::BindRequest</li></ul>
+</li></ul>
+</li></ul>
+</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior After Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> 
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">The &quot;User Account Control: Run all administrators in Admin Approval Mode&quot; local security policy was the culprit on Windows Server 2022. If you disable the policy, not only the Console can connect to the pre-installed agents, it also can install and upgrade them (because WMI starts working as expected when the policy is disabled).</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Implemented fix to bring limited compatibility to the Console with the &quot;User Account Control: Run all administrators in Admin Approval Mode&quot; policy. The Console will be able to manage agents, but not install or upgrade them.</li></ul>
+</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">AD Module updated. Product s</span>hould report Active Directory events as expected</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Changes Since Last Hotfix:</b></p>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">N/A</span></li></ul>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Submitted by: </span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Kevin Duddy</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Versions:</span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Activity Monitor 7.1</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Module:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Windows Agent</span></li><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Active Directory</span></li></ol>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Dev Ticket:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">367039</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">367335</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Resolved in Version:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 7.1.241</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;"> </span></i></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">KB Type: </span></strong></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Hotfix</span></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><i><span style="font-family: Calibri, sans-serif;color: #404040;font-weight: normal;"> </span></i></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Modules Included:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 7.1.241</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBTService.exe </span><i><span style="color: #404040;">1.24.1119.1033</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SI Version </span><i><span style="color: #404040;">7.3.9.244</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>DevOps/Escalations</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">367039 / 00428910</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">367335 / NA</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">345503: MS updates: SUVP 24-07 support</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;"> </span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">342521: Agent Crashed on 3/28</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">349229: MS updates: SUVP 24-08 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;"> </span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">346065: Path being reported incorrectly for NetApp</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">348796: NetApp File Path Discrepancies</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;"> </span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">339474: have the latest &quot;Received Events&quot; that is currently visible only in the Activity Monitor also be available from the API Server</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">356344: MS updates: SUVP 24-09 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;"> </span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">357592: Customer observed several agents are frequently disconnecting momentarily from console</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">359550: MS updates: SUVP 24-10 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">362194: Filter Activity from App@sharepoint from SharePoint Online</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;"> </span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">364891: NAM reporting wrong user domain</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">310536: Not Recording Events for NFS Mount - Several Other servers are working new one is not.</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;"> </span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">350219: NAM - High CPU and RAM usage during scans</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">363318: Nasuni Connection Error post-upgrade to NAM v7.1.194</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">362106: SI - Domain Controller freeze every reboot</span></li></ul>
+</li></ol>
+<p style="margin: 0in;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Instructions:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Run the MSI file on a host that has the Activity Monitor Console is installed.</span></i></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Upgrade all agents.</span></i></li></ol>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"> </p>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;"><a style="color: #0078d7;text-decoration-line: underline;font-family: Aptos, sans-serif;font-size: 14.6667px;white-space: normal;" title="https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.241.zip" href="https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.241.zip" target="_blank">https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.241.zip</a></span></i></p>
+</body>
+</html>

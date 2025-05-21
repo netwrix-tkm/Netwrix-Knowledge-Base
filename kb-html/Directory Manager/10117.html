@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Set Expiration Policy for Groups in Bulk Using Management Shell</title>
+    <meta name="visibility" content="public_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_imanami">
+    <meta name="product" content="groupid">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008F1XIAA0">
+    <meta name="ArticleCreatedDate" content="2025-03-28T22:56:25.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002FkXKAU">
+    <meta name="Article_Reviewer__c" content="0054u000008icp2AAA">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1209914423921290/f">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000008F1XIAA0">
+    <meta name="CreatedDate" content="2025-04-28T09:22:16.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-03-28T23:00:19.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002FkXKAU">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002FkXKAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-28T09:23:04.000Z">
+    <meta name="LastPublishedDate" content="2025-04-15T20:32:14.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000008F1XIAA0">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10117">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002FkXKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Set Expiration Policy for Groups in Bulk Using Management Shell</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11</p>
+<h2>Overview</h2>
+<p>This article explains how to use the Netwrix Directory Manager (formerly Netwrix GroupID) Management Shell to set the expiration policy for groups in bulk. Follow the steps below to complete this task.</p>
+<blockquote><span class="Note"><strong>NOTE:</strong></span> Before making any changes to your environment, create a backup or snapshot of the Netwrix Directory Manager server. Additionally, test the provided method on a small number of groups first. Once confirmed successful, apply it to the remaining groups in bulk.</blockquote>
+<h2>Instructions</h2>
+<ol><li>Launch the <strong>Directory Manager Management Shell</strong>.</li><li>Use the following cmdlet to export the Common Names of all groups for which you want to apply the bulk expiration policy into a CSV file.
+<pre class="has-inner-focus"><code class="lang-Registry">Get-group | Select CN | Export-csv &quot;PATH TO EXPORT FILE&quot; -NoTypeInformation</code></pre>
+</li><li>To limit the export to a specific organizational unit (OU), use the following cmdlet instead.
+<pre class="has-inner-focus"><code class="lang-Registry">Get-group -SearchContainer &quot;DISTINGUISH_NAME OF THE OU&quot; | Select CN | Export-CSV &quot;PATH TO EXPORT FILE&quot; -NoTypeInformation</code></pre>
+</li><li>Import the data from the exported CSV file and apply the expiration policy using the following cmdlet.
+<pre class="has-inner-focus"><code class="lang-Registry">$Data = Import-CSV &quot;PATH OF THE EXPORTED FILE&quot;
+Foreach($d in $data) {Set-Group -Identity $d.Cn -ExpirationPolicy &quot;120&quot; -ExtendGroupLife}</code></pre>
+The value <strong>120</strong> represents the number of days before expiration and can be adjusted as needed.</li></ol>
+<blockquote><span class="Note"><strong>NOTE:</strong></span> For additional assistance, contact Netwrix Technical Support.</blockquote>
+</body>
+</html>

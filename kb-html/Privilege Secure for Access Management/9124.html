@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Provisioning Times in Privilege Secure</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="privilege_secure">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-10T08:30:47.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-04-23T12:11:11.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-04-23T10:40:59.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000agDKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000agDKAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-04-23T12:11:18.000Z">
+    <meta name="LastPublishedDate" content="2024-04-23T10:40:59.000Z">
+    <meta name="Meta_Description__c" content="Long Provisioning Times">
+    <meta name="Meta_Title__c" content="Long Provisioning Times">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9124">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000agDKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Long Provisioning Times in Privilege Secure</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The provisioning stage in Netwrix Privilege Secure (NPS) takes over 30 seconds to complete.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The WinRM HTTP setting set in <strong>Global Settings</strong> is <strong>Use HTTPS if available</strong> or <strong>Use HTTPS only</strong>. During the provisioning stage, NPS attempts to configure a secure connection via HTTPS. In case no certificate is availble, NPS switches to HTTP.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Refer to the following steps to verify the HTTP setting:</p>
+
+<ol><li>
+	<p>In the main NPS window, select the <strong>Configuration</strong> tab.</p>
+	</li><li>
+	<p>In the left pane, select <strong>System Settings</strong> &gt; <strong>Global Settings</strong>.</p>
+	</li><li>
+	<p>In the <strong>Global Settings</strong> view, review the <strong>WinRM HTTP Setting</strong> value set.</p>
+	</li></ol>
+</blockquote>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<p>Refer to the following options to decrease the provisioning times:</p>
+
+<ul><li>
+	<p>Switch the WinRM HTTP setting to <strong>Use HTTP</strong>.</p>
+	</li><li>
+	<p>Generate a new self-signed SSL certificate, or import a custom SSL certificate for the resource. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.1/page/Content/PrivilegeSecure/AccessManagement/Admin/Policy/Window/Resources/ConfigureSecureWinRMConnection.htm" target="_blank">Resources Page  Configure Secure WinRM Connection Window · v4.1</a>.</p>
+	</li></ul>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.1/page/Content/PrivilegeSecure/AccessManagement/Admin/Policy/Window/Resources/ConfigureSecureWinRMConnection.htm" target="_blank">Resources Page  Configure Secure WinRM Connection Window · v4.1</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

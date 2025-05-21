@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizing MSSQL tempdb</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:09:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:04:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:09:55.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IDVCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IDVCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:04:16.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:09:55.000Z">
+    <meta name="Meta_Description__c" content="360008816812">
+    <meta name="Meta_Title__c" content="Optimizing MSSQL tempdb">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6317">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IDVCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Optimizing MSSQL tempdb</h1>
+    <p><strong>Summary:</strong> Reconfiguring MSSQL tempdb can improve overall product performance.</p>
+<p><strong>Submitted By:</strong> Mike Olig</p>
+<p><strong>Product: </strong>StealthAUDIT, StealthINTERCEPT</p>
+<p><strong>Affected Versions:</strong> Any</p>
+<p><strong>Affected Module: </strong>N/A</p>
+<p><strong>Dev Ticket:</strong> N/A</p>
+<p><strong>Resolved In Version:</strong> N/A</p>
+<p><strong>KB Type:</strong> Solution</p>
+<p> </p>
+<p><strong>Issue: </strong>tempdb is a Microsoft SQL Server (MSSQL) system database that is used to hold ephemeral user objects, such as temporary tables and indexes, variables, and cursors. It is also used to hold internal objects that are created by the database engine, such as the intermediate query results of operations using the ORDER BY clause or UNION operator. The size and physical placement of the tempdb database can have a significant impact on the overall performance of MSSQL. If the size that is defined for tempdb is too small, part of the system-processing load may be taken up with auto growing tempdb to the size required to support the workload every time you restart the instance of SQL Server.</p>
+<p> </p>
+<p><strong>Instructions:</strong></p>
+<h2><strong>Create Multiple tempdb Data Files</strong></h2>
+<p>Increasing the number of tempdb data files allows MSSQL to split transactions across multiple data files and limit blocking caused by simultaneous operations performed by separate threads. As a rule, if the MSSQL host has eight or fewer logical processors the number of tempdb data files should match the number of logical processors. If the MSSQL host has more than eight logical processors, the number of tempdb files should be eight. If the number of logical processors is greater than eight and resource contention continues to be an issue, the number of tempdb data files can be further increased by multiples of four up to the number of logical processors until the resource contention is reduced to acceptable levels.</p>
+<p> </p>
+<h2><strong>Configure tempdb Data Initial File Size and Autogrowth</strong></h2>
+<p>MSSQL uses a proportional-fill algorithm that favors allocations in files with more free space. Dividing tempdb into multiple data files of equal size provides a high degree of parallel efficiency in operations that use tempdb. The tempdb data files should all be configured with the same Initial Size and Autogrowth settings. The Initial Size of each tempdb data file should ideally be large enough to accommodate the typical workload of the environment. This helps to limit Autogrowth, which can have a significant impact on overall performance. The Autogrowth of each tempdb data file should be set to allow for growth to address unplanned workload exceptions. If the Autogrowth setting is too small compared to the amount of data that is being written to tempdb, Autogrowth may end up running constantly and affect performance.</p>
+<p> </p>
+<h2><strong>Physically Isolate tempdb </strong></h2>
+<p>Put the tempdb database on disks that differ from those that are used by user databases, ideally on a fast I/O subsystem. Use disk striping if there are many directly attached disks. Individual or groups of tempdb data files do not necessarily need to be on different disks or spindles unless you are also encountering I/O bottlenecks.</p>
+<p> </p>
+<h1><span class="wysiwyg-font-size-large"><strong>The following script can be used to perform a simple reconfiguration:</strong></span></h1>
+<p>USE master;</p>
+<p>GO</p>
+<p> </p>
+<p>SET NOCOUNT ON;</p>
+<p>GO</p>
+<p> </p>
+<p>DECLARE</p>
+<p>   @Execute bit = 0;</p>
+<p><em>-- Change this to 1 to execute</em></p>
+<p> </p>
+<p><em>--Declare variables</em></p>
+<p>DECLARE</p>
+<p>    @CNT int ,</p>
+<p>    @CurrentTempDevSize int ,</p>
+<p>    @CurrentTempLogSize int ,</p>
+<p>    @DataFileLocation nvarchar ( max ) ,</p>
+<p>    @LogicalCores int ,</p>
+<p>    @QUERY nvarchar ( max ) ,</p>
+<p>    @TempLocation nvarchar ( max ) ,</p>
+<p>    @TempFileCount int ,</p>
+<p>    @TempDevSize int = 2048 ,</p>
+<p>    @TempLogSize int = 1024;</p>
+<p> </p>
+<p><em>--Initialize variables</em></p>
+<p>SELECT @LogicalCores = cpu_count</p>
+<p>FROM sys.dm_os_sys_info;</p>
+<p> </p>
+<p>IF @LogicalCores &gt; 8</p>
+<p>    BEGIN</p>
+<p>    SET @LogicalCores = 8</p>
+<p>END;</p>
+<p> </p>
+<p>SELECT @TempFileCount = COUNT ( * )</p>
+<p>     , @TempLocation = (</p>
+<p>                         SELECT REVERSE ( SUBSTRING ( REVERSE ( physical_name ) , CHARINDEX ( &#39;&#39; ,</p>
+<p>REVERSE ( physical_name )) , LEN ( physical_name )))</p>
+<p>    FROM tempdb.sys.database_files</p>
+<p>    WHERE NAME = &#39;tempdev&#39; )</p>
+<p>FROM tempdb.sys.database_files</p>
+<p>WHERE type_desc = &#39;Rows&#39;</p>
+<p>    AND state_desc = &#39;Online&#39;;</p>
+<p> </p>
+<p>SET @DataFileLocation = ( SELECT SUBSTRING ( physical_name , 1 , CHARINDEX ( N&#39;tempdb.mdf&#39; , LOWER</p>
+<p>( physical_name )) - 1 ) DataFileLocation</p>
+<p>FROM master.sys.master_files</p>
+<p>WHERE database_id = 2</p>
+<p>    AND FILE_ID = 1 )</p>
+<p>;</p>
+<p> </p>
+<p>SELECT @CurrentTempDevSize = CONVERT ( bigint , size ) * 8 / 1024</p>
+<p>FROM tempdb.sys.database_files</p>
+<p>WHERE NAME = &#39;tempdev&#39;;</p>
+<p> </p>
+<p>SELECT @CurrentTempLogSize = CONVERT ( bigint , size ) * 8 / 1024</p>
+<p>FROM tempdb.sys.database_files</p>
+<p>WHERE NAME = &#39;templog&#39;;</p>
+<p> </p>
+<p><em>-- Print initial information</em></p>
+<p>PRINT &#39;Instance name: &#39; + @@servername + &#39;</p>
+<p>Version: &#39; + @@version + &#39;</p>
+<p>Logical CPUs: &#39; + CAST ( @LogicalCores AS varchar ) + &#39;</p>
+<p>Existing number of TempDB datafiles: &#39; + CAST ( @TempFileCount AS varchar ( 5 )) +</p>
+<p>&#39;</p>
+<p>Recommended number of TempDB datafiles: &#39; + CAST ( @LogicalCores AS varchar ) + &#39;</p>
+<p> </p>
+<p>&#39;;</p>
+<p> </p>
+<p><em>-- Check the TempDev datafile</em></p>
+<p>IF @CurrentTempDevSize 
+</p><p>    BEGIN</p>
+<p>    SET @QUERY = N&#39;ALTER DATABASE tempdb MODIFY FILE ( NAME = N&#39;&#39;tempdev&#39;&#39;, SIZE = &#39; + CAST (</p>
+<p>@TempDevSize AS nvarchar ( 4 )) + &#39;MB )&#39;;</p>
+<p> </p>
+<p>    PRINT &#39;Executing: &#39; + @QUERY;</p>
+<p> </p>
+<p>    IF @Execute = 1</p>
+<p>            BEGIN</p>
+<p>        EXEC SP_EXECUTESQL @QUERY</p>
+<p>    END;</p>
+<p>END;</p>
+<p>ELSE</p>
+<p>    BEGIN</p>
+<p>    PRINT &#39;The current TempDev datafile is sized appropriately.&#39;;</p>
+<p>END;</p>
+<p> </p>
+<p><em>--Check the TempLog datafile</em></p>
+<p>IF @CurrentTempLogSize 
+</p><p>    BEGIN</p>
+<p>    SET @QUERY = N&#39;ALTER DATABASE tempdb MODIFY FILE ( NAME = N&#39;&#39;templog&#39;&#39;, SIZE = &#39; + CAST (</p>
+<p>@TempLogSize AS nvarchar ( 4 )) + &#39;MB )&#39;;</p>
+<p> </p>
+<p>    IF @Execute = 1</p>
+<p>            BEGIN</p>
+<p>        PRINT &#39;Executing: &#39; + @QUERY;</p>
+<p>        EXEC SP_EXECUTESQL @QUERY;</p>
+<p>    END;</p>
+<p>        ELSE</p>
+<p>            BEGIN</p>
+<p>        PRINT &#39;Recommended: &#39; + @QUERY;</p>
+<p>    END;</p>
+<p>END;</p>
+<p>ELSE</p>
+<p>    BEGIN</p>
+<p>    PRINT &#39;The current TempLog datafile is sized appropriately.&#39;;</p>
+<p>END;</p>
+<p> </p>
+<p><em>-- Check the additional TempDB datafiles</em></p>
+<p>IF @TempFileCount &gt;= @LogicalCores</p>
+<p>    BEGIN</p>
+<p>    PRINT &#39;The recommended number of TempDB datafiles already exist.&#39;;</p>
+<p> </p>
+<p>    SET @CNT = @LogicalCores;</p>
+<p>END;</p>
+<p>ELSE</p>
+<p>    BEGIN</p>
+<p>    SET @CNT = 1;</p>
+<p>END;</p>
+<p> </p>
+<p>WHILE @CNT != @LogicalCores</p>
+<p>    BEGIN</p>
+<p>    SET @QUERY = N&#39;ALTER DATABASE tempdb ADD FILE ( NAME = N&#39;&#39;tempdb&#39; + CAST ( @CNT AS nvarchar</p>
+<p>( 2 )) + &#39;&#39;&#39;, FILENAME = N&#39;&#39;&#39; + @DataFileLocation + &#39;tempdev&#39; + CAST ( @CNT AS nvarchar ( 2 )) +</p>
+<p>&#39;.ndf&#39;&#39; , SIZE = &#39; + CAST ( @TempDevSize AS nvarchar ( 4 )) + &#39;MB , FILEGROWTH = 10%)&#39;;</p>
+<p> </p>
+<p>    IF @Execute = 1</p>
+<p>            BEGIN</p>
+<p>        PRINT &#39;Executing: &#39; + @QUERY;</p>
+<p>        EXEC SP_EXECUTESQL @QUERY;</p>
+<p>    END;</p>
+<p>        ELSE</p>
+<p>            BEGIN</p>
+<p>        PRINT &#39;Recommended: &#39; + @QUERY;</p>
+<p>    END;</p>
+<p> </p>
+<p>    SET @CNT = @CNT + 1;</p>
+<p>END;</p>
+<p> </p>
+<p>IF @Execute = 0</p>
+<p>    BEGIN</p>
+<p>    PRINT</p>
+<p>&#39;</p>
+<p>To implement the recommended changes, change the value of @Execute to 1 and re-run the script.&#39;</p>
+<p>END;</p>
+</body>
+</html>

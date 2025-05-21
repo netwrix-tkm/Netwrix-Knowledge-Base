@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.0_061</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:54:41.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:13:08.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:54:41.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IzgCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IzgCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:13:08.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:54:41.000Z">
+    <meta name="Meta_Description__c" content="360012326291">
+    <meta name="Meta_Title__c" content="Hotfix: SA_8.0_061">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8018">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IzgCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.0_061</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Allows the file scan timeout parameter to be configurable by adding  xml tag in Job xml. Value is set in minutes. To make it so a file will never timeout, input a really high value for the timeout (Ex: 9999999).</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">YouTrack/Escalations</span></strong><br> <br><strong><span style="font-family: calibri,sans-serif;">-              SMPC-3911/22407, 17817, 13590, 21588</span></strong><br> <br><strong><span style="font-family: calibri,sans-serif;">Customers</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-              Honeywell International</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-              Daimier Trucks North America LLC</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-              Capital Communications Federal Credit Union</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-              BBVA Compass</span></strong><br> <br><strong><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></strong><br> <br>-              SAFS-1582  9969 - FSAA | Timeout while compressing SQLites on proxy<br>-              SAFS-2324  Investigate FSAA functionality when there is lack of access to IPC$<br>-              SAFS-2359  16217 - Error Getting Activity Count from TBL_FSAC_ActivityEvents: Overflow while converting variant of type (OleStr) into type (Integer)<br>-              SAFS-2442 - DFS Scan: Error during processing: cannot DETACH database within transaction[0x0001] DETACH DATABASE Struc<br>-              SAFS-2411  16651 - FS_Migration Finishes with Success but doesn&#39;t Add USN Column to Activity Tier 2<br>-              SAFS-2364  12262 - FSAA | Do not overwrite trace.log files<br>-              SAFS-2515  FSAC: Scan is throwing an error &quot;Buffer too small&#39;&quot;<br>-              SAFS-2490  17161 - FSAC collection stuck in loop<br>-              SAFS-2518  FSAC: Not returning full data when parsing huge zipped file<br>-              SAFS-2574  FSAA: FSAC scan parses local sa console logs instead of windows cluster node<br>-              SAFS-2571  FSAC: Scan should show percentage value as a scan status.<br>-              SAFS-2626 : Cache was not properly handling files/folders with same names in same parent folder (can happen from deletion/recreation)<br>-              SAFS-2559: 17476 - FSAC eM is not valid integer error<br>-              SAFS-2739: 19535 - Update FSAC to collect log files without BOMs<br>-              SAFS-2767 NFS scans aren&#39;t picking up files<br>-              SAFS-2743 DFS listing wrong active link<br>-              SAFS-2628 18381 - Server Scan file doesn&#39;t upload to the console.<br>-              SAFS-2777 20796 - FSAA | Error when checking for active sessions on proxy<br>-              SAFS-2837 19948 - DFS: Unique Key violation<br>-              SAFS-2698 19491 - FSAA not traversing mounted volumes<br>-              SAFS-2922 Update FSAAConfig.xml to properly handle list permissions<br>-              SAFS-2736 20328 - FSAC System scan does not collect all events<br>-              SAFS-2809 20970 - INSERT statement conflicted with the FOREIGN KEY constraint &quot;FK_SA_FSAC_ActivityEvents_New_PathID&quot;<br>-              SAFS-2205  13113 - Detect and throw an error when an invalid share (e.g., one with a backslash) is detected<br>-              SAFS-2329 16097 - FSAA | DFS Uses NTDomainName instead of FQDN<br>-              SAFS-3020 FSAC: Offset value not resetting when scanning a new log for same day<br>-              SAFS-2762 SDD | Enhance to retain LastAccessTime<br>-              SAFS-3003 FSAA: Utilize Restore privileges when preserving LAT<br>-              SAFS-2986 21818 - Migration OOM / Duplicate Column GatesProxyID<br>-              SAFS-3026 22073 - FSAA | FKCV Errors After Applying Hotfix<br>-              SAFS-14532 Make &quot;Force preservation&quot; option hidden by default<br>-              SAFS-14541 Remove Description in FSAAConfig.xml<br>-              SMPC-3911 Update SEEK Components to accept all configuration settings<br> <br><b>Comments:</b><br><strong><span style="color: red;"><span style="font-family: calibri,sans-serif;">THIS HOTFIX REQUIRES AT LEAST HOTFIX SDD_8.0_004 TO BE INSTALLED IF USING SDD.</span></span></strong><br><a href="https://na55.salesforce.com/articles/General/Hotfix-SDD-8-0-004" target="_blank"><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">https://na55.salesforce.com/articles/General/Hotfix-SDD-8-0-004</span></span></strong></a></p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Close all instances of StealthAUDIT. </span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all DC files in your %SAInstallDir%DC folder</span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Open the job xml of the SDD scan job. Under    xml tags, add  tag to configure the file scan time out value in <u>minutes</u>. It should look like this:</span></span></strong>
+</li><li>
+<img alt="screenshot" src=""></img><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">The above screenshot has the timeout value set to 5 minutes.</span></span></strong>
+</li><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Launch StealthAUDIT. Run the &#39;Update Proxy Service&#39; query under the Maintenance tab in the FSAA data collector against your proxy servers (if running proxy service).</span></span></strong></li></ol>
+<div>  
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="58"><td colspan="1" rowspan="1" height="58" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.0/SA_8.0_061.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.0/SA_8.0_061.zip</a></td></tr></tbody></table>
+</div><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Sensitive Data<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SMPC-3911<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	DCFSAA.dll			8.0.813
+-	FSAASrv.dll			8.0.813
+Other dependencies included:
+-	StealthAUDITRPC.exe	8.0.95
+-	StealthAUDITRPCClient.dll	8.0.95
+-	SATagParser.dll		8.0.10
+-	FSAAConfig.xml<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1777<br></p>
+</body>
+</html>

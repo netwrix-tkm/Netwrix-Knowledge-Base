@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote service control manager connection timout</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:47:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:26.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9WPCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9WPCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:47:14.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:26.000Z">
+    <meta name="Meta_Description__c" content="Failed to connect to remote service control manager. Error details: The wait operation timed out">
+    <meta name="Meta_Title__c" content="Remote service control manager connection timout">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="797">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WPCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Remote service control manager connection timout</h1>
+    In the daily summary report sometimes you may see the following error:<br><span style="font-size: 14px;"><strong><em><span style=""><span style="color: rgb(56, 70, 90);"><span style="font-family: tahoma,sans-serif;">Failed to process DC %DC name% due to the following error: Failed to connect to remote service control manager. Error details: The wait operation timed out.</span></span></span></em></strong></span>
+
+<hr></hr>
+
+The product tries to connect to the remote service control manager on the domain controller, but it takes more than 30 seconds. This issue is usually caused by the network connection between the Netwrix host and the target domain controller.<br>Default connection timeout is 30 seconds, and in order to increase this value please perform the following steps:
+<ol><li>Run regedit, and navigate to the following key: HKEY_LOCAL_MACHINESOFTWAREWow6432NodeNetWrixAD Change Reporter</li><li>Create a new DWORD key with the following name: <span style="font-family: georgia,serif;"><span style="font-size: 14px;"><span style="">SvcMaxWaitTime</span></span></span></li><li>Set decimal value in seconds more than 30 e.g. 60 or 120</li></ol>
+</body>
+</html>

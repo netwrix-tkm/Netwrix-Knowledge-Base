@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Recursive File Content Monitoring?</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:40:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:16:54.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:40:07.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JS3CAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JS3CAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:16:54.000Z">
+    <meta name="LastPublishedDate" content="2022-04-12T16:06:18.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to Configure Recursive File Content Monitoring?">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8149">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JS3CAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Recursive File Content Monitoring?</h1>
+    <p>You can monitor for file-content changes alongside FIM using our File Integrity Monitoring tracker but you will need to make some changes to a Change Tracker config file and the configuration template attached to your devices.</p><p><br></p><div style="font-family: gotham , helvetica , arial , sans-serif;"><p>By default the FIM/File-content combination is not enabled on the web console. In order to make this available you will need to do the following:</p><p><br></p><ul style=""><li style="margin-left: 0.0cm;">Connect to the server hosting your Change Tracker server via RDP</li><li style="margin-left: 0.0cm;">Browse to the following folder: <strong>C:\inetpub\wwwroot\Change Tracker Generation 7 Hub\bin\Filters</strong></li><li style="margin-left: 0.0cm;">Edit the following file: <strong>default.xml</strong></li><li style="margin-left: 0.0cm;">Find the following chunk of text and remove the text highlighted in red</li></ul><p><br></p><p style="margin-left: 36.0pt;"><strong>  </strong></p></div><div style="margin-left: 48.0px;"><strong>  <span style="color: rgb(255,0,0);">!--</span>filetrackerchangesfilter name=&quot;filecontentschangesonly&quot; description=&quot;File attributes (including contents) only&quot;</strong><strong>priority=&quot;low&quot; source=&quot;globalLow&quot; watchdirectories=&quot;false&quot; watchfiles=&quot;true&quot; created=&quot;false&quot; length=&quot;true&quot; </strong><strong>lastaccess=&quot;false&quot; lastwrite=&quot;true&quot; filename=&quot;true&quot; directoryname=&quot;true&quot; attributes=&quot;true&quot; security=&quot;true&quot;  datastreams=&quot;true&quot; content=&quot;true&quot; /<span style="color: rgb(0,51,102);">&gt;<span style="color: rgb(255,0,0);">--</span></span><span style="color: rgb(255,0,0);">&gt;</span></strong></div><div style="font-family: gotham , helvetica , arial , sans-serif;"><p><br></p><ul style=""><li style="margin-left: 0.0cm;">Save and close the file</li><li style="margin-left: 0.0cm;">Log off from the RDP session</li></ul><p><br></p><p>Now this has been done, you will need to apply this FIM/File-content filter to your devices configuration template. In order to do this you will need to do the following:</p><p><br></p><ul style=""><li style="margin-left: 0.0cm;">Log into Change Tracker</li><li style="margin-left: 0.0cm;">Browse to <strong>Settings</strong></li><li style="margin-left: 0.0cm;">Browse to <strong>Configuration Templates</strong></li><li style="margin-left: 0.0cm;">Select the appropriate configuration template from the list and select the <strong>Edit</strong> button posted next to it</li><li style="margin-left: 0.0cm;">Browse to the <strong>FIM File Integrity tracker</strong></li><li style="margin-left: 0.0cm;">Select the <strong>Tracked </strong><strong>Folder</strong> entry that you wish to monitor for file content changes recursively and select the <strong>Edit</strong> button posted next to it</li><li style="margin-left: 0.0cm;">Under the <strong>Tracked </strong><strong>Attributes</strong> column, select the drop-down menu and select the <strong>File attributes (including contents) only</strong> option</li><li style="margin-left: 0.0cm;">Press <strong>Update</strong></li><li style="margin-left: 0.0cm;">Press <strong>Save </strong><strong>Changes</strong> at the top of the screen</li></ul><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKIP&amp;d=%2Fa%2F4u000000Lznx%2FUZuBS4PU_cMiSmxzwLgiSOvcUQf94Bb85OQINx_RvLQ&amp;asPdf=false"></img></span></p><p>Once the changes made to the template have been saved, an updated version of the config will be sent to the agent and a new baseline scan will run. Please allow some time for this scan to complete before making any test changes to files within the directory as they may be captured as part of the baseline and no reported as a change.</p></div><p><br></p><div style="font-family: gotham , helvetica , arial , sans-serif;"><p><br></p><p><br></p><p><br></p></div>
+</body>
+</html>

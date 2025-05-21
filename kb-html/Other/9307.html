@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCP and SFTP Proxy Monitoring</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="partners_v">
+    <meta name="visibility" content="customers_v">
+    <meta name="visibility" content="public_v">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000006gpnvAAA">
+    <meta name="ArticleCreatedDate" content="2024-10-20T17:19:10.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Validated">
+    <meta name="CreatedById" content="0054u000006gpnvAAA">
+    <meta name="CreatedDate" content="2024-10-24T14:16:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-10-20T18:22:54.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001auHKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001auHKAQ">
+    <meta name="LastModifiedById" content="0054u000006gpnvAAA">
+    <meta name="LastModifiedDate" content="2024-10-24T14:19:08.000Z">
+    <meta name="LastPublishedDate" content="2024-10-20T18:22:54.000Z">
+    <meta name="Meta_Description__c" content="SCP and SFTP Proxy Monitoring">
+    <meta name="Meta_Title__c" content="SCP and SFTP Proxy Monitoring">
+    <meta name="OwnerId" content="0054u000006gpnvAAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9307">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001auHKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SCP and SFTP Proxy Monitoring</h1>
+    <h1>Overview</h1>
+<p>For versions 4.2 or higher, Netwrix Privilege Secure (NPS) allows the routing and monitoring of SCP and SFTP traffic through the NPS Proxy. Instructions are provided on how to configure traffic monitoring for both protocols, as well as how an end user can launch a DirectConnect SCP or SFTP session. These diagrams provide an overview of how this connection occurs for SCP and SFTP, respectively.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000007FaD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008HbmY"></img></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000007FaD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008HcHB"></img></p>
+<h1>Instructions (SFTP)</h1>
+<ol><li>On the NPS server, navigate to \ProgramData\Stealthbits\PAM\ProxyService (on the C: drive by default)</li><li>Open the sbpam_ssh.json file in a text editor, and ensure that &quot;RecordSFTP&quot; exists and is set to &quot;true&quot;:<br><pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>{
+  &quot;RecordSFTP&quot;:true
+}</code></pre>
+</li><li>Ensure that the file is properly comma separated after your changes have been made, and save it.</li><li>(Optional) Also located in the \ProxyService\ directory is the &quot;sbpam_sftp.json&quot; file. If you wish not to audit certain SFTP operations, you can edit this file to not include them. Again, ensure that the file is properly comma separated before saving it.<br><pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>{
+  &quot;auditable_operations&quot;: [
+    &quot;SSH_FXP_READ&quot;,
+    &quot;SSH_FXP_WRITE&quot;,
+    &quot;SSH_FXP_OPEN&quot;,
+    &quot;SSH_FXP_CLOSE&quot;,
+    &quot;SSH_FXP_OPENDIR&quot;,
+    &quot;SSH_FXP_READDIR&quot;,
+    &quot;SSH_FXP_REMOVE&quot;,
+    &quot;SSH_FXP_MKDIR&quot;,
+    &quot;SSH_FXP_RMDIR&quot;,
+    &quot;SSH_FXP_RENAME&quot;,
+    &quot;SSH_FXP_NAME&quot;
+  ],
+  &quot;name_limit&quot;: 20
+}</code></pre>
+</li><li>SFTP connections through the Proxy will now be monitored.</li></ol>
+<h1>Instructions (SCP)</h1>
+<ol><li>On the NPS server, navigate to \ProgramData\Stealthbits\PAM\ProxyService (on the C: drive by default)</li><li>Open the sbpam_ssh.json file in a text editor, and ensure that &quot;RecordExec&quot; exists and is set to &quot;true&quot;:<br><pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>{
+  &quot;RecordExec&quot;:true,
+  &quot;ExecExcludes&quot;:[&quot;WinSCP:&quot;]
+}</code></pre>
+</li><li>(Optional) &quot;ExecExcludes&quot; can be added, with any number of strings to be excluded when recording traffic. &quot;WinSCP&quot;, for instance, occurs very often during an SCP connection through WinSCP and it is advisable to include it in ExecExcludes.</li><li>Ensure that the file is properly comma separated after your changes have been made, and save it.</li><li>SCP connections through the Proxy will now be monitored.</li></ol>
+<h1>Instructions (DirectConnect)</h1>
+<p>In order to launch an SFTP or SCP connection that uses the NPS proxy, a <a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.2/page/Content/PrivilegeSecure/AccessManagement/EndUser/Configure/RDCManager.htm" target="_blank">DirectConnect</a> string may be used with your preferred SCP/SFTP capable client. The instructions for determining this string are in the linked documentation. Once the string has been determined, it can be provided to your SFTP/SCP program. In this instance we demonstrate SFTP via WinSCP.</p>
+<ol><li>Launch WinSCP and supply your NPS server in the Host Name field, 4422 as the port, and your DirectConnect string as your user name.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000007FaD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008Hbcs" style="background-color: var(--slds-g-color-surface-container-1, var(--lwc-colorbackgroundalt, #fff));color: var(--slds-g-color-neutral-base-10, #181818);font-size: var(--slds-g-font-size-base, 13px);"></img></li><li>An authentication banner with the &quot;NPS&quot; ASCII should pop up. Click &quot;Continue&quot;.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000007FaD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008HcsH" style="background-color: var(--slds-g-color-surface-container-1, var(--lwc-colorbackgroundalt, #fff));color: var(--slds-g-color-neutral-base-10, #181818);font-size: var(--slds-g-font-size-base, 13px);"></img></li><li>You will be prompted for your NPS user&#39;s password. Provide it and click &quot;OK&quot;.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000007FaD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008Hctt" style="background-color: var(--slds-g-color-surface-container-1, var(--lwc-colorbackgroundalt, #fff));color: var(--slds-g-color-neutral-base-10, #181818);font-size: var(--slds-g-font-size-base, 13px);"></img></li><li>You should now have an established WinSCP session. This can be monitored by an NPS user with the Administrator role<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000007FaD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008HcnR" style="background-color: var(--slds-g-color-surface-container-1, var(--lwc-colorbackgroundalt, #fff));color: var(--slds-g-color-neutral-base-10, #181818);font-size: var(--slds-g-font-size-base, 13px);"></img></li></ol>
+</body>
+</html>

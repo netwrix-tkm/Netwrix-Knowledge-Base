@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKLM or HKU Error in Windows Server Auditing Monitoring Plan</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk000001wMM9IAM">
+    <meta name="ArticleCreatedDate" content="2024-08-01T17:56:55.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="005Qk000001wMM9IAM">
+    <meta name="CreatedDate" content="2024-08-05T07:44:33.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-08-01T17:57:25.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001JobKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001JobKAE">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-08-05T07:49:19.000Z">
+    <meta name="LastPublishedDate" content="2024-08-05T07:49:19.000Z">
+    <meta name="Meta_Description__c" content="HKLM or HKU Error in Windows Server Auditing Monitoring Plan">
+    <meta name="Meta_Title__c" content="HKLM or HKU Error in Windows Server Auditing Monitoring Plan">
+    <meta name="OwnerId" content="005Qk000001wMM9IAM">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9238">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001JobKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>HKLM or HKU Error in Windows Server Auditing Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Auditor prompts the following error in the Health Log for the Windows Server Auditing monitoring plan:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Event ID: 1016
+Monitoring plan: %monitoring_plan_name% 
+Item: %server_name% 
+On %date_stamp%, the following error has occurred while processing %server_name%:  
+The collector Registry data provider failed while gathering data on the server %server_name% due to the following error: HKLM or HKU 
+Parameter name: path 
+Actual value was %value%.</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This is a known issue fixed in the release v10.7.13728.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Upgrade your Auditor instance to the build v10.7.13728 or later. Download the latest version in <a href="https://www.netwrix.com/my_products.html" target="_blank">My Products · Netwrix &#129125;</a>.</p>
+</div>
+</body>
+</html>

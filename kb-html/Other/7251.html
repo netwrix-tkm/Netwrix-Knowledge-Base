@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex File System Solution Set Upgrade</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:36:46.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:11:46.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:36:46.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000Ip1CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000Ip1CAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:11:46.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:36:46.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Complex File System Solution Set Upgrade">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7251">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Ip1CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Complex File System Solution Set Upgrade</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to handle an upgrade where a file system solution set&#39;s collection jobs are duplicated out.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> sometimes customers split / duplicate out their collection jobs for multiple regions, or sets of hosts, proxies, etc.  </p>
+<p>The upgrade wizard in 8.2 onwards handles this issue, however in some cases this may still need to be carried out.<br><br>a standard upgrade where that hasn&#39;t been done, would normally involve</p>
+<ol><li>noting the settings from the collection jobs</li><li>removing the solution, and adding the new one</li><li>re-configuring the collection settings on the new one</li></ol>
+<p>However, if there are a lot of collection jobs, that becomes a big hassle, and allows for too much human error.  <br>Here&#39;s how to get around it. </p>
+<p> </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<div>The main points here are:</div>
+<div style="margin-left: 40px;">1) the FSAA queries should work after upgrade<br>2) the bulk import data analysis tasks need to be updated<br>3) the reporting jobs need to be updated.  </div>
+<p><br><strong>Here&#39;s a rough set of instructions:</strong><br><br>0) backup the solution set or entire job tree, just in case.  <br><span style="font-size: 10px;">If it&#39;s taking a while, you&#39;re backing up job logs (JobName_Log.tsv) log files that could be deleted.</span><br><br>1) move the collection jobs to the side, outside of the file system set<br>2) delete the rest of the filesystem solution through the SA interface so that the published reports and old group descriptions are cleared out<br>3) add the new FileSystem solution from the instant job library<br>4) move the 0.colleciton group to the side, outside of the file system solution, as well.  <br>5) put the split out collection jobs back into the filsystem solution, if you want.  </p>
+<div style="margin-left: 40px;">leaving them in a separate group like &quot;FileSystem Collections&quot; might make future upgrades easier, but either way is fine.  </div>
+<p>6) remove all DataAnalysisTasks.XML files from the scan and bulk import jobs.  </p>
+<div style="margin-left: 40px;">the bulk imports are really the important part.  they create the functions and views for the FSAA schema, which need to match core / dc versions.  <br>the scan job&#39;s Data Analysis Tasks just drop data if you enable them.  so, they don&#39;t really matter, but we shouldn&#39;t leave them out of date, either.  <br>so, to keep things simple, delete them all.  you can do this easily through windows explorer, and refresh the job tree.  <br>SA will create blank DataAnalysisTasks.XML files for the jobs once you refresh the tree.</div>
+<p>7) from here you have two options because the Bulk Import Analysis Tasks only need to be run once.  </p>
+<div style="margin-left: 40px;">1) create a new group that will be a centralized area for housing the new Data Analysis tasks. </div>
+<div style="margin-left: 80px;">create a new job for each type of bulk import and copy the new DataAnalysisTasks.xml files into them through windows explorer<br>refresh the job tree?</div>
+<div style="margin-left: 40px;">2) update the new bulk import jobs with the new DataAnalysisTasks.xml files using windows explorer &amp; refresh the job tree.  </div>
+<div style="margin-left: 120px;"> </div>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity;SA - DC - FSAA - DFS;SA - DC - FSAA - Permissions;SA - DC - FSAA - Sensitive Data;SA - Solution Set - File System<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> all<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong>  8.1+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1532</p>
+</body>
+</html>

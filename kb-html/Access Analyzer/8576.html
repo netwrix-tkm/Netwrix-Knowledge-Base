@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Too Long File Names when Sending Reports by Email</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-05-04T08:41:45.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2023-05-10T07:29:29.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-05-05T13:16:41.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000HDiKCAW">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000HDiKCAW">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-05-10T07:30:24.000Z">
+    <meta name="LastPublishedDate" content="2023-05-05T13:16:41.000Z">
+    <meta name="Meta_Description__c" content="&quot;Error in sending an email: The specified path, file name, or both are too long.&quot;">
+    <meta name="Meta_Title__c" content="Too Long File Names when Sending Reports by Email">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8576">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDiKCAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Too Long File Names when Sending Reports by Email</h1>
+    <h1>Symptom</h1>
+<span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">The emailed report fails to compile on successful job completion.<br>The following error message appears:</span></span></span>
+
+<pre class="ckeditor_codeblock">
+&quot;Error in sending an email: The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.&quot;</pre>
+ 
+
+<h1>Cause</h1>
+<span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Long paths are not enabled on host. This error is relevant only for file paths to job files exceeding 248 characters as stated in the error message.</span></span></span><br> 
+<h1>Solution</h1>
+<span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">The error can be resolved by performing one of the following steps:</span></span></span>
+
+<ul><li style="margin-left: 16px;margin-bottom: 11px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="tab-stops: list .5in;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Longer paths can be enabled by editing the registry key Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled. For additional information, refer to the following Microsoft article: </span></span></span></span><a href="https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry" target="_blank"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry</span></span></span></a><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="tab-stops: list .5in;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">.<br>	Group Policy Objects and other security functions might prevent the modification of the key.</span></span></span></span></li><li style="margin-left: 16px;margin-bottom: 11px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="tab-stops: list .5in;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Shortening the name of the job file path or the job file itself to under 248 characters will also enable the report compilation. </span></span></span></span></li><li style="margin-left: 16px;margin-bottom: 11px;"><span style="font-size: 11pt;"><span style="line-height: normal;"><span style="tab-stops: list .5in;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">Moving the job file to a higher-level folder will also resolve the error depending on the length of the name of each folder. </span></span></span></span></li></ul>
+<span style="font-size: 11pt;"><span style="line-height: normal;"><span style="font-family: &quot;Calibri&quot;,sans-serif;">When moving the job file or renaming the folder, make sure to verify and edit the scheduled task to match the current job file location.<br><br>Once you introduce the changes, you should be able to rerun the job or regenerate the report to test.</span></span></span>
+</body>
+</html>

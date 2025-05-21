@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to change default language of the Self-service portal</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:52.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-07-11T13:00:22.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:16.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9VVCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9VVCA0">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-11T13:00:46.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:16.000Z">
+    <meta name="Meta_Description__c" content="How to change default language for Netwrix Password Manager">
+    <meta name="Meta_Title__c" content="How to change default language of the Self-service portal">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="732">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VVCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to change default language of the Self-service portal</h1>
+    How to configure the Password Manager Self-service portal to use a different language other than English by default
+
+<hr></hr>
+
+To change the language used on the portal by default please do the following:
+<ol><li>Go to the folder Web-SS folder, by default C:Program Files (x86)NetWrix Password ManagerWeb_SS</li><li>Edit the <b>locale.asp</b> file</li><li>Change line 112 to <strong>var langsDict, defLang = &quot;%langcode%&quot; </strong>(substitute &quot;en&quot; with the desired language code)</li></ol>
+<div style="margin-left: 40px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116cJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM70000000ts5W" alt="User-added image" width="500" height="476"></img></div>
+<ol start="4"><li>Save the changes and execute an IIS reset in a command prompt with the following command: <b>iisreset</b></li></ol>
+<table style="width: 200px;" border="1"><thead><tr><th colspan="1" rowspan="1" style="white-space: nowrap;"><strong>Langcode value</strong></th><th colspan="1" rowspan="1" style="white-space: nowrap;">Language</th></tr></thead><tbody><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">cn</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Chinese</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">de</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">German</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">en</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">English</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">es</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Spanish</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">fr</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">French</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">he</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Hebrew</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">it</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Italian</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">jp</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Japanese</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">ko</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Korean</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">pt</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Portuguese</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">ru</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Russian</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">sk</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Slovak</td></tr><tr><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">zh</td><td colspan="1" rowspan="1" style="color: #222222;text-align: center;">Traditional Chinese</td></tr></tbody></table>
+ 
+</body>
+</html>

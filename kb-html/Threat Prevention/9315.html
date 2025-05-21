@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting Netwrix Threat Prevention (NTP) / StealthINTERCEPT Server (SI) Agent LSASS Blocked.</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="threat_prevention">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000003KXurAAG">
+    <meta name="ArticleCreatedDate" content="2024-11-06T22:47:46.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1208961865586554">
+    <meta name="AssignedById" content="0054u000006gpoAAAQ">
+    <meta name="AssignedToId" content="005Qk00000276ifIAA">
+    <meta name="AssignmentDate" content="2025-02-10T21:43:10.000Z">
+    <meta name="AssignmentDueDate" content="2025-02-24T06:00:00.000Z">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000HmkWfIAJ">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="00570000003KXurAAG">
+    <meta name="CreatedDate" content="2024-11-06T22:47:47.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001fcDKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001fcDKAQ">
+    <meta name="LastModifiedById" content="005Qk00000276ifIAA">
+    <meta name="LastModifiedDate" content="2025-02-27T19:15:02.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Troubleshooting-Agent-LSASS-Blocked">
+    <meta name="Meta_Title__c" content="Troubleshooting Agent LSASS Blocked">
+    <meta name="OwnerId" content="00570000003KXurAAG">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9315">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001fcDKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Troubleshooting Netwrix Threat Prevention (NTP) / StealthINTERCEPT Server (SI) Agent LSASS Blocked.</h1>
+    <h1 style="margin: 2pt 0in 0in;line-height: 105%;break-after: avoid;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: #000000;font-family: verdana, geneva, sans-serif;font-size: 14px;"><strong><span style="line-height: 105%;">Symptom:</span></strong></span></h1>
+<p><span style="color: #000000;font-family: verdana, geneva, sans-serif;font-size: 14px;"><span style="line-height: 105%;">No Events Received due to </span><span style="line-height: 105%;">Agent unable to hook into LSASS.</span></span></p>
+<p style="line-height: 105%;margin: 0in 0in 8pt;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"> </p>
+<p style="line-height: 105%;margin: 0in 0in 8pt;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 105%;font-family: verdana, geneva, sans-serif;font-size: 14px;">Example output is found in the log: <b>LoaderTrace2024-10-01 17_24_07.log  </b></span></p>
+<p style="line-height: 105%;margin: 0in 0in 8pt;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 105%;font-family: verdana, geneva, sans-serif;font-size: 14px;"><span style="color: #c0392b;">2024-10-01 17:24:07.269| Debug   | 0x09ac| executing</span> <b>NVInject, result: 6</b></span></p>
+<h2 style="margin: 2pt 0in 0in;line-height: 105%;break-after: avoid;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: #000000;font-family: verdana, geneva, sans-serif;font-size: 14px;"><strong><span style="line-height: 105%;"></span></strong></span></h2>
+<h2 style="margin: 2pt 0in 0in;line-height: 105%;break-after: avoid;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: #000000;font-family: verdana, geneva, sans-serif;font-size: 14px;"><strong><span style="line-height: 105%;">Cause:</span></strong></span></h2>
+<p style="line-height: 105%;margin: 0in 0in 8pt;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><b>3<sup>rd</sup> party Security </b>tools not allowing the Agent to Hook into LSASS.</span><br><span style="line-height: 105%;font-family: verdana, geneva, sans-serif;font-size: 14px;"><br></span><span style="line-height: 105%;color: #2f5496;font-family: verdana, geneva, sans-serif;font-size: 14px;"></span></p>
+<h2 style="margin: 2pt 0in 0in;line-height: 105%;break-after: avoid;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><strong><span style="line-height: 105%;color: #000000;"></span></strong></span></h2>
+<h2 style="margin: 2pt 0in 0in;line-height: 105%;break-after: avoid;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><strong><span style="line-height: 105%;color: #000000;">Resolution:</span></strong></span></h2>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;">Correct the needed End point protection (<b>EPP</b>) exclusion.</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;color: #000000;">EPP / <span style="color: #2980b9;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Installation_and_Upgrade_User_Guide/AntivirusConsiderations.htm" target="_blank" style="color: #2980b9;"><b>Antivirus Software Considerations</b></a></span></span><br><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><a target="_blank" href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Installation_and_Upgrade_User_Guide/AntivirusConsiderations.htm"></a></span><br><br><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><b>Alternatively</b> this could have also been <span style="color: #2980b9;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/Policy_Center/Agents_Interface/SI_Agent_Safe_Mode.htm" target="_blank" style="color: #2980b9;"><b>Sl Agent Safe Mode</b></a></span> if enabled could prevent the LSASS hook to mitigate host rebooting.</span><br><br><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;">To check for this setting take a look a the &#39;AD Agent&#39; column.</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000ADKA&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008fbTd" width="1017" height="187"></img></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"> </p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;">This can be enabled or disabled with the Agent Update Settings &gt; <span style="color: #000000;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/Policy_Center/Agents_Interface/Deploy_Agents_Window/Set_Options_Window.htm" target="_blank" style="color: #000000;"><b><span style="color: #2980b9;">Set Options Window</span></b></a>.</span></span><br><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"></span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;">Netwrix StealthlNTERCEPT v7.3 &gt; Administration &gt; Policy Center &gt; Agents Interface &gt; Agents Interface Right-Click Menu &gt; <span style="color: #2980b9;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/Policy_Center/Agents_Interface/Right_Click_Menu_Steps/Update_Agent_Settings.htm" target="_blank" style="color: #2980b9;"><b>Update Agent Settings</b></a></span></span><br><br><br><strong><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;">Netwrix Help Center Articles referenced in this Knowledge Base article (in order):</span></strong><br><br><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Installation_and_Upgrade_User_Guide/AntivirusConsiderations.htm" title="SI v7.3 - Antivirus Software Considerations" target="_blank">SI v7.3 - Antivirus Software <span style="font-family: verdana, geneva, sans-serif;font-size: 14px;">Considerations</span></a></span></p>
+<p><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/Policy_Center/Agents_Interface/SI_Agent_Safe_Mode.htm" title="SI v7.3 - SI Agent Safe Mode" target="_blank">SI v7.3 - SI Agent Safe Mode</a></span></p>
+<p><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/Policy_Center/Agents_Interface/Deploy_Agents_Window/Set_Options_Window.htm" title="SI v7.3 - Set Options Window" target="_blank">SI v7.3 - Set Options Window</a></span></p>
+<p><span style="font-family: verdana, geneva, sans-serif;font-size: 14px;"><a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/Policy_Center/Agents_Interface/Right_Click_Menu_Steps/Update_Agent_Settings.htm" title="SI v7.3 - Update Agent Settings" target="_blank">SI v7.3 - Update Agent Settings</a></span></p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: When Installing or Upgrading: SmtpNotification.comhost.dll Failed to Register</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="recovery_ad">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000007oss5AAA">
+    <meta name="ArticleCreatedDate" content="2024-11-14T13:49:46.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000007oss5AAA">
+    <meta name="AssignedToId" content="0054u000007oss5AAA">
+    <meta name="AssignmentDate" content="2024-11-14T13:49:46.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000HMA0XIAX">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000007oss5AAA">
+    <meta name="CreatedDate" content="2024-11-14T13:49:46.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TKM">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001gzhKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001gzhKAA">
+    <meta name="LastModifiedById" content="0054u000007oss5AAA">
+    <meta name="LastModifiedDate" content="2025-02-07T15:45:58.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Error when installing/upgrading Netwrix Recovery for Active Directory: SmtpNotification.comhost.dll failed to register">
+    <meta name="Meta_Title__c" content="Error when installing/upgrading Netwrix Recovery for Active Directory: SmtpNotification.comhost.dll failed to register">
+    <meta name="OwnerId" content="0054u000007oss5AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9320">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001gzhKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: When Installing or Upgrading: SmtpNotification.comhost.dll Failed to Register</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of information below.</p>
+</blockquote>
+<h2>Symptom</h2>
+<div>
+<p>You receive the following error message when installing or upgrading Netwrix Recovery for Active Directory:</p>
+<pre class="has-inner-focus">SmtpNotification.comhost.dll failed to register. HRESULT -2147450749. Contact your support personnel.&quot;</pre>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000B981&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008pRuP" width="342" height="142"></img></div>
+<h2>Cause</h2>
+<div>
+<p>Your version of .NET does not meet the requirements to install the latest version of Netwrix Recovery for Active Directory.</p>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE:</strong></span> The installer will try to download a newer version but may fail if unable to connect to the internet or is otherwise blocked.</p>
+</blockquote>
+</div>
+<h2>Resolution</h2>
+<div>
+<ol><li>Manually download and install ASP.NET Core 8.0.6 and Windows Desktop Runtime 8.0.6</li><li>Ensure that the following required permissions are obtained prior to installing the application
+<ul><li>Membership in the local Administrators group</li><li>The Log on as a service right  From the Local Security Policy (Local Policies &gt; User Rights Assignment &gt; Log on as a service policy)</li><li>SQL Server permissions  Domain account requires SQL Server permissions</li><li>Recovery Configuration Utility  Must have Domain Admin rights to use all options in this utility</li></ul>
+</li></ol>
+</div>
+</body>
+</html>

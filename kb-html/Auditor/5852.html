@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Matcher Timeout</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000005YG2zAAG">
+    <meta name="ArticleCreatedDate" content="2021-02-01T17:12:27.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000005YG2zAAG">
+    <meta name="CreatedDate" content="2024-02-12T11:47:39.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-02-01T17:12:31.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000XmIXCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000XmIXCA0">
+    <meta name="LastModifiedById" content="0050g000006HS99AAG">
+    <meta name="LastModifiedDate" content="2024-02-12T11:48:09.000Z">
+    <meta name="LastPublishedDate" content="2024-02-12T11:48:09.000Z">
+    <meta name="Meta_Description__c" content="Data Matcher Timeout">
+    <meta name="Meta_Title__c" content="Data Matcher Timeout">
+    <meta name="OwnerId" content="0050g000005YG2zAAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5852">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmIXCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Data Matcher Timeout</h1>
+    <h3 style="color: red;">Scenario</h3>
+Netwrix Data Classification reports are showing No Data Found<br><br>The following error may be present in your instance:
+<div style="margin-left: 40px;"><br>DataMatchingWorker: Data matching has been terminated by the following error: System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---&gt; System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out</div>
+
+<div><br>This error will be found in the <b>DDC Provider log</b>, by default located here: (<b>C:\ProgramData\Netwrix Auditor\Logs\Data Discovery and Classification\Tracing\Netwrix.DDC.Service_FileServers.log</b>). <br> 
+<h3 style="color: green;">Solution</h3>
+To resolve the issue:
+
+<ol><li>Open <b>DDCCoreSettings.xml</b> with a text editor (C:\ProgramData\Netwrix Auditor\Data Discovery and Classification\DDCCoreSettings.xml)</li><li>Increase the SQLCommandTimeout from 1200 to 12000.</li><li>Save the file</li><li>Restart the Netwrix Auditor DDC Provider service</li><li>Wait up to 24 hours for the matching process to run</li><li>Check Netwrix Data Classification reports</li></ol>
+</div>
+</body>
+</html>

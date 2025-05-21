@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripting for the PowerShell Data Collector</title>
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:40:22.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:25.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:40:22.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000Iu5CAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000Iu5CAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:25.000Z">
+    <meta name="LastPublishedDate" content="2022-02-22T13:49:18.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Scripting for the PowerShell Data Collector">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7302">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Iu5CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Scripting for the PowerShell Data Collector</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Provides an explanation and example of how to create custom PowerShell scripts for StealthAUDIT&#39;s PowerShell data collector.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Provides an explanation and sample script describing how to create a custom object in PowerShell so that StealthAUDIT&#39;s PowerShell data collector returns the data as expected.   </p>
+
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="color: #1f497d;">The parser takes whatever object it&#39;s passed <u>first</u> and attempts to enumerate the members to get the columns, then looks at the object definition to translate the object&#39;s properties into columns in SQL.  The following is a simplified example of how the data collector would parse an object.  </span></p>
+
+<div style="margin-left: 40px;"><span style="color: #ff0000;">$objectFromScript</span><span style="color: #1f497d;"> | </span><span style="color: #0000ff;">select-object</span><span style="color: #1f497d;"> -first 1 | </span><span style="color: #0000ff;">get-member </span><span style="color: #1f497d;">| </span><span style="color: #0000ff;">where-object</span><span style="color: #1f497d;"> {</span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.membertype -like </span><span style="color: #800000;">&#39;*property*&#39;</span><span style="color: #1f497d;"> -and </span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.membertype -ne </span><span style="color: #800000;">&#39;parameterizedProperty&#39;</span><span style="color: #1f497d;">}</span></div>
+
+<p> <br><span style="color: #1f497d;">Here&#39;s a simple PowerShell command, that doesn&#39;t return a very clear object. </span></p>
+
+<div style="margin-left: 40px;"><span style="color: #0000ff;">gci</span> <span style="color: #800080;">c:\</span><span style="color: #1f497d;"> | </span><span style="color: #0000ff;">foreach</span><span style="color: #1f497d;">{</span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.name,</span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.versioninfo.FileVersion,</span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.fullname}</span></div>
+
+<p> <br><span style="color: #1f497d;">In fact, if pipe it to the get-member command above, all you get is &quot;Length&quot;</span></p>
+
+<p><img alt="mceclip2.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcajK&amp;d=%2Fa%2F4u000000Lz1u%2FLbxqnbWmjK7nRMAnXm0dwgSVymkRwuKT1pdJD46qtI8&amp;asPdf=false"></img><br> <br><span style="color: #1f497d;">Which is the same as what the PowerShell DC gets when you run the validation.</span><br> <br><img alt="mceclip1.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaTo&amp;d=%2Fa%2F4u000000Lz3B%2FCxHlByAPF3XoKWzf2ewZ0Kd8hnXpcQh2fgF0Rzwh3qI&amp;asPdf=false"></img><br> <br><span style="color: #1f497d;">In order to get this to parse, we need to pass the DC an object (or a series of objects, only the first of which will generally be parsed). </span><span style="color: #1f497d;">I usually use the following format, which defines and populates an &quot;<span style="color: red;"><span style="font-family: courier new;">$output</span></span>&quot; variable and then displays its contents.</span></p>
+
+<div style="margin-left: 40px;"> <span style="color: #ff0000;"><span style="font-family: courier new;">$folders</span></span><span style="color: #002060;"><span style="font-family: courier new;"> = </span></span><span style="color: #0000ff;"><span style="font-family: courier new;">get-childitem</span></span> <span style="color: #000080;"><span style="font-family: courier new;">-Path</span></span> <span style="color: #800080;"><span style="font-family: courier new;">C:\</span></span><br><br><span style="color: #002060;"><span style="font-family: courier new;">foreach</span></span> <span style="font-family: courier new;">(<span style="color: red;">$obj</span></span> <span style="color: #002060;"><span style="font-family: courier new;">in</span></span><span style="font-family: courier new;"> (<font color="#0000ff">$folders</font></span><span style="font-family: courier new;">))</span><br><span style="color: #1f497d;">{</span><br><span style="color: #006400;"><span style="font-family: courier new;">#instantiate the object and its properties</span></span><br><span style="color: #ff0000;"><span style="font-family: courier new;">$output</span></span><span style="color: #1f497d;">= </span><span style="color: #800000;"><span style="font-family: courier new;">&quot;&quot;</span></span> <span style="color: #bfbfbf;"><span style="font-family: courier new;">|</span></span> <span style="color: #0000ff;"><span style="font-family: courier new;">select </span></span><span style="color: #800080;"><span style="font-family: courier new;">Name, FileVersion,</span> <span style="font-family: courier new;">FullName</span></span><br> <br><span style="color: #006400;"><span style="font-family: courier new;">#assign values to the properties</span></span><br><span style="color: red;"><span style="font-family: courier new;">$output</span></span><span style="color: #1f497d;">.</span><span style="font-family: courier new;">Name<span style="color: #bfbfbf;">=</span><span style="color: red;">$obj</span></span><span style="color: #1f497d;">.</span><span style="font-family: courier new;">Name</span><br><span style="color: red;"><span style="font-family: courier new;">$output</span></span><span style="color: #1f497d;">.</span><span style="font-family: courier new;">FileVersion<span style="color: #bfbfbf;">=</span><span style="color: red;">$obj</span></span><span style="color: #1f497d;">.</span><span style="font-family: courier new;">VersionInfo.FileVersion</span><br><span style="color: red;"><span style="font-family: courier new;">$output</span></span><span style="color: #1f497d;">.</span><span style="font-family: courier new;">FullName<span style="color: #bfbfbf;">=</span><span style="color: red;">$obj</span></span><span style="color: #1f497d;">.</span><span style="font-family: courier new;">FullName</span><br> <br><span style="color: #006400;"><span style="font-family: courier new;">#pass the object to the Data Collector</span></span><br><span style="color: red;"><span style="font-family: courier new;">$output</span></span><br><span style="color: #1f497d;">}</span></div>
+
+<p><br><br>Note: If you want to, you could run the following line to have PowerShell parse this $output object back out, similar to how StealthAUDIT would.  </p>
+
+<div style="margin-left: 40px;"><span style="color: #ff0000;">$</span><span style="color: red;"><span style="font-family: courier new;">output </span></span><span style="color: #1f497d;">| </span><span style="color: #0000ff;">select-object</span><span style="color: #1f497d;"> -first 1 | </span><span style="color: #0000ff;">get-member </span><span style="color: #1f497d;">| </span><span style="color: #0000ff;">where-object</span><span style="color: #1f497d;"> {</span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.membertype -like </span><span style="color: #800000;">&#39;*property*&#39;</span><span style="color: #1f497d;"> -and </span><span style="color: #ff0000;">$_</span><span style="color: #1f497d;">.membertype -ne </span><span style="color: #800000;">&#39;parameterizedProperty&#39;</span><span style="color: #1f497d;">}</span></div>
+
+<div><br><br><br><br><strong>Important note about memory consumption</strong></div>
+
+<div style="margin-left: 40px;">The above example stores the immediate subfolders of C:\ to the $folders variable.  <br>This could result in out of memory errors on larger systems, if you added -recurse, for example.  <br>The proper way to handle that would be to stream the data into the loop, rather than storing it into a variable first.  <br> </div>
+
+<div><strong>This is a slightly more complex example, combining multiple data points into a single custom object, as well as streaming the data into the output object loop: </strong></div>
+
+<div style="margin-left: 40px;"><br><span style="color: #ff0000;">$OSInfo</span>=(<span style="color: #0000ff;">get-wmiobject</span> <span style="color: #800080;">win32_operatingsystem</span> -computername<span style="color: #800080;"> [SAHOSTNAME]</span>)<br><span style="color: #0000ff;">get-wmiobject</span> <span style="color: #800080;">win32_logicaldisk</span> -computername <span style="color: #800080;">[SAHOSTNAME]</span> | ?{<span style="color: #ff0000;">$_</span>.drivetype <span style="color: #696969;">-eq</span> <span style="color: #800000;">3</span>}) | <span style="color: #0000cd;">foreach-object</span><br>{<br>    <span style="color: #ff0000;">$output</span>=&quot;&quot; | select<span style="color: #800080;"> SerialNumber, Version, DeviceID, FreeSpace, Size, RowGUID</span><br>   <span style="color: #ff0000;"> $output</span>.SerialNumber=<span style="color: #ff0000;">$OSInfo</span>.SerialNumber<br>    <span style="color: #ff0000;">$output</span>.Version=<span style="color: #ff0000;">$OSInfo</span>.Version<br>    <span style="color: #ff0000;">$output</span>.DeviceID=<span style="color: #ff0000;">$_</span>.DeviceID<br>    <span style="color: #ff0000;">$output</span>.FreeSpace_GB=<span style="color: #ff0000;">$_</span>.FreeSpace / <span style="color: #800080;">1GB</span><br>    <span style="color: #ff0000;">$output</span>.Size_GB=<span style="color: #ff0000;">$_</span>.Size / 1GB<br>    <span style="color: #ff0000;">$output</span>.RowGUID=<span style="color: #008000;">[guid]</span>::NewGUID()<br>    <br>    <span style="color: #ff0000;">$output</span><br>}</div>
+
+<div><br>Protip: If your validation passes, but it doesn&#39;t return the columns you&#39;re expecting, it&#39;s because there&#39;s another object that&#39;s being returned before yours. This happens sometimes with action cmdlets, like new-item or connect-PSSession that return output (sometimes silently). The solution here is to either save to a variable (if you want to use the output object later), or pipe to out-null. </div>
+
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> all<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1865</p>
+</body>
+</html>

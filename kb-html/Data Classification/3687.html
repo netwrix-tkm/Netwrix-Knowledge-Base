@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing search results</title>
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-12-12T10:22:56.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9e5CAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9e5CAC">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-12-12T10:23:36.000Z">
+    <meta name="LastPublishedDate" content="2023-12-12T10:23:36.000Z">
+    <meta name="Meta_Description__c" content="Missing search results">
+    <meta name="Meta_Title__c" content="Missing search results">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="3498">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9e5CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Missing search results</h1>
+    There can be a situation where documents are <strong>classified</strong> to a particular term but are not showing within the &quot;<strong>Browse</strong>&quot; results, or - expected results are missing from &quot;<strong>Search</strong>&quot;. This article applies to content stored in the following repository types:
+<ul><li><strong>SharePoint</strong> (Including <strong>SharePoint Online</strong>)</li><li><strong>File Shares</strong></li><li><strong>Box</strong></li><li><strong>Microsoft Exchange</strong></li><li><strong>CMIS Repositories</strong></li><li><strong>Google Drives</strong></li></ul>
+
+<hr></hr> Missing documents are typically related to <b>security trimming</b> - particularly depending on the configured <b>authentication </b>mechanism. <strong>Search </strong>results are automatically trimmed based on source security. In the case of SharePoint this takes into account:
+
+<ul><li>Explicitly defined user security (AD Users/Groups)</li><li>SharePoint Groups</li></ul>
+At the time of search we will enumerate the user&#39;s access, identifying all applicable usernames (including alternate domains) and all application AD groups. These will then be matched to the security (<strong>ACLs</strong>) of each document, before returning the &quot;<strong>trimmed</strong>&quot; search results. There are two simple methods to confirm if trimming is the cause of missing results:
+
+<ol><li><strong>Compare Security - </strong>A simple method is to confirm the two &quot;<strong>ACL&quot; </strong>lists, comparing the end-users security list to that of the document itself:
+
+	<ol><li><strong>User - </strong>An end-users security can be reviewed by requesting that they access the <b>QS Administration interface</b>, and navigate to the following URL: /conceptQS/ShowUser</li><li><strong>Document</strong> - This should then be compared to the document&#39;s security which can be viewed by selecting the &quot;<strong>i</strong>&quot; within <strong>Sources/Reports/Taxonomies </strong>and viewing the &quot;<strong>Properties</strong>&quot; tab</li></ol>
+	</li><li><strong>Disable Security Trimming - </strong>Security trimming can be disabled by following the below steps for all sources:
+	<ol><li>Log into the <b>QS Administration Interface</b> and access the &quot;<strong>Config</strong>&quot; area</li><li>Select the &quot;<strong>Logging</strong>&quot; tab</li><li>Enable the &quot;<strong>ACL</strong>&quot; trace</li></ol>
+	</li></ol>
+Most <strong>sources</strong> also support disabling security on a more granular basis by selecting the &quot;<strong>Allow Anonymous Access</strong>&quot; option on the source edit screen. While disabling security may be the most appropriate option, it may also be that the problem is related to federation of user accounts. This occurs when the environment is not on the same domain as the source system(s). To assist with this scenario we support two <strong>SSO </strong>methods, allowing the logged in username to match the source system(s) security - as well as allowing for federated security groups to be passed through to conceptSearching:
+
+<ul><li><strong>Microsoft Entra ID (formerly Azure AD) - </strong>Instructions for an <strong>Microsoft Entra ID </strong>deployment can be found as a separate KB article</li><li><strong>ADFS 3.0 - </strong>Instructions for an <strong>ADFS </strong>deployment can be found within the partners site in the &quot;<strong>Documentation</strong>&quot; section (<strong>QS AD FS Configuration</strong> <strong>Guide</strong>)</li></ul>
+</body>
+</html>

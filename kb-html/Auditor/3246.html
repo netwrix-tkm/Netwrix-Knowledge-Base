@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Drive Letter Resolver is not Installed on the Target Host</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T17:10:56.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-08-08T10:14:20.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:31:31.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9WtCAK">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9WtCAK">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-08-08T10:14:27.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:31:31.000Z">
+    <meta name="Meta_Description__c" content="Drive letter resolver is not installed on the target host">
+    <meta name="Meta_Title__c" content="Error: Drive Letter Resolver is not Installed on the Target Host">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="1091">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WtCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Drive Letter Resolver is not Installed on the Target Host</h1>
+    <h2>Symptom</h2>
+Netwrix Auditor returns the following error for Windows File Servers:
+
+<pre class="ckeditor_codeblock">
+Drive letter resolver is not installed on the target host</pre>
+
+<h2>Cause</h2>
+The component responsible for collecting information about the drive letter was not installed on the target file server. It is <i>Network</i><i> Traffic Compression Service</i> that collects this information to map data in the security events.
+
+<h2>Resolution</h2>
+To solve the issue, it is recommended to deploy <i>Network Traffic Compression Service</i> on the audited file server:
+
+<ol><li>In Netwrix Auditor client, select the corresponding Monitoring Plan.</li><li>In the <b>Data source</b> section on the right, select <b>Edit data source</b>.</li><li>In the dialog displayed, locate the <b>Specify data collection method</b> section and select the <b>Enable network traffic compression</b> check box.</li><li><i>Network Traffic Compression Service</i> will be automatically deployed and launched on the target file server during the next data collection (scheduled or ad hoc), collecting and pre-filtering data.</li><li>Click <b>Save &amp; Close</b>.</li></ol>
+Consider that using this service will also minimize network load and speed up state-in-time snapshot collection and SACL configuration. See also:
+
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Admin/MonitoredObjects/FileServers.htm" target="_blank">Monitored Object Types, Actions, and Attributes: File Servers ? v10.5</a></li><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Overview.htm" target="_blank">Monitored Object Types, Actions, and Attributes: File Servers ? v10.6</a></li></ul>
+</body>
+</html>

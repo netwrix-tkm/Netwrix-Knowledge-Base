@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Installing Netwrix Agent App for Solaris (SPARC and Intel)</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:29:30.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JQpCAM">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-05T10:51:01.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:29:31.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JQpCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JQpCAM">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T10:57:36.000Z">
+    <meta name="LastPublishedDate" content="2022-04-12T16:30:40.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="10 Installing Netwrix Agent App for Solaris (SPARC and Intel)">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8068">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JQpCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>10 Installing Netwrix Agent App for Solaris (SPARC and Intel)</h1>
+    <h1 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-_Toc484003707InstallingNNTAgentAppforSolaris(SPARCandIntel)"><span class="confluence-anchor-link conf-macro output-inline" id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-_Toc484003707"><span class="confluence-anchor-link" id="_Toc484003707"> </span></span><span style="color: rgb(46,116,181);"><strong>Installing Netwrix Agent App for Solaris (SPARC and Intel)</strong></span> </h1>
+<p>The Netwrix Change Tracker Enterprise Agent for Linux/Unix uses a Mono runtime instead of the Microsoft .NET framework used on Windows. Netwrix provide pre-built runtime file sets for Solaris hosts which can be simply downloaded and unzipped on the target host, along with the Netwrix AgentApp file set. Solaris will typically require the libstdc++ package to be added. This can be acquired from the official Oracle website or from <a class="external-link" href="http://www.opencsw.org/" target="_blank"><span style="color: rgb(0,0,255);">{+}</span></a><a class="external-link" href="http://www.opencsw.org/+" target="_blank">http://www.opencsw.org/+</a>[ |http://www.opencsw.org/]</p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step1Downloads"><span style="color: rgb(46,116,181);">Step 1  Downloads</span> </h2>
+<p>Download the required files for your version of Solaris from the <a class="external-link" href="http://www.newnettechnologies.com/members-area/member-2/cat_view/6-support-information-for-existing-customers/23-nnt-agent-app-nix-runtime-packages.html" target="_blank"><span style="color: rgb(0,0,255);"><span style="text-decoration: underline;">Netwrix Members Area</span></span></a>[ |http://www.newnettechnologies.com/members-area/member-2/cat_view/6-support-information-for-existing-customers/23-nnt-agent-app-nix-runtime-packages.html]. This will almost certainly comprise of a GC and mono zip file. For example, Solaris 10 Intel requires the following: <br>gc-7.5-solaris-10-intel <br>Solaris 10 Intel Mono Runtime (Mono 3.2.3) <br>The Netwrix Agent installation file set (NNTAgent-1.0.0.xxx-yyy.zip can be downloaded from the <a class="external-link" href="http://www.newnettechnologies.com/members-area/member-2/doc_download/172-nnt-change-tracker-6-5-agent.html" target="_blank"><span style="color: rgb(0,0,255);"><span style="text-decoration: underline;">Members Area</span></span></a><a class="external-link" href="http://www.newnettechnologies.com/members-area/member-2/doc_download/172-nnt-change-tracker-6-5-agent.html" target="_blank"><span style="color: rgb(0,0,255);"><span style="text-decoration: underline;">.</span></span></a> Copy the three zip files onto your host using scp / WinSCP. The file should be copied to the /opt directory. </p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step2ExtractMonoruntimetohost"><span style="color: rgb(46,116,181);">Step 2  Extract Mono runtime to host</span>  </h2>
+<p>Extract the mono runtime and GC zip files.  <br><strong><em>$ unzip gc-7.5-solaris-10-intel.zip</em></strong> <br><strong><em>$ unzip mono-3.2.3-solaris-10-intel.zip</em></strong> 
+<br class="atl-forced-newline">
+You should then have /opt/mono and /opt/gc directory in the root of /opt. <br><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="127" width="319" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK0p&amp;d=%2Fa%2F4u000000LzTd%2F9od64NQxxT_IKKhF6HsLZROyJrXot9B6l52C6pyVfI0&amp;asPdf=false"></img></span><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="120" width="312" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJrK&amp;d=%2Fa%2F4u000000LzTA%2FD8M4LIDk6b0hufS2aDVODx3s3HfkQDktJcHlb.TspaM&amp;asPdf=false"></img></span> </p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step3-Installlibstdc++"><span style="color: rgb(46,116,181);">Step 3 - Install libstdc++</span> </h2>
+<p>OpenCSW is used by Netwrix as a method to ensure the correct libraries are present on the Solaris system, namely libstdc++.so.6. Install OpenCSW as follows : <br><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="172" width="557" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK0u&amp;d=%2Fa%2F4u000000LzTi%2FZX_cY_0VwkAzb8MyTu_epd1pCOB51jXKw0NBI3FwGAg&amp;asPdf=false"></img></span> </p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step4ExtractNNTAgentAppfilestohost"><span style="color: rgb(46,116,181);">Step 4  Extract Netwrix Agent App files to host</span> </h2>
+<p><strong><em>$ unzip NNTAgent-1.0.0.70.zip files/mono/</em></strong><em> -d /opt/mono/nntagent</em>* </p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step5CreateHubDetails.xmlfilefortheNNTAgentApp"><span style="color: rgb(46,116,181);">Step 5  Create HubDetails.xml file for the Netwrix Agent App</span> </h2>
+<p>Note: entries in highlight should be edited to reflect your settings. <br><strong><em>$ cat /opt/mono/nntagent/files/mono/HubDetails.xml</em></strong> <br><strong><em></em></strong><br><strong><em></em></strong><br>  <strong><em>true</em></strong><br>  <strong><em><a class="external-link" href="https://192.168.1.141/api/" target="_blank">https://192.168.1.141/api/</a></em></strong><br>  <strong><em>agent</em></strong><br>  <strong><em>passWord121</em></strong><br><strong><em></em></strong> <br><strong><em>EOF</em></strong>  
+ <br class="atl-forced-newline">
+Note: It is a good idea to add this HubDetails.xml to your Netwrix AgentApp file set so that it will then be included for any future deployments to other hosts. <br><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="73" width="625" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK0z&amp;d=%2Fa%2F4u000000LzTn%2FNoL9oFoxSbHQpgXV4BzJ1q.MGV6_LeoMuK3N.nu8Tiw&amp;asPdf=false"></img></span></p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step6SetupPathInformation"><span style="color: rgb(46,116,181);">Step 6  Setup Path Information</span>   </h2>
+<p>NOTE: This should be achievable with one command as follows <br><strong><em>$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/mono/lib:/opt/gc/lib:/opt/csw/lib</em></strong> 
+<br class="atl-forced-newline">
+The path &#39;/opt/csw/lib&#39; is present to provide the location of libstdc++.so.6 as per step 2.  <br>Verify the path has been set correctly using <br><strong><em>$ set | grep LD_LIB</em></strong> <br><strong><em>LD_LIBRARY_PATH=:/opt/gc/lib:/opt/mono/lib:/opt/csw/lib</em></strong> 
+ <br class="atl-forced-newline"></p>
+<h2 id="id-10InstallingNNTAgentAppforSolaris(SPARCandIntel)-Step7RunAgent"><span style="color: rgb(46,116,181);">Step 7  Run Agent</span> </h2>
+<p>From the nntagent program files path (/opt/mono/nntagent/files/mono)   <br><strong><em>$ cd /opt/mono/nntagent/files/mono</em></strong>  <br><strong><em>$ nohup /opt/mono/bin/mono NNTAgentApp.exe &amp;</em></strong> </p>
+</body>
+</html>

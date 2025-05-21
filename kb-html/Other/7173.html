@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O365 Configuration</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:32:10.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:04:56.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:32:11.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IHkCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IHkCAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:04:56.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:32:11.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="O365 Configuration">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7173">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IHkCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>O365 Configuration</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to configure credentials for connecting to O365.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Instructions on how to configure O365 collections<br><br>This isn&#39;t as complete as I&#39;d like it to be, but I want to publish it now.  <br>Let me know if you have any input. </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> When targeting a &quot;cloud server&quot; in your host list (eg. mycompany.sharepoint.com or ps.outlook.com), make sure to <span style="color: #ff0000;"><strong>disable &quot;Skip hosts that don&#39;t respond to ping&quot;</strong></span> in job properties &gt; performance tab.  <br><br><span style="font-size: 18px;"><strong>Azure Collections</strong></span><br><strong>Connection Profile</strong></p>
+<div style="margin-left: 40px;">Account type: Azure Active Directory<br>Password storage setting: Application<br>Client ID &amp; Key: Follow instructions to <a href="https://www.stealthbits.com/jdownloads/Downloads/Files/Documentation/MobileFriendly/NetHelp_SA/index.html#!Documents/stealthauditazureadinventorywebapplication1.htm" target="_blank">Create a Web Application in the Azure ADI Documentation</a>
+</div>
+<div>
+<br><span style="font-size: 18px;"><strong>Exchange Online</strong></span><br><strong>Connection Profile</strong>
+<div style="margin-left: 40px;">Account type: Task (Domain)<br>Password storage setting: Application<br>Username: in upn format (eg. username@domain.com)<br> </div>
+<div><strong>Target Host</strong></div>
+<div style="margin-left: 40px;">ps.outlook.com<br>(this will be the same for every customer)<br> </div>
+<div><strong>Notes</strong></div>
+<div style="margin-left: 40px;">execution policy needs to be set to unrestricted</div>
+<div style="margin-left: 80px;">set-executionpolicy unrestricted<br> </div>
+</div>
+<div><strong>Options for configuring the query</strong></div>
+<div style="margin-left: 40px;">A) Set DC to Use Office 365 - this exposes additional query categories which are only used for Exchange Online</div>
+<div style="margin-left: 40px;">B) Set DC to Use Global Setting - this will allow targeting both on premises and online simultaneously</div>
+<div style="margin-left: 40px;"> </div>
+<div style="margin-left: 40px;">
+<strong><span style="font-size: 18px;">SharePoint Online</span></strong><br><strong>Connection Profile</strong>
+</div>
+<div style="margin-left: 40px;">Account type: Task (Domain)<br>Password storage setting: Application</div>
+<p><br><strong>Target Host</strong><br>full web dns part of the site url </p>
+<div style="margin-left: 40px;">for example, if the sitename is http://testsite.sharepoint.com<br>then the host in your host list should be testsite.sharepoint.com  </div>
+<div style="margin-left: 40px;"> </div>
+<div><strong>Notes</strong></div>
+<div style="margin-left: 40px;">You <u>need </u>Azure ADI for the analysis and reporting jobs to work correctly.  </div>
+<div>
+<br>sharepoint permission doc &amp; dc component<br><br><strong><span style="font-size: 18px;">DropBox </span></strong><br><strong>Connection Profile / Target Hosts</strong>
+</div>
+<div>
+<div style="margin-left: 40px;">1) Query Wizard - Connect to drop box - get code<br>2) put code into connection profile <br>3) target local host (the target environment is determined by the access token in the above steps) </div>
+<div> 
+<div>
+<strong><span style="font-size: 18px;">Box </span></strong><br><strong>Connection Profile / Target Hosts</strong>
+<div style="margin-left: 40px;">1) Query Wizard - Connect to box (need enterprise admin account or you may be missing data, even with successful collections)<br>2) Connection profile not required - token is saved to query.  <br>3) target enterprise id of the target box environment (should look like BOX_12356)</div>
+</div>
+</div>
+<div style="margin-left: 40px;">
+<br>just in case it may be helpful, <a style="background-color: #ffffff;" href="https://www.netiq.com/communities/cool-solutions/creating-application-client-id-client-secret-microsoft-azure-new-portal/" target="_blank">Here are some additional 3rd party instructions for creating a client id and secret key value.</a>
+</div>
+</div>
+<div> </div>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - AzureADInventory;SA - DC - ExchangePS;SA - DC - SPO;SA - Solution Set - Azure AD;SA - Solution Set - Azure AD Inventory;SA - Solution Set - Exchange;SA - Solution Set - SharePoint<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1586</p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.1.025</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:27:35.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:33.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:27:36.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IfjCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IfjCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:34.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:27:36.000Z">
+    <meta name="Meta_Description__c" content="360012217852">
+    <meta name="Meta_Title__c" content="Hotfix: SA_8.1.025">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6897">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IfjCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.1.025</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SP Scans Aborting SPAA SPSeek   - error is caused by a problem with claims showing up in policies with the Query.Database code (which expects SDDL / SID strings, not claims).</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <b><span style="color: #404040;">Modules Included</span></b><br> <br> <br><b><span style="color: #404040;">StealthAUDIT\PrivateAssemblies\Stealthbits.SharePoint.dll - 1.2.84.800</span></b><br><b><span style="color: #404040;">StealthAUDIT\PrivateAssemblies\Stealthbits.SharePoint.dll.config   - n/a </span></b><br> <br> <br><b><span style="color: #404040;">YouTrack/Escalations</span></b><br> <br><b><span style="color: #404040;">SASP-2640 23456 - SP Scans Aborting SPAA SPSeek</span></b><br> <br> <br><b><span style="color: #404040;">Cumulative List of fixes included since Release:</span></b><br><b><span style="color: #404040;">RMT/YouTrack                                                                                                     Description</span></b><br> <br> <br><b><span style="color: #404040;">SASP-2262                                                                                                          19009 - SharePoint Scan OOM errors </span></b><br><b><span style="color: #404040;">SASP-2380   Support for all List Types</span></b><br><b><span style="color: #404040;">SASP-2378   SPAA fix missing user criteria in tier 2 agent scans</span></b><br><b><span style="color: #404040;">SASP-2391 21490 - Teck Resources | Host Name site collections</span></b><br><b><span style="color: #404040;">SASP-2494 23106 - Test Differential Scan File Skipping</span></b><br><b><span style="color: #404040;">SASP-2630 23407 - SA 8.1 Dropbox Scan Error</span></b><br><b><span style="color: #404040;">SASP-2046                                                                                                          Enhancement - Add copy to clipboard button</span></b><br> <br> <br><b><span style="color: #404040;">Comments:</span></b><br><b><span style="color: #404040;">This hotfix should be used with an 8.1 CU from January or newer (while there are no known dependencies, the last changes to this file were for another escalation prior to/around 8.1 GA release. So to err on the side of caution, a Cumulative Update installer version 8.1.0.127 or newer is recommended).</span></b><br> </p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <b><span style="color: #404040;">1. Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </span></b><br><b><span style="color: #404040;">2. Close all instances of StealthAUDIT (check task manager under processes for all users)</span></b><br><b><span style="color: #404040;">3. Exit StealthAUDIT console</span></b><br><b><span style="color: #404040;">4. Update all PrivateAssemblies files in your StealthAUDIT\PrivateAssemblies director</span></b><br><br>  
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_025.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_025.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - SPAA - Activity;SA - DC - SPAA - Permissions<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SASP-2640<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> Stealthbits.SharePoint.dll - 1.2.84.800<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1877<br></p>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Degradation and Database Issues After Custom Job Update</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006HS99AAG">
+    <meta name="ArticleCreatedDate" content="2024-04-01T16:31:38.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006HS99AAG">
+    <meta name="CreatedDate" content="2024-04-25T16:47:14.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2024-04-01T16:50:32.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000ZDtKAM">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000ZDtKAM">
+    <meta name="LastModifiedById" content="005Qk0000017MRRIA2">
+    <meta name="LastModifiedDate" content="2025-01-31T14:53:39.000Z">
+    <meta name="LastPublishedDate" content="2024-04-01T16:50:32.000Z">
+    <meta name="Meta_Description__c" content="Performance Degradation and Database Issues After Custom Job Update">
+    <meta name="Meta_Title__c" content="Performance Degradation and Database Issues After Custom Job Update">
+    <meta name="OwnerId" content="005Qk000001wMM9IAM">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9111">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000ZDtKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Performance Degradation and Database Issues After Custom Job Update</h1>
+    <blockquote>
+<div><span style="color: #c0392b;"><strong>!</strong></span> This article is currently under review. Some of the information below may not be up to date.</div>
+</blockquote>
+
+<h2>Symptom</h2>
+
+<div>
+<p>Following the replacement of the original LANSweeper collection job with a new version utilizing the ODBC data collector, significant performance degradation and database issues were observed.</p>
+
+<p>After implementing the new version of the LANSweeper collection job, the runtime of the job increased drastically up to 2 hours over couple of days.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <b>StealthAUDIT database</b> exhibited numerous queries in a suspended state. These suspensions primarily occurred when a query attempted to access a table with a write-lock applied due to another query already acting upon it. Additionally, high CPU usage and Disk I/O latency were observed, collectively leading to a significant slowdown in database transactions.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Follow the steps below to resolve the issue:</p>
+
+<ol><li>
+	<p>The AD_GroupPolicy job, which was identified as a contributing factor to the Disk I/O latency, was terminated. This action resulted in a return to normal Disk I/O latency levels, although high CPU usage persisted.</p>
+	</li><li>
+	<p>Perform Packet Capture (PCAP) on the LANSweeper, Enterprise Auditor, and Enterprise Auditor database hosts. Link?</p>
+	</li></ol>
+</div>
+
+<h3>Recommendations</h3>
+
+<div>
+<ul><li>
+	<p>Regularly monitor system performance metrics to detect and address any emerging issues promptly.</p>
+	</li><li>
+	<p>Implement job prioritization and optimization strategies to mitigate resource contention and improve overall system performance.</p>
+	</li><li>
+	<p>Conduct periodic Packet Capture analysis to identify and resolve any network-related issues affecting data transmission and integrity.</p>
+	</li></ul>
+</div>
+</body>
+</html>

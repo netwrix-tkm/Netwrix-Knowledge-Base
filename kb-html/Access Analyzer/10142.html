@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Proxy Host Lists</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="visibility" content="partners_v">
+    <meta name="visibility" content="customers_v">
+    <meta name="content_type" content="ct_howto">
+    <meta name="content_type" content="ct_productconfig">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0054u000007MiY9AAK">
+    <meta name="ArticleCreatedDate" content="2025-04-15T19:28:16.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002L6nKAE">
+    <meta name="Article_Reviewer__c" content="005Qk000001wMM9IAM">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000007MiY9AAK">
+    <meta name="AssignedToId" content="0054u000007MiY9AAK">
+    <meta name="AssignmentDate" content="2025-04-15T19:28:17.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="0054u000007MiY9AAK">
+    <meta name="CreatedDate" content="2025-04-15T19:28:17.000Z">
+    <meta name="Draft_Status__c" content="Backlog">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000002L6nKAE">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000002L6nKAE">
+    <meta name="LastModifiedById" content="005Qk000001wMM9IAM">
+    <meta name="LastModifiedDate" content="2025-04-16T01:33:15.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000007MiY9AAK">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="10142">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002L6nKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Using Proxy Host Lists</h1>
+    <h2 dir="auto"><span class="heading-content">Overview</span></h2>
+<p dir="auto">When using a proxy host list in Netwrix FSAA, its important to configure your scan settings correctly. Proper configuration ensures that multiple proxy servers can simultaneously scan multiple target hosts, improving efficiency and scan performance. This guide outlines the necessary steps and settings to optimize scanning using proxy host lists.</p>
+<h2 dir="auto"><span class="heading-content">Instructions</span></h2>
+<p dir="auto">Follow the steps below to configure proxy host lists for concurrent scanning:</p>
+<h4 dir="auto"><span class="heading-content">Step 1: Prepare Your Host Lists</span></h4>
+<ol><li>
+<p dir="auto"><strong>Create or review your Proxy Host List</strong></p>
+<ul><li>
+<p dir="auto">This list includes the servers that will run the Netwrix FSAA Proxy Service or applet.</p>
+</li><li>
+<p dir="auto">For help creating host lists, see the <a class="use-hover-preview" href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/HostManagement/Lists.htm" target="_blank">Netwrix Help Center</a>.</p>
+</li></ul>
+</li><li>
+<p dir="auto"><strong>Determine the number of Target Hosts</strong></p>
+<ul><li>
+<p dir="auto">This is the number of file systems being targeted by the scan.</p>
+</li><li>
+<p dir="auto">The easiest way to find this is to open the host list assigned to the job, and take note of the total number of rows in the top-right corner</p>
+<div class="image"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DFfZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzToN"></img></div>
+<p> </p>
+</li></ul>
+</li></ol>
+<h4 dir="auto"><span class="heading-content">Step 2: Configure Applet Settings</span></h4>
+<ol><li>
+<p dir="auto">Go to the <strong>Applet Settings</strong> page.</p>
+</li><li>
+<p dir="auto">Set the <strong>Maximum Concurrent Scans</strong> to the number of hosts each proxy should handle at once.</p>
+<div class="notice-block info">
+<div class="content">
+<p dir="auto"><strong>NOTE</strong>: Default value<b> </b>is <em>10 hosts per proxy</em>.</p>
+</div>
+</div>
+<p dir="auto"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DFfZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzWUU"></img></p>
+<div class="image"> </div>
+</li></ol>
+<h4 dir="auto"><span class="heading-content">Step 3: Select Proxy Hosts for Scanning</span></h4>
+<ol><li>
+<p dir="auto">Go to the <strong>Scan Server Selection</strong> page.</p>
+</li><li>
+<p dir="auto">Select <strong>Specific Remote Servers by Host List</strong>.</p>
+</li><li>
+<p dir="auto">Check the box for your <strong>Proxy Host List</strong> to assign it to the scan job.</p>
+<div class="image"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DFfZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzUfa"></img></div>
+</li></ol>
+<p dir="auto"> </p>
+<h4 dir="auto"><span class="heading-content">Step 4: Set Job Properties</span></h4>
+<ol><li>
+<p dir="auto">Open the <strong>Job Properties</strong> settings by right-clicking the system scan job in the Job Tree pane.</p>
+</li><li>
+<p dir="auto">On the Performance tab, set the number of <strong>Worker Threads</strong> using this formula:<br><strong>Worker Threads = Number of Proxy Servers × Max Concurrent Scans<br>NOTE: </strong>This ensures all proxies are actively scanning and no capacity is wasted.<strong><br></strong></p>
+<div class="image"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DFfZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzVYQ"></img></div>
+</li></ol>
+<h2 dir="auto"><span class="heading-content">Configuration Examples</span></h2>
+<h4 dir="auto"><span class="heading-content">Example 1: Large Deployment</span></h4>
+<ul><li>
+<p dir="auto"><strong>Target Host List:</strong> 100 File Servers</p>
+</li><li>
+<p dir="auto"><strong>Proxy Host List:</strong> 5 Proxy Servers</p>
+</li><li>
+<p dir="auto"><strong>Max Concurrent Scans:</strong> 10</p>
+</li><li>
+<p dir="auto"><strong>Worker Threads:</strong> 5 × 10 = 50</p>
+</li></ul>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DFfZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzWiz"></img></p>
+<h4 dir="auto"><span class="heading-content">Example 2: Small Deployment</span></h4>
+<ul><li>
+<p dir="auto"><strong>Target Host List:</strong> 6 File Servers</p>
+</li><li>
+<p dir="auto"><strong>Proxy Host List:</strong> 3 Proxy Servers</p>
+</li><li>
+<p dir="auto"><strong>Max Concurrent Scans:</strong> 2</p>
+</li><li>
+<p dir="auto"><strong>Worker Threads:</strong> 3 × 2 = 6</p>
+</li></ul>
+<div class="image"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DFfZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BzRON"></img></div>
+<div class="image"> </div>
+<p> </p>
+</body>
+</html>

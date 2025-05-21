@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Invalid Local Storage Version</title>
+    <meta name="visibility" content="public_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-09-20T14:18:48.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2025-02-03T20:23:46.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2024-09-20T14:19:11.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001RUPKA2">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001RUPKA2">
+    <meta name="LastModifiedById" content="0054u000008icp2AAA">
+    <meta name="LastModifiedDate" content="2025-02-18T21:34:53.000Z">
+    <meta name="LastPublishedDate" content="2025-02-18T21:34:53.000Z">
+    <meta name="Meta_Description__c" content="Error: Invalid Local Storage Version">
+    <meta name="Meta_Title__c" content="Error: Invalid Local Storage Version">
+    <meta name="OwnerId" content="0054u000006goFUAAY">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9281">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001RUPKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Invalid Local Storage Version</h1>
+    <h2>Symptom</h2>
+<div>
+<p>After the recent Netwrix Enterprise Auditor upgrade (11.6.0.69), an Activity Auditing (SPAC) scan populates the following error:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Stealthbits.StealthAUDIT.DataCollectors.SPAA.Storage.InvalidStorageVersionException:
+Invalid local SPAA storage version. Expected %x&amp; but found %y%.</code></pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>The SPAA database schema is outdated and requires an update.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Perform the following steps to update the database schema:</p>
+<ol><li>
+<p>Run either the <strong>1-SPSEEK_SystemScans</strong> or <strong>2-SPAA_SystemScans</strong> job at level 0. Refer to the following articles for additional information: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/1-SPSEEK_SystemScans.htm" target="_self">0.Collection Job Group  1-SPSEEK_SystemScans Job · v11.6</a> and <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/2-SPAA_SystemScans.htm" target="_self">0.Collection Job Group  2-SPAA_SystemScans Job · v11.6</a>.</p>
+</li><li>
+<p>Depending on the previously selected job, run either the <strong>4-SPSEEK_BulkImport</strong> or <strong>5-SPAA_BulkImport</strong> job to update the schema.</p>
+</li><li>
+<p>Run the <strong>3-SPAC_SystemScans</strong> job to verify that the issue is resolved.</p>
+</li></ol>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/1-SPSEEK_SystemScans.htm" target="_self">0.Collection Job Group  1-SPSEEK_SystemScans Job · v11.6</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/2-SPAA_SystemScans.htm" target="_self">0.Collection Job Group  2-SPAA_SystemScans Job · v11.6</a></p>
+</li></ul>
+</div>
+</body>
+</html>

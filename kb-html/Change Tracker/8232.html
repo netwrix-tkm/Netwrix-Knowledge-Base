@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Regenerate All The Threads From Log Data (Log Tracker)</title>
+    <meta name="product" content="change_tracker">
+    <meta name="product" content="log_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:51:47.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-25T17:13:18.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:51:47.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JV2CAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JV2CAM">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-05-25T17:14:59.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="How to Regenerate All The Threads From Log Data (Log Tracker)">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8232">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JV2CAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Regenerate All The Threads From Log Data (Log Tracker)</h1>
+    <h1>Overview</h1>
+It may be necessary to regenerate all the thread catalogs from existing log data. This might be important to recover from a crash, or prior to conducting a reporting session or forensic investigation.<br>The <strong>cli-bin</strong> <strong>tools</strong> include a program called <strong>CGenx.exe</strong>, which can be used to regenerate a catalog of any type. This tool requires administrative access to the system, and can be run at a command prompt to regenerate a catalog from an existing log file.
+
+<h1>Instructions</h1>
+To regenerate all thread catalogs for all log data, you can compose a simple batch file as follows, and place this file in the cli-bin folder.<br><span style="color: #c0392b;"><strong>IMPORTANT.</strong></span> T<span style="">he batch file may take many hours or even days to complete (depending on the amount of data on the system.) </span><br>For example, a simple <strong>REGEN_ALL_THREADS.bat</strong> batch, which iterates across all existing log files in the C:\Program Files (x86)\NNT Log Tracker Suite\logs folder, and regenerates all threads, might look like the following:
+
+<div style="">
+<div>
+<pre>
+REM: # # # # # # # # # # # # # # # # # # # # # # # # #
+
+REM: REGEN_ALL_THREADS.bat
+REM: Regenerate all thread catalogs from the files
+REM: found in the C:\Program Files (x86)\NNT Log Tracker Suite\logs folder
+
+for %%F in (C:\Program Files (x86)\NNT Log Tracker Suite\logs\*.log) do (
+cgenx -threads %%~nF
+)</pre>
+</div>
+</div>
+
+<ol><li><span style="">Cut and paste the above batch file into the <strong>REGEN_ALL_THREADS.bat</strong> file</span></li><li><span style="">Place this in the <strong>cli-bin </strong>folder</span></li><li><span style="">To regenerate all threads from all log data, execute the file (as an Administrator)</span></li><li>If your log data is contained in a non-standard location on your system, you may need to change the value of<br>	C:\Program Files (x86)\NNT Log Tracker Suite\logs</li></ol>
+The above batch file uses standard Windows Batch File syntax to run the <strong>CGenx.exe</strong> program for each log file in the <strong>logs</strong> folder. The batch file syntax may seem a little obscure to you, but has been around for fifteen years, works perfectly on all Windows platforms. See the article below for assistance with this batch file syntax:
+
+<p style=""><a href="https://stackoverflow.com/questions/39615/how-to-loop-through-files-matching-wildcard-in-batch-file" target="_blank">http://stackoverflow.com/questions/39615/how-to-loop-through-files-matching-wildcard-in-batch-file</a></p>
+You can change the <strong>-thread </strong>option to <strong>-all </strong>(or some other CGenx option) to regenerate all catalogs (or some other specific catalog, such as devices, facilities, severities, users, etc.)
+
+<h3 id="">Related articles</h3>
+
+<ul><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JVQCA2.html" target="_blank">How to fix the &quot;Check Log for Details&quot; message in the event details</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfHCAU.html" target="_blank">Rolling-Log Fix: &quot;Hub Offline, connection retries exhausted (The remote server returned an error: (403) Forbidden.)&quot;</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Jf1CAE.html" target="_blank">Rolling-Log Fix: ERROR &quot;HubDetails - Crypto error. Has the agent process account changed since the password data was entered?&quot;</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JdQCAU.html" target="_blank">MongoDB - Pre-allocated Log Files Accumulate &amp; Result to Disk Space Errors</a></div>
+	</li></ul>
+
+<p> </p>
+
+<p> </p>
+</body>
+</html>

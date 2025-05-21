@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic SQL Syntax Recommendations</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:38:00.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:09:01.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:38:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IcvCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IcvCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:09:02.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:38:00.000Z">
+    <meta name="Meta_Description__c" content="360008408371">
+    <meta name="Meta_Title__c" content="Basic SQL Syntax Recommendations">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7273">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IcvCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Basic SQL Syntax Recommendations</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Basic SQL syntax including a conditional table drop</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> if you do a select into, it creates the table for you, based on what the resultant data types are.  <br>if you&#39;re clearing the table every time, that&#39;s the easiest way.  <br><br>the alternative.  <br>a insert into x select... will require the destination table to already exist, and is how you would insert rows into a table you don&#39;t want to drop every time.  </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <br><br><strong>SELECT INTO WITH DROP</strong><br>This will clear the destination table each time.  <br><br>if object_id(&#39;mytablename&#39;,&#39;table&#39;) is not null<br>drop table mytablename<br><br>select <br><br>column1, <br>column2<br><br>into mytablename<br>from sourcetablename<br><br><strong>INSERT INTO SELECT</strong><br>This will insert rows into the same table each time, without clearing.  <br><br>if object_id(&#39;mytablename&#39;,&#39;table&#39;) is null<br>CREATE TABLE mytablename<br>(<br>    [HOST] [varchar] (64),<br>    [Stuff] [smallint] NULL,<br>    [Things] [smallint] NULL,<br>    <br>) <br><br>insert into mytablename<br>select <br><br>column1, <br>column2<br><br>from sourcetablename<br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Database/SQL;SA - Analysis Module - SQLScripting<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1517</p>
+</body>
+</html>

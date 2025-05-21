@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Server Express Database Size Reached 10GB</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="product" content="SQL_Server">
+    <meta name="ArticleCaseAttachCount" content="3">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2023-07-26T09:14:54.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-01-11T14:11:47.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-07-26T09:15:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110wRCAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110wRCAQ">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2024-01-11T14:14:58.000Z">
+    <meta name="LastPublishedDate" content="2024-01-09T08:48:11.000Z">
+    <meta name="Meta_Description__c" content="Using SQL Server Express  limitations">
+    <meta name="Meta_Title__c" content="Using SQL Server Express  limitations">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8690">
+    <meta name="VersionNumber" content="4">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110wRCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SQL Server Express Database Size Reached 10GB</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Database size reached 10GB ? the following database state is prompted:</p>
+
+<pre class="has-inner-focus">
+Failed to store data</pre>
+
+<pre class="has-inner-focus">
+Unable to allocate additional space to save data to the Audit Database</pre>
+
+<p>Is it still possible to use SQL Server Express instead of the Standard or Enterprise editions?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>While it is highly recommended to implement either a SQL Server Standard or Enterprise edition in a production environment, it is still possible to use SQL Server Express. Due to the 10GB database size limitation, you may encounter errors related to the inability to store data in the Health Status dashboard. Refer to the following steps to optimize the use of Express edition in your environment:</p>
+
+<ul><li>
+	<p>Recreate the database for the monitoring plan:</p>
+
+	<blockquote>
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>The monitoring plan data collected previously will be available in the Long-Term Archive. Refer to the following article for additional information on investigations: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Settings/Investigations.htm" target="_self">Netwrix Auditor Settings ? Investigations · v10.6</a>.</p>
+	</blockquote>
+
+	<ol><li>
+		<p>Confirm the name of the affected database ? it should be stated both in the error message and <strong>Database Statistics</strong>. The <strong>Database Statistics</strong> data will also include the affected monitoring plan name.</p>
+		</li><li>
+		<p>Disable the data collection for the affected monitoring plan ? in the main Auditor screen, select <strong>Monitoring Plans</strong> &gt; <strong>%affected_monitoring_plan%</strong> &gt; <strong>Edit</strong> &gt; <strong>Edit data source</strong> &gt; switch the <strong>Monitor this data source and collect activity data</strong> switch off &gt; click <strong>Save &amp; Close</strong>.</p>
+
+		<blockquote>
+		<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>To confirm the affected database is used in the monitoring plan, click <strong>Edit settings</strong> under the <strong>Monitoring Plan</strong> section in the monitoring plan view, and click the <strong>Audit Database</strong> tab.</p>
+		</blockquote>
+		</li><li>
+		<p>In your Netwrix Auditor server, run the following line in elevated PowerShell to stop <code>Netwrix Auditor Archive Service</code>:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Auditor Archive Service&quot;</code></pre>
+		</li><li>
+		<p>In your SQL server, open <strong>Microsoft SQL Server Management Studio</strong>. Connect to your SQL instance and locate the <strong>Databases</strong> subfolder under the server node in the left pane.</p>
+		</li><li>
+		<p>Locate the affected database, right-click it and select <strong>Delete</strong>.</p>
+		</li><li>
+		<p>In the <strong>Delete Object</strong> window, check the <strong>Close existing connections</strong> checkbox, and click <strong>OK</strong>.</p>
+		</li><li>
+		<p>In your Auditor server, run the following lines in elevated PowerShell to start <code>Netwrix Auditor Archive Service</code> and restart <code>Netwrix Auditor Management Service</code>:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Auditor Archive Service&quot;
+Restart-Service -DisplayName &quot;Netwrix Auditor Management Service&quot;</code></pre>
+		</li><li>
+		<p>Enable the data collection ? in the affected monitoring plan view, click <strong>Edit data source</strong> &gt; in the <strong>General</strong> tab, switch the <strong>Monitor this data source and collect activity data</strong> switch on. Click <strong>Save &amp; Close</strong>.</p>
+		</li></ol>
+	</li><li>
+	<p>Split items in multiple monitoring plans to decrease the amount of data written to a single database.</p>
+	</li><li>
+	<p>Decrease the database retention period. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cbCAC.html" target="_self">How to Reduce Audit Database Size for Netwrix Auditor</a>.</p>
+	</li></ul>
+</div>
+
+<h2>Related Articles</h2>
+
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Settings/Investigations.htm" target="_self">Netwrix Auditor Settings ? Investigations · v10.6</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cbCAC.html" target="_self">How to Reduce Audit Database Size for Netwrix Auditor</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WsCAK.html" target="_blank">Could not allocate space for object (ObjectName) in database (DatabaseName)</a></p>
+	</li></ul>
+</body>
+</html>

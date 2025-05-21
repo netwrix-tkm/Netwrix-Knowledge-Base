@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McAfee AV interferes with SI Web Reporting Server (IIS)</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:37:59.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:12:16.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:38:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IsdCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IsdCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:12:16.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:38:00.000Z">
+    <meta name="Meta_Description__c" content="360008304132">
+    <meta name="Meta_Title__c" content="McAfee AV interferes with SI Web Reporting Server (IIS)">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="7272">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IsdCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>McAfee AV interferes with SI Web Reporting Server (IIS)</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> McAfee AV interferes with SI Web Reporting Server (IIS)</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-family: cambria,serif;">McAfee AV interferes with SI Web Reporting Server (IIS)</span><br><br><strong><span style="font-family: cambria,serif;">Background / more info:</span></strong><br> <br><span style="font-family: cambria,serif;">Customers using McAfee VirusScan Enterprise 8.8 as well as other versions have reported McAfee breaks SI Web Reporting.  Typically see errors such as:</span><br> <br><span style="font-family: cambria,serif;">&quot;Attempted to access an unloaded AppDomain&quot; as well as inability for user to log into web reporting from their browsers.</span><br> <br><span style="font-family: cambria,serif;">Multiple attempts were made to resolve the issue through various configuration options in McAfee such as excluding SI Web Reporting related folders from real time scanning.  None of these proved to work long term.   </span><br><strong><span style="font-weight: normal;"><span style="color: #1a1a1a;"><span style="font-family: cambria,serif;">Having default FCN (File Change Notification) mode set to &quot;on&quot; in IIS, with McAffee &quot;on-access&quot; activity scanning enabled results in overflows of the IIS notification buffer of folder monitoring objects that leads to firing &#39;overwhelming notification&#39;, that causes appdomain shutdown by IIS. Since the SI Web Reporting app was not expected an appdomain shutdown during logon operation it lead to corrupted state of the reporting service that can only be fixed by restarting it.  (More details can be found in notes for I-1506).</span></span></span></strong><br> <br><strong><span style="color: #1a1a1a;"><span style="font-family: cambria,serif;">Note:</span></span></strong><strong><span style="font-weight: normal;"><span style="color: #1a1a1a;"><span style="font-family: cambria,serif;"> The registry setting change to disable FCN for IIS resolves the problem however this setting is global to IIS.   Other applications hosted by the same IIS would also be affected.  Some applications may rely on the FCN notifications to &#39;detect&#39; configuration or other changes to their site and thus be adversely affected.  This is why the SI installer has not been modified to set this registry value.</span></span></span></strong><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <br> <br><span style="font-family: cambria,serif;">1. Add DWORD value: HKLM\Software\Wow6432Node\Microsoft\ASP.NET\FCNMode = 1<br>2. Reboot the server with IIS and SI Web Reporting Services</span><br> </p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Web Reporting<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1436</p>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manually Setting Up Entra ID Auditing for Netwrix Access Analyzer</title>
+    <meta name="content_type" content="ct_howto">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007MiY9AAK">
+    <meta name="ArticleCreatedDate" content="2025-02-18T21:39:32.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk00000022IfKAI">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="https://app.asana.com/0/1203106155380297/1209528694816235">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="Not Validated">
+    <meta name="CreatedById" content="0054u000007MiY9AAK">
+    <meta name="CreatedDate" content="2025-05-05T10:17:01.000Z">
+    <meta name="Draft_Status__c" content="Ready to Publish">
+    <meta name="FirstPublishedDate" content="2025-03-05T17:42:38.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk00000022IfKAI">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk00000022IfKAI">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-05T10:23:13.000Z">
+    <meta name="LastPublishedDate" content="2025-03-05T17:42:38.000Z">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="0054u000007MiY9AAK">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9409">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000022IfKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Manually Setting Up Entra ID Auditing for Netwrix Access Analyzer</h1>
+    <h2>Question</h2>
+<div>
+<p>How do I set up Entra ID Auditing without using the <code>AZ_RegisterAzureAppAuth</code> instant job?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>While it is always recommended to use the <code>AZ_RegisterAzureAppAuth</code> instant job to set up the Entra app for auditing, it can be done manually if necessary (e.g., when MFA cannot be temporarily disabled for a Global Admin account).</p>
+</div>
+<h4>Entra ID Inventory Scans &amp; Entra ID Reports</h4>
+<div>
+<ol><li>
+<p>Open the <a href="https://entra.microsoft.com/#home" title="Entra Admin Center" target="_blank">Microsoft Entra admin center</a>.</p>
+</li><li>
+<p>Navigate to <strong>Identity &gt; Applications &gt; App registrations</strong> and select <strong>+ New registration</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6ziP" alt="" width="764" height="521"></img><br><br></li><li>
+<p>On the <strong>Register an application</strong> page, set the following:</p>
+<ul><li><strong>Name:</strong> Something meaningful, e.g., <code>NEA_EntraID</code>.</li><li><strong>Support account types:</strong> Accounts in this org. directory only.</li></ul>
+</li><li>
+<p>From the <strong>Application Overview</strong> page, navigate to <strong>Manage &gt; API Permissions</strong> and select <strong>Add a permission</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6i4s" alt="" width="764" height="363"></img>  <br><br></li><li>
+<p>From the <strong>Request API permissions</strong> page, select <strong>Microsoft Graph</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6qwr" alt="" width="764" height="468"></img>  <br><ul><li>Add the following <strong>Delegated Permissions</strong>:
+<ul><li><code>Group.Read.All</code>  Read all groups</li><li><code>User.Read.All</code>  Read all users&#39; full profiles</li></ul>
+</li><li>Add the following <strong>Application Permissions</strong>:
+<ul><li><code>AuditLog.Read.All</code>  Read all audit log data</li><li><code>Directory.Read.All</code>  Read directory data</li></ul>
+</li></ul>
+</li><li>
+<p>After adding the aforementioned permissions, grant them admin consent by selecting <strong>Grant admin consent for {TENANT NAME}</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6f5O" alt="" width="764" height="363"></img> <br><br></li><li>
+<p>Navigate to the Entra app registration and on the <strong>Certificates &amp; secrets</strong> page, select <strong>+ New client secret</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6fbf" alt="" width="764" height="397"></img> <br><br></li><li>
+<p>On the <strong>Add a client secret</strong> page, add the following:</p>
+<ul><li><strong>Description:</strong> Something meaningful, e.g., <code>Access Analyzer Entra ID</code>.</li><li><strong>Expires:</strong> Usually recommended to set this to the longest option OR per the organizations internal certificate expiration timeframe.</li></ul>
+</li><li>
+<p>After creating the client secret, copy the secret <strong>Value</strong> to a notepad.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6d20" alt="" width="764" height="407"></img> <br><br></li><li>
+<p>Next, navigate to the <strong>Overview</strong> tab and copy the <strong>Application (client) ID</strong> which is needed for the Access Analyzer Connection Profile.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYVJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6kbK" alt="" width="764" height="217"></img>  </li></ol>
+</div>
+<p> </p>
+<h4>Access Analyzer Connection Profile</h4>
+<div>
+<ol><li>
+<p>In Access Analyzer, navigate to <strong>Global Options &gt; Connection</strong> and create a connection profile with the same name as the Entra app registration, using the following:</p>
+<ul><li><strong>Account Type:</strong> Azure Active Directory</li><li><strong>Client ID:</strong> Application (client) ID from Entra App Registration</li><li><strong>Key:</strong> Secret Value</li></ul>
+</li><li>
+<p>Create a host list with the Entra site, e.g., <a href="https://nwxsupport.sharepoint.com/" title="NWXSUPPORT.ONMICROSOFT.COM" target="_blank">NWXSUPPORT.ONMICROSOFT.COM</a>.</p>
+</li><li>
+<p>Set the Entra ID Inventory job group to run against the Entra host list.</p>
+</li><li>
+<p>Set the Entra ID Inventory job group to use the Entra Connection Profile.</p>
+</li><li>
+<p>Schedule the Entra ID Inventory job group to run every day, or at least before the Entra ID job group.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>This job is also required in order to run Exchange Online &amp; SharePoint Online modules.</p>
+</blockquote>
+</li></ol>
+</div>
+</body>
+</html>

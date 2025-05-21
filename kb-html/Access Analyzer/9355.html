@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: The applet is not running or port 8767 is blocked</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="former_brand" content="f_stealthbits">
+    <meta name="product" content="enterprise_auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk0000017MRRIA2">
+    <meta name="ArticleCreatedDate" content="2024-12-23T15:20:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000006gpoAAAQ">
+    <meta name="AssignedToId" content="0054u000006gpoAAAQ">
+    <meta name="AssignmentDate" content="2025-02-03T14:43:01.000Z">
+    <meta name="AssignmentDueDate" content="2025-02-09T06:00:00.000Z">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="500Qk00000J6k0TIAR">
+    <meta name="Confidence_Level__c" content="Work In Progress">
+    <meta name="CreatedById" content="005Qk0000017MRRIA2">
+    <meta name="CreatedDate" content="2024-12-23T15:20:01.000Z">
+    <meta name="Draft_Status__c" content="Awaiting TSE">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001o9FKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001o9FKAQ">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-04-09T13:00:35.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Proxy and File Action Module using same ports">
+    <meta name="Meta_Title__c" content="Proxy and File Action Module using same ports">
+    <meta name="OwnerId" content="00570000003KXurAAG">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9355">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001o9FKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: The applet is not running or port 8767 is blocked</h1>
+    <h2>Symptom</h2>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;">RPC: Checking the connection to host &lt;HOST-NAME&gt;.</p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;">Debug             RPC: <b>Failed</b> <strong>to bind. </strong>Protocol: ncacn_ip_tcp, Host: &lt;HOST-NAME&gt;, Endpoint: 8767, Secure: False. <b>Error</b>: The remote procedure call was <b>cancelled</b></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;">Debug             <b>Cannot connect to the applet</b> RPC on &#39;&lt;HOST-NAME&gt;&#39;. <b>The applet is not running or port 8767 is blocked</b>. The remote procedure call was <b>cancelled</b>.</p>
+<h2>Cause</h2>
+<p>The Proxy and File Action Module are using the same port.</p>
+<h2>Resolution </h2>
+<p>The ports for the FSAA scan have to be adjusted. Set [port of the Applet] +1 = [port for the cert exchange]. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000BdpF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AElNu" width="876" height="468"></img></p>
+<p>To change the Applet port on the proxy,</p>
+<p>1) <strong>Stop </strong>the &quot;Netwrix Access Analyzer FSAA Proxy scanner&quot; Service </p>
+<p>2) To update Run this command to change the port based on the updated Applet port. (also will depend on the path the service is installed.)<br>Example: <strong>sc config StealthAUDITFSAA binPath=&quot;\&quot;C:\Program Files (x86)\STEALTHbits\StealthAUDIT\FSAA\FSAAAppletServer.EXE\&quot; -e 8769&quot; </strong></p>
+<p>3) <strong>Start </strong>the service in services </p>
+<p>4) Verify in task manager that it is running on this port In the FSAA scan configuration set the Applet port to the new port In the FSAA scan configuration set the port for the cert exchange to this port +1 </p>
+<p>Once the scan is run, the proxy service will free up the port for the File Action Service.</p>
+</body>
+</html>

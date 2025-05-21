@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWindowsAgent_3.4.0.645_3.4.1.250_3.4.2.160_4.0.0.658</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:28:26.000Z">
+    <meta name="Article_Drafts_Folder__c" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IgJCAU">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2025-05-09T03:11:34.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:28:26.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IgJCAU">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IgJCAU">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-05-09T03:21:45.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:28:26.000Z">
+    <meta name="Meta_Description__c" content="360008877892">
+    <meta name="Meta_Title__c" content="Hotfix: SIWindowsAgent_3.4.0.645_3.4.1.250_3.4.2.160_4.0.0.658">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6963">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IgJCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWindowsAgent_3.4.0.645_3.4.1.250_3.4.2.160_4.0.0.658</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Added support for all known Microsoft patches for .Net (4.5 -4.6.2). Patches are relevant only for Exchange servers</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:  </span></strong>Added support for all known Microsoft patches for .Net (4.5 -4.6.2). Patches are relevant only for Exchange servers<br><b><i>Before fix:</i></b> 
+</p><ul><li>Applying some Microsoft patches for .Net may result: 
+<ul style="list-style-type: circle;"><li>Exchange changes and lockdown events may have &#39;Unknown&#39; Host and IP Address fields
+</li><li> </li></ul>
+</li><li>Found about 20 versions of previously not supported Microsoft patches for.Net</li></ul><strong><i><span style="font-family: calibri,sans-serif;">After fix:</span></i></strong> 
+<ul><li><strong><i><span style="font-family: calibri,sans-serif;">Added additional signatures for all known versions ofclr.dll, WsmSvc.dll andiiscore.dll </span></i></strong></li></ul><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <i>Steps to install the patch:</i><br><i>1. Stop SIWindowsAgent service</i><br><i>2. Extract attached archive to the &quot;C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder</i><br><i>3. Start SIWindowsAgent service</i><br><br>  
+</p><table style="width: 48pt;" cellspacing="0" cellpadding="0" width="64" border="0"><colgroup><col style="width: 48pt;" width="64"></col></colgroup><tbody><tr style="height: 15pt;" height="20"><td colspan="1" rowspan="1" class="xl64" style="height: 15pt;width: 48pt;" height="20" width="64"><a href="http://downloads.stealthbits.com/access/files/SIHotFixes/SI3.4.0/SIWindowsAgent_3.4.0.645_I-1615_I-1704.ZIP" target="_blank">http://downloads.stealthbits.com/access/files/SIHotFixes/SI3.4.0/SIWindowsAgent_3.4.0.645_I-1615_I-1704.ZIP</a></td></tr><tr style="height: 15pt;" height="20"><td colspan="1" rowspan="1" class="xl64" style="height: 15pt;" height="20"><a href="http://downloads.stealthbits.com/access/files/SIHotFixes/SI3.4.1/SIWindowsAgent_3.4.1.250_I-1615_I-1704.ZIP" target="_blank">http://downloads.stealthbits.com/access/files/SIHotFixes/SI3.4.1/SIWindowsAgent_3.4.1.250_I-1615_I-1704.ZIP</a></td></tr><tr style="height: 15pt;" height="20"><td colspan="1" rowspan="1" class="xl64" style="height: 15pt;" height="20"><a href="http://downloads.stealthbits.com/access/files/SIHotFixes/SI3.4.2/SIWindowsAgent_3.4.2.160_I-1615_I-1704.ZIP" target="_blank">http://downloads.stealthbits.com/access/files/SIHotFixes/SI3.4.2/SIWindowsAgent_3.4.2.160_I-1615_I-1704.ZIP</a></td></tr><tr style="height: 15pt;" height="20"><td colspan="1" rowspan="1" class="xl64" style="height: 15pt;" height="20"><a href="http://downloads.stealthbits.com/access/files/SIHotFixes/SI4.0/SIWindowsAgent_4.0.0.658_I-1615_I-1704.ZIP" target="_blank">http://downloads.stealthbits.com/access/files/SIHotFixes/SI4.0/SIWindowsAgent_4.0.0.658_I-1615_I-1704.ZIP</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Threat Prevention<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 3.4.0, 3.4.1, 3.4.2, 4.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> I-1615
+I-1704<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> SI 3.4.0.645
+SI 3.4.1.250
+SI 3.4.2.160
+SI 4.0.0.658<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1475<br></p>
+</body>
+</html>

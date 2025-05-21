@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert GSM appliance (.OVA file) to Azure format</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T01:04:07.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:18:24.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T01:04:08.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JhlCAE">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JhlCAE">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:18:24.000Z">
+    <meta name="LastPublishedDate" content="2022-02-22T11:49:58.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Convert GSM appliance (.OVA file) to Azure format">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8329">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JhlCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Convert GSM appliance (.OVA file) to Azure format</h1>
+    <p>In this particular case well be converting a CENO image provided by GB as an OVA to a VHD fixed-size image that can be imported into Microsoft Azure. Well be enabling SSH access and Superuser credentials previous to the conversion.</p>
+
+<h4 id="ConvertGSMappliance(.OVAfile)toAzureformat-Pleasefollowthestepsbelowtogetitdone:">Please follow the steps below to get it done:</h4>
+
+<ul><li>
+	<p>Download the OVA provided by GB.</p>
+	</li><li>
+	<p>Import the downloaded OVA into your VMware ESXi environment.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKhF&amp;d=%2Fa%2F4u000000LzqW%2FJa6TxUmN5YThm1Eqw2sBxR_4uAVM035amsUN8IA5LJA&amp;asPdf=false" width="564"></img></span>
+
+<p> </p>
+
+<ul><li>
+	<p>Power On the VM and log in using <strong><span style="color: rgb(101,84,192);">admin/admin. </span></strong>Hit No when asked.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJrm&amp;d=%2Fa%2F4u000000M0E5%2Fj5h5HpiSxnlQ2RKnhUIqESEGh5YhqNUwsqb5DhHSX_g&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>Go to <strong>Setup &gt; Services &gt; SSH</strong> and enable SSH. Set a <span class="inline-comment-marker">new password</span> when asked. <strong><span style="color: rgb(255,86,48);">This will be your new password to access the Administration console so dont forget it. </span></strong>Hit Save.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKNE&amp;d=%2Fa%2F4u000000LzsV%2FrYQdZUH3gr0cZNM82dz_apbQeQydLN5C22.lh0KheMs&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>Lets set the superuser credential now. Go all the way back to the main menu, and go to <strong>Advanced &gt; Support &gt; Superuser. </strong>Enable it and set the password. Just hit continue when prompted. Hit Save.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKeY&amp;d=%2Fa%2F4u000000M0Ad%2FhUyTSqPwRAZJW3wIID_gtt1_4gpqKRnR1hnVZIfz_MU&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>At this point we can turn off the VM. Please make sure to do it at <strong>Main Menu &gt; Maintenance &gt; Power &gt; Shutdown.</strong></p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKN3&amp;d=%2Fa%2F4u000000M0CA%2FLDUWQY2i3jhrQ3Cxh5ZQv4JtPYe.2KnzzT54gUXHOzE&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>With the VM powered off, hit in the Actions option, and select Export. This will generate 2 files and OVF and a <strong><span style="color: rgb(101,84,192);">VMDK</span></strong>. Once the export has finished, you should see both files in the <strong>Downloads</strong> folder on the File Explorer. Well need to convert the VMDK one.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKOO&amp;d=%2Fa%2F4u000000M0EA%2FlI4OCcGFOreqVd_hDEYf1wLyEjBs1pgW7dhgU_vnS6A&amp;asPdf=false"></img></span><span class="confluence-embedded-file-wrapper image-right-wrap-wrapper"><img class="confluence-embedded-image image-wrap-right" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKh6&amp;d=%2Fa%2F4u000000LzoO%2FQyqkiMc020.eiIhGuwFdMRvLGlx3J5syFSFkqTzNRj0&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>To convert the VMDK file to VHD (fixed-size) well be using <a class="external-link" href="https://www.starwindsoftware.com/starwind-v2v-converter" target="_blank"><strong>StarWind V2V Converter</strong></a><strong>. </strong>Please download it and install it.</p>
+	</li></ul>
+
+<p> </p>
+
+<ul><li>
+	<p>Open StarWind V2V Converter and select <strong>Local File</strong> option. Hit Next.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKRj&amp;d=%2Fa%2F4u000000M0EF%2Fyx9xj_8qrqd.LImamJllJrZD04.kAzE.TbQVsTx7I9U&amp;asPdf=false" width="448"></img></span>
+
+<ul><li>
+	<p>Hit the Browse () button, select the exported VMDK file and hit <strong>Open</strong>. Now hit Next.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKXq&amp;d=%2Fa%2F4u000000Lzp8%2FXYX.RtToOALJEX9WWrAaCYjxiotaA5lUjSBrK2_vPmo&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>Select <strong>local file</strong> option again and hit Next.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKSV&amp;d=%2Fa%2F4u000000LzxQ%2FpE5eldkCOXweI15nRReaJcykmkmM9Y17_G1ctXyD9S0&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>No select <strong>VHD/VHDX</strong> option and hit Next.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKcM&amp;d=%2Fa%2F4u000000M0EK%2FmSukNNIASwVxWi.tOXpJFGn2Bal316paJG32mmXpyMY&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>In the next screen please select VHD pre-allocated image. Its essential to select this format since its the only one compatible with Microsoft Azure. Hit Next.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKgr&amp;d=%2Fa%2F4u000000M0BS%2FmBL2YwHSbiyTDTQo1EKnNdMwkV9fGGsCeA2a5vdJz8A&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>At this point youll just need to select the location for the converted file. <strong><span style="color: rgb(255,86,48);">Please make sure you have enough space. This conversion should generate a 32 GB file.</span></strong> Now just hit <strong>Convert </strong>and the VHD (fixed-size) file will be generated.</p>
+	</li></ul>
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKML&amp;d=%2Fa%2F4u000000LzdR%2FKyvY4vQC1uCYEbq0jcz4n4NIEYNbr2e43LGosrGmW0M&amp;asPdf=false"></img></span>
+
+<ul><li>
+	<p>If youre planning to send over the file I would recommend compressing it. It shouldnt take more than 2 GB when compressed.</p>
+	</li><li>
+	<p><strong><span style="color: rgb(255,86,48);">When creating the instance in Azure, its important you create the machine as a </span><span style="color: rgb(101,84,192);">Generation 2</span><span style="color: rgb(255,86,48);">. (EFI/UEFI) Otherwise you wont be able to loaded because Generation 1 only supports BIOS.</span></strong></p>
+	</li></ul>
+
+<p> </p>
+
+<p> </p>
+
+<h2 id="ConvertGSMappliance(.OVAfile)toAzureformat-Pleasefeelfreetocontactusifyouhaveanyquestions." style="text-align: center;">Please feel free to contact us if you have any questions.</h2>
+
+<p> </p>
+</body>
+</html>

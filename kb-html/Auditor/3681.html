@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint Term Set tree fails to load or unable to edit a clue or term</title>
+    <meta name="product" content="auditor">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T18:27:01.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:51:12.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9dzCAC">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9dzCAC">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:51:13.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:30:04.000Z">
+    <meta name="Meta_Description__c" content="SharePoint Term Set tree fails to load or unable to edit a clue or term">
+    <meta name="Meta_Title__c" content="SharePoint Term Set tree fails to load or unable to edit a clue or term">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="3511">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dzCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SharePoint Term Set tree fails to load or unable to edit a clue or term</h1>
+    When using <strong>Taxonomy Manager </strong>with a <strong>SharePoint Term</strong> <strong>Set</strong> either the tree fails to load or you are unable to edit a clue/term. You will typically receive one of the following errors:
+<ul><li>401 Unauthorized</li><li>403 Access denied. You do not have permission to perform this action or access this resource</li><li>500 Internal Server Error</li></ul>
+This issue is typically related to:
+<ul><li><b>Invalid Credentials</b>, or</li><li>The <b>SharePoint </b>solution not being correctly deployed (<b>SharePoint 2010</b>)</li></ul>
+<strong>Verify Connection Credentials</strong>
+
+Each registered <strong>SharePoint</strong> <strong>Term</strong> <strong>Set</strong> has configured connection credentials allowing us to request/load the <strong>Term</strong> Set <strong>data</strong> from <strong>SharePoint</strong>. The <strong>credentials</strong> used for the <strong>connection</strong> can be viewed by:
+<ol><li>Open the <strong>QS Administration Interface</strong></li><li>Select &quot;<strong>Taxonomies&quot; </strong>from the top navigation</li><li>Select &quot;<strong>Global Settings&quot; </strong>from the sub navigation</li><li>For each affected <strong>Term</strong> <strong>Set</strong> select:
+<ol><li>&quot;<strong>Test</strong>&quot; to confirm <strong>connectivity</strong></li><li>&quot;<strong>Edit</strong>&quot; to amend the <strong>username</strong>/<strong>password</strong></li></ol>
+</li></ol>
+<strong>Verify Credential Permissions</strong>
+
+To support amending the <strong>Term</strong> <strong>Set</strong> structure and editing clues the specified connection credentials must either be a:
+<ul><li><strong>Term</strong> <strong>Group</strong> Manager, or a</li><li><strong>Term</strong> <strong>Store</strong> Administrator</li></ul>
+This can be confirmed via the <strong>Term</strong> <strong>Store</strong> Manager interface in <strong>SharePoint</strong> by selecting the appropriate level (<strong>Group</strong>/<strong>Store</strong>) and verifying that the <strong>connection</strong> <strong>credentials</strong> are specified in the <strong>administrator </strong>input.
+
+<strong>Verify conceptClassifier Solution (SharePoint 2010 Only)</strong>
+
+When connecting to <strong>SharePoint</strong> 2010 <strong>Term</strong> <strong>Sets</strong> the <strong>conceptClassifier</strong> for <strong>SharePoint</strong> <strong>farm </strong><strong>solution</strong> must be deployed.
+</body>
+</html>

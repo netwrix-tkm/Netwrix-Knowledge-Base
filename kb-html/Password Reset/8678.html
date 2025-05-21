@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use Twilio CLI with Netwrix Password Reset SMS Verification</title>
+    <meta name="product" content="password_reset_manager">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000007Mj6zAAC">
+    <meta name="ArticleCreatedDate" content="2023-07-21T07:40:20.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000007Mj6zAAC">
+    <meta name="CreatedDate" content="2023-07-27T11:09:12.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2023-07-21T07:48:18.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u00000110ukCAA">
+    <meta name="Knowledge_Article_ID__c" content="kA04u00000110ukCAA">
+    <meta name="LastModifiedById" content="0054u000007Mj6zAAC">
+    <meta name="LastModifiedDate" content="2023-07-27T11:09:56.000Z">
+    <meta name="LastPublishedDate" content="2023-07-21T07:48:18.000Z">
+    <meta name="Meta_Description__c" content="How to use Twilio CLI with Netwrix Password Reset SMS Verification">
+    <meta name="Meta_Title__c" content="How to use Twilio CLI with Netwrix Password Reset SMS Verification">
+    <meta name="OwnerId" content="0054u000007Mj6zAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8678">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110ukCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to use Twilio CLI with Netwrix Password Reset SMS Verification</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>The Twilio CLI allows to manage phone numbers, call Twilio APIs, and test webhooks.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<ol><li>
+	<p>Download Twilio from the official website (recommended to use Windows): <a href="https://www.twilio.com/docs/twilio-cli/getting-started/install#windows" target="_blank">Install the Twilio CLI ? Twilio &#129125;</a></p>
+	</li><li>
+	<p>Being logged in with the NPR Service Account, open CMD and log into Twilio accaunt.</p>
+	</li><li>
+	<p>In the <strong>Account info</strong> section, fill in the following fields:</p>
+
+	<ol><li>
+		<p><strong>Account SID</strong></p>
+		</li><li>
+		<p><strong>Auth Token </strong></p>
+		</li></ol>
+
+	<div><img alt="Group 115 (1).png" height="400" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116uq&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LdYe" width="750"></img></div>
+	</li><li>
+	<p>Name the profile. A name has to be easy to remember.</p>
+
+	<p>Example: <code>NPRProfile1</code></p>
+
+	<div><img alt="Group 116 1.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116uq&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LdYy"></img></div>
+	</li><li>
+	<p>Run CMD to load your Profile using the one you created:</p>
+
+	<pre>
+twilio profiles:use NPRProfile1</pre>
+	</li><li>
+	<p>Send the following text message:</p>
+
+	<pre>
+twilio api:core:messages:create --from +1[Your Twilio Number here] --to &quot;+1[PHONE]&quot; --body &quot;Test message&quot;</pre>
+
+	<div><img alt="Group 117.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116uq&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LdZD"></img></div>
+
+	<blockquote>
+	<div><strong>TIP:</strong> to create a log in root of C for any debugging/troubleshooting, use <code>[Previous command] &gt;&gt; C:\APRTWILIOTest.txt</code></div>
+	</blockquote>
+	</li><li>
+	<p>Create a file with the following format:</p>
+
+	<pre>
+twilio api:core:messages:create --from +18666982044 --to %1 --body %2 &gt;&gt; C:\APRTWILIOTest.txt</pre>
+
+	<div><img alt="Group 118.png" height="190" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116uq&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LdZI" width="550"></img></div>
+	</li><li>
+	<p>In NPR SMS Verification Settings, setup <strong>Command</strong> and <strong>Parameter</strong></p>
+
+	<blockquote>
+	<div><span style="color: #c0392b;"><strong>IMPORTANT:</strong></span> every time a setting is changed for <strong>Parameter</strong> in the NPR Settings for Verification, the Service Account needs to be restarted. Failure to do so may result in the changes not taking effect or the SMS not being sent on Unlock/Resets.</div>
+	</blockquote>
+
+	<ol><li>
+		<p><strong>Command</strong>: <code>C:\Windows\System32\cmd.exe</code></p>
+		</li><li>
+		<p><strong>Parameter</strong>: <code>/C &quot;&quot;C:\Program Files\Netwrix Password Reset\TwilioMSGSMS.cmd&quot; [PHONE] [CODE]&quot;</code></p>
+
+		<blockquote>
+		<div><strong>TIP:</strong> the default AD Attribute is set to MOBILE PHONE. You can change it by clicking on the AD Attribute link in the SMS settings.</div>
+		</blockquote>
+		</li></ol>
+	</li></ol>
+</div>
+</body>
+</html>

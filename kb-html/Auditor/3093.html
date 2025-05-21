@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to configure the Disk Space Monitor to work behind a Firewall</title>
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="00570000005NmamAAC">
+    <meta name="ArticleCreatedDate" content="2020-03-31T16:40:13.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="00570000005NmamAAC">
+    <meta name="CreatedDate" content="2023-05-08T09:46:36.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2020-04-01T09:33:00.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA00g000000H9ULCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA00g000000H9ULCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T09:46:36.000Z">
+    <meta name="LastPublishedDate" content="2020-04-01T09:33:00.000Z">
+    <meta name="Meta_Description__c" content="Firewall rules for Disk Space Monitor">
+    <meta name="Meta_Title__c" content="How to configure the Disk Space Monitor to work behind a Firewall">
+    <meta name="OwnerId" content="00570000005NmamAAC">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="669">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ULCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to configure the Disk Space Monitor to work behind a Firewall</h1>
+    How do I configure the Disk Space Monitor to work behind a Firewall?
+
+<hr></hr>
+
+A Firewall may prevent Disk Space Monitor attempts to connect to the server and get information about the disk space. Make sure that port 135 is open.<br><br>Perform the following steps:<br>1. Run the firewall by going to Start | Control Panel | Windows Firewall.<br>2. Click the Exceptions tab and check the list of Programs and Services.<br>3. Make sure the list of Programs and Services contains the DCOM_TCP135 line.<br><br>If DCOM_TCP135 is not in the list of Programs and Services, perform the following steps:<br>1. Go to Start | Run | type &quot;cmd&quot; and press OK.<br>2. Type &quot;netsh firewall add portopening protocol=tcp port=135 name=DCOM_TCP135&quot; and press Enter.<br>3. Go to Start | Control Panel | Windows Firewall.<br>4. Click the Exceptions tab and make sure DCOM_TCP135 has been added to the list of Program and Services.<br>5. Go to Start | Control Panel| | Schedule Tasks. Run the Netwrix Disk Space Monitor scheduled task.<br>6. Open the mailbox you have specified to receive notifications and make sure the report displays disk space information about the server in question.
+</body>
+</html>

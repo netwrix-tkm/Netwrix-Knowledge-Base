@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling-Log Fix: &quot;AgentTaskRunner - task execution failed for task 11 - TrackerPollTask-Baseline-processtracker-88&quot;</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:49:46.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:17:40.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:49:46.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JZhCAM">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JZhCAM">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:17:40.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="Rolling-Log Fix: &quot;AgentTaskRunner - task execution failed for task 11 - TrackerPollTask-Baseline-processtracker-88&quot;">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8201">
+    <meta name="VersionNumber" content="5">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JZhCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rolling-Log Fix: &quot;AgentTaskRunner - task execution failed for task 11 - TrackerPollTask-Baseline-processtracker-88&quot;</h1>
+    <p>This article will assist with clearing the error below from showing up in your Rolling Log.</p>
+
+<p> </p>
+
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style=""><b>Example Error Message</b></div>
+
+<div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+#                                                                                          Example Message:																										  #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+2018-04-10 10:56:26,887 [7] ERROR AgentTaskRunner - task execution failed for task 11 - TrackerPollTask-Baseline-processtracker-88
+NNT.Agent.Tracking.TrackerException: no data collector registered for: processtracker-local
+      at NNT.Agent.Core.Tracking.TrackerBase.GetDataCollector (System.String collectorName, System.Boolean throwException) [0x0002e] in :0
+      at NNT.Agent.Core.Tracking.TrackerBase.PollInternal (NNT.Agent.Core.Tracking.PollControl pollControl, NNT.Agent.Core.Interfaces.IDevice device, NNT.Agent.Core.Interfaces.ITrackerConfiguration 
+			configuration, NNT.Agent.Core.Interfaces.IItemStoragePipeline queue, NNT.Agent.Core.Tracking.PollType pollType, System.DateTime pollStartTimeUtc) [0x0004c] in:0
+      at NNT.Agent.Core.Tracking.TrackerBase.Poll (NNT.Agent.Core.Tracking.PollControl pollControl, NNT.Agent.Core.Interfaces.IDevice device, NNT.Agent.Core.Interfaces.IItemStoragePipeline queue, 
+			NNT.Agent.Core.Tracking.PollType pollType, System.DateTime pollStartTimeUtc) [0x00075] in :0
+      at NNT.Agent.Core.Tasks.TrackerPollTask.Execute (NNT.Agent.Core.Queue.AgentTaskQueue queueContext) [0x00279] in :0
+      at NNT.Agent.Core.Application.AgentTaskRunner.ExecuteTask (System.Int32 runnerId, NNT.Agent.Core.Interfaces.IAgentTask task, System.DateTime nowUtc, NNT.Agent.Core.Queue.AgentTaskQueue queue) 
+			[0x00050] in :0
+
+</pre>
+</div>
+</div>
+
+<h2 id="Rolling-LogFix:">Step-by-step guide</h2>
+
+<p>This error is usually caused due to the process tracker in change tracker being enabled, but no specified processes are set to be tracked. To stop this error from occuring, you will need to edit the configuration template assigned to the device that the error is occuring on, and either input at least one process to track, or disable the tracker</p>
+
+<ol><li>Log Into Change Tracker and Navigate to Devices &gt; Select Device Experiencing Error &gt; Select the Configuration Template that is causing the issue</li><li>Either Uncheck the &quot;Track processes and services in this template&quot; box, or add some services to be tracked. See example below:</li></ol>
+
+<p> </p>
+
+<p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKS6&amp;d=%2Fa%2F4u000000Lzec%2FgSrqbKoZUhG4Tm0yz9_GBwVcNMcOi5Juo9LK7QNCkAE&amp;asPdf=false"></img></span></p>
+
+<p> </p>
+
+<h2 id="Rolling-LogFix:"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKTI&amp;d=%2Fa%2F4u000000LzyH%2Fk9rpTeRIwyimOyGKsc6fjv.pU7K1BuFGP2OhwjrS.ik&amp;asPdf=false"></img></span></h2>
+
+<h2 id="Rolling-LogFix:">Related articles</h2>
+
+<p> </p>
+
+<p> </p>
+
+<ul class="content-by-label conf-macro output-block"><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8283" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a></div>
+	</li><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8273" target="_blank">Supporting Documents for Hub Server Problems</a></div>
+	</li><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8133" target="_blank">How to fix the &quot;Check Log for Details&quot; message in the event details</a></div>
+	</li><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8368" target="_blank">Change Tracker Gen 7 Change Log / Update Log / ReadMe.txt Documents for Agent/Hub</a></div>
+	</li></ul>
+
+<p> </p>
+
+<p> </p>
+<br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKEk&amp;d=%2Fa%2F4u000000LzlV%2FizlMPEs23Jzy9BoSzZdCpVnwL4BI03fjqLxug9Ylads&amp;asPdf=false" target="_blank">image2018-4-17_14-21-50.png</a><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKMZ&amp;d=%2Fa%2F4u000000LzwM%2FsyO0l9blw01WX_0xquxvVJgglPcJdhRNNPs87Es3Va0&amp;asPdf=false" target="_blank">image2018-4-17_14-21-32.png</a>
+</body>
+</html>

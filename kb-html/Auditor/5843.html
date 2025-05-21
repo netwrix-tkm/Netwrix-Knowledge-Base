@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Extension Attributes in Active Directory</title>
+    <meta name="visibility" content="public_v">
+    <meta name="product" content="auditor">
+    <meta name="ArticleCaseAttachCount" content="1">
+    <meta name="ArticleCreatedById" content="0050g000005YG2zAAG">
+    <meta name="ArticleCreatedDate" content="2021-01-19T20:19:28.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000005YG2zAAG">
+    <meta name="CreatedDate" content="2023-07-12T09:48:03.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-01-19T20:19:34.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000XmF4CAK">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000XmF4CAK">
+    <meta name="LastModifiedById" content="0054u000008ic83AAA">
+    <meta name="LastModifiedDate" content="2023-07-12T09:48:08.000Z">
+    <meta name="LastPublishedDate" content="2023-07-12T09:47:59.000Z">
+    <meta name="Meta_Description__c" content="How To Audit extensionAttributes through Active Directory Reporting">
+    <meta name="Meta_Title__c" content="How To Audit extensionAttributes through Active Directory Reporting">
+    <meta name="OwnerId" content="0050g000005YG2zAAG">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5843">
+    <meta name="VersionNumber" content="3">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmF4CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Audit Extension Attributes in Active Directory</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to audit extension attributes in Active Directory?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The set of entries specified in ad2ecr.txt are reported in Active Directory. In order to track changes to extension attributes in Active Directory, refer to the following steps:</p>
+
+<ol><li>
+	<p>Navigate to <code>%Netwrix Auditor installation folder%\Active Directory Auditing</code> folder.</p>
+	</li><li>
+	<p>Open the <strong>ad2ecr.txt</strong> file.</p>
+	</li><li>
+	<p>Place a hash symbol in front of each extension attribute to be audited, e.g.:</p>
+
+	<pre class="has-inner-focus">
+#.proxyAddresses</pre>
+
+	<p>A hash symbol designates a comment nullifying the entry in the code.</p>
+	</li><li>
+	<p>Save changes to the file.</p>
+	</li></ol>
+
+<p>The extension attributes commented out will now show in reports when they are changed.</p>
+</div>
+</body>
+</html>

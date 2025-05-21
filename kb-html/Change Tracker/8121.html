@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d. Agentless File Integrity Monitoring</title>
+    <meta name="product" content="change_tracker">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-07T00:37:03.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:16:59.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-07T00:37:04.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000JTGCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000JTGCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:16:59.000Z">
+    <meta name="LastPublishedDate" content="2022-06-29T14:14:44.000Z">
+    <meta name="Meta_Description__c" content="HELPDESK">
+    <meta name="Meta_Title__c" content="d. Agentless File Integrity Monitoring">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="8121">
+    <meta name="VersionNumber" content="6">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JTGCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>d. Agentless File Integrity Monitoring</h1>
+    <h2 id="d.AgentlessFileIntegrityMonitoring-AgentlessFileIntegrityMonitoring">Agentless File Integrity Monitoring</h2><p>In order to facilitate system-wide file integrity monitoring, tracking both file attributes and a cryptographic hash value for each file, it is necessary to deploy the NNT_FILEHASH binary to the target host. There is a library of NNT_FILEHASH binary files for a wide range of Linux, Unix and Windows platforms pre-packed within your Change Tracker Gen 7 installation, accessible via the <a href="https://kb.netwrix.com/8098" target="_blank">Settings -&gt; System Settings page</a>.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK6V&amp;d=%2Fa%2F4u000000Lzii%2FSIm7VrDo7nrwJEi3eYYe8zDljZxZa99kHpxDitM2Ubo&amp;asPdf=false"></img></span></p><p align="center"><br></p><p>Download the appropriate binary and copy the file to your target host - general best practice for Linux/Unix is to deploy the file to the /usr/bin folder and set execute permissions for an assigned Change Tracker user account/group. For Windows, best practice is to create a Program Files folder ÄúC:\Program Files\NNT Change Tracker Suite\FilehashÄù and place the Windows NNT.Filehash.exe within it. The NNT ProxyAgent service will also need to be granted suitable permissions to operate beyond the bounds of the ProxyAgent platform - <strong><em>See Appendix I: Agentless FIM for Windows in the Change Tracker Gen 7 Admin Guide</em></strong>.</p><p>The path for the NNT_FILEHASH binary needs to be specified within the Credentials Key used for the host using the attribute ÄòFileHashPathÄô</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="150" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJyD&amp;d=%2Fa%2F4u000000Lzin%2FvOYRbFVYIm_NxFqXbuidkGP.UjwwjVxMkbhBTAGFZEU&amp;asPdf=false"></img></span></p><p>Agentless FIM Configuration Templates are then constructed in the same way as Agent-based Configuration Templates.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJzk&amp;d=%2Fa%2F4u000000Lzis%2FvDjTb9QFyqO7a_e057DcPxx3XZ9TkngtDxSCENrfoRY&amp;asPdf=false"></img></span></p><p><br></p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK2S&amp;d=%2Fa%2F4u000000LzQg%2FCod9skLRRvfswOQ_r5BhQ81k0xDw3lkI8IjfSiXYU10&amp;asPdf=false" target="_blank">image2017-6-2_16-0-49.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKEI&amp;d=%2Fa%2F4u000000LzjC%2FMWa4V_F0kK.7hqvFiJvS0iVYkGfP7vKpbWjQ9C1iR.c&amp;asPdf=false" target="_blank">image2017-6-2_15-59-0.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKEN&amp;d=%2Fa%2F4u000000LzfV%2FnsGIyGbWh8WEdqRR6VtraR_62A5a.B4o5XFBpwsBNz4&amp;asPdf=false" target="_blank">image2017-6-2_15-58-15.png</a> <br>
+</body>
+</html>

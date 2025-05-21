@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noscript error when deploying Netwrix Data Classification</title>
+    <meta name="content_type" content="ct_legacy">
+    <meta name="product" content="data_classification">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0050g000006ati4AAA">
+    <meta name="ArticleCreatedDate" content="2021-07-19T15:58:41.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0050g000006ati4AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:19:52.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2021-07-19T15:58:46.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u000000PdNOCA0">
+    <meta name="Knowledge_Article_ID__c" content="kA04u000000PdNOCA0">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:19:52.000Z">
+    <meta name="LastPublishedDate" content="2021-07-19T15:59:16.000Z">
+    <meta name="Meta_Description__c" content="Noscript error when deploying Netwrix Data Classification">
+    <meta name="Meta_Title__c" content="Noscript error when deploying Netwrix Data Classification">
+    <meta name="OwnerId" content="0050g000006ati4AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="5901">
+    <meta name="VersionNumber" content="2">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PdNOCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Noscript error when deploying Netwrix Data Classification</h1>
+    <h2>Problem</h2>
+<br>When deploying the app to a SharePoint site collection it fails. The error written to the conceptsearching log on the NDC server is:
+<pre>
+Error: When deploying to a &#39;noscript&#39; site collection please use a tenancy scoped deployment.
+</pre>
+
+<h2>Resolution:  </h2>
+
+<ol><li style="margin-left: 40px;">Download &amp; Install SharePoint Online Management Shell</li><li style="margin-left: 40px;">Open SharePoint Online Management Shell</li><li style="margin-left: 40px;">Connect to your SharePoint Admin Portal</li><li style="margin-left: 40px;">Execute the following PowerShell command:
+	<pre>
+Set-SPOsite https://*your-domain.sharepoint.com*/site-path -DenyAddAndCustomizePages 0</pre>
+	</li><li style="margin-left: 40px;">Retry the app deployment.</li></ol>
+<br> <br><br> 
+</body>
+</html>
