@@ -34,7 +34,7 @@ wheels/
 
 # Ignore IDE specific files
 .idea/
-.vscode/
+
 *.swp
 *.swo
 *~
@@ -48,3 +48,5 @@ ENV/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+
+.python_packages
