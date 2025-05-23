@@ -1,0 +1,88 @@
+---
+title: "Configuring Netwrix Activity Monitor to Send to Threat Manager"
+---
+
+Configuring Netwrix Activity Monitor to Send to Threat Manager
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+# Configuring Netwrix Activity Monitor to Send to Threat Manager
+
+ The Netwrix Activity Monitor (SAM) can be configured to send events to Threat Manager (SD).
+
+If Threat Prevention (SI) is configured to send events to SAM, those events will be passed on to whatever applications SAM is configured to send events to.
+
+To send events to Threat Manager:
+
+In Threat Manager:
+	* Navigate to the
+ Integrations page.
+
+* Click the
+ Add New Integration button.
+
+Set the Type field to App Token, enter a Name, and (optionally) a Description.
+
+* Click the
+ Add button.
+
+Expand the App Tokens node on the Integrations tree and * select the
+ App Token you just generated.
+
+* Click the
+ Copy Token button.
+
+In the Netwrix Activity Monitor:
+	Go to the Monitored Domains tab, * click Add
+ Output and * select the
+ Threat Manager option.
+
+Set the value of the Server in SERVER[:PORT] format field to [DEFENDHOST]:10001, where [DEFENDHOST] is the hostname or IP address of the Threat Manager host.
+
+Paste the App Token generated in Threat Manager into the App Token field.
+
+* Click the
+ OK button.
+
+Channel:  Customer-Facing / Public
+
+Submitted by:  Michael Olig
+
+Product: Netwrix Activity Monitor, Threat Manager
+
+KB Type: How To
