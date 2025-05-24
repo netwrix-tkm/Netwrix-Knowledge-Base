@@ -1,226 +1,118 @@
+#!/usr/bin/env python3
+
 import os
-import re
+import sys
+import argparse
 import json
-import azure.functions as func
+import re
+from pathlib import Path
+
+import requests
 from bs4 import BeautifulSoup
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
-from pathlib import Path
-from datetime import datetime
 
-class KBDuplicateDetector:
-    def __init__(self, directory_path, similarity_threshold=0.7):
-        self.directory_path = directory_path
-        self.similarity_threshold = similarity_threshold
-        self.articles = {}
-        self.similarity_matrix = None
-        
-    def clean_text(self, text):
-        """Clean and normalize text content."""
-        # Remove HTML tags
-        text = re.sub(r'<[^>]+>', ' ', text)
-        # Remove extra whitespace
-        text = re.sub(r'\s+', ' ', text)
-        # Remove special characters
-        text = re.sub(r'[^\w\s]', '', text)
-        return text.strip().lower()
-    
-    def extract_content(self, html_content):
-        """Extract meaningful content from HTML."""
-        soup = BeautifulSoup(html_content, 'html.parser')
-        
-        # Extract title
-        title = soup.find('title')
-        title = title.text if title else ''
-        
-        # Extract main content
-        content_div = soup.find('div', class_='Content__c')
-        if not content_div:
-            return title, ''
-            
-        # Extract text from all sections
-        sections = []
-        for section in content_div.find_all(['h2', 'h3', 'p', 'ul', 'ol']):
-            sections.append(section.get_text())
-            
-        content = ' '.join(sections)
-        return title, content
-    
-    def load_articles(self):
-        """Load and process all HTML articles in the directory."""
-        for root, _, files in os.walk(self.directory_path):
-            for file in files:
-                if file.endswith('.html'):
-                    file_path = os.path.join(root, file)
-                    try:
-                        with open(file_path, 'r', encoding='utf-8') as f:
-                            html_content = f.read()
-                            title, content = self.extract_content(html_content)
-                            if content:
-                                self.articles[file_path] = {
-                                    'title': title,
-                                    'content': self.clean_text(content)
-                                }
-                    except Exception as e:
-                        print(f"Error processing {file_path}: {str(e)}")
-    
-    def calculate_similarity(self):
-        """Calculate similarity between all articles."""
-        if not self.articles:
-            return
-            
-        # Create TF-IDF matrix
-        vectorizer = TfidfVectorizer(stop_words='english')
-        content_list = [article['content'] for article in self.articles.values()]
-        tfidf_matrix = vectorizer.fit_transform(content_list)
-        
-        # Calculate cosine similarity
-        self.similarity_matrix = cosine_similarity(tfidf_matrix)
-    
-    def most_similar_snippet(self, text1, text2, n=10):
-        """Find the most similar n-gram snippet between two texts."""
-        words1 = text1.split()
-        words2 = text2.split()
-        max_overlap = 0
-        best_snippet = ("", "")
-        
-        # Create n-grams for both texts
-        ngrams1 = [" ".join(words1[i:i+n]) for i in range(len(words1)-n+1)]
-        ngrams2 = [" ".join(words2[i:i+n]) for i in range(len(words2)-n+1)]
-        
-        for ng1 in ngrams1:
-            for ng2 in ngrams2:
-                # Overlap: number of shared words
-                overlap = len(set(ng1.split()) & set(ng2.split()))
-                if overlap > max_overlap:
-                    max_overlap = overlap
-                    best_snippet = (ng1, ng2)
-        return best_snippet
+def clean_text(text):
+    """Preprocess and clean text for comparison."""
+    if not text:
+        return ""
+    # Remove HTML
+    soup = BeautifulSoup(text, 'html.parser')
+    text = soup.get_text(separator=' ', strip=True)
+    # Remove non-alphanumeric, short words, extra spaces, etc.
+    text = re.sub(r'[^\w\s]', ' ', text)
+    text = re.sub(r'\b\w{1,2}\b', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text.lower()
 
-    def find_duplicates(self):
-        """Find potential duplicate articles."""
-        if self.similarity_matrix is None:
-            return []
-            
-        duplicates = []
-        file_paths = list(self.articles.keys())
-        
-        for i in range(len(file_paths)):
-            for j in range(i + 1, len(file_paths)):
-                similarity = self.similarity_matrix[i][j]
-                if similarity >= self.similarity_threshold:
-                    snippet1, snippet2 = self.most_similar_snippet(
-                        self.articles[file_paths[i]]['content'],
-                        self.articles[file_paths[j]]['content']
-                    )
-                    duplicates.append({
-                        'file1': file_paths[i],
-                        'file2': file_paths[j],
-                        'similarity': similarity,
-                        'title1': self.articles[file_paths[i]]['title'],
-                        'title2': self.articles[file_paths[j]]['title'],
-                        'snippet1': snippet1,
-                        'snippet2': snippet2
-                    })
-        
-        return sorted(duplicates, key=lambda x: x['similarity'], reverse=True)
-    
-    def generate_report(self, duplicates):
-        """Generate a CSV report of potential duplicates."""
-        if not duplicates:
-            print("No potential duplicates found.")
-            return
-            
-        # Create a DataFrame from the duplicates list
-        df = pd.DataFrame(duplicates)
-        
-        # Reorder columns for better readability
-        df = df[['similarity', 'title1', 'file1', 'snippet1', 'title2', 'file2', 'snippet2']]
-        
-        # Format similarity as percentage
-        df['similarity'] = df['similarity'].apply(lambda x: f"{x:.2%}")
-        
-        # Generate output filename with timestamp
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = f"duplicate_articles_{timestamp}.csv"
-        
-        # Save to CSV
-        df.to_csv(output_file, index=False)
-        print(f"\nReport saved to: {output_file}")
-        print(f"Found {len(duplicates)} potential duplicate pairs")
+def extract_title_content(html_path):
+    """Extract title and clean content from HTML file."""
+    with open(html_path, encoding='utf-8') as f:
+        html = f.read()
+    soup = BeautifulSoup(html, 'html.parser')
+    title_tag = soup.find('h1') or soup.find('title')
+    title = title_tag.get_text(strip=True) if title_tag else Path(html_path).name
+    # Remove scripts, styles etc.
+    for element in soup(['script', 'style', 'nav', 'footer', 'header', 'aside', 'meta', 'link']):
+        element.decompose()
+    content = ' '.join(soup.stripped_strings)
+    return title, content
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    # Get parameters from request
-    product_name = req.params.get('product', '')
-    threshold = float(req.params.get('threshold', '0.9'))
-    
-    if not product_name:
-        return func.HttpResponse(
-            "Please provide a 'product' parameter",
-            status_code=400
-        )
-    
-    try:
-        # In Azure, this path would be where your KB articles are stored
-        kb_root = os.getenv('KB_ROOT_PATH', '/home/site/wwwroot/kb-html')
-        directory_path = os.path.join(kb_root, product_name)
-        
-        if not os.path.exists(directory_path):
-            return func.HttpResponse(
-                f"Product directory not found: {product_name}",
-                status_code=404
-            )
-        
-        # Initialize and run duplicate detection
-        detector = KBDuplicateDetector(directory_path, similarity_threshold=threshold)
-        
-        print(f"Loading articles from {directory_path}...")
-        detector.load_articles()
-        print(f"Loaded {len(detector.articles)} articles")
-        
-        print("Calculating similarities...")
-        detector.calculate_similarity()
-        
-        print("Finding duplicates...")
-        duplicates = detector.find_duplicates()
-        
-        # Prepare response
-        response = {
-            'product': product_name,
-            'threshold': threshold,
-            'article_count': len(detector.articles),
-            'duplicate_count': len(duplicates),
-            'duplicates': duplicates
+def collect_product_html_files(product_path: Path, exclude_file=None):
+    """Collect all HTML article files in a given product subdirectory."""
+    articles = []
+    for html_file in product_path.glob("*.html"):
+        if exclude_file and html_file.resolve() == Path(exclude_file).resolve():
+            continue
+        with open(html_file, encoding="utf-8") as f:
+            content = f.read()
+        title, _ = extract_title_content(html_file)
+        articles.append({
+            "title": title,
+            "content": content,
+            "path": str(html_file)
+        })
+    return articles
+
+def find_duplicates(new_article, articles, threshold=0.8, top_n=5):
+    all_texts = [clean_text(a['content']) for a in articles]
+    if not all_texts:
+        return []
+    vectorizer = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = vectorizer.fit_transform(all_texts)
+    new_text = clean_text(new_article['content'])
+    input_vector = vectorizer.transform([new_text])
+    similarities = cosine_similarity(input_vector, tfidf_matrix).flatten()
+    duplicates = [
+        {
+            "title": articles[i]["title"],
+            "path": articles[i]["path"],
+            "similarity": float(similarities[i])
         }
-        
-        return func.HttpResponse(
-            json.dumps(response, indent=2),
-            mimetype="application/json"
-        )
-        
-    except Exception as e:
-        return func.HttpResponse(
-            f"Error processing request: {str(e)}",
-            status_code=500
-        )
+        for i, sim in enumerate(similarities) if sim >= threshold
+    ]
+    return sorted(duplicates, key=lambda x: -x["similarity"])[:top_n]
 
-# For local testing
+def main():
+    parser = argparse.ArgumentParser(description="Check KB article for duplicates in the repo.")
+    parser.add_argument('--product-dir', required=True, help="Path to the product's KB HTML folder (e.g. 'kb-html/Activity Monitor')")
+    parser.add_argument('--file', required=True, help="New article HTML to check (full path, must exist)")
+    parser.add_argument('--threshold', type=float, default=0.8, help="Similarity threshold, default 0.8")
+    parser.add_argument('--output-json', help="If set, write report to this JSON file")
+    args = parser.parse_args()
+
+    product_dir = Path(args.product_dir)
+    if not product_dir.exists():
+        print(f"ERROR: Product dir not found: {product_dir}", file=sys.stderr)
+        sys.exit(2)
+    if not Path(args.file).exists():
+        print(f"ERROR: New article file not found: {args.file}", file=sys.stderr)
+        sys.exit(2)
+
+    # Extract new article
+    title, content = extract_title_content(args.file)
+    new_article = {"title": title, "content": content, "path": args.file}
+
+    # Read others
+    articles = collect_product_html_files(product_dir, exclude_file=args.file)
+    duplicates = find_duplicates(new_article, articles, threshold=args.threshold)
+
+    # Show results
+    if duplicates:
+        print(f"Found {len(duplicates)} potential duplicate(s) for '{title}':")
+        for d in duplicates:
+            print(f"  {d['path']} (similarity: {d['similarity']:.3f})")
+        if args.output_json:
+            with open(args.output_json, "w") as f:
+                json.dump({"duplicates": duplicates}, f, indent=2)
+        sys.exit(1)
+    else:
+        print(f"No duplicates found for '{title}'")
+        if args.output_json:
+            with open(args.output_json, "w") as f:
+                json.dump({"duplicates": []}, f)
+        sys.exit(0)
+
 if __name__ == "__main__":
-    from http.server import BaseHTTPRequestHandler
-    from http import HTTPStatus
-    import json
-    
-    class MockRequest:
-        def __init__(self, params):
-            self.params = params
-            
-        def get(self, key, default=None):
-            return self.params.get(key, default)
-    
-    # Test with a sample request
-    req = MockRequest({'product': 'auditor', 'threshold': '0.9'})
-    response = main(req)
-    print(f"Status: {response.status_code}")
-    print("Response:")
-    print(response.get_body().decode())
+    main()
