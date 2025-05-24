@@ -1,0 +1,43 @@
+name: Check for KB Duplicates
+
+on:
+  pull_request:
+    paths:
+      - 'kb-html/**.html'
+
+jobs:
+  check-duplicates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install beautifulsoup4 scikit-learn numpy
+
+      - name: Find new KB articles
+        id: list_new
+        run: |
+          # List only HTML files added/modified in PR under kb-html
+          git fetch origin main
+          diff_files=$(git diff --name-only origin/main -- 'kb-html/**/*.html')
+          echo "$diff_files"
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$diff_files" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run duplicate detection
+        if: steps.list_new.outputs.files != ''
+        run: |
+          status=0
+          for file in ${{ steps.list_new.outputs.files }}; do
+            productdir=$(dirname "$file")
+            echo "Checking $file in product dir $productdir"
+            python .github/scripts/check_kb_duplicates.py --product-dir "$productdir" --file "$file" --threshold 0.8 || status=1
+          done
+          exit $status
