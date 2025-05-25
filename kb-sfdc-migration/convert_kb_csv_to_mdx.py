@@ -14,34 +14,34 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)  # Go up one level to the root directory
 INPUT_CSV = os.path.join(SCRIPT_DIR, "kb_all.csv")
 CATEGORIES_CSV = os.path.join(SCRIPT_DIR, "kb_data_categories.csv")
-MDX_DIR = os.path.join(ROOT_DIR, "knowledge_base")  # Output to /knowledge_base in root
+MDX_DIR = os.path.join(ROOT_DIR, "all-articles")  # Output to /all-articles in root
 
 # Mapping of old product names to new folder names
 PRODUCT_MAPPING = {
-    'access_info_center': 'Access Information Center', 
-    'activity_monitor': 'Activity Monitor',
-    'onesecure': '1Secure',
-    'auditor': 'Auditor',
-    'change_tracker': 'Change Tracker',
-    'data_classification': 'Data Classification',
-    'endpoint_protector': 'Endpoint Protector',
-    'groupid': 'Directory Manager',
-    'log_tracker': 'Log Tracker',
-    'password_policy_enforcer': 'Password Policy Enforcer',
-    'password_reset_manager': 'Password Reset',
-    'password_secure': 'Password Secure',
-    'policypak': 'Endpoint Policy Manager',
-    'privilege_secure_endpoints': 'Endpoint Privilege Manager',
-    'privilege_secure': 'Privilege Secure for Access Management',
-    'privilege_secure_discovery': 'Privilege Secure for Discovery',
-    'recovery_ad': 'Recovery for Active Directory',
-    'enterprise_auditor': 'Access Analyzer',
-    'threat_manager': 'Threat Manager',
-    'threat_prevention': 'Threat Prevention',
-    'strongpoint_netsuite': 'Platform Governance for NetSuite',
-    'strongpoint_salesforce': 'Platform Governance for Salesforce',
-    'usercube': 'Identity Manager',
-    'vulnerability_tracker': 'Vulnerability Tracker'
+    'access_info_center': 'access-information-center', 
+    'activity_monitor': 'activity-monitor',
+    'onesecure': '1secure',
+    'auditor': 'auditor',
+    'change_tracker': 'change-tracker',
+    'data_classification': 'data-classification',
+    'endpoint_protector': 'endpoint-protector',
+    'groupid': 'directory-manager',
+    'log_tracker': 'log-tracker',
+    'password_policy_enforcer': 'password-policy-enforcer',
+    'password_reset_manager': 'password-reset',
+    'password_secure': 'password-secure',
+    'policypak': 'endpoint-policy-manager',
+    'privilege_secure_endpoints': 'endpoint-privilege-manager',
+    'privilege_secure': 'privilege-secure-for-access-management',
+    'privilege_secure_discovery': 'privilege-secure-for-discovery',
+    'recovery_ad': 'recovery-for-active-directory',
+    'enterprise_auditor': 'access-analyzer',
+    'threat_manager': 'threat-manager',
+    'threat_prevention': 'threat-prevention',
+    'strongpoint_netsuite': 'platform-governance-for-netsuite',
+    'strongpoint_salesforce': 'platform-governance-for-salesforce',
+    'usercube': 'identity-manager',
+    'vulnerability_tracker': 'vulnerability-tracker'
 }
 
 def sanitize_filename(article_number):

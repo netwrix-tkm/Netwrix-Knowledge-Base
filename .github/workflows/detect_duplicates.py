@@ -351,7 +351,7 @@ def generate_n8n_output(duplicates, product_name, threshold, execution_time, art
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Detect duplicate knowledge base articles.')
-    parser.add_argument('--directory', type=str, default='all_articles',
+    parser.add_argument('--directory', type=str, default='all-articles',
                        help='Directory containing knowledge base articles')
     parser.add_argument('--threshold', type=float, default=0.8,
                        help='Similarity threshold (0-1)')
@@ -374,10 +374,10 @@ def get_modified_files():
         cmd = ["git", "diff", "--name-only", "--diff-filter=ACMRT", "HEAD^1", "HEAD"]
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         
-        # Filter for markdown files in the all_articles directory
+        # Filter for markdown files in the all-articles directory
         modified_files = [
             f.strip() for f in result.stdout.split('\n') 
-            if f.strip().endswith(('.md', '.mdx')) and f.strip().startswith('all_articles/')
+            if f.strip().endswith(('.md', '.mdx')) and f.strip().startswith('all-articles/')
         ]
         
         return modified_files
