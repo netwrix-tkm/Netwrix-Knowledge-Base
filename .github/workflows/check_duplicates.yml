@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'knowledge_base/**'
+      - 'all_articles/**'
       - '.github/workflows/check_duplicates.yml'
       - '.github/workflows/detect_duplicates.py'
 
