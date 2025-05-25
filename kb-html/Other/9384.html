@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to enable collection of more than 100 items in a report</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="005Qk000003YNwXIAW">
+    <meta name="ArticleCreatedDate" content="2025-01-31T13:51:08.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="005Qk000003YNwXIAW">
+    <meta name="AssignedToId" content="005Qk000003YNwXIAW">
+    <meta name="AssignmentDate" content="2025-01-31T13:51:08.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="005Qk000003YNwXIAW">
+    <meta name="CreatedDate" content="2025-01-31T13:51:08.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000001wbRKAQ">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000001wbRKAQ">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-02-06T08:26:38.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="nan">
+    <meta name="Meta_Title__c" content="nan">
+    <meta name="OwnerId" content="005Qk000003YNwXIAW">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9384">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001wbRKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to enable collection of more than 100 items in a report</h1>
+    <blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Question</h2>
+<p>How to enable collection of more than 100 items in PingCastle Enterprise and Pro?</p>
+<h2>Answer</h2>
+<p>To enable collection of more than 100 items in PingCastle Enterprise and Pro, follow these steps:</p>
+<ol><li>
+<p>Navigate to PingCastle Pro/Enterprise directory and open the appsettings.json file</p>
+</li><li>
+<p>Add the following key in the JSON file</p>
+</li></ol>
+<p>&quot;__comment_MaxNumberUsersInHtmlReport&quot;: &quot;Defines the maximum number of users displayed in the HTML report&quot;,</p>
+<p>&quot;MaxNumberUsersInHtmlReport&quot;: 1000,</p>
+<p>You can adjust the value 1000 to any desired limit.</p>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrupt ErrorEvent in Event Reports</title>
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000008ic83AAA">
+    <meta name="ArticleCreatedDate" content="2024-04-10T11:31:53.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="0054u000008ic83AAA">
+    <meta name="AssignedToId" content="0054u000008ic83AAA">
+    <meta name="AssignmentDate" content="2024-04-10T11:31:53.000Z">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000008ic83AAA">
+    <meta name="CreatedDate" content="2024-04-10T11:31:53.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="nan">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA0Qk0000000ahpKAA">
+    <meta name="Knowledge_Article_ID__c" content="kA0Qk0000000ahpKAA">
+    <meta name="LastModifiedById" content="0054u0000093LZ4AAM">
+    <meta name="LastModifiedDate" content="2025-02-06T08:26:38.000Z">
+    <meta name="LastPublishedDate" content="nan">
+    <meta name="Meta_Description__c" content="Corrupt ErrorEvent in Event Reports">
+    <meta name="Meta_Title__c" content="Corrupt ErrorEvent in Event Reports">
+    <meta name="OwnerId" content="0054u000008ic83AAA">
+    <meta name="PublishStatus" content="Draft">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="9125">
+    <meta name="VersionNumber" content="0">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000ahpKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Corrupt ErrorEvent in Event Reports</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>The events report in Netwrix Change Tracker contains one or more <code>ErrorEvent</code> events. Their description states <code>Corrupt</code>.</p>
+	</li><li>
+	<p>Agent logs located in <code>C:\ProgramData\NNT\gen7agent.service\rolling-log.txt</code> contain the following line:</p>
+
+	<pre class="has-inner-focus">
+[timestamp] ERROR AgentTaskRunner - task execution failed for task %#% - %task_name% [timestamp]</pre>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The agent directory on affected devices contains multiple conflicting <code>Config-*.xml</code> files. These files cause conflicts in device agent events.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>You can establish the affected agents via the events reportreview the <strong>DeviceName</strong> and <strong>AgentID</strong> column values.</p>
+</blockquote>
+
+<p>Perform an agent reset to reconfigure affected agents. Refer to the following steps:</p>
+
+<ol><li>
+	<p>Stop the NCT Agent Service. Refer to the following Linux command:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry"># service nntgen7agent stop</code></pre>
+	</li><li>
+	<p>Navigate to the agent directory containing the Rolling-Log files. Refer to the following default path:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\ProgramData\NNT\gen7agent.service\</code></pre>
+	</li><li>
+	<p>Right-click the <code>Hubdetails.xml</code> file and select <strong>Edit</strong>.</p>
+	</li><li>
+	<p>Replace the <code>&lt;E1&gt;</code> tag pair with the <code>&lt;Password&gt;</code> tag pair. Replace the contents with the current agent account password, as defined on your NCT Hub Server. Save the changes.</p>
+	</li><li>
+	<p>Start the Agent Service. Refer to the following Linux command:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry"># service nntgen7agent start</code></pre>
+	</li></ol>
+</div>
+</body>
+</html>
