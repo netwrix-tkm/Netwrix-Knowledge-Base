@@ -374,10 +374,10 @@ def get_modified_files():
         cmd = ["git", "diff", "--name-only", "--diff-filter=ACMRT", "HEAD^1", "HEAD"]
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         
-        # Filter for markdown files in the knowledge base
+        # Filter for markdown files in the all_articles directory
         modified_files = [
             f.strip() for f in result.stdout.split('\n') 
-            if f.strip().endswith(('.md', '.mdx')) and f.strip().startswith('knowledge_base/')
+            if f.strip().endswith(('.md', '.mdx')) and f.strip().startswith('all_articles/')
         ]
         
         return modified_files
