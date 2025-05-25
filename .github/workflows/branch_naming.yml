@@ -1,0 +1,121 @@
+name: Auto Branch Management
+
+on:
+  # Trigger when someone edits a file directly in the main branch
+  push:
+    branches: [ main ]
+    paths:
+      - 'knowledge_base/**'
+      - '!knowledge_base/README.md'
+  # Also run when a PR is opened
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'knowledge_base/**'
+      - '!knowledge_base/README.md'
+
+jobs:
+  handle-file-changes:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v35
+      with:
+        files: |
+          knowledge_base/**
+          !knowledge_base/README.md
+
+    - name: Generate branch name
+      id: branch-name
+      run: |
+        # Get list of changed files
+        CHANGED_FILES="${{ steps.changed-files.outputs.all_changed_files }}"
+        
+        # Count modified and added files
+        MODIFIED_COUNT=$(echo "$CHANGED_FILES" | grep -c '^' || true)
+        
+        if [ "$MODIFIED_COUNT" -eq 0 ]; then
+          echo "No knowledge base files were modified."
+          exit 0
+        fi
+        
+        # Get the first modified file to use in branch name
+        FIRST_FILE=$(echo "$CHANGED_FILES" | head -1)
+        
+        # Extract filename without path and extension
+        FILENAME=$(basename "$FIRST_FILE" | cut -f 1 -d '.')
+        
+        # Convert to kebab-case and clean special characters
+        CLEAN_NAME=$(echo "$FILENAME" | \
+          tr '[:upper:]' '[:lower:]' | \
+          sed -e 's/[^a-z0-9]/-/g' -e 's/--*/-/g' -e 's/^-//' -e 's/-$//')
+        
+        # Generate branch name with timestamp to ensure uniqueness
+        TIMESTAMP=$(date +%Y%m%d%H%M%S)
+        if [ "$MODIFIED_COUNT" -eq 1 ]; then
+          BRANCH_NAME="kb/update-${CLEAN_NAME}-${TIMESTAMP}"
+        else
+          BRANCH_NAME="kb/update-multiple-files-${TIMESTAMP}"
+        fi
+        
+        echo "branch_name=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+
+    - name: Create branch and PR if needed
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        # Set up git config
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Create and switch to new branch
+        git checkout -b "${{ steps.branch-name.outputs.branch_name }}"
+        
+        # Push the new branch
+        git push -u origin "${{ steps.branch-name.outputs.branch_name }}"
+        
+        # Create a PR
+        gh pr create \
+          --title "KB Update: $(echo ${{ steps.branch-name.outputs.branch_name }} | sed 's/kb\/update-//')" \
+          --body "Automated PR for knowledge base updates" \
+          --base main \
+          --head "${{ steps.branch-name.outputs.branch_name }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Comment on PR
+      if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'kb/')
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { data: comments } = await github.rest.issues.listComments({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          });
+          
+          const hasComment = comments.some(comment => 
+            comment.user.login === 'github-actions[bot]' && 
+            comment.body.includes('Branch Naming')
+          );
+          
+          if (!hasComment) {
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: |-
+                ### Automated Branch Management
+                
+                For future reference, you can directly edit files in the knowledge base through the GitHub web interface. 
+                When you save your changes, GitHub will automatically create a properly named branch and PR for you.
+                
+                Just click the "Edit this file" button on any file in the `knowledge_base` directory, make your changes, 
+                and GitHub will handle the branch creation and PR process for you!
