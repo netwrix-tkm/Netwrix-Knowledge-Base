@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.2_010</title>
+    <meta name="visibility" content="employees_v">
+    <meta name="ArticleCaseAttachCount" content="0">
+    <meta name="ArticleCreatedById" content="0054u000006god6AAA">
+    <meta name="ArticleCreatedDate" content="2022-02-01T18:23:39.000Z">
+    <meta name="Article_Drafts_Folder__c" content="nan">
+    <meta name="Article_Reviewer__c" content="nan">
+    <meta name="Article_SME__c" content="nan">
+    <meta name="Article_Version_Origin__c" content="nan">
+    <meta name="Asana_Task_URL__c" content="nan">
+    <meta name="AssignedById" content="nan">
+    <meta name="AssignedToId" content="nan">
+    <meta name="AssignmentDate" content="nan">
+    <meta name="AssignmentDueDate" content="nan">
+    <meta name="AssignmentNote" content="nan">
+    <meta name="Case__c" content="nan">
+    <meta name="Confidence_Level__c" content="nan">
+    <meta name="CreatedById" content="0054u000006god6AAA">
+    <meta name="CreatedDate" content="2023-05-08T10:06:49.000Z">
+    <meta name="Draft_Status__c" content="nan">
+    <meta name="FirstPublishedDate" content="2022-02-01T18:23:39.000Z">
+    <meta name="IsLatestVersion" content="True">
+    <meta name="KnowledgeArticleId" content="kA04u0000000IQGCA2">
+    <meta name="Knowledge_Article_ID__c" content="kA04u0000000IQGCA2">
+    <meta name="LastModifiedById" content="0054u000006gSmgAAE">
+    <meta name="LastModifiedDate" content="2023-05-08T10:06:50.000Z">
+    <meta name="LastPublishedDate" content="2022-02-01T18:23:39.000Z">
+    <meta name="Meta_Description__c" content="360012217812">
+    <meta name="Meta_Title__c" content="Hotfix: SA_7.2_010">
+    <meta name="OwnerId" content="0054u000006god6AAA">
+    <meta name="PublishStatus" content="Online">
+    <meta name="RecordTypeId" content="0124u000000UUgLAAW">
+    <meta name="UrlName" content="6640">
+    <meta name="VersionNumber" content="1">
+    <meta name="Website_URL__c" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IQGCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.2_010</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> A bug was discovered where the sorting for Interactive Grids was case sensitive. This hotfix corrects that issue so reports being sorted are no longer case sensitive.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Modules: <br><br>- StealthAUDIT.EXE 7.2.591 <br>- SAJobEngine 7.2.222 <br>- Stealthbits.StealthAUDIT.Reporting.dll 7.2.94 <br>- StealthAUDIT\Templates <br>- SPSQLServer.dll 7.2.79 <br>YouTrack/Escalations <br>- SMPC-1574 Sorting functioning improperly in generated reports <br><br><br>Cumulative List of fixes included since Service Pack: <br><br>RMT/YouTrack Description <br>SMPC-1401 Vault issue when trying to edit global settings as a Global Options Admin with Vault enabled, an <br>error is thrown <br>SMPC-1206 Keyboard shortcut issue copying the name of a renamed job into the clipboard <br>SMPC-1258 renaming job case causes hang <br>SMPC-1319 specific steps can lead to loopoing that fills debug log until drive is full <br>SMPC-1533 data collectors showing in StealthAUDIT UI that don&#39;t actually exist <br>SMPC-1451 When executing action modules, the interactive flag is always set to true <br>SMPC-948 Filter builder bug <br>SMPC-1523 add configuratble option to determine whether to zip emailed reports <br>SMPC-1076 extra trailing job bracket in job xml <br>SMPC-1201 unable to filter uk date in results grid <br>SMPC-1299 Limit StealthAUDIT Host Inventory Settings Thread Count Upper Limit <br>SMPC-1315 Enhancement- the sorting scheduled tasks by &quot;next run&quot; doesn&#39;t correctly order the tasks by date <br>SMPC-1423 Core: Scheduler doesn&#39;t retain the radio option value <br>SMPC-1316 Enhancement - on opening the Scheduled Actions View, can jobs be ordered by target <br>SMPC-1259 American Fidelity | Host discovery doesn&#39;t apply IP filters <br>SMPC-932 Host Management | Duplicate discoveries cretaed when using Host discovery <br>SMPC-1137 Vault - Attempting to change yoru sched account while in Vault mode (after having already <br>scheduled jobs/queries in sa) causes multiple errors <br>SMPC-1507 Applying a filter to the job stats or task stats table causes UI overlap <br>SMPC-1521 Having 2 analysis tasks with the same name causes AV in debug log <br>SMPC-1618 When Running actions and anlysis, all show success in running job pane, but task stats shows <br>aborted. Also getting dumps <br>SMPC-1041 Column Selection - Unexpected Behavior <br>SMPC-418 Reporting - Column Selection <br>SMPC-1442 Reporting date filters : end date value is not being shown in the reports <br>SMPC-1447 column selection issues in generated reports - fixed z index issue <br>SMPC-1385 Branding - Update About Screen Logo <br>SMPC-1574 Sorting functioning improperly in generated reports <br>SMPC-1521 Having 2 analysis tasks with the same name causes AV in debug log. <br>SMPC-1662 Error when renaming queries&#39; tables</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">1.            Update StealthAUDIT.exe, the entire SP folder, and the Templates folder in the StealthAUDIT Install   </span></span></span></strong><br><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">Directory</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">2.            Update SAJobEngine, and Stealthbits.StealthAUDIT.Reporting.dll</span></span></span></strong><br><br>  
+</p><table style="width: 48pt;" cellspacing="0" cellpadding="0" width="64" border="0"><colgroup><col style="width: 48pt;" width="64"></col></colgroup><tbody><tr style="height: 15pt;" height="20"><td colspan="1" rowspan="1" class="xl64" style="height: 15pt;width: 48pt;" height="20" width="64"><a href="http://downloads.stealthbits.com/access/files/SAHotFixes/7.2/SA_7.2_010.zip" target="_blank">http://downloads.stealthbits.com/access/files/SAHotFixes/7.2/SA_7.2_010.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core;SA - Reporting<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.0+<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SMPC-1574<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	StealthAUDIT.exe 7.2.591
+- 	SAJobEngine  7.2.222
+-	Stealthbits.StealthAUDIT.Reporting.dll  7.2.94<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1339<br></p>
+</body>
+</html>
