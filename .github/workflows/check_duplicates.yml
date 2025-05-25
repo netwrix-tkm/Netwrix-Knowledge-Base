@@ -6,7 +6,7 @@ on:
     paths:
       - 'knowledge_base/**'
       - '.github/workflows/check_duplicates.yml'
-      - 'detect_duplicates.py'
+      - '.github/workflows/detect_duplicates.py'
 
 jobs:
   check-duplicates:
@@ -27,74 +27,24 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install beautifulsoup4 scikit-learn pandas
+        pip install beautifulsoup4 scikit-learn pandas requests
         
     - name: Run duplicate detection
       id: duplicates
-      run: |
-        # Get list of modified/added files in the PR
-        FILES=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep -E '\.(mdx|md)$' | grep '^kb-md/' || true)
-        
-        if [ -z "$FILES" ]; then
-          echo "No markdown files modified in this PR."
-          exit 0
-        fi
-        
-        # Get unique product directories from modified files
-        PRODUCT_DIRS=$(echo "$FILES" | grep -o '^kb-md/[^/]*' | sort -u | tr '\n' ' ')
-        
-        if [ -z "$PRODUCT_DIRS" ]; then
-          echo "No product directories found in modified files."
-          exit 0
-        fi
-        
-        echo "Checking for duplicates in: $PRODUCT_DIRS"
-        
-        # Run duplicate detection for each product directory
-        for dir in $PRODUCT_DIRS; do
-          if [ -d "$dir" ]; then
-            echo "\nChecking duplicates in $dir"
-            python .github/workflows/detect_duplicates.py --directory "$dir" --output-format github
-          fi
-        done
-        
-    - name: Create issue comment
-      if: failure()
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          const fs = require('fs');
-          const report = fs.readFileSync('duplicate_articles_report.md', 'utf8');
-          
-          const { data: comments } = await github.rest.issues.listComments({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: context.issue.number
-          });
-          
-          // Check if we've already commented on this PR
-          const botComment = comments.find(comment => 
-            comment.user.login === 'github-actions[bot]' && 
-            comment.body.includes('## Duplicate Articles Detected')
-          );
-          
-          if (botComment) {
-            // Update existing comment
-            await github.rest.issues.updateComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: botComment.id,
-              body: report
-            });
-          } else {
-            // Create new comment
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: report
-            });
-          }
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_HEAD_REF: ${{ github.head_ref || '' }}
+        GITHUB_BASE_REF: ${{ github.base_ref || '' }}
+      run: |
+        # Install required Python packages
+        python -m pip install beautifulsoup4 scikit-learn pandas requests
+        
+        # Run the duplicate detection script
+        python .github/workflows/detect_duplicates.py \
+          --threshold 0.6 \
+          --output-format both \
+          --github-token ${{ secrets.GITHUB_TOKEN }} \
+          --github-event-path ${{ github.event_path }}
+        
+        # The script will handle PR comments and output the results

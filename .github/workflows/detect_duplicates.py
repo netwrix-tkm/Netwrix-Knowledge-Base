@@ -1,5 +1,6 @@
 import os
 import re
+import argparse
 from bs4 import BeautifulSoup
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -10,7 +11,12 @@ from datetime import datetime
 
 class KBDuplicateDetector:
     def __init__(self, directory_path, similarity_threshold=0.7):
-        self.directory_path = directory_path
+        # Convert to absolute path and normalize
+        self.directory_path = os.path.abspath(os.path.normpath(directory_path))
+        print(f"\nInitializing detector with directory: {self.directory_path}")
+        print(f"Directory exists: {os.path.exists(self.directory_path)}")
+        print(f"Is directory: {os.path.isdir(self.directory_path) if os.path.exists(self.directory_path) else 'N/A'}")
+        
         self.similarity_threshold = similarity_threshold
         self.articles = {}
         self.similarity_matrix = None
@@ -48,37 +54,84 @@ class KBDuplicateDetector:
     
     def load_articles(self, specific_files=None):
         """
-        Load and process HTML articles.
+        Load and process articles (HTML, MDX, or MD files).
         
         Args:
             specific_files: List of specific files to process. If None, processes all files in directory.
         """
         if specific_files is None:
-            # Process all files in the directory
-            for root, _, files in os.walk(self.directory_path):
+            # Process all files in the directory, including hidden directories
+            for root, dirs, files in os.walk(self.directory_path):
+                # Include hidden directories (those starting with .)
+                dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ('node_modules', '__pycache__')]
+                
+                print(f"\nScanning directory: {root}")
+                print(f"Found {len(files)} files")
+                
                 for file in files:
-                    if file.endswith('.html'):
+                    if file.endswith(('.html', '.mdx', '.md')):
                         file_path = os.path.join(root, file)
+                        print(f"Processing: {file_path}")
                         self._process_article_file(file_path)
         else:
             # Process only the specified files
             for file_path in specific_files:
-                if os.path.isfile(file_path) and file_path.endswith('.html'):
+                if os.path.isfile(file_path) and file_path.endswith(('.html', '.mdx', '.md')):
+                    print(f"Processing specified file: {file_path}")
                     self._process_article_file(file_path)
+                    
+        print(f"\nTotal articles loaded: {len(self.articles)}")
     
     def _process_article_file(self, file_path):
         """Process a single article file and add it to the articles dictionary."""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
-                html_content = f.read()
-                title, content = self.extract_content(html_content)
-                if content:
+                content = f.read()
+                
+                if file_path.endswith('.html'):
+                    title, extracted_content = self.extract_content(content)
+                else:  # MDX or MD file
+                    # For MDX/MD, the entire content is the content
+                    # Extract title from first line if it's a heading
+                    lines = content.split('\n')
+                    title = ""
+                    extracted_content = ""
+                    end_frontmatter = 0
+                    
+                    # Look for title in frontmatter or first heading
+                    if lines and lines[0].startswith('---'):
+                        # Try to parse frontmatter
+                        for i, line in enumerate(lines[1:], 1):
+                            if line.strip() == '---':
+                                end_frontmatter = i
+                                break
+                            if ':' in line and not title:
+                                key, value = line.split(':', 1)
+                                if key.strip().lower() == 'title':
+                                    title = value.strip(' "\'')
+                    
+                    # If no title in frontmatter, use first heading
+                    if not title:
+                        for line in lines:
+                            if line.startswith('# '):
+                                title = line[2:].strip()
+                                break
+                    
+                    # Use the rest as content
+                    start_idx = end_frontmatter + 1 if end_frontmatter > 0 else 0
+                    extracted_content = '\n'.join(lines[start_idx:])
+                
+                if extracted_content:
                     self.articles[file_path] = {
-                        'title': title,
-                        'content': self.clean_text(content)
+                        'title': title or os.path.basename(file_path),
+                        'content': self.clean_text(extracted_content)
                     }
+                    print(f"  ✓ Loaded: {title or os.path.basename(file_path)}")
+                else:
+                    print(f"  ⚠️  Warning: No content found in {file_path}")
+                    
         except Exception as e:
-            print(f"Error processing {file_path}: {str(e)}")
+            print(f"  ❌ Error processing {file_path}: {str(e)}")
     
     def calculate_similarity(self):
         """Calculate similarity between all articles."""
@@ -297,49 +350,20 @@ def generate_n8n_output(duplicates, product_name, threshold, execution_time, art
     return report_data
 
 def parse_arguments():
-    import argparse
     parser = argparse.ArgumentParser(description='Detect duplicate knowledge base articles.')
-    parser.add_argument('--directory', type=str, default='kb-md',
-                       help='Directory containing the knowledge base articles')
-    parser.add_argument('--threshold', type=float, default=0.7,
-                       help='Similarity threshold (0.0 to 1.0)')
-    parser.add_argument('--output-format', type=str, 
-                       choices=['csv', 'github', 'n8n'], default='csv',
-                       help='Output format: csv, github, or n8n')
+    parser.add_argument('--directory', type=str, default='knowledge_base',
+                       help='Directory containing knowledge base articles')
+    parser.add_argument('--threshold', type=float, default=0.8,
+                       help='Similarity threshold (0-1)')
+    parser.add_argument('--output-format', type=str, choices=['text', 'n8n', 'both'], default='both',
+                       help='Output format: text, n8n, or both')
     parser.add_argument('--product-name', type=str, default='',
-                       help='Product name for reporting purposes')
+                       help='Product name for filtering (optional)')
+    parser.add_argument('--github-token', type=str, default='',
+                       help='GitHub token for posting PR comments (optional)')
+    parser.add_argument('--github-event-path', type=str, default='',
+                       help='Path to GitHub event JSON file (for PR info)')
     return parser.parse_args()
-
-def generate_github_report(duplicates, output_file='duplicate_articles_report.md'):
-    """Generate a GitHub-flavored markdown report."""
-    if not duplicates:
-        with open(output_file, 'w') as f:
-            f.write("## No duplicate articles found. ")
-        return 0
-    
-    with open(output_file, 'w') as f:
-        f.write("## Duplicate Articles Detected \n\n")
-        f.write("The following articles have high similarity scores and might be duplicates. "
-                "Please review them before merging.\n\n")
-        f.write("| Similarity | Article 1 | Article 2 |\n")
-        f.write("|------------|-----------|------------|\n")
-        
-        for dup in duplicates:
-            # Create relative paths for better readability
-            rel_path1 = os.path.relpath(dup['file1'])
-            rel_path2 = os.path.relpath(dup['file2'])
-            
-            # Truncate titles if too long
-            title1 = (dup['title1'][:50] + '...') if len(dup['title1']) > 50 else dup['title1']
-            title2 = (dup['title2'][:50] + '...') if len(dup['title2']) > 50 else dup['title2']
-            
-            f.write(f"| {dup['similarity']:.1%} | "
-                   f"[{title1}]({rel_path1}) | "
-                   f"[{title2}]({rel_path2}) |\n")
-        
-        f.write("\n> Note: This is an automated check. Please review the articles to confirm if they are actual duplicates.\n")
-    
-    return len(duplicates)
 
 def get_modified_files():
     """Get list of modified/added markdown files in the knowledge base."""
@@ -361,6 +385,76 @@ def get_modified_files():
         print(f"Error getting modified files: {e}")
         return []
 
+def post_pr_comment(github_token, pr_number, message):
+    """Post a comment to a GitHub pull request."""
+    import requests
+    import os
+    
+    if not github_token or not pr_number:
+        print("GitHub token or PR number not provided, skipping PR comment")
+        return False
+        
+    repo = os.getenv('GITHUB_REPOSITORY')
+    if not repo:
+        print("GITHUB_REPOSITORY environment variable not set")
+        return False
+        
+    url = f"https://api.github.com/repos/{repo}/issues/{pr_number}/comments"
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    data = {"body": message}
+    
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()
+        print(f"Successfully posted PR comment to PR #{pr_number}")
+        return True
+    except Exception as e:
+        print(f"Error posting PR comment: {e}")
+        return False
+
+def get_pr_number(github_event_path):
+    """Extract PR number from GitHub event payload."""
+    import json
+    
+    if not github_event_path or not os.path.exists(github_event_path):
+        print(f"GitHub event path not found: {github_event_path}")
+        return None
+        
+    try:
+        with open(github_event_path, 'r') as f:
+            event = json.load(f)
+            # For pull_request events
+            if 'pull_request' in event:
+                return event['pull_request']['number']
+            # For pull_request_target events
+            elif 'issue' in event and 'pull_request' in event['issue']:
+                return event['issue']['number']
+    except Exception as e:
+        print(f"Error extracting PR number: {e}")
+    
+    return None
+
+def format_pr_comment(duplicates, threshold):
+    """Format the duplicate detection results as a PR comment."""
+    if not duplicates:
+        return "No potential duplicate articles found!"
+    
+    comment = ["## Potential Duplicate Articles Found",
+              f"Found {len(duplicates)} potential duplicate{'s' if len(duplicates) > 1 else ''} (similarity ≥ {threshold*100:.0f}%):\n"]
+    
+    for i, dup in enumerate(duplicates, 1):
+        comment.append(f"### {i}. Similarity: {dup['similarity']*100:.1f}%")
+        comment.append(f"- **Modified file:** {dup['file1']}")
+        comment.append(f"- **Potential duplicate:** {dup['file2']}")
+        comment.append(f"- **Titles:** \"{dup['title1']}\" vs \"{dup['title2']}\"")
+        comment.append(f"- **Matching content:**\n  ```\n  {dup['snippet1']}\n  ```\n  vs\n  ```\n  {dup['snippet2']}\n  ```\n")
+    
+    comment.append("\n> This is an automated check. Please review these potential duplicates carefully.")
+    return "\n".join(comment)
+
 def main():
     import time
     import json
@@ -373,117 +467,155 @@ def main():
     # Get list of modified files
     modified_files = get_modified_files()
     
-    if modified_files:
-        print(f"Found {len(modified_files)} modified files to check:")
-        for f in modified_files:
-            print(f"  - {f}")
-    else:
+    # Get PR number if running in GitHub Actions
+    pr_number = None
+    if args.github_event_path:
+        pr_number = get_pr_number(args.github_event_path)
+        if pr_number:
+            print(f"Detected PR #{pr_number}")
+    
+    # Prepare empty result structure
+    result = {
+        "status": "success",
+        "execution_details": {
+            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "execution_time_seconds": round(time.time() - start_time, 3)
+        },
+        "request_details": {
+            "product_requested": args.product_name or "All Products",
+            "similarity_threshold_used": args.threshold,
+            "modified_files_checked": modified_files if modified_files else []
+        },
+        "results": {
+            "articles_processed": 0,
+            "potential_duplicates_found": 0,
+            "potential_duplicates": []
+        }
+    }
+    
+    if not modified_files:
         print("No modified markdown files found in the knowledge base.")
-        if args.output_format == 'n8n':
-            result = {
-                "status": "success",
-                "execution_details": {
-                    "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-                    "execution_time_seconds": round(time.time() - start_time, 3)
-                },
-                "request_details": {
-                    "product_requested": args.product_name or "All Products",
-                    "similarity_threshold_used": args.threshold
-                },
+        if args.output_format in ['n8n', 'both']:
+            print(json.dumps(result, indent=2))
+        return result
+    
+    print(f"Found {len(modified_files)} modified files to check:")
+    for f in modified_files:
+        print(f"  - {f}")
+    
+    try:
+        # Create detector instance for the entire knowledge base
+        detector = KBDuplicateDetector('knowledge_base', similarity_threshold=args.threshold)
+        
+        # Process all articles in the knowledge base
+        print("Loading all articles from the knowledge base...")
+        detector.load_articles()
+        print(f"Loaded {len(detector.articles)} articles")
+        
+        if not detector.articles:
+            error_msg = "No articles found in the knowledge base"
+            print(error_msg)
+            result.update({
+                "status": "error",
+                "message": error_msg,
                 "results": {
                     "articles_processed": 0,
                     "potential_duplicates_found": 0,
                     "potential_duplicates": []
                 }
-            }
-            print(json.dumps(result, indent=2))
-        return
-    
-    # Create detector instance for the entire knowledge base
-    detector = KBDuplicateDetector('knowledge_base', similarity_threshold=args.threshold)
-    
-    # Process all articles in the knowledge base
-    print("Loading all articles from the knowledge base...")
-    detector.load_articles()
-    print(f"Loaded {len(detector.articles)} articles")
-    
-    # Prepare base result for empty case
-    if not detector.articles:
-        print("No articles found. Exiting.")
-        if args.output_format == 'n8n':
-            result = {
-                "status": "success",
-                "execution_details": {
-                    "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-                    "execution_time_seconds": round(time.time() - start_time, 3)
-                },
-                "request_details": {
-                    "product_requested": args.product_name or "Unspecified",
-                    "similarity_threshold_used": args.threshold
-                },
-                "results": {
-                    "articles_processed": 0,
-                    "potential_duplicates_found": 0,
-                    "potential_duplicates": []
-                }
-            }
-            # Save the report to the reports directory
-            reports_dir = os.path.join('reports', 'duplicate_prevention')
-            report_path = save_json_report(
-                result, 
-                reports_dir,
-                f"duplicates_{args.product_name.lower().replace(' ', '_') if args.product_name else 'report'}"
-            )
-            print(f"\nReport saved to: {report_path}")
-            print(json.dumps(result, indent=2))
-        return
-    
-    # Calculate similarities
-    print("Calculating similarities...")
-    detector.calculate_similarity()
-    
-    # Find duplicates for modified files
-    print("Checking for duplicates against the entire knowledge base...")
-    duplicates = detector.find_duplicates(modified_files=modified_files)
-    
-    # Calculate execution time
-    execution_time = time.time() - start_time
-    
-    # Generate appropriate output
-    if args.output_format == 'github':
-        num_duplicates = generate_github_report(duplicates)
-        if num_duplicates > 0:
-            print(f"\nFound {num_duplicates} potential duplicate pairs. Report generated.")
-            # Exit with error code if duplicates found (will fail the GitHub Action)
-            exit(1)
-        else:
-            print("\nNo duplicate articles found.")
-    elif args.output_format == 'n8n':
-        result = generate_n8n_output(
-            duplicates=duplicates,
-            product_name=args.product_name or os.path.basename(os.path.normpath(args.directory)),
-            threshold=args.threshold,
-            execution_time=execution_time,
-            articles_processed=len(detector.articles)
-        )
+            })
+            if args.output_format in ['n8n', 'both']:
+                print("\n" + json.dumps(result, indent=2))
+            return result
         
-        # Save the report to the reports directory
-        reports_dir = os.path.join('reports', 'duplicate_prevention')
-        report_path = save_json_report(
-            result, 
-            reports_dir,
-            f"duplicates_{args.product_name.lower().replace(' ', '_') if args.product_name else 'report'}"
-        )
-        print(f"\nReport saved to: {report_path}")
+        # Update articles processed count
+        result['results']['articles_processed'] = len(detector.articles)
         
-        # Also print to stdout for GitHub Actions
-        print(json.dumps(result, indent=2))
+        # Calculate similarities
+        print("Calculating similarities...")
+        detector.calculate_similarity()
         
-        # Exit with error code if duplicates found (for GitHub Actions)
+        # Find duplicates for modified files
+        print("Checking for duplicates against the entire knowledge base...")
+        duplicates = detector.find_duplicates(modified_files=modified_files)
+        
+        # Update result with duplicates
+        result['results'].update({
+            'potential_duplicates_found': len(duplicates),
+            'potential_duplicates': duplicates
+        })
+        
+        # Update status based on findings
         if duplicates:
-            exit(1)
-    else:
-        detector.generate_report(duplicates)
+            result['status'] = 'warning'
+            result['message'] = f'Found {len(duplicates)} potential duplicate(s)'
+        else:
+            result['message'] = 'No potential duplicates found'
+        
+        # Update execution time
+        result['execution_details']['execution_time_seconds'] = round(time.time() - start_time, 3)
+        
+        # Generate PR comment if running in GitHub Actions
+        if os.getenv('GITHUB_ACTIONS') == 'true' and args.github_token and pr_number:
+            comment = format_pr_comment(duplicates, args.threshold)
+            post_pr_comment(args.github_token, pr_number, comment)
+        
+        # Add PR information to the result if available
+        if pr_number:
+            result['pull_request'] = {
+                'number': pr_number,
+                'html_url': f"https://github.com/{os.getenv('GITHUB_REPOSITORY', '')}/pull/{pr_number}",
+                'head_ref': os.getenv('GITHUB_HEAD_REF', ''),
+                'base_ref': os.getenv('GITHUB_BASE_REF', '')
+            }
+        
+        # Save report if needed
+        if args.output_format in ['n8n', 'both']:
+            # Create reports directory if it doesn't exist
+            reports_dir = os.path.join('reports', 'pull_request_qa')
+            os.makedirs(reports_dir, exist_ok=True)
+            
+            # Generate filename with PR info if available
+            pr_prefix = f"pr{pr_number}_" if pr_number else ""
+            timestamp = time.strftime('%Y%m%d_%H%M%S')
+            report_filename = f"{pr_prefix}qa_{timestamp}.json"
+            report_path = os.path.join(reports_dir, report_filename)
+            
+            with open(report_path, 'w', encoding='utf-8') as f:
+                json.dump(result, f, indent=2)
+            print(f"Report saved to {report_path}")
+        
+        # Print output in requested format
+        if args.output_format == 'text' or args.output_format == 'both':
+            if duplicates:
+                print(f"\nFound {len(duplicates)} potential duplicate{'s' if len(duplicates) > 1 else ''}:")
+                for i, dup in enumerate(duplicates, 1):
+                    print(f"\n{i}. Similarity: {dup['similarity']*100:.1f}%")
+                    print(f"   File 1: {dup['file1']}")
+                    print(f"   File 2: {dup['file2']}")
+                    print(f"   Title 1: {dup['title1']}")
+                    print(f"   Title 2: {dup['title2']}")
+            else:
+                print("No potential duplicates found.")
+        
+        if args.output_format in ['n8n', 'both']:
+            print("\n" + json.dumps(result, indent=2))
+        
+        return result
+        
+    except Exception as e:
+        error_msg = f"An error occurred: {str(e)}"
+        print(error_msg)
+        result.update({
+            "status": "error",
+            "message": error_msg,
+            "execution_details": {
+                "execution_time_seconds": round(time.time() - start_time, 3)
+            }
+        })
+        if args.output_format in ['n8n', 'both']:
+            print("\n" + json.dumps(result, indent=2))
+        return result
 
 if __name__ == "__main__":
     main()
