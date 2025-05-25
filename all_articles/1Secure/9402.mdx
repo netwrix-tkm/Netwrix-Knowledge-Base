@@ -1,0 +1,67 @@
+---
+title: How to Save and Zip the Netwrix Cloud Agent Event Log
+article_number: 9402
+id: ka0Qk000000Cr3lIAC
+products: ['onesecure']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000008icp2AAA
+articlecreateddate: 2025-02-11T18:55:16.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk00000020QXKAY
+asana_task_url__c: https://app.asana.com/0/1203106155380297/1209368774839497
+change_log__c: 02/11/25 - ZAC: New KB Created
+<br>3/18/25 - HGR: Proofread; Updated note and pic formatting
+confidence_level__c: Not Validated
+createdbyid: 0054u000008icp2AAA
+createddate: 2025-03-18T17:44:15.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2025-02-11T20:16:55.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk00000020QXKAY
+knowledge_article_id__c: kA0Qk00000020QXKAY
+lastmodifiedbyid: 005Qk000001wMM9IAM
+lastmodifieddate: 2025-03-18T17:47:52.000Z
+lastpublisheddate: 2025-02-13T21:15:34.000Z
+ownerid: 0054u000008icp2AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9402
+versionnumber: 2
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000020QXKAY.html" target="_blank">Open in a new window</a>
+---
+
+## Question
+
+How can you export and compress the Netwrix Cloud Agent event log?
+
+## Answer
+
+The Netwrix Cloud Agent event log can be saved and zipped using either the Command Prompt or the Event Viewer. The following steps will guide you through each method:
+
+>
+
+> __NOTE: __Perform these steps on the server where the Netwrix Cloud Agent is installed.
+
+>
+
+#### Export Cloud Agent event log via Command Prompt
+
+Execute the following command in an elevated Command Prompt line:
+
+wevtutil epl "Netwrix Cloud Agent" %userprofile%\desktop\NCA.evtx
+
+The exported Cloud Agent event log will appear on your Desktop.
+
+#### Export Cloud Agent event log via Event Viewer
+
+Open Event Viewer.
+
+Expand the Applications and Services Logs folder in the left pane.
+
+Right-click the Netwrix Cloud Agent log file and select Save All Events As....
+
+Name the file and click Save.
+
+Once the file is saved, right-click it and zip the file.
