@@ -351,7 +351,7 @@ def generate_n8n_output(duplicates, product_name, threshold, execution_time, art
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Detect duplicate knowledge base articles.')
-    parser.add_argument('--directory', type=str, default='knowledge_base',
+    parser.add_argument('--directory', type=str, default='all_articles',
                        help='Directory containing knowledge base articles')
     parser.add_argument('--threshold', type=float, default=0.8,
                        help='Similarity threshold (0-1)')
@@ -505,7 +505,7 @@ def main():
     
     try:
         # Create detector instance for the entire knowledge base
-        detector = KBDuplicateDetector('knowledge_base', similarity_threshold=args.threshold)
+        detector = KBDuplicateDetector(args.directory, similarity_threshold=args.threshold)
         
         # Process all articles in the knowledge base
         print("Loading all articles from the knowledge base...")
