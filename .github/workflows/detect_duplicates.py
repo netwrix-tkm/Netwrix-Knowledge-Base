@@ -180,10 +180,26 @@ class KBDuplicateDetector:
         duplicates = []
         all_files = list(self.articles.keys())
         
+        # Get indices of modified files if specified
         if modified_files:
-            # Only check modified files against all other files
-            modified_indices = [i for i, path in enumerate(all_files) if path in modified_files]
+            # Find all files that match the modified files paths
+            modified_indices = []
+            for path in modified_files:
+                # Try to find the file in all_files, with case-insensitive comparison
+                found = False
+                for i, file_path in enumerate(all_files):
+                    if file_path.lower() == path.lower():
+                        modified_indices.append(i)
+                        found = True
+                        break
+                if not found:
+                    print(f"Warning: Could not find {path} in loaded articles")
             
+            if not modified_indices:
+                print("No modified files found in loaded articles")
+                return []
+                
+            # Compare each modified file with all other files
             for i in modified_indices:
                 for j in range(len(all_files)):
                     # Skip self-comparison
