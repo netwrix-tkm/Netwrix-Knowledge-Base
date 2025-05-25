@@ -2,11 +2,17 @@ name: Check for Duplicate Articles
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     branches: [ main ]
     paths:
       - 'all_articles/**'
       - '.github/workflows/check_duplicates.yml'
       - '.github/workflows/detect_duplicates.py'
+
+# Required to allow the action to create comments
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   check-duplicates:
