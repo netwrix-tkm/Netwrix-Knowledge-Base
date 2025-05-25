@@ -1,0 +1,57 @@
+---
+title: Credential Release for SQL Returns Errors 400 and 404 in Netwrix Privilege Secure
+article_number: 8777
+id: ka04u00000117VIAAY
+products: ['privilege_secure_discovery']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000008ic83AAA
+articlecreateddate: 2023-08-31T10:34:49.000Z
+createdbyid: 0054u000008ic83AAA
+createddate: 2023-08-31T10:45:21.000Z
+firstpublisheddate: 2023-08-31T10:45:18.000Z
+islatestversion: True
+knowledgearticleid: kA04u000001118hCAA
+knowledge_article_id__c: kA04u000001118hCAA
+lastmodifiedbyid: 0054u000008ic83AAA
+lastmodifieddate: 2023-09-14T08:43:15.000Z
+lastpublisheddate: 2023-08-31T10:45:18.000Z
+meta_description__c: Credential Release for SQL Returns Errors 400 and 404 in Netwrix Privilege Secure
+meta_title__c: Credential Release for SQL Returns Errors 400 and 404 in Netwrix Privilege Secure
+ownerid: 0054u000008ic83AAA
+publishstatus: Archived
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8777
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001118hCAA.html" target="_blank">Open in a new window</a>
+---
+
+## Symptom
+
+The following errors are prompted upon Credential Release for SQL Server:
+
+Put https://localhost:%port%/api/v1/ManagedUser/%UserID%/PasswordStatus
+
+[404] Not Found TRACEID: %TRACEID%
+
+Get https://localhost:%port%/api/v1/User/%UserID%/DependencyCount
+
+[400] No managed user for host user id %UserID%
+
+## Cause
+
+The Credential Based access policy is misconfigured.
+
+## Resolution
+
+To set up the Credential Based access policy, a SQL Server account with a desired DB role is required.
+
+Once the SQL Server account is created, it should be selected as managed by Privilege Secure. Privilege Secure will be creating the temporary password once the SQL Server activity starts. Refer to the screenshot:
+
+You can also configure the rotation password policy for this account.
+
+Add the managed account to the Credential Based access policy.
+
+Configure, and start the session.

@@ -1,0 +1,221 @@
+---
+title: Manually Setting Up SharePoint Online Auditing
+article_number: 9371
+id: ka0Qk000000D6nZIAS
+products: ['activity_monitor', 'enterprise_auditor']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000007MiY9AAK
+articlecreateddate: 2025-01-16T23:14:47.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/:u:/r/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/hilary_writing_syncs/KB-New-Final%20Drafts/Manually%20Setting%20Up%20SharePoint%20Online%20Auditing%20for%20NEA.html?csf=1&web=1&e=
+article_reviewer__c: 005Qk000001wMM9IAM
+asana_task_url__c: https://app.asana.com/0/1203106155380297/1209227637931802
+change_log__c: 3/3/25 - HGR: Updated Title; Added SPO draft
+<br>4/3/25 - HGR: Updated word choice, formatting, and screenshots
+<br>4/4/25 - HGR: Reviewed w/Nick; Updated Title, minor formatting revision, screenshot update.
+confidence_level__c: Not Validated
+createdbyid: 0054u000007MiY9AAK
+createddate: 2025-04-04T18:07:12.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2025-04-04T16:20:24.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000001s6PKAQ
+knowledge_article_id__c: kA0Qk0000001s6PKAQ
+lastmodifiedbyid: 005Qk000001wMM9IAM
+lastmodifieddate: 2025-04-04T18:32:50.000Z
+lastpublisheddate: 2025-04-04T16:20:24.000Z
+ownerid: 0054u000007MiY9AAK
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9371
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001s6PKAQ.html" target="_blank">Open in a new window</a>
+---
+
+## Question
+
+How do I set up SharePoint Online auditing without using the SP_RegisterAzureAppAuth instant job?
+
+## Answer
+
+It is always recommended to use the SP_RegisterAzureAppAuth instant job to set up the Entra app for auditing. However, the process can be completed manually if necessary, such as if MFA cannot be temporarily disabled for a Global Admin account.
+
+#### SPAA/SPSEEK Scans
+
+Open the Microsoft Entra admin center.
+
+Navigate to Identity > Applications > App registrations.
+
+Select + New registration.
+
+On the Register an application page, set the following:
+
+Name: Enter a meaningful name, such as NetwrixAccessAnalyzer_SharePoint.
+
+Supported account types: Choose Accounts in this organizational directory only.
+
+From the Application Overview page, navigate to Manage > API Permissions and select Add a permission.
+
+From the Request API permissions page, select Microsoft Graph and add the following permissions:
+
+Delegated Permissions:
+
+Group.Read.All – Read all groups
+
+User.Read.All – Read all users' full profiles
+
+Application Permissions:
+
+Application.Read.All – Read all applications
+
+AuditLog.Read.All – Read all audit log data
+
+Directory.Read.All – Read directory data
+
+Files.Read.All – Read files in all site collections
+
+From the Request API permissions page, select Office 365 Management APIs and add the following permissions:
+
+ActivityFeed.Read – Read activity data for your organization
+
+ActivityFeed.ReadDlp – Read DLP policy events, including detected sensitive data
+
+ServiceHealth.Read – Read service health information for your organization
+
+From the Request API permissions page, select SharePoint and add the following permissions:
+
+Sites.FullControl.All – Have full control of all site collections
+
+Sites.Read.All – Read items in all site collections
+
+TermStore.Read.All – Read managed metadata
+
+User.Read.All – Read user profiles
+
+After adding the permissions, grant admin consent by selecting Grant admin consent for {TENANT NAME}.
+
+On the Netwrix Access Analyzer server, import a certificate and PFX file to the %SAInstallDir%PrivateAssemblies location:
+
+If necessary, create a self-signed certificate with the following PowerShell commands:
+
+$cert=New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName stealthbits.com -Subject "CN=StealthAUDIT SharePoint Auditor" -FriendlyName "StealthAUDIT SharePoint Auditor" -KeyAlgorithm RSA -KeyLength 2048 -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" -NotAfter (Get-Date).AddYears(11)
+
+Change the DNS Name to match your domain.
+
+Change the Subject and FriendlyName to match the App Registration name in Entra (formerly Azure).
+
+Export-Certificate -Cert $cert -FilePath "$($env:SAINSTALLDIR)PrivateAssemblies\spaa_cert_domain.cer" -Type CERT
+
+Ensure the certificate name includes the domain (e.g., spaa_cert_NWXSUPPORT.cer).
+
+Export-PfxCertificate -Cert $cert -FilePath "$($env:SAINSTALLDIR)PrivateAssemblies\spaa_cert_domain.pfx" -Password (ConvertTo-SecureString -String "PasswordGoesHere" -Force -AsPlainText)
+
+Ensure the PFX file name includes the domain (e.g., spaa_cert_NWXSUPPORT.pfx).
+
+Replace PasswordGoesHere with a secure password.
+
+Navigate back to the SharePoint App registrations page, and on the Certificates & Secrets page, click ? Upload certificate to upload the spaa_cert_domain.cert file.
+
+Navigate to the Overview tab and copy the Application (client) ID. This will be used for the Access Analyzer connection profile.
+
+In Access Analyzer, navigate to Global Options > Connection and create a connection profile with the same name as the SharePoint app registration, using the following:
+
+Account Type: Azure Active Directory
+
+Client ID: Application (client) ID from SharePoint App Registration
+
+Key: CertLocation, CertPassword, NumericDesignator
+
+Numeric Designator: 0 is the default. Other options are:
+
+1 for pre-production environments2 for China3 for Germany4 for USGovernment
+
+Example: C:\Program Files (x86)\STEALTHbits\StealthAUDIT\PrivateAssemblies\spaa_cert_domain.pfx,YourPasswordHere,0
+
+Create a host list with the SharePoint site, for example: YourOrganization.SharePoint.com.
+
+Set the SharePoint job group to run against the SharePoint host list.
+
+Set the SharePoint job group to use the new SharePoint Connection Profile, and SPAA/SPSEEK is now configured for auditing.
+
+#### SPAC Scans
+
+The SPAC scan can utilize the same app registration as SPAA/SPSEEK. Follow steps 1-4 from the instructions above if an app has not already been created.
+
+From the Application Overview page, navigate to Manage > API Permissions and select Add a permission.
+
+From the Request API permissions page, select Microsoft Graph.
+
+Add the following Application Permissions:
+
+Directory.Read.All – Read directory data
+
+Sites.Read.All – Read items in all site collections
+
+User.Read.All – Read all users' full profiles
+
+From the Request API permissions page, select Office 365 Management APIs.
+
+Add the following Application Permissions:
+
+ActivityFeed.Read – Read activity data for your organization
+
+ActivityFeed.ReadDlp – Read DLP policy events, including detected sensitive data
+
+After adding these permissions, grant admin consent by selecting Grant admin consent for {TENANT NAME}.
+
+Navigate to Manage > Certificates & Secrets and select + New client secret.
+
+On the Add a client secret page, set the following:
+
+Description: Enter something meaningful, for example: NAM SharePoint.
+
+Expires: Set this to the longest option or per your organization's internal policy.
+
+After creating the client secret, copy the Secret Value to a secure location.
+
+NOTE: This value will obfuscate. Make sure you copy it immediately or you will need to create a new client secret.
+
+In Netwrix Activity Monitor, navigate to the Monitored Hosts tab and select Add Host.
+
+Choose Agent: Specify the agent you would like to use for collecting SharePoint activity logs.
+
+Add Host: Select SharePoint Online and add the SharePoint site as the Domain Name, for example: YourOrganization.SharePoint.com.
+
+Entra AD / Azure ID Connection:
+
+Domain: Use the same domain name as before (if it does not auto-populate).
+
+Azure Cloud: Leave set to Azure unless it is a government organization.
+
+Client ID: Entra Application (client) ID from the manually created app.
+
+Client Secret: This is the Secret Value copied earlier.
+
+Region: Optional – leave blank if not applicable.
+
+SharePoint Online Operations: Select what SharePoint activity is to be collected (all options are selected by default).
+
+Users to Exclude: Add any users you do not want to collect SharePoint activity for.
+
+Where to log the activity: Select Log File.
+
+File Output: Select a log file path, set the retention period for activity logs, and ensure the box for This log file is for Netwrix Enterprise Auditor is checked.
+
+After completing the above steps, you should see the SharePoint Online host added to the Monitored Hosts tab with green checkmarks, indicating successful connection and setup.
+
+In Access Analyzer, navigate to SharePoint > 0.Collection > 3-SPAC_SystemScans > Configure > Queries > Query Properties > Configure.
+
+On the Activity Date Scope, set how long to retain the SharePoint activity in the Access Analyzer database.
+
+On the Activity Log Locations, select Add and configure the following:
+
+Host name: This should match the monitored host name in Activity Monitor, e.g., YourOrganization.SharePoint.com.
+
+Activity log UNC path: This is the file output path in UNC format, e.g., \\AgentHost\C$\ProgramData\Netwrix\Activity Monitor\Agent\ActivityLogs.
+
+This value can be found by converting the file output path from the SharePoint monitored host in Activity Monitor to UNC format.
+
+Activity archive UNC path: UNC Path of agents archive (on the Agents tab), if applicable.

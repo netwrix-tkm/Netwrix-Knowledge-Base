@@ -1,0 +1,55 @@
+---
+title: How To Change a Domain Name for All Enrolled Users?
+article_number: 8985
+id: ka0Qk0000001CrxIAE
+products: ['password_reset_manager']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0050g000006HS99AAG
+articlecreateddate: 2023-12-26T10:03:21.000Z
+createdbyid: 0050g000006HS99AAG
+createddate: 2024-01-03T14:26:31.000Z
+firstpublisheddate: 2023-12-26T10:03:27.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000000LkPKAU
+knowledge_article_id__c: kA0Qk0000000LkPKAU
+lastmodifiedbyid: 0050g000006HS99AAG
+lastmodifieddate: 2024-01-03T14:27:12.000Z
+lastpublisheddate: 2024-01-03T14:27:12.000Z
+meta_description__c: How To Change a Domain Name for All Enrolled Users?
+meta_title__c: How To Change a Domain Name for All Enrolled Users?
+ownerid: 0050g000006HS99AAG
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8985
+versionnumber: 2
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LkPKAU.html" target="_blank">Open in a new window</a>
+---
+
+## Question
+
+How to to bulk re-enroll users that have had their email domain changed?
+
+## Answer
+
+A domain name is stored in the SQL database. To change a domain name for the enrolled users, you need to update the database with a SQL query.
+
+IMPORTANT: Always backup the database with the Data Console closed and the Netwrix Password Reset service stopped before modifying the database.
+
+If you are using SQL Server Compact, you can use the open source SqlCeCmd40 tool.
+
+The queries below can be used for SQL Server, but with a different tool. Ask your Database Administrator for more information.
+
+Use this query to set the domain name for all users:
+
+SqlCeCmd40.exe -d "Data Source=apr.sdf" -q "UPDATE Usr SET DomainName = 'NewDomain'"
+
+where 'NewDomain' is the name of your new domain.
+
+If you only want to update one user, for example, for testing purposes, then use the following query:
+
+SqlCeCmd40.exe -d "Data Source=apr.sdf" -q "UPDATE Usr SET DomainName = 'NewDomain' where (LogonName = 'Test') AND (DomainName = 'OldDomain')"
+
+where 'NewDomain' is the name of your new domain and 'OldDomain' is the old name arrordingly.

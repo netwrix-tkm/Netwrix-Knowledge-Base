@@ -1,0 +1,82 @@
+---
+title: VMWare ESXi Host Compliance Reporting
+article_number: 8123
+id: ka0Qk000000DLjNIAW
+products: ['change_tracker']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000006god6AAA
+articlecreateddate: 2022-02-07T00:37:33.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JUhCAM
+change_log__c: 02/14/25-ZAC: Updated Broken Links
+<br>03/14/25-ZAC: Making article private due to other broken links. Awaiting correct links to be provided by dev.
+<br>04/22/25: Article moved to Documentation.
+createdbyid: 0054u000006god6AAA
+createddate: 2025-04-22T16:14:12.000Z
+draft_status__c: Moved to Documentation
+firstpublisheddate: 2022-02-07T00:37:34.000Z
+islatestversion: True
+knowledgearticleid: kA04u0000000JUhCAM
+knowledge_article_id__c: kA04u0000000JUhCAM
+lastmodifiedbyid: 0054u000008icp2AAA
+lastmodifieddate: 2025-04-22T16:22:13.000Z
+lastpublisheddate: 2025-04-22T16:22:06.000Z
+meta_description__c: HELPDESK
+meta_title__c: f. VMWare ESXi Host Compliance Reporting
+ownerid: 0054u000006god6AAA
+publishstatus: Archived
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8123
+versionnumber: 8
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JUhCAM.html" target="_blank">Open in a new window</a>
+---
+
+VMWare ESXi Host Compliance Reporting
+
+For background please read the previous section regarding Agentless Compliance Reporting and the Proxy Agent and Credentials Key concepts as ESXi Compliance reports are all run on an Agentless-basis, however there are some critical pre-requisites, see later.
+
+Use __Add Credentials__ to create/add a new Credential Key for ESXi Compliance Reporting. Please follow the notes below to construct your Connection String.
+
+__IMPORTANT._ ___Connection String defines PowerCLI access to the ESXi Server – the specific ESXi Host details are defined in the step following creation of the ESXi Credential key.
+
+The specific named-ESXi Host instance to be reported on is then defined as a Device related to a chosen Proxy Agent in a similar way to any other Agentless device is configured.[.](#_Agentless_File_Integrity_1)
+
+Pre-Requisites for ESXi Agentless Compliance Reporting
+
+The NNT ESXi Compliance Reports utilize the VMWare PowerCLI cmdlets for Powershell. In order to run an NNT ESXi Compliance Report the following pre-requisites are mandator
+
+  NNT Windows Proxy Agent (or Windows Gen 7 Agent with Proxy capabilities) must be use
+
+  Proxy Agent Windows platform must have PowerShell V5.0 or later installed (installed using the Windows Management Framework 5.0
+
+  VMWare PowerCLI V6.3 or later (installed using the VMWare.com download) and In the VMware vSphere PowerCLI console window, run Set-ExecutionPolicy RemoteSigned See https://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.powercli.ug.doc\_50%2FGUID-97ED8CFB-AA71-405C-A540-CFF15B28ED11.htm
+
+  If the NNT Proxy Agent-hosting platform is a Domain Member and subject to Group Policy Computer Configuration settings, you will also need to set the Windows Powershell Script Execution policy setting to ‚ÄòAllow local scripts and remote signed scripts‚Äô _(Computer Configuration -> Administrative Templates -> Windows Components -> Windows PowerShell -> Turn on Script Execution -> ‚ÄòAllow local scripts and remote signed scripts‚Äô)
+
+  Depending on your deployment, you may also need to assign a higher privilege service account to the Agent such as Local System
+
+Go to Settings -> Agents & Devices and select the Proxy Agent from which you would like to run your ESXi reporting connection.
+
+___Name__ _‚Äì ESXi Host name or any alias can be specified
+
+___Host/Database Name___ ‚Äì This is the ESXi Host to be reported on e.g. IP Address or DNS Name
+
+___Device Type___ ‚Äì ‚ÄòUnix‚Äô and assign the Credentials Key created earlier (or select ‚ÄòNew Credentials‚Äô)
+
+You can then test that the Credentials Key works ‚Äì click on the Device Name to go to the Devices home page for the Database, then use the ‚ÄòRun Ad Hoc Report‚Äô option to one of the pre-packed CIS ESXi Benchmark reports.
+
+Reports are delivered in the same way as any other compliance report
+
+__Attachments:__
+
+image2017-6-2\_16-14-11.png
+
+image2017-6-2\_16-13-12.png
+
+image2017-6-2\_16-12-19.png
+
+image2017-6-2\_16-11-15.png
+
+image2017-6-2\_16-10-15.png

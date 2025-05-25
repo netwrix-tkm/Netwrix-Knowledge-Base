@@ -1,0 +1,76 @@
+---
+title: Disabling the Server Header
+article_number: 9391
+id: ka0Qk000000DhdRIAS
+products: ['enterprise_auditor', 'access_info_center']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 005Qk000001wMM9IAM
+articlecreateddate: 2025-02-04T20:03:16.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/:u:/r/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/hilary_writing_syncs/KB-New-Final%20Drafts/Vulnerability%20Assessment%20WebSite%20Banner%20Grabbing.html?csf=1&web=1&e=F5f0IR
+article_reviewer__c: 005Qk000001wMM9IAM
+article_sme__c: 0054u000006gpoAAAQ
+asana_task_url__c: https://app.asana.com/0/1203106155380297/1209322658629225
+case__c: 5004u00002yeMPDAA2
+change_log__c: 4/1/25 - HGR: Updated Title; Added SPO draft
+<br>4/8/2025 - HGR: Updated Title, word choice, formatting
+<br>4/9/25 - DRG: Updated the Images for the Server node
+<br>4/9/25 - HGR: Updated Title, formatting and wording
+<br>4/10/25 - BW: Revised title, symptom and cause
+<br>4/11/2025 - HGR: Proofread; Minor formatting revision
+<br>4/23/25 - HGR: Updated Title and revised to How TO
+<br>4/29/25 - HGR: Updated screenshot &amp; title, revised wording and formatting
+confidence_level__c: Not Validated
+createdbyid: 005Qk000001wMM9IAM
+createddate: 2025-05-08T19:51:13.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2025-04-24T18:36:05.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000001yerKAA
+knowledge_article_id__c: kA0Qk0000001yerKAA
+lastmodifiedbyid: 005Qk000001wMM9IAM
+lastmodifieddate: 2025-05-08T19:53:01.000Z
+lastpublisheddate: 2025-04-24T18:36:05.000Z
+meta_description__c: Vulnerability Assessment
+meta_title__c: Vulnerability Assessment
+ownerid: 00570000003KXurAAG
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9391
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001yerKAA.html" target="_blank">Open in a new window</a>
+---
+
+## Overview
+
+This article explains how to disable the server header in Netwrix Access Analyzer to prevent banner grabbing, which can expose server information. Banner grabbing can be caused by incorrectly configuring the Windows registry `` DisableServerHeader `` setting on the host.
+
+NOTE: Banner grabbing is the process of capturing banner information, such as application type and version, that is transmitted by a remote port when a connection is initiated. More details can be found here: Banner Grabbing ? NIST 🡥
+
+## Instructions
+
+Follow the steps below to disable the Server header in Access Analyzer.
+
+Add or update the following registry key:
+
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters\DisableServerHeader
+
+Set the value to:
+
+DWORD: 000002
+
+Reboot the server to apply the changes.
+
+IMPORTANT: Modifications to this registry setting may occur due to the following reasons:
+
+Access Analyzer and Access Information Center will not modify this setting during patching.Microsoft may release a patch that changes its behavior, or internal configurations may enforce changes to the OS, altering this setting.Operating system configurations, such as group policy settings, may impact this setting or product functionality. Configuring the operating system is the customer's responsibility.
+
+If needed, refer to the following image.
+
+After the reboot, the result should resemble the Edge example below, in which the Server Node is no longer listed.
+
+## Related Articl
+
+  Banner Grabbing ? NIST 🡥

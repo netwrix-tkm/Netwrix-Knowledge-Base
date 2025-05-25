@@ -1,0 +1,63 @@
+---
+title: How to count number of licenses required for auditing a Microsoft Office 365 tenant?
+article_number: 3014
+id: ka04u000000HcMrAAK
+products: ['All']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 00570000005NmamAAC
+articlecreateddate: 2020-03-31T16:40:09.000Z
+createdbyid: 00570000005NmamAAC
+createddate: 2023-05-08T09:45:50.000Z
+firstpublisheddate: 2020-04-01T09:32:47.000Z
+islatestversion: True
+knowledgearticleid: kA00g000000H9T4CAK
+knowledge_article_id__c: kA00g000000H9T4CAK
+lastmodifiedbyid: 0054u000006gSmgAAE
+lastmodifieddate: 2023-05-08T09:45:50.000Z
+lastpublisheddate: 2020-04-01T09:32:47.000Z
+meta_description__c: Office 365 License count
+meta_title__c: How to count number of licenses required for auditing a Microsoft Office 365 tenant?
+ownerid: 00570000005NmamAAC
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 581
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9T4CAK.html" target="_blank">Open in a new window</a>
+---
+
+How to count number of licenses required for auditing a Microsoft Office 365 tenant?
+
+---
+
+In Microsoft Office 365, you can create different types of mail accounts for different purposes. However, Netwrix Auditor requires purchasing licenses only for __Mailbox accounts__; there is no charge for accounts of any other types
+
+  Mailbox—requires licens
+
+  Group—fre
+
+  Resource—fre
+
+  Contact—fre
+
+  Shared—free
+
+To determine the actual number of licenses you need to purchase from Netwrix, do one of the following, depending on your Office 365 account type. __For__ __Non-MFA enabled account:__
+
+* Download ZIP file with the shell script provided by Netwrix and extract it. This script counts the number of mailbox accounts in your Office 365 tenant.
+
+Note: You can run the script on any computer where Windows PowerShell is installed. The computer must be connected to the Internet.
+
+Run the Windows PowerShell as Administrator and then invoke the countO365_licenses.ps1 script.Enter your Office 365 account credentials when prompted and click OK.When the script completes, you will see a number of mailbox accounts for which you need to purchase licenses:
+
+__For__ __MFA-enabled account__
+
+Connect to Exchange Online as described in the Microsoft article.Execute the following commands:
+
+$userMailboxes = Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited$userMailboxes.count
+
+The displayed number represents for how many mailbox accounts you need to purchase licenses.
+
+Original KB Article 2082

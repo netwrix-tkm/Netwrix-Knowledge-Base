@@ -1,0 +1,48 @@
+---
+title: Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password
+article_number: 8661
+id: ka04u00000116e9AAA
+products: ['privilege_secure_discovery']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000007Mj6zAAC
+articlecreateddate: 2023-07-11T15:44:41.000Z
+createdbyid: 0054u000007Mj6zAAC
+createddate: 2023-07-11T15:44:41.000Z
+firstpublisheddate: 2023-07-11T15:45:45.000Z
+islatestversion: True
+knowledgearticleid: kA04u00000110qYCAQ
+lastmodifiedbyid: 0054u000007Mj6zAAC
+lastmodifieddate: 2023-07-11T15:45:45.000Z
+lastpublisheddate: 2023-07-11T15:45:45.000Z
+meta_description__c: Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password
+meta_title__c: Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password
+ownerid: 0054u000007Mj6zAAC
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8661
+versionnumber: 1
+website_url__c: <a href=" " target="_blank">Open in a new window</a>
+---
+
+Formerly SecureONE
+
+# Symptom
+
+When attempting to scan an endpoint the following error occurs:
+
+9999 Mismatch in service account username when attempting to rotate service password
+
+The scan will not complete.
+
+# Cause
+
+It is a bug related to the Local Admin Password TTL Days. This is an older feature that supported rotating local account passwords which is no longer supported/leveraged. We have set this to 0 in all installations/upgrades moving forward.
+
+# Resolution
+
+Update the Local Admin Password TTL Days to 0 for the respective service
+
+Restart the service via the UI

@@ -1,0 +1,154 @@
+---
+title: Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)
+article_number: 5913
+id: ka0Qk000000Ck8jIAC
+products: ['privilege_secure']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 1
+articlecreatedbyid: 0050g000006ati4AAA
+articlecreateddate: 2021-10-12T13:21:37.000Z
+asana_task_url__c: https://app.asana.com/1/46926129243726/project/1203106155380297/task/1209544302877006?focus=true
+change_log__c: <p>05/13/25 - ZAC: Updated format &amp; cleaned up HTML, word revisions &amp; implemented KBFB</p>
+confidence_level__c: Validated
+createdbyid: 0050g000006ati4AAA
+createddate: 2025-03-07T21:41:56.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2021-10-12T13:41:40.000Z
+islatestversion: True
+knowledgearticleid: kA04u0000000HRRCA2
+knowledge_article_id__c: kA04u0000000HRRCA2
+lastmodifiedbyid: 0054u000008icp2AAA
+lastmodifieddate: 2025-05-13T19:12:11.000Z
+lastpublisheddate: 2025-05-13T19:12:11.000Z
+meta_description__c: Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)
+meta_title__c: Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)
+ownerid: 0050g000006ati4AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 5913
+versionnumber: 6
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HRRCA2.html" target="_blank">Open in a new window</a>
+---
+
+## Overview
+
+This article outlines the process for installing or updating a certificate to prevent Remote Desktop Protocol (RDP) certificate warnings during SbPAM workflows.
+
+## Prerequisite
+
+
+Windows Server must have the __Certification Authority__ and __Certification Authority Web Enrollment__ roles installed and configured. This ensures that the __Certification Authority__ utility can be successfully launched and accessed via a web browser (https:///certsrv).
+
+>
+
+>     __IMPORTANT: __The Certification Authority's post-deployment configuration must be completed after installing both prerequisite roles.
+
+>     ![Certification Authority post-deployment configuration dialog with required options visible](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&feoid=00N0g000004CA0p&refid=0EM4u000004bUmF
+
+
+The domain must have the __Enrollment Policy__ set to enable automatic enrollment and renewal. The __Certificate Enrollment Policy__ for user and computer certificates is configured in the __Group Policy__ snap-in under __Default Domain Policy__ (or another group policy applied to all systems that will access an NPS server on a group-by-group basis). To configure this:
+
+* On the Domain Controller, open the __Group Policy__ snap-in.
+  * Navigate to __Computer Configuration > Policies > Windows Settings > Security Settings > Public Key Policies__ and enable the __Certificate Services - Certificate Enrollment Policy__.
+
+## Instructions
+
+#### Generate Certificate
+
+>
+
+> __NOTE: __If you already have a certificate to install, you can skip to the __Adding the Certificate to Each SbPAM Proxy Server__ section below.
+
+>
+
+Open Certification Authority, open your CA, right-click Certificate Templates, and click Manage.In the Certificate Templates Console, right-click Workstation Authentication, and click Duplicate Template.On the General tab, change the name to Client-Server Authentication and enable the Publish certificate in Active Directory checkbox.On the Subject Name tab, enable the Supply in the request radio button.On the Extensions tab, select Application Policies and click Edit. Click Add, then select Server Authentication. Click OK until you return to the Properties of New Template dialog.On the Security tab, select Domain Computers and enable the checkbox to allow Autoenroll. Click OK and then close the Certificate Templates Console.Back in Certification Authority, right-click Certificate Templates, hover over New, and click Certificate Template to Issue.Select Client-Server Authentication and click OK.
+
+On the desktop, create a text file named request.inf with the following content (replace the red text with your server certificate name):
+
+[Version]
+
+Signature="$Windows NT$"
+
+[NewRequest]
+
+Subject = "CN=sbpam-3.sblab.local"
+
+KeySpec = 1
+
+KeyLength = 2048
+
+Exportable = TRUE
+
+MachineKeySet = FALSE
+
+SMIME = False
+
+PrivateKeyArchive = FALSE
+
+UserProtected = FALSE
+
+UseExistingKeySet = FALSE
+
+ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+
+ProviderType = 12
+
+RequestType = PKCS10
+
+KeyUsage = 0xa0
+
+HashAlgorithm = SHA256
+
+[Extensions]
+
+2.5.29.17 = "{text}"
+
+_continue_ = "dns=sbpam-3.sblab.local&"
+
+[EnhancedKeyUsageExtension]
+
+OID=1.3.6.1.5.5.7.3.1
+
+Open Command Prompt as Administrator, change directory to the Desktop (or the location of your request.inf file), and run:
+
+certreq -new request.inf rdp.csr
+
+To sign the certificate request, use your preferred signing mechanism. The following example uses Active Directory Certificate Services (https:///certsrv).
+
+Click Request a certificate, then click advanced certificate request.
+
+Open the saved certificate signing request (rdp.csr) from the previous step in Notepad. Copy the certificate request into the Saved Request field. Select Client-Server Authentication from the Certificate Template dropdown. Click Submit.
+
+Leave other settings at default values, and click Submit.
+
+Select DER encoded and click Download certificate.
+
+Open the downloaded certificate and select Install Certificate. Proceed with all default values and complete the wizard.
+
+To export the certificate, view certificates for the current user by launching certmgr.msc using the Windows Run menu.
+
+Right-click the installed certificate (the certificate using the Client-Server Authentication template) and click Export....
+
+In the Certificate Export Wizard, change the Export Private Key option to Yes, export the private key.
+
+For Export File Format, select Personal Information Exchange - PKCS #12 (.PFX). Select the following checkboxes:
+
+Include all certificates in the certification path if possibleEnable certificate privacy
+
+For Security, enter a password of your choosing and select the AES256-SHA256 encryption option (3DES is no longer recommended by NIST).
+
+IMPORTANT: For File to Export, the file name must be rdp.pfx. If it is named anything else, importing the .pfx file on each proxy server will not work.
+
+This certificate can now be imported to each SbPAM Proxy Server.
+
+Adding the Certificate to Each SbPAM Proxy Server
+
+Copy rdp.pfx (from the previous steps) to each SbPAM Proxy Server.On each SbPAM Proxy Server, run the following command via an elevated Command Prompt, and enter the certificate's password when prompted.
+
+IMPORTANT: The path to sbpam-proxy.exe may be different depending on the install path you selected when installing SbPAM and/or distributed proxy services.
+
+"C:\Program Files\Stealthbits\PAM\ProxyService\sbpam-proxy.exe" ca import -p [PATH]\rdp.pfx
+
+The new certificate has now been imported to an SbPAM Proxy Server. Repeat this process for all SbPAM Proxy Servers if using more than one. (The default installation of SbPAM uses one proxy service on the SbPAM server itself; however, additional proxy services can be distributed.)

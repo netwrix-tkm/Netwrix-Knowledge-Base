@@ -1,0 +1,65 @@
+---
+title: Netwrix Activity Monitor Report Shows Successful But is Not Updating Data
+article_number: 9389
+id: ka0Qk000000C7tlIAC
+products: ['activity_monitor', 'enterprise_auditor']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 005Qk000001wMM9IAM
+articlecreateddate: 2025-02-03T20:28:58.000Z
+asana_task_url__c: https://app.asana.com/0/1203106155380297/1209313123933936
+case__c: 500Qk00000KKSr6IAH
+change_log__c: 2/3/25 - HGR: Updated title
+<br>2/27/25 - HGR: Revised wording and HTML; SPO added to Asana task
+confidence_level__c: Not Validated
+createdbyid: 005Qk000001wMM9IAM
+createddate: 2025-02-03T20:28:58.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2025-03-04T15:04:39.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000001y8bKAA
+knowledge_article_id__c: kA0Qk0000001y8bKAA
+lastmodifiedbyid: 005Qk000001wMM9IAM
+lastmodifieddate: 2025-03-04T15:04:39.000Z
+lastpublisheddate: 2025-03-04T15:04:39.000Z
+meta_description__c: Custom Sealthbits Activity Monitor Report shows Successful but is not updating the data
+meta_title__c: Custom Sealthbits Activity Monitor Report shows Successful but is not updating the data
+ownerid: 005Qk00000276ifIAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9389
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001y8bKAA.html" target="_blank">Open in a new window</a>
+---
+
+## Symptoms
+
+In the FSAC System scan log (1-FSAC System Scans_Log.tsv), the following errors are observed:
+
+ERROR TDCThread TDCThread.LoadSourceItf "No DC installed to handle source: FILESYSTEMACCESS"
+
+ERROR TDCThread TDCThread.PrepareForTask "The 'FILESYSTEMACCESS' data collector has not been installed"
+
+## Cause
+
+There is no license for one or more of the following features in Netrix Activity Monitor (NAM):
+
+File System
+
+File System Actions
+
+File System Reports
+
+NOTE: There may only be a license for File Activity in NAM and not for File System Reports, File System Actions, or File System in Netwrix Enterprise Auditor (NEA). Sometimes, leftover reports from a sales or professional services demo may still be present in NEA.
+
+## Resolution
+
+To verify a feature's licensing in NEA, refer to the following steps:
+
+Navigate to Help > About.
+
+Scroll down to the File System Licensed Features section to confirm the licensed features.
+
+If needed, contact the Netwrix Account Owner, Enterprise Account Manager (EAM), or Customer Success Manager (CSM) to negotiate the proper functionality and licensing required for the customer.

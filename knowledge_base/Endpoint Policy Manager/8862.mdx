@@ -1,0 +1,48 @@
+---
+title: Licenses FAQ for Active Directory (GPO and SCCM)
+article_number: 8862
+id: ka04u00000118F6AAI
+products: ['policypak']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000007Mj6zAAC
+articlecreateddate: 2023-10-17T18:56:55.000Z
+createdbyid: 0054u000007Mj6zAAC
+createddate: 2023-10-17T18:56:55.000Z
+firstpublisheddate: 2023-10-17T18:57:23.000Z
+islatestversion: True
+knowledgearticleid: kA04u00000111MZCAY
+lastmodifiedbyid: 0054u000007Mj6zAAC
+lastmodifieddate: 2023-11-20T18:12:42.000Z
+lastpublisheddate: 2023-10-17T18:57:23.000Z
+meta_description__c: Licenses FAQ for Active Directory (GPO and SCCM)
+meta_title__c: Licenses FAQ for Active Directory (GPO and SCCM)
+ownerid: 0054u000007Mj6zAAC
+publishstatus: Archived
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8862
+versionnumber: 1
+website_url__c: <a href=" " target="_blank">Open in a new window</a>
+---
+
+#### 01. Will I need a license server to manage my PolicyPak licenses?
+
+There are absolutely no servers involved in the licensing process for PolicyPak so you will not need a license server. Licenses are contained within a Group Policy Object and are typically linked to the domain but can be linked to a specific OU.
+
+#### 02. What if we license one OU, say, SALES COMPUTERS OU then during the year we also want to license a "peer" OU, like MARKETING COMPUTERS OU?
+
+If SALES COMPUTERS OU is licensed, and you want to also license MARKETING COMPUTERS OU, that’s fine. Re-Run your licensing tool, and perform a mid-year “True Up”. You only need to pay for overage.
+
+#### 03. We purchased our PolicyPak license for a parent OU in our Active Directory structure. What happens if I need to add additional sub-OUs inside of the parent one? How will this affect our licensing?
+
+Whether you purchase PolicyPak licensing for a domain or a single OU, the issued license is for ALL computer accounts that reside there and ANY child OUs — automatically.This means you can create and/or delete as many OUs within your licensed scope as you wish.This makes our licensing structure highly flexible and worry-free.At the time of your PolicyPak license renewal date you will have the opportunity to “true up” but again, this would only be for additional computer accounts within your AD structure.
+
+#### 04. I'm an OU admin and not a domain administrator. Can I use PolicyPak in my OU and not the whole domain?
+
+Yes. You don’t need to be a domain administrator to use PolicyPak. The only requirement is the ability to CREATE and LINK GPOs. If you have that ability, then you’re ready to get started with PolicyPak. PolicyPak can be licensed per OU and sub-OU. So if you manage a portion of your company’s Active Directory, you can easily license PolicyPak. You don’t need approval of domain or enterprise admins; you can get started right away.
+
+#### 05. I can only EDIT GPOs and not create them. Can I still use PolicyPak?
+
+Yes. Here is why. First, you will need to import PolicyPak licensing files. After a GPO is created (not by you), and you EDIT it, simply use the steps in PART 2 of this FAQ (LINK TO: https://kb.policypak.com/kb/article/244-lt-lt-isnt-permitting-me-to-install-license-files-or-i-am-using-agpm-gpa-or-gpoadmin-what-should-i-try ) (again: scroll down to Part II.) You will import the license files while editing the GPO. Next, all normal operations in PolicyPak are available to you: like PolicyPak Application Manager and PolicyPak Admin Templates Manager. Tip: Note that PolicyPak Application Manager Pak definitions can be stored in regular shares, and don’t need to be stored in the Central Store which would require domain controllers. (See a video on using shares with PolicyPak Admin Templates Manager here LINKTO: https://kb.policypak.com/kb/article/530-policypak-using-shares-to-store-your-paks-sharebased-storage )

@@ -1,0 +1,57 @@
+---
+title: How to Prevent Long-Term Archive Overflow
+article_number: 3776
+id: ka0Qk000000DflJIAS
+products: ['auditor']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 1
+articlecreatedbyid: 005700000042ELcAAM
+articlecreateddate: 2020-05-07T12:43:13.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000PbdHCAS
+change_log__c: Version 9 changes
+createdbyid: 005700000042ELcAAM
+createddate: 2025-05-07T20:53:52.000Z
+firstpublisheddate: 2020-05-07T12:57:14.000Z
+islatestversion: True
+knowledgearticleid: kA00g000000PbdHCAS
+knowledge_article_id__c: kA00g000000PbdHCAS
+lastmodifiedbyid: 005Qk0000017MRRIA2
+lastmodifieddate: 2025-05-07T20:54:02.000Z
+lastpublisheddate: 2025-05-07T20:54:02.000Z
+meta_description__c: This article contains recommendations to prevent Netwrix Archive overflow.
+meta_title__c: How to Prevent Long-Term Archive Overflow
+ownerid: 005700000042ELcAAM
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 699
+versionnumber: 9
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbdHCAS.html" target="_blank">Open in a new window</a>
+---
+
+# Question
+
+How can you prevent disk overflow on the drive where the Long-Term Archive is located?
+
+# Answer
+
+You can deal with this issue in one of the following ways:
+
+Modify Long-Term Archive retention period. For that:
+
+In Netwrix Auditor, navigate to Settings.
+
+Select the Long-Term Archive page and modify the archive retention settings – provide the value in months.
+
+Move the archive to another drive. Learn more in the following article: How to Move Long-Term Archive to a New Location.
+
+Exclude Data from the Auditing Scope. For additional information, refer to the following article: How to Exclude Users and Objects from Monitoring Scope in Netwrix Auditor UI.
+
+You can also fine tune your monitoring scope via omit lists — this allows to proactively decrease the DB loads as changes for omitted items are not recorded. For additional information on available omit lists, review the corresponding article applicable to your target system. For example, for Active Directory omit lists, refer to the following article: Monitoring Plans — Active Directory Plans — Active Directory Monitoring Scope.
+
+>
+
+> __NOTE:__ If you are using a virtual machine, either add another drive or expand your current drive.
+
+>

@@ -1,6 +1,12 @@
 # Ignore .gitkeep files in these directories
 **/.gitkeep
 
+# Ignore testing and reports
+knowledge_base/.test_articles
+reports/*
+!reports/duplicate_prevention/
+!reports/duplicate_prevention/**
+
 # Ignore OS generated files
 .DS_Store
 .DS_Store?
@@ -34,7 +40,6 @@ wheels/
 
 # Ignore IDE specific files
 .idea/
-
 *.swp
 *.swo
 *~
@@ -48,5 +53,4 @@ ENV/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-
 .python_packages

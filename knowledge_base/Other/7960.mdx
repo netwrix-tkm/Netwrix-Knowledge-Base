@@ -1,0 +1,54 @@
+---
+title: !REMOVED-..." host name in AIC
+article_number: 7960
+id: ka0Qk000000DQhRIAW
+products: ['Other']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 1
+articlecreatedbyid: 0054u000006god6AAA
+articlecreateddate: 2022-02-01T18:53:39.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JE1CAM
+createdbyid: 0054u000006god6AAA
+createddate: 2025-04-25T18:57:07.000Z
+firstpublisheddate: 2022-02-01T18:53:40.000Z
+islatestversion: True
+knowledgearticleid: kA04u0000000JE1CAM
+knowledge_article_id__c: kA04u0000000JE1CAM
+lastmodifiedbyid: 0054u0000093LZ4AAM
+lastmodifieddate: 2025-04-25T19:03:06.000Z
+lastpublisheddate: 2025-04-25T19:03:06.000Z
+meta_description__c: 360008944451
+meta_title__c: !REMOVED-..." host name in AIC
+ownerid: 0054u000006god6AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 7960
+versionnumber: 2
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JE1CAM.html" target="_blank">Open in a new window</a>
+---
+
+__Summary:__ You have used the "Remove host data" category, a machine name like "!REMOVED\_q3402349803480583" is displayed
+
+__Issue:__ You have used the "Remove host data" option in the File System Access Data Collector to try and remove host data, but the job timed out.  Now instead of the machine name you were trying to remove, you see a machine name like "!REMOVED\_q3402349803480583" in the Access Information Center and other places that list hosts in the product.
+
+__Instructions:__
+
+* Change the job timeout to a longer value.  (Right click job, choose Properties, adjust Timeout minutes setting in General tab.)  Setting this value to 1440 minutes (24 hours) for safety should good, although the job is unlikely to actually take that long.
+  * Re-run the removal job, targeting the same hostname you previously did.  The removal job will know to associate the "!REMOVED." machine with the original hostname and both will be removed when the job completes successfully.  (This process can take a long time if there is a lot of data in the database or for the individual machine, so the recommendation in general is to change this timeout to a longer value than 20 minutes when using this utility function.)
+
+![User-added image]()
+
+__Extra info:  How to create the "Remove host" job with the File System Access Data Collector__
+
+* Create a blank job
+  * Create a query that uses File System Access Data Collector
+
+* Configure the query, and on the Query Selection (first page), choose "Remove host data".  \[Picture below shows AUDIT 9.0 version\]
+
+__Product:__ Access Analyzer
+
+__Versions:__ All modern versions of AUDIT
+
+__Salesforce Article ID:__ 2637

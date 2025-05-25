@@ -1,0 +1,63 @@
+---
+title: How to Identify Groups Without Owners
+article_number: 10101
+id: ka0Qk000000DxofIAC
+products: ['groupid']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000008F1XJAA0
+articlecreateddate: 2025-03-21T09:34:04.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002CjRKAU
+article_reviewer__c: 0054u000008icp2AAA
+asana_task_url__c: https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210264956352669?focus=true
+change_log__c: <p>05/15/25 - ZAC: Updated format &amp; HTML, word revisions</p>
+confidence_level__c: Validated
+createdbyid: 0054u000008F1XJAA0
+createddate: 2025-05-15T16:46:55.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2025-05-15T16:46:46.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000002CjRKAU
+knowledge_article_id__c: kA0Qk0000002CjRKAU
+lastmodifiedbyid: 0054u000008icp2AAA
+lastmodifieddate: 2025-05-15T16:52:48.000Z
+lastpublisheddate: 2025-05-15T16:52:48.000Z
+meta_description__c: This article explains the process for generating the reports for groups without owners.
+meta_title__c: How To: Generate a report of groups without a primary owner, without additional owners, and without any owner
+ownerid: 0054u000008F1XJAA0
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 10101
+versionnumber: 2
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002CjRKAU.html" target="_blank">Open in a new window</a>
+---
+
+## Overview
+
+This article shows how to use the Reports module in Netwrix Directory Manager (formerly GroupID) 11 to identify groups that lack a primary owner, additional owners, or any owners.
+
+## Instructions
+
+* In the Directory Manager application portal, click the __Reports__ tab on the left side of the dashboard page.
+
+![Directory Manager application portal with Reports tab highlighted on the dashboard](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dxof&feoid=00N0g000004CA0p&refid=0EMQk00000BSZAz)
+
+When the Reports module opens, click the Group Reports tab on the left side of the page.
+
+![Group Reports tab selected in the Reports module](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dxof&feoid=00N0g000004CA0p&refid=0EMQk00000BSZ69)
+
+To find groups without a primary owner, run the report titled Groups with no owner.
+
+![Groups with no owner report selected in Group Reports](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dxof&feoid=00N0g000004CA0p&refid=0EMQk00000BSZ9N)
+
+To find groups without additional owners, run the report titled Groups without additional owners.
+
+![Groups without additional owners report selected in Group Reports](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dxof&feoid=00N0g000004CA0p&refid=0EMQk00000BSZ7l)
+
+To find groups without both primary and additional owners, run either of the above reports. In the Report Generation wizard, replace the LDAP query with your custom query as needed.
+
+![Report Generation wizard with LDAP query field](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dxof&feoid=00N0g000004CA0p&refid=0EMQk00000BSXh5)
+
+Complete the wizard. The generated report will show groups that do not have a primary owner or additional owners.

@@ -1,0 +1,60 @@
+---
+title: Find what is using TempDB
+article_number: 6227
+id: ka0Qk000000DQj3IAG
+products: ['Other']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000006god6AAA
+articlecreateddate: 2022-02-01T18:03:48.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000I81CAE
+createdbyid: 0054u000006god6AAA
+createddate: 2025-04-25T18:57:19.000Z
+firstpublisheddate: 2022-02-01T18:03:48.000Z
+islatestversion: True
+knowledgearticleid: kA04u0000000I81CAE
+knowledge_article_id__c: kA04u0000000I81CAE
+lastmodifiedbyid: 0054u0000093LZ4AAM
+lastmodifieddate: 2025-04-25T19:03:15.000Z
+lastpublisheddate: 2025-04-25T19:03:15.000Z
+meta_description__c: 360008408371
+meta_title__c: Find what is using TempDB
+ownerid: 0054u000006god6AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 6227
+versionnumber: 2
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I81CAE.html" target="_blank">Open in a new window</a>
+---
+
+__Summary:__  Sometimes, jobs can cause TempDB issues (i.e. overfilling the Disk, not re-claiming space) This guide is to help find the Access Analyzer  job creating the issue.
+
+__ ____Issue:__  Some jobs leverage TempDB, and in large environments, can cause problems.
+
+__Instructions:__  in SQL Server Management Studio or a Access Analyzer Analysis run the following SQL Query.
+
+Select \* from SA\_Messages
+
+Where MESSAGE like '%TempDB%'
+
+This will return any messages stored in the SA\_Messages Table and help narrow down the job that is in causing this.
+
+A case should be raised should you find a job with issues.
+
+__Submitted by: __Matt Johnson
+
+__Channel:  __Internal
+
+__ ____Product:__ Access Analyzer
+
+__ ____Affected Versions:__  All
+
+__ ____Affected Module:__ SQL Analsisys
+
+__ ____Dev Ticket:__ N/A
+
+__ ____Resolved In Version:__  N/A
+
+__ ____KB Type:__ How-To

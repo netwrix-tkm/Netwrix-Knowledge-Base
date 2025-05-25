@@ -1,5 +1,22 @@
+# Core dependencies
+pandas
+html2markdown
+python-frontmatter
+python-slugify
+chardet
+
+# Text processing
+beautifulsoup4  # HTML parsing
+scikit-learn    # For TF-IDF and cosine similarity
+numpy           # Required by scikit-learn
+
+# Development
+pytest          # For running tests
+black           # Code formatting
+flake8          # Linting
+
+# Azure Functions (if needed for deployment)
 # DO NOT include azure-functions-worker in this file
 # The Python Worker is managed by Azure Functions platform
 # Manually managing azure-functions-worker may cause unexpected issues
-
 azure-functions

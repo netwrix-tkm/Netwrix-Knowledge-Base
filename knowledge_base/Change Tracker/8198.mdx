@@ -1,0 +1,63 @@
+---
+title: How to Determine Your .NET Framework Version
+article_number: 8198
+id: ka0Qk000000DOPVIA4
+products: ['change_tracker']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000006god6AAA
+articlecreateddate: 2022-02-07T00:49:36.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JP9CAM
+change_log__c: JFM 4/23/25: Ran it through Lexi
+createdbyid: 0054u000006god6AAA
+createddate: 2025-04-23T21:37:06.000Z
+firstpublisheddate: 2022-02-07T00:49:36.000Z
+islatestversion: True
+knowledgearticleid: kA04u0000000JP9CAM
+knowledge_article_id__c: kA04u0000000JP9CAM
+lastmodifiedbyid: 005Qk0000017MRRIA2
+lastmodifieddate: 2025-04-23T21:41:59.000Z
+lastpublisheddate: 2025-04-23T21:41:59.000Z
+meta_description__c: How to Determine Your .NET Framework Version
+meta_title__c: How to Determine Your .NET Framework Version
+ownerid: 0054u000006god6AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8198
+versionnumber: 7
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JP9CAM.html" target="_blank">Open in a new window</a>
+---
+
+## Question
+
+How can I determine the version of .NET Framework installed on my system?
+
+## Answer
+
+Netwrix Change Tracker Gen 7 Hub and Agent require a specific version of .NET Framework. This article provides instructions to help you determine which version of .NET Framework is installed on your system.
+
+#### Option 1: Check in the Windows Registry
+
+Press Windows Key+R to open the Run command box.Type regedit and click OK.Navigate to the following registry key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full.Locate the Release DWORD value. Refer to the screenshot below for guidance:
+
+#### Option 2: Use Windows PowerShell ISE
+
+Open Windows PowerShell ISE.Enter the following command:
+
+(Get-ItemProperty "HKLM:Software\Microsoft\NET Framework Setup\NDP\v4\Full").Release
+
+The output will display the Release number of the installed .NET Framework version. Refer to the screenshot below for an example:To determine the corresponding .NET Framework version, refer to the official Microsoft documentation: .NET Framework Versions and Dependencies: Version Information ? Microsoft 🡥
+
+## Related Article
+
+  How to Backup / Restore / Move Your MongoDB Databas
+
+  Monitoring Oracle Databases Using Change Tracke
+
+  How to Configure the FAST Cloud Integration with Proxy Internet Setting
+
+  How to Move Your Linux Server MongoDB Database to a Windows Serve
+
+  How to Add a Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen 7

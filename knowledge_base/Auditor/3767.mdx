@@ -1,0 +1,95 @@
+---
+title: How to Migrate Netwrix Auditor Databases to Another SQL Server Instance
+article_number: 3767
+id: ka0Qk000000DtI1IAK
+products: ['auditor']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 2
+articlecreatedbyid: 005700000042ELcAAM
+articlecreateddate: 2020-05-07T12:43:13.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000Pbd8CAC
+change_log__c: <p>HGR - 10/22/24: Updated SQL Server Reporting Services reference link to 10.7 version.</p>
+<p>05/13/25 - ZAC: Cleaned up HTML &amp; made update per KBFB</p>
+confidence_level__c: Validated
+createdbyid: 005700000042ELcAAM
+createddate: 2025-05-13T19:51:13.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2020-05-07T12:57:13.000Z
+islatestversion: True
+knowledgearticleid: kA00g000000Pbd8CAC
+knowledge_article_id__c: kA00g000000Pbd8CAC
+lastmodifiedbyid: 0054u000008icp2AAA
+lastmodifieddate: 2025-05-13T20:07:59.000Z
+lastpublisheddate: 2025-05-13T20:07:59.000Z
+meta_description__c: How to migrate the Netwrix databases to another MS SQL Server instance
+meta_title__c: How to migrate the Audit Databases to another MS SQL Server instance
+ownerid: 005700000042ELcAAM
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 680
+versionnumber: 12
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000Pbd8CAC.html" target="_blank">Open in a new window</a>
+---
+
+## Question
+
+Can you migrate audit databases to another Microsoft SQL Server instance?
+
+## Answer
+
+Yes, you are able to migrate audit databases to another Microsoft SQL Server instance. Follow the steps below to complete this process.
+
+#### Prerequisite
+
+  Required Permissions: The account used by Netwrix Auditor must have __db\_owner__ rights on the target audit databases. For SQL Server Reporting Services (SSRS), the account must have the __Content Manager__ role on the Home folder, and users must have the __Browser__ role on the Report Server. For detailed steps on assigning these permissions, see Requirements – SQL Server Reporting Services · v10.7
+
+  SQL Server and SSRS must be installed and configured on the new server.
+
+#### Instructions
+
+* Configure a new SQL Server instance.
+  * On the Netwrix Auditor server, stop Netwrix Auditor Archive Service and Netwrix Auditor Management Service.
+
+* Back up all Netwrix databases in the old SQL Server instance except for __Netwrix\_CommonDB__, __Netwrix\_ImportDB__, __Netwrix\_Auditor\_EventLog__, __ReportServer__, and __ReportServerTempDB__. To back up databases:
+
+* Open __Microsoft SQL Server Management Studio__ and connect to the original SQL Server instance.
+  * Select an __audit database__, right-click it, and select __Tasks__ > __Back Up...__
+
+* In the __Back Up Database__ window, review the path where the database backup will be stored in the __Destination__ section.
+
+* Copy the database backups to your new SQL Server. In the new __SQL Server__ instance:
+
+* Open __Microsoft SQL Server Management Studio__ and connect to the destination SQL Server instance.
+  * Right-click the __Databases__ node and select __Restore Database...__
+
+* Under the __Source__ section, select the __Device__ option, and click __...__ to browse for databases.
+
+* In the __Specify Backup Devices__ window, click __Add__ and select the backup database file. Click __OK__.
+
+* Specify the database name and check the __Restore__ checkbox under the __Backup sets to restore__ section.
+
+* Deploy the new Report Database. For more information, see Deploying the Report Server Database.
+
+* Stop the old __SQL Server (%instance\_name%)__ service.
+
+* Start Netwrix Auditor Archive Service and Netwrix Auditor Management Service.
+
+* In the main Netwrix Auditor menu, select __Settings__ > __Audit Database__ tab, and specify the new SQL Server and Reporting Service settings.
+
+* Click __Yes__ when the following message appears: ![Confirmation dialog: Data will become unavailable until the new database is configured](https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DtI1&feoid=00N0g000004CA0p&refid=0EMQk000001mFc5)
+
+* In the main Netwrix Auditor menu, select __Settings__ > __Investigations__ tab. Click __Modify__ to specify the new SQL Server settings.
+
+* Run a search with the filter __When | Equals | Last 7 days__. If you see the relevant data, the databases were migrated successfully and the new SQL Server is being used.
+
+* __Optional:__ Start the old SQL Server instance if it is used for any other tasks.
+
+## Related Article
+
+  Requirements – SQL Server Reporting Services · v10.
+
+  How to Prepare the Netwrix Server for a SQL Upgrad
+
+  Deploying the Report Server Database

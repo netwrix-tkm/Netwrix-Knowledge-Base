@@ -1,0 +1,83 @@
+---
+title: Resolving Insecure Permissions for Service Executables
+article_number: 9356
+id: ka0Qk000000DUbNIAW
+products: ['enterprise_auditor']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 005Qk0000017MRRIA2
+articlecreateddate: 2024-12-23T15:30:29.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/:u:/r/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/hilary_writing_syncs/KB-New-Final%20Drafts/KB%20-%20NEW%20-%20How%20to%20Resolve%20Insecure%20Permissions%20for%20Service%20Executa
+article_reviewer__c: 005Qk000001wMM9IAM
+article_sme__c: 0054u000006gpoAAAQ
+asana_task_url__c: https://app.asana.com/1/46926129243726/project/1203106155380297/task/1209079291650493
+case__c: 500Qk00000JBjzpIAD
+change_log__c: 4/24/25 - HGR: Added SPO draft (via Asana task)
+<br>4/29/25 - HGR: Updated to How To; revised title, screenshot, formatting, wording
+confidence_level__c: Not Validated
+createdbyid: 005Qk0000017MRRIA2
+createddate: 2025-04-29T22:33:35.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2025-04-29T19:10:17.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000001oArKAI
+knowledge_article_id__c: kA0Qk0000001oArKAI
+lastmodifiedbyid: 005Qk000001wMM9IAM
+lastmodifieddate: 2025-04-29T22:34:32.000Z
+lastpublisheddate: 2025-04-29T19:10:17.000Z
+meta_description__c: How to Resolve Insecure Permissions for Service Executables Detected by Tenable
+meta_title__c: How to Resolve Insecure Permissions for Service Executables Detected by Tenable
+ownerid: 0054u000007osjSAAQ
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9356
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001oArKAI.html" target="_blank">Open in a new window</a>
+---
+
+## Overview
+
+This article explains how to resolve insecure permissions for Windows service executables in Netwrix Access Analyzer (formerly Enterprise Auditor). Services using executables with weak permissions are at risk of privilege escalation attacks. An unprivileged user could modify or overwrite the executable with arbitrary code, which would then execute the next time the service starts.
+
+This issue occurs when groups such as `` Users `` have to modify or write access to service executables, and the __Access__ node in the Global Settings controls these permissions. Permissions should be checked both before and after installation to ensure no changes have been made and proper permissions are in place.
+
+Examples of insecure permissions include
+
+  Path: `` %stealthaudit%\vaultservice.exe ``
+
+Used by services: Netwrix Access Analyzer Vault
+
+File write allowed for groups: Users (S-1-5-32-545
+
+  Path: `` %stealthaudit%\web\webserver.exe ``
+
+Used by services: Netwrix Access Analyzer Web
+
+File write allowed for groups: Users (S-1-5-32-545)
+
+## Instructions
+
+To resolve this issue, follow these steps:
+
+* Review the permissions for the service executables identified by the security scanner
+
+  Navigate to the file path (e.g., `` WebServer.exe `` or `` VaultService.exe ``)
+
+  Right-click the file, select __Properties__, and check the __Security__ tab.
+* Remove permissions for groups like `` Users `` (S-1-5-32-545) to ensure they cannot modify or write to these files.
+
+* Ensure groups like `` Users `` do not have __Full Control__ over directories containing these service executables.
+
+In Access Analyzer
+
+  By default, the `` Users `` group does not have __Full Control__ over these files (`` WebServer.exe `` or `` VaultService.exe ``)
+
+  Permissions are only assigned if configured manually under __Settings__ > __Access__. Pay attention to the `` Member Type `` as shown in the screenshot below.
+
+>
+
+> __NOTE: __This approach ensures secure operation and mitigates the risk of privilege escalation.
+
+>

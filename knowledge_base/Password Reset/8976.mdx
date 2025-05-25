@@ -1,0 +1,59 @@
+---
+title: Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay
+article_number: 8976
+id: ka0Qk00000014XpIAI
+products: ['password_reset_manager']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000008ic83AAA
+articlecreateddate: 2023-12-20T09:48:00.000Z
+createdbyid: 0054u000008ic83AAA
+createddate: 2023-12-20T14:30:07.000Z
+firstpublisheddate: 2023-12-20T09:48:21.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000000LAvKAM
+knowledge_article_id__c: kA0Qk0000000LAvKAM
+lastmodifiedbyid: 0054u000008ic83AAA
+lastmodifieddate: 2023-12-20T14:30:31.000Z
+lastpublisheddate: 2023-12-20T09:48:21.000Z
+meta_description__c: Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay
+meta_title__c: Troubleshoot Missing Microsoft 365 Emails Using SMTP Relay
+ownerid: 0054u000008ic83AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8976
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LAvKAM.html" target="_blank">Open in a new window</a>
+---
+
+## Question
+
+When settings up verification emails via Microsoft 365 SMTP relay, emails still do not reach the users. How to troubleshoot the SMTP relay?
+
+## Answer
+
+NOTE: Learn more about setting up a connector in Set Up Multifunction Device or Application to Send Emails Using Microsoft 365 or Office 365 ? Configure Connector to Send Emails Using Microsoft 365 or Office 365 (SMTP Relay) · Microsoft 🡥.
+
+Refer to the following steps to troubleshoot the setup:
+
+In your Netwrix Password Reset server, run the following line in elevated PowerShell to log in Microsoft 365:
+
+$msolcred = get-credential
+
+Enter the Microsoft 365 credentials to use them when troubleshooting the relay.
+
+Once you've logged in, use the following line in the same PowerShell window to send a test email from your server to the relay:
+
+Send-MailMessage –From %From_email% –To %To_email% –Subject “Test” –Body “TESTING RELAY” -SmtpServer %Relay_Servername% -Credential $msolcred -UseSsl -Port %port_used%
+
+Refer to the following example of the line using the default Microsoft 365 SMTP server and port:
+
+Send-MailMessage –From testlab@testdom.com –To testlab@testdom.com –Subject “Test” –Body “TESTING RELAY” -SmtpServer smtp.office365.com -Credential $msolcred -UseSsl -Port 587
+
+Review the console output for possible errors.
+
+## Related articles
+
+Set Up Multifunction Device or Application to Send Emails Using Microsoft 365 or Office 365 ? Configure Connector to Send Emails Using Microsoft 365 or Office 365 (SMTP Relay) · Microsoft 🡥

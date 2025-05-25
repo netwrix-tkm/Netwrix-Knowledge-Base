@@ -1,0 +1,71 @@
+---
+title: Collecting Raw Event Data
+article_number: 8554
+id: ka0Qk000000DsLxIAK
+products: ['threat_manager']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000006RPEQAA4
+articlecreateddate: 2023-03-20T21:06:32.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000000LLooCAG
+article_reviewer__c: 005Qk000001wMM9IAM
+change_log__c: 5/12/2025 - HGR: Updated tags and made private per Andy M. feedback
+confidence_level__c: Not Validated
+createdbyid: 0054u000006RPEQAA4
+createddate: 2025-05-12T20:32:31.000Z
+draft_status__c: Ready to Publish
+firstpublisheddate: 2023-03-20T21:08:55.000Z
+islatestversion: True
+knowledgearticleid: kA04u000000LLooCAG
+knowledge_article_id__c: kA04u000000LLooCAG
+lastmodifiedbyid: 005Qk000001wMM9IAM
+lastmodifieddate: 2025-05-12T20:35:14.000Z
+lastpublisheddate: 2025-05-12T20:35:14.000Z
+meta_description__c: Raw data is very helpful for dev to reproduce certain issues.Raw data is very helpful for dev to reproduce certain issues.
+meta_title__c: Collecting Raw Event Data
+ownerid: 0054u000006RPEQAA4
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8554
+versionnumber: 5
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000LLooCAG.html" target="_blank">Open in a new window</a>
+---
+
+Intro
+
+Raw data is very helpful for dev to reproduce certain issues.
+
+NOTE. Event data may contain sensitive information. Use caution when storing info collected from customer sites.
+
+Collection
+
+It can be collected using the following steps:
+
+* Visit the swagger API page: http://localhost:8080/swagger
+  * Enter your authorization token
+
+  Format is (do not include quotes) 'Bearer 
+
+  Be aware that app tokens created in SD 2.6 or below may no longer be valid
+
+* Find the 'Journal' endpoints.
+
+There are 2 different endpoints.
+
+One collects by Event IdOne collects all events associated to a threatIgnore the normalized version
+
+Enter your event id or threat id in the appropriate endpoint
+
+Ids can be gathered
+
+For a single event For a threat
+
+Copy/Paste the raw JSON into a file. This JSON can be used directly with the message generator tool.
+
+Alternative app token collection method
+
+Open the F12 dev tools on your browserNavigate to the network tabVisit an Threat Manager pageCopy the app token from the header of any api call
+
+This token is only valid for 5 minutesIt will already have the Bearer added

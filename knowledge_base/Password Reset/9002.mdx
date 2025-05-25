@@ -1,0 +1,69 @@
+---
+title: Password Reset Link Is Missing
+article_number: 9002
+id: ka0Qk0000001ObNIAU
+products: ['password_reset_manager']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000008ic83AAA
+articlecreateddate: 2024-01-12T16:12:48.000Z
+createdbyid: 0054u000008ic83AAA
+createddate: 2024-01-18T05:54:51.000Z
+firstpublisheddate: 2024-01-12T16:13:19.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000000NSrKAM
+knowledge_article_id__c: kA0Qk0000000NSrKAM
+lastmodifiedbyid: 0054u000008ic83AAA
+lastmodifieddate: 2024-01-18T05:55:13.000Z
+lastpublisheddate: 2024-01-12T16:13:19.000Z
+meta_description__c: Password Reset Link Is Missing
+meta_title__c: Password Reset Link Is Missing
+ownerid: 0054u000008ic83AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9002
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000NSrKAM.html" target="_blank">Open in a new window</a>
+---
+
+## Symptoms
+
+The reset link is missing in the Netwrix Password Reset client computer.
+
+## Cause
+
+NPR integration has not been configured for third-party credential providers (e.g., DUO Security).
+
+## Resolution
+
+Configure your third-party credential provider to work with NPR. Learn more about setting up Cisco DUO to work with NPR in Can I enable other credential providers after installing Duo Authentication for Windows Logon? ? Cisco DUO 🡥.
+
+NOTE: Refer to the Password Reset Client GUID provided below:
+
+{407DAD37-1BA1-49BB-8401-45B22F5EF77C}
+
+IMPORTANT: In case adding NRP to the ProvidersWhitelist did not work, refer to the following steps:
+
+In the Password Reset client, locate the following registry key in Registry Editor:
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\ANIXIS\Password Reset Client
+
+Add the following subkeys:
+
+"PreferredProvider"="{%third_party_GUID%}"
+
+"PreferredProviderUsernameField"=dword:00000001
+
+"PreferredProviderFriendlyNameField"=dword:00000000
+
+"PreferredProviderConfirmPasswordField"=dword:00000004
+
+"PreferredProviderResetPasswordLinkField"=dword:00000006
+
+"PreferredProviderLogOnToField"=dword:00000008
+
+Replace the GUID placeholder %third_party_GUID% with the third-party solution GUID.
+
+Save the changes.

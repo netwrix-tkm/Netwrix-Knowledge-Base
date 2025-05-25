@@ -1,0 +1,160 @@
+---
+title: GEN 7 Agent Deployment Options
+article_number: 8165
+id: ka0Qk000000Dlp7IAC
+products: ['change_tracker']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000006god6AAA
+articlecreateddate: 2022-02-07T00:42:48.000Z
+article_drafts_folder__c: https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JSTCA2
+createdbyid: 0054u000006god6AAA
+createddate: 2025-05-09T04:33:16.000Z
+firstpublisheddate: 2022-02-07T00:42:48.000Z
+islatestversion: True
+knowledgearticleid: kA04u0000000JSTCA2
+knowledge_article_id__c: kA04u0000000JSTCA2
+lastmodifiedbyid: 0054u0000093LZ4AAM
+lastmodifieddate: 2025-05-09T04:39:14.000Z
+lastpublisheddate: 2025-05-09T04:39:14.000Z
+meta_description__c: HELPDESK
+meta_title__c: GEN 7 Agent Deployment Options
+ownerid: 0054u000006god6AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 8165
+versionnumber: 5
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JSTCA2.html" target="_blank">Open in a new window</a>
+---
+
+Installing Gen 7 Agent for Windows
+
+___Note: Microsoft .NET Framework 4.5 is required – Enable this using ‘Roles/Features’ – ‘Add Features’ or download the ______official Microsoft installer from  ______https://www.microsoft.com/en-gb/download/details.aspx?id=30653___
+
+User-Attended Gen 7 Agent .exe installer
+
+The Hub API page must be entered together with Access Credentials
+
+By default the Agent username is ‘agent’ with password ‘passWord121’ but these can be changed via User Settings
+
+By default the Agent will register using the Name of the server but there is an opportunity to customize this during installation (or post-installation via an edit of the [Hub Details file](#_Check_Agent_Operation) – see more here)
+
+During installation this can also be performed using the Advanced Configuration stage of the exe installation, and there is also an option to test agent connectivity (strongly recommended)
+
+__\*IMPORTANT\* __In order to maximize performance, Gen 7 Agent operational files are located in %PROGRAMDATA%\\NNT\\gen7agent.service, so if you need to edit the HubDetails.xml file for the Agent this is where the file can be found, similarly if you are ever required to provide a rolling-log.txt file to Netwrix Support this is where it is located.
+
+Gen 7 Agent UI
+
+A local UI for the Gen 7 Agent provides visibility of operation for troubleshooting purposes. It is available from the hosting platform e.g. http://localhost:8096 and requires credentials of username ‘admin’ and password ‘password’
+
+Scripted/Command Line use of Gen 7 Agent .exe installer
+
+By co-locating a pre-configured HubDetails.xml file in the same folder as the Gen 7 Agent installer these details will be used by the installer for the installed agent
+
+Use of the /SP- /VERYSILENT /SUPPRESSMSGBOXES switches will ensure the installation is silent and operates unattended.
+
+Alternatively, a full command line installation can be used, with individual arguments used to specify HubDetails settings.
+
+For example –
+
+Full details of HubDetails.xml nodes and their settings can be found here
+
+Installing Gen 7 Agent for Linux
+
+Using local RPM files
+
+Netwrix Gen 7 Agent can also be installed on Linux and Unix platforms. In a similar way to the Windows Agent, the Agent requires a runtime and an Agent executable. For Linux, the runtime is Mono, the open source parallel to Microsoft .NET.
+
+Installation simply requires the Netwrix-Mono and Netwrix-Gen7 Agent RPMs to be installed as follows
+
+Once installed, the HubDetails.xml file must be configured – this can be done directly by editing a HubDetails.xml on the /var/nnt/gen7agent.service path or by using the /opt/nnt/gen7agent//configure-gen7agent.sh script.
+
+The Agent service can then be started using
+
+Scripted installation of Gen 7 Agent RPM installer
+
+The entire process outlined above can be completed using a single command as follows
+
+(___Note:___ Removal __rpm -evv nnt-mono-4.6.1-5.x86\_64 nnt-changetracker-gen7agent-7.0.0.15-7.noarch)__
+
+For Debian Linux
+
+Netwrix provide packages for Debian distributions so please download the relevant Gen 7 Agent package then install using:
+
+You can then use the same steps for [configuring your HubDetails.xml file as in the previous section](#_Using_local_RPM).
+
+Note: To uninstall the Gen 7 Agent on Debian, use
+
+You’ll then want to remove the Netwrix Gen 7 Agent files which will be found at
+
+Gen 7 Agent UI
+
+A local UI for the Gen 7 Agent provides visibility of operation for troubleshooting purposes. It is available from the hosting platform e.g. http://localhost:8096 and requires credentials of username ‘admin’ and password ‘password’
+
+Troubleshooting Connectivity
+
+Check Agent Operation
+
+For any agent on any platform there is a local agent status interface which can be viewed via the local web browser at http://localhost:8096
+
+If the Agent UI is not available, then it is likely that the agent service is stopped/has failed.
+
+Windows – Check Task Manager and Services Console
+
+Linux – service nntGen7agent status
+
+The below shows that the agent service is running correctly but it has been unable to register with the
+
+Change Tracker Hub.
+
+The Agent should report the URL for the Hub it is registered as in the green pop-out boxes
+
+If the Hub URL referenced is not correct, you can edit the HubDetails.xml file and correct this. Likewise, the Agent username and password settings can be reset by editing this file.
+
+Windows - C:\\ProgramData\\NNT\\gen7agent.service\\HubDetails.xml
+
+Linux - /var/nnt/gen7agent.service/HubDetails.xml
+
+The HubDetails.xml File
+
+The Agent configuration settings are controlled by the Hub during operations but the initial registration necessitates a basic config file for registration with the Hub.
+
+The HubDetails.xml file includes some details unique to your deployment of Change Tracker Gen 7, hence it requiring your intervention to make sure settings are as needed.
+
+The key tags within the file are as follows:
+
+___Note___: An unencrypted password means the Agent didn’t initialize and suggests a bad installation or .NET Framework issue – remember the Agent on Windows requires .NET Framework V3.5, Linux/Solaris requires the latest Netwrix Mono runtime.
+
+___Note___: Netwrix’s Gen 7 Agent also supports additional nodes – NamePrefix, NameSuffix
+
+\*The Thumbprint uniquely identifies the Web Server certificate, see more here https://msdn.microsoft.com/en-us/library/ms734695(v=vs.110).aspx
+
+              Open II
+
+              Select the server from the list on the left hand sid
+
+              Select Server Certificate
+
+              Double click your certificate in the list to open the certificates permission
+
+              Open the Details ta
+
+              Scroll to the bottom of the list and highlight the Thumbprint fiel
+
+              The thumbprint value will then be displayed – transpose this to your HubDetails.xml file
+
+The next step is to check that there is network connectivity to the Hub URL from the Agent’s host
+
+NOTE: Where the Change Tracker Hub has been installed on a Windows/IIS platform then the Hub URL will be https://192.168.1.36
+
+Finally, the Agent will maintain a rolling-log of its activityGen 7 Agent – Rolling Log File
+
+Windows - C:\\ProgramData\\NNT\\gen7agent.service\\rolling-log.txt
+
+Linux - /var/nnt/gen7agent.service/rolling-log.txt
+
+This will also provide diagnostic information if the agent is not functioning correctly.
+
+Finally – Please contact support if you need help at any stage
