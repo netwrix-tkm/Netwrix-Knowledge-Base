@@ -1,0 +1,41 @@
+---
+title: Password Never Expires Report Shows Incorrect Data
+article_number: 9106
+id: ka0Qk0000002zyfIAA
+products: ['onesecure']
+tags: []
+categories: []
+last_updated: 2025-05-24
+articlecaseattachcount: 0
+articlecreatedbyid: 0054u000008ic83AAA
+articlecreateddate: 2024-03-29T10:00:29.000Z
+createdbyid: 0054u000008ic83AAA
+createddate: 2024-04-23T07:48:47.000Z
+firstpublisheddate: 2024-04-23T07:48:44.000Z
+islatestversion: True
+knowledgearticleid: kA0Qk0000000YkrKAE
+knowledge_article_id__c: kA0Qk0000000YkrKAE
+lastmodifiedbyid: 0054u000008ic83AAA
+lastmodifieddate: 2024-04-23T07:48:53.000Z
+lastpublisheddate: 2024-04-23T07:48:44.000Z
+meta_description__c: Password Never Expires Report Shows Incorrect Data
+meta_title__c: Password Never Expires Report Shows Incorrect Data
+ownerid: 0054u000008ic83AAA
+publishstatus: Online
+recordtypeid: 0124u000000UUgLAAW
+urlname: 9106
+versionnumber: 1
+website_url__c: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000YkrKAE.html" target="_blank">Open in a new window</a>
+---
+
+## Symptom
+
+In 1Secure, the Password never expires setting is incorrectly reported as enabled for particular accounts. When you review Active Directory Users and Computers settings, the setting is disabled for affected accounts.
+
+## Cause
+
+A GPO with the maxPasswordAge=0 parameter is applied to the affected accounts. The parameter causes 1Secure to report the Password never expires setting as enabled.
+
+## Resolution
+
+In the corresponding GPO, set the maxPasswordAge parameter to any non-zero value. This will allow 1Secure to correctly report the affected accounts.
