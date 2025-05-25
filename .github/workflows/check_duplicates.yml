@@ -8,6 +8,11 @@ on:
       - '.github/workflows/check_duplicates.yml'
       - '.github/workflows/detect_duplicates.py'
 
+# Required to post comments on PRs
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   check-duplicates:
     name: Check for duplicate articles
@@ -29,7 +34,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install beautifulsoup4 scikit-learn pandas requests
         
-    - name: Run duplicate detection
+    - name: Run duplicate detection and generate report
       id: duplicates
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,11 +45,22 @@ jobs:
         # Install required Python packages
         python -m pip install beautifulsoup4 scikit-learn pandas requests
         
-        # Run the duplicate detection script
+        # Create a temporary directory for the report
+        mkdir -p /tmp/qa-reports
+        
+        # Run the duplicate detection script and save output to a temp file
         python .github/workflows/detect_duplicates.py \
           --threshold 0.6 \
           --output-format both \
           --github-token ${{ secrets.GITHUB_TOKEN }} \
-          --github-event-path ${{ github.event_path }}
+          --github-event-path ${{ github.event_path }} > /tmp/qa-reports/report.json
         
-        # The script will handle PR comments and output the results
+        # The script will handle PR comments
+    
+    - name: Upload QA Report
+      if: always()  # Run this step even if previous steps fail
+      uses: actions/upload-artifact@v3
+      with:
+        name: qa-report-${{ github.run_id }}
+        path: /tmp/qa-reports/report.json
+        retention-days: 7  # Keep the artifact for 7 days

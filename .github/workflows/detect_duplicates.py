@@ -181,13 +181,18 @@ class KBDuplicateDetector:
         all_files = list(self.articles.keys())
         
         if modified_files:
-            # Only check modified files against all other files
+            # First, check modified files against all files (including other modified files)
             modified_indices = [i for i, path in enumerate(all_files) if path in modified_files]
             
+            # Compare modified files against all files
             for i in modified_indices:
                 for j in range(len(all_files)):
                     # Skip self-comparison
                     if i == j:
+                        continue
+                        
+                    # Only check against other modified files that come after current file to avoid duplicates
+                    if all_files[j] in modified_files and j <= i:
                         continue
                         
                     similarity = self.similarity_matrix[i][j]
