@@ -3,11 +3,19 @@ import pandas as pd
 from pathlib import Path
 import html
 import re
+import unicodedata
 from collections import defaultdict
 import frontmatter
 from slugify import slugify
 from datetime import datetime
 import html2markdown
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse, unquote
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 # Configuration
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -32,14 +40,14 @@ PRODUCT_MAPPING = {
     'password_secure': 'password-secure',
     'policypak': 'endpoint-policy-manager',
     'privilege_secure_endpoints': 'endpoint-privilege-manager',
-    'privilege_secure': 'privilege-secure-for-access-management',
-    'privilege_secure_discovery': 'privilege-secure-for-discovery',
+    'privilege_secure': 'privilege-secure-access-management',
+    'privilege_secure_discovery': 'privilege-secure-discovery',
     'recovery_ad': 'recovery-for-active-directory',
     'enterprise_auditor': 'access-analyzer',
     'threat_manager': 'threat-manager',
     'threat_prevention': 'threat-prevention',
-    'strongpoint_netsuite': 'platform-governance-for-netsuite',
-    'strongpoint_salesforce': 'platform-governance-for-salesforce',
+    'strongpoint_netsuite': 'platform-governance-netsuite',
+    'strongpoint_salesforce': 'platform-governance-salesforce',
     'usercube': 'identity-manager',
     'vulnerability_tracker': 'vulnerability-tracker'
 }
@@ -207,82 +215,189 @@ def clean_markdown(md_content):
         else:
             wrapped_lines.append('\n'.join(textwrap.wrap(line, width=100)))
     
-    # Trim whitespace from start/end
-    md_content = md_content.strip()
-    
-    return md_content
 
 def clean_html(html_content):
-    """Convert HTML content to markdown with proper formatting"""
+    """Convert HTML content to clean markdown with proper formatting"""
     if not html_content or pd.isna(html_content):
         return ""
         
-    # Convert to string in case it's not
-    html_content = str(html_content)
-    
     try:
-        # First convert all HTML to markdown
+        # Convert to string and clean
+        html_content = str(html_content)
+        
+        # Process images first (before other tags)
+        html_content = process_image_tags(html_content)
+        
+        # Process links
+        html_content = process_links(html_content)
+        
+        # Clean up common HTML issues
+        html_content = re.sub(r'<br\s*/?>', '\n', html_content, flags=re.IGNORECASE)
+        html_content = re.sub(r'<p\s*[^>]*>', '\n\n', html_content, flags=re.IGNORECASE)
+        html_content = re.sub(r'</p>', '\n\n', html_content, flags=re.IGNORECASE)
+        
+        # Convert remaining HTML to markdown
         md_content = html2markdown.convert(html_content)
-        md_content = html.unescape(md_content)
         
-        # Clean up any remaining HTML tags that weren't converted
-        # But first, we need to protect code blocks
-        code_blocks = {}
-        
-        # Store all code blocks with placeholders
-        def store_code_block(match):
-            block_id = f"__CODE_BLOCK_{len(code_blocks)}__"
-            code_blocks[block_id] = match.group(0)
-            return block_id
-            
-        # Protect fenced code blocks
-        md_content = re.sub(r'```[^\n]*\n.*?```', store_code_block, md_content, flags=re.DOTALL)
-        
-        # Protect inline code
-        md_content = re.sub(r'`[^`]+`', store_code_block, md_content)
-        
-        # Now remove any remaining HTML tags
-        md_content = re.sub(r'<[^>]+>', '', md_content)
-        
-        # Restore code blocks
-        for block_id, code in code_blocks.items():
-            md_content = md_content.replace(block_id, code)
-        
-        # Clean up markdown formatting
+        # Clean up markdown
         md_content = clean_markdown(md_content)
         
-        # Fix any double newlines from HTML conversion
-        md_content = re.sub(r'\n{3,}', '\n\n', md_content)
+        # Fix common markdown issues
+        md_content = re.sub(r'\n{3,}', '\n\n', md_content)  # Replace 3+ newlines with 2
+        md_content = re.sub(r'^\s+$', '', md_content, flags=re.MULTILINE)  # Remove empty lines with just whitespace
         
-        # Ensure proper spacing around lists
-        # Before lists
-        md_content = re.sub(r'([^\n])\n(\s*[-*]\s)', '\1\n\n\2', md_content)
-        # After lists
-        md_content = re.sub(r'(\n\s*[-*]\s[^\n]*)\n([^\s\n-*])', '\1\n\n\2', md_content)
+        # Fix list formatting
+        md_content = re.sub(r'(\S)\n(\s*[-*+]\s+)', '\1\n\n\2', md_content)  # Add blank line before lists
         
-        # Fix any code blocks that might have been broken by the markdown converter
-        md_content = re.sub(r'```\s*\n\s*```', '```', md_content)  # Remove empty code blocks
+        # Fix code blocks
+        md_content = re.sub(r'```(\w*)\n(.*?)```', 
+                          lambda m: f"```{m.group(1)}\n{m.group(2).strip()}\n```\n\n", 
+                          md_content, 
+                          flags=re.DOTALL)
         
-        # Fix numbered lists that might have been converted to 1. for each item
-        lines = md_content.split('\n')
-        in_ol = False
-        for i, line in enumerate(lines):
-            if re.match(r'^\s*\d+\.\s+', line):
-                if not in_ol:
-                    in_ol = True
-                    lines[i] = re.sub(r'^(\s*)\d+\.\s+', '\1* ', line, count=1)
-                else:
-                    lines[i] = re.sub(r'^\s*\d+\.\s+', '  * ', line, count=1)
-            else:
-                in_ol = False
-        md_content = '\n'.join(lines)
+        # Clean up any remaining HTML entities
+        md_content = html.unescape(md_content)
+        
+        # Normalize whitespace again
+        md_content = '\n'.join(line.strip() for line in md_content.split('\n'))
         
         return md_content.strip()
         
     except Exception as e:
-        print(f"Error converting HTML to markdown: {e}")
-        # Fallback to basic HTML stripping if conversion fails
-        return re.sub(r'<[^>]+>', '', html.unescape(html_content))
+        logger.error(f"Error converting HTML to markdown: {e}")
+        # Fallback to basic cleaning
+        try:
+            # Remove all HTML tags
+            clean_text = re.sub(r'<[^>]+>', '', str(html_content))
+            # Decode HTML entities
+            clean_text = html.unescape(clean_text)
+            # Normalize whitespace
+            clean_text = ' '.join(clean_text.split())
+            return clean_text
+        except Exception as inner_e:
+            logger.error(f"Fallback cleaning also failed: {inner_e}")
+            return "[Content could not be converted]"
+
+def clean_text(text):
+    """Clean and normalize text content"""
+    if not text or pd.isna(text):
+        return ""
+    
+    # Convert to string and normalize unicode
+    text = str(text)
+    text = unicodedata.normalize('NFKC', text)
+    
+    # Replace common HTML entities
+    text = html.unescape(text)
+    
+    # Replace non-breaking spaces with regular spaces
+    text = text.replace('\xa0', ' ').replace('\u00a0', ' ')
+    
+    # Remove control characters except newlines and tabs
+    text = ''.join(char for char in text if char == '\n' or char == '\t' or not (0 <= ord(char) < 32))
+    
+    # Normalize whitespace
+    text = ' '.join(text.split())
+    
+    return text.strip()
+
+def process_image_tags(html_content):
+    """Process and clean up image tags"""
+    if not html_content:
+        return html_content
+        
+    try:
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        for img in soup.find_all('img'):
+            # Clean up the image tag
+            img_str = str(img)
+            alt = img.get('alt', '').strip()
+            src = img.get('src', '').strip()
+            
+            if not src:
+                img.replace_with('')
+                continue
+                
+            # Clean up the src URL
+            src = re.sub(r'[\s\n]+', ' ', src).strip()
+            
+            # Create markdown image syntax
+            img_md = f'![{alt}]({src})'
+            
+            # Add title if available
+            if 'title' in img.attrs:
+                img_md += f' "{img["title"]}"'
+                
+            # Replace the image tag with markdown
+            html_content = html_content.replace(str(img), img_md + '\n\n')
+            
+    except Exception as e:
+        logger.warning(f"Error processing image tags: {e}")
+        
+    return html_content
+
+def process_links(html_content):
+    """Process and clean up anchor tags"""
+    if not html_content:
+        return html_content
+        
+    try:
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        for a in soup.find_all('a'):
+            href = a.get('href', '').strip()
+            text = a.get_text().strip()
+            
+            if not href or not text:
+                a.replace_with('')
+                continue
+                
+            # Clean up the URL
+            href = re.sub(r'[\s\n]+', ' ', href).strip()
+            
+            # Create markdown link syntax
+            link_md = f'[{text}]({href})'
+            
+            # Replace the anchor tag with markdown
+            html_content = html_content.replace(str(a), link_md)
+            
+    except Exception as e:
+        logger.warning(f"Error processing links: {e}")
+        
+    return html_content
+
+def clean_markdown(md_content):
+    """Clean up markdown content after conversion"""
+    if not md_content:
+        return ""
+        
+    # Fix headers with missing space after #
+    md_content = re.sub(r'^(#{1,6})([^\s#])', r'\1 \2', md_content, flags=re.MULTILINE)
+    
+    # Fix code blocks with language specifiers
+    md_content = re.sub(r'```\s*(\w+)\s*\n', r'```\1\n', md_content)
+    
+    # Remove multiple blank lines
+    md_content = re.sub(r'\n{3,}', '\n\n', md_content)
+    
+    # Fix list items that don't have a space after the marker
+    md_content = re.sub(r'^([*+-])([^\s])', r'\1 \2', md_content, flags=re.MULTILINE)
+    
+    # Fix numbered lists that got converted to 1. 1. 1.
+    lines = md_content.split('\n')
+    in_list = False
+    for i, line in enumerate(lines):
+        if re.match(r'^\s*\d+\.\s+', line):
+            if not in_list:
+                in_list = True
+                lines[i] = re.sub(r'^(\s*)\d+\.\s+', '\1* ', line, count=1)
+            else:
+                lines[i] = re.sub(r'^\s*\d+\.\s+', '  * ', line, count=1)
+        else:
+            in_list = False
+    
+    return '\n'.join(lines).strip()
 
 def detect_code_language(content):
     """Detect the programming language based on content"""
@@ -351,8 +466,8 @@ def create_mdx_file(article, output_dir, categories):
         product_dir = os.path.join(output_dir, folder_name)
         os.makedirs(product_dir, exist_ok=True)
         
-        # Use ArticleNumber for the filename
-        safe_filename = f"{article_number}.mdx"
+        # Use Id for the filename
+        safe_filename = f"{article_id}.mdx"
         output_path = os.path.join(product_dir, safe_filename)
         
         # Prepare frontmatter
@@ -396,16 +511,30 @@ def create_mdx_file(article, output_dir, categories):
 def get_product_folder(product_tags):
     """Determine the output folder based on product tags"""
     if not product_tags:
-        return 'Other'
+        return 'other'
     
-    # Map old product names to new folder names
-    mapped_products = [PRODUCT_MAPPING.get(tag, tag) for tag in product_tags]
+    # Map old product names to new folder names (lowercase with hyphens)
+    mapped_products = []
+    for tag in product_tags:
+        # First try exact match, then try case-insensitive match
+        mapped = PRODUCT_MAPPING.get(tag)
+        if mapped is None:
+            # Try case-insensitive match
+            for k, v in PRODUCT_MAPPING.items():
+                if k.lower() == tag.lower():
+                    mapped = v
+                    break
+            else:
+                # If no match found, use the tag as-is but convert to lowercase and replace spaces with hyphens
+                mapped = tag.lower().replace(' ', '-')
+        mapped_products.append(mapped)
     
     # Handle special cases for Activity Monitor and Access Info Center
     special_tags = ['activity_monitor', 'access_info_center']
     
-    # Check if any special tags are present
-    present_special_tags = [tag for tag in special_tags if tag in [t.lower() for t in product_tags]]
+    # Check if any special tags are present (case-insensitive)
+    present_special_tags = [tag for tag in special_tags 
+                          if any(tag == t.lower() for t in product_tags)]
     
     if present_special_tags:
         if len(product_tags) > 1:
@@ -413,15 +542,15 @@ def get_product_folder(product_tags):
             other_products = [p for p in mapped_products 
                            if not any(special in p.lower() for special in special_tags)]
             if other_products:
-                return other_products[0]
+                return other_products[0].lower()
             else:
-                return 'Access Analyzer'
+                return 'access-analyzer'
         else:
-            # If only special tags, use Access Analyzer
-            return 'Access Analyzer'
+            # If only special tags, use access-analyzer
+            return 'access-analyzer'
     else:
-        # Otherwise, use the first product
-        return mapped_products[0] if mapped_products else 'Other'
+        # Otherwise, use the first product (ensuring lowercase)
+        return mapped_products[0].lower() if mapped_products else 'other'
 
 def load_categories(categories_path):
     """Load and categorize the data from kb_data_categories.csv"""
@@ -484,8 +613,8 @@ def process_csv(test_mode=True, max_articles_per_product=5):
     # Create output directory if it doesn't exist
     os.makedirs(MDX_DIR, exist_ok=True)
     
-    # Create 'Other' directory for articles without product categories
-    os.makedirs(os.path.join(MDX_DIR, 'Other'), exist_ok=True)
+    # Create 'other' directory for articles without product categories
+    os.makedirs(os.path.join(MDX_DIR, 'other'), exist_ok=True)
     
     # Load categories
     print("Loading categories...")
