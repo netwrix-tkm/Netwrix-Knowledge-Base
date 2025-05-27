@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Identify Active Transactions Filling the TempDB</title>
+    <meta name="article-id" content="ka0Qk000000CYIrIAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006QqyEAAS">
+    <meta name="articlecreateddate" content="2025-01-17T16:33:05.000Z">
+    <meta name="articlenumber" content="000009375">
+    <meta name="case" content="500Qk00000KdazTIAR">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0050g000006QqyEAAS">
+    <meta name="createddate" content="2025-02-26T15:16:57.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-02-06T15:43:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001sETKAY">
+    <meta name="knowledge-article-id" content="kA0Qk0000001sETKAY">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-02-26T15:17:31.000Z">
+    <meta name="lastpublisheddate" content="2025-02-06T15:43:13.000Z">
+    <meta name="meta-description" content="A0775-APP2356-S: The transaction log for database &#x27;tempdb&#x27; is full due to &#x27;ACTIVE_TRANSACTION&#x27;.">
+    <meta name="meta-title" content="A0775-APP2356-S: The transaction log for database &#x27;tempdb&#x27; is full due to &#x27;ACTIVE_TRANSACTION&#x27;.">
+    <meta name="ownerid" content="0050g000006QqyEAAS">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9375">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001sETKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Identify Active Transactions Filling the TempDB</h1>
+    <h2>Related Query</h2>
+<div>
+<ul><li>
+<p>&quot;Our application is not functioning, and we are receiving reports that the TempDB is full. What is filling up the TempDB?&quot;</p>
+</li></ul>
+</div>
+<h2>Question</h2>
+<div>
+<p>How can you identify which transactions are active and clogging the TempDB?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>The following statements will help to identify which transactions are active and filling the TempDB. Analysis of these results will help to isolate which transactions are at fault.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The data in TempDB is retained until the restart of the server. If you are in critical need of space after running the below queries, please restart your SQL Server as a temporary fix.</p>
+</blockquote>
+<ul><li>
+<p>Determines Size and Usage of Transaction Log:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">DBCC SQLPERF(LOGSPACE);</code></pre>
+</li><li>
+<p>Checks for Active Transactions:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">SELECT 
+    database_id,
+    DB_NAME(database_id) AS DatabaseName,
+    log_reuse_wait_desc
+FROM 
+    sys.databases;</code></pre>
+</li><li>
+<p>Finds Open Transactions:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">DBCC OPENTRAN;</code></pre>
+</li><li>
+<p>Checks for Uncommitted Transactions</p>
+<pre class="has-inner-focus"><code class="lang-Registry">SELECT 
+    transaction_id,
+    transaction_state,
+    name AS TransactionName,
+    transaction_begin_time
+FROM 
+    sys.dm_tran_active_transactions;</code></pre>
+</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Does Netwrix Service Account Access KDS Root Key Object?</title>
+    <meta name="article-id" content="ka0Qk00000014nxIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-20T15:47:00.000Z">
+    <meta name="articlenumber" content="000008978">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-12-20T15:47:00.000Z">
+    <meta name="firstpublisheddate" content="2023-12-20T15:47:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000LIzKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000LIzKAM">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-12-20T15:47:06.000Z">
+    <meta name="lastpublisheddate" content="2023-12-20T15:47:06.000Z">
+    <meta name="meta-description" content="Why Does Netwrix Service Account Access KDS Root Key Object?">
+    <meta name="meta-title" content="Why Does Netwrix Service Account Access KDS Root Key Object?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8978">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LIzKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why Does Netwrix Service Account Access KDS Root Key Object?</h1>
+    <blockquote>
+<div><span style="color: #c0392b;"><strong>!</strong></span> This article is currently under review. Some of the information below may not be up to date.</div>
+</blockquote>
+
+<h2>Question</h2>
+
+<div>
+<p>Why does Netwrix Service Account access the KDS root key object on a domain controller considering that this object is used to store the secret on which the password calculations for service accounts are based.</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>This behavior is tied to State-in-Time data collection. The KDS root key is one of the objects collected with State-in-Time snapshots. In this case, the product accesses only audit data associated with the object and does not collect any key values.</p>
+</div>
+</body>
+</html>

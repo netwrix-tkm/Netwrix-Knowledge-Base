@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission scanning errors and issues</title>
+    <meta name="article-id" content="ka0Qk0000005WIbIAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u0000093LZ4AAM">
+    <meta name="articlecreateddate" content="2024-09-13T14:02:57.000Z">
+    <meta name="articlenumber" content="000009274">
+    <meta name="assignedbyid" content="0054u0000093LZ4AAM">
+    <meta name="assignedtoid" content="0054u0000093LZ4AAM">
+    <meta name="assignmentdate" content="2024-09-13T14:02:57.000Z">
+    <meta name="case" content="500Qk00000CoHtDIAV">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u0000093LZ4AAM">
+    <meta name="createddate" content="2024-09-13T14:02:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001Q25KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000001Q25KAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-02-06T08:26:38.000Z">
+    <meta name="meta-description" content="Permission scanning errors and issues">
+    <meta name="meta-title" content="Permission scanning errors and issues">
+    <meta name="ownerid" content="0054u0000093LZ4AAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="Permission-scanning-errors-and-issues">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001Q25KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Permission scanning errors and issues</h1>
+    Issue
+
+Permission scanning errors and issues with FSAA System Scans.
+
+Cause
+
+A network share caused the FSAA system scan to run for extended periods before ultimately aborting the scan. with this issue present the Bulk Imports were put on hold until the scan could complete. 
+
+Resolution
+
+Discovered that shares weren&#39;t accessible due to an access denied error for some shares/subfolders existing on a NetApp server. We determined that having another meeting after running the scan additional exclusions for share is needed for further investigation.
+
+We discovered that the FSAA proxies were installed in a different directory than what originally was scanned. This may have caused a storage issue with the tier 2 data compression process. We uninstalled the proxies and installed them on the designated drives with an increased amount of space. Additionally, we included folder and share exclusions for a problematic share prompting access denied within the FSAA scans.
+
+We discovered that the scheduled FSAA task started a secondary scan after the initial scan started. We then investigated job logs and discovered that the scheduled task timed out and then the secondary task was initiated. We then made changes to the query properties of the FSAA scan not to restart and continue where the scan left off. We then restarted the scan and suggested monitoring the scan after changes were made.
+
+We discovered that the FSAA system scan was able to progress past the network share that was causing it to previously hang. We suggested allowing for the scan to run again, monitor the job and if you experience a hang time with the FSAA system scan again please generate a process dump on the FSAA proxy host using the steps provided in the documentation below.
+
+https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000InUCAU.html
+</body>
+</html>

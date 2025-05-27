@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&quot;Vserver API missing vserver parameter&quot; error when auditing NetApp Cluster</title>
+    <meta name="article-id" content="ka04u000000HcZ5AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000005YG2zAAG">
+    <meta name="articlecreateddate" content="2020-06-18T19:24:16.000Z">
+    <meta name="articlenumber" content="000005803">
+    <meta name="createdbyid" content="0050g000005YG2zAAG">
+    <meta name="createddate" content="2023-05-08T09:52:58.000Z">
+    <meta name="firstpublisheddate" content="2020-06-18T19:24:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000PcikCAC">
+    <meta name="knowledge-article-id" content="kA00g000000PcikCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:52:58.000Z">
+    <meta name="lastpublisheddate" content="2020-06-18T19:24:50.000Z">
+    <meta name="meta-description" content="&quot;Vserver API missing vserver parameter&quot; error when auditing NetApp Cluster">
+    <meta name="meta-title" content="&quot;Vserver API missing vserver parameter&quot; error when auditing NetApp Cluster">
+    <meta name="ownerid" content="0050g000005YG2zAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5803">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PcikCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>&quot;Vserver API missing vserver parameter&quot; error when auditing NetApp Cluster</h1>
+    <span style="color: #c0392b;"><span style="font-size: 14.0pt;"><span style="font-family: Calibri;"><span style="font-weight: bold;">Symptom:</span></span></span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">When you add NetApp for auditing and the collection fails immediately with the error below:</span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;"><span style="font-style: italic;">&quot;Cannot start auditing the &#39;ServerName&#39; server. </span></span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;"><span style="font-style: italic;">Failed to get file server information (0x8004959A ONTAPI error: Vserver API missing vserver parameter.).&quot;</span></span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">�</span></span><br><span style="color: #f1c40f;"><span style="font-size: 14.0pt;"><span style="font-family: Calibri;"><span style="font-weight: bold;">Cause:</span></span></span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">Specified management interface is not the management interface of CIFS SVN you are trying to audit.</span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">�</span></span><br><span style="color: #27ae60;"><span style="font-size: 14.0pt;"><span style="font-family: Calibri;"><span style="font-weight: bold;">Solution:</span></span></span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">Open Network Interfaces setting in Cluster management console. Find the interface that has <span style="font-style: italic;"><b>Management Access</b> </span>enabled and is assigned to the SVM you are trying to audit. Remember it&#39;s IP address and specify it in the properties of the NetApp item in Netwrix Auditor in ONTAPI node.<br><br><img alt="Management_Interface_NetApp" height="464" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcZ5&amp;feoid=00N0g000004CA0p&amp;refid=0EM0g000002CGLg" width="500"></img><br><br>Also make sure the account used to collect to ONTAPI assigned with a custom role� on SVM that has the following capabilities with access query levels</span></span>
+<div>
+<table style="margin-left: 32px;" summary="" title="" valign="top"><tbody><tr><td colspan="1" rowspan="1" style="width: 1.7013in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">Version�</span></span></td><td colspan="1" rowspan="1" style="width: .7062in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">readonly</span></span></td></tr><tr><td colspan="1" rowspan="1" style="width: 1.7013in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">Volume</span></span></td><td colspan="1" rowspan="1" style="width: .7062in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">�readonly</span></span></td></tr><tr><td colspan="1" rowspan="1" style="width: 1.7013in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">vserver audit</span></span></td><td colspan="1" rowspan="1" style="width: .6375in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">all</span></span></td></tr><tr><td colspan="1" rowspan="1" style="width: 1.7208in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">vserver audit rotate-log</span></span></td><td colspan="1" rowspan="1" style="width: .618in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">all</span></span></td></tr><tr><td colspan="1" rowspan="1" style="width: 1.7013in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">vserver cifs</span></span></td><td colspan="1" rowspan="1" style="width: .7062in;"><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">readonly</span></span></td></tr></tbody></table>
+</div>
+<span style="font-size: 11.0pt;"><span style="font-family: Calibri;">�</span></span><br><span style="font-size: 11.0pt;"><span style="font-family: Calibri;">See�<a href="https://helpcenter.netwrix.com/Configure_IT_Infrastructure/Accounts/DCA_NetApp.html" target="_blank">Creating Role on NetApp Clustered Data ONTAP 8 or ONTAP 9 and Enabling AD User Access</a></span></span><br><br>�
+</body>
+</html>

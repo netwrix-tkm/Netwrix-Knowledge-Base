@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to omit some Exchange Server attributes from being reported</title>
+    <meta name="article-id" content="ka04u000000HcOOAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:14.000Z">
+    <meta name="articlenumber" content="000003134">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:48.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9V0CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9V0CAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:49.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:11.000Z">
+    <meta name="meta-description" content="omit  Exchange server attribute report">
+    <meta name="meta-title" content="How to omit some Exchange Server attributes from being reported">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="711">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9V0CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to omit some Exchange Server attributes from being reported</h1>
+    How to omit some Exchange Server attributes from being reported?
+<hr></hr> To omit an Exchange Server attribute from reporting:
+<ol><li>Navigate to<strong> Netwrix Auditor </strong>installation folder. For example, <em>C:\Program Files (x86)\Netwrix Auditor\Active Directory Auditing.</em></li><li>Locate <strong>omitproplist_ecr.txt</strong> file and add the attributes you want to exclude from reporting in the following format:</li></ol>
+
+<div style="margin-left: 40px;"><em>*.&lt;attribute name&gt;</em></div>
+<strong>For example: </strong>*.msExchSafeSendersHash
+</body>
+</html>

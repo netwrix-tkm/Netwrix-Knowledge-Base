@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report could not be downloaded</title>
+    <meta name="article-id" content="ka04u00000116edAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:50.000Z">
+    <meta name="articlenumber" content="000003464">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:04:22.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9aUCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9aUCAS">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:04:50.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:44.000Z">
+    <meta name="meta-description" content="While downloading a report from Password Manager Helpdesk portal, no error messages are displayed but the report can not be downloaded.  Increase size limit">
+    <meta name="meta-title" content="Report could not be downloaded">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1293">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9aUCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Report could not be downloaded</h1>
+    While downloading a report from Password Manager Helpdesk portal, no error messages are displayed but the report can not be downloaded.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ed&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005b6x" alt="User-added image" width="500" height="266"></img>
+
+<hr></hr>
+
+Reports are actually generated as html files. To make them available for download, Password Manager saves them in .csv format in the Helpdesk physical path folder
+(by default C:Program Files (x86)Netwrix Password ManagerWeb)
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ed&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005b7b" alt="User-added image" width="500" height="383"></img>
+
+If the time period (for the Activity Report) or Number of users in monitored domains are large, then report files might be several megabytes in size.
+
+By default Internet Information Services has a 4 MB size limit for downloaded files, if the file is bigger than 4 MB, the error above might occur.
+
+<hr></hr>
+
+To resolve the issue you need to increase size limit.
+
+In order to do it:
+<ol><li>Launch <strong>IIS manager</strong></li><li>In the left pane navigate to %Servername% - Sites - %PMWebsite% - %PMvirtualdir% - %Helpdeskvirtualdir%. By default it is <strong>%Servername% - Sites - Default Web Site - PM - Helpdesk</strong></li><li>In the central pane double click <strong>ASP</strong> feature under IIS group</li><li>Expand <strong>Limit properties</strong></li><li>Change <strong>Response Buffering Limit </strong>to 10485760 (10 MB) or more</li><li>Click <strong>Apply </strong>under Actions at the top of  the right <strong> </strong>pane</li></ol>
+<div style="margin-left: 40px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ed&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005b7g" alt="User-added image" width="500" height="293"></img></div>
+If the above does not help, try restarting IIS with the <em>iisreset</em> command after making the changes.
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Change Admin Password for Mongo Database</title>
+    <meta name="article-id" content="ka04u000000QmcbAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:00:58.000Z">
+    <meta name="articlenumber" content="000008310">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-25T20:26:04.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:00:58.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JgJCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JgJCAU">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-05-25T20:29:16.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to Change the Admin Password of your Mongo Database">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8310">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JgJCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Change Admin Password for Mongo Database</h1>
+    <h1>Question</h1>
+
+I have authentication enabled in my Mongo DB, but I&#39;ve lost�the admin password to access. How can I reset it?
+
+<h1>Answer</h1>
+
+Here are instructions for how to change the admin account password.<br><span style="color: #c0392b;"><strong>IMPORTANT.</strong></span> It requires logon to the server that has the Mongo Database installed.<br><strong>Step 1.</strong> Stop the MongoDB Service in Task Manager<br><strong>Step 2.</strong> Disable MongoDB Authentication:<br><ol><li>Navigate to <code>C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\conf</code></li><li>Edit the <b>mongo.conf </b>file</li><li>Comment each line out using the <b>#</b> symbol except for <b>logpath</b>, <b>dbpath</b> and <b>storageEngine</b>:<br>	<span style="color: black;"><img alt="A screenshot of a computer  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Qmcb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007cf9k" style="width: 624px;height: 270px;"></img></span><br>	�</li></ol>
+
+<strong>Step 3</strong>. Start the MongoDB Service in Task Manager<br><strong>Step 4</strong>. Open the Mongo<strong> </strong>shell by running the following program: <code>C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin\mongo.exe</code><br>You will see the following window:<br><img alt="mongoshell1.PNG" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Qmcb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007cf9V"></img><br><strong>Step 5</strong>. Enter the following commands:
+
+<pre class="ckeditor_codeblock">
+use admin</pre>
+<strong>Step 6</strong>. Enter one more command:
+
+<pre class="ckeditor_codeblock">
+db.changeUserPassword(&quot;admin&quot;, &quot;passWord121&quot;)</pre>
+
+<p><strong>NOTE.</strong> The command above uses <strong><span style="">passWord121</span></strong> as an example password, be sure to modify this to a password you wish to use</p>
+
+<p>Changing the password should take you to a new line without an output:<br><img alt="MongoPWChanged.PNG" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Qmcb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007cf9f"></img></p>
+<strong>Step 7</strong>. Close the <strong>mongo.exe</strong> window and stop the MongoDB Service in Task Manager<br><strong>Step 8</strong>. Re-enable MongoDB Authentication:
+
+<ol><li>
+	<p>Navigate to <code>C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\conf</code></p>
+	</li><li>
+	<p>In the <strong>mongo.conf</strong> file remove all <strong># </strong>symbols from each of the lines. Save changes:<br>	<img alt="mongo-conf-auth.PNG" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Qmcb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007cf9u"></img></p>
+	</li></ol>
+<strong>Step 9</strong>. Start the MongoDB Service in Task Manager<br><strong>Step 10</strong>. Open Command prompt and verify your Mongo logon using your authentication command. Below is an example:<br><strong>&quot;C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin\mongo&quot; --ssl --sslCAFile C:\mongo.crt --host <span style="color: #2980b9;">192.168.1.X</span> --port 27017 -u admin -p <span style=""><span style="color: #2980b9;">passWord121</span> </span>--authenticationDatabase admin --sslAllowInvalidCertificates</strong>
+
+<div>
+<div>
+<p><strong>NOTE.</strong> Parameters highlighted with <strong><span style="color: #2980b9;">blue</span><span style="">�</span></strong>have to reflect the <strong>IP of the server hosting the MongoDB </strong>and the <strong>new password</strong> entered in a command above.</p>
+</div>
+</div>
+
+<h3 id="">Related articles</h3>
+
+<ul><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JWTCA2.html" target="_blank">How to Backup / Restore / Move your MongoDB Database</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JehCAE.html" target="_blank">Monitoring Oracle Databases using Change Tracker</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JemCAE.html" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JXHCA2.html" target="_blank">How to Add Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen7</a></div>
+	</li></ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirements for Exchange Online Modern Authentication</title>
+    <meta name="article-id" content="ka04u000000HdEgAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2021-04-22T12:53:04.000Z">
+    <meta name="articlenumber" content="000005860">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-05-08T10:19:42.000Z">
+    <meta name="firstpublisheddate" content="2021-04-23T16:51:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Pd5oCAC">
+    <meta name="knowledge-article-id" content="kA04u000000Pd5oCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:42.000Z">
+    <meta name="lastpublisheddate" content="2021-11-08T11:08:35.000Z">
+    <meta name="meta-description" content="Requirements for Modern Authentication and steps how Netwrix Auditor enables Modern Authentication for Exchange Online.">
+    <meta name="meta-title" content="Exchange Online Modern Authentication configuration">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5860">
+    <meta name="versionnumber" content="8">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Pd5oCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Requirements for Exchange Online Modern Authentication</h1>
+    <b>General requirements for Exchange Online State-in-Time and Auto Audit for mailboxes Modern Authentication</b>
+<ol><li>Install Windows Management Framework for your OS:�<a href="https://www.microsoft.com/en-us/download/details.aspx?id=54616" target="_blank">Windows Management Framework 5.1</a></li><li>Install .NET Framework 4.7.1 and above:�<a href="http://microsoft.com/en-US/download/details.aspx?id=56116" target="_blank">Microsoft .NET Framework 4.7.1 </a></li></ol>
+<b>How Netwrix Auditor enables�Exchange Online State-in-Time and Auto Audit for mailboxes Modern Authentication (automatic mode)<br><span style="color: #c0392b;">Important!�</span></b><span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;">If you have the FIPS option enabled you should proceed to <b>Manual Exchange Online State-in-Time pre-configuration. </b>See the following Netwrix knowledge base article for more information:<b>�<a href="https://kb.netwrix.com/5861" target="_blank">How to configure Exchange Online State-in-Time Modern Authentication manually</a></b></span></span></span>
+
+<ol><li>ExchangeOnlineManagement Powershell module and dependencies (Nget package provider) installation. See the following Microsoft article for more information:�<a href="https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps" target="_blank">About the Exchange Online PowerShell V2 module</a></li><li>Self-signed certificate generation</li><li>Installation of the certificate�to the <i>CurrentUser/My certificate </i>folder for the Local System account.</li><li>Installation of the certificate to the Azure AD cloud application</li></ol>
+</body>
+</html>

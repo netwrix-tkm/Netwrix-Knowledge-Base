@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Remove Delete option from the GroupID Portal</title>
+    <meta name="article-id" content="ka0Qk000000DdLJIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1XIAA0">
+    <meta name="articlecreateddate" content="2025-05-06T06:10:19.000Z">
+    <meta name="articlenumber" content="000010174">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002QzJKAU">
+    <meta name="assignedbyid" content="0054u000008F1XIAA0">
+    <meta name="assignedtoid" content="0054u000008F1XIAA0">
+    <meta name="assignmentdate" content="2025-05-06T06:10:19.000Z">
+    <meta name="createdbyid" content="0054u000008F1XIAA0">
+    <meta name="createddate" content="2025-05-06T06:10:19.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002QzJKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008F1XIAA0">
+    <meta name="lastmodifieddate" content="2025-05-06T06:10:19.000Z">
+    <meta name="ownerid" content="0054u000008F1XIAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10174">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Remove Delete option from the GroupID Portal</h1>
+    <p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Applies To:</b></p>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">GroupID 11</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Business Scenario:</b></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">We have Users who are members of many critical groups and use the GroupID portals on a daily basis. We do not want them to accidentally delete any groups that may lead to issues within our organization. Is there a way to disable/remove the option to delete groups so that only administrators have the right to perform this action, and not the users?</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Solution:</b></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Yes, it is possible by making changes to the design of the GroupID portals. We can hide the option to delete from users accessing the groups.</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Please follow the steps provided below to implement the restrictions based on the security roles:</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Steps:</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">In the <b>GroupID Admin Center</b>, go to the <b>Applications</b> tab in the left navigation bar.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Click on the <b>Ellipses</b> button for the portal you wish to make changes to, and then click on <b>Settings</b>.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdLJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPAA9" height="241" width="624"></img></p>
+<ol start="3" style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Once the portal settings open, click on the Identity Store name under <b>Design Settings</b> for which you want to make the design changes.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdLJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPA8X" height="240" width="624"></img></p>
+<ol start="4" style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Click on the <b>Toolbars</b> button and select �<b>Groups</b>� from the <b>Select Toolbar Type</b> dropdown list.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Select �<b>Delete</b>� from the list that appears corresponding to the selected toolbar and click on the &quot;<b>Pencil</b>� icon.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdLJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPA6v" height="304" width="624"></img></p>
+<ol start="6" style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">A new window will appear. Locate the �<b>Visibility Role</b>� dropdown list and change the value from �<b>Users</b>� to �<b>Administrator</b>� security role. When &quot;<b>Users</b>&quot; is selected, it allows the visibility of the button to every role that has a priority level greater than Users. If you want to disable this feature for everyone, simply select &quot;<b>Never,</b>&quot; and the delete button will be hidden from all the Security Roles available within your environment.</li></ol>
+<p style="text-align: center;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdLJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPA5J" height="781" width="299"></img></p>
+<ol start="7" style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Once the changes are made, make sure that you save the changes by clicking on the &quot;<b>Save</b>&quot; icon in the Designs tab.</li></ol>
+<p style="text-align: center;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdLJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPABl" height="290" width="624"></img></p>
+<ol start="8" style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Refresh/relaunch the GroupID Portal and verify by going into the properties of any group. The Delete option will no longer be available in the toolbar.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Similarly, if you want to hide the delete option from the <b>Group Search or My Groups</b>, select the �<b>Groups Search</b>� toolbar type in the step 3 and repeat steps 4 to 7.</p>
+</body>
+</html>

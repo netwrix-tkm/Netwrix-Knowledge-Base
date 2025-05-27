@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix Patch 2.6.207 Threat Manager 2.6</title>
+    <meta name="article-id" content="ka0Qk000000DcVhIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:09:46.000Z">
+    <meta name="articlenumber" content="000006315">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IDLCA2">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-06T03:34:56.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:09:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IDLCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IDLCA2">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-06T03:40:54.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:09:47.000Z">
+    <meta name="meta-description" content="360012122351">
+    <meta name="meta-title" content="Hotfix Patch 2.6.207 Threat Manager 2.6">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6315">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IDLCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix Patch 2.6.207 Threat Manager 2.6</h1>
+    <p><strong>Description: </strong></p>
+<p>This hotfix addresses or implements the following:</p>
+<ul><li>Issues with the File Table taking up an abnormal amount of Storage space</li><li>Issues with Investigation Threat false positives when using �Attribute Before or Attribute After�</li><li>Added �Disable TGT validation� option to Golden Ticket Threat</li><li>Various AD Sync Fixes and Improvements</li><li>Improved Python Job Logging</li><li>Issues with Threat History not showing the correct user in some circumstances</li><li>Isuses with User Access to Threat Manager</li></ul>
+<p>�</p>
+<p><strong>Submitted by: </strong></p>
+<p>Lee Berg</p>
+<p><strong>�</strong></p>
+<p><strong>Affected Versions:</strong></p>
+<p>Prior versions of 2.6</p>
+<p><strong>�</strong></p>
+<p><strong>Dev Tickets:</strong></p>
+<table style="height: 276px;" width="664"><tbody><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p><strong>Story</strong></p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p><strong>Summary</strong></p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">
+<p><strong>Escalation</strong></p>
+</td></tr><tr style="height: 43px;"><td colspan="1" rowspan="1" style="height: 43px;width: 98.8889px;">
+<p>SDFS-14416</p>
+</td><td colspan="1" rowspan="1" style="height: 43px;width: 437.778px;">
+<p>UEBA - Improve &quot;Outlier Probability&quot; Calculation for User Behavior Model</p>
+</td><td colspan="1" rowspan="1" style="height: 43px;width: 92.2222px;">�</td></tr><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p>SDFS-15266</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p>$ThreatEvidence variable is not working in threat response</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">�</td></tr><tr style="height: 43px;"><td colspan="1" rowspan="1" style="height: 43px;width: 98.8889px;">
+<p>SDFS-15431</p>
+</td><td colspan="1" rowspan="1" style="height: 43px;width: 437.778px;">
+<p>Investigations Failing Open - Attribute Before and Attribute After</p>
+</td><td colspan="1" rowspan="1" style="height: 43px;width: 92.2222px;">�</td></tr><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p>SDFS-15527</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p>Add setting to GT threat to allow disabling TGT validation</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">�</td></tr><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p>SDFS-15502</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p>AD sync deadlocking issue</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">57001</td></tr><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p>SDFS-15477</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p>Abnormal File Table Disk Utilization</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">�</td></tr><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p>SDFS-15441</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p>Python jobs logging issues</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">�</td></tr><tr style="height: 43px;"><td colspan="1" rowspan="1" style="height: 43px;width: 98.8889px;">
+<p>SDFS-15331</p>
+</td><td colspan="1" rowspan="1" style="height: 43px;width: 437.778px;">
+<p>Add service name to the PG connection strings for easier debugging</p>
+</td><td colspan="1" rowspan="1" style="height: 43px;width: 92.2222px;">�</td></tr><tr style="height: 21px;"><td colspan="1" rowspan="1" style="height: 21px;width: 98.8889px;">
+<p>SDFS-14457</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 437.778px;">
+<p>Issues with User Access - StealthDefend</p>
+</td><td colspan="1" rowspan="1" style="height: 21px;width: 92.2222px;">
+<p>55648</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 98.8889px;">
+<p>SDFS-14577</p>
+</td><td colspan="1" rowspan="1" style="width: 437.778px;">Threat Manager Performance</td><td colspan="1" rowspan="1" style="width: 92.2222px;">
+<p>55779</p>
+</td></tr></tbody></table>
+<p><strong>�</strong></p>
+<p><strong><a href="https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.6.207.zip" target="_blank">https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.6.207.zip</a></strong></p>
+<p>�</p>
+</body>
+</html>

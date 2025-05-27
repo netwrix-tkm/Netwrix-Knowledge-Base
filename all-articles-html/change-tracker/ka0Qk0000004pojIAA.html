@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus Exclusions for Netwrix Change Tracker</title>
+    <meta name="article-id" content="ka0Qk0000004pojIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-09-29T11:04:59.000Z">
+    <meta name="articlenumber" content="000008830">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-07-30T08:39:36.000Z">
+    <meta name="firstpublisheddate" content="2023-09-29T11:05:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111HFCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111HFCAY">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-07-30T08:39:51.000Z">
+    <meta name="lastpublisheddate" content="2024-07-03T08:18:01.000Z">
+    <meta name="meta-description" content="Antivirus Exclusions for Netwrix Change Tracker">
+    <meta name="meta-title" content="Antivirus Exclusions for Netwrix Change Tracker">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8830">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111HFCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Antivirus Exclusions for Netwrix Change Tracker</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Should Netwrix Change Tracker folders, services, and processes be excluded from the monitoring scope of your antivirus and endpoint detection and response solutions?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Netwrix Change Tracker performance may be negatively affected by antivirus and endpoint detection and response solutions. Refer to the following list of exclusions to avoid potential performance degradation.</p>
+</div>
+
+<div>
+<blockquote>
+<p>Exclusions for Change Tracker agents:</p>
+</blockquote>
+
+<table style="margin-left: auto;margin-right: auto;"><tbody><tr style="background-color: darkgrey;"><td colspan="1" rowspan="1">
+			<p><strong>Name/Platform</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p><strong>Service</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p><strong>Process</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p><strong>Folder</strong></p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p>Windows NetCore Agent</p>
+			</td><td colspan="1" rowspan="1">
+			<p>Gen7AgentCore</p>
+			</td><td colspan="1" rowspan="1">
+			<p>Gen7Agent.App.NetCore.exe</p>
+			</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p>C:\ProgramData\NNT\gen7agent.app.netcore</p>
+				</li><li>
+				<p>C:\Program Files\NNT Change Tracker Suite\Gen7Agent (NetCore)</p>
+				</li></ul>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p>Linux NetCore Agent</p>
+			</td><td colspan="1" rowspan="1">
+			<p>nntgen7agentcore</p>
+			</td><td colspan="1" rowspan="1">
+			<p>/opt/nnt/gen7agentcore/bin/Gen7Agent.App.NetCore</p>
+			</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p>/var/nnt/gen7agent.app.netcore/</p>
+				</li><li>
+				<p>/opt/nnt/gen7agentcore/</p>
+				</li></ul>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<p>Linux Express Agent</p>
+			</td><td colspan="1" rowspan="1">
+			<p>nntexpressagent</p>
+			</td><td colspan="1" rowspan="1">
+			<p>/opt/nnt/expressagent/expressAgent</p>
+			</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p>/var/nnt/expressagent/</p>
+				</li><li>
+				<p>/opt/nnt/expressagent/</p>
+				</li></ul>
+			</td></tr></tbody></table>
+</div>
+
+<div>
+<blockquote>
+<p>Exclusions for Change Tracker Hub:</p>
+</blockquote>
+
+<table style="margin-left: auto;margin-right: auto;"><tbody><tr style="background-color: darkgrey;"><td colspan="1" rowspan="1">
+			<p><strong>Service</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p><strong>Process</strong></p>
+			</td><td colspan="1" rowspan="1">
+			<p><strong>Folder</strong></p>
+			</td></tr><tr><td colspan="1" rowspan="1">
+			<ul><li>
+				<p>MongoDB</p>
+				</li><li>
+				<p>W3SVC (Windows IIS Service)</p>
+				</li></ul>
+			</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p>MongoDB Database Service (mongod.exe)</p>
+				</li><li>
+				<p>IIS Worker Process (w3wp.exe)</p>
+				</li></ul>
+			</td><td colspan="1" rowspan="1">
+			<ul><li>
+				<p>C:\Program Files\NNT Change Tracker Suite\Gen7\</p>
+				</li><li>
+				<p>C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) Hub</p>
+				</li><li>
+				<p>C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) WebUI</p>
+				</li><li>
+				<p>C:\ProgramData\Change Tracker Generation 7 (NetCore)\MongoDB\</p>
+				</li><li>
+				<p>C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\</p>
+				</li></ul>
+			</td></tr></tbody></table>
+</div>
+</body>
+</html>

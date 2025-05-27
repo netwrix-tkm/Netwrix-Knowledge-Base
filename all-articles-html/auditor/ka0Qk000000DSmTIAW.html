@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Active Directory Attribute Changes Reported as &quot;Changed and Reverted Back&quot; in Auditor</title>
+    <meta name="article-id" content="ka0Qk000000DSmTIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2025-04-28T15:38:02.000Z">
+    <meta name="articlenumber" content="000010155">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002OXhKAM">
+    <meta name="assignedbyid" content="005Qk0000017MRRIA2">
+    <meta name="assignedtoid" content="005Qk0000017MRRIA2">
+    <meta name="assignmentdate" content="2025-04-28T15:38:02.000Z">
+    <meta name="case" content="500Qk00000MtHq1IAF">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2025-04-28T15:38:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002OXhKAM">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-04-28T15:38:02.000Z">
+    <meta name="meta-description" content="Re:  Active Directory changes not properly tracking">
+    <meta name="meta-title" content="Re:  Active Directory changes not properly tracking">
+    <meta name="ownerid" content="0050g000006HJDrAAO">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10155">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Active Directory Attribute Changes Reported as &quot;Changed and Reverted Back&quot; in Auditor</h1>
+    <h2>Related Queries</h2>
+<ul><li>&quot;Active Directory changes not properly tracking&quot;</li><li>&quot;Two AD user objects&#39; changes made were recorded as &#39;changed and reverted back&#39; which is inaccurate&quot;</li><li>&quot;Netwrix Auditor reporting AD changes as changed and reverted back&quot;</li></ul>
+<h2>Symptoms</h2>
+<p>When making changes to Active Directory user attributes, Netwrix Auditor for Active Directory may report these changes in Activity Records as &quot;changed and reverted back,&quot; even though the changes were not actually reverted. This can occur for both new attribute values and modifications to existing values. The issue is intermittent and not limited to specific users or attributes.</p>
+<h2>Causes</h2>
+<p>This behavior is caused by a product defect in Auditor&#39;s Active Directory collection process. During the start of a daily or forced ADA (Active Directory Auditing) collection, there is a 2�3 minute window when Auditor updates or clears its cache. If any changes are made in Active Directory during this cache-clearing period, Auditor cannot find the previous cached value and incorrectly reports the change as &quot;reverted back.&quot;</p>
+<ul><li>This can occur during scheduled daily collections or when a collection is manually forced (for example, by clicking the <strong>Update</strong> button).</li><li>Changes made by automated processes (such as HR system syncs) or manual updates can both be affected if they occur during this window.</li></ul>
+<h2>Resolutions</h2>
+<ol><li><strong>Workaround:</strong> Change the scheduled time for ADA collections to a period when no automated or manual changes are expected in Active Directory.
+<ul><li>For example, if an HR sync or other scripts run at 4:00 AM, schedule the ADA collection for a different time (such as 2:00 AM).</li><li>Adjust the <strong>Notification</strong> or <strong>Summary</strong> time in the Active Directory monitoring plan settings.</li></ul>
+</li><li><strong>Monitor for Recurrence:</strong> After changing the collection time, verify that attribute changes are now reported accurately in Auditor Activity Records.</li><li><strong>Permanent Fix:</strong> Netwrix development is working on a product update to eliminate the cache-clearing window. Monitor release notes for your version of Auditor for updates on this issue.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> This issue affects both daily scheduled and manually forced ADA collections. If you must perform a forced collection, avoid making AD changes during the next 2�3 minutes.</p>
+</blockquote>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span> This workaround does not retroactively correct previously misreported changes. Only changes made after the workaround is applied will be tracked accurately.</p>
+</blockquote>
+<h2>Additional Information</h2>
+<ul><li>To identify if a collection was forced or scheduled, review the ADA Analyzer logs for lines containing <code class="lang-Registry">Arguments</code> and check for &quot;daily&quot; or &quot;forced&quot; in the log entry.</li><li>For more details on this issue, refer to your product&#39;s release notes or contact Netwrix Support.</li></ul>
+<h2>Related Articles</h2>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/auditor-active-directory/page/ad_monitoring_plan.html" target="_blank"> Configuring Active Directory Monitoring Plans in Auditor </a></li></ul>
+</body>
+</html>

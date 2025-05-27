@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Server Inventory Report shows Windows Defenders as the only Antivirus installed</title>
+    <meta name="article-id" content="ka04u000000HdG1AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000005YG2zAAG">
+    <meta name="articlecreateddate" content="2021-01-25T21:05:17.000Z">
+    <meta name="articlenumber" content="000005847">
+    <meta name="createdbyid" content="0050g000005YG2zAAG">
+    <meta name="createddate" content="2023-05-08T10:20:09.000Z">
+    <meta name="firstpublisheddate" content="2021-01-25T21:51:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000XmGgCAK">
+    <meta name="knowledge-article-id" content="kA04u000000XmGgCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:20:09.000Z">
+    <meta name="lastpublisheddate" content="2021-01-25T21:51:18.000Z">
+    <meta name="meta-description" content="Windows Server Inventory Report shows Windows Defenders as the only Antivirus installed">
+    <meta name="meta-title" content="Windows Server Inventory Report shows Windows Defenders as the only Antivirus installed">
+    <meta name="ownerid" content="0050g000005YG2zAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5847">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmGgCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Windows Server Inventory Report shows Windows Defenders as the only Antivirus installed</h1>
+    <h3 style="color: red;">Scenario</h3>
+When running the Windows Server Inventory Report in Netwrix Auditor, the results show Windows Defender as the only installed Antivirus.
+
+<h3 style="color: orange;">Cause</h3>
+This is due to the fact that Windows Server 2016 and 2019 are missing the WMI SecurityCenter2 namespace, resulting in the OS only recognizing Windows Defender.
+
+<h3 style="color: green;">Solution</h3>
+Once a 3rd party software is installed, disable Windows Defender. The WMI SecurityCenter2 namespace will regenerate and identify the alternative Antivirus software.<br>For more information, visit this <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-compatibility" target="_blank">Microsoft article</a>
+</body>
+</html>

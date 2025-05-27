@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFS shares on Netapp appliance</title>
+    <meta name="article-id" content="ka04u000000HcxNAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:36:52.000Z">
+    <meta name="articlenumber" content="000007253">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:07.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:36:52.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IrpCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IrpCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:07.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:36:52.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="NFS shares on Netapp appliance">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7253">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IrpCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>NFS shares on Netapp appliance</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Client has NFS shares presented on Netapp 7 mode using Windows authentication. How can we include the user map from the appliance to show the permissions correctly in AIC?</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> We have worked through this issue with Honeywell using the attached job. This job is responsible for:</p>
+<ul class="wiki-list0"><li>reading /etc/usermap.cfg file to parse AD-&gt; Unix Mapping</li><li>reading /etc/passwd file to parse Unix users</li><li>correlating the two to provide view which is then used by AIC</li></ul>
+<p>This job is specific to NetApp machines, where AD users are being mapped to unix accounts through the usermap.cfg file.<br><br>This job will require enough privileges on the netapp to run the rdfile command against the files listed in the bulleted list above</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Use job located here:<br><br><a href="https://stealthbits.myjetbrains.com/youtrack/_persistent/JOB_FS_NFS_LDAPMap.zip?file=98-12315&amp;c=true" target="_blank">https://stealthbits.myjetbrains.com/youtrack/_persistent/JOB_FS_NFS_LDAPMap.zip?file=98-12315&amp;c=true</a></p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - NetApp<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-2020<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 8.0<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1551</p>
+</body>
+</html>

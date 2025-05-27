@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SD_2.0_005</title>
+    <meta name="article-id" content="ka0Qk000000DipdIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:25:03.000Z">
+    <meta name="articlenumber" content="000006716">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IOHCA2">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T02:54:12.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:25:03.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IOHCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IOHCA2">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T03:00:06.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:25:03.000Z">
+    <meta name="meta-description" content="360012123251">
+    <meta name="meta-title" content="Hotfix: SD_2.0_005">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6716">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IOHCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SD_2.0_005</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> .	Additional SAM Event Handling
+.	High Risk Permission Threat &amp; Threat Response Improvements
+.	Active Directory Sync Performance Improvements
+.	Active Directory Sync Error Handling
+.	Missing Client Information in SIEM/Action Response</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Title: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Hotfix Patch 2.0.435 for Threat Manager 2.0</span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Summary:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>This Hotfix addresses a variety of issues relating but not limited to: </span></strong></span></span></span>
+</p><ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Additional SAM Event Handling</span></strong></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>High Risk Permission Threat &amp; Threat Response Improvements</span></strong></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Active Directory Sync Performance Improvements</span></strong></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Active Directory Sync Error Handling</span></strong></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Missing Client Information in SIEM/Action Response</span></strong></span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior before Fix: </span></strong></span></span></span>
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">In some rare cases events from SAM would not be processed by Threat Manager due to some unique variability in the client data.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Some rare instances of the high risk permission threat would not gather the correct events or handle threat response properly.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Active Directory Performance issues when syncing Token Groups</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Active Directory Stability issues on minor network interruption, and certain AD data formats</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">SIEM / Playbooks for AD Threats would sometimes be missing client information</span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior after Fix: </span></strong></span></span></span>
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">DEFEND properly processes SAM events in different data types in.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">High Risk Permission threat handles more unique scenarios.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Greatly increased performance for the Active Directory Sync.</span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Additional error handling and logging for the Active Directory Sync.</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">SIEM / Playbook Responses for AD Threats will properly translate outgoing client information</span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Lee Berg</span></span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Prior versions of 2.0</span></span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;"><b><span style="font-style: normal;">Escalations:</span></b></span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>34806 </span></strong></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Dev Tickets:</span></strong><br><span class="MsoHyperlink" style="color: #0563c1;"><span style="text-decoration: underline;">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6904</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><a style="text-decoration: underline;color: #0563c1;" href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6895" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6895</a></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><a style="text-decoration: underline;color: #0563c1;" href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-7183" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/<span>SDFS-7183</span></a></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><a style="text-decoration: underline;color: #0563c1;" href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-7085" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/<span>SDFS-7085</span></a></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><a style="text-decoration: underline;color: #0563c1;" href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-7264" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/<span>SDFS-7264</span></a></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><a style="text-decoration: underline;color: #0563c1;" href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-7064" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/<span>SDFS-7064</span></a> </span></span></span><br><br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Download installer<br>2. Stop all Threat Manager services<br>3. Double click to perform upgrade (valid for versions 2.0.0+)<br><br><a href="https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.0.435.zip" target="_blank">https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.0.435.zip</a></p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Threat Manager<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Threat Manager - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 2.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SDFS-7064
+SDFS-6904
+SDFS-6895
+SDFS-7183
+SDFS-7085
+SDFS-7264<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 2.0.435.0<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2407<br></p>
+</body>
+</html>

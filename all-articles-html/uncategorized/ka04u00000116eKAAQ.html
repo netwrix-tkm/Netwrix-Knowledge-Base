@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;No mapping between account names and security IDs was done&quot;</title>
+    <meta name="article-id" content="ka04u00000116eKAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:59.000Z">
+    <meta name="articlenumber" content="000003295">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:00:47.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XgCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XgCAK">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:01:02.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:40.000Z">
+    <meta name="meta-description" content="Netwrix Auditor, Password Manager, No mapping between account names and security IDs was done">
+    <meta name="meta-title" content="Error: &quot;No mapping between account names and security IDs was done&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1145">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XgCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;No mapping between account names and security IDs was done&quot;</h1>
+    <h1>Symptoms</h1>
+The following error message appears when trying to enroll a user, unlock a user account, change or reset a password:
+
+<pre class="ckeditor_codeblock">
+No mapping between account names and security IDs was done when enrolling user, changing or resetting password</pre>
+
+<h1>Cause</h1>
+Here are possible reasons:
+
+<ol><li>The user name is invalid. Make sure that the name is entered correctly and the account of this user name belongs to the specified domain.</li><li>The service account does not have permissions to read account properties form AD</li><li>The computer with Netwrix Password Manager installed is not trusted for delegation.</li><li>The computer with Netwrix Password Manager installed cannot connect to a domain controller.</li></ol>
+
+<h1>Resolution</h1>
+Verify all possible reasons mentioned above:
+
+<ol><li>Check that a username is entered correctly and a user with such account name is present in AD</li><li>Check the effective permissions of the Password Manager service account ot the problem account</li></ol>
+
+<ul><li>Select test account in AD Users and Computers and go to <strong>Properties - Security</strong></li><li>Click <strong>Advanced</strong> and go to <strong>Effective Permissions </strong>tab</li><li>Specify the name of the service account and check effective permissions</li></ul>
+<img alt="User-added image" height="371" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eK&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004y5b" style="width: 444px;height: 306px;" width="500"></img>
+<ol start="3"><li>In Active Directory Users and Computers, open the required account`s <strong>Properties</strong> dialog, switch to the <strong>Delegation</strong> tab and select the <strong>Trust this computer for delegation to any service (Kerberos only)</strong> option.</li></ol>
+<img alt="User-added image" height="405" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eK&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004y5W" width="500"></img>
+<ol start="4"><li>Try to delete the computer from your domain and then add it back.</li></ol>
+</body>
+</html>

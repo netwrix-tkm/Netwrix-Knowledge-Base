@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor Data Collection Account: Failed Logons | Account Lockouts</title>
+    <meta name="article-id" content="ka04u00000117frAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:02.000Z">
+    <meta name="articlenumber" content="000003704">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-09-07T13:21:35.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:07.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9eMCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9eMCAS">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T13:24:28.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T13:24:28.000Z">
+    <meta name="meta-description" content="Netwrix Auditor Data Collection Account: Failed Logons | Account Lockouts">
+    <meta name="meta-title" content="Netwrix Auditor Data Collection Account: Failed Logons | Account Lockouts">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="3793">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eMCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor Data Collection Account: Failed Logons | Account Lockouts</h1>
+    <h2>Symptom</h2>
+
+<p>Logon Activity reports show that the Data Collection Account is producing failed logons and/or getting locked out.</p>
+
+<h2>Cause</h2>
+
+<p>One of the locations seen below has expired credentials.</p>
+
+<h2>Resolution</h2>
+
+<h4>Monitoring Plans</h4>
+
+<p>Credentials entered for a monitoring plan are found by navigated from the Netwrix Auditor Home Page &gt; Monitoring Plans &gt; Double-click a selected Monitoring Plan &gt; Edit Settings (Top right).</p>
+<br><b>Enter good and current credentials under the Data Collection Tab</b>
+
+<hr class="wp-block-separator"></hr>
+<h4>Custom Data Collection Account</h4>
+
+<p>There may be times when a custom account is needed for the auditing of a specific data source. The input field for custom Data Collection Accounts is found by navigating from the Netwrix Auditor Home Page &gt; Monitoring Plans &gt; Double Click a selected Monitoring Plan &gt; Double Click a selected <em>Item</em>.</p>
+<img class="wp-image-3795" alt="" src="https://kb.netwrix.com/wp-content/uploads/2019/09/Custom-DCA.png"></img><br><br><b>Enter good and current credentials into the Custom Account fields. If you are using the Default Data Collection Account, leave the custom fields blank.</b>
+
+<hr class="wp-block-separator"></hr>
+<h4>SQL &amp; SSRS Settings</h4>
+
+<p>Found by navigating from the Netwrix Auditor Home Page &gt; Settings &gt; Audit Database Tab</p>
+<img class="wp-image-3802 hoverZoomLink" alt="" src="https://kb.netwrix.com/wp-content/uploads/2019/09/Settings-1024x558.png"></img><br><br><b>Enter good and current credentials by clicking &quot;Modify&quot; for both SQL and SSRS settings.</b>
+
+<hr class="wp-block-separator"></hr>
+<h4>Services</h4>
+
+<p>Some Netwrix Auditor services may be ran by the Netwrix Auditor Data Collection Account. Identify such services</p>
+<img class="wp-image-3796" alt="" src="https://kb.netwrix.com/wp-content/uploads/2019/09/Services.png"></img>
+<p><b>Right-click the service and select &quot;Properties&quot;</b></p>
+<img class="wp-image-3801" alt="" src="https://kb.netwrix.com/wp-content/uploads/2019/09/Change-Service-creds.png"></img><br><br><b>Enter good and current credentials and click &quot;OK&quot;.</b>
+
+<hr class="wp-block-separator"></hr>
+<h4>Password Expiration Notifier, Event Log Manager, and Inactive User Tracker</h4>
+
+<p>Netwrix Auditor comes installed with three additional programs that provide additional avenues of auditing. Navigating to the Data Collection Account credentials will be the same for all three. Find the programs via the Start Menu &gt; Select a Monitoring Plan &gt; Click &quot;Edit&quot;.</p>
+
+<p><b>Note:</b> If you do not have any monitoring plans for these programs, you may skip this step.</p>
+<img class="wp-image-3803 hoverZoomLink" alt="" src="https://kb.netwrix.com/wp-content/uploads/2019/09/Pen_IUT_ELM-1024x548.png"></img><br><br><b>Enter good and current credentials for these collectors and click &quot;Save&quot;.</b>
+
+<hr class="wp-block-separator"></hr>
+<h4>The issue has not been resolved...</h4>
+
+<p>If you are still receiving failed logons and/or lockouts for your Netwrix Auditor Data Collection Account, please consider the following:</p>
+
+<ul><li>Confirm that no other applications are using the same account as a service account (i.e. Back up software, Virus Scanners, etc.)</li><li>Stop Netwrix Services for a frame of time. Take note of the window of which the services are stopped. Once services are running again, allow some time for data to upload to SQL. After waiting, run a search like the one below:</li></ul>
+<img class="wp-image-3808 hoverZoomLink" alt="" src="https://kb.netwrix.com/wp-content/uploads/2019/09/Search-for-DCA-1024x409.png"></img>
+<ul><li>If any failed logons and/or lockouts are reported for the Data Collection Account, Netwrix is certainly not the root cause.</li><li>Lastly, Technical Support is equipped to assist in cases where the proposed solutions above do not resolve the issue.</li></ul>
+
+<div id="hzImg" style="background-color: rgb(255, 255, 255);display: none;">�</div>
+
+<div id="hzImg" style="background-color: rgb(255, 255, 255);display: none;">�</div>
+</body>
+</html>

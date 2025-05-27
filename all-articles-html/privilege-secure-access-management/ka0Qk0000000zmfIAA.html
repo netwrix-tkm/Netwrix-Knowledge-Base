@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolving Issues Where &quot;.ad&quot; Domain Resource Changes are Not Being Saved (IIS Config)</title>
+    <meta name="article-id" content="ka0Qk0000000zmfIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2023-06-06T18:36:50.000Z">
+    <meta name="articlenumber" content="000008608">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2023-12-13T20:53:11.000Z">
+    <meta name="firstpublisheddate" content="2023-06-06T18:51:56.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110fGCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110fGCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000006gpnvAAA">
+    <meta name="lastmodifieddate" content="2023-12-13T20:53:29.000Z">
+    <meta name="lastpublisheddate" content="2023-06-06T18:51:56.000Z">
+    <meta name="meta-description" content="Resolving Issues Where &quot;.ad&quot; Domain Resource Changes are Not Being Saved (IIS Config)">
+    <meta name="meta-title" content="Resolving Issues Where &quot;.ad&quot; Domain Resource Changes are Not Being Saved (IIS Config)">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8608">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110fGCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Resolving Issues Where &quot;.ad&quot; Domain Resource Changes are Not Being Saved (IIS Config)</h1>
+    <h1>Summary</h1>
+This article highlights the procedure for resolving problems where clicking the Save button after modifying an Active Directory domain Resource results in the &quot;Save&quot; button spinning. In this instance, the Frequency of the Sync schedule was just Saved:<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000zmf&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008L7rd"></img><br>This is a result of the &quot;.ad&quot; domain suffix being filtered by IIS.
+<h1>Instructions</h1>
+1. In order to remediate this, first open IIS Manager (inetmgr) on the Privilege Secure server.<br>2. On the left hand tree, select the Privilege Secure server&#39;s node. The &quot;file name extensions&quot; tab should be visible.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000zmf&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008L7s7"></img><br>3. Select the &quot;.ad&quot; extension and on the right hand pane, select &quot;Remove&quot;.<br>4. In a command prompt, run &quot;iisreset&quot;. You should now be able to save changes to the configuration on a domain ending in &quot;.ad&quot;.
+</body>
+</html>

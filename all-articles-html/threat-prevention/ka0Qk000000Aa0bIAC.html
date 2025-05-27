@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execution Timeout Expired NTP 7.4 Upgrade</title>
+    <meta name="article-id" content="ka0Qk000000Aa0bIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MdqrAAC">
+    <meta name="articlecreateddate" content="2024-11-07T22:49:37.000Z">
+    <meta name="articlenumber" content="000009316">
+    <meta name="assignedbyid" content="0054u000006gpoAAAQ">
+    <meta name="assignedtoid" content="0054u000007osjSAAQ">
+    <meta name="assignmentdate" content="2025-02-03T14:39:47.000Z">
+    <meta name="assignmentduedate" content="2025-02-09T06:00:00.000Z">
+    <meta name="case" content="500Qk00000HuRwfIAF">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000007MdqrAAC">
+    <meta name="createddate" content="2024-11-07T22:49:37.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001fnVKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001fnVKAQ">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-02-06T08:26:38.000Z">
+    <meta name="meta-description" content="Execution Timeout Expired NTP 7.4 Upgrade">
+    <meta name="meta-title" content="Execution Timeout Expired NTP 7.4 Upgrade">
+    <meta name="ownerid" content="0054u000007MdqrAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9316">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001fnVKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Execution Timeout Expired NTP 7.4 Upgrade</h1>
+    <blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Symptom</h2>
+<p>When performing an upgrade from 7.3.9 to 7.4, during the install stage the NTP installer generates the following error message:</p>
+<pre class="has-inner-focus"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Aa0b&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008h9GN" alt="Execution Timeout.png"></img> 
+</pre>
+<h2>Cause</h2>
+<p>These errors may be caused by any one of the following:</p>
+<ul><li>
+<p>SQL Storage Disk drive is at capacity</p>
+</li><li>
+<p>dbo.Alerts table in the NvMonitorConfig database needs to be truncated</p>
+</li><li>SQL Database Mirroring is enabled</li></ul>
+<h2>Resolutions</h2>
+<p>To address these causes, refer to the following steps.</p>
+<ul><li>
+<p>Verify that the SQL Server Storage Disk Drive is not at capacity.�</p>
+</li><li>Truncate the dbo.Alerts table in the NvMonitorConfig database by using the following statements:
+<ol><li style="list-style-type: none;">
+<ol><li>�<strong>TRUNCATE TABLE</strong> dbo.Alert</li><li><strong>SELECT* FROM</strong> dbo.Alert (This will verify the table has been truncated)</li></ol>
+</li></ol>
+</li><li>Disable SQL Database Mirroring using the steps presented in the hyperlinks below:</li></ul>
+<ol><li style="list-style-type: none;">
+<ol><li style="list-style-type: none;">
+<ol><li>�To check the state of a Mirrored Database Session: <a href="https://learn.microsoft.com/en-us/sql/database-engine/database-mirroring/view-the-state-of-a-mirrored-database-sql-server-management-studio?view=sql-server-ver16#to-view-the-status-of-a-database-mirroring-session" target="_blank">Verifying The State of a Mirrored Database</a></li><li>Steps to removing database mirroring using Transact-SQL or SSMS:�<a href="https://learn.microsoft.com/en-us/sql/database-engine/database-mirroring/remove-database-mirroring-sql-server?view=sql-server-ver16#BeforeYouBegin" target="_blank">Removing Database Mirroring</a></li><li>Follow Up Steps if you intend to restart database mirroring after the completion of the NTP Upgrade: <a href="https://learn.microsoft.com/en-us/sql/database-engine/database-mirroring/remove-database-mirroring-sql-server?view=sql-server-ver16#FollowUp" target="_blank">Restarting Database Mirroring</a></li></ol>
+</li></ol>
+</li></ol>
+</body>
+</html>

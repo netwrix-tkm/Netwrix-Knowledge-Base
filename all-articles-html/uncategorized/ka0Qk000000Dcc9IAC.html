@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Parameter Data Types</title>
+    <meta name="article-id" content="ka0Qk000000Dcc9IAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:07:50.000Z">
+    <meta name="articlenumber" content="000006287">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IBZCA2">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-06T03:35:44.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:07:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IBZCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IBZCA2">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-06T03:41:15.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:07:50.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Access Analyzer Parameter Data Types">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6287">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IBZCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Parameter Data Types</h1>
+    <div>
+<p>Access Analyzer allows users to customize the database columns used by its analysis jobs. This article explains what each of the Access Analyzer data types map to within the Access Analyzer MSSQL database.�</p>
+<p>�</p>
+</div>
+<h3><strong><span class="wysiwyg-underline">BOOLEAN</span></strong></h3>
+<p><strong>SQL Date Type:</strong> varchar(5)</p>
+<p><strong>Value Range: </strong>�True�, �False�, or <em>null</em>.</p>
+<p>�</p>
+<h3><span class="wysiwyg-underline"><strong>DATETIME</strong></span></h3>
+<p><strong>SQL Date Type:</strong> datetime()</p>
+<p><strong>Value Range:</strong> 1753/01/01 00:00:00.000 to 9999/12/31 23:59:59.997</p>
+<p>�</p>
+<h3><span class="wysiwyg-underline"><strong>INTEGER</strong></span></h3>
+<p><strong>SQL Date Type:</strong> int()</p>
+<p><strong>Value Range:</strong> -2,147,483,648 to 2,147,483,647</p>
+<p>�</p>
+<h3><span class="wysiwyg-underline"><strong>NUMERIC</strong></span></h3>
+<p><strong>SQL Date Type:</strong> float()</p>
+<p><strong>Value Range:</strong> - 1.79E+308 to 1.79E+308</p>
+<p>�</p>
+<h3><span class="wysiwyg-underline"><strong>STRING</strong></span></h3>
+<p><strong>SQL Date Type:</strong> varchar(n)</p>
+<p><strong>Value Range:</strong> Up to 8,000 non-Unicode characters. Setting the size of the field to 7999 will result in an varchar(MAX) column being created, which will allow it to store up to 2GB of non-Unicode characters.</p>
+<p>�</p>
+<h3><span class="wysiwyg-underline"><strong>UNICODESTRING</strong></span></h3>
+<p><strong>SQL Data Type:</strong> nvarchar(n)</p>
+<p><strong>Value Range:</strong> Up to 4,000 Unicode characters. Setting the size of the field to 7999 will result in an nvarchar(MAX) column being created, which will allow it to store up to 2GB of Unicode characters.</p>
+<p>�</p>
+<p><strong>Channel: </strong>Customer-Facing / Public</p>
+<p><strong>Submitted by:</strong> Michael Olig</p>
+<p><strong>Product:</strong> Access Analyzer</p>
+<p><strong>Affected Versions:</strong> All</p>
+<p><strong>Affected Module:</strong> All</p>
+<p><strong>Dev Ticket:</strong> None</p>
+<p><strong>Resolved In Version:</strong> It&#39;s not a bug.</p>
+<p><strong>KB Type:</strong> FAQ</p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Never Expires Report Shows Incorrect Data</title>
+    <meta name="article-id" content="ka0Qk0000002zyfIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-03-29T10:00:29.000Z">
+    <meta name="articlenumber" content="000009106">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-04-23T07:48:47.000Z">
+    <meta name="firstpublisheddate" content="2024-04-23T07:48:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000YkrKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000YkrKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-04-23T07:48:53.000Z">
+    <meta name="lastpublisheddate" content="2024-04-23T07:48:44.000Z">
+    <meta name="meta-description" content="Password Never Expires Report Shows Incorrect Data">
+    <meta name="meta-title" content="Password Never Expires Report Shows Incorrect Data">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9106">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000YkrKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Password Never Expires Report Shows Incorrect Data</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>In 1Secure, the <strong>Password never expires</strong> setting is incorrectly reported as enabled for particular accounts. When you review <strong>Active Directory Users and Computers</strong> settings, the setting is disabled for affected accounts.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>A GPO with the <code>maxPasswordAge=0</code> parameter is applied to the affected accounts. The parameter causes 1Secure to report the <strong>Password never expires</strong> setting as enabled.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>In the corresponding GPO, set the <code>maxPasswordAge</code> parameter to any non-zero value. This will allow 1Secure to correctly report the affected accounts.</p>
+</div>
+</body>
+</html>

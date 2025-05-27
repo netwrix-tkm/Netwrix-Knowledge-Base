@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Least Privilege Model for SQL Server Backend</title>
+    <meta name="article-id" content="ka0Qk000000D0yHIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2023-11-09T19:56:06.000Z">
+    <meta name="articlenumber" content="000008896">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000000wnnrCAA">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2025-03-27T18:59:02.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2023-11-10T13:34:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnnrCAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnnrCAA">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-27T18:59:57.000Z">
+    <meta name="lastpublisheddate" content="2024-03-25T13:51:30.000Z">
+    <meta name="meta-description" content="Least Privilege Model for SQL Server Backend">
+    <meta name="meta-title" content="Least Privilege Model for SQL Server Backend">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8896">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnnrCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Least Privilege Model for SQL Server Backend</h1>
+    <h2>Overview</h2>
+<div>
+<p>This article provides the least privilege model for the MS SQL Server service accounts used by Netwrix Privilege Secure. This model applies exclusively to Privilege Secure for Access Management version 4.1 and higher, and only in environments where a SQL Server backend is being used. Further, you must use a SQL user, as Windows (Active Directory) authentication is not supported at this time.</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<p>The service account used by Netwrix Privilege Secure requires the following privileges:</p>
+<h4>During regular usage</h4>
+<p>The service account requires the following roles on the PAM database:</p>
+<ol><li>
+<p><code>db_datareader</code></p>
+</li><li>
+<p><code>db_datawriter</code></p>
+</li><li>
+<p>EXECUTE permission: <code>GRANT EXECUTE TO [serviceaccount]</code></p>
+</li><li>
+<p>ALTER permission on the dbo schema</p>
+</li><li>
+<p>CREATE TABLE</p>
+</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE:</strong></span> As an alternate privilege, instead of 4. and 5. in the above list, the <code>db_ddladmin</code> role may be granted. The purpose of the ALTER/CREATE permissions, whether granted directly or through <code>ddladmin</code>, is to allow for non-temporary tables to be created and dropped inside of the NPS database during regular operation of the software.</p>
+</blockquote>
+<h4>During installations and upgrades</h4>
+<p>The service account must be granted the following additional permissions:</p>
+<ul><li>
+<p>CREATE TABLE permission: <code>GRANT CREATE TABLE TO [serviceaccount]</code></p>
+</li><li>
+<p>CREATE VIEW permission: <code>GRANT CREATE VIEW TO [serviceaccount]</code></p>
+</li><li>
+<p>REFERENCES permission ON <code>activity_configuration</code>: <code>GRANT REFERENCES ON activity_configuration TO [serviceaccount]</code></p>
+</li><li>
+<p>REFERENCES permission ON <code>scheduled_change_policy</code>: <code>GRANT REFERENCES ON scheduled_change_policy TO [serviceaccount]</code></p>
+</li><li>
+<p>REFERENCES permission ON <code>email_settings</code>: <code>GRANT REFERENCES ON email_settings TO [serviceaccount]</code></p>
+</li></ul>
+<p>These permissions can then be revoked after installation and upgrade:</p>
+<ul><li>
+<p>CREATE TABLE permission: <code>REVOKE CREATE TABLE TO [serviceaccount]</code></p>
+</li><li>
+<p>CREATE VIEW permission: <code>REVOKE CREATE VIEW TO [serviceaccount]</code></p>
+</li><li>
+<p>REFERENCES permission ON <code>activity_configuration</code>: <code>REVOKE REFERENCES ON activity_configuration TO [serviceaccount]</code></p>
+</li><li>
+<p>REFERENCES permission ON <code>scheduled_change_policy</code>: <code>REVOKE REFERENCES ON scheduled_change_policy TO [serviceaccount]</code></p>
+</li><li>
+<p>REFERENCES permission ON <code>email_settings</code>: <code>REVOKE REFERENCES ON email_settings TO [serviceaccount]</code></p>
+</li></ul>
+<blockquote>
+<p><span class="Note"><strong>IMPORTANT:</strong></span> It is critical that these permissions be granted to the service account during all installations and upgrades.</p>
+</blockquote>
+</div>
+</body>
+</html>

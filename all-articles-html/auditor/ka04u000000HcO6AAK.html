@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How do I exclude access events to the Calendar and Contacts folders from product reports?</title>
+    <meta name="article-id" content="ka04u000000HcO6AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:13.000Z">
+    <meta name="articlenumber" content="000003094">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:36.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:33:00.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9UMCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9UMCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:36.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:33:00.000Z">
+    <meta name="meta-description" content="Remove access events for email calendar">
+    <meta name="meta-title" content="How do I exclude access events to the Calendar and Contacts folders from product reports?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="667">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9UMCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How do I exclude access events to the Calendar and Contacts folders from product reports?</h1>
+    How can I exclude access events to the Calendar folder from the product reports?
+<hr></hr> Access events to the Calendar folder are excluded by default (this is set in the mailboxestoexclude.txt file located in C:\Program Files (x86)\Netwrix Auditor\Non-owner Mailbox Access Reporter for Exchange by default). However, the product only recognizes this file if agents are enabled, so make sure that the compression service�option is enabled.<br><br><span style="background-color: rgb(255, 255, 255);">In order to exclude Contacts access from being reported please add the following line to the mailboxestoexclude.txt file: </span><br style="background-color: rgb(255, 255, 255);">
+<span style="background-color: rgb(255, 255, 255);">*/Contacts* </span>
+</body>
+</html>

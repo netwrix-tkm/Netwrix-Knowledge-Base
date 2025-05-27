@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to start Enterprise Manager Service</title>
+    <meta name="article-id" content="ka04u000000HcwVAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:32:18.000Z">
+    <meta name="articlenumber" content="000007174">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:46.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:32:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Ip6CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Ip6CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:46.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:32:18.000Z">
+    <meta name="meta-description" content="360008304132">
+    <meta name="meta-title" content="Unable to start Enterprise Manager Service">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7174">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Ip6CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to start Enterprise Manager Service</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Unable to start enterprise manager as service, but able to start as an interactive application</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Unable to start enterprise manager as service, but able to start as an interactive application. �<br><br>In rare instances the timeout for starting the service was too low. �<br><br>&quot;<em>Error 1053: The service did not respond to the start or control request in a timely fashion.</em>&quot;<br><br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaUt&amp;d=%2Fa%2F4u000000Lyre%2F_nbjlfCuV6IJwDlY3zwAlOGy9sp2ghsOW_Y7lnvQq2o&amp;asPdf=false" alt="SI 1053 Error"></img></p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<ol><li>Go to�<strong>Start�</strong>&gt;�<strong>Run�</strong>&gt; and type�<strong>regedit</strong>
+</li><li>Navigate to: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control</li><li>With the control folder selected, right click in the pane on the right and select new DWORD Value</li><li>Name the new DWORD: ServicesPipeTimeout</li><li>Right-click�<strong>ServicesPipeTimeout</strong>, and then click�<strong>Modify</strong>
+</li><li>Click�<strong>Decimal</strong>, type &#39;180000&#39;, and then click�<strong>OK</strong>
+</li><li>Restart the computer</li></ol>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> any<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1605</p>
+</body>
+</html>

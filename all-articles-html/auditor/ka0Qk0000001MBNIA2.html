@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1214 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001MBNIA2">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:57.000Z">
+    <meta name="articlenumber" content="000003611">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-01-16T10:51:38.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9crCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9crCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-16T10:51:49.000Z">
+    <meta name="lastpublisheddate" content="2024-01-16T10:51:35.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint Audit issues with uploading the collected data to the SQL Server database.">
+    <meta name="meta-title" content="Netwrix Auditor System Health - Event ID 1214">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2469">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9crCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1214 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error message under Event ID 1214 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+The following error occurred when trying to write audit data to the SQL database: %error_message%</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ol><li>
+	<p>The Data Collecting Account has insufficient permissions to create temporary audit files copied to the SQL database.</p>
+	</li><li>
+	<p>Misconfigured SSRS settings in Netwrix Auditor.</p>
+	</li></ol>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Cause #1 ? Allow Full Control permissions to the affected Long-Term Archive service account for the following 2 folders:</p>
+
+	<ul><li>
+		<p>Long-term Archive ? you can establish the location by following <strong>Settings</strong> &gt; <strong>Long-Term Archive</strong> &gt; <strong>Write audit data to</strong>. The default location is <code>%PROGRAMDATA%\Netwrix Auditor\Data</code>.</p>
+		</li><li>
+		<p>Short-Term Archive ? you can establish the location by following <strong>Health Status</strong> &gt; <strong>Open diagnostic logs folder</strong> under <strong>Working folder</strong> &gt; parent folder of the <strong>Logs</strong> folder. The default location is <code>%ProgramData%\Netwrix Auditor\ShortTerm</code>.</p>
+		</li></ul>
+	</li><li>
+	<p>Cause #2 ? Verify SQL Server Reporting Services settings ? refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Settings/AuditDatabase.htm" target="_self">Netwrix Auditor Settings ? Audit Database � v10.6</a>.</p>
+	</li></ul>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Settings/AuditDatabase.htm" target="_self">Netwrix Auditor Settings ? Audit Database � v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

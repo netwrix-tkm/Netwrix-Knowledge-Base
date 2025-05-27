@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI Reports: CS0016 Error</title>
+    <meta name="article-id" content="ka04u000000HcyNAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:41:39.000Z">
+    <meta name="articlenumber" content="000007322">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:32.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:41:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IuaCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IuaCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:32.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:41:39.000Z">
+    <meta name="meta-description" content="360008304132">
+    <meta name="meta-title" content="SI Reports: CS0016 Error">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7322">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IuaCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SI Reports: CS0016 Error</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Opening the SI: Reports Console generates the following error. &quot;CS0016: Could not write to output file &#39;c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET\reportingconsole\c79996b6\14eb30e\App_global.asax.ywsdikxb.dll&#39; -- &#39;Access is denied&#39;</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Opening the SI: Reports Console generates the following error. <br><br>&quot;CS0016: Could no write to output file &#39;<a target="_blank">c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary</a> <a href="https://ASP.NET" target="_blank">ASP.NET</a>\reportingconsole\c79996b6\14eb30e\App_global.asax.ywsdikxb.dll&#39; -- &#39;Access is denied&#39;</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaYr&amp;d=%2Fa%2F4u000000Lz5H%2FdEp1T9Ou8NTALCKYwEmGFctyoj4_ElVCAX6jdQJ2jCk&amp;asPdf=false" alt="mceclip1.png"></img><br>�In IIS Manager, in the advanced settings of the Application Pool, make sure &quot;Process Model &gt; Load User Profile&quot; is set to &quot;True&quot;.</p>
+<ul><li>Run iisreset in the command prompt</li><li>Should now be able to access the SI reporting site</li></ul>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Web Reporting<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 3.4.2.61<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1248</p>
+</body>
+</html>

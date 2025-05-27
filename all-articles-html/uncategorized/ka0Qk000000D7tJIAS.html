@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Hide distribution list from the portal.</title>
+    <meta name="article-id" content="ka0Qk000000D7tJIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1WUAA0">
+    <meta name="articlecreateddate" content="2025-04-07T19:03:42.000Z">
+    <meta name="articlenumber" content="000010122">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002IDlKAM">
+    <meta name="assignedbyid" content="0054u000008F1WUAA0">
+    <meta name="assignedtoid" content="0054u000008F1WUAA0">
+    <meta name="assignmentdate" content="2025-04-07T19:03:42.000Z">
+    <meta name="createdbyid" content="0054u000008F1WUAA0">
+    <meta name="createddate" content="2025-04-07T19:03:42.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002IDlKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002IDlKAM">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-09T13:00:30.000Z">
+    <meta name="meta-description" content="Hide distribution list from the portal.">
+    <meta name="meta-title" content="How To: Hide distribution list from the portal.">
+    <meta name="ownerid" content="0054u000008F1WUAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10122">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002IDlKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Hide distribution list from the portal.</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 10 and above.</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>We want to hide the <b>distribution list</b> from end-users on the Directory Manager portal.</p>
+<h2><span style="color: #2980b9;"><b>Solution:</b></span></h2>
+<p>We can define LDAP criteria in the user security role to hide the distribution list for the end-users in the self-service portal.�<br><br>1) Please go to the properties of your identity store in the Directory Manager management console.�<br><br>2) Now, click on the <b>security roles</b> tab and edit the <b>user</b> security role.�<br><br>3) Click on the <b>Polices tab</b> and then go to�<b>Search</b>.�<br><br>4) In the LDAP filter, apply the filter as below:�<br><br><b>sAMAccountType� � is Not� �268435457<br>sAMAccountType� � is Not� �536870913</b><br><br>Use the <b>AND</b> operator between the above two criteria.�</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D7tJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BoN3A" alt="" width="721" height="507"></img></p>
+<p>�</p>
+<p>5) Save the settings in the security roles. After that, sign out from the Directory Manager portal and Sign in again with an account that is part of the user security role, and you will see the change.�<br><br><br><b>Note:</b> <br><br>For <b>Universal</b> and <b>Global distribution groups</b>, the samAccountType value is�<b>268435457</b><br>For <b>Domain local distribution groups</b> the samAccountType value is�<b>536870913</b></p>
+</body>
+</html>

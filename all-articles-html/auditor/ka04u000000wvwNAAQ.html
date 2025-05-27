@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup Recommendations</title>
+    <meta name="article-id" content="ka04u000000wvwNAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-10-24T14:13:57.000Z">
+    <meta name="articlenumber" content="000008871">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-10-27T16:35:33.000Z">
+    <meta name="firstpublisheddate" content="2023-10-24T14:14:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wniSCAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wniSCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-10-27T16:35:59.000Z">
+    <meta name="lastpublisheddate" content="2023-10-27T16:35:59.000Z">
+    <meta name="meta-description" content="Backup Recommendations">
+    <meta name="meta-title" content="Backup Recommendations">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8871">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wniSCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Backup Recommendations</h1>
+    <h2>Question</h2>
+
+<div>
+<p>What are the recommended Netwrix Auditor components to be backed up on a regular basis?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The minimum components to be backed up in Netwrix Auditor are the Long-Term Archive and configuration file.</p>
+
+<ol><li>
+	<p>Create a separate folder for the Auditor backups ? the <code>C:\NA_Backups\</code> path is used to reference the process, and it can be altered.</p>
+	</li><li>
+	<p>Back up the entire Long-Term Archive folder to <code>C:\NA_Backups\</code>.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Long-Term Archive is located in <code>%ProgramData%\Netwrix Auditor\Data</code> by default. You can establish the LTA location by following the main Netwrix Auditor menu &gt; the <strong>Settings</strong> button &gt; <strong>Long-Term Archive</strong> tab &gt; <strong>Write audit data to</strong>.</p>
+	</blockquote>
+	</li><li>
+	<p>Export the configuration file by running the following lines in elevated Command Prompt in your Netwrix Auditor server:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">cd C:\Program Files (x86)\Netwrix Auditor\Audit Core
+configserverDbProcessor.exe export -target &quot;C:\NA_Backups\naconfig.xml&quot;</code></pre>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>You can use any target path to export the config file to. Make sure to add the file name and extension (e.g., <strong>naconfig.xml</strong>) to the end of the export path.</p>
+	</blockquote>
+	</li><li>
+	<p>Once the components are backed up, you can store them in any location to use once needed.</p>
+	</li></ol>
+
+<p>For additional information on import, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ebCAC.html" target="_self">Migrating Netwrix Auditor to New Server</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ebCAC.html" target="_self">Migrating Netwrix Auditor to New Server</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SSCA0.html" target="_self">How to Move Long-Term Archive to a New Location</a></p>
+</div>
+</body>
+</html>

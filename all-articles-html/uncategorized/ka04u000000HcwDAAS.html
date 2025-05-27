@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using the &lt;MAINTAINVIEWS&gt; Tag to Automatically Create Views Between Native Data Tables and a Specified Control Table</title>
+    <meta name="article-id" content="ka04u000000HcwDAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:39:50.000Z">
+    <meta name="articlenumber" content="000007291">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:29.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:39:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IoECAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IoECAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:29.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:39:50.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Using the &lt;MAINTAINVIEWS&gt; Tag to Automatically Create Views Between Native Data Tables and a Specified Control Table">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7291">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IoECAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Using the &lt;MAINTAINVIEWS&gt; Tag to Automatically Create Views Between Native Data Tables and a Specified Control Table</h1>
+    <p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> How can I combine a custom table with standard SA data tables?</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The <strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;"> </span></span></strong>tag is an optional tag that when added to GlobalOptions.XML, creates a view joining native data tables to a table specified.� If no table is specified, it joins to the SA_HostMasterTBL.� This feature was originally implemented specifically for use with Business Rules -where it can be sometimes necessary to qualify the rules condition based on information stored in a control table (such as OS Version or server role for example).�<br>�<br>To implement the tag, perform the following:�</p>
+<ol><li>Close all open instances of StealthAUDIT�</li><li>Open the file <strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">GlobalOptions.XML </span></span></strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">located in the root of the StealthAUDIT installation directory</span></span>
+<ol style="list-style-type: lower-alpha;"><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">For default installations, the global options file is located:� C:\Program Files (x86)\STEALTHbits\StealthAUDIT\GlobalOptions.xml</span></span>�</li></ol>
+</li><li>Navigate to bottom of the file.� Add the following before the closing  tag:�</li></ol>
+<p><strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">����������� </span></span></strong><br><strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">����������������������� AUTO</span></span></strong><br><strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">����������������������� </span></span></strong><br><strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">����������� </span></span></strong>�</p>
+<ol><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">Add the name of the table StealthAUDIT will use to join to source data tables within the <strong> </strong>tag</span></span>�</li></ol>
+<p><strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">Note</span></span></strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">:� The join condition matches the value of <strong>[HOST]</strong> from the source data table to the value of <strong>[Name]</strong> in the specified control table</span></span><br><br><strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">**</span></span></strong><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">If no table is specified, the table used for the right side of the join will be <strong>SA_HostMasterTBL</strong></span></span>�</p>
+<ol><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">Save and close the file</span></span>�</li><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">Open StealthAUDIT, run a job containing a query.� Open SQL Management Studio, find the newly created view under the Views node within your StealthAUDIT database</span></span>�</li></ol>
+<p><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">Considerations and items of note:</span></span>�</p>
+<ul><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">Implementing this tag will create a view for every native data table produced via the running of a query/table for each StealthAUDIT job executed</span></span>
+<ul style="list-style-type: circle;"><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">A native data table is one produced via job &amp; query execution -not via SQL Scripting / Summary analysis</span></span>�</li></ul>
+</li><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">The name of the SQL view created will reflect the name of the source data table with an additional &quot;_View&quot; appended to the end of the table name ; i.e., <strong><em>SA_[JobName]_[TableName]_View</em></strong></span></span>�</li><li>
+<span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">When <strong>AUTO</strong> is specified for <strong></strong>, the feature is ON and views will be created through job execution.� When another value is specified, the feature is OFF</span></span>�</li></ul>
+<p><span style="font-family: arial,sans-serif;"><span style="font-size: 10pt;">When the <strong></strong> tag is empty, SA will produce an inner join with source tables and <strong>SA_HostMasterTBL</strong>.</span></span></p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Database/SQL;SA - Core<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> V6.x, V7.x<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1496</p>
+</body>
+</html>

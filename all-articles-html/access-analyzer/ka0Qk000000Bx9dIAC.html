@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: !REMOVED-...Host Name in AIC and/or FSAA Host Table</title>
+    <meta name="article-id" content="ka0Qk000000Bx9dIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-01-08T21:35:57.000Z">
+    <meta name="articlenumber" content="000009366">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-01-27T15:54:50.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-01-08T23:13:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001qxRKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001qxRKAQ">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-01-27T16:17:46.000Z">
+    <meta name="lastpublisheddate" content="2025-01-08T23:13:55.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9366">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001qxRKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: !REMOVED-...Host Name in AIC and/or FSAA Host Table</h1>
+    <h2>Symptom</h2>
+<div>
+<p>In the Access Information Center (AIC) and/or SA_FSAA_Hosts table (in the SQL database), you see <strong>!REMOVED-</strong> after dropping data for a File Server.</p>
+</div>
+<h2>Cause</h2>
+<div>
+<p>You have used the <strong>Remove host data</strong> option in the <strong>FILESYSTEMACCESS</strong> Data Collector to try and remove host data, but the job timed out or errored.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Re-run the job used to remove the host data against the full <strong>!Removed-�</strong> name.</p>
+<ul><li>
+<p>This is typically a custom job that was created. If you are unsure what job was run, please see the following article for how to create a custom job to drop File Server host data: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001qvpKAA.html" target="_self">How to Drop Data for Decommissioned File Servers</a>.</p>
+</li><li>
+<p>If you have already rerun the job and it throws a timeout error, then change the job timeout to a longer value.</p>
+<ul><li>
+<p>Right-click <strong>the job</strong>, choose <strong>Properties</strong>, and adjust the <strong>Timeout minutes setting</strong> in the General tab.</p>
+</li><li>
+<p>Setting this value to <strong>1440 minutes (24 hours)</strong> for safety should suffice, although the job is unlikely to take this long.</p>
+</li><li>
+<p>This is to allow the job to run without timing out if there is much data to be dropped.</p>
+</li></ul>
+</li></ul>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001qvpKAA.html" target="_self">How to Drop Data for Decommissioned File Servers</a></li></ul>
+</div>
+</body>
+</html>

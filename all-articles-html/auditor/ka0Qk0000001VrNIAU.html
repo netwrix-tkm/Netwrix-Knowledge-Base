@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRS TempDB Permanently Grows Large and Occupies Disk Space</title>
+    <meta name="article-id" content="ka0Qk0000001VrNIAU">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-01-25T07:48:53.000Z">
+    <meta name="articlenumber" content="000009022">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-01-26T06:22:52.000Z">
+    <meta name="firstpublisheddate" content="2024-01-25T07:49:08.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000PhZKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000PhZKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-26T06:23:13.000Z">
+    <meta name="lastpublisheddate" content="2024-01-25T07:49:08.000Z">
+    <meta name="meta-description" content="SSRS TempDB Occupies Large Space">
+    <meta name="meta-title" content="TempDB Grows Large">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9022">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000PhZKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SSRS TempDB Permanently Grows Large and Occupies Disk Space</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The temporary SSRS database (TempDB) in your environment permanently grows large when running reports or investigations.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The SQL Server service account has insufficient permissions to clear the TempDB.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>To establish the SQL Server service account, click <strong>Settings</strong> in the main Netwrix Auditor menu &gt; <strong>Audit Database</strong> &gt; <strong>User name</strong>.</p>
+</blockquote>
+
+<p>Grant the <strong>db_owner</strong> role to the SQL Server service account.</p>
+
+<ol><li>
+	<p>Run Microsoft SQL Server Management Studio and connect to the SQL instance.</p>
+	</li><li>
+	<p>In <strong>Object Explorer</strong>, proceed to <strong>Security</strong> &gt; <strong>Logins</strong> &gt; right-click the affected SQL Server service account &gt; <strong>Properties</strong>.</p>
+	</li><li>
+	<p>In the <strong>User Mapping</strong> tab, locate the TempDB, highlight it and review the roles assigned to the affected account in the <strong>Database role membership</strong> window.</p>
+	</li><li>
+	<p>Check the <strong>db_owner</strong> checkbox and click <strong>OK</strong> to save changes.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm" target="_self">Requirements ? Requirements for SQL Server to Store Audit Data � v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAVR Core Service not Responding</title>
+    <meta name="article-id" content="ka04u00000117eLAAQ">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003476">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-09-07T11:22:05.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9agCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9agCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T11:24:46.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T11:24:46.000Z">
+    <meta name="meta-description" content="Agent for User Activity Video Recording shows status Not Responding after install.  Agent not responding">
+    <meta name="meta-title" content="Agent not responding">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1318">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9agCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>UAVR Core Service not Responding</h1>
+    <h2>Symptom</h2>
+
+<p><span style="background-color: #ffffff;">User Activity Video Recording Core Service shows the following status:</span></p>
+
+<pre class="ckeditor_codeblock">
+�Not Responding after install
+</pre>
+
+<h2>Cause</h2>
+
+<p>This issue is often caused by the ports being blocked by Windows Firewall or some other software/hardware.</p>
+
+<h2>Reolution</h2>
+
+<p>In order to troubleshoot the issue please perform the following steps:</p>
+
+<ol><li>Disable Windows firewall on local and target servers</li><li>Make sure that the following ports are opened on the local and target server: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/UserActivity/Ports.htm" target="_blank">User Activity Protocols and Ports ? v10.6</a></li><li>Make sure that the following services are started - <em>WMI, RPC, Remote Registry</em></li><li>Try to connect to services remotely while logged in as the service account (services.msc)
+	<ul><li>This can be done by right opening <em>Services</em> and right clicking <em>Services (Local) </em>then select &quot;Connect to Another Computer&quot;</li></ul>
+	</li><li>Try to re-install the agent on the target server; with the <strong>UACoreSvcSetup.msi</strong> found in the install path on the Netwrix Host (default path: <code>C:\Program Files (x86)\Netwrix Auditor\User Activity Video Recording</code></li></ol>
+
+<p>�</p>
+</body>
+</html>

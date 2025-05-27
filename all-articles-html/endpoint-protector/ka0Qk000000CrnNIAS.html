@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Scrap]- How do I run the .VMX virtual appliance as I am using an older VMware Workstation / VMware Player version?</title>
+    <meta name="article-id" content="ka0Qk000000CrnNIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:21.000Z">
+    <meta name="articlenumber" content="000009938">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BB0KAM">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000002lX5pIAE">
+    <meta name="assignmentdate" content="2025-03-19T17:38:21.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:21.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002BB0KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002BB0KAM">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-05-14T09:16:09.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9938">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BB0KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[Scrap]- How do I run the .VMX virtual appliance as I am using an older VMware Workstation / VMware Player version?</h1>
+    <p>The .VMX virtual appliance (32b/64b) is set to run on the latest VMware Workstation version (v11.x.x) and on the latest VMware Player version (v7.x.x). In order to run these virtual appliances on older VMware Workstation / VMware Player versions, please take the following actions:</p>
+<ol><li>Extract the .zip archive</li><li>Go to the extract location</li><p>3.  Click to edit the .VMX file using a text editor</p><li>Search for the &quot;virtualHW.version&quot; field</li><li>Replace the default version (default = 11) to the desired version</li><p>Examples:</p><p>- if you want to run the .VMX on VMware Workstation v9.x.x or VMware Player v5.x.x, then set virtualHW.version = &quot;9&quot;</p><p>- if you want to run the .VMX on VMware Workstation v10.x.x or VMware Player v6.x.x, then set virtualHW.version = &quot;10&quot;</p><ol><li>Save the changes and close the text editor</li><li>Import the virtual image</li><li>Play the virtual machine</li></ol></ol>
+</body>
+</html>

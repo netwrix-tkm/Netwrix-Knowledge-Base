@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Get Alerts on Accounts That Cannot Be Locked Out?</title>
+    <meta name="article-id" content="ka04u00000117toAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-09-20T13:46:37.000Z">
+    <meta name="articlenumber" content="000008811">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-09-22T09:06:04.000Z">
+    <meta name="firstpublisheddate" content="2023-09-20T13:46:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111EBCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111EBCAY">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-09-22T09:07:22.000Z">
+    <meta name="lastpublisheddate" content="2023-09-22T09:07:22.000Z">
+    <meta name="meta-description" content="This article explains why Netwrix generates alerts on the accounts that cannot be locked out e.g., domain admins.">
+    <meta name="meta-title" content="Why I Get Alerts on Accounts That Cannot Be Locked Out?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8811">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111EBCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why I Get Alerts on Accounts That Cannot Be Locked Out?</h1>
+    <h1>Question</h1>
+
+<div>
+<p>Why Netwrix sends alerts on accounts that cannot be locked out?</p>
+</div>
+
+<h1>Answer</h1>
+
+<div>
+<p>If an account was to be locked based on certain rules within Windows such as too many bad password attempts, even if it cannot be locked, Windows will still generate Event ID 4740 despite the failure.</p>
+
+<p>Learn more about this event in <a href="https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4740" target="_blank">4740(S): A user account was locked out. ? Microsoft &#129125;</a></p>
+
+<p>If you configured alerts triggered by lockout events, Netwrix Auditor reacts to these Events even in case of failed attempts and sends the corresponding alert.</p>
+
+<p>Alerts contain also an account RID, that is a unique ID within Netwrix that ties it to the alert that was fired off which would allow you to look into it more thoroughly.</p>
+
+<p>You can then select an alert that fired off and click <b>Show activity record in a new window</b> to the bottom right, which will show you the details of the event.</p>
+</div>
+</body>
+</html>

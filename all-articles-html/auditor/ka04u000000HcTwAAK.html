@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot connect to SQL Server instance. Reason: Server is in single user mode</title>
+    <meta name="article-id" content="ka04u000000HcTwAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:52.000Z">
+    <meta name="articlenumber" content="000003507">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:14.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bBCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9bBCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:14.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:51.000Z">
+    <meta name="meta-description" content="Cannot connect to SQL Server instance. Login failed for user Reason: Server is in single user mode">
+    <meta name="meta-title" content="Cannot connect to SQL Server instance. Reason: Server is in single user mode">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1342">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bBCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot connect to SQL Server instance. Reason: Server is in single user mode</h1>
+    <ol><li>I am getting the following error when trying to configure database settings:</li></ol>
+<div style="margin-left: 40px;"><strong>Cannot connect to SQL Server instance &#39;&lt;serverinstance&gt;&#39;:&#39;Login failed for user &#39;&lt;domainuser&gt;&#39;. Reason: Server is in single user mode. Only one administrator can connect at this time.&#39;.</strong>
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcTw&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005BrO" alt="ELM - Error message"></img></div>
+<ol start="2"><li>I am getting the following error in the summary daily reports:</li></ol>
+<div style="margin-left: 40px;"><strong>Error &quot;Login failed for user &#39;&lt;domainuser&gt;&#39;. Reason: Server is in single user mode. Only one administrator can connect at this time.&quot; occured &lt;N&gt; times.</strong>
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcTw&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005BrY" alt="ELM - Error message" width="500" height="58"></img>
+</div>
+
+<hr></hr>
+
+Your SQL Instance is running in <strong>Single-User mode</strong>. This makes <strong>Netwrix Auditor</strong> unable to connect to <strong>SQL server</strong>.
+
+<hr></hr>
+
+<div>Please perform the following steps to resolve your issue:</div>
+<ol><li>Launch <strong>SQL Server Configuration Manager</strong> and click on <strong>SQL Server (2008/2012) Services</strong>.</li><li>In the right pane, right click on the desired SQL Server instance and select <strong>Properties</strong>.</li><li>On the <strong>Advanced </strong>tab, make sure that <strong>&quot;Startup Parameters&quot;</strong> does not contain the following parameter <strong>&#39;-m;&#39;</strong>. If the parameter is there, remove it.</li></ol>
+<div style="margin-left: 40px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcTw&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005BrT" alt="ELM - SQL Startup parameters" width="500" height="392"></img></div>
+<ol start="4"><li>Restart the SQL Server Instance service.</li></ol>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Registration Script Examples</title>
+    <meta name="article-id" content="ka04u000000HdBYAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:03:22.000Z">
+    <meta name="articlenumber" content="000008325">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:18:23.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:03:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JhRCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JhRCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:23.000Z">
+    <meta name="lastpublisheddate" content="2022-02-07T01:03:22.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Agent Registration Script Examples">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8325">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JhRCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Agent Registration Script Examples</h1>
+    <h2 id="AgentRegistrationScriptExamples-RegistrationScriptforHouzz">Registration Script for Houzz</h2><p>Small deployment with specific custom groups and not requirement for the devices to use the Change Tracker default groups</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">(agent.Name.StartsWith(&quot;ip-10-15-&quot;)?&quot;Pay-k8s&quot;:agent.Name.StartsWith(&quot;appgate&quot;)?&quot;Pay-AppGate&quot;:agent.Name.StartsWith(&quot;pay-salt&quot;)?&quot;Pay-Salt&quot;:agent.Name.StartsWith(&quot;pay-mysql&quot;)?&quot;Pay-MySql&quot;:agent.Name.StartsWith(&quot;pay-egress&quot;)?&quot;Pay-Egress&quot;:agent.Name.StartsWith(&quot;pay-dns&quot;)?&quot;Pay-Dns&quot;:agent.Name.StartsWith(&quot;pay-mhamanager&quot;)?&quot;Pay-Mhamanager&quot;:&quot;Linux Ubuntu&quot;)</pre>
+</div></div><p><u>Explination:</u></p><p>Containerized environment where the name systems match the name of the group where Houzz want the registration to settle. In this script we are daisy chaining all the possible system name starts with and thwir relevent group.</p><p>From this ticket - <u>HELPDESK-7594</u></p><h2 id="AgentRegistrationScriptExamples-DevelopmentProvided">Development Provided</h2><p>How to use the Discovery Report with the registration script</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">agent.Name.StartsWith(&quot;WIN&quot;)?&quot;Windows&quot;:data.GetValue(&quot;nnt_register_to_groups&quot;, &quot;New Devices&quot;)</pre>
+</div></div><p><u>Explination:</u></p><p>So if the agent Name is eg WIN2016, it goes into &quot;Windows&quot;</p><p>If the value of the variable &quot;nnt_register_to_groups&quot; from the data object (which gives access to the variables created in the registration report XML) has anything in it, it goes into that, otherwise it goes into &quot;New Devices&quot;</p><p>From this ticket - <u>HELPDESK-7594</u></p><p></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">agent.IPv4.StartsWith(&quot;192.168.12.&quot;)?&quot;Windows&quot;:(agent.IPv4.StartsWith(&quot;192.168.17.&quot;)?&quot;Linux&quot;:(agent.IPv4.StartsWith(&quot;192.168.1.&quot;)?&quot;Network Devices&quot;:&quot;New Devices&quot;))</pre>
+</div></div><p><u>Explanation</u></p><p>If the agent�s IPv4 address starts with <code>192.168.12.</code> place it into the �Windows� group, if the agent IPv4 address starts with <code>192.168.17.</code> place it into the �Linux� group, if the agent IPv4 starts with <code>192.168.1.</code> place it into the �Network Devices� group, otherwise, it goes into the �New Devices� group.</p><p>From this ticket - HELPDESK-5710</p>
+</body>
+</html>

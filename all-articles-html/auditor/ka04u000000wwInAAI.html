@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why does Risk Assessment Overview Dashboard Shows Unexpected Issues for Windows Server?</title>
+    <meta name="article-id" content="ka04u000000wwInAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-28T15:41:18.000Z">
+    <meta name="articlenumber" content="000008926">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-11-30T20:02:58.000Z">
+    <meta name="firstpublisheddate" content="2023-11-28T15:41:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wns8CAA">
+    <meta name="knowledge-article-id" content="kA04u000000wns8CAA">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-11-30T20:04:28.000Z">
+    <meta name="lastpublisheddate" content="2023-11-30T20:04:28.000Z">
+    <meta name="meta-description" content="Why does Risk Assessment Overview Dashboard Shows Unexpected Issues for Windows Server?">
+    <meta name="meta-title" content="Why does Risk Assessment Overview Dashboard Shows Unexpected Issues for Windows Server?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8926">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wns8CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why does Risk Assessment Overview Dashboard Shows Unexpected Issues for Windows Server?</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>When reviewing the <b>Risk Assessment Overview</b> dashboard, some infrastructure items show incorrect values. For example, unexpected number of <b>Servers with unauthorized antivirus software</b>. However, when drilling down to the linked report, returns no results. Is it a normal behavior for the product?</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<ol><li>
+	<p>First, you need to run the <b>Server Inventory Report</b> to validate that data was being retrieved.</p>
+	</li><li>
+	<p>If the report does not contain any data about the issues showed on the dashboard, you need to check an out-of-date State-in-Time snapshots for the Monitoring Plan in which those servers are listed.</p>
+	</li><li>
+	<p>For that, navigate to a problematic monitoring plan, click <b>Edit Data Source</b> -&gt; <b>Manage State-in-Time Snapshots</b>.</p>
+	</li><li>
+	<p>The date of the current snapshot should be today&#39;s date. If not, wait a day or two for the data to update.</p>
+	</li></ol>
+</div>
+</body>
+</html>

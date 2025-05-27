@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Computers Displayed as &quot;Unlicensed&quot; Under List of Computers</title>
+    <meta name="article-id" content="ka0Qk000000DyBFIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:06.000Z">
+    <meta name="articlenumber" content="000009795">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B6HKAU">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="article-sme" content="005Qk000001nViBIAU">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210264956352680?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-05-15T16:59:10.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-05-15T16:53:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B6HKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B6HKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-16T13:16:39.000Z">
+    <meta name="lastpublisheddate" content="2025-05-16T13:16:39.000Z">
+    <meta name="ownerid" content="005Qk000002i2OLIAY">
+    <meta name="urlname" content="9795">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B6HKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Computers Displayed as &quot;Unlicensed&quot; Under List of Computers</h1>
+    <h2>Symptom</h2>
+<p>Computers are displayed as &quot;Unlicensed&quot; under the List of Computers.</p>
+<h2>Cause</h2>
+<p>This issue may be due to insufficient licenses, incorrect client-server configurations, or issues with client deployment.</p>
+<h2>Resolution</h2>
+<ol><li>Verify Licenses
+<ul><li>Navigate to the <strong>Endpoint Protector Server (EPP) &gt; System Configuration &gt; System Licensing</strong> and check if there are sufficient licenses available.</li></ul>
+</li><li>Update Policies
+<ul><li>On the affected computer, click <strong>Update Policies Now</strong> and observe if the EPP Client icon blinks a few times.</li></ul>
+</li><li>Check Client Connection
+<ul><li>Ensure the EPP Client is correctly configured to connect with the EPP Server:
+<ul><li>Navigate to the <strong>Settings</strong> tab and press <code class="lang-Registry">CTRL + ALT + I</code>.</li><li>Verify that the Server IP and Port are correct.</li></ul>
+</li></ul>
+</li><li><strong>Possible Solutions</strong>
+<ul><li>Restart the computer if the EPP Client was recently deployed.</li><li>If restarting does not resolve the issue, reinstall the Endpoint Protector Client on that machine.</li><li>If the issue persists, proceed to <strong>EPP Server &gt; System Configuration &gt; System Licensing &gt; View Licenses</strong> and use <strong>Release Licenses</strong> for the affected machines or all machines. This will prompt the EPP Server to reconnect with clients, reassign licenses, and generate a new set of certificates for them.</li></ul>
+</li></ol>
+</body>
+</html>

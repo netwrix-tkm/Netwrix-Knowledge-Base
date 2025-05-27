@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor Upgrade Process Taking Too Long</title>
+    <meta name="article-id" content="ka04u00000116ikAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-07-17T09:56:40.000Z">
+    <meta name="articlenumber" content="000008668">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-07-17T14:32:22.000Z">
+    <meta name="firstpublisheddate" content="2023-07-17T09:56:56.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110sPCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110sPCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-07-17T14:32:54.000Z">
+    <meta name="lastpublisheddate" content="2023-07-17T09:56:56.000Z">
+    <meta name="meta-description" content="Unable to upgrade Netwrix Auditor">
+    <meta name="meta-title" content="Unable to upgrade Netwrix Auditor">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8668">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110sPCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor Upgrade Process Taking Too Long</h1>
+    <h2>Question</h2>
+
+<div>
+<p>The Netwrix Auditor upgrade process is stuck, should I interrupt it and run it again?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Depending on the version you&#39;re upgrading from and to, there could be major changes implemented in the new Netwrix Auditor build. During the upgrade process Netwrix Auditor may configure new permissions and settings directly related to new features introduced. It is also recommended to upgrade your Netwrix Auditor instance during non-working hours to allow it run for a longer period of time. In some cases, an upgrade may take over 10 hours to complete.</p>
+
+<p>Refer to the following steps in case your upgrade process takes over 20 hours to complete:</p>
+
+<ul><li>
+	<p>Add corresponding exclusions to the monitoring scope of your antivirus suite � refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HirCAE.html" target="_blank">Antivirus Exclusions for Netwrix Auditor</a>.</p>
+	</li><li>
+	<p>Clear the temporary folder:</p>
+
+	<ol><li>
+		<p>Make sure no one else is logged into the Netwrix Server.</p>
+		</li><li>
+		<p>Clear up the temporary folder on your Netwrix Auditor server:</p>
+
+		<pre class="has-inner-focus">
+C:\Users\YOURUSER\AppData\Local\Temp</pre>
+		</li><li>
+		<p>Perform a reboot before beginning the installation process again, if possible.</p>
+		</li><li>
+		<p>Let the upgrade run overnight.</p>
+		</li></ol>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Update Endpoint Protector or Unify Server</title>
+    <meta name="article-id" content="ka0Qk0000004M3ZIAU">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2024-06-25T15:49:37.000Z">
+    <meta name="articlenumber" content="000009206">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2024-06-26T18:03:55.000Z">
+    <meta name="firstpublisheddate" content="2024-06-25T15:52:05.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001EfFKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000001EfFKAU">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2024-06-26T18:04:11.000Z">
+    <meta name="lastpublisheddate" content="2024-06-25T17:22:30.000Z">
+    <meta name="meta-description" content="How to Update Endpoint Protector or Unify Server">
+    <meta name="meta-title" content="How to Update Endpoint Protector or Unify Server">
+    <meta name="ownerid" content="005Qk0000017MRRIA2">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9206">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001EfFKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Update Endpoint Protector or Unify Server</h1>
+    <h2>Finding the Current Version</h2>
+
+<p>Customers not using the live update server will need to know their version number to ensure the correct patch is installed.</p>
+
+<p>To find the version of the Endpoint Protector server, follow the below steps:</p>
+
+<ol><li>Navigate to the web interface of the console.</li><li>Log in.</li><li>View the bottom right of the screen to find the version information.</li></ol>
+
+<p><img alt="Endpoint Protector version number" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fb5Z"></img></p>
+
+<p>To find the version of the Unify server, follow the below steps:</p>
+
+<ol><li>Log in to the Unify web console.</li><li>Check the top left for the version information.</li></ol>
+
+<p><img alt="Unify version number" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fOGR"></img></p>
+
+<h2>Updating with Live Update</h2>
+
+<p>Live Update is the recommended way to patch the Endpoint Protector server. It uses the server&#39;s internet connection to check for and download updates for the Endpoint Protector server. More information on the Live Update feature can be found <a href="https://helpcenter.netwrix.com/bundle/EndpointProtector_5.9.3/page/Content/EndpointProtector/Admin/Dashboard/SystemDashboard.htm#live_update" target="_blank">here</a>. If internet access is restricted on the Endpoint Protector appliance, then follow the instructions for offline update.</p>
+
+<p>To install the latest updates with Live Update, follow the below steps:</p>
+
+<ol><li>Log in to the Endpoint Protector Web Console using an administrative account.</li><li>Under the Dashboard heading, select <strong>Live Update.</strong></li><li>Click on <strong>Check Now</strong> to check for updates.</li><li>Check the box on the update(s) to be installed.</li><li>Select <strong>Apply Updates.</strong></li></ol>
+
+<p><img alt="How to check Live Update" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fTch"></img></p>
+
+<p><img alt="How to configure Live Update" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fbGr"></img></p>
+
+<h2>Updating Using the Offline Patch Uploader</h2>
+
+<p>The offline patch uploader is the mechanism used to perform offline updates of the Endpoint Protector server when no internet connection is available from the Endpoint Protector server itself.</p>
+
+<p>To apply an offline update, follow the below steps:</p>
+
+<ol><li>Download the offline patch.</li><li>Log in to the Endpoint Protector Web Console using an administrative account.</li><li>Under the Dashboard heading, select <strong>Live Update.</strong></li><li>Click on <strong>Offline Patch Uploader.</strong></li><li>Browse to the downloaded update and select it.</li><li>Click <strong>Ok.</strong></li><li>Wait for the system to apply the update.</li></ol>
+
+<p><img alt="The button to activate offline patching" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fbNJ"></img></p>
+
+<h2>Verifying an Update Installed</h2>
+
+<p>To verify an update was applied to the Endpoint Protector server, follow the below instructions:</p>
+
+<ol><li>Log in to the Endpoint Protector web console using an administrative account.</li><li>Under the Dashboard heading, select <strong>Live Update.</strong></li><li>Click on <strong>View Applied EPP Software Updates.</strong></li><li>Look through the applied updates to see if the update was installed.</li></ol>
+
+<p><img alt="The button to open the view of all updates" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fbTl"></img></p>
+
+<p><img alt="The list of all updates" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000004M3Z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000005fbWz"></img></p>
+</body>
+</html>

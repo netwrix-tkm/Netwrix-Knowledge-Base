@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How can I whitelist a particular device, allowing access globally?</title>
+    <meta name="article-id" content="ka0Qk000000CrnMIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:21.000Z">
+    <meta name="articlenumber" content="000009946">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BB8KAM">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000002lX5pIAE">
+    <meta name="assignmentdate" content="2025-03-19T17:38:21.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:21.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002BB8KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002BB8KAM">
+    <meta name="lastmodifiedbyid" content="005Qk000002lX5pIAE">
+    <meta name="lastmodifieddate" content="2025-04-28T15:15:12.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9946">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BB8KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How can I whitelist a particular device, allowing access globally?</h1>
+    <p>To globally allow a specific device, such as a USB storage device, within the Endpoint Protector interface, you can create a custom class and identify the device using criteria like Device Type, Device Class (VID, PID, etc.), or Unique Device Identifier (serial number).<br>�<br>Steps to Create a Custom Class:<br>�<br>1. Access Custom Classes:<br>- Navigate to Device Control ? Custom Classes and click Create.<br>�<br>2. Configure Custom Class:<br>- Provide a name for your custom class.<br>- Ensure the Custom Class Status is set to ON.<br>�<br>3. Add Device to Custom Class:<br>- Click Add in the Custom Class Device List.<br>�<br>4. Device Wizard (Step 1/2):<br>- Device Type Selection: Choose from a comprehensive list, which includes:<br>Unknown Device, USB Storage Device, Internal CD or DVD RW, Internal Card Reader, Internal Floppy Drive, Local Printers, Network Printers, Windows Portable Device (Media Transfer Protocol), Digital Camera, BlackBerry, iPhone, iPad, Bluetooth (with subcategories like Radio, Keyboard, Mouse, Smartphone, Headphones), iPod, VM USB Device, Serial ATA Controller, WiFi, FireWire Bus, Serial Port, PCMCIA Device, Card Reader Device (MTD, SCSI), ZIP Drive, Teensy Board, Thunderbolt, Infrared Dongle, Parallel Port (LPT), Thin Client Storage (RDP Storage), Additional Keyboard, USB Modem, Android Smartphone (Media Transfer Protocol), Chip Card Device, Audio Device.</p>
+<p><br>- Device Right: Select &quot;Allow Access&quot; or &quot;Deny Access&quot; or as appropriate.</p>
+<p>- Choose which Method for Adding Device then select Next</p>
+<p><br>5. Finalize Setup Device Wizard (Step 2/2):<br>- &quot;Existing Device (Wizard)&quot;: Use the check mark box to select one or more Device Types, then press Save.<br>- &quot;New Device (VID, PID, Serial Number)&quot;: Enter the VID, PID, Serial Number, and Description, then press Save.<br>- &quot;Device Serial Number Range&quot;: Enter the VID, PID, First Serial Number in range, Last Serial Number in range, and Description, then press Save.<br>- &quot;Bulk List of Devices&quot;: Choose Enrollment Options, Type or Paste content, or Import content, then press Save.</p>
+</body>
+</html>

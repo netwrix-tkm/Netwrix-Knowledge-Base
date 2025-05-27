@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Netwrix Auditor applications for file storages (Windows File Servers, NetApp and EMC) handle large amount of data, e.g. terabytes or petabytes?</title>
+    <meta name="article-id" content="ka04u000000HcMnAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:09.000Z">
+    <meta name="articlenumber" content="000003010">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:48.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9T0CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9T0CAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:48.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:47.000Z">
+    <meta name="meta-description" content="File Server audit large size amount of data">
+    <meta name="meta-title" content="Can Netwrix Auditor applications for file storages (Windows File Servers, NetApp and EMC) handle large amount of data, e.g. terabytes or petabytes?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="583">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9T0CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Can Netwrix Auditor applications for file storages (Windows File Servers, NetApp and EMC) handle large amount of data, e.g. terabytes or petabytes?</h1>
+    <h1>Can Netwrix Auditor applications for file storages (Windows File Servers, NetApp and EMC) handle large amount of data, e.g. terabytes or petabytes of data?</h1>
+
+<hr></hr>
+
+Provided that the audited file system environment is properly configured, large amount of data is not a problem.
+When evaluating the product or planning for its deployment, you should start off with defining the audit scope and the goals you are trying to achieve - it is very unlikely that all these petabytes of data need the same level of auditing. In particular, locate the following:
+<ul><li>File shares containing most sensitive data that require most scrutinized control (such as control over <i>read</i><i> </i>attempts, both successful and failed, state-in-time data and alerts on critical actions).</li><li>File shares containing regular data that don�t require as much attention as sensitive data. Enabling auditing of <i>reads </i>on such file shares (especially successful <i>reads</i>)<i> </i>would produce a massive flow of useless audit data that will be most likely never reviewed by anyone.</li><li>File shares containing files that are being constantly changed or accessed, such as QuickBooks or database files, or shares containing user profiles. Organizations may want to either avoid auditing of changes and <i>reads </i>of such files as it would also produce a massive flow of useless audit data (that will be most likely never reviewed by anyone), or at least track permission changes on such shares only.</li></ul>
+Once the data is located and graded from most sensitive to least sensitive, you can configure audit scopes differently for each type of data.
+
+By assorting your data this way, you achieve two goals:
+<ol><li>Reduced load on the file server. Otherwise, if you enabled <i>read </i>auditing on a petabyte of data, the server would likely go down even before some audit data is collected by Netwrix Auditor.</li><li>Collection of the most useful and valuable audit data. Otherwise, if you audited all this massive amount of data, the real incidents would be most likely buried in dozens of logs.</li></ol>
+To deal with different audit scopes, you will need several <span style="color: black;">monitoring plans, specifically because of the following technical peculiarities:</span>
+<ul><li><span style="color: black;">Data collection: Netwrix Auditor starts a separate process for every separate item in every plan, and each process has a RAM limit of 2GB. Note that it isn�t necessary to create numerous monitoring plans - you can add different shares as different items to one plan.</span></li><li><span style="color: black;">Reporting: state-in-time reports usually use data provided by one monitoring plan, and if the snapshot is too big, the reports may take hours to compile.</span></li></ul>
+<span style="color: black;">Usually, users simply specify the root location where all of their file shares reside. However, to achieve the two goals mentioned above when processing this massive amount of data, the file shares should be added to the monitoring plans one by one. You may want to automate the process of adding items � for that, it is recommended to contact Netwrix technical support.</span>
+
+�
+
+�
+
+Original KB Article 2115
+</body>
+</html>

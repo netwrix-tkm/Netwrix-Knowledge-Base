@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNX Celerra Troubleshooting</title>
+    <meta name="article-id" content="ka04u000000HclpAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:33:21.000Z">
+    <meta name="articlenumber" content="000007191">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:06:16.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:33:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000INrCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000INrCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:06:17.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:33:22.000Z">
+    <meta name="meta-description" content="360008602431">
+    <meta name="meta-title" content="VNX Celerra Troubleshooting">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7191">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000INrCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>VNX Celerra Troubleshooting</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> VNX / Celerra Troubleshooting Guide</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Having issues with Celerra and SAM/SFAM?� See below.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <strong><span style="font-size: 20pt;">Troubleshooting Steps</span></strong><br>�<br>In this guide we&#39;ll be assuming &quot;server_2&quot; is the data mover.� If this is not correct the data mover &quot;server_2&quot; should be changed to the correct data mover.<br>�<br>1. Check the connection to CEE on the Celerra/VNX side.� Execute either of the following commands via SSH session.</p>
+<ul><li>server_log server_2 (-f)
+<ul style="list-style-type: circle;"><li>Displays log and -f switch shows log updates in real-time.</li></ul>
+</li><li>server_cepp server_2 -pool -info
+<ul style="list-style-type: circle;"><li>Displays pool and connectivity status.</li></ul>
+</li></ul>
+<p>�<br>This should give you an idea whether it connects to CEE.<br>�</p>
+<p>2. In the SAM UI change the tracing level to &quot;Trace&quot; and look at the CelerraServerSvc.log file (Location C:\Program Files\STEALTHbits\StealthAUDIT\FSAC).</p>
+<p>If you see the events there (those pieces of XML) and no tsv log is generated, it means SAM gets events, but filters them out for some reason. A probable reason is the hostname. The hostname in the SAM UI might need to match the hostname that comes in the events (in the CelerraServerSvc.log file).<br>�</p>
+<p>3. If there&#39;s no events in the log, disable the host, enable it back.</p>
+<p>Look for errors. There could be registration errors.SAM should tell you, i.e. failed to register.It means it failed to connect with CEE.<br>�</p>
+<p>4. Check the registry, so the endpoint parameter is correct.� The endpoint value should be &quot;StealthAUDIT&quot; or &quot;StealthAUDIT@[IP]&quot; i.e &quot;StealthAUDIT@192.168.25.156&quot; (for remote CEE Servers)</p>
+<ol><li style="list-style-type: none;">
+<ol style="list-style-type: lower-alpha;"><li>Audit Registry key location: <strong>HKEY_LOCAL_MACHINE\SOFTWARE\EMC\CEE\CEPP\Audit\Configuration\</strong>
+</li><li>VCAPS Registry key location: <strong>HKEY_LOCAL_MACHINE\SOFTWARE\EMC\CEE\CEPP\VCAPS\Configuration\ </strong>(VCAPS is an asynchronous bulk delivery option that can be enabled in SAM&#39;s agent settings.)</li></ol>
+</li></ol>
+<p>�<br>Restart the CEE Service to see if it makes any difference.Service name &quot;EMC CEE Monitor&quot;.<br>�<br>�<br>Note: The endpoint may contain other products that receive events from the same CEE instance.<br>�</p>
+<p>If nothing helps, you have to enable debug logging in CEE, download DebugView tool (<a href="http://live.sysinternals.com/Dbgview.exe" target="_blank">http://live.sysinternals.com/Dbgview.exe</a>), and look at its logs.� See &quot;Troubleshooting On CEE&#39;s Side&quot; section below.</p>
+<p>�<br>Typically when we have problems, CEE discards such events. You&#39;ll see something that an event didn&#39;t pass some filter, most likely the Location filter. So, the idea is to understand where the messages get stuck. The simplest thing is to start with CelerraServerSvc.log<br>�<br>�<br>�<br><strong><span style="font-size: 20pt;">Troubleshooting on SAM Agent&#39;s side</span></strong><br>�<br>Change the trace level to &quot;Trace&quot;, generate some activity, collect the *.log files from location &quot;C:\Program Files\STEALTHbits\StealthAUDIT\FSAC&quot;.</p>
+<p>If you see events in the CelerraServerSvc.log (those pieces of XML), it means SAM gets events, but filters them out for some reason.<br>�<br>�<br><strong><span style="font-size: 20pt;">Troubleshooting on VNX/Celerra&#39;s side</span></strong><br>�<br>The connectivity issue can be detected with the following command (executed via SSH session):</p>
+<ul><li>server_cepp server_2 -pool -info
+<ul style="list-style-type: circle;"><li>The last line of the output shows the connection state.</li></ul>
+</li></ul>
+<p>�<br>The changes can also be seen in the log:</p>
+<ul><li>server_log server_2 (-f)
+<ul style="list-style-type: circle;"><li>-f switch shows log updates in real-time.</li></ul>
+</li></ul>
+<p>�<br>Sample output:</p>
+<ul><li>1536778232: CEPP: 3: 9: Error on CEPP server 192.168.15.125 of pool clar_r5_performance: <strong>OFFLINE</strong>, ntStatus: <strong>CONNECTION_DISCONNECTED</strong>.</li><li>1536779632: CEPP: 5: 8: CEPP server 192.168.15.125 of pool clar_r5_performance <strong>is online</strong>.</li></ul>
+<p>�<br>The first sample shows a disconnection. The second sample shows reestablishing of the connection.<br>�<br>If everything looks good at the Celerra&#39;s side, one should check the CEE.<br>�<br>�<br><strong><span style="font-size: 20pt;">Troubleshooting on CEE&#39;s side</span></strong><br>�<br>The CEE debug log can help to figure out if the CEE gets the events from Celerra and they are processed. CEE dumps all the incoming events, heartbeat signals, etc.�<br>�<br>Here&#39;s how to enable and collect CEE debug logs:</p>
+<p>�</p>
+<p>1. Registry Key Location: <strong>HKEY_LOCAL_MACHINE\SOFTWARE\EMC\CEE\Configuration</strong></p>
+<p>Change Debug and Verbose parameters to &quot;3F&quot;. Create them if they don&#39;t exist (REG_DWORD).<br>�</p>
+<p>2. Restart the CEE services.</p>
+<p>�</p>
+<p><strong>Please note</strong> that it takes time for Celerra to reestablish the connection with CEE after the services were restarted. You can check the connectivity status with &quot;server_cepp server_2 -pool -info&quot; command.<br>�</p>
+<p>3. Run DebugView (<a href="http://live.sysinternals.com/Dbgview.exe" target="_blank">http://live.sysinternals.com/Dbgview.exe</a>), in the Capture menu select &quot;Capture Win32&quot;, &quot;Capture Global Win32&quot;, and &quot;Capture Events&quot;.</p>
+<p>�</p>
+<p>4. Generate some file activity.</p>
+<p>�</p>
+<p>5. Save the log to a file and revert the registry changes. Set changed parameters back to &quot;0&quot;.</p>
+<p>�<br>In that log you&#39;ll see if SAM registered - you&#39;ll see some messages having <strong>[StealthAUDIT]</strong> in them.<br>Also, you&#39;ll see heartbeat signals from Celerra. Pieces of XML, with some NAS information.<br>�<br>Those heartbeat signals will look like file events, starting with 
+</p><p><br>The actual file activity events are also pieces of XML, starting with 
+</p><p>�</p>
+<p>Most fields are Base64 encoded. Can be decoded with a simple Base64 decoding tool (<a href="https://www.base64decode.org" target="_blank">https://www.base64decode.org</a>).</p>
+<p>Or can use the following powershell snippet to decode from base64...</p>
+<pre>[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(&quot;<span class="wysiwyg-color-red">[BASE64_STRING_HERE]</span>&quot;))</pre>
+<p><br>�<br><strong><span style="font-size: 20pt;">Useful Troubleshooting VNX/Celerra Commands.</span></strong></p>
+<ul><li>server_log server_2 (-f)
+<ul style="list-style-type: circle;"><li>Displays log and -f switch shows log updates in real-time.</li></ul>
+</li><li>server_cepp server_2 -pool -info
+<ul style="list-style-type: circle;"><li>Displays pool and connectivity status.</li></ul>
+</li><li>server_version server_2
+<ul style="list-style-type: circle;"><li>Displays current version of data mover.</li></ul>
+</li><li>server_ping server_2 xxx.xxx.xxx.xxx
+<ul style="list-style-type: circle;"><li>Ping any IP from the control station.</li></ul>
+</li><li>server_ifconfig server_2 -all
+<ul style="list-style-type: circle;"><li>Displays all configured interfaces</li></ul>
+</li><li>server_netstat server_2 (-a)(-i)(-r)(-s)
+<ul style="list-style-type: circle;"><li>Displays network statistics.
+<ul><li>-a: displays the state of all the IP, ICMP, TCP, and UDP sockets.</li><li>-i: displays a summary of the state of all physical interfaces including the total amount of data transferred both ways and the number of errors during this process as well as the MTU size and MAC address.</li><li>-r: displays the routing table.</li><li>-s: displays the statistics of each protocol.</li></ul>
+</li></ul>
+</li></ul>
+<p>�<br><a href="https://thesanguy.com/2011/06/03/useful-celerra-commands/" target="_blank">https://thesanguy.com/2011/06/03/useful-celerra-commands/</a> -- VNX NAS CLI COMMAND REFERENCE GUIDE<br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> N.A<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2130</p>
+</body>
+</html>

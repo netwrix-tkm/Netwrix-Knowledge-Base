@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inactive Users Tracker Locks Out Active Accounts not Logging to Windows</title>
+    <meta name="article-id" content="ka04u00000116LqAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-05-13T11:21:07.000Z">
+    <meta name="articlenumber" content="000008434">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-06-27T10:28:43.000Z">
+    <meta name="firstpublisheddate" content="2022-05-13T11:21:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000TsnvCAC">
+    <meta name="knowledge-article-id" content="kA04u000000TsnvCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-06-27T10:34:34.000Z">
+    <meta name="lastpublisheddate" content="2022-05-13T11:21:20.000Z">
+    <meta name="meta-description" content="Inactive Users Tracker Locks Out Active Accounts not Logging to Windows">
+    <meta name="meta-title" content="Inactive Users Tracker Locks out Accounts that are active, but don&#x27;t log on directly to Windows">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8434">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000TsnvCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Inactive Users Tracker Locks Out Active Accounts not Logging to Windows</h1>
+    <h2>Symptom and Cause</h2>
+
+<div>
+<p>Inactive Users Tracker uses LastLogonTime AD attribute to decide when was the last time user was active. Certain actions (such as Logon to Office 365 on hybrid Environments) do not affect this attribute, so IUT perceives these accounts to be inactive and locks them.</p>
+</div>
+
+<h2>Solution</h2>
+
+<div>
+<p>This issue can be worked around by omitting either the user or the OU from the monitoring scope of Inactive User Tracker. This will prevent IUT from acting on account in any way, making it impossible to set the locked status for specified accounts. For additional information on omit lists for Inactive Users Tracker, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Admin/MonitoringScope/InactiveUsers.htm" target="_self">Exclude Objects from Monitoring Scope ��Inactive Users</a>.</p>
+</div>
+</body>
+</html>

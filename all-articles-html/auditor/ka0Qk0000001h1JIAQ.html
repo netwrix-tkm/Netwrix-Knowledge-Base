@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Does the Netwrix Auditor Application Deployment Service Not Start or Is Terminated upon Launch?</title>
+    <meta name="article-id" content="ka0Qk0000001h1JIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-01-16T13:34:12.000Z">
+    <meta name="articlenumber" content="000009005">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-02-05T16:25:37.000Z">
+    <meta name="firstpublisheddate" content="2024-01-16T13:34:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000Ne9KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000Ne9KAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-02-05T16:26:35.000Z">
+    <meta name="lastpublisheddate" content="2024-02-05T16:26:35.000Z">
+    <meta name="meta-description" content="Why Does the Netwrix Auditor Application Deployment Service Not Start or is Terminated upon Launch?">
+    <meta name="meta-title" content="Why Does the Netwrix Auditor Application Deployment Service Not Start or is Terminated upon Launch?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9005">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Ne9KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why Does the Netwrix Auditor Application Deployment Service Not Start or Is Terminated upon Launch?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Why does the Netwrix Auditor Application Deployment Service not start or is terminated upon launch?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>There are some Netwrix services that are not shown in <b>services.msc</b> snap-in. They run as processes and disappear when finished. For example, the processes to audit <b>Windows File Server</b> and <b>Logon Activity</b>.</p>
+
+<p>A parent service called <b>Netwrix Auditor Application Deployment Service</b> manages them. When you enable a compression service, the Application Deployment service is installed on the target server. Then, the Application Deployment service helps deploying the compression services (&quot;processes&quot;) and manages them. Once the Application Deployment service completes its tasks, such as installing the compression service on the target, it goes into idle mode. When needed again, it starts automatically.</p>
+
+<p>Therefore, there is no need to manually start this service or worry if the service gets stopped.</p>
+</div>
+</body>
+</html>

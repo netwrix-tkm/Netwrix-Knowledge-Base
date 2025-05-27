@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileSystemOverview Error</title>
+    <meta name="article-id" content="ka0Qk000000BPvxIAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2024-12-02T20:39:18.000Z">
+    <meta name="articlenumber" content="000009336">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1208961348083165">
+    <meta name="assignedbyid" content="005Qk0000017MRRIA2">
+    <meta name="assignedtoid" content="0054u000006gpoAAAQ">
+    <meta name="assignmentdate" content="2024-12-02T20:46:44.000Z">
+    <meta name="case" content="500Qk00000FehwrIAB">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2024-12-02T20:39:18.000Z">
+    <meta name="draft-status" content="Backlog">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001kSDKAY">
+    <meta name="knowledge-article-id" content="kA0Qk0000001kSDKAY">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-04-07T19:42:47.000Z">
+    <meta name="meta-description" content="FileSystemOverview Error">
+    <meta name="meta-title" content="FileSystemOverview Error">
+    <meta name="ownerid" content="0054u000006gpoAAAQ">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9336">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001kSDKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>FileSystemOverview Error</h1>
+    <p><span dir="ltr">Below is the activity that has happened to the point we resolved this issue.</span></p>
+<p><span dir="ltr">�</span></p>
+<p><span dir="ltr">1. Customer was getting &#39;Arithmetic overflow error converting expression to data type int&#39; error when they try to run FileSystemOverview report</span></p>
+<p><span dir="ltr">�</span></p>
+<p><span dir="ltr">2. We suggested to run�FS_MigrateSchema Job in order to change data type from int to bigint in file system solution. Below are the tables that will get updated.</span><img style="height: auto;" title="Migrate schema" data-fileid="069Qk00000HG4HEIA1" src="https://nwxcorp.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=THUMB720BY480&amp;versionId=068Qk00000HTFrZ&amp;operationContext=CHATTER&amp;contentId=05TQk00000LjbFt&amp;page=0" alt="Migrate schema"></img><span dir="ltr">�</span></p>
+<p><span dir="ltr">3. When they run FS_MigrateSchema job they get error &#39;Could not drop object &#39;SA_FSDLP_MatchHits&#39; because it is referenced by a FOREIGN KEY constraint.&#39;, which we have asked to ignore as they don&#39;t use sensitive data collection.</span></p>
+<p><span dir="ltr">�</span></p>
+<p><span dir="ltr">4. When running an FSAA import job they encountered the following errors:</span></p>
+<p><span dir="ltr">Cannot find index &#39;sa_fsaa_resources_gatesproxyid_idx&#39;.</span></p>
+<p><span dir="ltr">Cannot find index &#39;sa_fsaa_resources_rightsproxyid_idx&#39;.</span></p>
+<p><span dir="ltr">Cannot find index &#39;sa_fsaa_resources_parentresourceid_name_idx&#39;.</span></p>
+<p><span dir="ltr">Cannot find index &#39;sa_fsaa_resources_enum_idx&#39;.</span></p>
+<p><span dir="ltr">�</span></p>
+<p><span dir="ltr">5. R&amp;D team confirmed this will fix by running FS_Create schema job will fix FSAA import job errors</span></p>
+<p><span dir="ltr">�</span></p>
+<p><span dir="ltr">6 Customer ran FS_Create schema job followed by FS_MigrateSchema Job and then run the FileSystemOverview job and confirmed it completed fine in their test environment.</span></p>
+</body>
+</html>

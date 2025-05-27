@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Summary Emails Contain .zip Files</title>
+    <meta name="article-id" content="ka0Qk000000124bIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-12-18T07:35:46.000Z">
+    <meta name="articlenumber" content="000008968">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-12-18T07:36:04.000Z">
+    <meta name="firstpublisheddate" content="2023-12-18T07:35:59.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000KwPKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000KwPKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-18T07:36:13.000Z">
+    <meta name="lastpublisheddate" content="2023-12-18T07:35:59.000Z">
+    <meta name="meta-description" content="Activity Summary Emails Contain .zip Files">
+    <meta name="meta-title" content="Activity Summary Emails Contain .zip Files">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8968">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000KwPKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Activity Summary Emails Contain .zip Files</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Activity Summary emails include compressed attachments while attachments are disabled in the monitoring plan settings. Should this behavior be expected?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The amount of activity records in an Activity Summary email may vary depending on your environment and the monitoring scope of the affected monitoring plan. Compressed attachments are used to optimize daily emails containing Activity Records for the corresponding monitoring plan ? this behavior is expected with the following limitations enforced:</p>
+
+<ul><li>
+	<p>The email will include an attachment in case the amount of Activity Records in the Summary exceeds 3000.</p>
+	</li><li>
+	<p>The email will include an attachment in case the email size exceeds 10�MB.</p>
+	</li></ul>
+
+<p>You can select the <strong>Attach Activity Summary as a CSV file</strong> option in the affected monitoring plan settings to receive an uncompressed <code>.csv</code> file instead.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Are Log Rotation Parameters for HubService, SyncConnector and Windows Agents in Change Tracker?</title>
+    <meta name="article-id" content="ka0Qk0000001cjBIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-01-31T20:07:46.000Z">
+    <meta name="articlenumber" content="000009035">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-02-01T11:30:50.000Z">
+    <meta name="firstpublisheddate" content="2024-01-31T20:07:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000QQjKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000QQjKAM">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-02-01T11:33:25.000Z">
+    <meta name="lastpublisheddate" content="2024-02-01T11:33:25.000Z">
+    <meta name="meta-description" content="What are the Log Rotation Parameters for HubService, SyncConnector and Windows Agents in Change Tracker?">
+    <meta name="meta-title" content="What are the Log Rotation Parameters for HubService, SyncConnector and Windows Agents in Change Tracker?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9035">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000QQjKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>What Are Log Rotation Parameters for HubService, SyncConnector and Windows Agents in Change Tracker?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>What is the log rotation values for HubService, SyncConnector and Windows Agents in Change Tracker and where to configure them?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The <b>HubService-log</b> file begins when service is started and stops at when exceeds the <code>maximumFileSiz</code> value specified in <b>C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) Hub\log4net.config</b> file.</p>
+
+<p>Specifically in the following rows:</p>
+
+<div><code>maxSizeRollBackups value=&quot;1&quot;</code></div>
+
+<div><code>maximumFileSize value=&quot;10MB&quot;</code></div>
+
+<p>The <code>maxSizeRollBackups</code> parameter indicates how many hubservice-logs will be stored. After hitting the <code>maximumFileSize</code> limit, it creates a copy with a copy number at the end.</p>
+
+<p>The <code>maximumFileSize</code> is how big a hubservice-log can grow to before a new hubservice log will be created.</p>
+
+<p>Default configuration here is 1 backup copy per 10MB.</p>
+
+<p>For <b>SyncConnector</b>, the configuration file is located here: <b>C:\Program Files\NNT Change Tracker Suite\Gen7SyncService\Gen7SyncService.exe.Config</b>.</p>
+
+<p>It shares the same parameters as the HubService config file.</p>
+
+<p>For <b>Windows Agents</b>, the default location of the configuration file is: <b>C:\Program Files\NNT Change Tracker Suite\Gen7Agent (NetCore)\log4net.config</b>. It also shares the same parameters.</p>
+</div>
+</body>
+</html>

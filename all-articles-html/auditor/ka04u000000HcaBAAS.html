@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Fix Pre-Authentication Errors Between Netwrix Server and SQL Server\DC</title>
+    <meta name="article-id" content="ka04u000000HcaBAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-01-05T11:18:46.000Z">
+    <meta name="articlenumber" content="000005935">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T09:57:51.000Z">
+    <meta name="firstpublisheddate" content="2022-01-05T11:18:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HhFCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000HhFCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:52.000Z">
+    <meta name="lastpublisheddate" content="2022-01-05T14:30:35.000Z">
+    <meta name="meta-description" content="How to Fix Preauthentication Errors Between Netwrix Server and SQL Server\DC">
+    <meta name="meta-title" content="How to Fix Preauthentication Errors Between Netwrix Server and SQL Server\DC">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5935">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HhFCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Fix Pre-Authentication Errors Between Netwrix Server and SQL Server\DC</h1>
+    <h2>Symptoms</h2>
+There are a lot of the events with failed logon coming from the Netwrix Server to any other server using collector account. The event contains this line: <b>Error Code: 0x19 KDC_ERR_PREAUTH_REQUIRED</b>
+
+<h2>Solution</h2>
+Nothing needs to be done as it is registered by Microsoft to be a false positive. You can read more about details here: https://docs.microsoft.com/en-US/troubleshoot/windows-server/identity/enable-kerberos-event-logging
+
+<h2>Explanation</h2>
+<span class="test-id__field-value slds-form-element__static slds-grow word-break-ie11">Netwrix Auditor does not keep connections to any entity open &quot;just in case&quot;. Instead, for every call to LDAP, file share, or SQL Server, we log in, obtain the necessary ticket, complete he task and log off.<br>For each initial <b>AS_REQ </b>request the server returns the <b>ERR_PREAUTH_REQUIRED </b>error and the necessary pre-authentication data. Using this reply, Auditor creates a correct AS_REQ request and gains access to the necessary resource.<br>One monitoring plan with one AD domain with one DC generates 5-6 errors per minute. The more plans, items and DCs - the more errors<br><br>This behavior is compliant with the following standards:<br><a href="https://datatracker.ietf.org/doc/html/rfc6113#section-2.2" target="_blank">https://datatracker.ietf.org/doc/html/rfc6113#section-2.2</a><br><a href="https://datatracker.ietf.org/doc/html/rfc4120#section-3.1" target="_blank">https://datatracker.ietf.org/doc/html/rfc4120#section-3.1</a></span><br><br><b>Note:</b> It is possible to mitigate such errors by disabling Kerberos pre-authentication. However, we advise against doing so because of the potential security risks.
+</body>
+</html>

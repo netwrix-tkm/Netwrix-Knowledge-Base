@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Request operation timeout</title>
+    <meta name="article-id" content="ka04u000000HcUiAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003555">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:32.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bxCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9bxCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:32.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="meta-description" content="The issue occurs when the Account Lockout Examiner service is busy and is not able to respond to any requests.">
+    <meta name="meta-title" content="Error: Request operation timeout">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1397">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bxCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Request operation timeout</h1>
+    I get the &quot;request timeout&quot; error message when I launch the Account Lockout Examiner console or some time after.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xfn" alt="User-added image" width="345" height="184"></img>
+
+<hr></hr>
+
+The issue occurs when the Account Lockout Examiner service is busy and is not able to respond to any requests. It might happen if Account Lockout Examiner is set to monitor all domain controllers and there are a lot of failed logon events to process tracked from every domain controller, or when domain controllers and workstations have a slow connection to the Account Lockout Examiner server (for example located in a remote office).
+
+<hr></hr>
+
+In order to resolve the issue perform the following steps on the Account Lockout Examiner machine:
+
+1. Change the method of collecting logs:
+<ol style="list-style-type: lower-alpha;"><li>Run Registry Editor (Start - Run - regedit)</li><li>Navigate to HKLMSoftware[Wow6432Node]NetWrixAccount Lockout Examiner (Wow6432Node only for x64 OS)</li><li>Set readlog to 0</li><li>Create a DWORD called UseWatcher with the value of 1</li><li>Set invLogonKeepTime to 10 decimal</li><li>Set invLogonCleaningPeriod to 10 decimal</li><li>Restart the Netwrix Account Lockout Examiner service</li></ol>
+<p style="margin-left: 40px;"><img style="width: 639px;height: 312px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xfx" alt="User-added image" width="500" height="212"></img></p>
+2. If the above does not help, disable searching of invalid logons on workstations. This will reduce the service load.
+<ol style="list-style-type: lower-alpha;"><li>Run Registry Editor (Start - Run - regedit)</li><li>Navigate to HKLMSoftware[Wow6432Node]NetWrixAccount Lockout Examiner (Wow6432Node only for x64 OS)</li><li>Create a DWORD called PF_Enabled with the value of 0</li><li>Restart the Netwrix Account Lockout Examiner service
+<img style="width: 680px;height: 286px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xg2" alt="User-added image" width="500" height="214"></img></li></ol>
+3. If all of the registry settings did not address the issue set Account Lockout Examiner to monitor the PDC only
+<ol style="list-style-type: lower-alpha;"><li>In NetWrix Account Lockout Examiner navigate to File &gt; Settings &gt; Managed Objects.</li><li>Select your domain and click Edit.</li><li>Select the Only PDC emulator radio button and click OK to save the changes</li></ol>
+<p style="margin-left: 40px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUi&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xg7" alt="User-added image" width="356" height="357"></img></p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What happens if I use MDT, or in-box Group Policy or MDM to set OEMDefaultAssociations.XML BEFORE PolicyPak File Associations Manager ?</title>
+    <meta name="article-id" content="ka0Qk000000Da0rIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gqNAAAY">
+    <meta name="articlecreateddate" content="2025-05-05T10:56:11.000Z">
+    <meta name="articlenumber" content="000010170">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002QcjKAE">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000006gqNAAAY">
+    <meta name="createddate" content="2025-05-05T10:56:11.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-05-05T11:05:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002QcjKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002QcjKAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gqNAAAY">
+    <meta name="lastmodifieddate" content="2025-05-05T11:05:17.000Z">
+    <meta name="lastpublisheddate" content="2025-05-05T11:05:17.000Z">
+    <meta name="ownerid" content="0054u000006gqNAAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10170">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002QcjKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>What happens if I use MDT, or in-box Group Policy or MDM to set OEMDefaultAssociations.XML BEFORE PolicyPak File Associations Manager ?</h1>
+    <p>If you attempt to:</p>
+<p class="Step-Reset"><span class="autonumber"><span class="Step"><strong>Step 1 � </strong></span></span>Pre-set the file associations in the image or</p>
+<p class="Step"><span class="autonumber"><span class="Step"><strong>Step 2 � </strong></span></span>Set using Group Policy via the &quot;Set a default associations configuration file&quot; or</p>
+<p class="Step"><span class="autonumber"><span class="Step"><strong>Step 3 � </strong></span></span>Attempt to set it using MDM�</p>
+<p>Then that method will WIN over <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager, and you will not get the <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager benefits.</p>
+<p>Therefore, use ONLY <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager and not the above methods to achieve File Associations goals. Remove any in-box Group Policy settings, etc, which are attempting to set File Associations and use only <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> to do it.</p>
+<p class="img-inside-p"><img alt="" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Da0r&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CNTlZ"></img></p>
+<p>�</p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue with exporting data to the Excel format.</title>
+    <meta name="article-id" content="ka04u000000HcSnAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:08.000Z">
+    <meta name="articlenumber" content="000003422">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:42.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZmCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZmCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:42.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:39.000Z">
+    <meta name="meta-description" content="ExcelRenderingExtension: Value of cell at row , column  exceeds the maximum length for a string of  characters
+Excel">
+    <meta name="meta-title" content="Issue with exporting data to the Excel format.">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1281">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZmCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Issue with exporting data to the Excel format.</h1>
+    You are getting error like the following when trying to export report to the Excel format:
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcSn&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005hNk" alt="User-added image" width="500" height="201"></img>
+
+<hr></hr>
+
+<span style="background-color: #ffffff;">Microsoft Excel has a limit for total number of </span><span style="background-color: #ffffff;">characters that a cell can contain (32,767). (</span><a style="color: #000000;background-color: #ffffff;" href="http://office.microsoft.com/en-us/excel-help/excel-specifications-and-limits-HP010342495.aspx" target="_blank">http://office.microsoft.com/en-us/excel-help/excel-specifications-and-limits-HP010342495.aspx</a><span style="background-color: #ffffff;">) If some report fields contain more that </span><span style="background-color: #ffffff;">32,767 characters it </span><span style="background-color: #ffffff;">cannot be exported to the Excel format.</span>
+
+<hr></hr>
+
+In order to resolve an issue you need to find out fields that contain more <span style="background-color: #ffffff;">32,767 </span><span style="background-color: #ffffff;">characters and get the list of changes that produce so much data in one cell. Then you will need to exclude such changes from being reported with omit files located in the product installation directory. For example, if it is a change to some AD attribute you can omit it with </span><span style="background-color: #ffffff;">omitproplist.txt file located in the </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">product installation directory (</span><a style="color: #000000;background-color: #ffffff;" href="file:///C:/Program" target="_blank">C:Program</a><span style="background-color: #ffffff;"> Files (x86)NetWrixAD Change </span><span style="background-color: #ffffff;">Reporter Full Version).</span>
+
+<span style="background-color: #ffffff;">To be able export historical data to the Excel format you will need to delete problematic rows from the database.
+For example, </span><span style="background-color: #ffffff;">if it is a change to some AD attribute, you can use the following SQL query to delete all changes to this attribute.</span>
+<br style="background-color: #ffffff;"><span style="background-color: #ffffff;">USE NetWrix_AD_Change_Reporter; </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">GO </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">Delete Changes </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">FROM Changes INNER JOIN PropChanges </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">ON Changes.ChangeId = PropChanges.ChangeId </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">WHERE PropChanges.Propname like &#39;&lt;attribute name&gt;&#39; </span>
+</body>
+</html>

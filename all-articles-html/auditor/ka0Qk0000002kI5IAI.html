@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Trails Are Incorrect in Netwrix Auditor</title>
+    <meta name="article-id" content="ka0Qk0000002kI5IAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-03-29T16:03:59.000Z">
+    <meta name="articlenumber" content="000009107">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-03-29T16:03:59.000Z">
+    <meta name="firstpublisheddate" content="2024-03-29T16:04:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000YphKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000YphKAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-03-29T16:04:20.000Z">
+    <meta name="lastpublisheddate" content="2024-03-29T16:04:20.000Z">
+    <meta name="meta-description" content="Audit Trails Are Incorrect in Netwrix Auditor">
+    <meta name="meta-title" content="Audit Trails Are Incorrect in Netwrix Auditor">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9107">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000YphKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Audit Trails Are Incorrect in Netwrix Auditor</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>In Netwrix Auditor, file server monitoring generates the following error message:</p>
+
+<div>
+<pre class="has-inner-focus">
+ 
+            Audit trails are incorrect. 
+        </pre>
+</div>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This error message indicates audit configuration issues in the audited environment.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Follow the steps below to resolve the issue:</p>
+
+<ol><li>
+	<p>On your file server, navigate to a problematic folder/share. Right-click it and select <b>Properties</b>.</p>
+	</li><li>
+	<p>Select the <b>Security</b> tab &gt; <b>Advanced</b>.</p>
+	</li><li>
+	<p>Under the <b>Audit</b> tab, disable inheritance.</p>
+	</li><li>
+	<p>Then, confirm that security principals are configured according to Netwrix documentation: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Windows/ObjectLevel.htm" target="_blank">Data Source Configuration � File Servers � Configure Object-Level Access Auditing � v10.6</a> (Successful Changes and Failed Reads).</p>
+	</li><li>
+	<p>Click <b>Apply</b>. The server will propagate all permissions to the target folders.</p>
+	</li></ol>
+
+<p>Setting up permissions manually will ensure that Netwrix is detecting the settings and that correct Security log events are written on the file server.</p>
+</div>
+</body>
+</html>

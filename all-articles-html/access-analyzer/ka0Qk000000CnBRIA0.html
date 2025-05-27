@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weak Password Job Errors: System.IO.FileNotFoundException: Could Not Load File or Assembly: DSInternals.Replication.Interop.dll</title>
+    <meta name="article-id" content="ka0Qk000000CnBRIA0">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000007oss5AAA">
+    <meta name="articlecreateddate" content="2025-01-24T16:04:16.000Z">
+    <meta name="articlenumber" content="000009379">
+    <meta name="case" content="500Qk00000L2CYrIAN">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000007oss5AAA">
+    <meta name="createddate" content="2025-03-12T19:13:13.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-03-04T14:48:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001u09KAA">
+    <meta name="knowledge-article-id" content="kA0Qk0000001u09KAA">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-12T19:17:17.000Z">
+    <meta name="lastpublisheddate" content="2025-03-04T14:48:28.000Z">
+    <meta name="meta-description" content="Weak Password job fails because the NEA server is missing DSInternals.Replication.Interop.dll">
+    <meta name="meta-title" content="Weak Password job failed missing DSInternals.Replication.Interop.dll">
+    <meta name="ownerid" content="0054u000007oss5AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9379">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001u09KAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Weak Password Job Errors: System.IO.FileNotFoundException: Could Not Load File or Assembly: DSInternals.Replication.Interop.dll</h1>
+    <h2>Symptom</h2>
+<div>
+<p>The <strong>Active Directory &gt; 2.Users &gt; AD_WeakPasswords</strong> job fails, and you receive the following error:</p>
+<pre class="has-inner-focus">System.IO.FileNotFoundException: Could not load file or assembly<br>&#39;DSInternals.Replication.Interop.dll&#39; or one of its dependencies. The specified module could not be found.
+</pre>
+<h2>Cause</h2>
+<div>
+<p>The required Windows component <strong>Microsoft Visual C++ Redistributable x86</strong> is not installed.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE:�</strong></span>Netwrix Enterprise Auditor requires the x86 version of the C++ Redistributable.</p>
+</blockquote>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Download and install <strong>Microsoft Visual C++ Redistributable x86</strong> onto the Netwrix Enterprise Auditor server.</p>
+<ul><li><a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">https://aka.ms/vs/16/release/vc_redist.x86.exe</a></li></ul>
+</div>
+</div>
+</body>
+</html>

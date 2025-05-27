@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable Registry Auditing in Windows</title>
+    <meta name="article-id" content="ka0Qk0000004IMXIA2">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:22:42.000Z">
+    <meta name="articlenumber" content="000006583">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2024-06-20T14:50:54.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:22:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I16CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000I16CAE">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2024-07-18T19:34:36.000Z">
+    <meta name="lastpublisheddate" content="2024-07-18T19:34:36.000Z">
+    <meta name="meta-description" content="How to Enable Registry Auditing in Windows">
+    <meta name="meta-title" content="How to Enable Registry Auditing in Windows">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6583">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I16CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Enable Registry Auditing in Windows</h1>
+    <h2>Overview</h2>
+<p>Netwrix Enterprise Auditor cannot snapshot and track changes to the Windows registry with its native collectors. However, by enabling auditing on the Windows registry, Enterprise Auditor can collect the events in the Windows security event logs.</p>
+
+<h2>Instructions</h2>
+<p>Windows Registry audit permissions must be configured on each Windows server you want to audit so that the &quot;Who&quot; and &quot;When&quot; values are reported correctly for each change.</p>
+
+<h3>Step 1: Enable the audit policy</h3>
+<p>Run the following in the command prompt as an admin:</p>
+<pre>auditpol /set /subcategory:&quot;Registry&quot; /success:enable</pre>
+
+<h3>Step 2: Configure Windows registry audit settings</h3>
+<h4>For pre-Windows Server 2012 versions</h4>
+<ol><li>On your target server, open Registry Editor: navigate to <strong>Start</strong> &gt; <strong>Run</strong> and type &quot;regedit&quot;.</li><li>In the registry tree, expand the <strong>HKEY_LOCAL_MACHINE</strong> key, right-click the Registry Hive you want to monitor (e.g., SOFTWARE) and select <strong>Permissions</strong> from the pop-up menu.</li><li>In the Permissions for SOFTWARE dialog, click <strong>Advanced</strong>.</li><li>In the Advanced Security Settings for SOFTWARE dialog, select the <strong>Auditing</strong> tab and click <strong>Add</strong>.</li><li>Select the <strong>Everyone</strong> group.</li><li>In the Auditing Entry for SOFTWARE dialog, select &quot;Successful&quot; for the following access types:</li><ul><li>Set Value</li><li>Create Subkey</li><li>Delete</li><li>Write DAC</li><li>Write Owner</li></ul></ol>
+
+<h4>For Windows Server 2012 and above</h4>
+<ol><li>On your target server, open Registry Editor: navigate to <strong>Start</strong> &gt; <strong>Run</strong> and type &quot;regedit&quot;.</li><li>In the registry tree, expand the <strong>HKEY_LOCAL_MACHINE</strong> key, right-click the Registry Hive you want to monitor (e.g., SOFTWARE) and select <strong>Permissions</strong> from the pop-up menu.</li><li>In the Permissions for SOFTWARE dialog, click <strong>Advanced</strong>.</li><li>In the Advanced Security Settings for SOFTWARE dialog, select the <strong>Auditing</strong> tab and click <strong>Add</strong>.</li><li>Click <strong>Select a principal</strong> link and specify the <strong>Everyone</strong> group in the Enter the object name to select field.</li><li>Set Type to &quot;Success&quot; and Applies to &quot;This key and subkeys&quot;.</li><li>Click <strong>Show advanced permissions</strong> and select the following access types:</li><ul><li>Set Value</li><li>Create Subkey</li><li>Delete</li><li>Write DAC</li><li>Write Owner</li></ul></ol>
+</body>
+</html>

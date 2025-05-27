@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Exclude Non-operable Domain Controllers from Monitoring in Netwrix Auditor</title>
+    <meta name="article-id" content="ka0Qk0000003W1lIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:10.000Z">
+    <meta name="articlenumber" content="000003036">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-05-02T08:33:50.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:52.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TQCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9TQCA0">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-05-02T08:34:28.000Z">
+    <meta name="lastpublisheddate" content="2024-04-05T13:35:52.000Z">
+    <meta name="meta-description" content="exclude non-operable domain controllers Inactive User Tracker IUT">
+    <meta name="meta-title" content="How to exclude non-operable domain controllers from monitoring?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="613">
+    <meta name="versionnumber" content="7">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TQCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Exclude Non-operable Domain Controllers from Monitoring in Netwrix Auditor</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to exclude a non-operable or decommissioned domain controller from monitoring?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>To exclude domain controllers from monitoring, refer to the following steps:</p>
+
+<ol><li>
+	<p>Navigate to the %Working Folder%.</p>
+
+	<p>The default path to Netwrix Working Folder is: <b>C:\ProgramData\Netwrix Auditor</b>. If the Working Folder has been moved and you do not know the path, you can find it by opening the <b>Registry Editor</b> and navigating to:</p>
+
+	<p>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE:</strong></span> The <code>Inactive Users Tracker</code> folder might not exist in the <code>%working folder%</code> directory if Inactive Users Tracker was not deployed.</p>
+	</blockquote>
+	</li><li>
+	<p>Open the <strong>omitdclist.txt</strong>�file and specify the name of the domain controller you want to exclude in a new line.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Make sure the line does not start with the <strong>#</strong> symbol.</p>
+	</blockquote>
+
+	<p>Refer to the following code block for a reference:</p>
+
+	<pre class="has-inner-focus">
+# DC name formats: full DNS and NETBIOS. IP addresses are not supported.
+# e.g. # dc1.example.com
+#
+MYDC.MYDOMAIN.LOCAL</pre>
+	<img alt="User-added image" height="296" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000003W1l&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003oywv" width="500"></img></li><li>
+	<p>Save the changes. Inactive User Tracker will exclude this domain controller.</p>
+	</li></ol>
+</div>
+
+<div>
+<p>Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/UserActivity/Scope.htm" target="_self">Monitoring Plans � User Activity Monitoring Scope � v10.6</a>.</p>
+</div>
+</body>
+</html>

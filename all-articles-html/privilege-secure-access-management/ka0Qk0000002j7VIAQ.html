@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout During Reading Attempt Error</title>
+    <meta name="article-id" content="ka0Qk0000002j7VIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-03-25T06:33:05.000Z">
+    <meta name="articlenumber" content="000009086">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-03-28T14:11:40.000Z">
+    <meta name="firstpublisheddate" content="2024-03-28T14:11:36.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000XC5KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000XC5KAM">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-03-28T14:11:47.000Z">
+    <meta name="lastpublisheddate" content="2024-03-28T14:11:36.000Z">
+    <meta name="meta-description" content="Timeout During Reading Attempt Error">
+    <meta name="meta-title" content="Timeout During Reading Attempt Error">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9086">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000XC5KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Timeout During Reading Attempt Error</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Privilege Secure prompts the following error in Entra ID (formerly Azure Active Directory) event logs:</p>
+
+<pre class="has-inner-focus">
+Data processing error: Exception while reading from stream,
+Timeout during reading attempt</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>In larger Entra ID environments (e.g., with 9000 users or more), timeouts may hinder Entra ID synchronization.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Adjust the timeout setting to prevent the synchronization from being interrupted prematurely:</p>
+
+<ol><li>
+	<p>In the NPS server, locate the NPS Database Configuration Tool in <code>%ProgramFiles%\Stealthbits\PAM\DatabaseConfig\DatabaseConfigUI</code> by default.</p>
+	</li><li>
+	<p>Run the <code>NPS.DbCfg.exe</code> tool.</p>
+	</li><li>
+	<p>Locate the <strong>Command Timeout</strong> line and increase the value to <strong>3600</strong>. The extended timeout should allow the Entra ID synchronization to complete.</p>
+	</li><li>
+	<p>Click <strong>Save</strong> to save changes.</p>
+	</li></ol>
+</div>
+</body>
+</html>

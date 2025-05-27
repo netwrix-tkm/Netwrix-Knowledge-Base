@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPE Tolerance Rules</title>
+    <meta name="article-id" content="ka04u000000HdCqAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-05-03T11:44:45.000Z">
+    <meta name="articlenumber" content="000008424">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T10:18:56.000Z">
+    <meta name="firstpublisheddate" content="2022-05-03T11:45:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000K8rCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000K8rCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:56.000Z">
+    <meta name="lastpublisheddate" content="2022-05-03T11:45:17.000Z">
+    <meta name="meta-description" content="PPE Tolerance Rules">
+    <meta name="meta-title" content="PPE Tolerance Rules">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8424">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K8rCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PPE Tolerance Rules</h1>
+    The tolerance determines the shortest section of the password that the tool would look for in the file. For example, let&#39;s say your password is <b>PASSWORD</b>. If the tolerance is four, PPE will search the dictionary for these words:<br><br><b>PASSW<br>ASSWO<br>SSWOR<br>SWORD<br>PASSWO<br>ASSWOR<br>SSWORD<br>PASSWOR<br>ASSWORD<br>PASSWORD</b><br><br>The start length is Tolerance + 1 characters. The rule may perform other searches depending on the settings (such as searching for all these words backwards if Bi-directional Analysis is enabled). In the example above, you can see that SWORD would have been found if it was in the dictionary file.<br><br>If the Tolerance were set to six, PPE would search the file for these words:<br><br><b>PASSWOR<br>ASSWORD<br>PASSWORD</b><br><br>Notice that there are fewer searches and so PPE is less likely to find a match (more tolerant). In this example, PASSWORD would still be matched. So increasing the tolerance makes PPE more tolerant of shorter matches in the file. It didn&#39;t find <b>SWORD</b>, but it still found <b>PASSWORD</b>.
+</body>
+</html>

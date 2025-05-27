@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to fix &quot;Error, the requested event counts summary size cannot be smaller than the system event count window size&quot; message</title>
+    <meta name="article-id" content="ka04u000000HdBNAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:02:30.000Z">
+    <meta name="articlenumber" content="000008313">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:18:20.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:02:31.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JgYCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JgYCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:20.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to fix &quot;Error, the requested event counts summary size cannot be smaller than the system event count window size&quot; message">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8313">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JgYCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to fix &quot;Error, the requested event counts summary size cannot be smaller than the system event count window size&quot; message</h1>
+    <h2 id="">Problem</h2>
+<div class=""><span class=""> </span>
+    <div class="">
+        <p>When any Change Tracker user is browsing to the Change Tracker Dashboard tab or the Device tab, a red error message box appears on screen stating - &quot;<strong>Error, the requested event counts summary size cannot be smaller than the system event count window size</strong>&quot;</p>
+    </div>
+</div>
+<h2 id="">Solution</h2>
+<p>To resolve the issue, the user will need to ensure that the Change Tracker <strong>EventStatsUnitSeconds configuration item</strong> is to set to a factor of 86400. </p>
+<p>The <strong>default value </strong>is set to <strong>1800</strong>. If the error message is seen, this implies that the current value <strong>is not </strong>a whole number multiple of 86400 and the value will need to be corrected. To check and correct the value, please follow the steps below:</p>
+<ol><li>
+        <p>Login to Change Tracker</p>
+    </li><li>
+        <p>Browse to <strong>Settings Tab</strong></p>
+    </li><li>
+        <p>Browse to <strong>System Settings</strong></p>
+    </li><li>
+        <p>Scroll to the <strong>bottom </strong>of the page</p>
+    </li><li>
+        <p>Select ���<strong>Show Advanced Options</strong>���</p>
+    </li><li>
+        <p>Under ���<strong>Configuration Settings</strong>��� look for the Description: <strong>EventStatsUnitSeconds</strong></p>
+    </li><li>
+        <p>If the config item cannot be found, use the ���<strong>Add Config Item</strong>��� to create it.</p>
+    </li><li>
+        <p>If Value is <strong>not set</strong> or value is <strong>not 1800</strong>, select the <strong>Edit </strong>button next to <strong>EventStatsUnitSeconds </strong>and change value accordingly.</p>
+    </li><li>
+        <p>Press <strong>Update</strong>.</p>
+    </li><li>
+        <p>Log out and login to Change Tracker.</p>
+    </li></ol>
+<h2 id="">Related articles</h2>
+<p></p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to fix &quot;Error, the requested event counts summary size cannot be smaller than the system event count window size&quot; message</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">The NNT FAST� Cloud Usage Considerations</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">HTTP Error 500.19 - Internal Server Error - Error Code 0x8007007e</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Redis - QFork.dat Files Taking Up Large Amounts Of Disk Space?</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">NNT Gen 7 Agent - Hub Connection Test Error (WinHttp.WinHttpRequest)</a>
+        </div>
+    </li></ul>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure a Scan for IS Local Administrators Group</title>
+    <meta name="article-id" content="ka0Qk000000CCv3IAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-02-11T15:37:55.000Z">
+    <meta name="articlenumber" content="000009399">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209378183184397">
+    <meta name="assignedbyid" content="005Qk000001wMM9IAM">
+    <meta name="assignedtoid" content="0054u000007osjSAAQ">
+    <meta name="assignmentdate" content="2025-02-11T15:45:07.000Z">
+    <meta name="assignmentduedate" content="2025-02-24T05:00:00.000Z">
+    <meta name="assignmentnote" content="Hi Frantz!
+
+We have assigned this draft for you to work on. Please reach out if you have any questions. 
+
+As for revisions, it should be a Question/Answer &quot;How To&quot; article type. Also, please redo the screenshots if you can. You may want to work with Mike Candon, too, if you have questions about the ticket. 
+
+Thank you for your help!">
+    <meta name="case" content="500Qk00000KNGv0IAH">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-02-11T15:37:55.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000020GrKAI">
+    <meta name="knowledge-article-id" content="kA0Qk00000020GrKAI">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-09T13:00:27.000Z">
+    <meta name="meta-description" content="Request for Assistance with Running a Scan for IS Local Administrators Group">
+    <meta name="meta-title" content="Request for Assistance with Running a Scan for IS Local Administrators Group">
+    <meta name="ownerid" content="005Qk00000276ifIAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9399">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000020GrKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure a Scan for IS Local Administrators Group</h1>
+    <p>+++++<br>Question/Answer<br>+++++<br>2025_0108 EMAIL to the customer<br>+++++<br>1) It looks like you are licensed for the Netwrix Access Analyzer Windows Solution which should contain a job that can help you identify where IS Local Administrators in a member of the local admins group.<br><br>2) In the Access Analyzer Console, expand the following: Windows &gt; Privileged Accounts &gt; SG_LocalAdmins<br><br>Image_2025-01-08_13-56-56.png<br><br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CCv3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AsXaj" alt="SS01_NEA_Windows_Privileged_Accounts_Local_Administrators_SG_Local_Admins_Image_2025-01-08_13-56-56.png"></img>�<br><br>3) By default, this targets the ALL WINDOWS SERVERS (NO DC) Host List<br><br>Image_2025-01-08_13-56-02.png</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CCv3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AsXm1" alt="SS02_NEA__Host_Management__ALL_WINDOWS_SERVERS__NO_DCs_Image_2025-01-08_13-56-02.png"></img></p>
+<p><br><br>4) Run the job and the information you&#39;re looking for should be found under the Results node beneath the job.<br><br>Image_2025-01-08_13-58-30.png</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CCv3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AsSRP" alt="SS03_NEA__Windows_Privileged_Accounts_Local_Administrators_SG_LocalAdmins_Results_Image_2025-01-08_13-58-30.png"></img></p>
+<p><br>+++++</p>
+</body>
+</html>

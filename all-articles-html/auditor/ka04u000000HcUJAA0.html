@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corruption of the database owner record</title>
+    <meta name="article-id" content="ka04u000000HcUJAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:53.000Z">
+    <meta name="articlenumber" content="000003531">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:20.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bZCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9bZCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:20.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:55.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when a database cannot be accessed and you receive an error message containing the &amp;#039;invalid owner&amp;#039; text.">
+    <meta name="meta-title" content="Corruption of the database owner record">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1369">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bZCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Corruption of the database owner record</h1>
+    Database cannot be accessed and you receive an error messages containing the &#39;invalid owner&#39; text.
+
+<hr></hr>
+
+When the Database Content Audit option is selected, on each data collection Netwrix Auditor checks if the TRUSTWORTHY property is enabled on the monitored databases, and enables the property when it is disabled. Sometimes this process can corrupt the database owner record.
+
+<hr></hr>
+
+In Microsoft SQL Server Management Studio, run the following command: &#39;ALTER AUTHORIZATION ON DATABASE::db_name TO user_name&#39;, where &#39;db_name&#39; is a name of the corrupted database and &#39;user_name&#39; is the db owner account name.
+</body>
+</html>

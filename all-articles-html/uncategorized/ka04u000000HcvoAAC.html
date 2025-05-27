@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SR 1.4 HF 001</title>
+    <meta name="article-id" content="ka04u000000HcvoAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:30:46.000Z">
+    <meta name="articlenumber" content="000007119">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:12.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:30:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000InJCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000InJCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:12.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:30:47.000Z">
+    <meta name="meta-description" content="360012021072">
+    <meta name="meta-title" content="Hotfix: SR 1.4 HF 001">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7119">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000InJCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SR 1.4 HF 001</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SR Long rollback time / Rollbacks not completely restoring</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> </p><table style="width: 565pt;" width="751"><colgroup><col style="width: 128pt;" width="170"></col><col style="width: 181pt;" width="241"></col></colgroup><tbody><tr style="height: 14.4pt;" height="19"><td colspan="1" rowspan="1" class="xl64" style="height: 14.4pt;width: 128pt;white-space: nowrap;text-align: left;" height="19" width="170"><span style="font-size: 11pt;"><span style="color: black;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;"><span style="font-family: Calibri,sans-serif;">SR 1.4 HF 001</span></span></span></span></span></span></td><td colspan="1" rowspan="1" class="xl64" style="width: 128pt;white-space: nowrap;text-align: left;" width="170"><span style="font-size: 11pt;"><span style="color: black;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;"><span style="font-family: Calibri,sans-serif;">38619</span></span></span></span></span></span></td><td colspan="1" rowspan="1" class="xl64" style="width: 128pt;white-space: nowrap;text-align: left;" width="170"><span style="font-size: 11pt;"><span style="color: black;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;"><span style="font-family: Calibri,sans-serif;">SR-5341</span></span></span></span></span></span></td><td colspan="1" rowspan="1" class="xl64" style="width: 181pt;white-space: nowrap;text-align: left;" width="241"><span style="font-size: 11pt;"><span style="color: black;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;"><span style="font-family: Calibri,sans-serif;">Long rollback time / Rollbacks not completing correctly.</span></span></span></span></span></span></td></tr></tbody></table><br><br>When a rollback contains an object with a DistinguishedName change and other attribute changes, SR moves the object to the source OU before completing all attribute changes which causes the object to not be fully restored as it is trying to apply the attributes to the deleted items location of the object.��<br><br>This has been resolve in this hotfix, and now the attribute changes use the restored location as to be set correctly.<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Download installer<br>2. Double click to launch upgrade process<br><br><a href="https://downloads.stealthbits.com/access/files/SRHotfixes/1.4/StealthRECOVER-1.4-HF-001.zip" target="_blank">https://downloads.stealthbits.com/access/files/SRHotfixes/1.4/StealthRECOVER-1.4-HF-001.zip�</a></p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthRECOVER<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> StealthRECOVER -  General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 1.4<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SR-5341<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 1.4.16.0<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2534<br></p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.1_021</title>
+    <meta name="article-id" content="ka04u000000Hcy4AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:49:50.000Z">
+    <meta name="articlenumber" content="000007705">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:24.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:49:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Iu2CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Iu2CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:25.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:49:51.000Z">
+    <meta name="meta-description" content="360012326231">
+    <meta name="meta-title" content="Hotfix: SA_7.1_021">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7705">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Iu2CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.1_021</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Update AD DC and Solution set jobs to show correct values for domain and forest functional level</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Modules Included <br>- GROUP_Active Directory\GROUP_8.Domains\JOB_AD_DomainInfo\Job_AD_DomainInfo.XML <br>- DCActiveDirectory.DLL - 7.1.78.x <br><br>YouTrack/Escalations <br>SAT-101 <br>SAT-678 <br>Escalations - 5614, 7529, 5974 <br><br>Customers <br>- Charles Schwab <br><br>Cumulative List of fixes included since Service Pack: <br>- SAT-101: The Domain Overview report shows Windows 2000 Mixed as the domain and forest functional level <br>- SAT-678: AD_DomainInfo &gt; Domains reports do not show child domains and instead will only report the child DC as a DC in the parent domain</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <u><a href="http://downloads.stealthbits.com/access/files/SAHotFixes/7.1/SA_7.1_021.zip" target="_blank">http://downloads.stealthbits.com/access/files/SAHotFixes/7.1/SA_7.1_021.zip</a></u> 
+</p><ol><li>Update AD Data Collector
+</li><li>Confirm there are no customizations on the affected jobs before updating with included files. Once confirmed, update the job files into the respective job directories.</li></ol><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - Active Directory;SA - Solution Set - Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-101
+SAT-678<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	DCActiveDirectory.DLL	7.1.78
+-	Solution Set fixes will be available in 7.1<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1199<br></p>
+</body>
+</html>

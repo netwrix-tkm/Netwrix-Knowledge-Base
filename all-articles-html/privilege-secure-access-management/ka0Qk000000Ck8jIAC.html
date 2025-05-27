@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)</title>
+    <meta name="article-id" content="ka0Qk000000Ck8jIAC">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-10-12T13:21:37.000Z">
+    <meta name="articlenumber" content="000005913">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1209544302877006?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2025-03-07T21:41:56.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2021-10-12T13:41:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HRRCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000HRRCA2">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-13T19:12:11.000Z">
+    <meta name="lastpublisheddate" content="2025-05-13T19:12:11.000Z">
+    <meta name="meta-description" content="Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)">
+    <meta name="meta-title" content="Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5913">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HRRCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configure Proxy for RDP Connections (Install/Update Certificate to Prevent RDP Certificate Warnings)</h1>
+    <h2>Overview</h2>
+<p>This article outlines the process for installing or updating a certificate to prevent Remote Desktop Protocol (RDP) certificate warnings during SbPAM workflows.</p>
+<h2>Prerequisites</h2>
+<ul><li>
+<p>Windows Server must have the <strong>Certification Authority</strong> and <strong>Certification Authority Web Enrollment</strong> roles installed and configured. This ensures that the <strong>Certification Authority</strong> utility can be successfully launched and accessed via a web browser (<code class="lang-Registry">https://&lt;servername&gt;/certsrv</code>).</p>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>The Certification Authority&#39;s post-deployment configuration must be completed after installing both prerequisite roles.</p>
+</blockquote>
+<img alt="Certification Authority post-deployment configuration dialog with required options visible" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmF"></img></li><li>
+<p>The domain must have the <strong>Enrollment Policy</strong> set to enable automatic enrollment and renewal. The <strong>Certificate Enrollment Policy</strong> for user and computer certificates is configured in the <strong>Group Policy</strong> snap-in under <strong>Default Domain Policy</strong> (or another group policy applied to all systems that will access an NPS server on a group-by-group basis). To configure this:</p>
+<ol><li>On the Domain Controller, open the <strong>Group Policy</strong> snap-in.</li><li>Navigate to <strong>Computer Configuration &gt; Policies &gt; Windows Settings &gt; Security Settings &gt; Public Key Policies</strong> and enable the <strong>Certificate Services - Certificate Enrollment Policy</strong>.</li></ol>
+</li></ul>
+<h2>Instructions</h2>
+<h4>Generate Certificate</h4>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>If you already have a certificate to install, you can skip to the <strong>Adding the Certificate to Each SbPAM Proxy Server</strong> section below.</p>
+</blockquote>
+<ol><li>Open <strong>Certification Authority</strong>, open your CA, right-click <strong>Certificate Templates</strong>, and click <strong>Manage</strong>.<br><img alt="Certification Authority console with Certificate Templates context menu open" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmK"></img></li><li>In the <strong>Certificate Templates Console</strong>, right-click <strong>Workstation Authentication</strong>, and click <strong>Duplicate Template</strong>.<br><img alt="Certificate Templates Console with Duplicate Template option highlighted" height="491" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmG"></img></li><li>On the <strong>General</strong> tab, change the name to <strong>Client-Server Authentication</strong> and enable the <strong>Publish certificate in Active Directory</strong> checkbox.<br><img alt="General tab of template properties with name and publish option highlighted" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUk0"></img></li><li>On the <strong>Subject Name</strong> tab, enable the <strong>Supply in the request</strong> radio button.<br><img alt="Subject Name tab with Supply in the request option selected" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmU"></img></li><li>On the <strong>Extensions</strong> tab, select <strong>Application Policies</strong> and click <strong>Edit</strong>. Click <strong>Add</strong>, then select <strong>Server Authentication</strong>. Click <strong>OK</strong> until you return to the <strong>Properties of New Template</strong> dialog.<br><img alt="Extensions tab with Application Policies and Server Authentication highlighted" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmZ"></img></li><li>On the <strong>Security</strong> tab, select <strong>Domain Computers</strong> and enable the checkbox to allow <strong>Autoenroll</strong>. Click <strong>OK</strong> and then close the Certificate Templates Console.<br><img alt="Security tab with Domain Computers and Autoenroll option checked" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUme"></img></li><li>Back in <strong>Certification Authority</strong>, right-click <strong>Certificate Templates</strong>, hover over <strong>New</strong>, and click <strong>Certificate Template to Issue</strong>.<br><img alt="Certification Authority with Certificate Template to Issue option highlighted" height="325" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmj"></img></li><li>Select <strong>Client-Server Authentication</strong> and click <strong>OK</strong>.<br><img alt="Certificate Template selection dialog with Client-Server Authentication selected" height="318" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmo"></img></li><li>
+<p>On the desktop, create a text file named <strong>request.inf</strong> with the following content (replace the <span style="color: #c0392b;"><strong>red</strong></span> text with your server certificate name):</p>
+<pre class="has-inner-focus">[Version]
+Signature=&quot;$Windows NT$&quot;
+[NewRequest]
+Subject = &quot;CN=sbpam-3.sblab.local&quot;
+KeySpec = 1
+KeyLength = 2048
+Exportable = TRUE
+MachineKeySet = FALSE
+SMIME = False
+PrivateKeyArchive = FALSE
+UserProtected = FALSE
+UseExistingKeySet = FALSE
+ProviderName = &quot;Microsoft RSA SChannel Cryptographic Provider&quot;
+ProviderType = 12
+RequestType = PKCS10
+KeyUsage = 0xa0
+HashAlgorithm = SHA256
+[Extensions]
+2.5.29.17 = &quot;{text}&quot;
+_continue_ = &quot;dns=sbpam-3.sblab.local&amp;&quot;
+[EnhancedKeyUsageExtension]
+OID=1.3.6.1.5.5.7.3.1</pre>
+</li><li>
+<p>Open Command Prompt as Administrator, change directory to the Desktop (or the location of your <strong>request.inf</strong> file), and run:</p>
+<pre class="has-inner-focus">certreq -new request.inf rdp.csr</pre>
+<img alt="Command Prompt showing certreq command execution" height="193" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmt"></img></li><li>
+<p>To sign the certificate request, use your preferred signing mechanism. The following example uses Active Directory Certificate Services (<code class="lang-Registry">https://&lt;servername&gt;/certsrv</code>).</p>
+<img alt="Certificate Services web enrollment home page" height="103" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUmy"></img> <img alt="Certificate Services advanced certificate request page" height="196" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUn3"></img>
+<p>Click <strong>Request a certificate</strong>, then click <strong>advanced certificate request</strong>.</p>
+</li><li>
+<p>Open the saved certificate signing request (<strong>rdp.csr</strong>) from the previous step in Notepad. Copy the certificate request into the <strong>Saved Request</strong> field. Select <strong>Client-Server Authentication</strong> from the <strong>Certificate Template</strong> dropdown. Click <strong>Submit</strong>.</p>
+<img alt="Certificate request submission form with fields filled" height="419" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUn8"></img>
+<p>Leave other settings at default values, and click <strong>Submit</strong>.</p>
+</li><li>
+<p>Select <strong>DER encoded</strong> and click <strong>Download certificate</strong>.</p>
+<img alt="Certificate download page with DER encoded option selected" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnD"></img></li><li>
+<p>Open the downloaded certificate and select <strong>Install Certificate</strong>. Proceed with all default values and complete the wizard.</p>
+<img alt="Certificate installation wizard with default options" height="328" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnI"></img></li><li>
+<p>To export the certificate, view certificates for the current user by launching <strong>certmgr.msc</strong> using the Windows <strong>Run</strong> menu.</p>
+<img alt="Windows Run dialog with certmgr.msc entered" height="80" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnN"></img>
+<p>Right-click the installed certificate (the certificate using the <strong>Client-Server Authentication</strong> template) and click <strong>Export...</strong>.</p>
+<img alt="Certificate export context menu" height="183" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnO"></img></li><li>
+<p>In the <strong>Certificate Export Wizard</strong>, change the <strong>Export Private Key</strong> option to <strong>Yes, export the private key</strong>.</p>
+<img alt="Certificate Export Wizard with Export Private Key option selected" height="301" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnS"></img></li><li>
+<p>For <strong>Export File Format</strong>, select <strong>Personal Information Exchange - PKCS #12 (.PFX)</strong>. Select the following checkboxes:</p>
+<ul><li>Include all certificates in the certification path if possible</li><li>Enable certificate privacy</li></ul>
+<img alt="Export File Format options with PKCS #12 and checkboxes selected" height="422" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnX"></img></li><li>
+<p>For <strong>Security</strong>, enter a password of your choosing and select the AES256-SHA256 encryption option (3DES is no longer recommended by NIST).</p>
+</li><li>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>For <strong>File to Export</strong>, the file name <u>must</u> be <strong>rdp.pfx</strong>. If it is named anything else, importing the .pfx file on each proxy server will not work.</p>
+</blockquote>
+<img alt="Export dialog with rdp.pfx file name entered" height="237" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnh"></img></li><li>This certificate can now be imported to each SbPAM Proxy Server.</li></ol>
+<h4 id="Adding-the-Certificate-to-Each-SbPAM-Proxy-Server">Adding the Certificate to Each SbPAM Proxy Server</h4>
+<ol><li>Copy <strong>rdp.pfx</strong> (from the previous steps) to each SbPAM Proxy Server.</li><li>On each SbPAM Proxy Server, run the following command via an elevated <strong>Command Prompt</strong>, and enter the certificate&#39;s password when prompted.
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>The path to <strong>sbpam-proxy.exe</strong> may be different depending on the install path you selected when installing SbPAM and/or distributed proxy services.</p>
+</blockquote>
+<pre class="has-inner-focus">&quot;C:\Program Files\Stealthbits\PAM\ProxyService\sbpam-proxy.exe&quot; ca import -p [PATH]\rdp.pfx</pre>
+<img alt="Command Prompt showing sbpam-proxy.exe ca import command" height="80" width="500" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ck8j&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUnr"></img></li><li>The new certificate has now been imported to an SbPAM Proxy Server. Repeat this process for all SbPAM Proxy Servers if using more than one. (The default installation of SbPAM uses one proxy service on the SbPAM server itself; however, additional proxy services can be distributed.)</li></ol>
+</body>
+</html>

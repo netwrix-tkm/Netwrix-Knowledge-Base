@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardium - Configuring a scan to use Custom Criteria</title>
+    <meta name="article-id" content="ka04u000000Hcx0AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:35:06.000Z">
+    <meta name="articlenumber" content="000007221">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:59.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:35:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IqXCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IqXCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:59.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:35:06.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Guardium - Configuring a scan to use Custom Criteria">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7221">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IqXCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Guardium - Configuring a scan to use Custom Criteria</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> The process to configure a Guardium scan to use custom criteria varies greatly from the process followed within StealthAUDIT due to several limitations 
+-	scans are limited to patterns in a single file 
+-	a requirement for the patterndefs files to exist in multiple locations 
+These limitations are true as of EOY 2018. Due to these constraints, the end user is required to 
+-	manually copy patterns from the mypatterndefs.update file to the patterndefs.update file 
+-	update the patterndefs.update file in multiple locations</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> System criteria definitions for StealthAUDIT are stored in %SAINSTALLDIR%DC\patterndefs.update. When an end user creates their own custom criteria, it gets written to a separate file %SAINSTALLDIR%DC\patterndefs.update. The Sensitive Data Addon is able to read from two separate files at once, which allows users to select both system criteria and custom criteria in a single scan. There is a limitation within Guardium in that the scan configuration only allows to read from a single (specified) patterndefs file<br><img alt="User-added image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcZV8&amp;d=%2Fa%2F4u000000LywP%2F4WmvVpErl_5sbUZ2ZT6E_3doLdxEfj_PKBheemAlnVc&amp;asPdf=false" width="500" height="465"></img><br>�<br>This means that in order to configure a single scan that includes criteria from different patterndefs files, end users have to manually copy over all desired patterns into a single file. In addition to that, any patterns file that exists in the SensitiveData directory must also exist in the root of the Bin directory.<br>One thing to keep in mind is that the Guardium upgrade process will overwrite the patterndefs.update file, which means that when going through this procedure, desired patterns should be copied to the mypatterndefs.update file instead �of the patterndefs.update file to avoid losing custom criteria and pattern sets.<br>To configure a scan to use custom and system criteria, end users must do the following 
+</p><ul><li>Launch the DLPCriteriaEditor.exe file directly through the IBM Install directory
+</li><li>Copy �desired system criteria from the patterndefs.update file to the mypatterndefs.update (making sure to leave a carriage return at the end of the file)
+</li><li>Copy the mypatterndefs.update file from the Sensitive Data directory to the root of the Bin directory to ensure all pattern files are in sync between these two dirs</li></ul><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>Launch the DLPCriteriaEditor.exe file directly under the SensitiveData folder in the IBM Install directory (default install location: C:\Program Files\IBM\Windows FamForNasAndSharePoint\Bin\SensitiveData)
+</li><li>Create custom criteria in the same manner as you would in StealthAUDIT. The basic options available are 
+<ol style="list-style-type: lower-alpha;"><li>Creating a net new criteria with a custom set of keywords or a regular expression
+</li><li>Copying a system criteria and modifying it
+</li><li>Creating a summary criteria which combines any 2+ criteria with and/or combinations, as well as inclusions and exclusions</li></ol>
+</li><li>The next step depends on your desired scan configuration. 
+<ol style="list-style-type: lower-alpha;"><li>If the desired scan configuration only includes custom criteria, copy the mypatterndefs.update file from the SensitiveData directory (default install location: C:\Program Files\IBM\Windows FamForNasAndSharePoint\Bin\SensitiveData) to the root of the Bin directory (default install location: C:\Program Files\IBM\Windows FamForNasAndSharePoint\Bin)
+</li><li>If the desired scan configuration includes both custom and system criteria, or criteria that exist across multiple patterndefs files, you will have to copy all of the desired patterns into the mypatterndefs.update file, making sure to leave a carriage return at the end of the file.</li></ol>
+</li><li>Copy the mypatterndefs.update file from the SensitiveData directory to the Bin directory
+</li><li>In the IBM Guardium UI, click &#39;Edit Scan Criteria&#39;. When the Select Pattern Set window pops up, select &#39;Browse for Patterns set File&#39; and choose the new mypatterndefs.update file. Save and Run the scan once all other parameters are configured as desired.</li></ol>Affected Module List:<br>IBM Guardium - SharePoint<br>IBM Guardium - NAS<br>�<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Internal<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> IBM Guardium<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2135<br></p>
+</body>
+</html>

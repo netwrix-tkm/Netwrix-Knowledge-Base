@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log and T2 collection Powershell Script</title>
+    <meta name="article-id" content="ka04u000000HcwcAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:32:47.000Z">
+    <meta name="articlenumber" content="000007184">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:48.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:32:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IpZCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IpZCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:48.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:32:47.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Log and T2 collection Powershell Script">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7184">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IpZCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Log and T2 collection Powershell Script</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This powershell script can collect relevant logs and T2 data for engineers to more easily provide the information needed to diagnose customer issues.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> The location of logs and database files are inconsistent across the various StealthAUDIT products, this powershell script will automate the collection of these logs simplifying the collection by DC and host.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Grab the PowerShell script from : <a href="https://downloads.stealthbits.com/access/files/StealthTOOLS/AUDIT/LogCollector.zip" target="_blank">https://downloads.stealthbits.com/access/files/StealthTOOLS/AUDIT/LogCollector.zip</a><br><br>Right click the LogCollector.ps1 executable in the folder and click &#39;Run with powershell&#39; follow the steps in powershell to choose what type of logs and files you want to collect.�<br><br>The Powershell script will prompt for user input for information such as solution set logs to collect, host names, �agent/applet host names, as well as search parameters.�<br>Note: If you are not running agent or applet mode scans, when prompted for that host, you must enter the SA host name.�<br><br>After you run through the steps in powershell there will be a zipped folder created inside the same folder/location the powershell script is in with the following naming convention [output_TimeStamp_ID]. The .zip file will break down the logs by relevant job and DC. It will also create .txt files containing<br>-�� �the log paths and information regarding whether or not they have sufficient data for dev (based upon whether or not the host is found in the log, missing data collector messages, and application log level)<br>Example of what the folder will look like:�<br><br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaWB&amp;d=%2Fa%2F4u000000Lysh%2FtJh74VpTkCSkXIP0eR0Zbhi6_7N1DXzbVE34OIGOfsM&amp;asPdf=false" alt="mceclip0.png"></img><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUYJ&amp;d=%2Fa%2F4u000000Lysm%2FRjzozMS9TV7Y3Uzsx4VUtNS0MRXu9RmTN2j4zNX3NLU&amp;asPdf=false" alt="mceclip1.png"></img></p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.0+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2101</p>
+</body>
+</html>

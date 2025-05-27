@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why are Events Missing in the Netwrix Auditor Health Log?</title>
+    <meta name="article-id" content="ka0Qk0000001gzhIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-01-22T15:08:03.000Z">
+    <meta name="articlenumber" content="000009016">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-02-05T16:24:30.000Z">
+    <meta name="firstpublisheddate" content="2024-01-22T15:08:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000PEXKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000000PEXKA2">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-02-05T16:25:03.000Z">
+    <meta name="lastpublisheddate" content="2024-02-05T16:25:03.000Z">
+    <meta name="meta-description" content="Why are Events Missing in the Netwrix Auditor Health Log?">
+    <meta name="meta-title" content="Why are Events Missing in the Netwrix Auditor Health Log?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9016">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000PEXKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why are Events Missing in the Netwrix Auditor Health Log?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Why I do not see any events in the Netwrix Auditor Health Log?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The issue occurs due to Windows Registry misconfiguration.</p>
+
+<p>To resolve the issue, follow the steps below:</p>
+
+<ol><li>
+	<p>On the <b>Auditor Server</b>, open the <b>Registry Editor</b>.</p>
+	</li><li>
+	<p>In the <b>Registry Editor</b>, navigate to the following path: HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\EventLog\Application\Windows Server Audit Service.</p>
+	</li><li>
+	<p>Backup the keys and then remove them completely.</p>
+	</li><li>
+	<p>Restart the computer that hosts the <b>Auditor Server</b>.</p>
+	</li></ol>
+
+<p>In Netwrix Auditor, navigate to <b>Health Status</b> dashboard and click the <b>Health log</b> tile to make sure the events have been uploaded.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redis - QFork.dat Files Taking Up Large Amounts Of Disk Space?</title>
+    <meta name="article-id" content="ka04u000000HdB1AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:58:07.000Z">
+    <meta name="articlenumber" content="000008286">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:18:14.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:58:07.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JewCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000JewCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:14.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Redis - QFork.dat Files Taking Up Large Amounts Of Disk Space?">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8286">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JewCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Redis - QFork.dat Files Taking Up Large Amounts Of Disk Space?</h1>
+    <p class="auto-cursor-target"><em style="">Have you noticed that the server hosting your Change Tracker web console is running low on disk space? Have you scanned the servers disks and found that the culprit is a RedisQFork.dat files? Are you unsure of what the files are and if it is safe to delete them? If so, please read the guide below for your answer!</em></p>
+<p class="auto-cursor-target"><span style="color: rgb(9,30,66);">The files that you may be faced with are normally stored in the following directory: <strong>C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Redis</strong></span></p>
+<p class="auto-cursor-target"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKM9&amp;d=%2Fa%2F4u000000M08R%2FYuRr3pHb.sSwdfTJpN3FbZp8eTKDKEzuIfsxriSQokk&amp;asPdf=false"></img></span></p>
+<p class="auto-cursor-target">These files are created due to�Redis using the fork UNIX system API to create a point-in-time snapshot of the data store for storage to disk.�<span style="color: rgb(36,41,46);">Windows does not have a fork-like API available, so Redis opted to simulate this behavior by placing the Redis heap in a memory mapped file that can be shared with a child(quasi-forked) process and�b<span style="color: rgb(36,41,46);">y default the size of each snapshot file should be equal to the size of the devices physical memory.</span></span></p>
+<p class="auto-cursor-target">If you encounter this problem, <strong>it is safe</strong> to delete these files, as long as the Redis service is not running.</p>
+</body>
+</html>

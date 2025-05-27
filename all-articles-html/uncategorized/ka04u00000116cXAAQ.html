@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMZ installation: Portals never load</title>
+    <meta name="article-id" content="ka04u00000116cXAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003475">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T12:59:33.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9afCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9afCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T12:59:50.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="meta-description" content="DMZ installation: Portals never load
+
+frontend server cannot communicate to the backend 
+
+firewall or antivirus software blocking connection">
+    <meta name="meta-title" content="DMZ installation: Portals never load">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1315">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9afCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>DMZ installation: Portals never load</h1>
+    I installed Password Manager portals on a server in a DMZ and configured as per Administrator&#39;s guide, but I cannot get to any portal.
+All 3 of them keep loading and do not show anything.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116cX&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OOt" alt="User-added image" width="500" height="206"></img>
+
+<hr></hr>
+
+Such behavior occurs when the frontend server cannot communicate to the backend because of the firewall or antivirus software blocking connection.
+
+<hr></hr>
+
+First of all make sure that the frontend can ping the backend and vice versa.
+
+Also please make sure that all required firewall rules are in place.
+Refer to the <a href="https://kb.netwrix.com/2145" target="_blank">KB2145</a>.
+
+If the above does not help try temporary disabling all firewalls and antivirus software to confirm.
+</body>
+</html>

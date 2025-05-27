@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SbPAM 3.6CU1 (3.6.3107)</title>
+    <meta name="article-id" content="ka0Qk000000DRf7IAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006RPEQAA4">
+    <meta name="articlecreateddate" content="2022-07-26T15:33:59.000Z">
+    <meta name="articlenumber" content="000008467">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000000Tt6dCAC">
+    <meta name="createdbyid" content="0054u000006RPEQAA4">
+    <meta name="createddate" content="2025-04-28T08:41:58.000Z">
+    <meta name="firstpublisheddate" content="2022-07-26T15:34:04.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Tt6dCAC">
+    <meta name="knowledge-article-id" content="kA04u000000Tt6dCAC">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-28T08:51:29.000Z">
+    <meta name="lastpublisheddate" content="2022-07-26T15:55:33.000Z">
+    <meta name="meta-description" content="3.6.3107 includes several fixes and performance improvements.">
+    <meta name="meta-title" content="Hotfix: SbPAM 3.6CU1 (3.6.3107)">
+    <meta name="ownerid" content="0054u000006RPEQAA4">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8467">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Tt6dCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SbPAM 3.6CU1 (3.6.3107)</h1>
+    <h2 id="user-content-summary">Summary</h2>
+
+<p>3.6.3107 includes several fixes and performance improvements.</p>
+
+<h2 id="user-content-enhancements">Enhancements</h2>
+
+<ul><li>Ability to delegate management of access policies to specific users in your organization. This allows SbPAM Administrators to assign a custom role to users to allow those users to manage a specific access policy for a select group of users, groups, resources and activities.</li><li>SignalR backplane to improve UI responsiveness in HA and web service scale out environments.</li><li>RDP files are now prefixed with server names, making it easier to identify server based on Window title.</li><li>WinRM Disabled option for resources to bypass attempts to connect to remote resources using WinRM, improves session connection times.</li></ul>
+
+<h2 id="user-content-work-items-%2F-escalations">Work Items / Escalations</h2>
+
+<table><thead><tr><th colspan="1" rowspan="1">Escalation Number</th><th colspan="1" rowspan="1">Work Item</th></tr></thead><tbody><tr><td colspan="1" rowspan="1">346208</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/103802" target="_blank">103802�346208 - Post SbPAM 3.6.2115 upgrade Azure SAML ceased functioning</a>Closed</td></tr><tr><td colspan="1" rowspan="1">349612</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/106152" target="_blank">106152�349612 - SbPAM - AD sync is not working</a>Waiting for Customer</td></tr><tr><td colspan="1" rowspan="1">350906</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/106884" target="_blank">106884�350906 - Some activities will not provision - Error &#39;repadmin.exe&#39; is not recognized</a>Waiting for Development</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/107418" target="_blank">107418�Pre-session replication waiting period can cause exceptionally long wait times</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/107377" target="_blank">107377�Add &quot;Disable WinRM&quot; option to managed resource to speed up activities where there isn&#39;t PowerShell remoting</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/107282" target="_blank">107282�Fix Password Verification issues in Azure AD when UPN doesn&#39;t match DisplayName</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/106772" target="_blank">106772�Session Playback Positioning for SSH sessions shows an overlap on the right side border - cosmetic issue</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/105419" target="_blank">105419�View Password Icon missing from Credentials page</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/94166" target="_blank">94166�New Role Management Options</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/103609" target="_blank">103609�Service Nodes page doesn&#39;t update properly when HA has been configured.</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/99775" target="_blank">99775�SignalR Backplane</a>Closed</td></tr><tr><td colspan="1" rowspan="1">�</td><td colspan="1" rowspan="1"><a href="https://dev.azure.com/NetwrixCorporation/SbPAM/_workitems/edit/87759" target="_blank">87759�Prefix target resource hostname to RDP files downloaded from SbPAM.</a>Closed</td></tr></tbody></table>
+<br>https://downloads.stealthbits.com/access/files/SbPAMHotfixes/CUs/3.6/SbPAM.zip<br>�
+</body>
+</html>

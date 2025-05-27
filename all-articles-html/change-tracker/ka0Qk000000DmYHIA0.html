@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling-Log Fix: &quot;ERROR AgentTaskRunner - task execution failed for task - DeviceConfigTask. Item wildcards match text must not contain separator &#x27;\&#x27; for MatchType.Wildcards unless ContainerMatchAppliesToWholePath is true.�</title>
+    <meta name="article-id" content="ka0Qk000000DmYHIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:56:12.000Z">
+    <meta name="articlenumber" content="000008278">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JeICAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T04:47:35.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:56:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JeICAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JeICAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T04:50:34.000Z">
+    <meta name="lastpublisheddate" content="2022-04-12T16:16:05.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Rolling-Log Fix: &quot;ERROR AgentTaskRunner - task execution failed for task - DeviceConfigTask. Item wildcards match text must not contain separator &#x27;\&#x27; for MatchType.Wildcards unless ContainerMatchAppliesToWholePath is true.�">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8278">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JeICAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rolling-Log Fix: &quot;ERROR AgentTaskRunner - task execution failed for task - DeviceConfigTask. Item wildcards match text must not contain separator &#x27;\&#x27; for MatchType.Wildcards unless ContainerMatchAppliesToWholePath is true.�</h1>
+    <p>This problem can occur when a user miss-configures a configuration template.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style=""><b>Example Error Message</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre"># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                   Example Message:													  #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+2018-08-25 12:04:35,780 [9] ERROR AgentTaskRunner - task execution failed for task 2 - DeviceConfigTask-1869 
+NNT.Agent.Utils.ContainerItemMatch+ContainerItemMatchException: item wildcards match text must not contain separator &#39;\&#39; for MatchType.Wildcards unless ContainerMatchAppliesToWholePath is true.
+   at NNT.Agent.Utils.ContainerItemMatch.ValidateMatchPattern(String element, String matchPattern, MatchType matchType, String separator, Boolean containerMatchAppliesToWholePath)
+   at NNT.Agent.Utils.ContainerItemMatch..ctor(String rootContainer, Boolean skipRootContainer, String separator, Boolean caseSensitive, Nullable`1 recursionLevels, MatchType containerMatchType, String containerMatchPattern, Boolean containerMatchAppliesToWholePath, MatchType itemMatchType, String itemMatchPattern)
+   at NNT.Agent.Core.Tracking.FileSystem.FileSystemTrackerConfigurationCreator.ProcessDeviceConfiguration(DeviceConfiguration deviceConfiguration, IDevice device, String trackerName)
+   at NNT.Agent.Core.Tasks.DeviceConfigTask.ApplyDeviceConfigAction(ILifetimeScope scope, IDevice device, DeviceConfiguration configuration, Nullable`1 latestConfigDateUtc)
+   at NNT.Agent.Core.Tasks.DeviceConfigTask.Execute(AgentTaskQueue queueContext)
+   at NNT.Agent.Core.Application.AgentTaskRunner.ExecuteTask(Int32 runnerId, IAgentTask task, DateTime nowUtc, AgentTaskQueue queue)
+</pre>
+</div></div><h2 id="Rolling-LogFix:"><strong><span style="color: rgb(51,153,102);">What Does It Mean?</span></strong></h2><p><strong>This means that the agent could not process an item within the advanced &#39;custom path-match�definition&#39; which the user has defined. See Example Below - Notice that this path match definition has regex code, but is set to look for wildcards. In the example below, changing the pathmatch type to &quot;Regex&quot; resolves the issue.</strong></p><p><br></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="183" width="1505" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKZf&amp;d=%2Fa%2F4u000000M05T%2FjIk3Csg8.N35nR6yHOIboagynY4NADkJ8uxiCBjDRQM&amp;asPdf=false"></img></span></p><h2 id="Rolling-LogFix:"><strong><span style="color: rgb(51,102,255);">How Can I Fix This / Should I Worry?</span></strong></h2><p>If you are receiving this error, the Netwrix Agent is potentially NOT reporting to your hub. This is a critical error and for monitoring to continue, it must be resolved. To resolve this error:</p><ol><li>Log into the Netwrix Console.�</li><li>Locate the agent presenting this error and go into each of the configuration templates assigned to that agent, and inspect the custom path matches for miss configuration.�</li><li>Once you have inspected them, and have discovered the problem template, modify or remove the custom path match definition that is causing the issue</li><li>Save the configuration template</li><li>Check the agent to make sure it has received the new configuration.</li></ol>
+</body>
+</html>

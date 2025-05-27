@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Custom Platform for SSH Activity Sessions</title>
+    <meta name="article-id" content="ka04u000000HcaJAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gXu5AAE">
+    <meta name="articlecreateddate" content="2022-01-25T22:20:19.000Z">
+    <meta name="articlenumber" content="000005945">
+    <meta name="createdbyid" content="0054u000006gXu5AAE">
+    <meta name="createddate" content="2023-05-08T09:57:54.000Z">
+    <meta name="firstpublisheddate" content="2022-01-26T17:30:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Hk9CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Hk9CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:54.000Z">
+    <meta name="lastpublisheddate" content="2022-01-26T17:30:13.000Z">
+    <meta name="meta-description" content="Creating a Custom Platform for SSH Activity Sessions">
+    <meta name="meta-title" content="Creating a Custom Platform for SSH Activity Sessions">
+    <meta name="ownerid" content="0054u000006gXu5AAE">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5945">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Hk9CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Creating a Custom Platform for SSH Activity Sessions</h1>
+    <h1>Summary</h1>
+
+<p>Platforms in SbPAM can be customized to meet specific SSH Activity Session workflow needs. As an example, in this article we will duplicate the out-of-the-box Linux Platform to create a Platform for Palo Alto (PAN-OS).</p>
+
+<h1>Instructions</h1>
+
+<p><b>1.</b>�As an SbPAM admin user, navigate to the <b>Policy &gt; Platforms</b>�page. Locate the�Linux�Platform, duplicate it, and name it as desired. In this case, we will name the new Platform &quot;Palo Alto&quot;.<br><br><img alt="User-added image" height="283" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcaJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004cJVQ" width="500"></img><br><br><b>2.</b>�Navigate to the <b>Configuration &gt; Service Accounts</b>�page and add a domain-level account as the Palo Alto service account.<br><br><img alt="User-added image" height="194" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcaJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004cJVz" width="500"></img><br><br><b>3.</b>�Navigate to the�<b>Resources</b>�page and manually add the Palo Alto resource by IP or DNS name (using the Service Account created above). In this step, it&#39;s expected for the Host Scan to fail. Simply close the Host Scan window and proceed to the next step.<br><br><img alt="User-added image" height="172" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcaJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004cJWE" width="500"></img><br><br><b>4.</b>�Navigate to the�Activities�page and create a new Activity. For�Login Account, &quot;Activity Token&quot;, &quot;Managed Account&quot;, or &quot;Requester&quot; can be used. For the�Login Account Template, remove the domain element (ex.�<b>%targetdomain%</b>) or use�<b>%domain%</b>�instead of�<b>%targetdomain%</b>.<br><br><img alt="User-added image" height="200" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcaJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004cJWJ" width="500"></img><br><br><b>5.</b>�Navigate to the<b>�Access Policy�</b>page, create a new resource-based Access Policy that includes SbPAM users, the new Activity created above, and the new Resource manually added above.<br><br><b>6.</b>�Navigate to�<b>My Activities</b>�as an SbPAM user in the Access Policy, and you will be able to launch an SSH Activity Session for the Palo Alto resource.</p>
+</body>
+</html>

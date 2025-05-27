@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Reports in Access Analyzer Web Console</title>
+    <meta name="article-id" content="ka0Qk000000DYyLIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-09-05T12:47:08.000Z">
+    <meta name="articlenumber" content="000008785">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000001119aCAA">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2025-05-05T10:29:16.000Z">
+    <meta name="firstpublisheddate" content="2023-09-05T12:47:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001119aCAA">
+    <meta name="knowledge-article-id" content="kA04u000001119aCAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:32:32.000Z">
+    <meta name="lastpublisheddate" content="2024-02-05T14:36:26.000Z">
+    <meta name="meta-description" content="This article contains resolution steps for the issue when Access Analyzer unable to show the reports in Web Console">
+    <meta name="meta-title" content="Access Analyzer Unable to Show Reports in Web Console">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8785">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001119aCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Blank Reports in Access Analyzer Web Console</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The published reports in the Web Console of Netwrix Access Analyzer show blank pages. Searching by a report name allows to run a report.</p>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The SQL Server instance times out due to the preexisting query. This issue might arise in larger environments with higher loads.</p>
+	</li><li>
+	<p>The <b>Reports</b> folder is corrupted.</p>
+	</li></ul>
+</div>
+
+<div>
+<h2>Resolutions</h2>
+
+<h4>Remove the Solution.xml file</h4>
+
+<p>The <code>Solution.xml</code> file queries SQL for a summary of audited systems, and it might be timing out depending on the loads in your environment. Removing it allows the reports to populate in a timely manner.</p>
+
+<ol><li>
+	<p>In the Access Analyzer host, navigate to <code>Installation_Folder\STEALTHbits\StealthAUDIT\Jobs\GROUP_NAME</code>.</p>
+	</li><li>
+	<p>Remove the <b>Solution.xml</b> file.</p>
+	</li></ol>
+
+<div>
+<h4>Recreate the Reports folder</h4>
+
+<p>In case the prior resolution didn&#39;t help, refer to the following steps:</p>
+
+<ol><li>
+	<p>In Access Analyzer, navigate to the <b>Reporting</b> node.</p>
+	</li><li>
+	<p>Review the path to the <b>Reports</b> folder in the <b>Publish Reports:</b> field. The default path is <code>C:\Program Files (x86)\STEALTHbits\StealthAUDIT\Reports</code>.</p>
+	</li><li>
+	<p>In the Access Analyzer host, recreate the <b>Reports</b> folder.</p>
+	</li></ol>
+</div>
+</div>
+</body>
+</html>

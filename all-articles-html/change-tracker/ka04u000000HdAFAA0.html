@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Tracker - How To Revert Language Settings</title>
+    <meta name="article-id" content="ka04u000000HdAFAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:51:51.000Z">
+    <meta name="articlenumber" content="000008238">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:55.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:51:52.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JbsCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000JbsCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:55.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Log Tracker - How To Revert Language Settings">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8238">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JbsCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Log Tracker - How To Revert Language Settings</h1>
+    <p>There are several techniques available to switch language within the Log Tracker Server. The technique described below is not bad, but if you want to just revert essential information (tabs, alerts, etc.) you can execute the procedure below, which may be simpler in a lot of cases and situations.</p>
+<h2 id="">Step-by-step guide</h2>
+<p style="">To switch menu and tab languages, use the following procedure.</p>
+<ol style=""><li>Stop the &quot;Log Tracker Framework Service&quot; using the Windows Service Manager.<br><br></li><li>Execute the &quot;C:\Program Files (x86)\NNT Log Tracker Suite\system\CO-install.exe&quot; program as &quot;Administrator&quot;.<span></span><br><br><em>Note - This is the setup wizard for the program, which can be executed at any time to re-install the Apache server, or make other changes to the basic program defaults without affecting the configuration or log data.</em><br><br></li><li>On the third screen of the CO-install.exe Wizard, select a language as the &quot;Menu and Tab Language&quot;.<br><br></li><li>Run the Wizard to completion.</li></ol>
+<p style="">The CO-install.exe program will load the language specific files, and restart the Log Tracker Framework Service when finished (you don&#39;t have to restart the service you stopped in step #1 above -- the Wizard will restart the service.)</p>
+<p style="">This will not affect the text of any existing Alerts or Tickets that were previously created -- but any new Alerts (created using the &quot;Suggest&quot; button on the &quot;Alerts&quot; screens) will be in the language you selected. in step #3 above.</p>
+<p style=""><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker Tags Facility</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to use CloseTicket.exe to Immediately Close Log Tracker Tickets</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to Monitor Devices with Ping Adapter (Log Tracker)</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p>
+</body>
+</html>

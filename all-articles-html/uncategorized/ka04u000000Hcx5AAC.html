@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Mailbox Access Explained</title>
+    <meta name="article-id" content="ka04u000000Hcx5AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:35:24.000Z">
+    <meta name="articlenumber" content="000007230">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:01.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:35:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Ir1CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Ir1CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:01.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:35:25.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Exchange Mailbox Access Explained">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7230">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Ir1CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exchange Mailbox Access Explained</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Explains Delegates, Send As, Full Mailbox Access, Mailbox Rights, Mailbox Permissions</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> There are several ways to give users permission to do things with other folk&#39;s mailboxes. �<br>Some of these are set on the mailbox itself, while some are stored in active directory. �<br><br><span style="font-size: 22px;"><strong>Active Directory Based Security Features</strong></span><br><span style="font-size: 16px;"><strong>Delegates</strong></span><br>Delegates are set in outlook. �<br>They�receive <strong>send on behalf of</strong> permissions by default. �<br>Logon functionality depends on how mailbox permissions are set.<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcabL&amp;d=%2Fa%2F4u000000Lyh7%2Ff_tvKuXJiIHXi0iFiKMu6P87JThGl.XbbwWS5T_A9Ns&amp;asPdf=false" alt="Delegates" width="500" height="409"></img><br><br><strong><span style="font-size: 16px;">SendAs ( / Full Control)</span></strong><br>1) Provides the ability to send as that user. �<br>2) Provides full control over the mailbox.<br>3) Provides full control over the Active Directory object.<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCf&amp;d=%2Fa%2F4u000000Lywo%2FcOhXv0ri8qeQyVlFpmRqOupEQ3MLICoalZMsjxQrrNE&amp;asPdf=false" alt="Send As Rights" width="500" height="437"></img></p>
+<p>�</p>
+<p><span style="font-size: 22px;"><strong>Exchange Mailbox Based Security Features</strong></span><br><span style="font-size: 16px;"><strong>Full Mailbox Access (Mailbox Rights)�</strong></span><br>Mailbox Rights are provisioned at the mailbox level. �<br>Full Mailbox Access means a provisioned user can log in to a given mailbox, but still cannot send mail as that user.<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaEm&amp;d=%2Fa%2F4u000000Lywt%2FCH29v1auviXi2y2rrtfMkxt9B2skfbD_EQOsfhlKibQ&amp;asPdf=false" alt="Full Mailbox Access" width="500" height="403"></img><br><br><strong><span style="font-size: 16px;">Mailbox Permissions (Folders within the Mailbox)</span></strong><br>Mailbox Permissions are are set on the properties of individual folders within the mailbox in outlook:<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYc7&amp;d=%2Fa%2F4u000000Lywy%2FonO55J9AEujMqKm5D1x3Fq68cMgkTPop9jzZ20U0KYI&amp;asPdf=false" alt="Folder Properties"></img><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcabQ&amp;d=%2Fa%2F4u000000Lyx3%2FTnUWMEwUrcev2.G9AGyfKnEZSA7jR5IJhL.RvT2.DjM&amp;asPdf=false" alt="Mailbox Permissions"></img><br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> This is how those items are collected in StealthAUDIT:<br>(Obviously, not finished yet.)<br><br><span style="font-size: 22px;"><strong>Active Directory Based Security Features</strong></span><br><span style="font-size: 16px;"><strong>Delegates</strong></span><br><br><strong><span style="font-size: 16px;">SendAs ( / Full Control)</span></strong><br>�</p>
+<p><span style="font-size: 22px;"><strong>Exchange Mailbox Based Security Features</strong></span><br><span style="font-size: 16px;"><strong>Full Mailbox Access (Mailbox Rights)�</strong></span><br><br><strong><span style="font-size: 16px;">Mailbox Permissions (Folders within the Mailbox)</span></strong></p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - Exchange2k;SA - DC - ExchangeMailbox;SA - DC - ExchangePS;SA - Solution Set - Exchange<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1460</p>
+</body>
+</html>

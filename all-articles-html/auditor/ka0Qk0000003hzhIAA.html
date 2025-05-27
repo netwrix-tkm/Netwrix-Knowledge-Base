@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1079 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000003hzhIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:58.000Z">
+    <meta name="articlenumber" content="000003292">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-05-10T13:12:09.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XdCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XdCAK">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-05-10T13:12:24.000Z">
+    <meta name="lastpublisheddate" content="2024-05-07T08:35:39.000Z">
+    <meta name="meta-description" content="This article applies to Netwrix Auditor 6.5 and below. It explains the nature of the Event ID and provides resolution.">
+    <meta name="meta-title" content="Netwrix Auditor EventLog - Event ID 1079">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1133">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XdCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1079 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Your SharePoint monitoring plan prompts the following error message under Event ID 1079 in Health Log:</p>
+
+<pre class="has-inner-focus">
+The Change Summary may include incomplete data as the data collection was still in progress when the report was sent.
+No data loss has occurred, the missing events will be listed in the next Change Summary and added to the database.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The data collection exceeded the predefined timeout period for its completion (1 hour by default). The Activity Summary was generated while the data collection was still in progress.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>No data loss has occurred. The next Activity Summary should contain the missing events. Generate a new Activity Summary:</p>
+
+<ol><li>
+	<p>In the main Netwrix Auditor menu, select <strong>Monitoring Plans</strong>.</p>
+	</li><li>
+	<p>In the left pane, select your SharePoint monitoring plan and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>In the right pane, click <strong>Update</strong>.</p>
+	</li></ol>
+</div>
+</body>
+</html>

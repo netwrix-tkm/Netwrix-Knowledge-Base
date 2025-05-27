@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint SDD scans not detecting sensitive data</title>
+    <meta name="article-id" content="ka04u000000Hcx8AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:35:54.000Z">
+    <meta name="articlenumber" content="000007236">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:02.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:35:54.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IrBCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IrBCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:02.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:35:54.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="SharePoint SDD scans not detecting sensitive data">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7236">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IrBCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SharePoint SDD scans not detecting sensitive data</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> If an SPAA scan was run prior to an SPSEEK scan the DC will skip processing the content of potentially sensitive files due to the T2 still containing the last modified timestamp data from the SPAA scan.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> When running a scan with the SPAA DC a last modified timestamp is pulled from the files metadata and stored in T2. This is how we are able to scan differentially and avoid scanning the same files twice when there hasn&#39;t been any changes to them effectively causing scans to take longer than necessary. The problem is when an SPAA scan is run before an SPSEEK scan we will skip processing the content of files for sensitive data based on the existing last modified date in T2. There will be messages in the logs similar to these:<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaVE&amp;d=%2Fa%2F4u000000Lyxw%2FKlq8EaWkfysCbW_.2FtdHL.HBnUPjZkFoTUBfz6QJTM&amp;asPdf=false" alt="User-added image" width="500" height="62"></img><br>�<br><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The way to address this issue is quite simple, the data collected during the SPAA scan needs to be dropped before running a subsequent SPSEEK scan in order for the DC to not skip processing those files.<br>Steps:</p>
+<ol><li>Delete or moveT2s located in <em><span style="color: #595959;">%SAINSTALLDIR%<span style="color: #595959;">\</span></span>Program Files (x86)\STEALTHbits\StealthAUDIT\Jobs\SA_CommonData\SharePointHostName </em>
+<ol style="list-style-type: lower-alpha;"><li>(T2s on the application server for Agent Mode scans found on the drive that<em> the customer installed the agent\Program Files\STEALTHbits\StealthAUDIT\SPAA). </em>
+</li></ol>
+</li></ol>
+<p>�</p>
+<ol><li>Drop the data in T1
+<ol style="list-style-type: lower-alpha;"><li>Can be dropped using the Drop Tables analysis tasks found in the 1-SPAA_SystemScans Analysis section.</li></ol>
+</li></ol>
+<p>Note: Do not run the SPAA_SystemScans job to accomplish this:</p>
+<ol style="list-style-type: lower-roman;"><li>Click the &#39;Select All&#39; button on the analysis page</li><li>Right click on of the tasks and select &#39;Execute Analyses&#39;. This will execute all 4 of the analysis tasks.</li></ol>
+<p><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">Note: Remember to deselect the analysis tasks before running subsequent SPAA scans. Also if the goal is to run Sensitive Data scans you should not be running SPAA scans and Imports and should disable those jobs (if in 8.2) or remove the jobs from the group (8.1).</span></span></p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - SPAA - Permissions;SA - DC - SPAA - Sensitive Data<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All Versions<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SASP-3903<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2197</p>
+</body>
+</html>

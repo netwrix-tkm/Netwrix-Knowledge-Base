@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuring Netwrix Activity Monitor to Send to Threat Manager</title>
+    <meta name="article-id" content="ka0Qk000000DaFNIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:05:46.000Z">
+    <meta name="articlenumber" content="000006262">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000I5DCAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T11:06:03.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:05:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I5DCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000I5DCAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T11:20:22.000Z">
+    <meta name="lastpublisheddate" content="2022-02-22T13:24:02.000Z">
+    <meta name="meta-description" content="360008602431">
+    <meta name="meta-title" content="Configuring Netwrix Activity Monitor to Send to Threat Manager">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6262">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I5DCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configuring Netwrix Activity Monitor to Send to Threat Manager</h1>
+    <p>The Netwrix Activity Monitor (SAM) can be configured to send events to Threat Manager (SD). If Threat Prevention (SI) is configured to send events to SAM, those events will be passed on to whatever applications SAM is configured to send events to.</p>
+
+<p><strong><u>To send events to Threat Manager:</u></strong></p>
+
+<ol><li>In Threat Manager:
+	<ul><li>Navigate to the <strong>Integrations</strong> page.</li><li>Click the <strong>Add New Integration</strong> button.</li><li>Set the Type field to <strong>App Token</strong>, enter a <strong>Name</strong>, and (optionally) a Description.</li><li>Click the <strong>Add</strong> button.</li><li>Expand the <strong>App Tokens</strong> node on the Integrations tree and select the App Token you just generated.</li><li>Click the <strong>Copy Token</strong> button.</li></ul>
+	</li><li>In the Netwrix Activity Monitor:
+	<ul><li>Go to the Monitored Domains tab, click <strong>Add Output</strong> and select the <strong>Threat Manager</strong> option.</li><li>Set the value of the <strong>Server</strong> in SERVER[:PORT] format field to [DEFENDHOST]:10001, where [DEFENDHOST] is the hostname or IP address of the Threat Manager host.</li><li>Paste the <strong>App Token</strong> generated in Threat Manager into the App Token field.</li><li>Click the <strong>OK</strong> button.</li></ul>
+	</li></ol>
+
+<p><strong>Channel:� </strong>Customer-Facing / Public</p>
+
+<p><strong>Submitted by:</strong><span class="diff-removed-string">�</span><span class="diff-added-string"> Michael Olig</span></p>
+
+<p><strong>Product:</strong> Netwrix Activity Monitor, Threat Manager</p>
+
+<p><strong>KB Type:</strong> How To</p>
+
+<p>�</p>
+
+<ol><li style="list-style-type: none;">�</li></ol>
+
+<p>��</p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager Credential Providers</title>
+    <meta name="article-id" content="ka04u00000116P4AAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:55.000Z">
+    <meta name="articlenumber" content="000003575">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-06-28T16:32:50.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9cHCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9cHCAS">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-06-28T16:33:36.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:44.000Z">
+    <meta name="meta-description" content="The KB explains types of credentials providers used by Password Manager.">
+    <meta name="meta-title" content="Password Manager Credential Providers">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2090">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cHCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Password Manager Credential Providers</h1>
+    With Windows Vista and each Microsoft Operating System since, the Windows logon screen existed as a group of credential providers. There are several provided by default by Microsoft but also 3rd party software and hardware vendors can integrate their own credential providers as well. Credential providers listed on the logon screen are determined by the Credential Providers registry key: HKLMSoftwareMicrosoftWindowsCurrentVersionAuthenticationCredential Providers <img alt="User-added image" height="294" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116P4&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005ZT6" width="500"></img> The default credential provider that allows users to log in called PasswordProvider {6f45dc1e-5384-457a-bc13-2cd81b0d28ed}. There are two types of credentials providers the Password Manager client can install, a link and an icon. When we install an icon we simply create an additional credential provider called Netwrix Password Manager Credential Provider for Windows Vista {92D58847-74F9-4bfa-9324-14C139D3B}. This icon shows when clicking the Other Credentials button on the logon screen. When a link is used however the process become a bit more complicated since the logon screen cannot show more than one credential provider at a time. By default the PasswordProvider is shown. Since we cannot modify this credential provider we must disable it and replace it with one of our own and disable the original. <img alt="User-added image" height="145" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116P4&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005ZTB" width="500"></img> This credential provider is called Netwrix Password Manager Credential Provider for Windows Vista {92D58847-74F9-4bfa-9324-14C139D3A}. Note the only difference in GUID of the two Password Manager credential providers is the last value (A or B). This can help in determining automated ways to know which method, link or icon, is being used. An important note is that when we deploy a link in case there is another 3rd party credential provider, or a Credential Provider Filter put into the system, there might be conflicts, and this may lead to issues with the logon screen when no actual logon providers are present. That is why we recommend to install the link only to brand new machines without any software that puts its own credential providers (like fingerprint scanners, etc).
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSAA Applet Scheduled Task Times Out</title>
+    <meta name="article-id" content="ka04u000000HcvlAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:32:35.000Z">
+    <meta name="articlenumber" content="000007179">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:11.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:32:35.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000InACAU">
+    <meta name="knowledge-article-id" content="kA04u0000000InACAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:11.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:32:35.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="FSAA Applet Scheduled Task Times Out">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7179">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000InACAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>FSAA Applet Scheduled Task Times Out</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Scheduled task created to launch applet times out on Server 2012 or newer</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> When launching the applet in automatic or proxy mode using a scheduled task, the scheduled task times out after three, 3, days on Server 2012 or newer.<br><br>When FSAA deploys the applet, it deploys binaries, then creates a scheduled task with no trigger. It then launches the task manually (similar to right click &gt; Run). By default, the task is set to stop if it runs for more than three, 3, days.<br><br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaVm&amp;d=%2Fa%2F4u000000LysJ%2FDfPjunAcHJtDbidyfDDw0zEqytPl3sm7oobkUbvrKTs&amp;asPdf=false" alt="Scheduled Task Timeout"></img><br><br>In older versions of Windows, this setting only applied when the task was launched via trigger. However, starting with Server 2012, this setting applies even if he task is not launched via a trigger.<br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> To resolve, apply SA 8.1 HF 065<br><a href="https://na55.salesforce.com/kA0f1000000kBXl" target="_blank">https://na55.salesforce.com/kA0fhttps://stealthbits.zendesk.com/knowledge/articles/360043785191/en-us?brand_id=3600033514111000000kBXl</a></p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity;SA - DC - FSAA - DFS;SA - DC - FSAA - Permissions;SA - DC - FSAA - Sensitive Data<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.1-8.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-15172<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 8.1 HF 065<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1958</p>
+</body>
+</html>

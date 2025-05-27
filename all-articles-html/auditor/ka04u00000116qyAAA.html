@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Inactive Users Tracker does not perform any actions on inactive accounts</title>
+    <meta name="article-id" content="ka04u00000116qyAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-07-20T12:38:55.000Z">
+    <meta name="articlenumber" content="000008677">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-07-25T09:41:16.000Z">
+    <meta name="firstpublisheddate" content="2023-07-25T09:36:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110uBCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110uBCAQ">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-07-25T10:26:54.000Z">
+    <meta name="lastpublisheddate" content="2023-07-25T09:36:13.000Z">
+    <meta name="meta-description" content="This article explains the reasons why Netwrix Inactive Users Tracker does not perform any actions on the inactive accounts.">
+    <meta name="meta-title" content="The Inactive Users in Active Directory report shows &#x27;None&#x27; in the Performed Actions column">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8677">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110uBCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Inactive Users Tracker does not perform any actions on inactive accounts</h1>
+    <div>
+<p>You have configured a monitoring plan for Inactive Users Tracker and specified rules for the product to take actions on inactive accounts (e.g., disable inactive accounts or move them to an OU). The required ports are opened for connections as described in the following documentation article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Configuration/Ports/Tools.htm" target="_blank">Netwrix Tools</a>. However, Netwrix Inactive Users Tracker does not perform any actions on inactive accounts.</p>
+</div>
+
+<h1>Symptoms</h1>
+
+<div>
+<ol><li>
+	<p>Symptom 1. The Inactive Users in Active Directory report shows &#39;None&#39; in the <b>Performed Action</b> column for accounts.</p>
+	</li><li>
+	<p>Symptom 2. The Password Expiration Notifier�log contains the following error:</p>
+
+	<div>
+	<pre class="has-inner-focus">
+DS_NAME_ERROR_NOT_FOUND
+</pre>
+	</div>
+
+	<p>The log can be found at <em>%Working_Folder%\Logs\Inactive Users Tracker</em>.</p>
+
+	<div>�</div>
+	</li></ol>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>The possible cause for the issue is that some OUs are no longer exist in a domain.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Review your Inactive Users monitoring plan settings and check the OU where accounts belong to. The error indicates that the monitored OU does not exist and should be removed from the Password Expiration Notifier&#39;s filters.</p>
+</div>
+</body>
+</html>

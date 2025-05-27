@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_11.0_007</title>
+    <meta name="article-id" content="ka04u000000HcgUAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:04:00.000Z">
+    <meta name="articlenumber" content="000006239">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:03:34.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:04:00.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I8kCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000I8kCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:03:34.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:04:00.000Z">
+    <meta name="meta-description" content="360012217892">
+    <meta name="meta-title" content="Hotfix: SA_11.0_007">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6239">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I8kCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_11.0_007</h1>
+    <p><strong>Summary: </strong>� SPAA - Bulk Import Error: Merge statement attempted to Update or Delete the same row</p>
+<p><strong>Submitted by: </strong></p>
+<p>Michael Burrofato</p>
+<p><strong>Affected Versions:</strong></p>
+<p>11.0</p>
+<p><strong>Affected Module:</strong></p>
+<p>SA � DC � SPAA</p>
+<p><strong>�</strong></p>
+<p><strong>Dev Ticket:</strong></p>
+<ul><li>SAFS-21111</li></ul>
+<p><strong>Resolved in Version:</strong></p>
+<ul><li>SPAA build 0.0.891</li></ul>
+<p><strong>KB Type: </strong></p>
+<p>�������������� Hotfix</p>
+<p><strong>�</strong></p>
+<p><strong>YouTrack/Escalations</strong></p>
+<p><strong>�</strong></p>
+<p><strong>-������������� SAFS-21111/58023</strong></p>
+<p>�</p>
+<p><strong>Cumulative List of fixes included since GA:</strong></p>
+<p>-������������� SAFS-20739 SPAA scan throws an error when using global criteria option and no criteria are selected in the DC UI</p>
+<p>-������������� SAFS-20735 SPAA SDD Agentless scan: Out of memory</p>
+<p>-������������� SAFS-20633 55934 - SPAA Scans failing with Error: The attempted operation is prohibited because it exceeds the list view threshold enforced by the administrator.</p>
+<p>-������������� SAFS-20786 SPAA: Undisposed object in CSOM PagedQueryEnumerator</p>
+<p>-������������� SAFS-20704 SPAA SDD Agent Scan: Database is locked</p>
+<p>-������������� SAFS-20823 Sharepoint 2013 On-Prem error: Error:Field or property &quot;Exists&quot; does not exist.</p>
+<p>-������������� SAFS-20869 SPAA: Sharing query performance improvement</p>
+<p>-������������� SAFS-20338 SPOAC: Issues with GroupMemberShipChanges and OnlineActivitySharingInfo tables being blank</p>
+<p>-������������� SAFS-20911 SPOAC: Site Collections not mapping correctly</p>
+<p>-������������� SAFS-20906 57083 - SPOAC scan error: An item with the same key has already been added</p>
+<p>-������������� SAFS-20871 SPAA Performance Improvements to Differential Scanning</p>
+<p><strong>List of changes since last Hotfix</strong></p>
+<p>-������������� SAFS-20988 SPAA: Update differential UI setting to control whether or not to do differential scan on permissions.</p>
+<p>-������������� SAFS-21034 Fix SPOAC Permission change activity collection</p>
+<p>-������������� SAFS-21053 57834 - SharePoint Online Activity - SharePoint Online activity is not showing in the AIC but is scanning\bulk importing successfully</p>
+<p>-������������� SAFS-20964 57326 - SharePoint Online Activity Warning message &quot;Unknown Event type FileVersionsAllDeleted</p>
+<p>-������������� SAFS-21097 57972 - Error during SPAC Online scan:� System.ArgumentNullException: Value cannot be null. Parameter name: uriString at System.Uri..ctor(String uriString)</p>
+<p>-������������� SAFS-21111 58023 - SPAA - Bulk Import Error: Merge statement attempted to Update or Delete the same row</p>
+<p>�</p>
+<p><strong>Comments:</strong></p>
+<p><strong>Instructions:</strong></p>
+<ol><li>Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there.�</li><li>Close all instances of StealthAUDIT (check task manager under processes for all users)</li><li>Update all DC files in your %SAInstallDir%DC folder</li><li>Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</li><li>Update all Agent files in your %SAInstallDir%Agent folder</li><li>If using Agent mode, please install SPAA Agent version 11.0.0.41 or later</li><li>Once files are in place, re-run SPAA Bulk import.</li></ol>
+<p><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/11.0/SA_11.0_007.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/11.0/SA_11.0_007.zip</a></p>
+<p>�</p>
+</body>
+</html>

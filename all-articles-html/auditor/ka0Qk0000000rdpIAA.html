@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invalid Pointer Error in Logon Activity Monitoring Plan</title>
+    <meta name="article-id" content="ka0Qk0000000rdpIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-08-25T10:07:31.000Z">
+    <meta name="articlenumber" content="000008766">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-12-06T15:28:40.000Z">
+    <meta name="firstpublisheddate" content="2023-08-25T10:07:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001116MCAQ">
+    <meta name="knowledge-article-id" content="kA04u000001116MCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-06T15:28:57.000Z">
+    <meta name="lastpublisheddate" content="2023-08-25T10:07:48.000Z">
+    <meta name="meta-description" content="Invalid Pointer Error in Logon Activity Monitoring Plan">
+    <meta name="meta-title" content="Invalid Pointer Error in Logon Activity Monitoring Plan">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8766">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001116MCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Invalid Pointer Error in Logon Activity Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<ul><li>
+	<p>The following error is prompted in Health Log for your Logon Activity monitoring plan:</p>
+
+	<pre class="has-inner-focus">
+Source:Active Directory Logon Activity Audit Service
+Event ID:5002
+Computer: %name%
+User:N/A
+Description:Monitoring plan: %Logon_Activity_Monitoring_Plan_name%.
+Domain: %name%
+Unable to process the following item: Invalid pointer.
+Item: %item_name%</pre>
+	</li><li>
+	<p>Your Working Folder (located by default in <code>C:\ProgramData\Netwrix Auditor\NLA\Settings</code>) is missing the folder named after the item.</p>
+	</li></ul>
+</div>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>In case your Working Folder was moved and is not located in the default path, click the <strong>Health Status</strong> menu in the main Netwrix Auditor screen, and click <strong>Open diagnostic logs folder</strong> under the <strong>Working folder</strong> tab. Once the <strong>Logs</strong> folder opens, go to the parent folder, and follow the required path.</p>
+</blockquote>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to the following steps to resolve the issue:</p>
+
+<ol><li>
+	<p>In your Working Folder in the Netwrix Auditor host, run the search for a folder named after the <code>Item</code> specified in the error message.</p>
+	</li><li>
+	<p>Once found, close <strong>Netwrix Auditor</strong>, and run the following command in elevated PowerShell:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Auditor Logon Activity Audit Service&quot;</code></pre>
+	</li><li>
+	<p>Copy the <code>Item</code> folder to <code>%Working_Folder%\NLA\Settings</code>.</p>
+	</li><li>
+	<p>Rename the original <code>Item</code> folder discovered previously to <code>Item_old</code>.</p>
+	</li><li>
+	<p>Run the following command in elevated PowerShell:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Auditor Logon Activity Audit Service&quot;</code></pre>
+	</li><li>
+	<p>Open Netwrix Auditor, open <strong>Monitoring Plans</strong> &gt; select your <strong>Logon Activity monitoring plan</strong> and click <strong>Edit</strong> &gt; in the right pane, click <strong>Update</strong>.</p>
+	</li></ol>
+</div>
+</body>
+</html>

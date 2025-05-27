@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Include Change Password Events by Users via Ctrl+Alt+Del Combination in Netwrix Auditor Reports</title>
+    <meta name="article-id" content="ka04u00000118AzAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:11.000Z">
+    <meta name="articlenumber" content="000003059">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-10-13T13:57:12.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TnCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9TnCAK">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-10-13T13:58:15.000Z">
+    <meta name="lastpublisheddate" content="2023-08-02T08:29:18.000Z">
+    <meta name="meta-description" content="password changes in summary report ctr+alt+del">
+    <meta name="meta-title" content="How to include change password events performed by users through ctrl+alt+del key combination into product reports?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="632">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TnCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Include Change Password Events by Users via Ctrl+Alt+Del Combination in Netwrix Auditor Reports</h1>
+    <h1>Question</h1>
+
+<div>
+<p>Is it possible to include change password events performed by users through the ctrl+alt+del key combination into product reports?</p>
+</div>
+
+<h1>Answer</h1>
+
+<div>
+<p>Yes, it is possible. Such events are omitted by default. To include them in product reports, follow the steps below:</p>
+
+<ol><li>
+	<p>Navigate to the <b> Auditor for Active Directory</b> installation folder: <em>C:\Program Files (x86)\Netwrix Auditor\Active Directory Auditing</em> by default.</p>
+	</li><li>
+	<p>Locate the <b>omitproplist.txt</b> file and open it with a text editor.</p>
+	</li><li>
+	<p>Locate the <code>*.PasswordChanged</code> line and add a <code>&quot;#&quot;</code> sign at the beginning so it looks like <code>#*.PasswordChanged</code>.</p>
+	</li><li>
+	<p>Save your edits.</p>
+	</li></ol>
+
+<p>Once these changes have been applied, password resets performed by users will be shown in the product change reports.</p>
+</div>
+</body>
+</html>

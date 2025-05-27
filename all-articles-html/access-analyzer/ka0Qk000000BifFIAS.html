@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Determine Administrative Site for Domain.sharepoint.com Error Accessing Remote Registry</title>
+    <meta name="article-id" content="ka0Qk000000BifFIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2024-11-21T15:27:36.000Z">
+    <meta name="articlenumber" content="000009329">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-01-03T20:53:48.000Z">
+    <meta name="firstpublisheddate" content="2024-11-26T21:55:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001i2DKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001i2DKAQ">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-01-03T20:55:08.000Z">
+    <meta name="lastpublisheddate" content="2024-11-26T21:55:53.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9329">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001i2DKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to Determine Administrative Site for Domain.sharepoint.com Error Accessing Remote Registry</h1>
+    <h2>Symptom</h2>
+<div>
+<p>When attempting to run an SPAA/SPSEEK scan against a SharePoint Online host, you receive the following error:</p>
+<pre class="has-inner-focus">Unable to determine administrative site for domain.sharepoint.com error accessing remote registry: The network path was not found</pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>This error appears when attempting to scan SharePoint Online with On-Prem/AD Credentials.</p>
+</div>
+<h2>Resolutions</h2>
+<div>
+<p>Refer to the following options to resolve this error:</p>
+<ul><li>
+<p>Confirm that the SharePoint Online app has been configured for auditing by referring to the following link: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/Config/SharePointOnline/Access.htm" target="_blank">SharePoint Online Access &amp; Sensitive Data Auditing Configuration</a>.</p>
+</li><li>
+<p>Confirm that a connection profile has been created in Netwrix Enterprise Auditor for SharePoint Online auditing using the following link: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/SPAA/ConfigureJob.htm" target="_self">SharePoint Custom Connection Profile &amp; Host List</a>.</p>
+</li><li>Configure the SPAA/SPSEEK jobs to scan the SharePoint Online host and use the SharePoint Online connection profile. For more information, please see the articles below:</li><ul><li><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/SPAA/ConfigureJob.htm" target="_self">SharePoint Custom Connection Profile &amp; Host List</a></li><li><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/Config/SharePointOnline/Access.htm" target="_self">SharePoint Online Access &amp; Sensitive Data Auditing Configuration</a></li><li><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/Jobs/InstantJobs/SP_RegisterAzureAppAuth.htm" target="_self">SP_RegisterAzureAppAuth Job</a></li></ul></ul>
+</div>
+</body>
+</html>

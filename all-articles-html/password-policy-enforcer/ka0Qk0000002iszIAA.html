@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Did Not Respond (10060) Error</title>
+    <meta name="article-id" content="ka0Qk0000002iszIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-03-25T06:21:52.000Z">
+    <meta name="articlenumber" content="000009084">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-03-28T12:13:22.000Z">
+    <meta name="firstpublisheddate" content="2024-03-28T12:13:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000X8rKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000X8rKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-03-28T12:13:29.000Z">
+    <meta name="lastpublisheddate" content="2024-03-28T12:13:17.000Z">
+    <meta name="meta-description" content="Server Did Not Respond (10060) Error">
+    <meta name="meta-title" content="Server Did Not Respond (10060) Error">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9084">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000X8rKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Server Did Not Respond (10060) Error</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>Netwrix Password Policy Enforcer prompts the following error:</p>
+
+	<pre class="has-inner-focus">
+The server {Servername.domain} did not respond (10060).
+Make sure this server is running PPE V9.0 or later, and UDP Port 1333 is not blocked by a firewall.</pre>
+	</li><li>
+	<p>The affected server is online. The UDP port 1333 is not blocked by a firewall.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The datagram size exceeds the maximum transmission unit (MTU) in the corresponding network. The number of symbols used in custom messages for PPE policy rules directly affects the datagram size.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>To verify the cause, edit the custom policy rule message to include a few symbols or a short custom message. If the issue is resolved after shortening the custom rule message, proceed to edit the custom message to fit the MTU size.</p>
+</blockquote>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Reduce the number of symbols in the custom policy rule messages.</p>
+</div>
+</body>
+</html>

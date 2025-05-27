@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission Denied Error</title>
+    <meta name="article-id" content="ka04u00000116d1AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:59.000Z">
+    <meta name="articlenumber" content="000003300">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T13:14:16.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XlCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XlCAK">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T13:14:31.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:40.000Z">
+    <meta name="meta-description" content="NetWrix Password Manager, Permission Denied">
+    <meta name="meta-title" content="Permission Denied Error">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1144">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XlCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Permission Denied Error</h1>
+    I get this error when trying to browse to Helpdesk or Administrative portal:
+
+<img style="width: 568px;height: 140px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d1&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xbv" alt="User-added image" width="500" height="100"></img>
+
+<hr></hr>
+
+Such error occurs when the account whose credentials is used to access the portal is not granted with appropriate security role.
+
+NetWrix Password Manager uses role-based security model. To access the Help Desk portal, the user must be granted the Help Desk operators role. To access Administrative portal, the Administrator role is required.
+
+Invalid authentication settings might also cause such error.
+
+<hr></hr>
+
+To resolve the issue:
+
+1.Adjust product security roles. Go to the <strong>Administrative portal - Roles </strong>and make sure that the account or corresponding security group is granted the corresppnding role.
+
+<img style="width: 361px;height: 294px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d1&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xc5" alt="User-added image" width="500" height="390"></img>
+
+2. Make sure that the <strong>Anonymous</strong> authentication is NOT ENABLED for the <strong>helpdesk </strong>and <strong>admin</strong> virtual directories in the IIS manager.
+
+To ensure the required settings are enabled in IIS6, do the following:
+<ol><li>In <strong>IIS Manager</strong> left pane, navigate to &lt;your computer name&gt; - Web Sites - Default Web Site - PM.</li><li>Right-click the <strong>helpdesk</strong> (or <strong>admin</strong>) virtual directory under <strong>PM </strong>folder and select <strong>Properties</strong>.</li><li>In the <strong>Properties </strong>dialog, open the <strong>Directory Security </strong>tab, and select <strong>Edit</strong> for Authentication and access control.</li><li>In the <strong>Authentication Methods </strong>dialog, enable either the <strong>Integrated Windows authentication </strong>box or <strong>Basic authentication </strong>(password is sent in clear text), and clear all other authentication options for Authentication access.</li></ol>
+<img style="width: 278px;height: 294px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d1&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xcF" alt="User-added image" width="309" height="342"></img>
+
+To ensure the required settings are enabled in IIS7, do the following:
+<ol><li>In IIS Manager left pane, navigate to &lt;your computer name&gt; - <strong>Web Sites - Default Web Site - PM </strong>- <strong>helpdesk</strong> (or <strong>admin)</strong></li><li>In the Manager central pane, double-click the <strong>Authentication</strong> option under IIS block</li><li>In the <strong>Authentication </strong>list, enable either <strong>Windows Authentication </strong>option or <strong>Basic Authentication</strong>, and disable all other authentication options.</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d1&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xcK" alt="User-added image" width="500" height="319"></img>  <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d1&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xcP" alt="User-added image" width="405" height="219"></img>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;Scale-out Deployment&quot; Is Not Supported in This Edition of Reporting Services</title>
+    <meta name="article-id" content="ka0Qk0000002yJRIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-03-22T13:32:37.000Z">
+    <meta name="articlenumber" content="000009079">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-04-22T07:31:56.000Z">
+    <meta name="firstpublisheddate" content="2024-03-22T13:32:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000WntKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000WntKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-04-22T07:32:38.000Z">
+    <meta name="lastpublisheddate" content="2024-04-02T13:56:10.000Z">
+    <meta name="meta-description" content="Error: &quot;Scale-out Deployment&quot; Is Not Supported in This Edition of Reporting Services">
+    <meta name="meta-title" content="Error: &quot;Scale-out Deployment&quot; Is Not Supported in This Edition of Reporting Services">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9079">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000WntKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;Scale-out Deployment&quot; Is Not Supported in This Edition of Reporting Services</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>After migration to a new SQL Server instance or backup/restore of the SQL Server encryption key, the following error appears in the <b>SQL Server Reporting Services Manager</b></p>
+
+<div>
+<pre class="has-inner-focus">
+The feature: �Scale-out deployment� is not supported in this edition of Reporting Services. (rsOperationNotSupported)</pre>
+</div>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This error indicates that the restored key corresponds to the previous server, leading your Reporting Server instance to perceive itself as part of a multi-server deployment, which is not supported in the standard edition of Reporting Services.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To resolve the issue, check the servers currently in use and remove the encryption key of the old server:</p>
+
+<ol><li>
+	<p>Open the <b>Report Server Configuration Manager</b>.</p>
+	</li><li>
+	<p>Navigate to the <b>Scale-out deployment</b> tab.</p>
+	</li><li>
+	<p>Review your current configuration for any old servers.</p>
+	</li><li>
+	<p>Navigate to your Report Server database and check the [Keys] table. Delete the extra entries with the following statement:</p>
+	<code>DELETE from dbo.Keys WHERE MachineName=&#39;X&#39;</code>
+
+	<p>where <code>&#39;X&#39;</code> is your old server name.</p>
+	</li></ol>
+</div>
+
+<h3>Related Articles:</h3>
+
+<div>
+<ul><li><a href="https://learn.microsoft.com/en-us/answers/questions/653685/the-feature-scale-out-deployment-is-not-supported" target="_blank">The feature: &quot;Scale-out deployment&quot; is not supported in this edition of Reporting Services ? Microsoft &#129125;</a></li></ul>
+</div>
+</body>
+</html>

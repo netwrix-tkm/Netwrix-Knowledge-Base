@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1274 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001AgTIAU">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:57.000Z">
+    <meta name="articlenumber" content="000003610">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-12-28T10:36:05.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9cqCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9cqCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-28T10:36:11.000Z">
+    <meta name="lastpublisheddate" content="2023-12-28T10:36:00.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint Audit connectivity issues.">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log - Event ID 1274">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2390">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cqCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1274 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error message under Event ID 1274 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+The following error occurred when trying to launch the component responsible for collecting AD group membership,
+because the product is unable to detect the forest where the audited SharePoint farm is located.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>Cause #1 ? Netwrix Auditor was unable to detect the forest where your SharePoint farm is hosted. There is no network connection to your SharePoint farm.</p>
+	</li><li>
+	<p>Cause #2 ? Event ID 1274 could be prompted along with other errors:</p>
+
+	<ul><li>
+		<p>EventID 1204 ? <code>Unable to establish connection to the remote WebService</code></p>
+		</li><li>
+		<p>EventID 1205 ? <code>The following unexpected error has occurred: %error%</code></p>
+		</li></ul>
+	</li><li>
+	<p>Cause #3 ? The global catalog domain controller of the SharePoint farm domain was unreachable during the scheduled data collection process.</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ul><li>
+	<p>Cause #1 ? Verify the SharePoint Central Administration site is reachable by opening the URL in a browser.</p>
+	</li><li>
+	<p>Cause #2 ? Refer to the following articles for additional information:</p>
+
+	<ul><li>
+		<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dKCAS.html" target="_self">Event ID 1204 in Health Log</a></p>
+		</li><li>
+		<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dGCAS.html" target="_self">Event ID 1205 in Health Log</a></p>
+		</li></ul>
+	</li><li>
+	<p>Cause #3 ? Verify the global catalog domain controller is reachable.</p>
+	</li></ul>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dKCAS.html" target="_self">Event ID 1204 in Health Log</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dGCAS.html" target="_self">Event ID 1205 in Health Log</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

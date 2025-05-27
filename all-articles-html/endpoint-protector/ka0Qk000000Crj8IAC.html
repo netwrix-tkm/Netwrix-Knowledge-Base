@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing Linux client</title>
+    <meta name="article-id" content="ka0Qk000000Crj8IAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:10.000Z">
+    <meta name="articlenumber" content="000009835">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B6vKAE">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nViKIAU">
+    <meta name="assignmentdate" content="2025-03-19T17:34:09.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:10.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B6vKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B6vKAE">
+    <meta name="lastmodifiedbyid" content="005Qk000001nViKIAU">
+    <meta name="lastmodifieddate" content="2025-05-07T21:32:40.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9835">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B6vKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Installing Linux client</h1>
+    <h2><strong>Question:</strong></h2>
+<p>How do I install the EPP Linux client?</p>
+<h2><strong>Answer:</strong></h2>
+<p>First, you will need to request the EPP client from us via a ticket raised in the Support Portal. Please mention the Linux flavor you need.</p>
+<p>�</p>
+<ol><li>After you download the client and extract it, please edit options.sh to remove # from the lines below(remove the # from all 6 lines).</li><li>Also replace &quot;set.this.to.the.endpointprotector.server.com&quot; with your EPP server IP:<br><p>#EPPCLIENT_WS_SERVER=set.this.to.the.endpointprotector.server.com</p>
+<p>#export EPPCLIENT_WS_SERVER</p>
+<p>#EPPCLIENT_WS_PORT=443</p>
+<p>#export EPPCLIENT_WS_PORT</p>
+<p>#EPPCLIENT_DEPARTMENT_CODE=defdep</p>
+<p>#export EPPCLIENT_DEPARTMENT_CODE</p>
+</li><li>Save the changed file.</li><li>Install the EPP client using the install.sh file.</li></ol>
+</body>
+</html>

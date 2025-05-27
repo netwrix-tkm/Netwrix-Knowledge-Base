@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404.0 on Password Manger portals</title>
+    <meta name="article-id" content="ka04u00000116bZAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003482">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T11:53:30.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9amCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9amCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T11:53:48.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="meta-description" content="Password manager error 404.0
+
+error 404.0">
+    <meta name="meta-title" content="404.0 on Password Manger portals">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1311">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9amCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>404.0 on Password Manger portals</h1>
+    After installation of Password manager I cannot get to any portal and am receiving Error 404.0
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bZ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OBz" alt="User-added image" width="500" height="273"></img>
+
+<hr></hr>
+
+Error 404.0 means that there is no requested resource available, in other words URL that you entered points to nowhere.
+
+It can happen because of different reasons, but the most common are:
+<ol><li>There is not virtual directory in IIS structure that corresponds to the entered URL</li><li>Permissions issues within IIS.</li></ol>
+
+<hr></hr>
+
+First of all please make sure that the virtual directory you specified during Password Manager isntallation (by default called PM) exists in IIS.
+<img style="height: 302px;width: 206px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bZ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OC4" alt="User-added image" width="351" height="555"></img>
+
+If not, then please check that all requirements are fulfilled per <a href="https://kb.netwrix.com/2125" target="_blank">KB2125</a>, and reinstall Password Manager under a local administrator account.
+
+If the virtual directory is in place, then it might be some security issues.
+
+Please make sure that NTFS permission to Password manager installation directory allows IIS to view it.
+</body>
+</html>

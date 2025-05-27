@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Upgrade in Netwrix Threat Prevention 7.3.5</title>
+    <meta name="article-id" content="ka0Qk000000DZBFIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T17:53:06.000Z">
+    <meta name="articlenumber" content="000006039">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000HweCAE">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T10:36:16.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T17:53:08.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HweCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000HweCAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:42:47.000Z">
+    <meta name="lastpublisheddate" content="2023-09-15T08:26:25.000Z">
+    <meta name="meta-description" content="360010581231">
+    <meta name="meta-title" content="Agent Upgrade Script for Threat Prevention 7.3.5">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6039">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HweCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Agent Upgrade in Netwrix Threat Prevention 7.3.5</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to upgrade the Netwrix Threat Prevention 7.3.5 agent using a script?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>A PowerShell wrapper to assist with SI Agent installations and upgrades is attached to this article.</p>
+
+<p>Most parameters are true\false switches that default to <strong>false</strong>, with some parameters defaulting to <strong>true</strong> (-DoNotStartAgentService, -NoFirewallRules, and -NoDNSLookups). The <strong>-Features</strong> parameter is mandatory and tab completes to <strong>WindowsFile</strong>, <strong>ActiveDirectory</strong> and <strong>Exchange</strong> � the script will sort out the proper names.</p>
+</div>
+
+<h4>Registering new agents</h4>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Registering new agents requires a generated enrollment secret from the console.</p>
+</blockquote>
+
+<div>
+<p>Refer to the following code block for an example:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">.\SIAgentInstaller.ps1 -EnterpriseManagerIP 10.0.0.51 -SIAgentExecutable &#39;C:\Users\da\Desktop\SI Agent.exe&#39; -Log log.txt -Features ActiveDirectory, WindowsFile -EnrollmentSecret &quot;0469 E33A 2091 C23F&quot; -EMCertificate &quot;E5475653ABF5907B197D1FD53F4963B55269D425&quot;</code></pre>
+</div>
+
+<h4>Upgrading Agents</h4>
+
+<div>
+<p>This can be truly unattended as the certificates are still in the left over CertsInfo folder. Refer to the following code block for an example:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">.\SIAgentInstaller.ps1 -EnterpriseManagerIP 10.0.0.51 -SIAgentExecutable &#39;C:\Users\da\Desktop\SI Agent.exe&#39; -Log log.txt -Features ActiveDirectory, WindowsFile</code></pre>
+</div>
+
+<h4>Attachments</h4>
+
+<div>
+<p><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUj4&amp;d=%2Fa%2F4u000000LyB4%2FWpE7l7yFTHFffDxCeULxYctq8Sg7CTl9D41sslbXyPA&amp;asPdf=false" target="_blank">SI_Agent_Install_Upgrade.ps1</a></p>
+</div>
+</body>
+</html>

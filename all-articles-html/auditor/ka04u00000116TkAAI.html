@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Changed Directory Objects for Foreign Security Principals</title>
+    <meta name="article-id" content="ka04u00000116TkAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:09.000Z">
+    <meta name="articlenumber" content="000002998">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-03T09:31:27.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:45.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9SoCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9SoCAK">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-07-03T09:31:45.000Z">
+    <meta name="lastpublisheddate" content="2023-07-03T09:31:20.000Z">
+    <meta name="meta-description" content="Active Directory Foreign Security Principals made by system">
+    <meta name="meta-title" content="Changes to the directory objects for Foreign Security Principals are being reported as made by system">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="264">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SoCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>System Changed Directory Objects for Foreign Security Principals</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Why were changes to the directory objects for Foreign Security Principals reported as made by System?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>This behavior is expected. The Foreign Security Principals container in Active Directory represent security principals from trusted domains external to the forest. It allows foreign security principals to become members of groups within the domain. The Foreign Security Principals objects are created automatically by Active Directory represented by System. Changes of foreignSecurityPrincipal objects reported as made by System are reported as intended.<br><br>For additional information on the Foreign Security Principals container and the Foreign Security Principals objects, refer to the following Microsoft articles: <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc755427(v=ws.10)?redirectedfrom=MSDN" target="_blank">When to Create an External Trust</a> and <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc779144(v=ws.10)?redirectedfrom=MSDN" target="_blank">How Security Principals Work</a>.</p>
+</div>
+</body>
+</html>

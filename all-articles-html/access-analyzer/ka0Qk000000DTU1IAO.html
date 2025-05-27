@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Console Migration Workflow: Step 2 - Prepare the Database</title>
+    <meta name="article-id" content="ka0Qk000000DTU1IAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2025-04-28T21:15:54.000Z">
+    <meta name="articlenumber" content="000010160">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002OpRKAU">
+    <meta name="assignedbyid" content="0054u000007MiY9AAK">
+    <meta name="assignedtoid" content="0054u000007MiY9AAK">
+    <meta name="assignmentdate" content="2025-04-28T21:15:54.000Z">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-04-28T21:15:54.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002OpRKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002OpRKAU">
+    <meta name="lastmodifiedbyid" content="0054u000007MiY9AAK">
+    <meta name="lastmodifieddate" content="2025-04-30T14:47:40.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10160">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002OpRKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Console Migration Workflow: Step 2 - Prepare the Database</h1>
+    <blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> Return to the main workflow page via this link: <a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTIjIAO/view" target="_self">Access Analyzer Console Migration Workflow</a>.</p>
+<p>Return to the previous section via this link: <a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTIjIAO/view" target="_self">Access Analyzer Console Migration Workflow: Step 1 - Staging the Backup</a>.</p>
+<p>Proceed to the next section via this link:�<a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTVdIAO/view?ws=%2Flightning%2Fr%2FGeneral__kav%2Fka0Qk000000DTIjIAO%2Fview" target="_self">Access Analyzer Console Migration Workflow: Step 3 - Rebuild the Console</a>.</p>
+</blockquote>
+<h2 id="ovrvw">Overview</h2>
+<div>
+<p>This article lists the steps to prepare the Access Analyzer database for the NAA Migration.</p>
+</div>
+<h2 id="neaCUpg">New NAA Console Server Host Name</h2>
+<div>
+<p dir="auto">For Host Management and Host List Replication, follow this step to restore the backup of the Netwrix Access Analyzer (NAA) console to a new server.</p>
+</div>
+<div>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This only applies if the new server name differs from the old server name, otherwise, skip to <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001T1ZKAU.html" target="_self">Access Analyzer Console Migration Workflow: Step 3 - Rebuild the Console</a>.</p>
+</blockquote>
+<p dir="auto">On the NAA Database, copy the script below and configure the <strong>OldServer </strong>and <strong>NewServer </strong>values (lines 5 &amp; 6, below), then run:</p>
+<div>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>Declare @OHost varchar (128)
+Declare @NHost varchar (128)
+
+-- Configure the correct server names below. Leave the apostrophes!
+Set @OHost = &#39;OldServer&#39;
+Set @NHost = &#39;NewServer&#39;
+
+Update [HostMaster_SANodeFilter]
+SET SA_Node = @NHost
+Where SA_Node = @OHost;
+
+Update [HostListsTbl]
+SET SA_Node = @NHost
+Where SA_Node = @OHost
+and ListID not in (Select ListID from [HostListsTbl] where SA_Node = @NHost);
+
+Update [QueryTbl]
+SET SA_Node = @NHost
+Where SA_Node = @OHost;</code></pre>
+</div>
+</div>
+</body>
+</html>

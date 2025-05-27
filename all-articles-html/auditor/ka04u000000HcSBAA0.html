@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event collection failed: Event log read failure. Error details: Data error (cyclic redundancy check). Error number: 0x80004005</title>
+    <meta name="article-id" content="ka04u000000HcSBAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:06.000Z">
+    <meta name="articlenumber" content="000003384">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:33.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:32.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZACA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZACA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:33.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:32.000Z">
+    <meta name="meta-description" content="This error indicates that Netwrix Auditor cannot read the Security event log antivirus software that is running on the DC the error was generated for">
+    <meta name="meta-title" content="Event collection failed: Event log read failure">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1240">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZACA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event collection failed: Event log read failure. Error details: Data error (cyclic redundancy check). Error number: 0x80004005</h1>
+    Netwrix Auditor summary report contains the &quot;Failed to process DC: %Domain controller name%. The error is: .Event collection failed: Event log read failure. Error details: Data error (cyclic redundancy check). Error number: 0x80004005&quot; error.
+<hr></hr> This error indicates that Netwrix Auditor cannot read the Security event log on the monitored domain controller. Usually, this error occurs if the Security event log file is corrupted or there is antivirus software which blocks the connection and reading attempts.
+<hr></hr>
+<ol><li>If you have any kind of antivirus software that is running on the domain controller the error was generated for, please disable it and see if the error is reproduced. If the error stops appearing, add the appropriate exclusions to the antivirus software for the Netwrix Auditor installation directory.</li><li>If you do not have antivirus software on the problematic domain controller or you disabled the antivirus software but the error keeps appearing, this may indicate that the Security event log is corrupted. To resolve this issue please clear the Security event log on the problematic domain controller:</li></ol>
+
+<ul><li>Log onto the problematic domain controller</li><li>Open Event Viewer, right-click the Security event log and select &quot;Clear log&quot;</li></ul>
+</body>
+</html>

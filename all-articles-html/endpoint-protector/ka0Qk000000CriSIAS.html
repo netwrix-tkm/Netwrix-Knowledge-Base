@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- How to check and change the EPP server IP address on a Windows endpoint machine</title>
+    <meta name="article-id" content="ka0Qk000000CriSIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:06.000Z">
+    <meta name="articlenumber" content="000009792">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B6EKAU">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nVi3IAE">
+    <meta name="assignmentdate" content="2025-04-10T16:55:10.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:07.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B6EKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B6EKAU">
+    <meta name="lastmodifiedbyid" content="005Qk000001nVi3IAE">
+    <meta name="lastmodifieddate" content="2025-04-23T14:59:45.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9792">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B6EKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- How to check and change the EPP server IP address on a Windows endpoint machine</h1>
+    <p>How to check and change the EPP server IP address on a Windows endpoint machine</p>
+<p>.</p>
+<p>Please follow the below steps in order to redirect the communication from an old EPP Server to a new EPP Server on a Windows endpoint machine which already has the Endpoint Protector Client installed.</p>
+<p>This procedure is applicable if any of the following three; (1. EPP Server IP address, 2. Communication Port number, 3. Department) details needs to be changed without having to uninstall the Endpoint Protector Client and reinstalling the client with the new details.</p>
+<ol><li>Download the Endpoint Protector Set Server IP application here:</li></ol>
+<p><a href="https://download.endpointprotector.com/Support_files/SetServerIP.7z" target="_blank">https://download.endpointprotector.com/Support_files/SetServerIP.7z</a></p>
+<ol><li>Extract the contents from the 7ip archive into a new folder.</li><li>Check the current details of the Endpoint Protector client by opening the notifier then click on the�&quot;Settings&quot;�tab then press� � � � &quot;ALT + CTRL + I&quot;</li></ol>
+<p>�The current configuration details will be displayed as seen in the below screenshot.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CriS&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C91kM" alt=""></img>�</p>
+<p>Open the folder that contain the SetIPServer and :</p>
+<p>Run the executable�&quot;EppSetServer.exe&quot;</p>
+<ol><li>Input the new details�(1. EPP Server IP address, 2. Communication Port number, 3. Department Code)</li><li>�Click on &quot;Update&quot;�for the new settings to be applied, wait for the message�&quot;Successfully updated the EPP server IP&quot;�to appear.</li><li>Restart the Windows endpoint machine for the new changes to take effect</li><li>Repeat Step 3 In order to confirm that the new details were applied to the Endpoint Protector client.</li></ol>
+<p>The Endpoint Protector Server IP, Communication Port and Department Code can also be set silently by the use of a script via CLI. In order to achieve the above via script CLI, please follow the below steps in order.</p>
+<ol><ol><ol><ol><ol><li>Download the Endpoint Protector Set Server IP application here:<a href="https://download.endpointprotector.com/Support_files/SetServerIP.7z" target="_blank">https://download.endpointprotector.com/Support_files/SetServerIP.7z</a></li><li>Extract the contents from the 7ip archive into a new folder.</li><li>Create a new note using the native Windows Notepad application and save the file as &quot;EPPSetServer.bat&quot;</li><li>also changing the file extension from .txt to.bat</li><li>Edit the batch file using Notepad and insert the below command: &#39;EPPSetServer.exe -ip 192.168.43.113 - port 443 -dept &quot;ITDEP&#39;&#39;�</li><li>changing only the relevant details;</li><li>Run the script and then restart the Windows endpoint machine for the new details to be applied.</li></ol></ol></ol></ol></ol>
+<p>�</p>
+<p>�</p>
+</body>
+</html>

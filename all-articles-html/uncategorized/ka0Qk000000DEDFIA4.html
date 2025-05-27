@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Apply Real-time Data Validation</title>
+    <meta name="article-id" content="ka0Qk000000DEDFIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1WUAA0">
+    <meta name="articlecreateddate" content="2025-04-14T16:16:43.000Z">
+    <meta name="articlenumber" content="000010139">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002KYvKAM">
+    <meta name="assignedbyid" content="0054u000008F1WUAA0">
+    <meta name="assignedtoid" content="0054u000008F1WUAA0">
+    <meta name="assignmentdate" content="2025-04-14T16:16:43.000Z">
+    <meta name="createdbyid" content="0054u000008F1WUAA0">
+    <meta name="createddate" content="2025-04-14T16:16:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002KYvKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002KYvKAM">
+    <meta name="lastmodifiedbyid" content="0054u000008F1WUAA0">
+    <meta name="lastmodifieddate" content="2025-04-14T17:37:40.000Z">
+    <meta name="meta-description" content="Apply Real-time Data Validation">
+    <meta name="meta-title" content="How To: Apply Real-time Data Validation">
+    <meta name="ownerid" content="0054u000008F1WUAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10139">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002KYvKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Apply Real-time Data Validation</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>In traditional systems, data validation checks are applied as a last step in data entry. Once the user has entered all data and clicks the <i>Save</i> button, the application runs data validation checks and marks the fields with unverified data in red, along with a message that directs the users to redo the entry.</p>
+<p>The problem is, the error shows up right at the end, after the monotonous exercise of filling up pages with data. To move back through pages and work with the same data again is not a welcoming proposition.</p>
+<p>So, an application that performs data validation on a field the minute users enter data is a definite advantage.</p>
+<h2><span style="color: #2980b9;"><b>More Details:</b></span></h2>
+<p>The Directory Manager portal is infused with the ability to validate data in real-time.</p>
+<p>Data is validated according to the set rules for uniqueness and syntax, and a message is displayed as soon as a user makes an invalid entry.</p>
+<p>The Directory Manager administrator can add input fields to a portal and apply the following checks:</p>
+<ul><li>Specify a default value for a field.</li><li>Use a regular expression to validate the data entered in a field.</li><li>Enforce the user to enter a unique value for a field.</li></ul>
+<h2><span style="color: #2980b9;"><b>Apply Real-time Data Validation to a Portal Field:</b></span></h2>
+<p>You can enable real-time data validation for an existing field in the portal or apply it to new fields.</p>
+<p>For the sake of convenience, let�s create a new textbox display type and use it to define a field (with real-time data validation checks) in a portal.</p>
+<h2><span style="color: #2980b9;"><b>Create a textbox display type with real-time data validation:</b></span></h2>
+<p>1. In the Directory Manager Management Console, select�<b>Applications &gt; GroupID Portals.</b></p>
+<p>2. Now go to the settings of the portal</p>
+<p>3. Go to the Design settings of your identity store to apply real-time data validation.</p>
+<p>4. On the�<b>Custom</b> <b>Display</b> <b>Types</b> tab, click <b>Add (+) </b>to create a new Display Type.<b> </b></p>
+<p>5. Enter a name for the display type in the�<b>Name</b> box.</p>
+<p>6. From the�<b>Type </b>list, select <i>Textbox</i> and click <b>OK</b>.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DEDF&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BxDMI" alt="" width="506" height="637"></img></p>
+<p>�</p>
+<p>7. Specify a value in the�<b>Default</b> <b>Value</b> box to set it as the default value for the text box. Users can modify this value in the portal.</p>
+<p>8. In the�<b>Regular Expression </b>box, type a regular expression to use for validating data that would be entered in the text box using the portal.�Leave this box blank if you do not want to apply any validation rule to the data.</p>
+<p>9. In the�<b>Error Message</b> box, type the text that would be displayed as an error message when a portal user enters data that does not conform to the regular expression.</p>
+<p>10. Click�<b>Test</b> to check if the regular expression is valid.�In the <b>Regular Expression Example </b>box, type an example that satisfies the regular expression and click <b>Test</b>.</p>
+<p>11. You can place a real-time validation check to ensure that users enter a unique value for the field. Directory Manager can look up the value for uniqueness in the directory or an external data source.�The portal would prevent the user from proceeding unless a unique value is provided.</p>
+<ol start="1"><ul><li>Select the <b>Unique</b> check box to enforce the user to enter a value that is unique for the field (attribute) in the directory.</li></ul></ol>
+<p>OR</p>
+<ul><li style="list-style-type: none;">
+<ul><li>You can also use an external data source, such as an Excel file, to validate the uniqueness of the value in real time. An API is provided to link to that data source.�Select the <b>External Validation URL</b> check box and enter the URL of the API in the box below.</li></ul>
+</li></ul>
+<p>12. Click�<b>OK </b>to close the <b>Text</b> <b>Display</b> <b>Type </b>dialog box.</p>
+<p>13. On the toolbar, click�<b>Save</b>.</p>
+<h2><span style="color: #2980b9;"><b>Apply the textbox display type to a portal field:</b></span></h2>
+<p>Let&#39;s assume you apply this text box display type to the <i>group</i> <i>name</i> field on the <i>group</i> <i>creation</i> wizard. When a user enters a name for the group in the wizard, the portal will (a) validate it according to the regular expression, and (b) look up this name for uniqueness in the directory/external data source, and display an error message if it does not pass any of these checks in real time.</p>
+<p>�</p>
+</body>
+</html>

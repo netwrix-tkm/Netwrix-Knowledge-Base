@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolving NET::ERR_CERT_AUTHORITY_INVALID Error When Navigating to SbPAM Web App After Upgrade</title>
+    <meta name="article-id" content="ka04u000000Hca9AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gXu5AAE">
+    <meta name="articlecreateddate" content="2021-12-17T13:59:38.000Z">
+    <meta name="articlenumber" content="000005933">
+    <meta name="createdbyid" content="0054u000006gXu5AAE">
+    <meta name="createddate" content="2023-05-08T09:57:51.000Z">
+    <meta name="firstpublisheddate" content="2021-12-17T14:18:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HfxCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000HfxCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:51.000Z">
+    <meta name="lastpublisheddate" content="2021-12-17T14:18:24.000Z">
+    <meta name="meta-description" content="Resolving NET::ERR_CERT_AUTHORITY_INVALID Error When Navigating to SbPAM Web App After Upgrade">
+    <meta name="meta-title" content="Resolving NET::ERR_CERT_AUTHORITY_INVALID Error When Navigating to SbPAM Web App After Upgrade">
+    <meta name="ownerid" content="0054u000006gXu5AAE">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5933">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HfxCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Resolving NET::ERR_CERT_AUTHORITY_INVALID Error When Navigating to SbPAM Web App After Upgrade</h1>
+    <h1>Summary</h1>
+In certain SbPAM upgrade scenarios, the certificate binding for SbPAM&#39;s IIS website can disassociate during the upgrade process. This results in users receiving a�NET::ERR_CERT_AUTHORITY_INVALID error in their browser when they navigate to the SbPAM website using the CN or one of the SANs in the previously bound certificate.<br><br><img alt="User-added image" height="299" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca9&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004c1pM" width="500"></img>
+<h1>Instructions</h1>
+
+<p>To resolve this behavior, open�<b>Internet Information Services (IIS) Manager�</b>on the SbPAM server, and locate the<b>�SbPAM Web Service�</b>in the left sidebar under�<b>Connections.</b><br><br><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca9&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004c1pW"></img><br><br>With�<b>SbPAM Web Service</b>�highlighted, click�<b>Bindings...</b>�in the right sidebar under�<b>Actions</b>. Highlight the�<b>https</b>�binding for the port used to access SbPAM (6500, by default) and click�<b>Edit...<br><br><img alt="User-added image" height="85" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca9&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004c1pb" width="500"></img></b><br><br>Notice no certificate is selected for the�<b>SSL certificate</b>�dropdown.<br><br><img alt="User-added image" height="78" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca9&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004c1pg" width="500"></img><br><br>Change this dropdown so the expected certificate is selected (the certificate associated with the SbPAM website prior to the upgrade) and click�<b>OK</b>.<br><br><img alt="User-added image" height="117" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca9&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004c1pl" width="500"></img><br><br>Finally, open an elevated�<b>Command Prompt</b>�and perform an�<b>iisreset</b>.<br><br><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca9&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004c1pq"></img></p>
+
+<p>Users should now be able to access the SbPAM website using the URL that worked prior to upgrading SbPAM.</p>
+</body>
+</html>

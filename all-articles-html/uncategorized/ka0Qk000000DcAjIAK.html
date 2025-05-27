@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To:  Set delivery restrictions on dynasty groups</title>
+    <meta name="article-id" content="ka0Qk000000DcAjIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1WUAA0">
+    <meta name="articlecreateddate" content="2025-05-05T16:39:55.000Z">
+    <meta name="articlenumber" content="000010173">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002QknKAE">
+    <meta name="assignedbyid" content="0054u000008F1WUAA0">
+    <meta name="assignedtoid" content="0054u000008F1WUAA0">
+    <meta name="assignmentdate" content="2025-05-05T16:39:55.000Z">
+    <meta name="createdbyid" content="0054u000008F1WUAA0">
+    <meta name="createddate" content="2025-05-05T16:39:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002QknKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002QknKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008F1WUAA0">
+    <meta name="lastmodifieddate" content="2025-05-05T16:47:37.000Z">
+    <meta name="meta-description" content="Set delivery restrictions on dynasty groups">
+    <meta name="meta-title" content="How To:  Set delivery restrictions on dynasty groups">
+    <meta name="ownerid" content="0054u000008F1WUAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10173">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002QknKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To:  Set delivery restrictions on dynasty groups</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>Is there a way to assign/restrict specific users from sending emails to a Dynasty?</p>
+<h2><span style="color: #2980b9;"><b>More Information:</b></span></h2>
+<p>A Dynasty is a Smart Group that creates and manages other Smart Groups using information in the directory. Dynasties help you manage large distribution lists by creating hierarchical group structures that represent your organization. The Smart Groups that the Dynasty creates are called child groups and become members of their respective parent Dynasty.</p>
+<h2><span style="color: #2980b9;"><b>Steps:</b></span></h2>
+<p>Using the Directory Manager, it is possible to restrict the emails sent to a Dynasty.�</p>
+<p>This requirement can be achieved by doing the following:</p>
+<p>1. In the Directory Manager application. Expand Groups-&gt;All Groups-&gt;Dynasties�</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DcAj&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CO5Fn" alt="" width="721" height="305"></img></p>
+<p>�</p>
+<p>2. Select any middle Dynasty, for example &quot;Direct Reports of Abbey.Crawford&quot;, on which you would like to set the delivery restriction, and go to its <b>Properties</b>.<br><br></p>
+<p>3. Click on the Delivery restriction tab, and you will see 3 types of filters, which control who can and cannot send email messages to a group/Dynasty<b>.</b></p>
+<ul><li style="list-style-type: none;">
+<ul><li>Quick Filter (default filter)</li><li>Accept Messages (to allow all or specific users/groups to send emails to the Dynasty)</li><li>Reject Messages (to restrict specific users/groups from sending emails to the Dynasty)</li></ul>
+</li></ul>
+<p>4. In the <strong>Accept Messages</strong> from Click on <strong>Add.</strong> Now add any user who can send emails to the Dynasty.�</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DcAj&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CO06Q" alt="" width="721" height="332"></img></p>
+<p>5.� After adding the user click <strong>Save</strong>.</p>
+<p>These steps can be followed to allow/restrict any specific user or group to send emails to a Dynasty.</p>
+<h2><span style="color: #2980b9;"><b>Points to remember:</b></span></h2>
+<p>Before performing the steps given above, make sure that the following properties are present:</p>
+<p>1. On the Dynasty�<b>Properties�</b>, click the <strong>Dynasty Options </strong>tab.�</p>
+<p>2. In the�<b>Dynasty Options, </b>make sure that the <b>Always Inherit�</b>option is selected.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DcAj&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000COAKH" alt="" width="721" height="316"></img></p>
+<p>�</p>
+<p>3. Next, please go to the Admin center-&gt;Go to the settings of the identity store.�</p>
+<p>4. Click on configurations tab-&gt;Now click on the Dynasties tab.�</p>
+<p>5. Make sure <b>authOrig</b>�and�<b>unauthOrig</b>�are present under�<b>Selected Attributes</b>. These attributes control authentication, which is vital to apply a restriction or rule to Dynasties, like the scenario discussed in this article.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DcAj&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000COAnJ" alt="" width="721" height="272"></img></p>
+</body>
+</html>

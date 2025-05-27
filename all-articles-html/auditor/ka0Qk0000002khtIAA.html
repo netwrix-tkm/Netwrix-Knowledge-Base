@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Edit Schedules in Netwrix Auditor Inactive User Tracker</title>
+    <meta name="article-id" content="ka0Qk0000002khtIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-03-27T11:19:44.000Z">
+    <meta name="articlenumber" content="000009095">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-03-29T16:24:32.000Z">
+    <meta name="firstpublisheddate" content="2024-03-27T11:20:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000XwrKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000XwrKAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-03-29T16:30:30.000Z">
+    <meta name="lastpublisheddate" content="2024-03-29T16:30:30.000Z">
+    <meta name="meta-description" content="How to Edit Schedules in Netwrix Auditor Inactive User Tracker">
+    <meta name="meta-title" content="How to Edit Schedules in Netwrix Auditor Inactive User Tracker">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9095">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000XwrKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Edit Schedules in Netwrix Auditor Inactive User Tracker</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>Netwrix Auditor Inactive User Tracker implements a schedule for actions and reporting. Depending on your business needs, the schedules can be altered to fit your environment. This article describes how to edit schedules in Inactive User Tracker.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>Refer to the following steps to edit the schedule:</p>
+
+<ol><li>
+	<p>Open <strong>Task Scheduler</strong> on your Auditor server.</p>
+	</li><li>
+	<p>Select <strong>Task Scheduler Library</strong> and locate the Event Log Manager task ? the correct task is named <code>Netwrix Auditor ? {%GUID%} ? {%GUID%}</code> and should contain the line <code>Starts Netwrix Auditor data collection on Inactive Users for %monitoring_plan_name%</code> in the <strong>Description</strong> field of the scheduled task.</p>
+	</li><li>
+	<p>Right-click the task and click <strong>Properties</strong>.</p>
+	</li><li>
+	<p>In the <strong>Triggers</strong> tab, select the <strong>Daily</strong> trigger and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>Define the new schedule and click <strong>OK</strong> &gt; <strong>OK</strong> to save changes.</p>
+	</li></ol>
+</div>
+</body>
+</html>

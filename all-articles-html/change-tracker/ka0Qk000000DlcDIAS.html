@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to move your Linux Server MongoDB Database to a Windows server?</title>
+    <meta name="article-id" content="ka0Qk000000DlcDIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:57:55.000Z">
+    <meta name="articlenumber" content="000008283">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JemCAE">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T04:12:56.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:57:56.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JemCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000JemCAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T04:17:57.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to move your Linux Server MongoDB Database to a Windows server?">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8283">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JemCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to move your Linux Server MongoDB Database to a Windows server?</h1>
+    <p>Are you setting up a new server to host your Change Tracker Software? Were you previously hosting on a Linux Server and are looking to move over to a Windows Server? Do you want to retain all of your old data (events, agents, config etc.) - GREAT! Then you&#39;ll need to follow the below guide.</p>
+
+<p>===============================================================================================================</p>
+
+<p><span style="color: rgb(9,30,66);">First of all, read through page 50-52 of the attached guide to ensure that all of the Change Tracker server installation pre-requisites are in place. Once that is in place, please proceed with the steps below:</span></p>
+
+<ol><li>C<span style="color: rgb(9,30,66);">onnect to the Linux server which hosts your Change Tracker software</span></li><li>Stop the <strong>NNTHubService</strong> and <strong>NNTGen7Agent </strong>Service (See Screenshot Below):<br>	<u>Commands:</u><br>	<span style="color: rgb(0,0,0);"><strong>service nnthubservice stop</strong></span><br>	<span style="color: rgb(0,0,0);"><strong>service nntgen7agent stop</strong></span><br>	<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKbX&amp;d=%2Fa%2F4u000000LznX%2FBUP4PNGsa.mRI1H28aN.VFbe2x.oUJ6.68dgKNNPOVQ&amp;asPdf=false"></img></span></li><li>Create a directory to hold the MongoDump in your preferred location (This will need to be moved to your Windows Server) See Screenshot Below:<br>	<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKbI&amp;d=%2Fa%2F4u000000LzX8%2FxudyTz8gVLPj.7xXYQIgPAp4jbgO4Wz8Wvjgl4Ml4JA&amp;asPdf=false"></img></span></li><li>Change Directory to the newly created directory to begin exporting the Database, See Example:<span style="color: rgb(0,0,0);"><strong>cd /example/MongoDump</strong></span></li><li><span style="color: rgb(0,0,0);">Once you are in the directory where you wish to export the Database, enter the following command:<span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"><strong>mongodump -d NNTHubService</strong></span><br>	<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKTy&amp;d=%2Fa%2F4u000000M01n%2Fy_oHddJYhiw071SC6.Z3EMLN2jdVpQZsIE_aSVeOux4&amp;asPdf=false"></img></span></span></span></li></ol>
+
+<p>===============================================================================================================</p>
+
+<ol><li>Connect to the server where Change Tracker is going to be installed via RDP</li><li>Install<strong>Change Tracker software</strong></li><li>
+	<p>Next your way through the installation screens ensuring that you select the correct<strong>Database Storage Engine</strong>option when prompted. The two options you will be presented with are either &quot;<strong>Use default MMAPv1 storage engine</strong>&quot; or ���<strong>Use new WiredTiger storage engine</strong>��� - the storage engine you choose will have to match the storage engine of your existing database stored on your old server. If you&#39;re not sure what to look for, please contact Netwrix Support for clarification.<br>	<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKbb&amp;d=%2Fa%2F4u000000M07s%2FxrlFByVu41_.oGy23.tMF1YzfTqOaFTLTBRO5qDBocQ&amp;asPdf=false"></img></span></p>
+	</li></ol>
+
+<p>===============================================================================================================</p>
+
+<ol><li>Open a<strong>Command Prompt</strong>, ensure that you run it as an<strong>Administrator</strong></li><li>Enter the following command:<strong>iisreset /stop</strong></li><li>Enter the following command:<strong>sc stop MongoDB</strong></li><li>Enter the following command:<strong>cd C:\ProgramData\Change Tracker Generation 7\MongoDB</strong></li><li>Enter the following command:<strong>rmdir db /s</strong></li><li>Enter<strong>Y</strong>and<strong>Enter</strong>when prompted</li><li>Enter the following command:<strong>mkdir db</strong></li><li>Enter the following command:<strong>cd C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin</strong></li><li>Enter the following command:<strong>sc start MongoDB</strong></li><li>Enter the following command:<strong>mongorestore.exe C:\MongoDump\dump\NNTHubService -d NNTHubService<br>	<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK6S&amp;d=%2Fa%2F4u000000Lzgu%2FsfM9Diw_LTBdaq61vj.C.Lcq5DIgx5n6DX7jGV5eWLI&amp;asPdf=false"></img></span></strong><br>	�</li></ol>
+
+<p>Allow some time for the<strong>database to re-index</strong>. Once complete, the word ���<strong>done</strong>��� should appear in the command prompt window.</p>
+
+<ol><li>Enter the following command:<strong>iisreset /start</strong></li><li>Close the command prompt window</li></ol>
+
+<p>Ensure that you can<strong>login</strong>to the<strong>Change Tracker</strong>software and browse to the<strong>Settings</strong>screen.</p>
+
+<p>If at this point, you see the below error in the bottom right hand corner of the screen, please follow the steps below:</p>
+
+<p><strong>Error: ���Key not valid in specified state���</strong></p>
+
+<p>===============================================================================================================</p>
+
+<ol><li>Open a<strong>Command Prompt</strong>, ensure that you run it as an<strong>Administrator</strong></li><li>Enter the following command:<strong>iisreset /stop</strong></li><li>Enter the following command:<strong>cd C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin</strong></li><li>Enter the following command:<strong>mongo.exe</strong></li><li>Enter the following command:<strong>show dbs</strong></li><li>Enter the following command:<strong>use NNTHubService</strong></li><li>Enter the following command:<strong>db.RemoteCredentials.update({},{$set: { &quot;pa.Password&quot;: &quot;&quot; }}, { multi: true });</strong></li><li>Enter the following command:<strong>exit</strong></li><li>Enter the following command:<strong>iisreset /start</strong></li><li>Close the command prompt window<br>	<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKI9&amp;d=%2Fa%2F4u000000M07x%2Fawr.kmcz0MGjljCiZxVtDs0ww6kUi29F511xDaH_IBs&amp;asPdf=false"></img></span></li></ol>
+
+<p>Ensure that you can login to the Change Tracker software.</p>
+
+<p>===============================================================================================================</p>
+
+<p>Once the above has been completed, load up the Change Tracker login screen and attempt to login to the software. If you changed the admin users password to something else on the old server, this should still work.</p>
+
+<p>�</p>
+
+<p>Note, if this does not resolve the issue and you are still seeing:<strong>Error: ���Key not valid in specified state���</strong>Please try the following:</p>
+
+<p>�</p>
+
+<ol><li>Open a <strong>Command Prompt</strong>, ensure that you run it as an <strong>Administrator</strong></li><li>Enter the following command: <strong>iisreset /stop</strong></li><li>Enter the following command: <strong>cd C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin</strong></li><li>Enter the following command: <strong>mongo.exe</strong></li><li>Enter the following command: <strong>show dbs</strong></li><li>Enter the following command: <strong>use NNTHubService</strong></li><li>Enter the following command:<strong>db.HubConfigData.remove({ &quot;Key&quot; : &quot;SMTP Password&quot; });</strong></li><li>Enter the following command:<strong>db.HubConfigData.remove({ &quot;Key&quot; : &quot;SMTP Password2&quot; });</strong></li><li>Enter the following command: <strong>exit</strong></li><li>Enter the following command: <strong>iisreset /start</strong></li></ol>
+
+<h2 id="HowtomoveyourLinuxServerMongoDBDatabasetoaWindowsserver?-Relatedarticles">Related articles</h2>
+
+<p>�</p>
+
+<p>�</p>
+
+<ul class="content-by-label conf-macro output-block"><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8150" target="_blank">How to Backup / Restore / Move your MongoDB Database</a></div>
+	</li><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8283" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a></div>
+	</li><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8164" target="_blank">How to Add Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen7</a></div>
+	</li><li>
+	<div><span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span></div>
+
+	<div class="details"><a href="https://kb.netwrix.com/8310" target="_blank">How to Change the Admin Password of your Mongo Database</a></div>
+	</li></ul>
+
+<p>�</p>
+
+<p>�</p>
+<br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKbg&amp;d=%2Fa%2F4u000000M03T%2FV88Qg_0PJk1h9u3KGHtU7vgf5MpB.JqjDXg6dYOMJv4&amp;asPdf=false" target="_blank">image2018-6-7_16-33-46_123213.png</a><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKV5&amp;d=%2Fa%2F4u000000M034%2FRkZbJD7omk3DnuR1JVLt.yMknBEeI4ej6QzIz9C6q60&amp;asPdf=false" target="_blank">image2018-6-7_16-30-43.png</a><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK9g&amp;d=%2Fa%2F4u000000M087%2FIWBxMeRNPk7vhxqEBZUbnIn_iVOJZF2kKlzBiatkC7Q&amp;asPdf=false" target="_blank">Change_Tracker_-_Move_MongoDB_-_1.png</a><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKD4&amp;d=%2Fa%2F4u000000LzwD%2FTER_Gm_rH.Y3TxwM6zZus94k0wGw7NoIRap8oSOkKKI&amp;asPdf=false" target="_blank">Linux_-_Mongo_Dump.PNG</a><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKIc&amp;d=%2Fa%2F4u000000M08C%2FlK6Jmcwb2OBRcl.nI_RRCEFQDN2pizPLre75iBaPR3o&amp;asPdf=false" target="_blank">Linux_-_Create_Directory.PNG</a><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKBR&amp;d=%2Fa%2F4u000000M04V%2F0VXU16CY.BBCRQN4RJmGx0LLOcwdb3LITiLOHn8qJA8&amp;asPdf=false" target="_blank">Linux_-_Stop_Services.PNG</a>
+</body>
+</html>

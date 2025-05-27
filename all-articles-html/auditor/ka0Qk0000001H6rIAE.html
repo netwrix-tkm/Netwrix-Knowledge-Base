@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Properly Remove Auditor Components Prior to Further Clear Installation?</title>
+    <meta name="article-id" content="ka0Qk0000001H6rIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-26T10:39:25.000Z">
+    <meta name="articlenumber" content="000008986">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-01-09T14:26:51.000Z">
+    <meta name="firstpublisheddate" content="2023-12-26T10:39:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000Lm1KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000Lm1KAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-01-09T14:36:22.000Z">
+    <meta name="lastpublisheddate" content="2024-01-09T14:36:22.000Z">
+    <meta name="meta-description" content="How to Properly Remove Auditor Components Prior to Further Clear Installation">
+    <meta name="meta-title" content="How to Properly Remove Auditor Components Prior to Further Clear Installation">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8986">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Lm1KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Properly Remove Auditor Components Prior to Further Clear Installation?</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>In cases, when you already have Auditor installed on a server and, for some reasons, do not want to upgrade the product and migrate the configuration to another server, you might want to perform clear install of Netwrix Auditor to this machine. How to make sure the new server installation/configuration doesn&#39;t encounter problems related to the old Netwrix server?</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>Review the explanations and instructions below to safely prepare your server for clear install.</p>
+</div>
+
+<h3>Question 1</h3>
+
+<div>
+<p>Do I need to uninstall Netrix compression services from all the nodes that the previous installation/server was monitoring before I build new server?</p>
+</div>
+
+<h3>Answer</h3>
+
+<div>
+<p>No, because Netwrix Auditor is supposed to automatically uninstall compression services upon removing the targeted machine/location or items from monitoring plans.</p>
+</div>
+
+<h3>Question 2</h3>
+
+<div>
+<p>Does Netwrix Auditor uninstallation from my server removes all Netwrix compression services or do I have to manually uninstall them from all nodes?</p>
+</div>
+
+<h3>Answer</h3>
+
+<div>
+<p>In most cases, yes it does. However, for the proper uninstallation of all compression services, Netwrix recommends following the procedure below:</p>
+
+<ol><li>
+	<p>In Netwrix Auditor, navigate to <b>Monitoring plans</b> and remove the <b>items</b> first.</p>
+	</li><li>
+	<p>Wait for the host server some�to synchronize with nodes that have the compression services installed. Depending on your Auditor configuration, the uninstallation process might take a while. Wait for a couple of hours for the uninstallation to take effect.</p>
+	</li><li>
+	<p>Double check that the compression services were uninstalled successfully.</p>
+	</li><li>
+	<p>Delete all <b>monitoring plans</b>.</p>
+	</li><li>
+	<p>Uninstall Netwrix Auditor itself.</p>
+	</li></ol>
+</div>
+
+<h3>Related Article</h3>
+
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ebCAC.html" target="_blank">Migrating Netwrix Auditor to New Server</a></li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No single line in file SBTFileMon.ini can exceed 32k</title>
+    <meta name="article-id" content="ka04u000000HcxOAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:42:48.000Z">
+    <meta name="articlenumber" content="000007338">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:07.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:42:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IrqCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IrqCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:07.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:42:48.000Z">
+    <meta name="meta-description" content="360008602431">
+    <meta name="meta-title" content="No single line in file SBTFileMon.ini can exceed 32k">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7338">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IrqCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>No single line in file SBTFileMon.ini can exceed 32k</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> No single line in file SBTFileMon.ini can exceed 32k</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> The Windows API&#39;s used to manage sections in an .ini file cannot support lines over 32k in length.� Data beyond 32k is truncated.� Lines such as &quot;INCPATH=&quot; have been observed at server customer sites that exceed this limit.� The &quot;INCPATH=&quot; line in the [FILE_MONITOR] section is a sum of the paths from every policy defined in SI so it is especially &#39;vulnerable&#39; to exceeding the 32k limit.<br>�<br>In SI versions prior to 5.x this condition went undetected with a result that the if more than 32k worth of paths defined the string was truncated resulting in an indeterminate number of paths being ignored<br>�<br>In SI version 5.x code was added to detect this condition, generate an error is SI logs and the SI does NOT start the file monitoring service.<br>�<br>In SI version 6.0 we wrote our own functions to manage .ini file content so as not to be subjected to the 32k limit.<br>�<br>In SAM we replaced Win API&#39;s in driver builds starting at 1.4.0.410 (MS Signed) on September 12th 2018.<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The SI Agent has code to only write path information to the SBTFileMon.ini that are applicable to the machine the agent is running on which helps keep .ini file size under control.<br>�<br>Improper use of the &quot;Additional Agents&quot; tab in the SI Policy editor has been observed in the field resulting in exceeding the 32k limit.� When adding &quot;Additional Agents&quot; you are telling the system to send every path in the &#39;Paths&#39; tab to every agent in the &#39;Additional Agents&#39; tab.� We had one customer select specific paths individually on hundreds of individual machines in the &#39;Paths&#39; tab (which are machine specific) then in &#39;Additional Agents&#39; tab select every machine.� Resulting in every unique path picked for every machine being sent to every agent thus exceeding 32k for the &quot;INCPATH=&quot; line.<br>�</p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra;File Activity Monitor - NetApp;File Activity Monitor - Windows;SI - File System Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> SI 5.2 and older / SAM 3.1 and older<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3697<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> SI 6.0 / SAM 4.0<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2296<br></p>
+</body>
+</html>

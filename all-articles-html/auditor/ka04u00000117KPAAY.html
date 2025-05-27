@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Prepare the Netwrix Server for a SQL Upgrade</title>
+    <meta name="article-id" content="ka04u00000117KPAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-08-23T18:14:09.000Z">
+    <meta name="articlenumber" content="000008759">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-08-23T18:34:21.000Z">
+    <meta name="firstpublisheddate" content="2023-08-23T18:14:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001115OCAQ">
+    <meta name="knowledge-article-id" content="kA04u000001115OCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-08-23T20:16:26.000Z">
+    <meta name="lastpublisheddate" content="2023-08-23T18:14:34.000Z">
+    <meta name="meta-description" content="How to Prepare the Netwrix Server for a SQL Upgrade">
+    <meta name="meta-title" content="How to Prepare the Netwrix Server for a SQL Upgrade">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8759">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001115OCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Prepare the Netwrix Server for a SQL Upgrade</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Is there a process we need to follow on the Netwrix server to prepare for an upgrade? This is an in-place upgrade of SQL 2014 to SQL 2019. We have backups and plan to snapshot the virtual machines before starting. Are there any steps to take on the Netwrix application server before and after the SQL upgrade?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>There is no need to back up anything on the Netwrix server when performing SQL upgrades. You also don&#39;t need to back up the config file.</p>
+</div>
+
+<blockquote>
+<div><span style="color: #2980b9;"><strong>NOTE:</strong></span> However, as an additional precautionary measure, you have the option of taking a snapshot of the Netwrix host before starting any upgrade procedures</div>
+</blockquote>
+
+<div>
+<p>There are some best practices that can help you to properly upgrade your SQL.</p>
+
+<ul><li>
+	<p>Read about prerequisites and instructions in this article: <a href="https://learn.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-to-a-different-edition-of-sql-server-setup?view=sql-server-ver16" target="_blank">Upgrade to a different edition of SQL Server (Setup) ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p>Read how to <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000Pbd8CAC.html" target="_blank">Migrate Netwrix Databases to Another MS SQL Server Instance</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

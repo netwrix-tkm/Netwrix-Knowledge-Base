@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How are collections handled after a network outage?</title>
+    <meta name="article-id" content="ka04u000000HcPTAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:54.000Z">
+    <meta name="articlenumber" content="000003208">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:12.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WHCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9WHCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:13.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:24.000Z">
+    <meta name="meta-description" content="network outage, domain controllers offline, unable to connect">
+    <meta name="meta-title" content="How are collections handled after a network outage?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="791">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WHCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How are collections handled after a network outage?</h1>
+    How are collections handled after a network outage on the Netwrix server or when Domain Controllers are offline for some time?
+<hr></hr> Active Directory data collections run every minute. At the end of each collection the product saves the position of the last collected event and starts the next collection from the same place. Assuming that the Domain Controller&#39;s security log is not overwritten while the server is inaccessible, the data will be collected and processed as soon as the server is turned back on or network connectivity is restored and no data loss will happen.<br>Note that Security Log events are not required for determining most of the changes - they are mostly used as the source of When and Who information. If the Security log overwrites while the DC is inaccessible, or the disconnect time exceeds 6 hours, the product may report some changes with &quot;System&quot; in the &#39;Who Changed&#39; field. At the same time a warning will be logged informing that the event log overwrites occurred.
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Prepare Netwrix Server for OS Upgrade</title>
+    <meta name="article-id" content="ka0Qk0000001YIzIAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-10-26T11:52:54.000Z">
+    <meta name="articlenumber" content="000008877">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2024-01-29T10:05:58.000Z">
+    <meta name="firstpublisheddate" content="2023-10-26T11:53:21.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnjVCAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wnjVCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-29T10:06:21.000Z">
+    <meta name="lastpublisheddate" content="2023-10-26T15:01:22.000Z">
+    <meta name="meta-description" content="Recommendations for OS Upgrade (Windows Server): How to Prevent Data Loss">
+    <meta name="meta-title" content="Recommendations for OS Upgrade (Windows Server): How to Prevent Data Loss">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8877">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnjVCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Prepare Netwrix Server for OS Upgrade</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>This article provides preparation steps for upgrading an operating system (Windows) in the Netwrix Auditor host server.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<h4>Pre-Upgrade Data Security Measures: Snapshot and Backup Guidelines</h4>
+
+<div>
+<p>Taking a snapshot or creating a backup of the Netwrix Auditor Server is recommended for data protection and recovery. The method to be used depends on the approach used for Auditor installation, whether it&#39;s on a virtual or physical machine.</p>
+</div>
+
+<blockquote>
+<p><strong>TIP:</strong> You can configure Auditor in the failover mode. To learn about failover and backup scenarios, read <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TECA0.html" target="_blank">How to configure Netwrix Auditor in the Failover Mode?</a></p>
+</blockquote>
+
+<p>Stop all Netwrix services running in your server ? run the following line in elevated PowerShell:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -Displayname Netwrix*</code></pre>
+
+<h4>Post-Upgrade Procedure: Auditor Initialization and Service Verification</h4>
+
+<div>
+<p>After the upgrade, give a couple of hours to Auditor to initialize, and make sure all services are running. To start all Auditor-related processes in the server, run the following line in elevated PowerShell:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -Displayname Netwrix*</code></pre>
+</div>
+
+<h4>Post-Upgrade Warnings and Data Collection Interruptions</h4>
+
+<div>
+<p>After the upgrade, you might notice warnings in the Health log. These warnings occur because services are temporarily unavailable and data collection is interrupted during the upgrade and server reboot. Once the upgrade is complete, services will be automatically restarted, and data collection will continue without any issues.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TECA0.html" target="_blank">How to configure Netwrix Auditor in the Failover Mode?</a></p>
+</div>
+</body>
+</html>

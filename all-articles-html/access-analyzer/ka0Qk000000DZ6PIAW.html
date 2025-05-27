@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Icons and Graphical Elements in Access Analyzer Web Console</title>
+    <meta name="article-id" content="ka0Qk000000DZ6PIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-10-09T14:28:26.000Z">
+    <meta name="articlenumber" content="000008845">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u00000111JzCAI">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-05-05T10:29:48.000Z">
+    <meta name="firstpublisheddate" content="2023-10-09T14:31:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111JzCAI">
+    <meta name="knowledge-article-id" content="kA04u00000111JzCAI">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:32:56.000Z">
+    <meta name="lastpublisheddate" content="2023-10-09T14:31:28.000Z">
+    <meta name="meta-description" content="Missing Icons and Graphical Elements in Access Analyzer">
+    <meta name="meta-title" content="Missing Icons and Graphical Elements in Access Analyzer">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8845">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111JzCAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Missing Icons and Graphical Elements in Access Analyzer Web Console</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Icons are missing in Access Analyzer Web Console.</p>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>Local browser extensions are conflicting with Access Analyzer Web Console and are blocking the console elements.</p>
+	</li><li>
+	<p>A GPO to block untrusted fonts is enforced.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Review the browser extensions blocking web fonts or JavaScript to disable them.</p>
+	</li><li>
+	<p>Exclude Access Analyzer from the GPO blocking untrusted fonts:</p>
+
+	<ol><li>
+		<p>In the Access Analyzer server, open Registry Editor, and follow the key provided below:</p>
+
+		<pre class="has-inner-focus">
+<code class="lang-Registry">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options</code></pre>
+		</li><li>
+		<p>Right-click the <strong>Image File Execution Options</strong> node and select <strong>New</strong> &gt; <strong>Key</strong>. Name the new key <strong>StealthAUDIT.EXE</strong>.</p>
+		</li><li>
+		<p>Right-click the <strong>StealthAUDIT.EXE</strong> key and select New &gt; QWORD (64-bit). Name the new value <strong>MitigationOptions</strong>.</p>
+		</li><li>
+		<p>Right-click the <strong>MitigationOptions</strong> value and select <strong>Modify</strong>. Verify the <strong>Value data</strong> field states Hexadecimal <strong>2000000000000</strong>. Click <strong>OK</strong> to save changes.</p>
+
+		<div><img height="479" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZ6P&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008Ma1V" width="600"></img></div>
+		</li></ol>
+	</li></ul>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://learn.microsoft.com/en-us/windows/security/threat-protection/block-untrusted-fonts-in-enterprise#fix-apps-having-problems-because-of-blocked-fonts" target="_blank">Block untrusted fonts in an enterprise ? Microsoft&#129125;</a></p>
+</div>
+</body>
+</html>

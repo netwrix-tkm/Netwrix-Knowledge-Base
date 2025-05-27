@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingCastle Stuck at Gathering GPO Data</title>
+    <meta name="article-id" content="ka0Qk000000CtS9IAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000003cQkXIAU">
+    <meta name="articlecreateddate" content="2025-03-20T08:35:47.000Z">
+    <meta name="articlenumber" content="000010090">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002C8LKAU">
+    <meta name="assignedbyid" content="005Qk000003cQkXIAU">
+    <meta name="assignedtoid" content="005Qk000003cQkXIAU">
+    <meta name="assignmentdate" content="2025-03-20T08:35:47.000Z">
+    <meta name="case" content="500Qk00000N5MQsIAN">
+    <meta name="createdbyid" content="005Qk000003cQkXIAU">
+    <meta name="createddate" content="2025-03-20T08:35:47.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002C8LKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002C8LKAU">
+    <meta name="lastmodifiedbyid" content="005Qk000003cQkXIAU">
+    <meta name="lastmodifieddate" content="2025-03-20T08:36:04.000Z">
+    <meta name="meta-description" content="PingCastle Stuck at Gathering gpo data">
+    <meta name="meta-title" content="PingCastle Stuck at Gathering gpo data">
+    <meta name="ownerid" content="005Qk000003cQkXIAU">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10090">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002C8LKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PingCastle Stuck at Gathering GPO Data</h1>
+    <p><strong>Issue:</strong><br>When running a PingCastle scan against a domain, it gets stuck at the step �Gathering gpo data�.�<br>e.g. left one scan running overnight and it still hadn�t got past that step the next morning.<br>After enabling logging for each scan, all scans are getting stuck at �Gathering gpo data�.</p>
+<p>Occurs in versions <strong>3.2.0.1</strong> and <strong>3.3.0.1</strong></p>
+<p>Fix:<br>Check the correct ports are open:</p>
+<ul><li><strong>LDAP (tcp/389)</strong>: Used for querying the Active Directory.</li><li><strong>ADWS (tcp/9389)</strong>: Used for Active Directory Web Services.</li><li><strong>SMB (tcp/445)</strong>: Used for file sharing and other network services.</li><li><strong>DNS (tcp/53)</strong>: Used for domain name resolution.</li><li><strong>RPC (tcp/135)</strong>: Used for remote procedure calls.</li></ul>
+<p>Check trace logs and find errors/delays scanning MSI files.<br>Disabling some DFS paths &quot;correctly&quot; can fix this issue</p>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusions for Antivirus (AV) &amp; Endpoint Software</title>
+    <meta name="article-id" content="ka0Qk0000004DjRIAU">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gXu5AAE">
+    <meta name="articlecreateddate" content="2022-01-11T15:38:36.000Z">
+    <meta name="articlenumber" content="000005938">
+    <meta name="createdbyid" content="0054u000006gXu5AAE">
+    <meta name="createddate" content="2024-06-13T18:29:53.000Z">
+    <meta name="firstpublisheddate" content="2022-01-12T14:49:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Hi8CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Hi8CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gpnvAAA">
+    <meta name="lastmodifieddate" content="2024-06-13T18:30:52.000Z">
+    <meta name="lastpublisheddate" content="2022-01-14T14:13:35.000Z">
+    <meta name="meta-description" content="Exclusions for Antivirus (AV) &amp; Endpoint Software">
+    <meta name="meta-title" content="Exclusions for Antivirus (AV) &amp; Endpoint Software">
+    <meta name="ownerid" content="0054u000006gXu5AAE">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5938">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Hi8CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exclusions for Antivirus (AV) &amp; Endpoint Software</h1>
+    <h1>Summary</h1>
+Certain directories should be excluded from antivirus and endpoint protection on the Netwrix Privilege Secure (NPS) server and any registered remote nodes (ex. remote Proxy Service, remote Action Service) to ensure optimal performance of NPS workflows.<br><br>Examples of unwanted behaviors caused by antivirus or endpoint protection include:
+<ul><li>NPS UI fails to load or crashes to a blank page.</li><li>NPS UI experience errors in the browser&#39;s Developer Console.</li><li>NPS UI feels unresponsive, with pages taking much longer than usual to load.</li><li>Communication between the NPS server and its remote nodes feels slow (ex. service node&#39;s information UI takes a long time to load).</li></ul>
+
+<h1>Instructions</h1>
+On all NPS servers and remote nodes running Action Services, Proxy Services, etc., it&#39;s recommended to exclude the following directories from antivirus and endpoint protection software. Please note a drive letter is not used in each path as that can be customized during each NPS and service installation.<br><br>The following exclusions should be configured on each NPS server:
+<pre class="ckeditor_codeblock">
+\Program Files\Stealthbits\PAM\ActionService
+\Program Files\Stealthbits\PAM\ActionServiceWorker
+\Program Files\Stealthbits\PAM\DatabaseTools\Data
+\Program Files\Stealthbits\Postgres12\bin
+\ProgramData\Stealthbits\Postgres12</pre>
+The following exclusion should be configured on each server with a remote Proxy Service:
+
+<pre class="ckeditor_codeblock">
+\Program Files\Stealthbits\PAM\ProxyService</pre>
+The following exclusions should be configured on each server with a remote Action Service:
+
+<pre class="ckeditor_codeblock">
+\Program Files\Stealthbits\PAM\ProxyService
+\Program Files\Stealthbits\PAM\ActionService
+\Program Files\Stealthbits\PAM\ActionServiceWorker
+</pre>
+The following exclusions should be configured on each server with a remote Scheduler Service:
+
+<pre class="ckeditor_codeblock">
+\Program Files\Stealthbits\PAM\ProxyService
+\Program Files\Stealthbits\PAM\SbPAM.SchedulerService
+</pre>
+</body>
+</html>

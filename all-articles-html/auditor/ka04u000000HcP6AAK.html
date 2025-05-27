@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to remove a decomissioned server from SSRS reports</title>
+    <meta name="article-id" content="ka04u000000HcP6AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:53.000Z">
+    <meta name="articlenumber" content="000003180">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:07.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VpCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9VpCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:07.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:19.000Z">
+    <meta name="meta-description" content="remove server from report list">
+    <meta name="meta-title" content="How to remove a decomissioned server from SSRS reports">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="758">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VpCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to remove a decomissioned server from SSRS reports</h1>
+    How to remove a decommissioned file server from the drop down menu in SQL Report Manager?
+
+<hr></hr>
+
+To remove this server from reports, open MS SQL Management Studio, connect to your SQL server which hosts the Netwrix databases, click on &quot;New query&quot; and execute the following query:<br><br><strong>use NetWrix_File_Server_Change_Reporter<br>delete from Sessions where sessions.Object = &#39;decommissioned_server_name&#39;;</strong>
+</body>
+</html>

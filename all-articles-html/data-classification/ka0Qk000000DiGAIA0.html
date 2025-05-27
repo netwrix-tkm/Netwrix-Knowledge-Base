@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Crawl a Website That Does Not Require Credentials?</title>
+    <meta name="article-id" content="ka0Qk000000DiGAIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-14T11:14:26.000Z">
+    <meta name="articlenumber" content="000008899">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u000000wnoVCAQ">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2025-05-09T03:29:25.000Z">
+    <meta name="firstpublisheddate" content="2023-11-14T11:14:45.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnoVCAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wnoVCAQ">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T03:34:52.000Z">
+    <meta name="lastpublisheddate" content="2023-11-21T10:41:59.000Z">
+    <meta name="meta-description" content="How to Crawl a Website That Does Not Require Credentials">
+    <meta name="meta-title" content="How to Crawl a Website That Does Not Require Credentials">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8899">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnoVCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Crawl a Website That Does Not Require Credentials?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>When trying to scan a website that does not require credentials to access it, the following error appears:</p>
+</div>
+
+<div>
+<pre class="has-inner-focus">
+ 
+Version: 5.7.0.58
+
+Instance: abandc-test
+
+Component: Collector Service
+
+Level: Error
+
+Page ID: 443213
+
+CollectorEnumerator.CollectPage
+
+Page Collection Exception
+
+Exception: Location: CollectorEnumerator.CollectPage
+
+A Web Exception &#39;Forbidden occured during processing -&gt; The remote server returned an error: (403) Forbidden.
+
+Details: Error: AccessDeniedError (-403)
+
+Page Id: 443213
+
+conceptCore.PageCollectionException: Location: CollectorEnumerator.CollectPage
+
+A Web Exception &#39;Forbidden occured during processing ---&gt; System.Net.WebException: The remote server returned an error: (403) Forbidden.
+
+   at System.Net.HttpWebRequest.GetResponse()
+
+   at conceptHttp.Collection.HttpPageCollector.Get(Boolean forceCollect, Boolean&amp; changedSinceLastCollection)
+
+   at conceptEngine.ServiceFramework.Collection.CollectorEnumerator._()
+
+   --- End of inner exception stack trace ---
+
+ 
+
+Inner Exception: System.Net.WebException: The remote server returned an error: (403) Forbidden.
+
+   at System.Net.HttpWebRequest.GetResponse()
+
+   at conceptHttp.Collection.HttpPageCollector.Get(Boolean forceCollect, Boolean&amp; changedSinceLastCollection)
+
+   at conceptEngine.ServiceFramework.Collection.CollectorEnumerator._() 
+    </pre>
+</div>
+
+<div>
+<p>How to past this error when the site doesn&#39;t require any credentials?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>This error is gone after adding a specific line in the <b>Collector Using Agent</b> field. For that:</p>
+
+<ol><li>
+	<p>In <b>Netwrix Data Classification</b>, navigate to <b>Config</b> -&gt; <b>Collector</b> -&gt; <b>Advanced</b>.</p>
+	</li><li>
+	<p>Add the following line in the <b>Collector Using Agent</b> field:</p>
+	</li></ol>
+</div>
+
+<div>
+<pre class="has-inner-focus">
+ 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Sa   
+</pre>
+</div>
+
+<div><img alt="User-added image" height="103" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DiGA&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008pbhE" width="500"></img></div>
+</body>
+</html>

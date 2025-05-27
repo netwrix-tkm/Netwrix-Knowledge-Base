@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoring a Host List in FSAA</title>
+    <meta name="article-id" content="ka0Qk000000ClmLIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-09-05T09:06:31.000Z">
+    <meta name="articlenumber" content="000009258">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-03-11T20:26:20.000Z">
+    <meta name="draft-status" content="Backlog">
+    <meta name="firstpublisheddate" content="2024-09-05T09:06:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001ODBKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000001ODBKA2">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-12T18:02:35.000Z">
+    <meta name="lastpublisheddate" content="2024-09-05T09:06:49.000Z">
+    <meta name="meta-description" content="Restoring a Host List in FSAA">
+    <meta name="meta-title" content="Restoring a Host List in FSAA">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9258">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001ODBKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Restoring a Host List in FSAA</h1>
+    <h2>Question</h2>
+<div>
+<p>Is it possible to restore a File System host list upon an accidental deletion in Netwrix Enterprise Auditor?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>Refer to the following options to restore a host list in your environment:</p>
+<ul><li>
+<p>The 1-FSAA System Scans job creates a <code>ConnectStatus.csv</code> file upon completion to log the audited hosts. Navigate to the following path to locate the file:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">%SAINSTALLDIR%Jobs\GROUP_FileSystem\GROUP_0.Collection\JOB_1-FSAA System Scans\OUTPUT</code></pre>
+<p>Import a list of audited hosts via <strong>Add Hosts</strong>. Refer to the following articles for additional information: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/HostManagement/Actions/Add.htm" target="_self">Host Management Activities � Add Hosts � v11.6</a>; <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/HostManagement/Actions/ImportHost.htm" target="_self">Import Hosts Option</a>.</p>
+</li><li>
+<p>Review the <strong>Task Stats</strong> of the affected job to collect the list of servers and import the list via <strong>Add Hosts</strong>.</p>
+</li></ul>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Once you recreate the host list, reapply it in the job settings.</p>
+</blockquote>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/HostManagement/Actions/Add.htm" target="_self">Host Management Activities � Add Hosts � v11.6</a></li><li><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/HostManagement/Actions/ImportHost.htm" target="_self">Import Hosts Option</a></li></ul>
+</div>
+</body>
+</html>

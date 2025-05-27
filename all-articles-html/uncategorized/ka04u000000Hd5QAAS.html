@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_9.0_007</title>
+    <meta name="article-id" content="ka04u000000Hd5QAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:51:38.000Z">
+    <meta name="articlenumber" content="000007826">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:15:42.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:51:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JEFCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JEFCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:15:43.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:51:39.000Z">
+    <meta name="meta-description" content="360012217872">
+    <meta name="meta-title" content="Hotfix: SA_9.0_007">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7826">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JEFCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_9.0_007</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Unix DC using hardcoded paths for scripts</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Summary: </span></strong><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Unix DC using hardcoded paths for scripts</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior Before Fix: �</span></strong><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Unix DC was pre-configured to use scripts that were located under the default C: path. </span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior After Fix: �</span></strong><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Unix DC now allows the use of the %SAINSTALLDIR% variable so that path doesn&#39;t have to be modified if SA is installed in a non-default location.</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Michael Burrofato</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">9.0</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Module:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">DC - Unix</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Resolved in Version:</span></strong></span></span></span> 
+</p><ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.Unix.dll������������������������� 9.0.15</span></span></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.Unix.UI.dll������������������� 9.0.15</span></span></span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>KB Type: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Hotfix</span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>YouTrack/Escalations</b></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SAFS-17130 37409 - Unix DC using hardcoded paths for scripts</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>Customers:</b></span></span></span> 
+<ul><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Federal Reserve Information Technology</span></span></span></span></span></li></ul><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>N/A</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Instructions:</span></strong></span></span></span> 
+<ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b><span style="font-size: 15pt;"><span style="color: red;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there.�</span></span></b></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Close all instances of StealthAUDIT (check task manager under processes for all users)</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></strong></span></span></span></li></ol><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Instructions:</span></strong></span></span></span> 
+</p><ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b><span style="font-size: 15pt;"><span style="color: red;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there.�</span></span></b></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;">Close all instances of StealthAUDIT (check task manager under processes for all users)</span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></strong></span></span></span></li></ol><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/9.0/SA_9.0_007.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/9.0/SA_9.0_007.zip</a><br><br>�<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - Unix<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 9.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-17130 37409 - Unix DC using hardcoded paths for scripts<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.Unix.dll		9.0.15
+-	PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.Unix.UI.dll		9.0.15<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2461<br></p>
+</body>
+</html>

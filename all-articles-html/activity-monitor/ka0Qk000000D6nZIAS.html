@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manually Setting Up SharePoint Online Auditing</title>
+    <meta name="article-id" content="ka0Qk000000D6nZIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2025-01-16T23:14:47.000Z">
+    <meta name="articlenumber" content="000009371">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/:u:/r/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/hilary_writing_syncs/KB-New-Final%20Drafts/Manually%20Setting%20Up%20SharePoint%20Online%20Auditing%20for%20NEA.html?csf=1&amp;web=1&amp;e=">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209227637931802">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-04-04T18:07:12.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-04T16:20:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001s6PKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001s6PKAQ">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-04-04T18:32:50.000Z">
+    <meta name="lastpublisheddate" content="2025-04-04T16:20:24.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9371">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001s6PKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Manually Setting Up SharePoint Online Auditing</h1>
+    <h2>Question</h2>
+<div>
+<p>How do I set up SharePoint Online auditing without using the <code>SP_RegisterAzureAppAuth</code> instant job?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>It is always recommended to use the�<code>SP_RegisterAzureAppAuth</code> instant job to set up the Entra app for auditing. <br>However, the process can be completed manually if necessary, such as if MFA cannot be temporarily disabled for a Global Admin account.</p>
+</div>
+<h4>SPAA/SPSEEK Scans</h4>
+<div>
+<ol><li>
+<p>Open the <a href="https://entra.microsoft.com/#home" title="Microsoft Entra admin center" target="_blank">Microsoft Entra admin center</a>.</p>
+</li><li>
+<p>Navigate to <strong>Identity &gt; Applications &gt; App registrations</strong>.</p>
+</li><li>
+<p>Select <strong>+ New registration</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl72w" alt="" width="762" height="288"></img>�<br><br></li><li>
+<p>On the Register an application page, set the following:</p>
+<ul><li>
+<p><strong>Name:</strong> Enter a meaningful name, such as <code>NetwrixAccessAnalyzer_SharePoint</code>.</p>
+</li><li>
+<p><strong>Supported account types:</strong> Choose <strong>Accounts in this organizational directory only</strong>.</p>
+</li></ul>
+</li><li>
+<p>From the Application Overview page, navigate to <strong>Manage &gt; API Permissions</strong> and select <strong>Add a permission</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bm95v" alt="" width="762" height="325"></img> ��<br><br></li><li>
+<p>From the Request API permissions page, select <strong>Microsoft Graph</strong> and add the following permissions:<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl5XQ" alt="" width="572" height="346"></img>�</p>
+<ul><li>
+<p><strong>Delegated Permissions:</strong></p>
+<ul><li>
+<p><code>Group.Read.All</code> � Read all groups</p>
+</li><li>
+<p><code>User.Read.All</code> � Read all users&#39; full profiles</p>
+</li></ul>
+</li><li>
+<p><strong>Application Permissions:</strong></p>
+<ul><li>
+<p><code>Application.Read.All</code> � Read all applications</p>
+</li><li>
+<p><code>AuditLog.Read.All</code> � Read all audit log data</p>
+</li><li>
+<p><code>Directory.Read.All</code> � Read directory data</p>
+</li><li>
+<p><code>Files.Read.All</code> � Read files in all site collections</p>
+</li></ul>
+</li></ul>
+</li><li>
+<p>From the Request API permissions page, select <strong>Office 365 Management APIs</strong> and add the following permissions:</p>
+<ul><li>
+<p><code>ActivityFeed.Read</code> � Read activity data for your organization</p>
+</li><li>
+<p><code>ActivityFeed.ReadDlp</code> � Read DLP policy events, including detected sensitive data</p>
+</li><li>
+<p><code>ServiceHealth.Read</code> � Read service health information for your organization</p>
+</li></ul>
+</li><li>
+<p>From the Request API permissions page, select <strong>SharePoint</strong> and add the following permissions:</p>
+<ul><li>
+<p><code>Sites.FullControl.All</code> � Have full control of all site collections</p>
+</li><li>
+<p><code>Sites.Read.All</code> � Read items in all site collections</p>
+</li><li>
+<p><code>TermStore.Read.All</code> � Read managed metadata</p>
+</li><li>
+<p><code>User.Read.All</code> � Read user profiles</p>
+</li></ul>
+</li><li>
+<p>After adding the permissions, grant admin consent by selecting <strong>Grant admin consent for {TENANT NAME}</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl7UO" alt="" width="762" height="387"></img> �<br><br></li><li>
+<p>On the Netwrix Access Analyzer server, import a certificate and PFX file to the <code>%SAInstallDir%PrivateAssemblies</code> location:</p>
+<ul><li>
+<p>If necessary, create a self-signed certificate with the following PowerShell commands:</p>
+<ol><li>
+<pre><code>$cert=New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName stealthbits.com -Subject &quot;CN=StealthAUDIT SharePoint Auditor&quot; -FriendlyName &quot;StealthAUDIT SharePoint Auditor&quot; -KeyAlgorithm RSA -KeyLength 2048 -KeyExportPolicy Exportable -Provider &quot;Microsoft Enhanced RSA and AES Cryptographic Provider&quot; -NotAfter (Get-Date).AddYears(11)</code></pre>
+<ul><li>
+<p>Change the <strong>DNS Name</strong> to match your domain.</p>
+</li><li>
+<p>Change the <strong>Subject</strong> and <strong>FriendlyName</strong> to match the App Registration name in Entra (formerly Azure).</p>
+</li></ul>
+</li><li>
+<pre><code>Export-Certificate -Cert $cert -FilePath &quot;$($env:SAINSTALLDIR)PrivateAssemblies\spaa_cert_domain.cer&quot; -Type CERT</code></pre>
+<ul><li>
+<p>Ensure the certificate name includes the domain (e.g., <code>spaa_cert_NWXSUPPORT.cer</code>).</p>
+</li></ul>
+</li><li>
+<pre><code>Export-PfxCertificate -Cert $cert -FilePath &quot;$($env:SAINSTALLDIR)PrivateAssemblies\spaa_cert_domain.pfx&quot; -Password (ConvertTo-SecureString -String &quot;PasswordGoesHere&quot; -Force -AsPlainText)</code></pre>
+<ul><li>
+<p>Ensure the PFX file name includes the domain (e.g., <code>spaa_cert_NWXSUPPORT.pfx</code>).</p>
+</li><li>
+<p>Replace <code>PasswordGoesHere</code> with a secure password.</p>
+</li></ul>
+</li></ol>
+</li></ul>
+</li><li>
+<p>Navigate back to the SharePoint App registrations page, and on the <strong>Certificates &amp; Secrets</strong> page, click <strong>? Upload certificate</strong> to upload the <code>spaa_cert_domain.cert</code> file.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl8rp" alt="" width="762" height="281"></img>�<br><br></li><li>
+<p>Navigate to the <strong>Overview</strong> tab and copy the <strong>Application (client) ID</strong>. This will be used for the Access Analyzer connection profile.</p>
+</li><li>
+<p>In Access Analyzer, navigate to�<strong>Global Options &gt; Connection</strong> and create a connection profile with the same name as the SharePoint app registration, using the following:</p>
+<ul><li>
+<p><strong>Account Type:</strong> Azure Active Directory</p>
+</li><li>
+<p><strong>Client ID:</strong> Application (client) ID from SharePoint App Registration</p>
+</li><li>
+<p><strong>Key:</strong> CertLocation, CertPassword, NumericDesignator</p>
+<ul><li>
+<p><strong>Numeric Designator:</strong> 0 is the default. Other options are:</p>
+<ul><li>1 for pre-production environments</li><li>2 for China</li><li>3 for Germany</li><li>4 for USGovernment</li></ul>
+</li><li>
+<p>Example: <code>C:\Program Files (x86)\STEALTHbits\StealthAUDIT\PrivateAssemblies\spaa_cert_domain.pfx,YourPasswordHere,0</code></p>
+</li></ul>
+</li></ul>
+</li><li>
+<p>Create a host list with the SharePoint site, for example: <code>YourOrganization.SharePoint.com</code>.</p>
+</li><li>
+<p>Set the SharePoint job group to run against the SharePoint host list.</p>
+</li><li>
+<p>Set the SharePoint job group to use the new SharePoint Connection Profile, and SPAA/SPSEEK is now configured for auditing.</p>
+</li></ol>
+</div>
+<h4>SPAC Scans</h4>
+<div>
+<p>The SPAC scan can utilize the same app registration as SPAA/SPSEEK. Follow steps 1-4 from the instructions above if an app has not already been created.</p>
+<ol><li>
+<p>From the Application Overview page, navigate to <strong>Manage &gt; API Permissions</strong> and select <strong>Add a permission</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl91V" alt="" width="762" height="340"></img> �<br><br></li><li>
+<p>From the Request API permissions page, select <strong>Microsoft Graph</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl5XQ" alt="" width="572" height="346"></img><br><p>Add the following <strong>Application Permissions:</strong></p>
+<ul><li>
+<p><code>Directory.Read.All</code> � Read directory data</p>
+</li><li>
+<p><code>Sites.Read.All</code> � Read items in all site collections</p>
+</li><li>
+<p><code>User.Read.All</code> � Read all users&#39; full profiles</p>
+</li></ul>
+</li><li>
+<p>From the Request API permissions page, select <strong>Office 365 Management APIs</strong>.</p>
+<p>Add the following <strong>Application Permissions:</strong></p>
+<ul><li>
+<p><code>ActivityFeed.Read</code> � Read activity data for your organization</p>
+</li><li>
+<p><code>ActivityFeed.ReadDlp</code> � Read DLP policy events, including detected sensitive data</p>
+</li></ul>
+</li><li>
+<p>After adding these permissions, grant admin consent by selecting <strong>Grant admin consent for {TENANT NAME}</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl9MT" alt="Grant Admin Consent" width="762" height="386"></img> �<br><br></li><li>
+<p>Navigate to <strong>Manage &gt; Certificates &amp; Secrets</strong> and select <strong>+ New client secret</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl5HG" alt="New Client Secret" width="762" height="311"></img>�<br><br></li><li>
+<p>On the Add a client secret page, set the following:</p>
+<ul><li>
+<p><strong>Description:</strong> Enter something meaningful, for example: <code>NAM SharePoint.</code></p>
+</li><li>
+<p><strong>Expires:</strong> Set this to the longest option or per your organization&#39;s internal policy.</p>
+</li></ul>
+</li><li>
+<p>After creating the client secret, copy the <strong>Secret Value</strong> to a secure location.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE:</strong></span> This value will obfuscate. Make sure you copy it immediately or you will need to create a new client secret.</p>
+</blockquote>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl5Fe" alt="Secret Value" width="762" height="281"></img><br>�</li><li>
+<p>In Netwrix Activity Monitor, navigate to the�<strong>Monitored Hosts</strong> tab and select <strong>Add Host</strong>.</p>
+<ul><li>
+<p><strong>Choose Agent:</strong> Specify the agent you would like to use for collecting SharePoint activity logs.</p>
+</li><li>
+<p><strong>Add Host:</strong> Select SharePoint Online and add the SharePoint site as the Domain Name, for example: <code>YourOrganization.SharePoint.com.</code></p>
+</li><li>
+<p><strong>Entra AD / Azure ID Connection:</strong></p>
+<ul><li>
+<p><strong>Domain:</strong> Use the same domain name as before (if it does not auto-populate).</p>
+</li><li>
+<p><strong>Azure Cloud:</strong> Leave set to <strong>Azure</strong> unless it is a government organization.</p>
+</li><li>
+<p><strong>Client ID:</strong> Entra Application (client) ID from the manually created app.</p>
+</li><li>
+<p><strong>Client Secret:</strong> This is the <strong>Secret Value</strong> copied earlier.</p>
+</li><li>
+<p><strong>Region:</strong> Optional � leave blank if not applicable.</p>
+</li></ul>
+</li><li>
+<p><strong>SharePoint Online Operations:</strong> Select what SharePoint activity is to be collected (all options are selected by default).</p>
+</li><li>
+<p><strong>Users to Exclude:</strong> Add any users you do not want to collect SharePoint activity for.</p>
+</li><li>
+<p><strong>Where to log the activity:</strong> Select Log File.</p>
+</li><li>
+<p><strong>File Output:</strong> Select a log file path, set the retention period for activity logs, and ensure the box for <strong>This log file is for Netwrix Enterprise Auditor</strong> is checked.</p>
+</li></ul>
+</li><li>
+<p>After completing the above steps, you should see the SharePoint Online host added to the Monitored Hosts tab with green checkmarks, indicating successful connection and setup.</p>
+</li><li>
+<p>In Access Analyzer, navigate to <strong>SharePoint &gt; 0.Collection &gt; 3-SPAC_SystemScans &gt; Configure &gt; Queries &gt; Query Properties &gt; Configure</strong>.</p>
+<ul><li><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl7e3" alt="Query Properties Configuration" width="623" height="553"></img><br><br></li></ul>
+</li><li>
+<p>On the <strong>Activity Date Scope</strong>, set how long to retain the SharePoint activity in the Access Analyzer database.</p>
+</li><li>
+<p>On the <strong>Activity Log Locations</strong>, select <strong>Add</strong> and configure the following:</p>
+<ul><li><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl9hR" alt="Activity Log Configuration" width="543" height="323"></img>�<br><ul><li>
+<p><strong>Host name:</strong> This should match the monitored host name in Activity Monitor, e.g.,�<code>YourOrganization.SharePoint.com.</code></p>
+</li><li>
+<p><strong>Activity log UNC path:</strong> This is the file output path in UNC format, e.g., <code>\\AgentHost\C$\ProgramData\Netwrix\Activity Monitor\Agent\ActivityLogs</code>.</p>
+<ul><li>
+<p>This value can be found by converting the file output path from the SharePoint monitored host in Activity Monitor to UNC format.</p>
+<ul><li><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D6nZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bl54M" alt="UNC Path Conversion" width="889" height="187"></img></li></ul>
+</li></ul>
+</li><li>
+<p><strong>Activity archive UNC path:</strong> UNC Path of agents archive (on the Agents tab), if applicable.</p>
+</li></ul>
+</li></ul>
+</li></ol>
+</div>
+</body>
+</html>

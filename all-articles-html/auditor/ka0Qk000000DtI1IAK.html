@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Migrate Netwrix Auditor Databases to Another SQL Server Instance</title>
+    <meta name="article-id" content="ka0Qk000000DtI1IAK">
+    <meta name="articlecaseattachcount" content="2">
+    <meta name="articlecreatedbyid" content="005700000042ELcAAM">
+    <meta name="articlecreateddate" content="2020-05-07T12:43:13.000Z">
+    <meta name="articlenumber" content="000003767">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000Pbd8CAC">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005700000042ELcAAM">
+    <meta name="createddate" content="2025-05-13T19:51:13.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2020-05-07T12:57:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000Pbd8CAC">
+    <meta name="knowledge-article-id" content="kA00g000000Pbd8CAC">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-13T20:07:59.000Z">
+    <meta name="lastpublisheddate" content="2025-05-13T20:07:59.000Z">
+    <meta name="meta-description" content="How to migrate the Netwrix databases to another MS SQL Server instance">
+    <meta name="meta-title" content="How to migrate the Audit Databases to another MS SQL Server instance">
+    <meta name="ownerid" content="005700000042ELcAAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="680">
+    <meta name="versionnumber" content="12">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000Pbd8CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Migrate Netwrix Auditor Databases to Another SQL Server Instance</h1>
+    <h2>Question</h2>
+<p>Can you migrate audit databases to another Microsoft SQL Server instance?</p>
+<h2>Answer</h2>
+<p>Yes, you are able to migrate audit databases to another Microsoft SQL Server instance. Follow the steps below to complete this process.</p>
+<h4>Prerequisites</h4>
+<ul><li>Required Permissions: The account used by Netwrix Auditor must have <strong>db_owner</strong> rights on the target audit databases. For SQL Server Reporting Services (SSRS), the account must have the <strong>Content Manager</strong> role on the Home folder, and users must have the <strong>Browser</strong> role on the Report Server. For detailed steps on assigning these permissions, see <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.7/page/Content/Auditor/Requirements/SQLServerReportingService.htm" target="_blank">Requirements � SQL Server Reporting Services � v10.7</a>.</li><li>SQL Server and SSRS must be installed and configured on the new server.</li></ul>
+<h4>Instructions</h4>
+<ol><li>Configure a new SQL Server instance.</li><li>On the Netwrix Auditor server, stop <code class="lang-Registry">Netwrix Auditor Archive Service</code> and <code class="lang-Registry">Netwrix Auditor Management Service</code>.</li><li>Back up all Netwrix databases in the old SQL Server instance except for <strong>Netwrix_CommonDB</strong>, <strong>Netwrix_ImportDB</strong>, <strong>Netwrix_Auditor_EventLog</strong>, <strong>ReportServer</strong>, and <strong>ReportServerTempDB</strong>. To back up databases:
+<ol><li>Open <strong>Microsoft SQL Server Management Studio</strong> and connect to the original SQL Server instance.</li><li>Select an <strong>audit database</strong>, right-click it, and select <strong>Tasks</strong> &gt; <strong>Back Up...</strong></li><li>In the <strong>Back Up Database</strong> window, review the path where the database backup will be stored in the <strong>Destination</strong> section.</li></ol>
+</li><li>Copy the database backups to your new SQL Server. In the new <strong>SQL Server</strong> instance:
+<ol><li>Open <strong>Microsoft SQL Server Management Studio</strong> and connect to the destination SQL Server instance.</li><li>Right-click the <strong>Databases</strong> node and select <strong>Restore Database...</strong></li><li>Under the <strong>Source</strong> section, select the <strong>Device</strong> option, and click <strong>...</strong> to browse for databases.</li><li>In the <strong>Specify Backup Devices</strong> window, click <strong>Add</strong> and select the backup database file. Click <strong>OK</strong>.</li><li>Specify the database name and check the <strong>Restore</strong> checkbox under the <strong>Backup sets to restore</strong> section.</li></ol>
+</li><li>Deploy the new Report Database. For more information, see <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html" target="_self">Deploying the Report Server Database</a>.</li><li>Stop the old <strong>SQL Server (%instance_name%)</strong> service.</li><li>Start <code class="lang-Registry">Netwrix Auditor Archive Service</code> and <code class="lang-Registry">Netwrix Auditor Management Service</code>.</li><li>In the main Netwrix Auditor menu, select <strong>Settings</strong> &gt; <strong>Audit Database</strong> tab, and specify the new SQL Server and Reporting Service settings.</li><li>Click <strong>Yes</strong> when the following message appears: <img alt="Confirmation dialog: Data will become unavailable until the new database is configured" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DtI1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001mFc5"></img></li><li>In the main Netwrix Auditor menu, select <strong>Settings</strong> &gt; <strong>Investigations</strong> tab. Click <strong>Modify</strong> to specify the new SQL Server settings.</li><li>Run a search with the filter <strong>When | Equals | Last 7 days</strong>. If you see the relevant data, the databases were migrated successfully and the new SQL Server is being used.</li><li><strong>Optional:</strong> Start the old SQL Server instance if it is used for any other tasks.</li></ol>
+<h2>Related Articles</h2>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.7/page/Content/Auditor/Requirements/SQLServerReportingService.htm" target="_blank">Requirements � SQL Server Reporting Services � v10.7</a></li><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001115OCAQ.html" target="_blank">How to Prepare the Netwrix Server for a SQL Upgrade</a></li><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html" target="_self">Deploying the Report Server Database</a></li></ul>
+</body>
+</html>

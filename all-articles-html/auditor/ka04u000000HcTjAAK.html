@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to audit target server by IP address</title>
+    <meta name="article-id" content="ka04u000000HcTjAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003493">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:05.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9axCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9axCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:05.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:50.000Z">
+    <meta name="meta-description" content="Unable to audit target server by  IP address  Unable to audit host server by localhost  Activity Records summary report shows incorrect server name">
+    <meta name="meta-title" content="Unable to audit target server by IP address">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1329">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9axCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to audit target server by IP address</h1>
+    <ol><li>Unable to audit a target server by using <strong>IP address</strong>.</li><li>Unable to audit a host server by using <strong>&quot;localhost&quot;</strong>.</li><li><strong>Activity Records</strong> summary report shows incorrect server name.</li></ol>
+
+<hr></hr>
+<ol><li>There is stale data in the <strong>DNS cache</strong> of the host and target machines</li><li>There is incorrect data in the <strong>&quot;hosts&quot;</strong> file of the host and target machines</li></ol>
+
+<hr></hr>To resolve this issue, please perform the following steps:
+<ol><li>On the target and the host machines, remove all records which contain the <strong>IP address</strong> of the host and the target machines from the following file: <strong>&quot;C:\Windows\system32\drivers\etc\hosts&quot; </strong></li><li>Flush the <strong>DNS cache</strong> on the host and the target machines by executing the following command: <strong>ipconfig /flushdns</strong></li><li>Use <strong>FQDN-name</strong> of the target machine instead of <strong>IP address</strong> or<strong> &quot;localhost&quot; </strong>when adding it as an item in Netwrix Auditor.</li></ol>
+</body>
+</html>

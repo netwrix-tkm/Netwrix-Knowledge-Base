@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extend the NTM Web console CommandTimeout</title>
+    <meta name="article-id" content="ka0Qk000000BtqnIAC">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="00570000003KXurAAG">
+    <meta name="articlecreateddate" content="2025-01-23T13:47:36.000Z">
+    <meta name="articlenumber" content="000009377">
+    <meta name="assignedbyid" content="0054u000006gpoAAAQ">
+    <meta name="assignedtoid" content="0054u000006goKoAAI">
+    <meta name="assignmentdate" content="2025-02-10T21:55:22.000Z">
+    <meta name="assignmentduedate" content="2025-02-24T06:00:00.000Z">
+    <meta name="case" content="500Qk00000KJYvKIAX">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="00570000003KXurAAG">
+    <meta name="createddate" content="2025-01-23T13:47:37.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001tLpKAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000001tLpKAI">
+    <meta name="lastmodifiedbyid" content="0054u000006gpoAAAQ">
+    <meta name="lastmodifieddate" content="2025-02-10T21:55:35.000Z">
+    <meta name="ownerid" content="00570000003KXurAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9377">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001tLpKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Extend the NTM Web console CommandTimeout</h1>
+    <h2 style="margin: 2pt 0in 0in;line-height: 106%;break-after: avoid;font-size: 13pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><span style="font-size: 12.0pt;line-height: 106%;font-family: &#39;Times New Roman&#39;, serif;">Symptom:</span></h2>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;">Queries beyond the default one hour time out.</span></p>
+<h2 style="margin: 2pt 0in 0in;line-height: 106%;break-after: avoid;font-size: 13pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><span style="font-size: 12.0pt;line-height: 106%;font-family: &#39;Times New Roman&#39;, serif;">Cause:</span></h2>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;">Timeout Settings to low for the volume of events processed in the environment.</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;">Resolution:</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;">If not on the latest Builds of NTM and Postgres Patch the Server first.</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;"><br>Adjusted a time out &quot;CommandTimeout&quot;: 30,� in the *\STEALTHbits\StealthDEFEND\WebService\<b>appsettings.common.json</b>&quot;<br>to <b>900.</b><br><br>Restart the Related Service. </span><span style="line-height: 106%;">Netwrix Threat Manager Web Service�� (<strong>SBTSDWEB</strong>)</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;">Or within an <strong>Admin </strong>PowerShell window.</span></p>
+<p style="margin: 0in;line-height: normal;background: white;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: darkgreen;">## Restart the Netwrix Threat Manager Web Service </span></p>
+<p style="margin: 0in;line-height: normal;background: white;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: blue;">Restart-Service</span><span style="color: black;"> </span><span style="color: blueviolet;">SBTSDWEB</span><span style="color: black;"> </span><span style="color: navy;">-Force</span></p>
+<p style="margin: 0in;line-height: normal;background: white;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: darkgreen;">## Check all NTM services post Restart</span></p>
+<p style="margin: 0in;line-height: normal;background: white;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="color: blue;">Get-Service</span><span style="color: black;"> </span><span style="color: navy;">-DisplayName</span><span style="color: black;"> </span><span style="color: darkred;">&quot;Netwrix Threat Manager*&quot;</span><span style="color: black;"> </span><span style="color: dimgray;">|</span><span style="color: blue;">ft</span><span style="color: black;"> </span><span style="color: navy;">-AutoSize </span></p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 106%;font-size: 12pt;font-family: &#39;Times New Roman&#39;, serif;"><span style="line-height: 106%;">Or reboot the server.</span></p>
+</body>
+</html>

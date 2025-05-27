@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e. Database Compliance Reporting</title>
+    <meta name="article-id" content="ka0Qk000000CGCHIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:37:16.000Z">
+    <meta name="articlenumber" content="000008122">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-02-14T19:12:44.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:37:16.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JUcCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JUcCAM">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-02-14T19:15:36.000Z">
+    <meta name="lastpublisheddate" content="2025-02-14T19:15:36.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="e. Database Compliance Reporting">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8122">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JUcCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>e. Database Compliance Reporting</h1>
+    <h2 id="e.DatabaseComplianceReporting-DatabaseComplianceReporting">Database Compliance Reporting</h2>
+<p>For background please read the previous section regarding <a href="https://kb.netwrix.com/8117" target="_blank">Agentless Compliance Reporting</a> and the <a class="createlink" href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JRdCAM.html" target="_blank">Proxy Agent and Credentials Key</a> concepts as Database Compliance reports are all run on an Agentless-basis.</p>
+<p>Use ���Add Database Credentials��� to create/add a new Credential Key for Database Compliance Reporting ��� please follow the notes below to construct your Connection String.</p>
+<p><strong><em>Important</em></strong>: Note that the Connection String defines access to the Database Server ��� the specific Database instance/Name/Oracle SID is defined in the step following creation of the Database Credential key.</p>
+<p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJzx&amp;d=%2Fa%2F4u000000LzSb%2FnpB_NH_W8ON2Wikpm9PxAoYE5aquxuzisThTwvHicL0&amp;asPdf=false"></img></span></p>
+<h4 id="e.DatabaseComplianceReporting-Exampleconnectionstrings:">Example connection strings :</h4>
+<div class="table-wrap">
+<table class="wrapped confluenceTable"><colgroup><col></col><col></col></colgroup><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd">
+<p><strong>SQL Server (database credentials):</strong></p>
+</td><td colspan="1" rowspan="1" class="confluenceTd">
+<p><em>Server=192.168.1.123;Trusted_Connection=False;User Id=bob;Password=password;</em>*</p>
+</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">
+<p><strong>SQL Server (trusted):</strong></p>
+</td><td colspan="1" rowspan="1" class="confluenceTd">
+<p><em>Server=192.168.1.123;Trusted_Connection=True;</em>*</p>
+</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">
+<p><strong>Oracle (direct connection):</strong></p>
+</td><td colspan="1" rowspan="1" class="confluenceTd">
+<p><em>Server=192.168.1.123;Port=1521;User Id=bob;Password=password;Direct=True;</em>*</p>
+</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">
+<p><strong>Oracle (TNS connection):</strong></p>
+</td><td colspan="1" rowspan="1" class="confluenceTd">
+<p><em>User Id=bob;Password=password;Data Source=ORCL</em>*</p>
+</td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd">
+<p><strong>IBM DB2 (database credentials)</strong></p>
+</td><td colspan="1" rowspan="1" class="confluenceTd">
+<p><em>Server=192.168.11.133:50000;UID=;PWD=;Database=SAMPLE</em></p>
+</td></tr></tbody></table>
+</div>
+<p>�</p>
+<p>The specific named-Database instance to be reported on is then defined as a Device related to a chosen Proxy Agent in a <a href="https://kb.netwrix.com/8119" target="_blank">similar way to any other Agentless device is configured.</a></p>
+<p>�</p>
+<p>Go to Settings -&gt; Agents &amp; Devices and select the Proxy Agent from which you would like to run your database reporting connection.</p>
+<p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK6F&amp;d=%2Fa%2F4u000000LzjH%2FXqndoRbZvP7K7ymXJC.RRDO4_UOhLtP0uDbauS05SZw&amp;asPdf=false"></img></span></p>
+<p align="center">�</p>
+<p><em><strong>Name</strong> </em>��� Database name or any alias can be specified</p>
+<p><em><strong>Host/Database Name</strong></em> ��� This is the Database Instance/Oracle SID to be reported on</p>
+<p><strong><em>Device Type</em> </strong>��� ���Database��� and assign the Credentials Key created earlier (or select ���New Credentials���)</p>
+<p>You can then test that the Credentials Key works ��� click on the Device Name to go to the Devices home page for the Database, then use the ���Run Ad Hoc Report��� option to run the ���Database Credential Test��� report, or just go straight ahead and run one of the pre-packed CIS SQL Server reports.</p>
+<p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK53&amp;d=%2Fa%2F4u000000LzjM%2FqateiISojcKjxIEwpi2uXxMD1oTtU1KXCL9U.G0fGr8&amp;asPdf=false"></img></span></p>
+<p>�</p>
+<p><br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJtn&amp;d=%2Fa%2F4u000000Lzjb%2FeUyZGyc2Vpe.NvG.yF_1qR3GxzRDjXcUFwS6TcDKKZk&amp;asPdf=false" target="_blank">image2017-6-2_16-7-9.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKEX&amp;d=%2Fa%2F4u000000LzRd%2FSrkqwNlzFk834_bPvDBDZU5kUlYoFNZhZK2JXAgiWCI&amp;asPdf=false" target="_blank">image2017-6-2_16-6-10.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK9t&amp;d=%2Fa%2F4u000000Lzjg%2FxSxJX37z.iNUn3_KQWqtyTJ9NoKgqpwTG09u8BU2uWw&amp;asPdf=false" target="_blank">image2017-6-2_16-4-31.png</a></p>
+</body>
+</html>

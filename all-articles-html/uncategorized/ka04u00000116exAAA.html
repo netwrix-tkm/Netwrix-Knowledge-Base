@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk operators cannot remove accounts</title>
+    <meta name="article-id" content="ka04u00000116exAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:11:00.000Z">
+    <meta name="articlenumber" content="000003314">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:11:02.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:42.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XzCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XzCAK">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:11:16.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:42.000Z">
+    <meta name="meta-description" content="Helpdesk Operators cannot remove accounts from the list - When they attempt to remove an account, they receive an error message - Permissions denied.">
+    <meta name="meta-title" content="HelpDesk operators cannot remove accounts">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1169">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XzCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>HelpDesk operators cannot remove accounts</h1>
+    <span style="background-color: #ffffff;">Helpdesk Operators cannot remove accounts from the list - </span>When they attempt to remove an account, they receive an error message -<span style="background-color: #ffffff;"> Permissions denied</span>
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ex&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005jDw" alt="User-added image" width="500" height="162"></img>
+
+<hr></hr>
+
+It is by design - by default HelpDesk operators are not allowed to remove accounts.
+However this permission can be granted.
+
+<hr></hr>
+
+In order to grant the permission, please perform the following steps:
+<ol><li>Run <strong>Registry Editor</strong> (Start - Run, <em>regedit</em>),</li><li>Go to <strong>HKLMSoftware[Wow6432Node]NetwrixPassword Manager </strong>(Wow6432Node only for x64 OS)</li><li>Create DWORD <strong>AllowRemoveByHelpdesk</strong> with value of 1</li><li>Restart the Netwrix Password Manager service via Services snap-in.</li></ol>
+<img style="width: 560px;height: 306px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ex&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xLJ" alt="User-added image" width="500" height="263"></img>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;Access Denied&quot;  or &quot;Insufficient permissions&quot;</title>
+    <meta name="article-id" content="ka04u00000116eUAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003480">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:06:07.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9akCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9akCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:06:23.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="meta-description" content="Error: &quot;Access Denied&quot;  or &amp;quot;Insufficient permissions&amp;quot;
+
+Password Manager service account does not have enough permissions to perform the requested action">
+    <meta name="meta-title" content="Error: &quot;Access Denied&quot; or &quot;Insufficient permissions&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1316">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9akCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;Access Denied&quot;  or &quot;Insufficient permissions&quot;</h1>
+    When a user tries to reset the password via Self-Service portal they receive  &quot;Access Denied&quot; error or &quot;Insufficient permissions&quot;
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eU&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OEF" alt="User-added image"></img>
+
+<hr></hr>
+
+The error occurs when the Password Manager service account does not have enough permissions to perform the requested action.
+
+<hr></hr>
+
+To resolve the issue:
+
+1. Make sure that the Password manager service account is a domain admin, or at least has <a href="https://kb.netwrix.com/1868" target="_blank">required permissions</a>.
+
+<strong>NOTE</strong>. A non-privileged service account is not able to unlock and reset passwords for protected domain groups (domain admins, enterprise admins, etc) because of AdminSDHolder Access control mechanism.
+<div>AdminSDHolder is a container inside Active Directory that maintains a master list of permissions for objects that are members of privileged groups in Active Directory. Access control prevents access of non-privileged accounts to this container.</div>
+<div>
+<div>Below are some of the protected groups that cannot be handled without domain admin rights:</div>
+<ul><li>Administrators</li><li>Domain Admins</li><li>Enterprise Admins</li><li>Schema Admins</li><li>Domain Controllers</li><li>Server Operators</li></ul>
+</div>
+<div>More information about it here:
+<a href="http://blogs.technet.com/b/askds/archive/2009/05/07/five-common-questions-about-adminsdholder-and-sdprop.aspx" target="_blank">http://blogs.technet.com/b/askds/archive/2009/05/07/five-common-questions-about-adminsdholder-and-sdprop.aspx</a></div>
+<div><a href="http://tsmith.co/2011/what-is-adminsdholder/" target="_blank">http://tsmith.co/2011/what-is-adminsdholder/</a></div>
+2. Make sure the user is allowed to change password:
+
+1. Start <strong>Server Manager a</strong>nd find the user account in <strong>Active Directory Users and Computers</strong>, right-click the user and select <strong>Properties</strong>.
+2. On the <strong>Account</strong> tab in the <strong>Account options </strong>list, make sure that <strong>User cannot change password</strong> is NOT selected.
+
+<img style="width: 282px;height: 355px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eU&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xbM" alt="User-added image" width="286" height="420"></img>
+</body>
+</html>

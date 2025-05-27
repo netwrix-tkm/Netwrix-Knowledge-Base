@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powershell, ExchangePS, or Exchange2k DC return success but no data</title>
+    <meta name="article-id" content="ka0Qk000000DicjIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:20:19.000Z">
+    <meta name="articlenumber" content="000006549">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IQeCAM">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T02:53:18.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:20:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IQeCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IQeCAM">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T02:59:28.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:20:19.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Powershell, ExchangePS, or Exchange2k DC return success but no data">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6549">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IQeCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Powershell, ExchangePS, or Exchange2k DC return success but no data</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> When running a job or query that is utilizing powershell, on occasion you will get a success but no data is returned.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> First thing to try, is to validate in Powershell that the powershell command that is being run returns data outside of Access Analyzer.� For the data collectors, you can find the powershell command in the job log if Access Analyzer is set to debug.<br>If the command returns data in native powershell, ensure that the proper host is set on the job and set a connection profile.<br>Aside from the job log, you can also look in the powershell logs located on the host being run against.<br><br><span style="font-size: medium;"><span style="font-family: calibri;"><strong>Exchange2k\ExchangePS logs(Access Analyzer Console):</strong> %sainstalldir%\PrivateAssemblies\GUID�</span></span><br><span style="font-size: medium;"><span style="font-family: calibri;"><strong>Powershell Logs (Access Analyzer Console):</strong> %sainstalldir%\Jobs\SA_CommonData\PowerShell</span></span><br><span style="font-size: medium;"><span style="font-family: calibri;"><strong>Powershell logs(Remote Host):</strong> C:\Program Files(x86)\STEALTHbits\StealthAUDIT\Applet\Powershell\GUID<br><br>For Exchange PS all PowerShell Queries are located here: \\sbitsinc.com\public\Documentation\StealthAUDIT\z_V7.2_specific\Word\ExchangePS Data Collector Actual Powershell Commands.docx<br>Also see, \\sbitsinc.com\public\Documentation\StealthAUDIT\z_V7.2_specific\Word\STEALTHbits_SMP_DC_ExchangePS_Guide.pdf</span></span><br><br><br>Additional Comments:<br><br>If the PowerShell command is being executed remotely and the customer has 6.1+ installed, check to see if .NET 3.5 is installed on the remote host.� Access Analyzer 6.1 requires .NET 3.5 be installed on the remote host in order to work because of the upgrade for Visual Studio 2010.� Access Analyzer 6.0 or older does not have this requirement.<br><br>If the PowerShell command is being executed remotely and the customer has 7.1+ installed, check to see if .NET 4.5 is installed on the remote host. �Access Analyzer 7.1 requires .NET 4.5 to be installed on the remote host in order to work. �</p>
+<p>If the customer will not install .NET 3.5 on the remote host, try to find a way to run the PowerShell command�against the Access Analyzer Host�or another way to gather the data (i.e. ExchangePS - Mailboxes - use Mailbox DC instead which uses MAPI instead of PowerShell )<br><br>Exchange 2007 by default does not come with .NET 3.5 (required by 6.1 through 7.0)<br>Exchange 2010 by default does not come with .NET 4.5 (Required by 7.1 through ....)</p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - DC - Exchange2k;Access Analyzer - DC - ExchangePS;Access Analyzer - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001088</p>
+</body>
+</html>

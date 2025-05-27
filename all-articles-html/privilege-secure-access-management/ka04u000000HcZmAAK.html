@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cisco SSH session fails with error &quot;ssh: handshake failed: ssh: no common algorithm for key exchange&quot;</title>
+    <meta name="article-id" content="ka04u000000HcZmAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-10-12T12:36:04.000Z">
+    <meta name="articlenumber" content="000005907">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T09:57:37.000Z">
+    <meta name="firstpublisheddate" content="2021-10-12T13:37:35.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HQxCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000HQxCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:38.000Z">
+    <meta name="lastpublisheddate" content="2021-11-05T12:44:21.000Z">
+    <meta name="meta-description" content="Cisco SSH session fails with error &quot;ssh: handshake failed: ssh: no common algorithm for key exchange&quot;">
+    <meta name="meta-title" content="Cisco SSH session fails with error &quot;ssh: handshake failed: ssh: no common algorithm for key exchange&quot;">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5907">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HQxCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cisco SSH session fails with error &quot;ssh: handshake failed: ssh: no common algorithm for key exchange&quot;</h1>
+    <h1>Summary</h1>
+
+<p>When launching a Cisco SSH activity through SbPAM, the session fails with:</p>
+
+<pre class="ckeditor_codeblock">
+ssh: handshake failed: ssh: no common algorithm for key exchange; client offered: [curve25519-sha256@libssh.org ecdh-sha2-nistp256 ecdh-sha2-nistp384 ecdh -sha2-nistp521 diffie-hellman-group14-sha1], server offered: [diffie-hellman-group1-sha1]</pre>
+
+<h1>Issue</h1>
+
+<p>The SSH Key Exchange and Ciphers for the switch are older than expected and do not allow for SbPAM to connect with out-of-the-box settings.</p>
+
+<h1>Instructions</h1>
+
+<p>Modify the SbPAM proxy server&#39;s <b>sbpam_ssh.json</b> file to account for the required Key Exchange and Ciphers.<br><br><b>1.</b> Log-in to Windows on the SbPAM proxy server.<br><br><b>2.</b> Open an administrative PowerShell and perform the following commands: (where C:\ is the drive SbPAM is installed to):<br>�</p>
+
+<pre class="ckeditor_codeblock">
+cd &quot;C:\Program Files\Stealthbits\PAM\ProxyService&quot;
+./sbpam-proxy.exe cfg -c sbpam_ssh</pre>
+
+<p><br><b>3.</b> Open File Explorer and browse to the following:<br>�</p>
+
+<pre class="ckeditor_codeblock">
+C:\ProgramData\Stealthbits\PAM\ProxyService</pre>
+
+<p><br><b>4. </b>Open <b>sbpam_ssh.json</b> in a text editor, and paste the following (noting this will overwrite any previous configurations to this file, if present):<br>�</p>
+
+<pre class="ckeditor_codeblock">
+{
+� � &quot;listenaddress&quot;: &quot;0.0.0.0:4422&quot;,
+� � &quot;ClientSettings&quot;: {
+� � � � &quot;Algorithms&quot;: {
+� � � � &quot;KeyExchanges&quot;: [
+� � � � � � &quot;curve25519-sha256@libssh.org&quot;,
+� � � � � � &quot;ecdh-sha2-nistp256&quot;,
+� � � � � � &quot;ecdh-sha2-nistp384&quot;,
+� � � � � � &quot;ecdh-sha2-nistp521&quot;,
+� � � � � � &quot;diffie-hellman-group14-sha1&quot;,
+� � � � � � &quot;diffie-hellman-group1-sha1&quot;
+� � � � ],
+� � � � &quot;Ciphers&quot;: [
+� � � � � � &quot;aes128-gcm@openssh.com&quot;,
+� � � � � � &quot;chacha20-poly1305@openssh.com&quot;,
+� � � � � � &quot;aes128-ctr&quot;,
+� � � � � � &quot;aes192-ctr&quot;,
+� � � � � � &quot;aes256-ctr&quot;,
+� � � � � � &quot;aes128-cbc&quot;,
+� � � � � � &quot;3des-cbc&quot;,
+� � � � � � &quot;aes192-cbc&quot;,
+� � � � � � &quot;aes256-cbc&quot;
+� � � � ]
+� � � � }
+� � }
+}</pre>
+
+<p><br><b>5.</b> Save <b>sbpam_ssh.json</b> and close it. Provision the SSH session again in SbPAM and verify the issue has been resolved (SSH session can successfully log-in to Cisco device).</p>
+</body>
+</html>

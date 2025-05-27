@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Cannot Create File when That File Already Exists in AIC</title>
+    <meta name="article-id" content="ka0Qk000000CluPIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-08-30T07:24:48.000Z">
+    <meta name="articlenumber" content="000009256">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1208012114007468">
+    <meta name="assignedbyid" content="005Qk000001wMM9IAM">
+    <meta name="assignedtoid" content="005Qk000001wMM9IAM">
+    <meta name="assignmentdate" content="2025-03-11T20:56:25.000Z">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-03-11T20:56:25.000Z">
+    <meta name="draft-status" content="Backlog">
+    <meta name="firstpublisheddate" content="2024-08-30T07:25:08.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001N93KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000001N93KAE">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-13T21:10:13.000Z">
+    <meta name="lastpublisheddate" content="2024-08-30T07:31:11.000Z">
+    <meta name="meta-description" content="Error: Cannot Create File when That File Already Exists in AIC">
+    <meta name="meta-title" content="Error: Cannot Create File when That File Already Exists in AIC">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9256">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001N93KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Cannot Create File when That File Already Exists in AIC</h1>
+    <blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of information below.</p>
+</blockquote>
+
+<h2>Symptom</h2>
+
+<div>
+<p>You receive the following error when creating or issuing a new certificate to use with Netwrix Access Information Center and when trying to bind it to the AIC port:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">SSL Certificate add failed, error: 183 
+Cannot create a file when that file already exists.</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>There is already a certificate in place.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to the following steps to resolve the issue:</p>
+
+<ol><li>
+	<p>Clear out the current certificate from the port using the following PowerShell command:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">netsh http delete sslcert ipport=0.0.0.0:481</code></pre>
+
+	<p>�</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>This command assumes that you are using the port 481 for your Access Information Center. Alter the value if you use a different port in your environment.</p>
+	</blockquote>
+	</li><li>
+	<p>Copy the new certificate thumbprint. Put the value into the following PowerShell script to bind it to the port:</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span> Use the following PowerShell command to list the new certificate:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">dir cert:\localmachine\my</code></pre>
+
+	<p>Add the value to the <code>$certHash</code> variable below.</p>
+	</blockquote>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">$guid = &quot;bdd5710f-7cbe-4f85-b8c1-da4bddf485a8&quot; 
+$certHash = &quot;%new_thumbprint_value%&quot; # the &#39;Thumbprint&#39; value 
+$ip = &quot;0.0.0.0&quot; # this means all IP addresses 
+$port = &quot;481&quot; # the default HTTPS port 
+#build command and pipe to the netsh command 
+&quot;http add sslcert ipport=$($ip):$port certhash=$certHash appid={$guid}&quot; | netsh </code></pre>
+	</li></ol>
+
+<p>The output message should confirm the successful application of the certificate. Your AIC port is now ready for use with HTTPS.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SharePoint Managed Object has &quot;Unable to connect to Netwrix Auditor Service for Sharepoint&quot; error status</title>
+    <meta name="article-id" content="ka04u000000HcSfAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:08.000Z">
+    <meta name="articlenumber" content="000003414">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:40.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZeCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZeCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:40.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:38.000Z">
+    <meta name="meta-description" content="SharePoint error unable service">
+    <meta name="meta-title" content="The SharePoint Managed Object has &quot;Unable to connect to Netwrix Auditor Service for Sharepoint&quot; error status">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1270">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZeCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The SharePoint Managed Object has &quot;Unable to connect to Netwrix Auditor Service for Sharepoint&quot; error status</h1>
+    The SharePoint Managed Object has &quot;Unable to connect to Netwrix Auditor Service for Sharepoint&quot; error status after the computer with Netwrix Auditor installed has been rebooted.
+
+<hr></hr>
+
+After the computer has been rebooted the<strong> .Net TCP Port Sharing</strong> and <strong>Netwrix Auditor Service for SharePoint (your_server_name)</strong> services are stopped.
+
+<hr></hr>
+
+In the<strong> Netwrix Auditor</strong> console, navigate to <strong>Managed Objects --&gt; your_SharePoint_Managed_Object --&gt; SharePoint </strong>and click<strong> Start</strong> in the right pane.
+<div style="margin-left: 40px;"><strong>NOTE: </strong>If this error occurs every time your computer is rebooted, you must increase the service time out period. Refer to <a href="http://technet.microsoft.com/en-us/library/cc756342(v=ws.10).aspx" target="_blank">Microsoft documentation</a> for more information.</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to: view list of Objects Owned by a User in GroupID Portal</title>
+    <meta name="article-id" content="ka0Qk000000DdMvIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1XIAA0">
+    <meta name="articlecreateddate" content="2025-05-06T06:12:20.000Z">
+    <meta name="articlenumber" content="000010175">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002R0vKAE">
+    <meta name="assignedbyid" content="0054u000008F1XIAA0">
+    <meta name="assignedtoid" content="0054u000008F1XIAA0">
+    <meta name="assignmentdate" content="2025-05-06T06:12:20.000Z">
+    <meta name="createdbyid" content="0054u000008F1XIAA0">
+    <meta name="createddate" content="2025-05-06T06:12:20.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002R0vKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008F1XIAA0">
+    <meta name="lastmodifieddate" content="2025-05-06T06:12:20.000Z">
+    <meta name="ownerid" content="0054u000008F1XIAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10175">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to: view list of Objects Owned by a User in GroupID Portal</h1>
+    <h1 style="text-align: justify;margin: 12pt 0in 0in;line-height: 107%;break-after: avoid;font-size: 16pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><b><span style="color: windowtext;">Applies To:</span></b></h1>
+<p style="margin: 12pt 0in;text-align: justify;line-height: normal;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="font-size: 11.5pt;color: black;">GroupID 11 � GroupID Portal</span></p>
+<h1 style="margin: 12pt 0in;text-align: justify;line-height: 107%;break-after: avoid;font-size: 16pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><b><span style="color: windowtext;">Problem Statement:</span></b></h1>
+<p style="margin: 0in 0in 12pt;text-align: justify;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">We have users who are owners of numerous groups in our domain. We want the other users/administrators to be able to view the list of all the groups that a specific user is an owner of. Is there a way to view/show all the groups owned by a user in the groupID portal?</p>
+<h1 style="margin: 12pt 0in;text-align: justify;line-height: 107%;break-after: avoid;font-size: 16pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><b><span style="color: windowtext;">Methodology:</span></b></h1>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Note:</b> <u>Before making any changes to the current environment, it is highly recommended to always create a backup/snapshot/checkpoint of the groupID server.</u></p>
+<h1 style="margin: 12pt 0in;text-align: justify;line-height: 107%;break-after: avoid;font-size: 16pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><span style="font-size: 11.0pt;line-height: 107%;font-family: Calibri, sans-serif;color: windowtext;">GroupID enables us to customize the GroupID portal based on our requirements. We can add a wide range of functionalities to the portal using the GroupID Admin Center.</span></h1>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">In this article, we will be making changes to the design of the portal to add a new field to the properties of the Users that will enable us to view the list of groups owned by users. We will be using the <b>managedObjects </b>attribute to map the newly created field. By default, this attribute is only replicated for Groups in groupID. To use <b>managedObjects </b>for the Users, we need to include them in the replication. The steps guide you through the whole process.</p>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">The default properties page of Users looks as shown below:</p>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPAQH" height="422" width="602"></img></p>
+<h1 style="margin: 12pt 0in;text-align: justify;line-height: 107%;break-after: avoid;font-size: 16pt;font-family: &#39;Calibri Light&#39;, sans-serif;color: #2f5496;font-weight: normal;"><b><span style="color: windowtext;">Steps:</span></b></h1>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">In the <b>GroupID Admin Center</b>, go to the <b>Applications</b> tab in the left navigation bar.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Click on the <b>Ellipses</b> button for the portal you wish to make changes to, and then click on <b>Settings</b>.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPARt" height="241" width="624"></img></p>
+<ol start="3" style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Once the portal settings open, click on the Identity Store name under <b>Design Settings</b> for which you want to make the design changes.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPAID" height="240" width="624"></img></p>
+<ol start="4" style="margin-bottom: 0in;margin-top: 0px;"><li style="text-align: justify;margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Click on the <b>Properties</b> button and then select <b>User</b> from the <b>Select Directory Object</b> dropdown list.</li><li style="text-align: justify;margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Click on the <b>Plus</b> to create a new Category on the User Properties.</li></ol>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPAOf" height="229" width="601"></img></p>
+<ol start="6" style="margin-bottom: 0in;margin-top: 0px;"><li style="text-align: justify;margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Provide a <b>Name</b> to the new Category and click on the <b>+Add Field</b> button.</li></ol>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPAJp" height="372" width="285"></img></p>
+<ol start="7" style="margin-bottom: 0in;margin-top: 0px;"><li style="text-align: justify;margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Select <b>managedObjects</b> from the <b>Field</b> dropdown list, provide a Display Name to the new field, and then select <b>Display Type </b>as <b>MultiValue</b>.</li></ol>
+<p style="text-align: justify;margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a screenAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPALR" height="645" width="304"></img></p>
+<ol start="8" style="margin-bottom: 0in;margin-top: 0px;"><li style="text-align: justify;margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Click OK and then click Save to save the changes.</li><li style="text-align: justify;margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Refresh/relaunch the GroupID Portal and verify by going into the properties of any User. There will be a new tab for <b>Owned Objects </b>available there as shown by the picture below where all the groups owned by the user are listed in the <b>Owned Objects </b>tab within <b>User Properties</b>.</li></ol>
+<p style="text-align: justify;margin: 0in 0in 8pt 0.5in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><img alt="A screenshot of a computerAI-generated content may be incorrect." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DdMv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CPAN3" height="192" width="602"></img></p>
+</body>
+</html>

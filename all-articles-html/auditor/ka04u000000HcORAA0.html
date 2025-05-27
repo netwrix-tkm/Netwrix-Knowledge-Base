@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to apply the license to Virtual Appliance</title>
+    <meta name="article-id" content="ka04u000000HcORAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:15.000Z">
+    <meta name="articlenumber" content="000003138">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:49.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9V4CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9V4CAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:49.000Z">
+    <meta name="lastpublisheddate" content="2022-05-13T11:56:18.000Z">
+    <meta name="meta-description" content="Upgrade your Virtual Appliance to full Windows version">
+    <meta name="meta-title" content="How to apply the license to Virtual Appliance">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="715">
+    <meta name="versionnumber" content="7">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9V4CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to apply the license to Virtual Appliance</h1>
+    <h2>Scenario</h2>
+I have downloaded the Netwrix Virtual Appliance but when I am trying to apply a Windows product key, I get the following message: &quot;<b>That key can&#39;t be used to activate this edition of Windows. Please try a different key.</b>&quot; or &quot;<b>This edition cannot be upgraded</b>&quot;
+
+<h2>Solution</h2>
+The Netwrix Virtual Appliance is distributed with a 180-day evaluation version of Windows Server. You have to use your own product key purchased from Microsoft for activation. The Key must be of <b>Retail </b>version, Volume Licensed keys follow a different procedure. Prior to applying the key, evaluation version must be converted to a Standard or Datacenter version. In order to do that, please perform the following steps:
+
+<ol><li>Launch command prompt <b>as administrator</b></li><li>Execute the following command: <strong>DISM /online /Get-CurrentEdition.</strong> Confirm that the Current Edition includes the word &#39;Eval&#39;</li><li>Execute the command <strong>DISM /online /Get-TargetEditions </strong>to get the list of possible upgrade options</li><li>Execute <strong>DISM /online /Set-Edition:&lt;edition ID&gt; /ProductKey:[enter your product key here] /AcceptEula</strong>, providing the edition ID from the previous step and a retail product key.</li></ol>
+<br>The server will restart twice.<br><strong>NOTE</strong>, the process might take some time. Do not terminate it - wait until it completes. Afterward, you can apply the product key as usual.
+
+<h3>Volume-Licensed Activation</h3>
+If you have <b>Volume Licensed </b>key, you can convert your Evaluation version to Retail version, after conversion, you can apply any product key.<br>To convert you need to select an appropriate Generic Volume License Key (GVLK) from <a href="https://docs.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys" target="_blank">Microsoft Webiste</a> that matches your version of Windows Server.<br><br>Conversion Example for Windows Server 2019 Standard:<br>�
+<table class="Table" height="147" style="" width="1048"><tbody><tr><td colspan="1" rowspan="1" style="width: 149px;height: 43px;background-color: white;">
+			<h2>Command</h2>
+			</td><td colspan="1" rowspan="1" style="width: 123px;height: 43px;background-color: white;">
+			<h2>Description</h2>
+			</td></tr><tr><td colspan="1" rowspan="1" style="width: 149px;height: 43px;background-color: white;"><b>dism /online /set-edition:ServerStandard /productkey:N69G4-B89J2-4G8F4-WWYCC-J464C /accepteula</b></td><td colspan="1" rowspan="1" style="width: 123px;height: 43px;background-color: white;">Applies GVLK and converts to an appropriate ver. of OS.<br>			The Execution of Command might take up to 30 minutes</td></tr><tr><td colspan="1" rowspan="1" style="width: 149px;height: 43px;background-color: white;"><b>slmgr.vbs /upk </b></td><td colspan="1" rowspan="1" style="width: 123px;height: 43px;background-color: white;">Removes GVLK from OS</td></tr><tr><td colspan="1" rowspan="1" style="width: 149px;height: 20px;background-color: white;"><b>slmgr.vbs /cpky</b></td><td colspan="1" rowspan="1" style="width: 123px;height: 20px;background-color: white;">Removes GVLK from OS</td></tr><tr><td colspan="1" rowspan="1" style="width: 149px;height: 20px;background-color: white;"><b>slmgr.vbs /ipk XXXXX-XXXXX-XXXX-XXXXX-XXXXX</b></td><td colspan="1" rowspan="1" style="width: 123px;height: 20px;background-color: white;">Applies VL key</td></tr><tr><td colspan="1" rowspan="1" style="width: 149px;height: 20px;background-color: white;"><b>slmgr.vbs /ato</b></td><td colspan="1" rowspan="1" style="width: 123px;height: 20px;background-color: white;">forced activation</td></tr></tbody></table>
+XXXXX-XXXXX-XXXX-XXXXX-XXXXX - is a VL key.<br><br>�
+</body>
+</html>

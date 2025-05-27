@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Alternate Database Location for StealthRECOVER</title>
+    <meta name="article-id" content="ka04u000000HcwfAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:33:25.000Z">
+    <meta name="articlenumber" content="000007195">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:11:49.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:33:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IpoCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IpoCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:11:49.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:33:25.000Z">
+    <meta name="meta-description" content="360008408331">
+    <meta name="meta-title" content="Choose Alternate Database Location for StealthRECOVER">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7195">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IpoCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Choose Alternate Database Location for StealthRECOVER</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Use a simple command line script to modify the StealthRECOVER database location.</p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> The basic StealthRECOVER 1.2 installation process does not include functionality to modify the default database location.� Following the directions below, you can utilize the .exe to change the database location using a simple command line script.</p>
+<p><br><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The default save location for the SR database files is:<br>C:\<strong>ProgramData</strong>\STEALTHbits\StealthRECOVER\db *** Note it&#39;s ProgramData, not Program Files. ***<br>�<br>In order to change this location, complete the following:</p>
+<ol><li style="margin-left: -12.75pt;">Copy the StealthRECOVER.exe to the server desktop.</li><li style="margin-left: -12.75pt;">Run the following command script as Administrator.
+<ol style="list-style-type: lower-alpha;"><li style="margin-left: -12.75pt;">StealthRECOVER.exe /I DatabaseFolder=<strong><em>[PATH]</em></strong>
+</li><li style="margin-left: -12.75pt;">Ensure <strong><em>[PATH]</em></strong> (without brackets) reflects the folder destination of the desired database location.</li></ol>
+</li></ol>
+<p>�<br>I found this to be useful as one of my clients wanted to move all SR files off of the C: drive and onto a dedicated SR drive.� This information is now in the SR documentation.<br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthRECOVER<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> StealthRECOVER - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 1.1+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2087</p>
+</body>
+</html>

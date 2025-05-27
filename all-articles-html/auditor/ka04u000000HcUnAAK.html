@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot access roles page</title>
+    <meta name="article-id" content="ka04u000000HcUnAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003560">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:34.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9c2CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9c2CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:34.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="meta-description" content="All pages except the roles work on Administrative portals.">
+    <meta name="meta-title" content="Cannot access roles page">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1392">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9c2CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot access roles page</h1>
+    All pages on Administrative portals work except the Roles.
+
+<a href="http://localhost/PM/admin/roles.asp" target="_blank">http://localhost/PM/admin/roles.asp</a>
+
+An error occurred on the server when processing the URL. Please contact the system administrator.
+If you are the system administrator please click here to find out more about this error.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUn&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yfo" alt="User-added image" width="500" height="130"></img>
+
+<hr></hr>
+
+This happens because of invalid IIS settings.
+
+<hr></hr>
+
+Please go to IIS manager
+
+Locate the web-site that is hosting the PM virtual directory
+
+Navigate to admin virtual directory
+
+Open ASP settings under IIS section.
+
+<img style="width: 541px;height: 288px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUn&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004ygD" alt="User-added image" width="500" height="268"></img>
+
+Make sure that Enable Buffering is set to True.
+</body>
+</html>

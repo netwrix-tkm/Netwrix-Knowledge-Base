@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Configuration.xml with configserverDbProcessor.exe Down</title>
+    <meta name="article-id" content="ka0Qk00000017XJIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-10-26T13:27:54.000Z">
+    <meta name="articlenumber" content="000008878">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-12-22T06:50:50.000Z">
+    <meta name="firstpublisheddate" content="2023-10-26T13:28:45.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnjaCAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnjaCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-22T06:51:15.000Z">
+    <meta name="lastpublisheddate" content="2023-10-26T13:28:45.000Z">
+    <meta name="meta-description" content="Migrate Auditor Server with LTA and Native Configuration.xml">
+    <meta name="meta-title" content="Migrate Auditor Server with LTA and Native Configuration.xml">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8878">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnjaCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Export Configuration.xml with configserverDbProcessor.exe Down</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>A client wants to migrate their Netwrix Auditor instance. The prior Netwrix Auditor host is down.</p>
+
+<ul><li>
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>NA backups are available.</p>
+	</li><li>
+	<p>No restore/repair option is possible due to the faulty OS update.</p>
+	</li><li>
+	<p>The customer wants to set up a new Netwrix Auditor server.</p>
+	</li><li>
+	<p><code>configserverDbProcessor.exe</code> is throwing the <code>0x80040605</code> error:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Error: 0x80040605 Failed to process a request because the target server is unreachable
+0x800706D9 There are no more endpoints available from the endpoint mapper</code></pre>
+	</li></ul>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<ol><li>
+	<p>Locate the latest backed up config file in <code>%Working_Folder%\AuditCore\ConfigServer\StorageBackups\%date_type%</code> in the old NA server.</p>
+	</li><li>
+	<p>Delete all <code>HEX</code> values present in the configuration file.</p>
+	</li><li>
+	<p>In the new NA server, stop the NA Configuration Server Service.</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Auditor Configuration Server Service&quot;</code></pre>
+	</li><li>
+	<p>Delete the contents of <code>%Working_Folder%\AuditCore\ConfigServer\</code> except for the <code>StorageBackups</code> folder.</p>
+	</li><li>
+	<p>Place the edited configuration file to the <code>%Working_Folder%\AuditCore\ConfigServer\</code> folder.</p>
+	</li><li>
+	<p>In the new NA server, start the NA Configuration Server Service.</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Auditor Configuration Server Service&quot;</code></pre>
+	</li><li>
+	<p>For further information on LTA migration, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SSCA0.html" target="_self">How to Move Long-Term Archive to a New Location</a>.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Once the configuration file and LTA are migrated, fix missing passwords in monitoring plans via <strong>Settings</strong> &gt; <strong>General</strong> &gt; <strong>Accounts and Passwords</strong>.</p>
+</blockquote>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SSCA0.html" target="_self">How to Move Long-Term Archive to a New Location</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

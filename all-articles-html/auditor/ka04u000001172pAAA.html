@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring plan for SharePoint Online - Take Action. Applicaiton Tenant ID and Client Secret has not Changed or Expired</title>
+    <meta name="article-id" content="ka04u000001172pAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-07-26T10:52:58.000Z">
+    <meta name="articlenumber" content="000008691">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-08-04T10:47:02.000Z">
+    <meta name="firstpublisheddate" content="2023-07-26T10:53:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110wWCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110wWCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-08-04T10:47:26.000Z">
+    <meta name="lastpublisheddate" content="2023-07-28T13:23:25.000Z">
+    <meta name="meta-description" content="Resolution for the 3205 and 3227 Event IDs.">
+    <meta name="meta-title" content="Monitoring plan for SharePoint Online - Take Action. Applicaiton Tenant ID and Client Secret has not changed or expired.">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8691">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110wWCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Monitoring plan for SharePoint Online - Take Action. Applicaiton Tenant ID and Client Secret has not Changed or Expired</h1>
+    <h1>Symptoms</h1>
+
+<div>
+<ol><li>
+	<p>Symptom 1. The Netwrix Auditor System Health log contains the following events:</p>
+
+	<pre class="has-inner-focus">
+Event ID:3205</pre>
+
+	<pre class="has-inner-focus">
+Event ID:3227</pre>
+	</li><li>
+	<p>Symptom 2. A SharePoint Online monitoring plan has the <b>Take action</b> status with the following details: <em>Application Tenant ID and Client Secret has not changed or expired.</em></p>
+	</li></ol>
+</div>
+
+<div>
+<h1>Cause</h1>
+
+<div>
+<p>The secret key for SharePoint Online application is outdated.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Re-create a secret key for your SharePoint online application and upload it to Netwrix Auditor. For that:</p>
+
+<ol><li>
+	<p>On the computer that host Netwrix Auditor Server, navigate to your SharePoint Online working folder (the default location is %ProgramData%\Netwrix Auditor\ShortTerm\Netwrix Auditor for SharePoint Online). Copy the <b>Configuration</b> folder to a new location.</p>
+
+	<p>For additional information on how to migrate your working folder, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PcOLCA0.html" target="_blank">How to Migrate Netwrix Auditor Working Folder to a New Location</a>.</p>
+	</li><li>
+	<p>Remove the SharePoint Online data source from your monitoring plan.</p>
+	</li><li>
+	<p>Configure application secret for that application in Microsoft Office 365 Admin center.</p>
+	</li><li>
+	<p>Add SharePoint Online Data Source and item with the tenant account back to the Monitoring Plan.</p>
+	</li><li>
+	<p>In Netwrix Auditor, select your SharePoint Online monitoring plan and click <b>Update</b> in the right upper corner.</p>
+	</li></ol>
+</div>
+</div>
+</body>
+</html>

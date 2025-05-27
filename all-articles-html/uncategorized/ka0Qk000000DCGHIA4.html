@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walkthrough: Configure Notification</title>
+    <meta name="article-id" content="ka0Qk000000DCGHIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1X8AAK">
+    <meta name="articlecreateddate" content="2025-04-11T00:20:33.000Z">
+    <meta name="articlenumber" content="000010136">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002JmXKAU">
+    <meta name="article-reviewer" content="0054u000008F1X8AAK">
+    <meta name="assignedbyid" content="0054u000008F1X8AAK">
+    <meta name="assignedtoid" content="0054u000008F1X8AAK">
+    <meta name="assignmentdate" content="2025-04-11T00:20:33.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008F1X8AAK">
+    <meta name="createddate" content="2025-04-11T00:20:33.000Z">
+    <meta name="draft-status" content="Backlog">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002JmXKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008F1X8AAK">
+    <meta name="lastmodifieddate" content="2025-04-11T00:20:33.000Z">
+    <meta name="meta-description" content="This article will give you a walkthrough on how to configure notifications for an identity store.">
+    <meta name="meta-title" content="Walkthrough: Configure Notification">
+    <meta name="ownerid" content="0054u000008F1X8AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10136">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Walkthrough: Configure Notification</h1>
+    <p>Email notifications are used by GroupID to notify users, group owners and managers when changes are made to directory objects, such as when a group�s membership is updated or when a user�s profile is modified.</p>
+<p>For notifications to be generated and sent to the right audience, certain configurations must be in place. In this article, we provide a walkthrough on how to configure notifications for an identity store.</p>
+<p><b>To configure notifications:</b></p>
+<ol start="1"><li>In GroupID Management Console, click the�<b>Identity</b>�<b>Stores</b>�node.</li><li>On the Identity Stores tab, double-click the required identity store to open its properties.</li><li>Select the�<b>Configurations</b>�tab and then click�<b>Notification</b>�in the left pane.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DCGH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BuMPJ" height="522" width="486"></img></p>
+<p><b>SMTP server:</b></p>
+<p>Provide the address of the SMTP server that will be responsible for routing the�notifications for the identity store. You can provide the IP address or FQDN of the server, as shown in the image above.</p>
+<p><b>From email address:</b></p>
+<p>This is the address from which the notifications will be sourced or the address that will appear as the source of the notifications in the recipient&#39;s inbox, as shown below. Some organizations prefer an address like�<a href="mailto:no-reply@domain.com" target="_blank">no-reply@domain.com</a>; however, in this example, we have configured it as�<a href="mailto:notifications@demo.com" target="_blank">notification@demo.com</a>.</p>
+<p><img alt="A close up of a logoDescription automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DCGH&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BuMNh" height="68" width="269" border="0"></img></p>
+<p><b>Port:</b></p>
+<p>The port number for communicating with the SMTP server.</p>
+<p><b>Test:</b></p>
+<p>After providing an email address and port number, click�<b>Test</b>�to test the server settings. It will ask for a destination address to send the notification to. If everything goes well, you will get a success message and a test notification will be sent to the destination address.</p>
+<p><b>Use SMTP User Authentication:</b></p>
+<p>By default, the credentials of the logged-in user are used to connect to the SMTP server. However, if this user account does not have rights on the server or if you want to use a different account for connecting, select the�<b>Use SMTP User Authentication</b>�check box.</p>
+<p>Upon selection, the�<b>Username</b>�and�<b>Password</b>�boxes become available, where you can provide credentials of an authorized user account on the SMTP server.</p>
+<p><b>SSL Enabled:</b></p>
+<p>Select this check box if the SMTP server is SSL (Secured Socket Layer) enabled.</p>
+<p><b>Recipients - To and CC:</b></p>
+<p>Notifications that are generated by GroupID for any event will be sent to recipients whose email addresses you provide in the�<b>To</b>�and�<b>CC</b>�boxes.</p>
+<ol start="3"><ul><li><b>Notify logged-in users about changes being made to objects</b><br>Select this check box to send email notifications to the logged-in user for changes they make to directory objects using GroupID.<br>This setting applies only to mail-enabled users.</li><li><b>Notify owner/manager</b><br>Select this check box to send email notifications to the primary owner and additional owners (for groups), and manager (for user/contact) about changes made to the respective directory objects.</li><li><b>Notify object being modified</b><br>Select this check box to send email notifications to objects (group, user, contact) when they are modified.<br>For a group, group members are notified.<br>For contact and user, the particular contact or user is notified about the changes.</li><li><b>Notify public group owner of membership change</b><br>Select this check box to send email notifications to the primary and additional owners of a public group on membership change.<br>A public group is open to all users; anyone can join it or leave it without requiring any permissions. Selecting this check box notifies group owners by email whenever someone joins or leaves the group.</li><li><b>Notify newly added group members on addition</b><br>Select this check box to send email notifications to objects when they are added to the membership of a group.</li><li><b>Notify removed group member on removal</b><br>Select this check box to send email notifications to objects when they are removed from the membership of a group.</li></ul></ol>
+<p><b>Password Portal URL:</b></p>
+<p>Select the URL of a Password Center portal. This URL will be included in password expiry warning emails to redirect users to the Password Center portal.</p>
+<p><b>Membership Lifecycle Notification Options:</b></p>
+<p>Membership life cycle notifications are sent to users when the Membership Life Cycle job adds or removes them temporarily from a semi-private or public group�s membership.</p>
+<p>In the <b>Membership Lifecycle Notification Options</b> area, select your desired options.</p>
+<ol start="3"><ul><li><b>User joins the group</b><br>Sends email notifications to users when they temporarily join a group.</li><li><b>User leaves the group</b><br>Sends email notifications to users when they temporarily leave a group.</li><li><b>X days before user leaves the group</b><br>Select this check box and specify a certain number of days, say 2. The user receives a notification 2 days before he or she is removed from group membership.</li></ul></ol>
+<p><b>Managed By Notification Options</b></p>
+<p>You can set up email notifications for objects when the Managed By life cycle job adds or removes them as temporary additional owners for groups and temporary additional managers for users.<br><br>When a group is set or removed as a temporary additional owner, all its members are notified.<br><br>In the <b>Managed By Notification Options </b>area, select your desired options.</p>
+<ol start="3"><ul><li><b>Make options same as membership lifecycle</b><br>Applies the membership lifecycle notification settings to the managed by life cycle and disables the settings in the Managed By Notification Options area.<br>For example, if User joins the group is selected for Membership life cycle, it would have the behavior as discussed for Object is added as an additional owner/manager.</li><li><b>Object is added as additional owner/manager</b><br>Sends an email notification to an object when the Managed By life cycle job adds it as the temporary additional owner of a group or the temporary additional manager of a user. The primary owner or primary manager is also notified respectively.</li><li><b>Object is removed as additional owner/manager</b><br>Sends an email notification to an object when the Managed By life cycle job removes it as the temporary additional owner of a group or the temporary additional manager of a user. The primary owner or primary manager is also notified respectively.</li><li><b>X Days before object is removed as additional owner/manager</b><br>Select this check box and specify a certain number of days, say 2. The temporary additional manager/owner receives a notification 2 days before he or she is removed as additional manager/owner.</li></ul><li>Click <b>Apply</b> and then <b>OK</b>.</li></ol>
+<p><b>Reference:</b></p>
+<p>GroupID Online Help topic: Notifications</p>
+<p>�</p>
+</body>
+</html>

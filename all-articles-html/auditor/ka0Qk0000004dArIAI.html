@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Cannot Create a Connection to Data Source DS</title>
+    <meta name="article-id" content="ka0Qk0000004dArIAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:59.000Z">
+    <meta name="articlenumber" content="000003293">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-07-15T15:44:25.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XeCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XeCAK">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2024-07-15T15:51:37.000Z">
+    <meta name="lastpublisheddate" content="2024-07-15T15:51:37.000Z">
+    <meta name="meta-description" content="SQL Server Database Engine: Connection / Accessing Errors Caused by Insufficient Permissions">
+    <meta name="meta-title" content="SQL Server Database Engine: Connection / Accessing Errors Caused by Insufficient Permissions">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1140">
+    <meta name="versionnumber" content="7">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XeCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Cannot Create a Connection to Data Source DS</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When you attempt to generate reports in Netwrix Auditor, the following error appears:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">An error has occurred during report processing. (rsProcessingAborted)
+Cannot create a connection to data source &#39;DS&#39;. (rsErroropeningConnection)
+For more information about this error navigate to the report server on the local server machine, or enable remote errors</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The affected user tries to access SQL Server Reporting Services reports from a remote machine. The affected user lacks permissions to access the SQL Server Database Engine and the target database.</p>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<p>Refer to the following possible resolutions:</p>
+
+<ul><li>
+	<p>Review the required account permissions and roles to access SSRS reports: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm#sql_server" target="_self">Requirements for SQL Server to Store Audit Data � SQL Server � v10.6</a> and <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServerReportingService.htm" target="_self">SQL Server Reporting Services � v10.6</a>.</p>
+	</li><li>
+	<p>Specify the credentials to access the Reporting Services database.</p>
+	</li></ul>
+
+<p>Perform the following steps to specify the credentials to access the Reporting Services database:</p>
+
+<ol><li>
+	<p>Proceed to the Report Manager URL on the SQL Server with SSRS.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Locate the Report Manager URL in Auditor via <strong>Settings</strong> &gt; <strong>Audit Database</strong>.</p>
+	</blockquote>
+	</li><li>
+	<p>In the top right corner, click <strong>View</strong> / <strong>List</strong> and check the <strong>Show hidden items</strong> checkbox.</p>
+	</li><li>
+	<p>Navigate to the <strong>Netwrix Auditor</strong> folder &gt; <strong>Netwrix Auditor for %datasource%</strong> &gt; <strong>Change Reports</strong>.</p>
+	</li><li>
+	<p>Right-click <strong>DS_Common</strong> and select <strong>Manage</strong>.</p>
+	</li><li>
+	<p>In the <strong>Properties</strong> tab, review the <strong>Credentials</strong> section.</p>
+
+	<ul><li>
+		<p>To use a SQL login, select <strong>Database user name and password</strong> in the <strong>Type of credentials</strong> dropdown list.</p>
+		</li><li>
+		<p>To use a Windows login, select <strong>Windows user name and password</strong> in the <strong>Type of credentials</strong> dropdown list.</p>
+		</li></ul>
+	</li><li>
+	<p>Click <strong>Test connection</strong> to verify the credentials.</p>
+	</li><li>
+	<p>Click <strong>Apply</strong>, close the browser, and generate the report in Auditor.</p>
+	</li></ol>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm#sql_server" target="_self">Requirements for SQL Server to Store Audit Data � SQL Server � v10.6</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServerReportingService.htm" target="_self">SQL Server Reporting Services � v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

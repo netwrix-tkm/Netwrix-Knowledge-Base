@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find what is using TempDB</title>
+    <meta name="article-id" content="ka0Qk000000DQj3IAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:03:48.000Z">
+    <meta name="articlenumber" content="000006227">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000I81CAE">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-04-25T18:57:19.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:03:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I81CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000I81CAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-25T19:03:15.000Z">
+    <meta name="lastpublisheddate" content="2025-04-25T19:03:15.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Find what is using TempDB">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6227">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I81CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Find what is using TempDB</h1>
+    <p><strong>Summary:</strong>� Sometimes, jobs can cause TempDB issues (i.e. overfilling the Disk, not re-claiming space) This guide is to help find the Access Analyzer �job creating the issue.</p>
+<p><strong>�</strong><strong>Issue:</strong>� Some jobs leverage TempDB, and in large environments, can cause problems.</p>
+<p><strong>Instructions:</strong>� in SQL Server Management Studio or a Access Analyzer Analysis run the following SQL Query.</p>
+<p>Select * from SA_Messages</p>
+<p>Where MESSAGE like &#39;%TempDB%&#39; <br><br>This will return any messages stored in the SA_Messages Table and help narrow down the job that is in causing this.</p>
+<p>A case should be raised should you find a job with issues.</p>
+<p>�</p>
+<p>�</p>
+<p><strong>Submitted by: </strong>Matt Johnson</p>
+<p><strong>Channel:� </strong>Internal</p>
+<p><strong>�</strong><strong>Product:</strong> Access Analyzer</p>
+<p><strong>�</strong><strong>Affected Versions:</strong>� All</p>
+<p><strong>�</strong><strong>Affected Module:</strong> SQL Analsisys</p>
+<p><strong>�</strong><strong>Dev Ticket:</strong> N/A</p>
+<p><strong>�</strong><strong>Resolved In Version:</strong>� N/A</p>
+<p><strong>�</strong><strong>KB Type:</strong> How-To</p>
+</body>
+</html>

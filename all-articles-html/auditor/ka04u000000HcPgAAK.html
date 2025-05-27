@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What cmdlets are used for AAL changes collection?</title>
+    <meta name="article-id" content="ka04u000000HcPgAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:55.000Z">
+    <meta name="articlenumber" content="000003222">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:16.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:26.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WVCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9WVCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:17.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:26.000Z">
+    <meta name="meta-description" content="cmdlets aal Get-AdminAuditLogConfig     Search-AdminAuditLog">
+    <meta name="meta-title" content="What cmdlets are used for AAL changes collection?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="792">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WVCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>What cmdlets are used for AAL changes collection?</h1>
+    I need to specify the service account permission to read AAL(Administrator audit logging), what cmdlets are being used to collect AAL data? Also you may see the following error in the daily summary report:<br><em>Connection with the Exchange server was interrupted: The term &#39;Search-AdminAuditLog&#39; is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included verify that the path is correct and try again</em>.
+<hr></hr> In order to collect AAL events the product uses the following cmdlets:
+<ul><li><a href="http://technet.microsoft.com/en-us/library/dd298077%28v=exchg.150%29.aspx" target="_blank">Get-AdminAuditLogConfig</a></li><li><a href="http://technet.microsoft.com/en-us/library/ff459250%28v=exchg.150%29.aspx" target="_blank">Search-AdminAuditLog</a></li></ul>
+In order to run these cmdlets the service account should have appropriate permissions (&quot;Audit Logs&quot; role assignment). In order to check the Audit logs role assignment use the following cmdlet:
+
+<ul><li>Get-ManagementRoleAssignment -Role &quot;Audit Logs&quot;</li></ul>
+In order to provide Audit logs role assignment to the service account please run the following cmdlet:
+
+<ul><li><a href="http://technet.microsoft.com/en-us/library/jj150497(v=exchg.150).aspx#auditinginecp" target="_blank">New-ManagementRoleAssignment -Role &quot;Audit Logs&quot; -User &lt;Identity&gt;</a></li></ul>
+In order to remove the assigned Role please run:
+
+<ul><li><a href="https://docs.microsoft.com/en-us/exchange/remove-a-role-from-a-user-or-usg-exchange-2013-help" target="_blank"><span class="hljs-pscommand">Get-ManagementRoleAssignment</span><span class="hljs-parameter"> -RoleAssignee</span> USERNAME@Domain.onmicrosoft.com<span class="hljs-parameter"> -Role</span> <span class="hljs-string">&quot;Audit Logs&quot;</span><span class="hljs-parameter"> -Delegating</span> <span class="hljs-literal">$false</span> | <span class="hljs-pscommand">Remove-ManagementRoleAssignment</span></a></li></ul>
+</body>
+</html>

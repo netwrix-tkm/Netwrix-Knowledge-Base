@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic user enrollment failed: Not found (404)</title>
+    <meta name="article-id" content="ka04u00000116c8AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:53.000Z">
+    <meta name="articlenumber" content="000003540">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T12:14:19.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9biCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9biCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T12:14:37.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when Netwrix Password Manager returns the following error message:
+Automatic user enrollment failed: Not found (404)">
+    <meta name="meta-title" content="Automatic user enrollment failed: Not found (404)">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1377">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9biCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Automatic user enrollment failed: Not found (404)</h1>
+    The following error occurs after installation of Password Manager.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116c8&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000052RW" alt="User-added image"></img>
+
+<hr></hr>
+
+The error occurs because the client cannot connect to the Password Manager portals by the specified URL.
+The 404 error code means that there are no portals at the specified URL.
+
+<hr></hr>
+
+Reconfigure the client to connect to the server via the correct URL (should point to Password Manager Self-service portal)
+
+The URL is determined by the PRM_server registry value located in the following registry keys (by priority)
+<ol><li>HKLMSoftware[Wow6432Node]PoliciesNetWrixPassword Manager</li><li>HKLMSoftware[Wow6432Node]NetWrixPassword Manager Self-Service client (is used if there is no value in the 1st key)</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116c8&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000052KG" alt="User-added image" width="500" height="304"></img>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Is Being Used by Another Process Error in Netwrix Change Tracker</title>
+    <meta name="article-id" content="ka04u000001181EAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-09-29T16:51:20.000Z">
+    <meta name="articlenumber" content="000008833">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-10-02T09:26:25.000Z">
+    <meta name="firstpublisheddate" content="2023-09-29T16:51:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111HUCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111HUCAY">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-10-02T09:26:39.000Z">
+    <meta name="lastpublisheddate" content="2023-09-29T16:51:41.000Z">
+    <meta name="meta-description" content="File Is Being Used by Another Process in Netwrix Change Tracker">
+    <meta name="meta-title" content="File Is Being Used by Another Process Error in Netwrix Change Tracker">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8833">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111HUCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>File Is Being Used by Another Process Error in Netwrix Change Tracker</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error is prompted when attempting to run a report in Netwrix Change Tracker:</p>
+
+<pre class="has-inner-focus">
+The process cannot access the file &#39;%path_to_file%&#39; because it is being used by another process.</pre>
+
+<p>The <code>%path_to_file%</code> path may differ depending on the affected report. (E.g., <code>C:\Windows\TEMP\1-11530090-NNT CIS Microsoft Windows Server 2012 R2 Benchmark - Level 2 Member Server.json</code>.)</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The antivirus (AV) or endpoint detection and response (EDR) solution installed in your environment is conflicting with Netwrix Change Tracker.</p>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Make sure the top-level folder of the affected path are excluded from the monitoring scope of your AV or EDR solution to prevent further conflicts. This would apply to real-time scans and backups. For the example path provided, it is recommended to exclude <code>C:\Windows\TEMP</code>.</p>
+	</li><li>
+	<p>Exclude Netwrix Change Tracker folders, services, and processes from the monitoring scope of your AV and EDR. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111HFCAY.html" target="_self">Antivirus Exclusions for Netwrix Change Tracker</a>.</p>
+	</li></ul>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111HFCAY.html" target="_self">Antivirus Exclusions for Netwrix Change Tracker</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Is Denied Error in Event Log Manager Health Log</title>
+    <meta name="article-id" content="ka04u00000117VeAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-08-31T11:49:23.000Z">
+    <meta name="articlenumber" content="000008778">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-08-31T12:31:16.000Z">
+    <meta name="firstpublisheddate" content="2023-08-31T12:07:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001118mCAA">
+    <meta name="knowledge-article-id" content="kA04u000001118mCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-08-31T12:31:44.000Z">
+    <meta name="lastpublisheddate" content="2023-08-31T12:07:38.000Z">
+    <meta name="meta-description" content="Access Is Denied in Inactive User Tracker, Password Expiration Notifier, or Event Log Manager Health Log">
+    <meta name="meta-title" content="Access Is Denied Error in Event Log Manager Health Log">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8778">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001118mCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Is Denied Error in Event Log Manager Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error is prompted in Netwrix Auditor Health Log for your Event Log Manager monitoring plan:</p>
+
+<pre class="has-inner-focus">
+Event ID:2002
+Computer: %computer_name%
+User:N/A
+Description:Monitoring plan: %Event_Log_Manager_monitoring_plan_name% 
+The following error has occurred while processing &#39;%computer_name%&#39;:   
+Unable to open the Event Log Compression Service.
+Error details: Access is denied.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The data collection account used does not have sufficient permissions to collect data.</p>
+	</li><li>
+	<p>The data collection account password is incorrect.</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ul><li>
+	<p>Configure the permissions for the data collection account used in the Event Log Manager. For additional information, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/Permissions.htm#permissions_for_event_log_auditing" target="_self">Windows Server � Permissions for Windows Server Auditing</a>.</p>
+	</li><li>
+	<p>Configure the password for your data collection account in Event Log Manager. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110m2CAA.html" target="_self">Failed Logon Attempts after Recent Service Account Password Change</a>.</p>
+	</li></ul>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/Permissions.htm#permissions_for_event_log_auditing" target="_self">Windows Server � Permissions for Windows Server Auditing � 10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110m2CAA.html" target="_self">Failed Logon Attempts after Recent Service Account Password Change</a></p>
+</div>
+</body>
+</html>

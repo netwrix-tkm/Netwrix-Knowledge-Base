@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Policy settings not applied on domain controller locally</title>
+    <meta name="article-id" content="ka04u00000117fXAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:14.000Z">
+    <meta name="articlenumber" content="000003124">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-09-07T12:52:13.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:33:04.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9UqCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9UqCAK">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T12:52:27.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T12:52:27.000Z">
+    <meta name="meta-description" content="Audit policy settings have not been applied on a local domain controller (DC), though all audit settings were successfully configured by the effective DC policy.">
+    <meta name="meta-title" content="Audit Policy settings not applied on domain controller locally">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="697">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9UqCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Audit Policy settings not applied on domain controller locally</h1>
+    The Audit policy settings have not been applied on a local domain controller (DC), though all audit settings were successfully configured by the effective DC policy.
+<hr></hr>The issue appears if an organizational unit (OU) from your domain has some enforced policies in Group Policy Management Console. This may prevent the audit settings from being implemented.<br>To resolve the issue, do the following:
+<ol><li>Change all Domain Controllers policies status for the OU to be not Enforced.</li><li>In the Command Prompt, type in gpupdate/force command, press Enter and close the dialog after update.</li><li>Open Local Security Policy: go to Start -&gt;Run, type in secpol.msc and click OK.</li><li>In the left pane, navigate to Local Policies -&gt;Audit Policy.</li><li>Make sure the Audit account management and Audit directory service access policies are set to Success</li></ol>
+This error can also occur when an audit.csv file is not allowing the local security policy to be set properly. This can be fixed by removing the audit.csv file in the following two locations:<br>C:\Windows\system32\grouppolicy\machine\microsoft\windows nt\audit\audit.csv<br>SYSVOL\domain\Policies\{GUID}\Machine\microsoft\windows nt\Audit<br>�
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Drop Data Collected from SQL Servers Using the Databases Module</title>
+    <meta name="article-id" content="ka0Qk000000DG6zIAG">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2024-12-05T17:57:20.000Z">
+    <meta name="articlenumber" content="000009345">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/:u:/r/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/hilary_writing_syncs/KB-New-Final%20Drafts/KB%20-%20NEW%20-%20How%20to%20Drop%20Data%20Collected%20from%20SQL%20Servers%20Using%20t">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1208961348083182">
+    <meta name="case" content="500Qk00000IzsSYIAZ">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-04-16T01:33:59.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-11T21:28:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001lGDKAY">
+    <meta name="knowledge-article-id" content="kA0Qk0000001lGDKAY">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-04-16T01:35:54.000Z">
+    <meta name="lastpublisheddate" content="2025-04-11T21:28:06.000Z">
+    <meta name="meta-description" content="SQL Solution Set has stale data">
+    <meta name="meta-title" content="SQL Solution Set has stale data">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9345">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001lGDKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Drop Data Collected from SQL Servers Using the Databases Module</h1>
+    <h2>Overview</h2>
+<p>This article explains how to drop data collected from SQL Servers using the Databases Module. Follow the instructions below to drop data for all SQL Servers or for specific hosts/instances.</p>
+<h2>Instructions</h2>
+<h4>Drop All Data for SQL Servers</h4>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>You can create a separate folder (e.g., Sandbox) for custom jobs.</p>
+</blockquote>
+<ol><li>Right-click the <strong>custom</strong> or <strong>Jobs</strong> folder and select <strong>Create Job Ctrl+Alt+A</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BvYY7" alt="" width="293" height="583"></img>�<br><br></li><li>Navigate to the <strong>Configure</strong> node of the NewJob and select the <strong>Queries</strong> node.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BvhTJ" alt="" width="293" height="583"></img> �<br><br></li><li>Click the <strong>Create Query</strong> button.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BvhZl" alt="" width="691" height="503"></img> �<br><br></li><li>In the General tab, designate a clear <strong>Name</strong> and <strong>Description</strong> (e.g., DropSQLHostData).</li><li>In the Data Source tab, select <strong>SQL</strong> from the <strong>Data Collector</strong> dropdown menu.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bvheb" alt="" width="446" height="401"></img>�<br><br></li><li>Click <strong>Configure</strong> to launch the SQL Data Collector Configuration Wizard.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BvhgD" alt="" width="446" height="401"></img>�<br><br></li><li>On the Wizard Category page, select the <strong>Utilities &gt; Remove Storage Tables</strong> option under the appropriate database type and click <strong>Next </strong>to drop all collected SQL data for SQL Servers.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BvdWA" alt="Category page with Utilities &gt; Remove Storage Tables option highlighted" width="652" height="583"></img><br><br></li><li>To complete the query, ensure you have selected the desired Available Properties, click <strong>Next</strong>, and then�<strong>Finish</strong>. Last, click <strong>OK</strong>.</li><li>To run the job, you can either select <strong>Run now</strong> from the job windowpane or right-click the job and select <strong>Run Job</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bvjzl" alt="" width="652" height="466"></img>�</li></ol>
+<h4>Drop Data for Specific Hosts/Instances for SQL Servers or Drop Specific Data for SQL Hosts/Instances</h4>
+<ol><li>Follow steps 1�6 detailed above.</li><li>On the SQL Data Collector Configuration Wizard Category page, select the�<strong>Utilities &gt; Remove Storage Data</strong> option and click <strong>Next</strong>.<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bvk6D" alt="Category page with Utilities &gt; Remove Storage Data option highlighted" width="623" height="527"></img><br><br></li><li>On the Filters page, select the databases/instances via the <strong>Filter Options</strong> drop-down menu:
+<ul><li>All database objects</li><li>Only select database objects
+<ul><li>When using this option, select the database objects you want to delete in the <strong>Available database objects</strong> pane, then click <strong>Add</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DG6z&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Bvbfg" alt="Available database objects pane with Add highlighted" width="623" height="558"></img><br><br></li></ul>
+</li></ul>
+</li><li>On the Settings page, select the type of data you would like to remove for your specified hosts:
+<ul><li>Permissions</li><li>Audits</li><li>Sensitive Data</li><li>Orphaned Rows</li></ul>
+</li><li>On the Results page, enable all of the available properties.</li><li>Run the job.</li></ol>
+</body>
+</html>

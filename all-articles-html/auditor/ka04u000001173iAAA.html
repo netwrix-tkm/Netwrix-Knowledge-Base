@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate-related and unauthorized errors occur when trying to review Netwrix Auditor reports</title>
+    <meta name="article-id" content="ka04u000001173iAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-07-25T14:05:11.000Z">
+    <meta name="articlenumber" content="000008688">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-08-07T10:43:59.000Z">
+    <meta name="firstpublisheddate" content="2023-07-26T09:29:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110wCCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110wCCAQ">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-08-07T10:44:14.000Z">
+    <meta name="lastpublisheddate" content="2023-08-07T10:44:14.000Z">
+    <meta name="meta-description" content="This article contains symptoms, cause, and resolution for the certificate-related error and unauthorized error that occur while trying to review reports.">
+    <meta name="meta-title" content="Resolution of the Certificate-related and unauthorized errors occur when trying to review reports.">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8688">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110wCCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Certificate-related and unauthorized errors occur when trying to review Netwrix Auditor reports</h1>
+    <h1>Symptoms</h1>
+
+<div>
+<ol><li>
+	<p>Symptom 1. You tried to run an Auditor report and got the following error:</p>
+
+	<pre class="has-inner-focus">
+An error occurred while enrolling for a certificate, the certificate request could not be submitted to the certificate authority. RPC server is unavailable.</pre>
+	</li><li>
+	<p>Symptom 2. Unauthorized error while accessing a report.<br>	<img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000001173i&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008Liq9"></img></p>
+	</li></ol>
+</div>
+
+<div>
+<h1>Causes</h1>
+
+<div>
+<p>Here are the possible causes for the issue:</p>
+
+<ul><li>
+	<p>For symptom 1. Microsoft lists multiple causes of this error, please use the link to the Microsoft troubleshooting article below for the full list of possible causes and resolution steps.</p>
+	</li><li>
+	<p>For symptom 2. Unauthorized error occurs if the account used to run Netwrix Auditor does not belong to a trusted domain.</p>
+	</li></ul>
+</div>
+
+<h1>Resolutions</h1>
+
+<div>
+<p>Here are possible options to resolve the issue:</p>
+
+<ol><li>
+	<p>For the symptom 1, learn more about the error causes and possible resolution steps in <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/error-0x800706ba-certificate-enrollment" target="_blank">Error 0x800706ba &quot;The RPC Server is unavailable&quot; when you enroll a certificate ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p>For the symptom 2, do the following:</p>
+	</li></ol>
+
+<ul><li>
+	<p>Check how many domains you have.</p>
+	</li><li>
+	<p>Check that the account used for data collection is on the same domain as the Netwrix Auditor Server or another domain.</p>
+	</li><li>
+	<p>Check if those domains are trusted. If not, add the Netwrix Site to the trusted list.</p>
+	</li></ul>
+<img alt="User-added image" height="201" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000001173i&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LirC" width="500"></img></div>
+</div>
+</body>
+</html>

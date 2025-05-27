@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Event ID 5356 ? CSV File Missing in Event Log Export Add-on</title>
+    <meta name="article-id" content="ka04u000000wwBXAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-11-21T10:20:43.000Z">
+    <meta name="articlenumber" content="000008910">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-11-21T11:49:49.000Z">
+    <meta name="firstpublisheddate" content="2023-11-21T10:20:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnpsCAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnpsCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-11-21T11:50:04.000Z">
+    <meta name="lastpublisheddate" content="2023-11-21T10:20:57.000Z">
+    <meta name="meta-description" content="Empty Event ID 5356 ? CSV File Missing in Event Log Export Add-on">
+    <meta name="meta-title" content="Empty Event ID 5356 ? CSV File Missing in Event Log Export Add-on">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8910">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnpsCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Empty Event ID 5356 ? CSV File Missing in Event Log Export Add-on</h1>
+    <h2>Questions</h2>
+
+<div>
+<ol><li>
+	<p>Empty Events 5356 are logged in Event Log when using Event Log Export Add-on for Netwrix Auditor ? is this intended?</p>
+	</li><li>
+	<p>Upon a Test Run completion, a message is prompted with the <code>%ProgramData%\Netwrix Auditor\AuditCore\AuditArchive\AlertsToolLauncher\Csv\*.csv</code> path ? no <code>.csv</code> file is available when browsing the path. Where could I find the <code>.csv</code> file?</p>
+	</li></ol>
+</div>
+
+<h2>Answers</h2>
+
+<div>
+<ol><li>
+	<p>Upon the Test Run completion, an empty Event 5536 is created logging the <strong>When</strong> timestamp of the run ? this behavior is intended.</p>
+	</li><li>
+	<p>The path specified in the message is used as a short-term data storage to allow Netwrix Auditor to process data and send an alert. Once completed, the <code>.csv</code> file is deleted. The contents of the <code>.csv</code> file are logged in Event Log.</p>
+	</li></ol>
+</div>
+</body>
+</html>

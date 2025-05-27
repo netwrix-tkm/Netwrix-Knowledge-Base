@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invalid Multi-Factor Authentication Code Error</title>
+    <meta name="article-id" content="ka04u000000wvuCAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-10-25T15:14:20.000Z">
+    <meta name="articlenumber" content="000008874">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-10-26T06:36:43.000Z">
+    <meta name="firstpublisheddate" content="2023-10-25T15:14:35.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnj6CAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnj6CAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-10-26T06:44:27.000Z">
+    <meta name="lastpublisheddate" content="2023-10-25T15:14:35.000Z">
+    <meta name="meta-description" content="Multi-Factor Authentication Login Fails">
+    <meta name="meta-title" content="Multi-Factor Authentication Login Fails">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8874">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnj6CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Invalid Multi-Factor Authentication Code Error</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>When a user attempts to log in the Netwrix Privilege Secure console using the multi-factor authentication code, the page refreshes. The user is prompted to provide credentials again.</p>
+	</li><li>
+	<p>A multi-factor authentication (MFA) code is deemed invalid. Login fails with the following error prompted:</p>
+
+	<pre class="has-inner-focus">
+Invalid MFA code</pre>
+	</li></ul>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<p>The Netwrix Privilege Secure server and client have a system time discrepancy.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Review the system time in both NPS server and clients in your environment.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>You can set the system time to sync with the OS time server automatically ? in your server settings, select <strong>Time &amp; Language</strong> &gt; <strong>Date &amp; Time</strong> &gt; switch the <strong>Set time automatically</strong> switch on.</p>
+</blockquote>
+</div>
+
+<h2>Reference</h2>
+
+<div><img alt="Capture.png" height="428" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvuC&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008pS5A" width="300"></img></div>
+</body>
+</html>

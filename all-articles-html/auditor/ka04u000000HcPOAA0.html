@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset collection history for Generic Events (Event Log Management)</title>
+    <meta name="article-id" content="ka04u000000HcPOAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:54.000Z">
+    <meta name="articlenumber" content="000003203">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:11.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WCCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9WCCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:11.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:22.000Z">
+    <meta name="meta-description" content="reset collection, reset event logs collected">
+    <meta name="meta-title" content="Reset collection history for Generic Events (Event Log Management)">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="787">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WCCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Reset collection history for Generic Events (Event Log Management)</h1>
+    How to reset the Generic Event (Event Log Management) collections in order to collect data that had been collected in the past.
+
+<hr></hr>
+
+In cases where Netwrix Auditor - Generic Events (Event Log Management) is not being used to archive event data but rather collect it &quot;on demand&quot; you must remove prior collection history for the server you are trying to collect from so that event logs are collected that were already collected in the past.<br><br>In order to do this please perform the following:<br><br>1) Navigate to the <strong>audit archive</strong> location (location specified under <strong>Settings -&gt; Audit Archive</strong>) and drill down into the <strong>Logs</strong> folder.  In this folder find the <strong>name of the Managed Object</strong> and inside that there is a folder for <strong>each of the computers</strong> the product is collecting from.  <strong>Delete</strong> the folder for the computer in question.
+</body>
+</html>

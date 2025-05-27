@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SAM_4.0_005</title>
+    <meta name="article-id" content="ka04u000000Hd1GAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:47:04.000Z">
+    <meta name="articlenumber" content="000007479">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:13:48.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:47:04.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J2nCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000J2nCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:13:49.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:47:04.000Z">
+    <meta name="meta-description" content="360012124691">
+    <meta name="meta-title" content="Hotfix: SAM_4.0_005">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7479">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J2nCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SAM_4.0_005</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Agent fails when Syslog enabled</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:</span></strong><br><i><span style="color: #404040;">Agent fails when Syslog enabled</span></i><br><strong><span style="font-family: calibri,sans-serif;">Behavior Before Fix:</span></strong><br><i><span style="color: #404040;">When syslog buffer file was locked, this would cause service to crash.</span></i><br><strong><span style="font-family: calibri,sans-serif;">Behavior After Fix:</span></strong><br><i><span style="color: #404040;">When syslog buffer file is locked, we now handle this gracefully and service doesn&#39;t crash anymore.</span></i><br><b>Changes Since Last Hotfix:</b> 
+</p><ul><li>
+<span style="color: #3b3838;">SFAM-2824: Unable to collect logs</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2851: Multi Agent Uninstall Issue</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2633: Clean Up INI File for 4.1</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2908: Installing AD Agent Status Issue</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2912: Monitored Domains Agent UI Issue</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2992: AD Upgrade Issue: 4.0 GA to 4.1</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2505: Collect Logs - Include SI Logs (If SI Agent is installed)</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-3063: If Failed AD Agent is removed it&#39;s domain isn&#39;t removed from Monitored Domains</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-3081: Syslog - If server is disconnected output to tsv is very delayed - All Devices / DNS Issue</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-3029: SAM | Improve Support for Cluster Failover Event in CDOT</span>
+</li><li><span style="color: #3b3838;">SFAM-3080: High Memory Usage SFAM Services</span></li></ul>�<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Kevin Duddy<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>STEALTHbits Activity Monitor 4.0<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>Activity Monitor<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SFAM-3106<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>SBActivityMonitorSetup.msi 4.0.0.277<br>�<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><strong><span style="font-family: calibri,sans-serif;">Modules Included:</span></strong><br>SBActivityMonitorSetup.msi <i><span style="color: #404040;">4.0.0.277</span></i><br>SBActivityMonitorSetup_unsigned.msi <i><span style="color: #404040;">4.0.0.277</span></i><br>SBTService.exe 1.5.0.466<br>SI Version 6.0.0.365<br>�<br><b>YouTrack/Escalations</b> 
+<ul><li><i><span style="color: #404040;">SFAM-3106 / 34199</span></i></li></ul>�<br><b>Customers</b> 
+<ul><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">The Orders of St John Care Trust</span></span></strong></li></ul>�<br><b>Cumulative List of fixes included since Service Pack:</b> 
+<ul><li>
+<span style="color: #404040;">SFAM-2654: Update DEFEND Syslog template in SAM 3.1 / SAM 4.0</span>
+</li><li>
+<span style="color: #404040;">SFAM-2631: TLS cert issue with NetApp</span>
+</li><li>
+<span style="color: #404040;">SFAM-2570: SAM Netapp Service does not start. Always stopping and starting (#2)</span>
+</li><li><span style="color: #404040;">SFAM-1934: SFAM disconnects from SVM with 2 VM</span></li></ul><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<i><span style="color: #404040;">Run msi file on host that has the SBActivityMonitor installed. (No need to uninstall previous version, msi will upgrade the monitor).</span></i>
+</li><li><i><span style="color: #404040;">Upgrade all agents.</span></i></li></ol>
+<table cellspacing="0" cellpadding="0" width="78" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="78"><a href="https://downloads.stealthbits.com/access/files/SAMHotfixes/4.0/SAM_4.0_005.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAMHotfixes/4.0/SAM_4.0_005.zip</a></td></tr></tbody></table><br>�<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra;File Activity Monitor - NetApp;File Activity Monitor - Windows<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 4.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SFAM-3106<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 4.0.0.277<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2361<br></p>
+</body>
+</html>

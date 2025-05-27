@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure the FAST Cloud Integration with Proxy Internet Settings</title>
+    <meta name="article-id" content="ka0Qk000000D34vIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:59:53.000Z">
+    <meta name="articlenumber" content="000008295">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JfVCAU">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209703875244222">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-03-31T15:07:59.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2022-02-07T00:59:54.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JfVCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JfVCAU">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-03-31T15:08:26.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to Configure The FAST Cloud Integration With Proxy Internet Settings">
+    <meta name="ownerid" content="0054u000006gqAuAAI">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8295">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfVCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure the FAST Cloud Integration with Proxy Internet Settings</h1>
+    <h2>Overview</h2>
+<div>
+<p>If you have set up a proxy internet connection on your Change Tracker Server and you find that FAST Cloud is not working as expected, follow the instructions below to configure proxy settings for the IIS processes.</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<ol><li>
+<p>Open <strong>Windows Control Panel</strong>.</p>
+</li><li>
+<p>Choose <strong>System</strong>.</p>
+</li><li>
+<p>Choose <strong>Advanced system settings</strong>.</p>
+</li><li>
+<p>On the Advanced tab, click <strong>Environment Variables</strong>.</p>
+</li><li>
+<p>Click <strong>New</strong> to create a new environment variable under the <strong>System Variables</strong> heading.</p>
+</li><li>
+<p>Enter Variable Name: <strong>ALL_PROXY</strong>.</p>
+</li><li>
+<p>Enter Variable Value: <code>http://IPADDRESS:PORT</code>.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE:</strong> This should be the IP and port of the proxy server.</span></p>
+</blockquote>
+</li><li>
+<p>Select <strong>OK</strong>.</p>
+</li><li>
+<p>After creating the environment variable, click <strong>OK</strong> to apply the changes.</p>
+</li><li>
+<p>Once the environment variable is configured, restart the Change Tracker server. The FAST Cloud should now function as expected.</p>
+</li></ol>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfHCAU.html" target="_blank">Rolling-Log Fix: &quot;Hub Offline, connection retries exhausted (The remote server returned an error: (403) Forbidden.)&quot;</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JX7CAM.html" target="_blank">The NNT FAST� Cloud Usage Considerations</a></p>
+</li></ul>
+</div>
+</body>
+</html>

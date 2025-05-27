@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuring the Netwrix Privilege Secure RDS Web App Launcher</title>
+    <meta name="article-id" content="ka0Qk0000001EP7IAM">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2023-12-15T14:52:52.000Z">
+    <meta name="articlenumber" content="000008966">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2024-01-04T15:13:47.000Z">
+    <meta name="firstpublisheddate" content="2023-12-15T15:52:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000Kl7KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000Kl7KAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gpnvAAA">
+    <meta name="lastmodifieddate" content="2024-01-04T15:14:10.000Z">
+    <meta name="lastpublisheddate" content="2023-12-15T15:52:29.000Z">
+    <meta name="meta-description" content="Configuring the Netwrix Privilege Secure RDS Web App Launcher">
+    <meta name="meta-title" content="Configuring the Netwrix Privilege Secure RDS Web App Launcher">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8966">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Kl7KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configuring the Netwrix Privilege Secure RDS Web App Launcher</h1>
+    <h1>Introduction</h1>
+The Web App Launcher for Netwrix Privilege Secure is an application used to launch websites as RemoteApps using Microsoft Remote Desktop Services (RDS).<br><br>See <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HZBCA2.html" target="_blank">this article</a> for information about publishing RemoteApps.
+
+<h1>Deployment</h1>
+The Web App Launcher can be downloaded from <a href="https://dl.netwrix.com/additional/WebAppLauncher.zip" target="_blank">this link</a> .<br><br>On the RDS server, extract the files to a directory of your choosing. For the examples in this article, &quot;C:\webapp-launcher\&quot; will be used.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tL01" style="width: 643.991px;height: 233.991px;"></img>
+<h1>Configuration</h1>
+
+<h3>Runtime Settings</h3>
+There are configurable runtime settings that can be applied to the Web App Launcher.
+
+<ul><li>Full Screen - runs the website in full screen mode</li><li>App Mode - runs the browser with no tabs or menu controls</li><li>Disable Extensions - prevent the browser from running extensions</li><li>Start Maximized - runs the browser maximized</li><li>Command Line Arguments - allows certificate and SSL errors to be ignored when using the Web Launcher</li></ul>
+In order to configure these settings, open &quot;appsettings.json&quot; in your Web App Launcher directory. The ChromeOptions section contains the above settings. Change the values as required, and save the file.<br><br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tH7k"></img><br>Note that these settings affect all websites launched from this Web App Launcher. If it is necessary to have multiple sets of settings, simply create another Web App Launcher directory with a different appsettings.json configuration, and use the appropriate one in NPS.
+<h3>API Settings</h3>
+In order to use the Web App Launcher, an <a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.1/page/Content/PrivilegeSecure/AccessManagement/Admin/Policy/Add/Application.htm" target="_blank">Application User</a>�must be created in NPS. Once this is done, supply the username and API Key into the AppUser and AppSecret fields, respectively. The certificate should be placed in the Web App Launcher directory, with the directory indicated in the AppCert field as indicated:<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tPOb"></img>
+<h3>Web App Launcher Directories</h3>
+
+<p>Ensure that the indicated paths correspond to the chosen Web App Launcher directory.<br><br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tlXC"></img></p>
+
+<h1>Launch Options and Examples</h1>
+
+<h3>1. Launching websites and playing in username and password via command line</h3>
+In this mode, username and password are passed as parameters on the command line. It is important to remember that in a production setting, any command line parameters can be viewed by other users of the RDS host with access to Task Manager. We recommend that this launch option should be used for testing or non-production use.<br><br>Usage:
+<pre class="ckeditor_codeblock">
+launch-website.exe [url] [username] [password]</pre>
+Example:
+
+<pre class="ckeditor_codeblock">
+launch-website.exe https://website.com jsmith Password123</pre>
+<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tMXD"></img><br><br>Note that the login account in this example connects to the RDS session running the web app launcher as a remote app. The web app launcher will launch the website under the context of the user and password supplied as command line arguments.
+<h3>2. Launching websites by passing in an NPS token and session ID (NPS 4.1 and above)</h3>
+In this mode, token and session ID are passed to the launcher. The launcher will use this information to dynamically pull the username and password from the NPS Proxy and pass it to the website.<br><br>Usage:
+<pre class="ckeditor_codeblock">
+launch-website.exe [url] [token] [sessionid]</pre>
+Example:
+
+<pre class="ckeditor_codeblock">
+launch-website.exe https://website.com %token% %sessionid%</pre>
+<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tOSX"></img><br><br>Note that the login account in this example both connects to the RDS session running the web app launcher as a remote app, and is used as the credential to be passed to the website.
+<h3>3. �Launching websites by specifying a username, with the password pulled via the NPS API</h3>
+In this mode, a username is passed on the command line to the launcher. The launcher will call the NPS API to get the password stored in the NPS vault and pass it to the website.�<br><br>The username value can be in the following formats:<br>� � Domain\username � if the website account is a managed account in the domain<br>� � Resource\username � if the website account is a managed account on a Resource<br>� � Website Name\username � if the website account is stored in the Users tab of a website Resource<br><br>Usage:
+<pre class="ckeditor_codeblock">
+launch-website.exe [url] [username]</pre>
+Example:
+
+<pre class="ckeditor_codeblock">
+launch-website.exe https://website.com lab\jsmith</pre>
+<img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001EP7&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001tLo2"></img><br><br>Note that the login account in this example connects to the RDS session running the web app launcher as a remote app. The web app launcher will launch the website under the context of the username provided on the command line. The web app launcher will call the API to get the managed password of the user, and will enter it into the password field of the website.
+</body>
+</html>

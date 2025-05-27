@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The following error occurred during the SQL database content audit configuration: Could not obtain information about Windows NT group/user &#x27;......&#x27;, error code 0x5.</title>
+    <meta name="article-id" content="ka04u000000HcSuAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:08.000Z">
+    <meta name="articlenumber" content="000003429">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:44.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZtCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZtCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:44.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:41.000Z">
+    <meta name="meta-description" content="... error occurred during the SQL database content audit configuration: Could not obtain information about Windows NT group/user &amp;#039;......&amp;#039;, error code 0x5">
+    <meta name="meta-title" content="The following error occurred during the SQL database content audit configuration: Could not obtain information about Windows NT group/user &#x27;......&#x27;, error code 0x5.">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1279">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZtCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The following error occurred during the SQL database content audit configuration: Could not obtain information about Windows NT group/user &#x27;......&#x27;, error code 0x5.</h1>
+    You are getting the following error message in the summary reports and the product: &quot;The following error occurred during the SQL database content audit configuration: Could not obtain information about Windows NT group/user &#39;......&#39;, error code 0x5.&quot;
+<hr></hr> There is a permission issue with the Netwrix Data Processing Account.
+<hr></hr> In order to resolve the issue please perform the following steps:<br>1. Run <strong>SQL Server Management Studio</strong>;<br>2. Connect to the target SQL server with &#39;<strong>sa</strong>&#39; or owner of the server account;<br>3. Under <strong>Security -&gt; Logins</strong> find the the Netwrix Data processing account and open it&#39;s properties;<br>4. Open the <strong>Server Roles</strong> tab and select <strong>sysadmin</strong> role;<br>5. Restart the <strong>SQL service</strong>, <strong>SQL Agent Service</strong> and <strong>Reporting</strong> and <strong>Analysis services</strong> if installed.
+</body>
+</html>

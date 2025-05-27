@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- Why are my users experiencing browser issues on endpoints where the Endpoint Protector Client is installed?</title>
+    <meta name="article-id" content="ka0Qk000000CrnBIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:20.000Z">
+    <meta name="articlenumber" content="000009930">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BAsKAM">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000002lX5pIAE">
+    <meta name="assignmentdate" content="2025-03-19T17:38:21.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:20.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002BAsKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002BAsKAM">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-04-10T19:57:10.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9930">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BAsKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- Why are my users experiencing browser issues on endpoints where the Endpoint Protector Client is installed?</h1>
+    <p>This issue applies to endpoints with Endpoint Protector Clients, when using some of the latest versions of browsers such as Edge, Chrome or Mozilla Firefox.</p>
+<p>Endpoint Protector offers sensitive content capabilities, by inspecting file transfers through various exist points such as browsers or other applications. In the middle of 2019, most browsers have introduced various security restrictions to restrict 3rd party interaction. As such, this can result in browsers displaying messages like Aw Snap! Something went wrong while displaying this webpage.&quot;</p>
+<p>Note: The above scenario may occur also due to other security products like AV or other DLP solutions.</p>
+<p>There are several options available to mitigate the above scenario:</p>
+<ol><li>Install an Endpoint Protector Client. This will be included within the Endpoint Protector Server 5.2.0.7. In the meantime, you can request it by contacting</li><p>Support</p><p>.</p><ol><li>Change the browser settings to allow trusted 3rd party applications.</li><p>For Mozilla Firefox, simply change the &quot;security.fileuri.strict_origin_policy&quot; from &quot;true&quot; to &quot;false&quot;. The steps to do so are similar to the ones described in this</p><p>FAQ</p><p>.</p><p>For Chrome, simply run the with Code Integrity disabled</p><p>Chrome.exe ���disable-features=RendererCodeIntegrity</p><p>or set the regkey to 0 (recommended for environments using AD)</p><p>Key: HKLM\Software\Policies\Google\Chrome</p><p>Name: RendererCodeIntegrityEnabled</p><p>Type: DWORD (32-bit)</p><p>Value: 0</p></ol></ol>
+</body>
+</html>

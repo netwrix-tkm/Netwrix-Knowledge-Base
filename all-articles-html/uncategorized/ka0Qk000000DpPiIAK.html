@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.2_SP1_069</title>
+    <meta name="article-id" content="ka0Qk000000DpPiIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:53:35.000Z">
+    <meta name="articlenumber" content="000007956">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000J6mCAE">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-11T17:31:42.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:53:36.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J6mCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000J6mCAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-11T17:35:20.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:53:36.000Z">
+    <meta name="meta-description" content="360012217812">
+    <meta name="meta-title" content="Hotfix: SA_7.2_SP1_069">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7956">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J6mCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.2_SP1_069</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> AD Computer Clean Up Duplicates</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Issue:</span></strong><br>the deprovisionComputers job is picking up stale computers that have already been moved to the staleComputers staging OU. since they have the action to actually delete these computers disabled, and they&#39;re just &quot;quarantining&quot; them, the move action is repeatedly moving them from and to the same OU.<br>�<br>1) this is creating duplicate entries in the _ToBeDeleted table. we should automatically filter out objects that have already been moved from the details (to be moved) table<br>have a look at the attached screen shot for details<br>�<br><strike>2) I don&#39;t think using the results of the move action is the correct way to deteremine what should be removed from the stale computers OU when it&#39;s time to run the delete action.</strike><br>�<br><strike>a couple examples of why this could be problematic are </strike><br><strike>a) if a customer already has a disabled computers OU they would like to use and never used our software to move them there </strike><br><strike>b) an upgrade or database failure has wiped the results of the move operation, etc.</strike><br>�<br><strike>I think we should use a query scoped to that specific OU instead. that way we&#39;re not relying on the move history.</strike><br>�<br>3) the column name [Previous OU] doesn&#39;t make sense in the DeprovisionComputers_ToBeDeleted table. I&#39;m pretty sure it should be [New OU].<br>�<br>4) using effective membership to remove group membership is incorrect, it should be direct membership. trying to remove user a from group a when they&#39;re only a member of group b, which is a member of group a will throw is incorrect and will throw errors.<br>�<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1.����������� Close all instances of Access Analyzer.<br>2.����������� GROUP_Active Directory/GROUP_Cleanup/GROUP_3.Computers/JOB_AD_DeprovisionComputers/DataAnalysisTasks.XML<br>3.����������� GROUP_Active Directory/GROUP_Cleanup/GROUP_2.Users/JOB_AD_DeprovisionUsers/DataAnalysisTasks.XML<br><br>� 
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="20"><td colspan="1" rowspan="1" height="20" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/7.2/SA_7.2_SP1_069.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/7.2/SA_7.2_SP1_069.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - Solution Set - Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.2 SP1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-1438<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> GROUP_Active Directory/GROUP_Cleanup/GROUP_3.Computers/JOB_AD_DeprovisionComputers/DataAnalysisTasks.XML
+GROUP_Active Directory/GROUP_Cleanup/GROUP_2.Users/JOB_AD_DeprovisionUsers/DataAnalysisTasks.XML<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1761<br></p>
+</body>
+</html>

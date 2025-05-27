@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAM error &quot;STATUS_ACCESS_DENIED - {Access Denied} &quot;</title>
+    <meta name="article-id" content="ka0Qk000000ChFhIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006glwkAAA">
+    <meta name="articlecreateddate" content="2025-03-05T13:51:24.000Z">
+    <meta name="articlenumber" content="000009429">
+    <meta name="assignedbyid" content="0054u000006glwkAAA">
+    <meta name="assignedtoid" content="0054u000006glwkAAA">
+    <meta name="assignmentdate" content="2025-03-05T13:51:24.000Z">
+    <meta name="case" content="500Qk00000M0uf8IAB">
+    <meta name="createdbyid" content="0054u000006glwkAAA">
+    <meta name="createddate" content="2025-03-05T13:51:24.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002773KAA">
+    <meta name="lastmodifiedbyid" content="0054u000006glwkAAA">
+    <meta name="lastmodifieddate" content="2025-03-05T13:51:24.000Z">
+    <meta name="meta-description" content="Issue managing some systems - console returns error">
+    <meta name="meta-title" content="Issue managing some systems - console returns error">
+    <meta name="ownerid" content="0054u000006glwkAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9429">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>OAM error &quot;STATUS_ACCESS_DENIED - {Access Denied} &quot;</h1>
+    <p><span style="white-space: pre-wrap;"><span style="font-size: 11pt;"><span style="font-family: Calibri;">For Windows 11 24H2, Microsoft has implemented a new Group Policy setting called �Configure SAM change password RPC methods Policy.� This new policy puts in place a new password change method required by default. </span></span></span></p>
+<p><span style="white-space: pre-wrap;"><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">The workaround until a hotfix is available is to set the systems to be managed by NPS-D using OAM back to pre-patch behavior. �Setting this new policy to &quot;Allow all&quot;</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">�</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">This can be tested on a single Windows 11 24H2 system by changing this setting using the Local Group Policy Editor:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 1. Open &quot;Edit Group Policy&quot;</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 2. Navigate to: �Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates &gt; System &gt; Security Account Manager &gt; Configure SAM change password RPC methods policy</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 3. Enable and change the option to &quot;Allow all change password RPC methods&quot;</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 4. Click the [Apply] and [Ok] buttons</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">�</span></span><br><img height="353" width="584" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000ChFh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B6EtB"></img><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">�</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">This workaround can be applied via GPO to the NPS-D endpoints using OAM. �Either added to the same GPO that is used for the NPS-D scan service account� Remote SAM permission, or by creating a new GPO.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">�</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">For Server 2025 GPO:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 1. Locate this option under: Computer Configuration &gt; Policies &gt; Administrative Templates &gt; System &gt; Security Account Manager &gt; Configure SAM change password RPC methods policy</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 2. Enable and change the option to &quot;Allow all change password RPC methods&quot;</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 3. Click the [Apply] and [Ok] buttons</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">Note: When a hotfix is release, this setting requirement or acceptable setting selection will change.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">�</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">For prior versions of Server GPO, the option does not exist, so we will need to push the setting out via a registry update:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 1. Navigate to Computer Configuration &gt; Preferences &gt; Windows Settings</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;"> � 2. Right-click on Registry and click New &gt; Registry Item</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;"> � 3. Enter the following data into the corresponding fields. See screenshot example below:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � � � Hive: HKEY_LOCAL_MACHINE</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � � � Key path: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\SAM</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � � � Value name: SamrChangeUserPasswordApiPolicy</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � � � Value type: REG_DWORD</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � � � Value data: 3</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">� � 4. Click the [Apply] and [Ok] buttons</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">Note: When a hotfix is released, this Registry Item can be removed from the GPO.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri;">�</span></span><br><img height="316" width="454" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000ChFh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B69C0"></img><br><br><br></span></p>
+</body>
+</html>

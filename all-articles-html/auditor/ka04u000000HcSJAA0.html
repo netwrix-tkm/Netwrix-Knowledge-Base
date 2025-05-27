@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;String was not recognized as a valid DateTime.&quot;</title>
+    <meta name="article-id" content="ka04u000000HcSJAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:07.000Z">
+    <meta name="articlenumber" content="000003392">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:35.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZICA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZICA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:35.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:34.000Z">
+    <meta name="meta-description" content="This issue happens when the console verifies the difference between local date on the machine and the registry key value.
+registry key -  InstallDate">
+    <meta name="meta-title" content="String was not recognized as a valid DateTime.&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1241">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZICA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;String was not recognized as a valid DateTime.&quot;</h1>
+    You get the following error after opening the Netwrix Management Console:
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcSJ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005AP9" alt="User-added image"></img>
+
+<hr></hr>
+
+This issue happens when the console verifies the difference between local date on the machine and the registry key value.
+
+<hr></hr>
+
+To fix this issue please make sure that the local date on the machine where the Netwrix Management Console is installed has the same format as found in the registry key -  <span style="font-family: Arial;background-color: #ffffff;">InstallDate .
+To find it please open the registry (Start | Run | regedit) and navigate to:
+- For Windows x64 : HKEY_LOCAL_MACHINESOFTWAREWow6432NodeNetWrixUser Activity Video Reporter
+- </span><span style="font-family: Arial;background-color: #ffffff;">For Windows x86 : </span><span style="font-family: Arial;background-color: #ffffff;">HKEY_LOCAL_MACHINESOFTWARENetWrixUser Activity Video Reporter</span>
+</body>
+</html>

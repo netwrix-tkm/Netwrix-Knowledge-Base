@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to interpret interactive logons in Netwrix Auditor</title>
+    <meta name="article-id" content="ka04u000000HdCuAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-05-05T10:12:44.000Z">
+    <meta name="articlenumber" content="000008428">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T10:18:57.000Z">
+    <meta name="firstpublisheddate" content="2022-05-05T10:13:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000K9BCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000K9BCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:57.000Z">
+    <meta name="lastpublisheddate" content="2022-05-10T08:45:42.000Z">
+    <meta name="meta-description" content="How to interpret interactive logons in Netwrix Auditor">
+    <meta name="meta-title" content="How to interpret interactive logons in Netwrix Auditor">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8428">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K9BCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to interpret interactive logons in Netwrix Auditor</h1>
+    Interactive logon types often times mean that a login\password window is used to log in to system, but it might not always be the case. Netwrix Auditor relies on Windows Event logs to collect information about logons.<br>Information about a single logon is spread into 3 or more event records which often times don&#39;t go one after another and can have a very large temporal spread. Sometimes, Non-Interactive logons can be recorded in Netwrix Auditor as interactive ones, due to similarities of Event Log recordings in both scenarios where interactive or non-interactive logons are recorded. In this case, we recommend looking at the properties of an account making a logon to see whether it has permission at all to logon interactively
+</body>
+</html>

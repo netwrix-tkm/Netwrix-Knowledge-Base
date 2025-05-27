@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Configure Audit Policies in Domain Controllers</title>
+    <meta name="article-id" content="ka0Qk0000001i3pIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-09-04T12:58:25.000Z">
+    <meta name="articlenumber" content="000008781">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-02-06T14:14:58.000Z">
+    <meta name="firstpublisheddate" content="2023-09-04T12:58:32.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000011196CAA">
+    <meta name="knowledge-article-id" content="kA04u0000011196CAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-02-06T14:16:02.000Z">
+    <meta name="lastpublisheddate" content="2023-09-05T11:25:56.000Z">
+    <meta name="meta-description" content="This article contains resolution steps for the EventID 1016: Unable to Configure Audit Policies on Domain Controllers">
+    <meta name="meta-title" content="Netwrix Auditor for Windows Server: Unable to Configure Audit Policies on Domain Controllers">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8781">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000011196CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to Configure Audit Policies in Domain Controllers</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When trying to create a monitoring plan for Windows Servers explicitely for Domain Controllers, the following error appears:</p>
+
+<pre class="has-inner-focus">
+Event ID:1016: Unable to configure the following audit policies on this computer because it is a domain controller.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Netwrix Auditor configures target servers for auditing by applying local audit policies that can be overwritten by domain (group) policies. Domain Controllers do not have local policies that makes it difficult for the product to configure audit automatically.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Open the <b>Group Policies</b> snap-in on the target Domain Controller and configure audit policies.</p>
+
+<p>For the full list of audit policies to be configured, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/LocalPolicy.htm#configuration_via_group_policy" target="_blank">Windows Server Configuration � Configuration via Group Policy � v10.6</a>.</p>
+</div>
+</body>
+</html>

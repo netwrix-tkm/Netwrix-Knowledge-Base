@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix:SIEntManager_4.1.0_5.0.0_I-3646</title>
+    <meta name="article-id" content="ka04u000000Hct1AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:30:55.000Z">
+    <meta name="articlenumber" content="000007130">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:09:48.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:30:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IfpCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IfpCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:09:49.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:30:55.000Z">
+    <meta name="meta-description" content="360008877892">
+    <meta name="meta-title" content="Hotfix:SIEntManager_4.1.0_5.0.0_I-3646">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7130">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IfpCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix:SIEntManager_4.1.0_5.0.0_I-3646</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> EM 5.0 or 4.1 + old Agents || AD changes events may be lost</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: �</span></strong>EM 5.0 or 4.1 + old Agents || AD changes events may be lost<br><strong><span style="font-family: calibri,sans-serif;">Before fix</span></strong><b>:</b> AD changes events may be lost. Lot of critical errors in Admonitor logs<br>AD changes events may be lost on following environments:<br>�EM version &gt;= 4.1.0.706<br>+ SI Agent version &lt; 4.1.0.706<br>�<br>EM version &gt;= 5.0.0.739<br>+ 4.1 SI Agent version &lt; 4.1.0.706<br>+ 5.0 SI Agent version &lt; 5.0.0.739<br>�<br>EM version &gt;= 5.0.0.753<br>+ 4.1 SI Agent any version<br>+ 5.0 SI Agent version &lt; 5.0.0.753<br>�<br><strong><span style="font-family: calibri,sans-serif;">After fix:</span></strong> AD changes events are captured successfully<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>3.4.0����� No Patch created at this time<br>3.4.1����� No Patch created at this time<br>3.4.2����� No Patch created at this time<br>4.0.0����� No Patch created at this time<br>4.1.0����� SIEntManager_4.1.0_I-3646<br>5.0.0����� SIEntManager_5.0.0_I-3646<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Enterprise Manager<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>I-3646<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><b>Escalations:</b><br><b>Customers: </b><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Applying patch for Enterprise Manager:<br>1. Extract attached file to the C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIEnterpriseManager folder<br>2. Run SI Console<br>3. Open Configuration/Event filtering configuration in SI Console<br>4. Check or uncheck any checkbox and Save settings<br>5. Open Configuration/Event filtering configuration again,� revert changes made by Step� #4 and Save settings<br><br>4.1.0<br><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI4.1.0/SIEntManager_4.1.0_I-3646.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI4.1.0/SIEntManager_4.1.0_I-3646.zip</a><br><br>5.0.0<br><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIEntManager_5.0.0_I-3646.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIEntManager_5.0.0_I-3646.zip</a></p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 4.1.0, 5.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> I-3646<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 4.1.0.713, 5.0.0.764<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1909<br></p>
+</body>
+</html>

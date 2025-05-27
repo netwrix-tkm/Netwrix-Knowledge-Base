@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The NTDS.dit Threat Event Does Not Trigger</title>
+    <meta name="article-id" content="ka0Qk000000DUgDIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000002AJWTIA4">
+    <meta name="articlecreateddate" content="2025-02-05T22:49:50.000Z">
+    <meta name="articlenumber" content="000009392">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001z9VKAQ">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="article-sme" content="0054u000006gpoAAAQ">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210075929847537">
+    <meta name="case" content="500Qk00000LEkzmIAD">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk000002AJWTIA4">
+    <meta name="createddate" content="2025-04-30T00:01:51.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-24T21:19:26.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001z9VKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001z9VKAQ">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-04-30T00:02:51.000Z">
+    <meta name="lastpublisheddate" content="2025-04-24T21:19:26.000Z">
+    <meta name="meta-description" content="NTDS.dit threats not triggering.">
+    <meta name="meta-title" content="NTDS.dit threats not triggering.">
+    <meta name="ownerid" content="005Qk000002AJWTIA4">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9392">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001z9VKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The NTDS.dit Threat Event Does Not Trigger</h1>
+    <h2>Symptom</h2>
+<p>When attempting to access the <code>NTDS.dit</code> file on a domain controller, the expected threat event does not trigger in Netwrix Threat Manager.</p>
+<h2>Cause</h2>
+<p>By default, the <code>NTDS.dit</code> event in Netwrix Threat Prevention only tracks one domain controller. If the file is accessed from a system other than the one being tracked by default, the event is not captured or forwarded to Threat Manager.</p>
+<h2>Resolution</h2>
+<p>To resolve the issue, add all domains and systems to be tracked:</p>
+<ol><li>Navigate to the policy settings in Threat Prevention.</li><li>Select <strong>Event Type</strong> &gt; <strong>Additional Agents</strong> &gt; <strong>Add All Agents and Domains</strong>.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUgD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C8DVp" alt="Screenshot showing the policy settings in Netwrix Threat Prevention with the Add All Agents and Domains option highlighted" width="884" height="481"></img></p>
+</body>
+</html>

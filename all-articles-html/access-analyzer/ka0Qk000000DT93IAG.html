@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot View Published Reports in Web Console</title>
+    <meta name="article-id" content="ka0Qk000000DT93IAG">
+    <meta name="articlecaseattachcount" content="2">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-02-05T09:46:51.000Z">
+    <meta name="articlenumber" content="000009039">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000Qs9KAE">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="article-sme" content="0054u000006gpoAAAQ">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-04-28T18:29:22.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-02-05T09:47:15.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000Qs9KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000Qs9KAE">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-05-01T19:02:00.000Z">
+    <meta name="lastpublisheddate" content="2024-02-05T09:47:15.000Z">
+    <meta name="meta-description" content="Unable to View Published Reports in Web Console">
+    <meta name="meta-title" content="Unable to View Published Reports in Web Console">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9039">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Qs9KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot View Published Reports in Web Console</h1>
+    <h2>Symptom</h2>
+<div>
+<p>You cannot connect to the <strong>Published Reports</strong> page in the Web Console of Netwrix Access Analyzer (formerly Enterprise Auditor).</p>
+</div>
+<h2>Cause</h2>
+<div>
+<p>The account used to run the <code>Netwrix Access Analyzer Web Server</code> service does not have access to the Access Analyzer database.</p>
+</div>
+<h2>Resolution</h2>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>If the SQL authentication method is implemented in your Access Analyzer instance to connect to the database, the <strong>Local System</strong> account can be used to run the <code>Netwrix Access Analyzer Web Server</code> service. To verify the authentication method, review the <strong>Storage</strong> settings node in Access Analyzer. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Settings/Storage/Overview.htm" target="_blank">Administration ? Storage</a>.</p>
+</blockquote>
+<div>
+<ol><li>
+<p>In the Access Analyzer server, open <strong>Services</strong>.</p>
+</li><li>
+<p>Locate the <code>Netwrix Access Analyzer Web Server</code> service, right-click it, and select <strong>Properties</strong>.</p>
+</li><li>
+<p>In the <strong>Log On</strong> tab, specify the account with permissions to access the Access Analyzer database. Save the changes, then restart the service.</p>
+</li></ol>
+<blockquote>
+<p><strong>TIP: </strong>You can specify any account with permissions to access the Access Analyzer database. It is recommended to use either the Scheduled Task Profile account or the database service account used in Netwrix Access Information Center. Refer to the following articles for additional information:�<a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Settings/Schedule.htm" target="_blank">Global Settings ? Schedule</a> and <a href="https://helpcenter.netwrix.com/bundle/AIC_12.0/page/Content/Access/InformationCenter/Admin/Configuration/Database.htm" target="_blank">Access Information Center ? Database Page</a>.</p>
+</blockquote>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Settings/Storage/Overview.htm" target="_blank">Administration ? Storage</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Settings/Schedule.htm" target="_blank">Global Settings ? Schedule</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/AIC_12.0/page/Content/Access/InformationCenter/Admin/Configuration/Database.htm" target="_blank">Access Information Center ? Database Page</a></p>
+</li></ul>
+</div>
+</body>
+</html>

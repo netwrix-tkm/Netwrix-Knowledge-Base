@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Netwrix Auditor in Failover Mode</title>
+    <meta name="article-id" content="ka0Qk0000005d2LIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:10.000Z">
+    <meta name="articlenumber" content="000003024">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-09-20T14:43:44.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TECA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9TECA0">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-09-20T14:45:20.000Z">
+    <meta name="lastpublisheddate" content="2024-09-17T20:28:14.000Z">
+    <meta name="meta-description" content="Netwrix Auditor failover mode">
+    <meta name="meta-title" content="How to configure Netwrix Auditor in failover mode">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="591">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TECA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Netwrix Auditor in Failover Mode</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How can you configure Netwrix Auditor (NA) in failover mode to minimize the downtime and risk of losing audit data in case of an outage?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Back up NA databases if needed.</p>
+</blockquote>
+
+<p>Refer to the following steps to configure NA in failover mode:</p>
+
+<ol><li>
+	<p>Prepare your environment by installing NA on a virtual machine.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>If NA is already installed on a physical machine, consider migrating it to a virtual box. Some vendors support &quot;physical to VM&quot; migration.</p>
+	</blockquote>
+	</li><li>
+	<p>Configure the Long-Term Archive (LTA) to be stored on a remote location, such as a shared iSCSI volume. Refer to the following Netwrix knowledge base article for instructions on how to move LTA to a new location: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SSCA0.html" target="_self">How to Move Long-Term Archive to a New Location</a>.</p>
+	</li><li>
+	<p>For setting up backup and failover, ensure that the volume under LTA and Working Folder is redundant enough to survive failure.</p>
+	</li><li>
+	<p>Use the features provided by your virtualization vendor to ensure zero-downtime of your NA machine (e.g., HyperV Live Migration or VMware VMotion.)</p>
+	</li></ol>
+
+<p>For alternative backup and failover options, refer to the steps below.</p>
+
+<ol><li>
+	<p>Ensure that the volume under LTA and Working Folder is redundant enough to survive failure.</p>
+	</li><li>
+	<p>Once NA is up and fully operational, back up the virtual machine.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>You can configure backups as often as every hour, using differential backups, for example, with one full backup daily.</p>
+	</blockquote>
+	</li><li>
+	<p>Set up regular backups of the NA <code>Configuration.xml</code> file on the NA Server. Navigate to the following default path: <code>%ProgramData%Netwrix Auditor\AuditCore\ConfigServer</code></p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>In case you previously migrated your Working Folder, review the following Registry Key value to identify the new location: <code>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride</code></p>
+	</blockquote>
+	</li><li>
+	<p>Restore the NA machine from snapshot.</p>
+	</li><li>
+	<p>Restore the configuration.</p>
+	</li></ol>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SSCA0.html" target="_self">How to Move Long-Term Archive to a New Location</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

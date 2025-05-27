@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1285 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001KsjIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:57.000Z">
+    <meta name="articlenumber" content="000003629">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-01-15T08:42:44.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9d9CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9d9CAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-15T08:42:51.000Z">
+    <meta name="lastpublisheddate" content="2024-01-15T08:42:41.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint Audit &amp;quot;Web site cannot be found&amp;quot; issue.">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log - Event ID 1285">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2526">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9d9CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1285 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error message under Event ID 1285 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+Web site %URL% cannot be found</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Wrong URL was added to the read scope, or the object available via the URL is invalid.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>Navigate to <strong>Monitoring Plans</strong> &gt; <strong>%affected_SharePoint_plan%</strong> &gt; <strong>Edit</strong>.</p>
+	</li><li>
+	<p>Select the item, and click <strong>Edit item</strong> in the right pane.</p>
+	</li><li>
+	<p>In the left pane, select <strong>Read Access</strong>, and select <strong>Sites only</strong> or <strong>Sites and subsites</strong> depending on the monitoring scope.</p>
+	</li><li>
+	<p>Add a URL for the SharePoint site you would like to monitor. Verify the URL to confirm it is valid and can be accessed via the specified URL.</p>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>�Increase the number of IPs per target�</title>
+    <meta name="article-id" content="ka04u000000HdBUAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:03:06.000Z">
+    <meta name="articlenumber" content="000008321">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:18:22.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:03:07.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Jh7CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Jh7CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:22.000Z">
+    <meta name="lastpublisheddate" content="2022-02-07T01:03:07.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="�Increase the number of IPs per target�">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8321">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Jh7CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>�Increase the number of IPs per target�</h1>
+    <p><strong><u>Issue:</u></strong></p><p><strong>Error message when trying to create a target (greater than /22) at the GSM console</strong></p><p><strong><u>Cause:</u></strong></p><ul><li><p>All GSMs have a default limit of 4094 individual addresses per target.</p></li></ul><p><strong><u>Resolution:</u></strong></p><ul><li><p>Access the GOS administration menu and follow the instructions below:</p><ul><li><p>Log in to the GSM as &#39;admin&#39; via SSH or console</p></li><li><p>Go to the shell via <strong>&#39;Advanced &gt; Support &gt; Shell&#39;</strong></p></li><li><p>Set the new limit with these commands:</p></li></ul></li></ul><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">$ set max_ips_per_target 6000
+$ save </pre>
+</div></div><p>The above example will allow entering up to 6000 IPs. The upper limit is 70000, default is 4096.</p><ul><li><p>You can check the set value with:</p></li></ul><p><code>$ get max_ips_per_target</code></p><ul><li><p>Leave the shell with Ctrl+D (or &#39;exit&#39;)</p></li></ul><p><strong><u>Recommendation: </u></strong></p><p>Warn the customer this can seriously impact the performance of the GSM when handling e.g. reports of densely populated /16 networks or running several of these scans in parallel. So if they experience performance hits we advise using smaller target ranges. </p>
+</body>
+</html>

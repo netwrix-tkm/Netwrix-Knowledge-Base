@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.0_038</title>
+    <meta name="article-id" content="ka04u000000Hd4LAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:53:16.000Z">
+    <meta name="articlenumber" content="000007949">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:15:11.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:53:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JAYCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JAYCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:15:11.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:53:17.000Z">
+    <meta name="meta-description" content="360012326291">
+    <meta name="meta-title" content="Hotfix: SA_8.0_038">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7949">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JAYCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.0_038</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> INSERT statement conflicted with the FOREIGN KEY constraint &quot;FK_SA_FSAC_ActivityEvents_New_PathID&quot;. Issue when migrating FSAC data from 6.3 to 8.0.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">YouTrack/Escalations</span></strong><br>�<br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-2809/20970</span></strong><br>�<br><strong><span style="font-family: calibri,sans-serif;">Customers</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� Dell - EMC - RSA</span></strong><br>�<br><strong><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></strong><br>�<br>-������������� SAFS-1582� 9969 - FSAA | Timeout while compressing SQLites on proxy<br>-������������� SAFS-2324� Investigate FSAA functionality when there is lack of access to IPC$<br>-������������� SAFS-2359� 16217 - Error Getting Activity Count from TBL_FSAC_ActivityEvents: Overflow while converting variant of type (OleStr) into type (Integer)<br>-������������� SAFS-2442 - DFS Scan: Error during processing: cannot DETACH database within transaction[0x0001] DETACH DATABASE Struc<br>-������������� SAFS-2411� 16651 - FS_Migration Finishes with Success but doesn&#39;t Add USN Column to Activity Tier 2<br>-������������� SAFS-2364� 12262 - FSAA | Do not overwrite trace.log files<br>-������������� SAFS-2515� FSAC: Scan is throwing an error &quot;Buffer too small&#39;&quot;<br>-������������� SAFS-2490� 17161 - FSAC collection stuck in loop<br>-������������� SAFS-2518� FSAC: Not returning full data when parsing huge zipped file<br>-������������� SAFS-2574� FSAA: FSAC scan parses local sa console logs instead of windows cluster node<br>-������������� SAFS-2571� FSAC: Scan should show percentage value as a scan status.<br>-������������� SAFS-2626 : Cache was not properly handling files/folders with same names in same parent folder (can happen from deletion/recreation)<br>-������������� SAFS-2559: 17476 - FSAC eM is not valid integer error<br>-������������� SAFS-2739: 19535 - Update FSAC to collect log files without BOMs<br>-������������� SAFS-2767 NFS scans aren&#39;t picking up files<br>-������������� SAFS-2743 DFS listing wrong active link<br>-������������� SAFS-2628 18381 - Server Scan file doesn&#39;t upload to the console.<br>-������������� SAFS-2777 20796 - FSAA | Error when checking for active sessions on proxy<br>-������������� SAFS-2837 19948 - DFS: Unique Key violation<br>-������������� SAFS-2698 19491 - FSAA not traversing mounted volumes<br>-������������� SAFS-2922 Update FSAAConfig.xml to properly handle list permissions<br>-������������� SAFS-2736 20328 - FSAC System scan does not collect all events<br>-������������� SAFS-2809 20970 - INSERT statement conflicted with the FOREIGN KEY constraint &quot;FK_SA_FSAC_ActivityEvents_New_PathID&quot;<br>�<br><b>Comments:</b><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Close all instances of StealthAUDIT. </span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all DC files in your %SAInstallDir%DC folder</span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></span></strong>
+</li><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Launch StealthAUDIT. Run the &#39;Update Proxy Service&#39; query under the Maintenance tab in the FSAA data collector against your proxy servers (if running proxy service).</span></span></strong></li></ol>
+<div>� 
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="60"><td colspan="1" rowspan="1" height="60" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.0/SA_8.0_038.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.0/SA_8.0_038.zip</a></td></tr></tbody></table>
+</div><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-2809<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	DCFSAA.dll			8.0.801
+-	FSAASrv.dll			8.0.801
+Other dependencies included:
+-	StealthAUDITRPC.exe	8.0.95
+-	StealthAUDITRPCClient.dll	8.0.95
+-	SATagParser.dll		8.0.9
+-	FSAAConfig.xml<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1730<br></p>
+</body>
+</html>

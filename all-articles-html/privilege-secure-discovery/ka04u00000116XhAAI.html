@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Password Expired</title>
+    <meta name="article-id" content="ka04u00000116XhAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-07-07T09:20:47.000Z">
+    <meta name="articlenumber" content="000008639">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-07-07T09:20:47.000Z">
+    <meta name="firstpublisheddate" content="2023-07-07T09:21:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110omCAA">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-07T09:21:18.000Z">
+    <meta name="lastpublisheddate" content="2023-07-07T09:21:18.000Z">
+    <meta name="meta-description" content="Managing Password Expired">
+    <meta name="meta-title" content="Managing Password Expired">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8639">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Managing Password Expired</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span>
+<h1>Symptom</h1>
+Upon attempting to utilize the web UI or the API, the following message is displayed:
+
+<pre>
+Password Expired</pre>
+
+<h1>Cause</h1>
+When this error message is displayed, SecureONE has received a response from the Active Directory server indicating that the password has expired. Specifically, the Active Directory account that Netwrix Privilege Secure for Discovery uses to bind to the Active Directory server has a password that has expired, according to the directory server.
+
+<ul><li>It is a recommended best practice that the account SecureONE uses to bind to the Active Directory server be set not to have an expiring the password.</li><li>If there are multiple domains configured, each domain may utilize a different account to bind to that domain&#39;s domain controller.</li></ul>
+
+<h1>Resolution</h1>
+
+<blockquote>
+<div><span style="color: #c0392b;"><strong>IMPORTANT</strong>.</span> In order to perform these troubleshooting steps, you must be an administrator of Netwrix Privilege Secure for Discovery</div>
+</blockquote>
+
+<ol><li>Confirm that the account used to bind to the Domain Controller has not expired. Open a command prompt and type:
+	<pre>
+net user %USERNAME% /domain</pre>
+	</li><li>In the output, look for a line that begins &quot;Password Expires&quot;. If this date is in the past, the password has expired.</li><li>Change the account&#39;s password and update the account&#39;s password on the <strong>Config-</strong>&gt;<strong>Domains page</strong>.</li></ol>
+</body>
+</html>

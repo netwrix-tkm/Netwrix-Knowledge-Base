@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to deploy Password Manager client via System Center Configuration Manager 2012 SP1</title>
+    <meta name="article-id" content="ka04u00000116c3AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005700000042ELcAAM">
+    <meta name="articlecreateddate" content="2020-05-07T12:43:13.000Z">
+    <meta name="articlenumber" content="000003790">
+    <meta name="createdbyid" content="005700000042ELcAAM">
+    <meta name="createddate" content="2023-07-11T12:10:48.000Z">
+    <meta name="firstpublisheddate" content="2020-05-07T12:57:16.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000PbdVCAS">
+    <meta name="knowledge-article-id" content="kA00g000000PbdVCAS">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T12:11:03.000Z">
+    <meta name="lastpublisheddate" content="2020-05-07T12:57:16.000Z">
+    <meta name="meta-description" content="Deploy Password Manager client in your environment automatically">
+    <meta name="meta-title" content="[not provided]">
+    <meta name="ownerid" content="005700000042ELcAAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="795">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbdVCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to deploy Password Manager client via System Center Configuration Manager 2012 SP1</h1>
+    How to to deploy Password Manager client via System Center Configuration Manager 2012 SP1?
+
+<hr></hr>
+
+<div>
+
+<strong>NOTE</strong>. If you do not need a detailed description on how to create a new package, program and advertisement in System Center Configuration Manager, refer to Step 2 point 7 to find the command line string parameter for the deployed program.
+
+To install Netwrix Password Manager Logon Prompt Extension via System Center Configuration Manager (simplest scenario) perform the following steps.
+
+Step 1. Prepare files for deployment. Package should include <strong>prm_client.msi</strong> itself and <strong>gina_registry_settings.reg</strong> with settings. Draft gina_registry_settings.reg is attached to the article.
+
+1. Change the <strong>prm_client.msi</strong> default settings if needed, refer to <a href="https://kb.netwrix.com/2014" target="_blank">this article</a> if you want to change this.
+
+2. Edit <strong>gina_registry_settings.reg </strong>file with Notepad to apply required settings. Un-comment the required values (remove #) and change them. Refer to <a href="https://kb.netwrix.com/2056" target="_blank">this article</a> describing keys and values.
+
+<strong>NOTE</strong>. PM_Server is mandatory.
+
+</div>
+<div><strong>NOTE</strong>. Remove the Wow6432Node registry key from the file if you are going to use the client on a 32-bit machine.</div>
+<div></div>
+3. Copy both files to your System Center Configuration Manager packages folder
+
+Step 2. Create a new package in SCCM
+
+1. Launch <strong>SCCM 2012 Configuration Manager </strong>and choose <strong>Software Library</strong> node
+2. Right-click on <strong>Packages </strong>and choose <strong>Create package</strong>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 500 when Viewing and Accessing Reports</title>
+    <meta name="article-id" content="ka0Qk0000001U45IAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003487">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-01-25T08:27:13.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9arCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9arCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-25T08:27:30.000Z">
+    <meta name="lastpublisheddate" content="2024-01-25T08:27:07.000Z">
+    <meta name="meta-description" content="Webpage unavailable when accessing SQL Reporting server remotely  Remote SQL reports Webpage not found   Remote SQL reports Webpage Unavailable">
+    <meta name="meta-title" content="Webpage unavailable when accessing SQL Reporting server remotely">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1323">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9arCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error 500 when Viewing and Accessing Reports</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>The Error 500 is prompted when attempting to view or access Netwrix Auditor reports.</p>
+	</li><li>
+	<p>No error is present when accessing the Report Manager URL from the SSRS host.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The Local Service account is used in SQL Server Reporting Services (SSRS) instead of the Network Service account.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Configure SSRS to use the Network Service account:</p>
+
+<ol><li>
+	<p>In the SSRS host, run <strong>Report Server Configuration Manager</strong> and connect to your Report Server instance.</p>
+	</li><li>
+	<p>In the left pane, select <strong>Service Account</strong> and switch the built-in account used to <strong>Network Service</strong>.</p>
+	</li><li>
+	<p>Click <strong>Apply</strong> to save changes, and exit <strong>Report Server Configuration Manager</strong>.</p>
+	</li><li>
+	<p>For changes to take effect, proceed to <strong>Services</strong>, locate the <strong>SQL Server Reporting Services</strong> service and restart it.</p>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can any additional attribites be displayed in the modification reports?</title>
+    <meta name="article-id" content="ka04u000000HcP8AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:53.000Z">
+    <meta name="articlenumber" content="000003182">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:07.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VrCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9VrCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:07.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:19.000Z">
+    <meta name="meta-description" content="Display additional attributes in the particular Modification/Created/Deleted with details SSRS based reports.">
+    <meta name="meta-title" content="Can any additional attribites be displayed in the modification reports?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="752">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VrCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Can any additional attribites be displayed in the modification reports?</h1>
+    How do I get the values of the additional attributes to be displayed in any particular SSRS based report.<br><br> 
+
+<hr></hr>
+
+It is possible to make some the following reports display the values of the additional attributes. Usually the reports are called Modification/Created/Deleted with details. The most popular are the following:<br>- All User Changes with Advanced Attributes;<br>- User Created with Details;<br>- User Deleted with Details;<br><br>To do that please follow the steps:<br>1. Determine the report you want to show the additional information in:<br>a. If you want the &quot;Modification&quot; report to show the additional attributes you need - processmodifiedprops.txt file located in the installation folder;<br>b. For &quot;Created&quot; reports - processaddedprops.txt;<br>c. For &quot;Deleted&quot; reports - processdeletedprops.txt;<br><br>2. Find out the AD object you are interested in. For example: user, computer, group, etc.<br><br>3. Find out the attribute name you want to be displayed. Like: mail, employeeID, etc. The attribute can be found in the Attribute editor in Active Directory Users and Computers snap-in. <strong>Note:</strong> it is case sensitive.<br><br>4. Open the text file according to the first step and put the following line: objectType:Attribute:<br>Examples:<br><img alt="Attr" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcP8&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000051Zt"></img><br>NOTE: Each attribute should be put in a separate line. The pound key at the beginning of a line means exclusion of the line.
+</body>
+</html>

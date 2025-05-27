@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.2_047</title>
+    <meta name="article-id" content="ka0Qk000000DqOzIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:52:15.000Z">
+    <meta name="articlenumber" content="000007873">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IxACAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-11T17:55:42.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:52:15.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IxACAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IxACAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-11T18:00:11.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:52:15.000Z">
+    <meta name="meta-description" content="360012326351">
+    <meta name="meta-title" content="Hotfix: SA_8.2_047">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7873">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IxACAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.2_047</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This hotfix fix the Object reference error when running Box Enterprise Scans.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Behavior Before Fix: </span></strong><br>Failed to write folder details to the database. System.NullReferenceException: Object reference not set to an instance of an object.<br>at Stealthbits.StealthAUDIT.DataCollectors.Box.Tasks.Scan.BoxScan.WriteFolderDetails(IStorage db, BoxFolder value) error returned.<br><strong><span style="font-family: calibri,sans-serif;">Behavior After Fix: </span></strong><br>Object reference error should not appeared.<br><b>Changes Since Last Hotfix:</b><br>n/a<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Hajira Yousuf<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>8.2<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>Access Analyzer - DC - Box<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SAT-5445/34449� Object reference error when running Box Enterprise Scans<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>8.2<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><strong><span style="font-family: calibri,sans-serif;">Modules Included:</span></strong><br>/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.Common.dll 1.0.2.955<br>/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.dll - 8.2.32.955�<br>/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.dll��<br>/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.UI.dll 1.0.8.955<br>/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.UI.dll<br>�<br>�<br><b>YouTrack/Escalations:</b><br>SAT-5445/34449<br><b>Customers</b><br>Pacific Dental<br><b>Cumulative List of fixes included since Service Pack:</b><br>SAT-4723� Performance Improvements for SQL SDD scans<br>SAT-4462� fix for DatabasePrincipals unique key constraint<br>SAT-4700� Fix for permissions from deleted users showing up on views<br>SAT-4707� Retry logic added to alleviate interrupted scans from network issues<br>SAT-5445 Object reference error when running Box Enterprise Scans.<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Unblock the hotfix zip file in the windows property dialog if an unblock button exists there.<br>2. Close all instances of Access Analyzer (check task manager under processes for all users)<br>3. Exit Access Analyzer console<br>4. Copy and replace files from the included folder into Access Analyzer Install dir.<br>� 
+</p><table cellspacing="0" cellpadding="0" width="78" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="78"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_047.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_047.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - DC - DropboxAccess<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-5445<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> /PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.Common.dll 1.0.2.955 
+/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.dll - 8.2.32.955  
+/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.dll   
+/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.UI.dll 1.0.8.955 
+/PrivateAssemblies/Stealthbits.StealthAUDIT.DataCollectors.Box.UI.dll<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2362<br></p>
+</body>
+</html>

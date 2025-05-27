@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User and Workstation Do Not Match</title>
+    <meta name="article-id" content="ka04u00000117AAAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-08-09T13:14:19.000Z">
+    <meta name="articlenumber" content="000008720">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-08-15T08:58:26.000Z">
+    <meta name="firstpublisheddate" content="2023-08-09T13:14:23.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001110iCAA">
+    <meta name="knowledge-article-id" content="kA04u000001110iCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-08-15T08:58:44.000Z">
+    <meta name="lastpublisheddate" content="2023-08-09T13:14:23.000Z">
+    <meta name="meta-description" content="User and Workstation Do Not Match">
+    <meta name="meta-title" content="User and Workstation Do Not Match">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8720">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001110iCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>User and Workstation Do Not Match</h1>
+    <h2>Question</h2>
+
+<div>
+<p>The fields <strong>Who</strong> (User) and <strong>Workstation</strong> mismatch in File Server-related reports. The <strong>Workstation</strong> specified does not belong to the user in question. Should this be considered a malicious user activity?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Netwrix Auditor for File Servers collects certain events to allow data audit. These events do not contain any information on originating workstations, but they have a distinct Logon ID field that can be matched to the Logon ID in local logon events (ID 4624). These logon events include the Source Network Address for the originating workstation to be resolved to FQDN and be displayed in Netwrix Auditor.</p>
+
+<ol><li>
+	<p>When a user logs on to the file server using a certain account via the machine <strong>A</strong>, the Logon ID <strong>A</strong> is assigned to the session <strong>A</strong>.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>The Logon ID along with the IP address of the machine are picked from the Event ID 4624.</p>
+	</blockquote>
+	</li><li>
+	<p>If the user disconnects without logging off to close the Logon ID <strong>A</strong> session, no logoff event is created for the session <strong>A</strong>.</p>
+	</li><li>
+	<p>Once another person logs on using the same account via the machine <strong>B</strong>, a new Logon ID <strong>B</strong> and another IP address (belonging to the machine <strong>B</strong>) are logged to a new logon event (ID 4624).</p>
+	</li><li>
+	<p>Since the session <strong>A</strong> was not closed and did not generate a logoff event, the session <strong>B</strong> is perceived to be the same session as session <strong>A</strong> by the OS.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>If the second person makes any changes on the file server, the corresponding events ID 4663 and others will contain the initial Logon ID <strong>A</strong> to match the machine <strong>A</strong> logon.</p>
+	</blockquote>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job to restart NAS logging service</title>
+    <meta name="article-id" content="ka04u000000HcxoAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:38:43.000Z">
+    <meta name="articlenumber" content="000007282">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:20.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:38:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000ItCCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000ItCCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:20.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:38:43.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Job to restart NAS logging service">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7282">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000ItCCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Job to restart NAS logging service</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> NAS logs don&#39;t roll over at midnight. This job restarts the logging service to force the rollover.�</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Logging service doesn&#39;t roll over when it should</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Drop in <em>JOB_LastLogon </em>job found at \\sbitsinc.com\public\Escalation\KB Attachments�and schedule at midnight against the local host (or remote FPolicy server or CEPP endpoint not supported in this job). Use a connection profile. Has error handling and output columns that describe the result of each step.<br><br>Error codes for start and stop options:<br>�<br>Stop Service - <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa393673(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/desktop/aa393673(v=vs.85).aspx</a><br>Start Service - <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa393660(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/desktop/aa393660(v=vs.85).aspx</a><br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra;File Activity Monitor - NetApp;File Activity Monitor - Windows<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> SI 3.4.1, Logging Svc 2.2.42.305<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-779, SI-3021<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1491</p>
+</body>
+</html>

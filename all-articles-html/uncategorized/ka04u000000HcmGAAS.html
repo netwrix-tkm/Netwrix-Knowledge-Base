@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Find SQL Connection Information if your Customer Doesn&#x27;t Know It</title>
+    <meta name="article-id" content="ka04u000000HcmGAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:45:24.000Z">
+    <meta name="articlenumber" content="000007391">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:06:31.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:45:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IOtCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IOtCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:06:31.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:45:24.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="How to Find SQL Connection Information if your Customer Doesn&#x27;t Know It">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7391">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IOtCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Find SQL Connection Information if your Customer Doesn&#x27;t Know It</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> For troubleshooting purposes, it may become necessary to reconfigure a storage profile without knowledge of the back-end database server. This article describes one way to recover that information when the end user doesn&#39;t have the information.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Customer has a need to create storage profile from scratch without knowing their SQL Server or Instance names. This can become necessary as a result of a SA Vault Service reset (as happened in some versions of the upgrade from 7.2 to 8.2), since SA Vault Service removes the SPProfiles.XML file when configured.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> If StealthAUDIT is running with DEBUG level logging enabled, any recent job logs for jobs containing enabled a SQLScripting analysis tasks will record connection string information.<br>Steps:</p>
+<ol><li>Locate a job in the tree with an analysis task that uses the SQL Scripting Analysis Module</li><li>Open the Job Log</li><li>Search for Data Source=
+<ol style="list-style-type: lower-alpha;"><li>Following the equal sign will be the SQL Server\Instance:port</li></ol>
+</li><li>Search for Initial Catalog=
+<ol style="list-style-type: lower-alpha;"><li>Following the equal sign will be the database name</li></ol>
+</li><li>For security there will be one of two entries
+<ol style="list-style-type: lower-alpha;"><li>Windows Authentication will appear as: Integrated Security=True;</li><li>SQL Authentication will appear as: �Persist Security Info=True</li><li>SQL Authentication will also show the username being used as well as asterisks representing the password
+<ol style="list-style-type: lower-roman;"><li>User ID={YourUsername};Password=*********</li></ol>
+</li></ol>
+</li></ol>
+<p>�If the end user does not know the SQL Authentication password, they should now at least be able to escalate to someone who can help recover it.</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - Core;SA - DC - SQL<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 6.3+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2323</p>
+</body>
+</html>

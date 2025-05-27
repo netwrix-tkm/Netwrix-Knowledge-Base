@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Policy error: is not in a valid format</title>
+    <meta name="article-id" content="ka04u000000HcUdAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003550">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:31.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bsCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9bsCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:31.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when the summary email returns the following error message: &amp;#039;is not in a valid format&amp;#039;">
+    <meta name="meta-title" content="Group Policy error: is not in a valid format">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1385">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bsCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Group Policy error: is not in a valid format</h1>
+    You may receive a Group Policy daily summary email with the error: The file &quot;DC01.corp.&lt;MyDomain&gt;.com\sysvol\corp.&lt;MyDomain&gt;.com\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\Machine\registry.pol&quot; is not in a valid format. The file might be corrupt. Use Group Policy Object Editor to reconfigure the settings in this extension.
+<hr></hr> The group policy is corrupted or it is not in a valid format. If you open the Group Policy Management Console &gt; highlight the group policy in summary and navigate to &gt; settings tab, most likely it will return you an error message.<br><img alt="Settings" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUd&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000051OC"></img>
+<hr></hr><br>First of all you need to find out the affected policy.<br>In the error message &quot;DC01.corp.&lt;MyDomain&gt;.com\sysvol\corp.&lt;MyDomain&gt;.com\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\Machine\registry.pol&quot; is not in a valid format - 31B2F340-016D-11D2-945F-00C04FB984F9 is the GUID of the affected group policy. To find out the GUID of a group policy open GMPC &gt; highlight a group policy and open Details tab &gt; Unique ID is the GUID of a GPO.<br><img alt="GUID GPO" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUd&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000051O7"></img><br>There are 3 possible solutions:
+<ol><li>If you receive an error in the GPMC &gt; GPO Settings you may need to restore it from a backup or create anew.</li><li>This error may also appear when you enable the &quot;Certificate Services Client &quot; Certificate Enrollment Policy&quot; policy. Please refer to the following MS article regarding this issue - <a href="http://support.microsoft.com/kb/2028605" target="_blank">http://support.microsoft.com/kb/2028605</a></li><li>Restore default domain GPOs from backup. Logon to any domain controller &gt; open command prompt and type: dcgpofix /target:contoso.com (replace contoso.com with your domain name) For more information please refer to the following article - http://technet.microsoft.com/en-us/library/cc739095(v=ws.10).aspx NOTE: This solution is intended for use only as a last-resort disaster-recovery tool. The customer settings will be reset.</li><li>If you have any Antivirus software installed on the affected domain controller please check the Virus scanning recommendations for Enterprise computers - http://www.netwrix.com/kb/1585</li><li>You may also omit the errors. To do that please open the file omitproplist_gp.txt located in the installation folder of the product and put the following to the file in a new line: *The file * is not in a valid format and must be replaced.* If you didn&#39;t find a solution please refer to the following Microsoft article regarding this issue - <a href="http://support.microsoft.com/kb/814751" target="_blank">http://support.microsoft.com/kb/814751</a></li></ol>
+
+<div id="cke_pastebin" style="width: 1px;height: 1px;">�</div>
+</body>
+</html>

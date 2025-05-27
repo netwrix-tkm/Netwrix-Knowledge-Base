@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Owner Mailbox Access Data Missing In Exchange Auditing Monitoring Plan</title>
+    <meta name="article-id" content="ka04u00000117oKAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-09-15T07:46:20.000Z">
+    <meta name="articlenumber" content="000008808">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-09-15T12:35:21.000Z">
+    <meta name="firstpublisheddate" content="2023-09-15T07:46:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111DICAY">
+    <meta name="knowledge-article-id" content="kA04u00000111DICAY">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-09-15T12:35:42.000Z">
+    <meta name="lastpublisheddate" content="2023-09-15T07:46:39.000Z">
+    <meta name="meta-description" content="Non-Owner Mailbox Access Data Missing In Exchange Auditing Monitoring Plan">
+    <meta name="meta-title" content="Non-Owner Mailbox Access Data Missing In Exchange Auditing Monitoring Plan">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8808">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111DICAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Non-Owner Mailbox Access Data Missing In Exchange Auditing Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When attempting to review Activity Records for your on-premise Exchange Auditing monitoring plan, no data on non-owner mailbox access data can be found. The affected Exchange Server versions are Exchange Server 2013, 2016, and 2019.</p>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The preset language for your on-premise Exchange Server is different from the system language.</p>
+	</li><li>
+	<p>A secondary regional language as the language format is set in your Exchange Server.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Install the latest cumulative update for the corresponding Exchange Server version. Learn more about affected versions in <a href="https://learn.microsoft.com/en-US/exchange/troubleshoot/compliance/search-adminauditlog-mailboxauditlog-return-no-result#resolution" target="_blank">Search-AdminAuditLog and Search-MailboxAuditLog with parameters return empty results � Resolution ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>Check the language format for system accounts. If a secondary regional language is set as the language format, update the format for the system and network service accounts to one of the following primary languages:</p>
+
+	<ul><li>
+		<p>Arabic (United Arab Emirates)</p>
+		</li><li>
+		<p>English (United States)</p>
+		</li><li>
+		<p>German (Germany)</p>
+		</li><li>
+		<p>French (France)</p>
+		</li><li>
+		<p>Korean (Korea)</p>
+		</li><li>
+		<p>Spanish (Spain)</p>
+		</li></ul>
+	</li></ul>
+
+<p>Learn more in <a href="https://learn.microsoft.com/en-US/exchange/troubleshoot/compliance/search-adminauditlog-mailboxauditlog-return-no-result#workaround" target="_blank">Search-AdminAuditLog and Search-MailboxAuditLog with parameters return empty results � Workaround ? Microsoft &#129125;</a></p>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://learn.microsoft.com/en-US/exchange/troubleshoot/compliance/search-adminauditlog-mailboxauditlog-return-no-result" target="_blank">Search-AdminAuditLog and Search-MailboxAuditLog with parameters return empty results ? Microsoft &#129125;</a></p>
+</div>
+</body>
+</html>

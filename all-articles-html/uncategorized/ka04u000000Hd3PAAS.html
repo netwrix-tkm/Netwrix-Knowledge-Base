@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.1_001</title>
+    <meta name="article-id" content="ka04u000000Hd3PAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:48:41.000Z">
+    <meta name="articlenumber" content="000007614">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:14:37.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:48:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J8HCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000J8HCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:14:37.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:48:41.000Z">
+    <meta name="meta-description" content="360012326231">
+    <meta name="meta-title" content="Hotfix: SA_7.1_001">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7614">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J8HCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.1_001</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> FSAA: Fixes made in regards to re-establishing communications with a proxy, and rescan un-imported hosts option</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Modules Included <br>- DCFSAA.dll 7.1.591 <br>- FSAASrv.dll 7.1.591 <br>- GROUP_FileSystem\GROUP_0.Collection\JOB_2-FSAA Bulk Import\DataAnalysisTasks.xml <br>- GROUP_FileSystem\GROUP_0.Collection\JOB_2-FSDFS Bulk Import\DataAnalysisTasks.xml <br><br>YouTrack/Escalations <br>- SAFS-340: Re-establishing communications with a proxy server after a console failure does not return all of the Tier 2 databases <br>- SAFS-334: FSAA does not explicitly indicate in the DEFAULT table when TEP have been skipped, due to use of &quot;Rescan unimported hosts after ...&quot; FSAA option. <br><br>Customers <br>- Deutsche Bank <br><br>Cumulative List of fixes included since Service Pack: <br>- SAFS-100: FSAA: Permission scan against Windows Cluster in applet mode not working <br>- SAFS-103: Changed Utf8 line reading logic to use strings instead of fixed-size buffer <br>- SAFS-113: DLP scan is clearing data from SA_FSDLP_Matches <br>- SAFS-334: FSAA does not explicitly indicate in the DEFAULT table when TEP have been skipped, due to use of &quot;Rescan unimported hosts after ...&quot; FSAA option. <br>- SAFS-340: Re-establishing communications with a proxy server after a console failure does not return all of the Tier 2 databases. <br>- SAFS-519: Abort FSAA/FSAC Scan if RPC Version does not match FSAA Version <br>- SAFS-527: Develop New DFS Bulk Import <br>- SAFS-541: Fix Memory Leak <br><br>Comments: <br>- This fix includes updates to the DFS schema which require updates to the Solution Set. If you are using FSDFS, you must also update DataAnalysis.xml for FSAA and FSDFS bulk import jobs.</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="color: #1f497d;"><a href="http://downloads.stealthbits.com/access/files/SAHotFixes/7.1/SA_7.1_001.zip" target="_blank">http://downloads.stealthbits.com/access/files/SAHotFixes/7.1/SA_7.1_001.zip</a></span> 
+</p><ol><li>Update all files in appropriate directories under SA Install Dir
+</li><li>Confirm there are no customizations on the affected jobs before updating with included files. Once confirmed, update the job files into the respective job directories.</li></ol><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Permissions<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.0 SP1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-340
+SAFS-334<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	7.1 SP1
+-	DCFSAA.dll	7.1.591
+-	FSAASrv.dll	7.1.591<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1154<br></p>
+</body>
+</html>

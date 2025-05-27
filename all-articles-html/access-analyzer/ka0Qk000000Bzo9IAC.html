@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Length of Access Control List Exceed Allowed Maximum</title>
+    <meta name="article-id" content="ka0Qk000000Bzo9IAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MdqrAAC">
+    <meta name="articlecreateddate" content="2024-11-12T22:48:24.000Z">
+    <meta name="articlenumber" content="000009319">
+    <meta name="case" content="500Qk00000GCmdzIAD">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007MdqrAAC">
+    <meta name="createddate" content="2025-01-28T19:19:39.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-01-28T19:18:27.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001gjZKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001gjZKAQ">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-01-28T19:22:38.000Z">
+    <meta name="lastpublisheddate" content="2025-01-28T19:18:27.000Z">
+    <meta name="meta-description" content="User Exceeds Maximum Access Control List error during a full ADI scan in the Netwrix Enterprise Auditor application.">
+    <meta name="meta-title" content="User Exceeds Maximum Access Control List Error">
+    <meta name="ownerid" content="0054u000007MdqrAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9319">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001gjZKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Length of Access Control List Exceed Allowed Maximum</h1>
+    <h2>Symptoms</h2>
+<div>
+<p>Both of the following symptoms are present in your environment:</p>
+<ul><li>
+<p>There is a user that exceeds the access control list (ACL) maximum threshold when running an Active Directory Inventory\1-AD_Scan job in the Netwrix Enterprise Auditor application.</p>
+</li><li>
+<p>The system generates the following error message:</p>
+<pre class="has-inner-focus">Error on the Active Directory Inventory\1-AD_Scan: REDACTED USER DN &#39;Length of the access control list exceed the allowed maximum.
+</pre>
+</li></ul>
+</div>
+<h2>Cause</h2>
+<div>
+<p>This error is caused when the ACL reaches its maximum size. The size of an ACL varies with the number and size of its access control entries (ACEs). The maximum size of an ACL is 64 kilobytes (KB), or approximately 1,820 ACEs. However, reaching the maximum size can sometimes degrade performance.</p>
+<p><span class="Note"><strong>NOTE: </strong></span>For more information on ACL Limitations, refer to the official Microsoft documentation:�<a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/error-add-user-to-security-permissions" target="_blank">Maximum number of access control entries in the access control list</a>.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>To prevent the error from immediately terminating the scan when the ACL maximum size is reached, refer to the following steps:</p>
+<ol><li>
+<p>Perform a cumulative update to Netwrix Enterprise Auditor version 11.6.0.114 or later.</p>
+</li><li>
+<p>Follow the steps in this document to perform the upgrade process:�<a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Install/Application/Upgrade/Overview.htm" target="_blank">Enterprise Auditor Console Upgrade</a>.</p>
+</li></ol>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This hotfix changes the exception handling so that instead of terminating the scan, a warning is logged about the user not being scanned.</p>
+</blockquote>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Run Reports � System Cannot Find the File Specified</title>
+    <meta name="article-id" content="ka04u0000011734AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-08-04T09:22:05.000Z">
+    <meta name="articlenumber" content="000008713">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-08-07T06:54:24.000Z">
+    <meta name="firstpublisheddate" content="2023-08-04T09:22:26.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110zpCAA">
+    <meta name="knowledge-article-id" content="kA04u00000110zpCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-08-07T06:54:46.000Z">
+    <meta name="lastpublisheddate" content="2023-08-04T09:22:26.000Z">
+    <meta name="meta-description" content="Unable to Run Reports � System Cannot Find the File Specified">
+    <meta name="meta-title" content="Unable to Run Reports � System Cannot Find the File Specified">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8713">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110zpCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to Run Reports � System Cannot Find the File Specified</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ol><li>
+	<p>When trying to run a report via Netwrix Auditor, you encounter the following error:</p>
+
+	<pre class="has-inner-focus">
+An internal error occurred on the report server. See the error log for more details. (rsInternalError)
+The system cannot find the file specified. (Exception from HRESULT: 0x80070002)</pre>
+	</li><li>
+	<p>When trying to access the Report Manager via URL (specified in Netwrix Auditor <strong>Setting</strong>s &gt; <strong>Audit Database</strong>), you encounter the following error:</p>
+
+	<pre class="has-inner-focus">
+The service is not available.
+The report server can&#39;t connect to its database. Make sure the database is running and accessible.</pre>
+	</li></ol>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>A report server database is missing.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to the following steps to resolve the issue:</p>
+
+<ol><li>
+	<p>In your Netwrix Auditor server, disable <strong>Netwrix Auditor Archive Service</strong> and <strong>Netwrix Auditor Management Service</strong> via Services.</p>
+	</li><li>
+	<p>Deploy the report server database � refer to the following article for in-depth instructions: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html" target="_self">Deploying the Report Server Database</a>.</p>
+	</li><li>
+	<p>Once you&#39;ve configured the report server database, grant the roles to the SSRS service account the roles required. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Permissions/SSRSAccount/Overview.htm" target="_self">Configure SSRS Account</a>.</p>
+	</li><li>
+	<p>Restart <strong>Netwrix Auditor Archive Service</strong> and <strong>Netwrix Auditor Management Service</strong> in your Netwrix Auditor server via Services.</p>
+	</li></ol>
+</div>
+</body>
+</html>

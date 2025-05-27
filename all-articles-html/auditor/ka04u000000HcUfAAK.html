@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users access their own mailboxes</title>
+    <meta name="article-id" content="ka04u000000HcUfAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003552">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:32.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9buCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9buCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:32.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="meta-description" content="The KB provides how to configure Netwrix Auditor to exclude information of users accessing their own mailboxes.">
+    <meta name="meta-title" content="Users access their own mailboxes">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1388">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9buCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Users access their own mailboxes</h1>
+    The Non-owner Mailbox Access Reporter shows that users access their own mailboxes.
+<hr></hr>There is a Mailbox Archive option in Microsoft Exchange that creates a linked mailbox with the same name as the user&#39;s own mailbox. The user is not an owner of that linked archive mailbox. Each time the user runs Outlook, it reads the archive mailbox content, basically performing non-owner access.
+<hr></hr> In order to omit such events perform the following steps:
+<ol><li>On the Exchange server, run the Exchange Management Shell and perform the following cmdlet &#39;Get-Mailbox | %{$mailboxstring = &quot;&quot;; $mailboxstring += &quot;%domain name%&quot;;$mailboxstring += &quot;&quot;;$mailboxstring += $_.samaccountname; $mailboxstring += &quot;=&quot;; $mailboxstring += $_.emailaddresses[0].addressstring; echo $mailboxstring &gt;&gt; C:\usermailboxesomitlist.txt}&#39; (without quotes and replace the %domain name% with netbios name of your domain name).</li><li>Copy the usermailboxesomitlist.txt from the Exchange server to the Non-owner Mailbox Access Reporter installation folder, by default it is C:\Program Files (x86)\Netwrix Auditor\Non-owner Mailbox Access Reporter for Exchange</li></ol>
+NOTE: If you create a new user with mailbox, you should add it to the existing usermailboxesomitlist.txt file located at the Non-owner Mailbox Access Reporter home folder using the following format: domainusername=mailbox (E.g.: CORPjsmith=jsmith@corp.com).
+</body>
+</html>

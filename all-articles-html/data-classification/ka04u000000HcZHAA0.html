@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text not being extracted from ZIP files</title>
+    <meta name="article-id" content="ka04u000000HcZHAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000005YG2zAAG">
+    <meta name="articlecreateddate" content="2020-10-26T20:39:05.000Z">
+    <meta name="articlenumber" content="000005822">
+    <meta name="createdbyid" content="0050g000005YG2zAAG">
+    <meta name="createddate" content="2023-05-08T09:53:09.000Z">
+    <meta name="firstpublisheddate" content="2020-10-26T20:39:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000H69CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000H69CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:53:09.000Z">
+    <meta name="lastpublisheddate" content="2020-10-26T20:44:28.000Z">
+    <meta name="meta-description" content="Text-not-being-extracted-from-ZIP-files">
+    <meta name="meta-title" content="Text-not-being-extracted-from-ZIP-files">
+    <meta name="ownerid" content="0050g000005YG2zAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5822">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000H69CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Text not being extracted from ZIP files</h1>
+    <h2>Expected Behavior</h2>
+.zip files should be classified based on the sum of their content. This means that the documents within are read as a single file and the .zip is classified as a whole.
+
+<h2>Issue</h2>
+<span style="font-size: 11.0pt;"><span style=""><span style="">When reviewing .zip files in the Netwrix Data Classification interface you realize that no text has been extracted from them and they are therefore not being classified based on their content.</span></span></span><br>�
+<h2>Resolution</h2>
+<span style="font-size: 11.0pt;"><span style=""><span style="">To extract text from a .zip file Netwrix Data Classification uses <b>ifilters</b>. For .zip files, <a href="https://download.microsoft.com/download/0/A/2/0A28BBFA-CBFA-4C03-A739-30CCA5E21659/FilterPack64bit.exe" target="_blank">this filter pack</a> must be installed on the NDC server (or each server in a DQS cluster)</span></span></span>
+
+<h2>�</h2>
+
+<h2>�</h2>
+</body>
+</html>

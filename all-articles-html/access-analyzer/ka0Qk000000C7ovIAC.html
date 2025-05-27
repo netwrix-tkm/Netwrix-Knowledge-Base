@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL transaction issue due to which Netwrix Access Analyzer console is not accessible</title>
+    <meta name="article-id" content="ka0Qk000000C7ovIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-02-03T20:03:07.000Z">
+    <meta name="articlenumber" content="000009388">
+    <meta name="assignedbyid" content="005Qk000001wMM9IAM">
+    <meta name="assignedtoid" content="0054u000007p4sbAAA">
+    <meta name="assignmentdate" content="2025-02-03T20:04:51.000Z">
+    <meta name="assignmentduedate" content="2025-02-24T05:00:00.000Z">
+    <meta name="assignmentnote" content="Hi Damir,
+
+Thank you for flagging your ticket for a KB draft. We have assigned it to you to help with any potential revisions. Let us know if you have any questions!">
+    <meta name="case" content="500Qk00000DpDgTIAV">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-02-03T20:03:07.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001y5NKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001y5NKAQ">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-09T13:00:32.000Z">
+    <meta name="meta-description" content="SQL transaction issue due to which Netwrix Access Analyzer console is not accessible">
+    <meta name="meta-title" content="SQL transaction issue due to which Netwrix Access Analyzer console is not accessible">
+    <meta name="ownerid" content="0054u000007p4sbAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9388">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001y5NKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SQL transaction issue due to which Netwrix Access Analyzer console is not accessible</h1>
+    Symptom<br>Access Analyzer Console hangs at launch during &quot;Test SQL Connection&quot;<br><br>Cause<br>long running queries on the SQL server are blocking the test query from completing.  In this instance the queries were related to the usage statistics feature that Access Analyzer reports back to Netwrix.<br><br>Unchecking &quot;Send Usage Statistics&quot; did not prevent these queries from running.<br><br>Resolution<br>the *.proc files located at C:\Program Files (x86)\STEALTHbits\StealthAUDIT\SP\SQLScripts\UsageStatistics had to moved out of the folder. After this action the console completed the Test SQL Connection quickly.<br><br>R&amp;D is investigating why unchecking the &quot;Send Usage Statistics&quot; did not prevent they queries from running.<br><br>----------<br><br>The customer has disabled the &quot;Usage Statistics&quot; setting within Access Analyzer. Customer to report any change in behavior when launching console.<br><br>No Change<br><br>Manually remove Usage Statistic control files:<br>1. Navigate to C:\Program Files (x86)\STEALTHbits\StealthAUDIT\SP\SQLScripts\UsageStatistics.<br>2. Move all .proc files from this folder (to any backup folder for example).<br>3. Launch Access Analyzer console<br><br>console successfully launches
+</body>
+</html>

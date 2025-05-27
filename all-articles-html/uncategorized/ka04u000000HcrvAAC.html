@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.2_019</title>
+    <meta name="article-id" content="ka04u000000HcrvAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:26:34.000Z">
+    <meta name="articlenumber" content="000006825">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:09:06.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:26:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IdOCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IdOCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:09:06.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:26:34.000Z">
+    <meta name="meta-description" content="360012326351">
+    <meta name="meta-title" content="Hotfix: SA_8.2_019">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6825">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IdOCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.2_019</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> FSAA proxy does not scan unless more than port 8766 is open when running proxy as a service.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong>�FSAA proxy does not scan unless more than port 8766 is open when running proxy as a service.<br><strong><span style="font-family: calibri,sans-serif;">Before Fix: FSAA Proxy scan required port 8766 and port 445 open on proxy server to run scans with proxy service</span></strong><br><strong><span style="font-family: calibri,sans-serif;">After fix: Only port 8766 is required to be open to run scans with proxy service. </span></strong><br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Michael Burrofato<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>�8.2<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SA - DC - FSAA<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong> 
+</p><ul><li><span style="color: black;">SAFS-16149</span></li></ul><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong> 
+<ul><li>DCFSAA.dll�������������������������������������������������������������������������������������������� 8.2.1049
+</li><li>FSAASrv.dll�������������������������������������������������������������������������������������������� 8.2.1049
+</li><li>Stealthbits.StealthAUDIT.DataCollectors.FSAA.dll���������������������� 8.2.1049</li></ul><b>Other dependencies included:</b> 
+<ul><li>Stealthbits.StealthAUDIT.DataCollectors.FSAA.RPCClient.dll��� 8.2.0</li></ul><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>�������������� Hotfix<br>�<br><strong><span style="font-family: calibri,sans-serif;">YouTrack/Escalations</span></strong><br>�<br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-16149/Escalation </span></strong><span><span style="color: #1a1a1a;"><span style="font-family: segoe ui,sans-serif;"><span style="font-size: 10pt;">32095</span></span></span></span><br>�<br><strong><span style="font-family: calibri,sans-serif;">Customers</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� Schlumberger Technology Corporation</span></strong><br>�<br><strong><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15752 Exclude and throw warning about files with malformed names similar to the way we treat files with trailing spaces in the name</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-806 FSAA | Folders not marked as deleted</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15766 FS Errors 7.2 to 8.2 Upgrade</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15796 30404 - StealthAUDIT | 8.2 File System DC Bulk Import Error</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15805 Error in scan when HostMasterTbl has NULL values</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15933 Change RESET functionality to reset even if the guids match</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-16063 31668 - FSAA File Property Information not updating when everything in folder is deleted</span></strong><br>�<br><strong><span style="font-family: calibri,sans-serif;">Changes since last Hotfix</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15720 29643 - Add Status Messages when Deleting Old Activity</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-15171 FSAA: Update host inventory dependencies to only require OSType</span></strong><br><strong><span style="font-family: calibri,sans-serif;">-������������� SAFS-16149 32095 - 8.2 FSAA proxy does not scan unless more than port 8766 is open</span></strong><br>�<br><b><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">Comments:</span></span></b><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<b><span style="color: red;"><span style="font-size: 15pt;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there.�</span></span></b>
+</li><li>Close all instances of StealthAUDIT (check task manager under processes for all users)
+</li><li>
+<strong><span style="font-family: calibri,sans-serif;">Update all DC files in your %SAInstallDir%DC folder</span></strong>
+</li><li>
+<strong><span style="font-family: calibri,sans-serif;">Update all PrivateAssemblies in your %SAInstallDir%PrivateAssemblies folder.</span></strong>
+</li><li><strong><span style="font-family: calibri,sans-serif;">Run the &#39;Update Proxy Service&#39; query under the Maintenance tab in the FSAA data collector against your proxy servers (if running proxy service).</span></strong></li></ol>�<br><b><u><span style="color: red;">ADDITIONAL STEPS IF YOU HAVE DELETED RESOURCES NOT MARKED AS DELETED IN TIER 1</span></u></b><br><strong><span style="font-family: calibri,sans-serif;">The following hotfix includes a fix that requires the Job XML for ALL FSAA scans and bulk import jobs (permissions, activity, and Sensitive Data) to be manually modified. See screenshot below for the syntax required.</span></strong><br>�<br><img alt="User-added image" src="" width="500" height="169"></img><br>�<br>�<br>�<br>�<br>�<br>�<br>�<br>�<br>� 
+<ol><li>Drop the contents located in the FSAA folder of this hotfix into the FSAA folder of your local SA Console.
+</li><li>Open an elevated command prompt and change directory to FSAA folder.</li></ol><span><span style="color: #1a1a1a;"><span style="font-family: segoe ui,sans-serif;"><span style="font-size: 10.5pt;">1) To update all tier2 files: </span></span></span></span><span style="color: #660066;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">FSAAUpdateDeletedUSN</span></span></span><span style="color: #666600;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">.</span></span></span><span style="color: black;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">exe </span></span></span><span style="color: #666600;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">-</span></span></span><span style="color: black;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">a</span></span></span><br><span style="color: #1a1a1a;"><span style="font-family: segoe ui,sans-serif;"><span style="font-size: 10.5pt;"><span>2) To update a single host: </span></span></span></span><span style="color: #660066;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">FSAAUpdateDeletedUSN</span></span></span><span style="color: #666600;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">.</span></span></span><span style="color: black;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;">exe </span></span></span><span style="color: #008800;"><span style="font-family: courier new;"><span style="font-size: 10.5pt;"></span></span></span> 
+<ol><li>Run FSAA permission bulk import against the affected hosts.</li></ol>
+<div>� 
+<table cellspacing="0" cellpadding="0" width="484" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="484"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_019.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_019.zip</a></td></tr></tbody></table>
+</div><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity;SA - DC - FSAA - DFS;SA - DC - FSAA - Permissions<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAFS-16149<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	DCFSAA.dll							8.2.1049
+-	FSAASrv.dll							8.2.1049
+-	Stealthbits.StealthAUDIT.DataCollectors.FSAA.dll		8.2.1049
+
+Other dependencies included:
+-	Stealthbits.StealthAUDIT.DataCollectors.FSAA.RPCClient.dll	8.2.0<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2269<br></p>
+</body>
+</html>

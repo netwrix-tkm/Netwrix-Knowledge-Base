@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Upgrade from SbPAM v3.6 to Netwrix Privilege Secure v4.0</title>
+    <meta name="article-id" content="ka04u0000011620AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-06-08T16:43:36.000Z">
+    <meta name="articlenumber" content="000008610">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-06-08T17:15:27.000Z">
+    <meta name="firstpublisheddate" content="2023-06-08T16:52:45.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110g4CAA">
+    <meta name="knowledge-article-id" content="kA04u00000110g4CAA">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-06-08T17:15:52.000Z">
+    <meta name="lastpublisheddate" content="2023-06-08T16:52:45.000Z">
+    <meta name="meta-description" content="How to Upgrade from SbPAM v3.6 to Netwrix Privilege Secure 4.0">
+    <meta name="meta-title" content="How to Upgrade from SbPAM v3.6 to Netwrix Privilege Secure 4.0">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8610">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110g4CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Upgrade from SbPAM v3.6 to Netwrix Privilege Secure v4.0</h1>
+    <span style="color: #2980b9;"><strong>NOTE</strong></span>: On all upgrades, the previous version will be uninstalled automatically prior to the installer running. In addition, a reboot will occur following any new install or upgrade to V 4.0 or higher.
+<ol><li style="margin-left: 8px;"><span style="font-size: 10pt;"><span style="line-height: 115%;"><span style="font-family: &quot;Open Sans&quot;,sans-serif;"><span style="font-size: 12.0pt;"><span style="background: white;"><span style="line-height: 115%;"><span style="color: #181818;">Following the upgrade and reboot, log into the Netwrix Privilege Secure UI as an administrative user and verify that the services reregister.</span></span></span></span></span></span></span></li><li style="margin-left: 8px;"><span style="font-size: 10pt;"><span style="line-height: 115%;"><span style="font-family: &quot;Open Sans&quot;,sans-serif;"><span style="font-size: 12.0pt;"><span style="background: white;"><span style="line-height: 115%;"><span style="color: #181818;">Ensure that services are all green under Service Nodes. Refresh if necessary as they update.</span></span></span></span></span></span></span></li><li style="margin-bottom: 13px;margin-left: 8px;"><span style="font-size: 10pt;"><span style="line-height: 115%;"><span style="font-family: &quot;Open Sans&quot;,sans-serif;"><span style="font-size: 12.0pt;"><span style="background: white;"><span style="line-height: 115%;"><span style="color: #181818;">Restart the Proxy service (this will also restart dependent services) via services.msc.<br>	The upgrade is now complete.</span></span></span></span></span></span></span></li></ol>
+<span style="color: #c0392b;"><strong>IMPORTANT</strong></span>: It is recommended to open each managed domain under Resources and run a test to verify that the service account is correct. This is to ensure that the service account password was unaffected during the upgrade. If this happens, re-enter the service account password and retest to verify operation.
+</body>
+</html>

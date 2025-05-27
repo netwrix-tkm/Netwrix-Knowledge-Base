@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failed to login by user: &lt;netwrix service account&gt;</title>
+    <meta name="article-id" content="ka04u000000HcSZAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:07.000Z">
+    <meta name="articlenumber" content="000003408">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:38.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZYCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZYCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:39.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:38.000Z">
+    <meta name="meta-description" content="failed to login by user netwrix service account database reporting">
+    <meta name="meta-title" content="Failed to login by user: &lt;netwrix service account&gt;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1259">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZYCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Failed to login by user: &lt;netwrix service account&gt;</h1>
+    You receive the error message &quot;Failed to login by user: &lt;Netwrix service account&gt;&quot;.
+
+<hr></hr>
+
+The Netwrix service account does not have access to login/upload data to the SQL database.
+
+<hr></hr>
+
+Login to SQL Server Management Studio for your SQL instance and perform the following steps:
+
+1. Select <strong>Security</strong>
+2. Select <strong>New Login</strong>
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcSZ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000006XV3" alt="User-added image"></img>
+
+1. Enter the netwrix service account into the <strong>Login name </strong>field
+2. Select <strong>Server Roles</strong>
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcSZ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000006XV8" alt="User-added image" width="500" height="127"></img>
+
+Check <strong>sysadmin</strong> role to give full access to the netwrix service account
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcSZ&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000006XVD" alt="User-added image"></img>
+</body>
+</html>

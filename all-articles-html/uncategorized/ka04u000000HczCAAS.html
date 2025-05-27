@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Working Directory to Alternative Drive in Command Prompt</title>
+    <meta name="article-id" content="ka04u000000HczCAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:44:28.000Z">
+    <meta name="articlenumber" content="000007369">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:52.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:44:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IxTCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IxTCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:52.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:44:29.000Z">
+    <meta name="meta-description" content="360008816812">
+    <meta name="meta-title" content="Change Working Directory to Alternative Drive in Command Prompt">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7369">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IxTCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Change Working Directory to Alternative Drive in Command Prompt</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Shows how to set the working directory to a folder on another volume by specifying additional parameters</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> When changing directory from one to drive to another in command prompt windows does not change the working directory. �Instead, you need to first change the drive the directory is on first, which can be annoying (or unknown).� For example open command prompt it will take you into the users working directory typically <span style="font-family: lucida console;"><span style="font-size: 10pt;">C:\Users\username</span></span> - now type <span style="font-family: lucida console;"><span style="font-size: 10pt;">cd E:\somefolder</span></span> on E: drive it will show <span style="font-family: lucida console;"><span style="font-size: 10pt;">C:\Users\username</span></span> until you type the drive letter - in this example, E:<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> open command prompt type <span style="font-family: lucida console;"><span style="font-size: 10pt;">cd /d [path you want to enter]</span></span>.� Note you can use windows environmental variables here also. The <b><span style="font-family: lucida console;"><span style="font-size: 10pt;">/d</span></span></b> switch tells CMD that you&#39;re specifying a different drive than the current one.<br>�<br>Example: 
+</p><ul><li>Not working: Open command prompt on a server that has StealthAUDIT installed in a different drive to C:\, type in <span style="font-family: lucida console;"><span style="font-size: 10pt;">cd %sainstalldir%</span></span> and press enter. You will not that it reverts to working directory of the users profile.� Close command prompt.
+</li><li>Working: Open command prompt on a server that has StealthAUDIT type in <span style="font-family: lucida console;"><span style="font-size: 10pt;">cd <b>/d</b> %sainstalldir%</span></span> and press enter. You will now see it change to the correct directory</li></ul>�<br>Notes:<br>� 
+<ul><li>You can also simply type the drive letter of the destination directory, which will set the working directory to the root of the volume. From there, the cd command no longer requires the <b>/d</b> switch.
+</li><li>Windows PowerShell handles this without the need to leverage the <b><span style="font-family: lucida console;"><span style="font-size: 10pt;">/d</span></span></b> parameter, since cd in PowerShell is actually an alias for the <span style="font-family: lucida console;"><span style="font-size: 10pt;">Set-Location</span></span> cmdlet, which is completely different (though similar) to the <span style="font-family: lucida console;"><span style="font-size: 10pt;">cd</span></span> command in the standard Windows Command Prompt.</li></ul><p><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> Windows 1.0 and later<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2235<br></p>
+</body>
+</html>

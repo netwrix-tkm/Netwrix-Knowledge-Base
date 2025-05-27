@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Exclude System Account From Event Log</title>
+    <meta name="article-id" content="ka04u00000117qQAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-09-15T12:38:16.000Z">
+    <meta name="articlenumber" content="000008809">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-09-19T11:52:48.000Z">
+    <meta name="firstpublisheddate" content="2023-09-15T12:38:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111DNCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111DNCAY">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-09-19T11:53:02.000Z">
+    <meta name="lastpublisheddate" content="2023-09-19T11:53:02.000Z">
+    <meta name="meta-description" content="This article explains how to exclude SYSTEM account from Event Log.">
+    <meta name="meta-title" content="How to Exclude System Account From Event Log">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8809">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111DNCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Exclude System Account From Event Log</h1>
+    <h1>Question</h1>
+
+<div>
+<p>In some cases, for example, if an Antivirus running under the SYSTEM account generates multiple events and saturates the Windows logs, you might want to exclude the SYSTEM account from being shown in the Windows Event Logs or got monitored at all.</p>
+
+<p>This article answers the question on how to exclude the SYSTEM account from logs.</p>
+</div>
+
+<h1>Answer</h1>
+
+<div>
+<p>You can do that in two ways:</p>
+
+<ul><li>
+	<p>Set a filter for the SYSTEM account to not show in the event logs. Learn more in <a href="https://learn.microsoft.com/en-us/host-integration-server/core/how-to-filter-events2" target="_blank">Windows Event Viewer � How to Filter Events ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p>Change the audit policy for the SYSTEM account to not get monitored. Learn more in <a href="https://learn.microsoft.com/en-us/host-integration-server/core/windows-event-viewer1" target="_blank">Windows Event Viewer ? Microsoft &#129125;</a></p>
+
+	<p>�</p>
+	</li></ul>
+</div>
+</body>
+</html>

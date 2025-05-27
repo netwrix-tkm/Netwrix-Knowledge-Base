@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;Failed to detect the current audit settings in the managed domain.&quot;</title>
+    <meta name="article-id" content="ka04u000000HcS0AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:06.000Z">
+    <meta name="articlenumber" content="000003373">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:48:22.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:31.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9YzCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9YzCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:48:22.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:31.000Z">
+    <meta name="meta-description" content="you need to log into the system as another user who has the required permission
+product installation folder,
+Active Directory Audit Configuration %%post_excerpt%%">
+    <meta name="meta-title" content="Error: &quot;Failed to detect the current audit settings ....&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1221">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9YzCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;Failed to detect the current audit settings in the managed domain.&quot;</h1>
+    You are getting the following error during the configuration of audit settings in your domain using the Active Directory Audit Configuration Wizard.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcS0&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005Cwt" alt="User-added image"></img>
+
+<hr></hr>
+
+The account you use to run the <strong>Active Directory Audit Configuration</strong> wizard with Netwrix Auditor does not have the permissions to check current audit settings.
+
+The account must have the &#39;Managed Auditing and Security log&#39; privilege.
+
+<hr></hr>
+
+By default the <strong>Active Directory Audit Configuration </strong>wizard is run under the credentials of the current Windows session (On behalf of a user who logged in to the machine and started the Netwrix Auditor console).
+
+To resolve this issue, you need to log into the system as another user who has the required permission, or perform the following:
+<ol><li>Go to the product installation folder, by default <strong>C:Program Files (x86)NetwrixActive Directory Auditing</strong></li><li>Locate the <strong>Active Directory Audit Configuration </strong>shortcut<strong>.</strong></li><li>SHIFT + right-click on the <strong>Active Directory Audit Configuration </strong>shortcut,<strong> </strong>select &quot;<strong>Run as different use</strong>r&quot; and specify <strong>domain admin credentials, </strong>or an account that is known to have the &#39;Managed Auditing and Security log&#39; privilege.</li></ol>
+Refer to the following Microsoft knowledge base <a href="http://windows.microsoft.com/en-us/windows7/how-do-i-run-an-application-once-with-a-full-administrator-access-token" target="_blank">article</a> on how to run an application as an Administrator:
+</body>
+</html>

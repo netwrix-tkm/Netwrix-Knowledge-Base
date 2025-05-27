@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWindowsAgent_7.0.1.658_SI-4116</title>
+    <meta name="article-id" content="ka04u000000HcbmAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:16:32.000Z">
+    <meta name="articlenumber" content="000006451">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T09:59:03.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:16:33.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Hw3CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Hw3CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:59:04.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:16:33.000Z">
+    <meta name="meta-description" content="360012021532">
+    <meta name="meta-title" content="Hotfix: SIWindowsAgent_7.0.1.658_SI-4116">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6451">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Hw3CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWindowsAgent_7.0.1.658_SI-4116</h1>
+    <p><strong>Summary: </strong></p>
+<p>High File Monitor CPU utilization</p>
+<p><strong>Behavior before Fix: </strong></p>
+<p>Rule Engine Path evaluation is slow in case of big number of monitored GPO</p>
+<p><strong>Behavior after Fix: </strong></p>
+<p>There is new configuration parameter in the SIWindowsAgent.exe.config file: �gpoFoldersSearchLimit�</p>
+<p>Default value is &quot;30&quot;</p>
+<p>If we will see more than 30 folders there then instead if listing individual folders we will put higher level folder.</p>
+<p><strong>Changes since Last Hotfix:</strong></p>
+<p>I-6535 [LINK - OCC] SI-4116 51413 - High File Monitor CPU utilization</p>
+<p><strong>Submitted by: </strong></p>
+<p>Maxim Sidarau��</p>
+<p><strong>Affected Versions:</strong></p>
+<p>7.0.1����� SIWindowsAgent_7.0.1.658_I-6535</p>
+<p><strong>Affected Module:</strong></p>
+<p>SI - Windows Agent</p>
+<p><strong>Dev Ticket:</strong></p>
+<p>I-6535</p>
+<p><strong>Resolved in Version:</strong></p>
+<p>7.0.1.658</p>
+<p><strong>KB Type: </strong></p>
+<p>Hotfix</p>
+<p><strong>�</strong></p>
+<p><strong>Modules Included: </strong>SI - Windows Agent</p>
+<p><strong>YouTrack/Escalations: </strong>I-6535</p>
+<p><strong>Customers:� </strong></p>
+<p><strong>Cumulative List of fixes included since Service Pack:</strong></p>
+<p><strong>Instructions:</strong></p>
+<p>Upgrade SI Agent to 7.0.1.658 or newer</p>
+</body>
+</html>

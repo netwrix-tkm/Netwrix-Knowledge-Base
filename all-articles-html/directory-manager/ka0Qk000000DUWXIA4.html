@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntraID Application Proxy Configuration</title>
+    <meta name="article-id" content="ka0Qk000000DUWXIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F0JoAAK">
+    <meta name="articlecreateddate" content="2024-05-13T18:02:26.000Z">
+    <meta name="articlenumber" content="000009165">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk00000015gnKAA">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210098278639745?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F0JoAAK">
+    <meta name="createddate" content="2025-04-29T20:07:45.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-05-13T18:03:15.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000015gnKAA">
+    <meta name="knowledge-article-id" content="kA0Qk00000015gnKAA">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-04-29T20:14:07.000Z">
+    <meta name="lastpublisheddate" content="2025-04-28T14:44:20.000Z">
+    <meta name="meta-description" content="EntraID Application Proxy Configuration">
+    <meta name="meta-title" content="EntraID Application Proxy Configuration">
+    <meta name="ownerid" content="0054u000008F0JoAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9165">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000015gnKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>EntraID Application Proxy Configuration</h1>
+    <h2>Overview</h2>
+<p>This article provides step-by-step instructions for configuring Entra Tenant Application Proxy for use with Netwrix Directory Manager (formerly GroupID). The process includes installing the outbound connector, configuring the application proxy, updating URLs, and managing SSL certificates.</p>
+<h2>Instructions</h2>
+<h4>Configure Entra Tenant Application Proxy</h4>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iR" alt="Entra Tenant Application Proxy configuration screen with key fields visible" style="width: 601px;height: 268px;"></img></p>
+<h4>Install Outbound Connector on Directory Manager Machine</h4>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iS" alt="Outbound connector installation window on Directory Manager machine" style="width: 470px;height: 319px;"></img></p>
+<h4>Configure Outbound Proxy</h4>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iT" alt="Outbound proxy configuration screen" style="width: 477px;height: 331px;"></img></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iU" alt="Additional outbound proxy configuration options" style="width: 601px;height: 318px;"></img></p>
+<h4>Configure the Application</h4>
+<ol><li>Click <strong>Configure an App</strong>.</li><li>Provide a suitable name for the application.</li><li>Copy the external application URL: <br><a href="https://GroupID10SSP-5l607h.msappproxy.net/Directory Manager/" target="_blank">https://GroupID10SSP-5l607h.msappproxy.net/GroupID/</a></li><li>Add the internal URL in the Application Proxy configuration: <br><a href="https://onenexx2:4443/" target="_blank">https://onenexx2:4443/</a>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iV" alt="Application proxy configuration with internal and external URLs" style="width: 601px;height: 273px;"></img></div>
+</li></ol>
+<h4>Register the Application and Assign Users</h4>
+<ol><li>Go to <strong>App Registration</strong> and open <strong>All Applications</strong>.
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iW" alt="App Registration screen showing all applications" style="width: 602px;height: 268px;"></img></div>
+Assign users to this application.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iX" alt="Assigning users to the application in App Registration" style="width: 601px;height: 302px;"></img></p>
+<h4>Create and Upload an SSL Certificate</h4>
+<ol><li>Create an SSL certificate.
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iY" alt="SSL certificate creation window" style="width: 602px;height: 284px;"></img></div>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3iZ" alt="SSL certificate details screen" style="width: 601px;height: 271px;"></img></div>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3ia" alt="SSL certificate management interface" style="width: 602px;height: 319px;"></img></div>
+</li><li>Upload the certificate.
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3ib" alt="Upload certificate screen" style="width: 601px;height: 281px;"></img></div>
+</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Self-signed certificates will not work. Add a public certificate instead. You can turn off SSL in the application proxy to test the configuration.</p>
+</blockquote>
+<h4>Update Portal URLs with External URLs (Application Proxy)</h4>
+<ol><li>Change the portal URLs to use the external URLs provided by the application proxy.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3ic" alt="Portal URL configuration screen" style="width: 602px;height: 424px;"></img></p>
+<ol start="2"><li>Verify that the changes are reflected in the <strong>svc.client</strong> table and <strong>web.config</strong> file.</li></ol>
+<p>The following Web.config changes are required:</p>
+<p>External URL: <a href="https://GroupID10SSP-5l607h.msappproxy.net/Directory Manager/" target="_blank">https://GroupID10SSP-5l607h.msappproxy.net/GroupID/</a></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3id" alt="web.config file showing updated external URL" style="width: 486px;height: 233px;"></img></p>
+<ol start="3"><li>Edit the <strong>Issuer</strong> and <strong>Realm</strong> URLs as needed:</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3ie" alt="Issuer and Realm URL configuration screen" style="width: 602px;height: 319px;"></img></p>
+<ol start="4"><li>Update the <strong>svc.client</strong> table in the database with the return, error, and realm URLs.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Paste all URLs with a forward slash at the end. For example: <a href="https://groupid10ssp-5l607h.msappproxy.net/Directory Manager/" target="_blank">https://groupid10ssp-5l607h.msappproxy.net/GroupID/</a></p>
+</blockquote>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DUWX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n3if" alt="svc.client table showing updated URLs" style="width: 601px;height: 226px;"></img></p>
+<h2>Related Links</h2>
+<ul><li><a href="https://GroupID10SSP-5l607h.msappproxy.net/GroupID/" target="_blank">External Application URL for Directory Manager</a></li><li><a href="https://onenexx2:4443/" target="_blank">Internal URL for Application Proxy</a></li><li><a href="https://groupid10ssp-5l607h.msappproxy.net/GroupID/" target="_blank">Issuer and Realm URL Example</a></li></ul>
+</body>
+</html>

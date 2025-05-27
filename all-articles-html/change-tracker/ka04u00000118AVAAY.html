@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 413 Request Entity Too Large</title>
+    <meta name="article-id" content="ka04u00000118AVAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-10-11T15:21:28.000Z">
+    <meta name="articlenumber" content="000008852">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-10-13T10:25:54.000Z">
+    <meta name="firstpublisheddate" content="2023-10-11T15:21:37.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111KTCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111KTCAY">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-10-13T10:26:10.000Z">
+    <meta name="lastpublisheddate" content="2023-10-13T10:26:10.000Z">
+    <meta name="meta-description" content="This article contains resolution steps for the Error 413 Request Entity Too Large.">
+    <meta name="meta-title" content="Error 413 Request Entity Too Large">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8852">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111KTCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error 413 Request Entity Too Large</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>A windows Server where Netwrix Change Tracker Agent is installed is online for a few hours and goes down. And the agent&#39;s rolling-log contains the following erroe:</p>
+
+<pre class="has-inner-focus">
+The remote server returned an error: (413) Request Entity Too Large.</pre>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>The <code>maxAllowedContentLength</code> setting is configured incorrectly in the configuration file.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Edit the web.config file according the instructions below.</p>
+
+<ol><li>
+	<p>On the problematic server, navigate to <em>C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) Hub</em> and locate the <b>web.config file</b>.</p>
+	</li><li>
+	<p>Take a backup of the web.config file:</p>
+
+	<ul><li>Before making any changes to the web.config file, it is recommended to take a backup for safety.</li><li>Copy the web.config file and save it to a different location on your system.</li></ul>
+	</li><li>
+	<p>Open the <b>web.config</b> file using a text editor.</p>
+	</li><li>
+	<p>Modify the <code>maxAllowedContentLength</code> setting: Locate the <code>system.webServer</code> section and add or modify the following line:</p>
+
+	<div>
+	<pre class="has-inner-focus">
+&lt;security&gt;
+&lt;requestFiltering&gt;
+&lt;requestLimits maxAllowedContentLength=&quot;214748364&quot; /&gt;
+&lt;/requestFiltering&gt;
+&lt;/security&gt;<code class="lang-Registry">security
+</code></pre>
+	</div>
+
+	<p>Set the <code>maxAllowedContentLength</code> value to <code>214748364</code>. The default value should be <code>67108864</code>. For reference, 1MB is 1048576 bytes.</p>
+	</li><li>
+	<p>Save your edits in the web.config file.</p>
+	</li><li>Restart the IIS service.</li></ol>
+
+<p>By following these steps, you should be able to resolve the issue. Remember to take a backup of the web.config file before making any changes to ensure you can revert back if needed.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error When Running Event Queries</title>
+    <meta name="article-id" content="ka0Qk0000006gxRIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-03-22T13:22:46.000Z">
+    <meta name="articlenumber" content="000009077">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-10-16T13:59:17.000Z">
+    <meta name="firstpublisheddate" content="2024-03-22T13:22:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000WkfKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000WkfKAE">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2024-10-16T13:59:31.000Z">
+    <meta name="lastpublisheddate" content="2024-10-16T13:58:37.000Z">
+    <meta name="meta-description" content="System Error When Running Event Queries">
+    <meta name="meta-title" content="System Error When Running Event Queries">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9077">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000WkfKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>System Error When Running Event Queries</h1>
+    <h2>Symptom</h2>
+<div>
+<p>In Netwrix Change Tracker, when an Events query includes a text search, it generates a simple System Error message in the lower-right corner of the screen indicating that the query will not complete successfully or that it will time out.</p>
+</div>
+<h2>Cause</h2>
+<div>
+<p>The default <strong>TextSearchMethod</strong> setting is <strong>Text</strong>, which cannot handle the complexity of the query. The query requires a new search configuration.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Follow the steps below to resolve the issue:</p>
+<ol><li>
+<p>Log in to Change Tracker.</p>
+</li><li>
+<p>Navigate to <b>Settings</b> &gt; <b>System Settings</b>.</p>
+</li><li>
+<p>Scroll down and click on <b>Show Advanced Options</b> at the bottom of the page.</p>
+</li><li>
+<p>Scroll down until you find <b>Configuration Settings</b> and click on <b>Add Config Item</b>.</p>
+</li><li>
+<p>Add all of following options:</p>
+</li></ol>
+<ol style="margin-left: 40px;"><li>Description: TextSearchMethod<br>Value: regex</li><li>Description: MaxEventQueryTimeMs<br>Value: 600000</li><li>Description: MaxEventCountTimeMs<br>Value: 5000</li></ol>
+<ol start="6"><li>
+<p>Click <b>Update</b>.</p>
+</li></ol>
+</div>
+</body>
+</html>

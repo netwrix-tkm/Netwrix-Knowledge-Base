@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to configure Exchange Online State-in-Time Modern Authentication manually</title>
+    <meta name="article-id" content="ka04u000000HdEhAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2021-04-22T12:55:29.000Z">
+    <meta name="articlenumber" content="000005861">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-05-08T10:19:42.000Z">
+    <meta name="firstpublisheddate" content="2021-04-23T16:51:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Pd5tCAC">
+    <meta name="knowledge-article-id" content="kA04u000000Pd5tCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:42.000Z">
+    <meta name="lastpublisheddate" content="2021-11-08T11:08:50.000Z">
+    <meta name="meta-description" content="How to configure Exchange Online State-in-Time Modern Authentication manually">
+    <meta name="meta-title" content="Exchange Online Modern Authentication manual configuration">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5861">
+    <meta name="versionnumber" content="8">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Pd5tCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to configure Exchange Online State-in-Time Modern Authentication manually</h1>
+    If you got errors from Netwrix Auditor during the automatic configuration of�the certificate, do the following:
+<ol><li>In Netwrix Auditor, find your Exchange Online monitoring plan.</li><li>Click <b>Update </b>to force data collection.</li></ol>
+If the error still persists, or you want to preconfigure the work with certificate, follow the instructions below.�
+
+<p><b><span style="color: #c0392b;">Important!</span>�</b>Install the ExchangeOnlineManagement PowerShell module. Refer to the following Netwrix knowledge base article for instructions:�<a href="https://kb.netwrix.com/5862" target="_blank">How to install ExchangeOnlineManagement PowerShell module</a>.</p>
+
+<h1><b>Certificate installation</b></h1>
+
+<ol><li>Get your certificate or generate a self-signed certificate.</li></ol>
+
+<div style="margin-left: 40px;"><span style="color: #c0392b;"><b>Important! </b></span>The name must be Netwrix_Auditor_MFA_&lt;your_tenant_name&gt;</div>
+
+<ol start="2"><li>Save the certificate to the <i>CurrentUser/My certificate </i>folder for the Local System account.</li><li>Upload the certificate to the application selected in your monitoring plan or configure it automatically with Netwrix Auditor.</li></ol>
+
+<h1><b>How to generate a self-signed certificate</b></h1>
+Open Windows PowerShell as an Administrator and run the following commands:
+
+<pre>
+<span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: green;"># Create certificate</span></span></span></span></span></span></span>
+<span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;">$mycert = </span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #0101fd;">New-SelfSignedCertificate</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -DnsName</span></span></span></span> <span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #a31515;">&quot;example.com&quot;</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -CertStoreLocation</span></span></span></span> <span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #a31515;">&quot;cert:\LocalMachine\My&quot;</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -NotAfter</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;"> (</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #0101fd;">Get-Date</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;">).AddYears(1)</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -KeySpec</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;"> KeyExchange</span></span></span></span></span></span></span>
+
+<span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: green;"># Export certificate to .pfx file</span></span></span></span></span></span></span>
+<span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;">$mycert | </span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #0101fd;">Export-PfxCertificate</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -FilePath</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;"> mycert.pfx</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -Password</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;"> $(</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #0101fd;">ConvertTo-SecureString</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -String</span></span></span></span> <span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #a31515;">&quot;your_password&quot;</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -Force -AsPlainText</span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: #171717;">)</span></span></span></span></span></span></span>
+
+<span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10.5pt;"><span style=""><span style="font-family: Consolas;"><span style="color: green;"># Export certificate to .cer file</span></span></span></span></span></span></span>
+<span style="font-size: 11pt;"><span style=""><span style="font-family: Calibri,sans-serif;"><span style="font-size: 10.5pt;"><span style=""><span style=""><span style="font-family: Consolas;"><span style="color: #171717;">$mycert | </span></span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style=""><span style="font-family: Consolas;"><span style="color: #0101fd;">Export-Certificate</span></span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style=""><span style="font-family: Consolas;"><span style="color: #007d9a;"> -FilePath</span></span></span></span></span><span style="font-size: 10.5pt;"><span style=""><span style=""><span style="font-family: Consolas;"><span style="color: #171717;"> mycert.cer</span></span></span></span></span></span></span></span></pre>
+<span style="color: #c0392b;"><b>Important! </b></span>Replace the <b>DnsName </b>parameter value with your certificate name (Netwrix_Auditor_MFA_&lt;your_tenant_name&gt;).<br><br><b>How to install the certificate to the CurrentUser/My certificate folder:</b>
+
+<ol><li>Download <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec" target="_blank">PsExec </a>to run Windows PowerShell session under the LocalSystem account;</li><li>Run <b>Windows PowerShell</b> as an Administrator, navigate to��to PsExec.exe installation directory (use the &#39;CD&#39; command), if necessary, and run the following command:</li></ol>
+
+<pre>
+.\PsExec.exe -i -s powershell.exe</pre>
+
+<ol start="3"><li>Verify that you are logged in as a Local System account. Run the following command:</li></ol>
+
+<pre>
+whoami</pre>
+
+<ol start="4"><li>Import the certificate. Run the following command:</li></ol>
+
+<pre>
+Import-PfxCertificare -FilePath &lt;path to your certificate&gt; -CertStoreLocation &#39;Cert:\CurrentUser\My&#39; -Password (ConvertTo-SecureSrting -String &quot;your_password&quot; -AsPlainText -Force)
+
+Where path_to_certificate is the full path to the certificate file.</pre>
+<br><span style="color: #2980b9;"><b>Note: </b></span>You can also install the certificate with the &#39;.cer&#39; extension to the Azure AD Portal or Netwrix Auditor will set it automatically during establishing a PowerShell connection with Exchange Online.<br>�
+</body>
+</html>

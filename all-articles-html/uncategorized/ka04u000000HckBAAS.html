@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Host list parent container</title>
+    <meta name="article-id" content="ka04u000000HckBAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:22:34.000Z">
+    <meta name="articlenumber" content="000006580">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:05:28.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:22:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IJZCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IJZCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:05:29.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:22:34.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Create Host list parent container">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6580">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IJZCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Create Host list parent container</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Create Host list parent container with existing or newly created empty child host list</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Currently in the StealthAUDIT console GUI there is no way to create a custom container to use to organize host lists under Host Management. Fortunately this can be achieved using SQL scripting.</span></span></p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">In its simplest form, a parent can be added as follows:</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: fuchsia;">UPDATE</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: black;"> HostListsTbl </span></span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: blue;">set</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: black;"> PlacementPath</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: gray;">=</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: red;">&#39;My New Parent List&#39;</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: blue;">WHERE</span></span></span> <span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: blue;">Name</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: gray;">=</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: red;">&#39;My Child List&#39;</span></span></span> <span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: gray;">AND</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: black;"> SA_Node</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: gray;">=</span></span></span><span style="font-size: 9.5pt;"><span style="font-family: Consolas;"><span style="color: red;">&#39;SAHOSTNAME&#39;</span></span></span></span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Then either start StealthAUDIT to see the results, or use the &quot;Refresh List&quot; option to see the new nesting:</span></span><br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaBI&amp;d=%2Fa%2F4u000000Lyou%2FjMBvjWpttIw3Tzy3W1GT4q53f1RcvPB93MK.q5_5lU8&amp;asPdf=false" alt="mceclip0.png"></img><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span style="color: #1f497d;">After Refresh:</span></span></span><br></p>
+</body>
+</html>

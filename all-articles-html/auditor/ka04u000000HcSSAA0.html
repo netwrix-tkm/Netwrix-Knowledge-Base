@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The following issues have been detected when trying to configure Exchange Server Administrator Audit Logging settings: Parameter &#x27;AdminAuditLogParameters&#x27; of cmdlet &#x27;Set-AdminAuditLogConfig&#x27; must be set to &#x27;*&#x27;</title>
+    <meta name="article-id" content="ka04u000000HcSSAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:07.000Z">
+    <meta name="articlenumber" content="000003401">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:37.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:36.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZRCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZRCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:37.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:36.000Z">
+    <meta name="meta-description" content="The following issues have been detected when trying to configure Exchange Server Administrator Audit Logging settings: Parameter &amp;#039;AdminAuditLogParameters&amp;#039; of cmdlet &amp;#039;Set-AdminAuditLogConfig&amp;#039; must be set to &amp;#039;*&amp;#039;">
+    <meta name="meta-title" content="The following issues have been detected when trying to configure Exchange Server Administrator Audit Logging settings: Parameter &#x27;AdminAuditLogParameters&#x27; of cmdlet &#x27;Set-AdminAuditLogConfig&#x27; must be set to &#x27;*&#x27;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1255">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZRCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The following issues have been detected when trying to configure Exchange Server Administrator Audit Logging settings: Parameter &#x27;AdminAuditLogParameters&#x27; of cmdlet &#x27;Set-AdminAuditLogConfig&#x27; must be set to &#x27;*&#x27;</h1>
+    You receive the follow error:
+
+The following issues have been detected when trying to configure Exchange Server Administrator Audit Logging settings: Parameter &#39;AdminAuditLogParameters&#39; of cmdlet &#39;Set-AdminAuditLogConfig&#39; must be set to &#39;*&#39;
+
+<hr></hr>
+
+The AdminAuditLogParameter needs to be set to *
+
+<hr></hr>
+
+Run the following command within your Exchange PowerShell environment:
+
+<span style="font-family: Arial;background-color: #ffffff;">Set-AdminAuditLogConfig -AdminAuditLogEnabled $true -AdminAuditLogAgeLimit 30 -AdminAuditLogCmdlets * -AdminAuditLogParameters *</span>
+</body>
+</html>

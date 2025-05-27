@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Extension Attributes in Active Directory</title>
+    <meta name="article-id" content="ka04u00000116flAAA">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0050g000005YG2zAAG">
+    <meta name="articlecreateddate" content="2021-01-19T20:19:28.000Z">
+    <meta name="articlenumber" content="000005843">
+    <meta name="createdbyid" content="0050g000005YG2zAAG">
+    <meta name="createddate" content="2023-07-12T09:48:03.000Z">
+    <meta name="firstpublisheddate" content="2021-01-19T20:19:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000XmF4CAK">
+    <meta name="knowledge-article-id" content="kA04u000000XmF4CAK">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-07-12T09:48:08.000Z">
+    <meta name="lastpublisheddate" content="2023-07-12T09:47:59.000Z">
+    <meta name="meta-description" content="How To Audit extensionAttributes through Active Directory Reporting">
+    <meta name="meta-title" content="How To Audit extensionAttributes through Active Directory Reporting">
+    <meta name="ownerid" content="0050g000005YG2zAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5843">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmF4CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Audit Extension Attributes in Active Directory</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to audit extension attributes in Active Directory?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The set of entries specified in ad2ecr.txt are reported in Active Directory. In order to track changes to extension attributes in Active Directory, refer to the following steps:</p>
+
+<ol><li>
+	<p>Navigate to <code>%Netwrix Auditor installation folder%\Active Directory Auditing</code> folder.</p>
+	</li><li>
+	<p>Open the <strong>ad2ecr.txt</strong> file.</p>
+	</li><li>
+	<p>Place a hash symbol in front of each extension attribute to be audited, e.g.:</p>
+
+	<pre class="has-inner-focus">
+#.proxyAddresses</pre>
+
+	<p>A hash symbol designates a comment nullifying the entry in the code.</p>
+	</li><li>
+	<p>Save changes to the file.</p>
+	</li></ol>
+
+<p>The extension attributes commented out will now show in reports when they are changed.</p>
+</div>
+</body>
+</html>

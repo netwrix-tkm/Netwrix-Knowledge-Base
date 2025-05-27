@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Account Password Reset for Netwrix Data Classification</title>
+    <meta name="article-id" content="ka0Qk000000455xIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000005YG2zAAG">
+    <meta name="articlecreateddate" content="2021-01-28T21:19:29.000Z">
+    <meta name="articlenumber" content="000005850">
+    <meta name="createdbyid" content="0050g000005YG2zAAG">
+    <meta name="createddate" content="2024-06-06T12:52:05.000Z">
+    <meta name="firstpublisheddate" content="2021-01-28T21:19:32.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000XmHKCA0">
+    <meta name="knowledge-article-id" content="kA04u000000XmHKCA0">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2024-06-06T12:54:07.000Z">
+    <meta name="lastpublisheddate" content="2024-06-06T12:54:07.000Z">
+    <meta name="meta-description" content="Service Account Password Reset for Netwrix Data Classification">
+    <meta name="meta-title" content="Service Account Password Reset for Netwrix Data Classification">
+    <meta name="ownerid" content="0050g000005YG2zAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5850">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmHKCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Service Account Password Reset for Netwrix Data Classification</h1>
+    <h1>Overview</h1>
+
+<p>After resetting the service account password for NDC there are several locations within NDC and IIS that will need to be updated to reflect this change. This article will show you where the new password will need to be supplied.</p>
+
+<h2>Services</h2>
+
+<p><img alt="User-added image" height="40" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000455x&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001rDFz" width="500"></img></p>
+
+<p>Update the �<b>Logon As</b>� value for each of the services listed above to reflect the password change.</p>
+
+<h2>ConceptConfig</h2>
+
+<p>Navigate to each of the locations below. These locations control the SQL database connection and the account use to make that connection. Update the account credentials for all three locations.</p>
+
+<ol><li><b>&quot;C:\Program Files\ConceptSearching\Services\ConceptCollectorService\conceptConfig.exe&quot;</b></li><li><b>&quot;C:\inetpub\wwwroot\conceptQS\bin\conceptConfig.exe&quot;</b></li><li><b>&quot;C:\Program Files\ConceptSearching\Services\conceptIndexer\conceptConfig.exe&quot;</b></li></ol>
+
+<h2>IIS</h2>
+
+<p>Open IIS and click <b>Application Pools</b>�on the left hand pane. Right click on the <b>conceptQSAppPool</b> and click <b>Advanced Settings</b>.</p>
+
+<p>Find the <b>Identity</b> and update the password to match the new password for the account, then restart the application pool.</p>
+
+<p><img alt="User-added image" height="272" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000455x&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001rDGn" width="500"></img></p>
+
+<h2>Taxonomy Global Settings</h2>
+
+<p>Navigate to <b>http://hostname/conceptQS/Taxonomies/GlobalSettings</b> and confirm the status of each taxonomy. Find the faulting termsets and update the credentials for each.</p>
+</body>
+</html>

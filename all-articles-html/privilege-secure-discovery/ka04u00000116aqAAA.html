@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Netwrix Privilege Secure for Discovery Determines a Host is Offline</title>
+    <meta name="article-id" content="ka04u00000116aqAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-07-11T10:12:10.000Z">
+    <meta name="articlenumber" content="000008654">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-07-11T10:12:10.000Z">
+    <meta name="firstpublisheddate" content="2023-07-11T10:12:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110pzCAA">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T10:12:38.000Z">
+    <meta name="lastpublisheddate" content="2023-07-11T10:12:38.000Z">
+    <meta name="meta-description" content="How Netwrix Privilege Secure for Discovery Determines a Host is Offline">
+    <meta name="meta-title" content="How Netwrix Privilege Secure for Discovery Determines a Host is Offline">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8654">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How Netwrix Privilege Secure for Discovery Determines a Host is Offline</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span>
+<div>
+<p>When reaching out to systems for any action, Netwrix Privilege Secure for Discovery will use the FQDN (fully-qualified domain name) or the last known IP address. The CN (common name, short name) is never used.</p>
+</div>
+
+<div>
+<p>SecureONE scanner and worker services will:</p>
+
+<ul><li>
+	<p>Attempt to ping (IPv4), then connect using the FQDN first, if that fails. Timeout for ping, using fping, is 500ms</p>
+	</li><li>
+	<p>Attempt to ping, then connect using the last known IP address</p>
+	</li><li>
+	<p>Both FQDN or the last known IP address will be retried once</p>
+	</li><li>
+	<p>If both ping retries fail, the host is deemed offline and <code>Host Offline</code> error occurs</p>
+	</li></ul>
+</div>
+</body>
+</html>

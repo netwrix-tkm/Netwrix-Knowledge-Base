@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Import a Custom Action Step for Single-object Replication</title>
+    <meta name="article-id" content="ka04u000000HdDbAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2022-10-13T17:44:47.000Z">
+    <meta name="articlenumber" content="000008502">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2023-05-08T10:19:13.000Z">
+    <meta name="firstpublisheddate" content="2022-10-13T18:17:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000LLNTCA4">
+    <meta name="knowledge-article-id" content="kA04u000000LLNTCA4">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:13.000Z">
+    <meta name="lastpublisheddate" content="2022-10-13T18:17:06.000Z">
+    <meta name="meta-description" content="How to Import a Custom Action Step for Single-object Replication">
+    <meta name="meta-title" content="How to Import a Custom Action Step for Single-object Replication">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8502">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000LLNTCA4.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Import a Custom Action Step for Single-object Replication</h1>
+    <h1>Summary</h1>
+It can be necessary in certain Active Directory environments to force replication when provisioning SbPAM sessions. SbPAM offers an out-of-the-box &quot;Run Replication&quot; step, but in certain Active Directory environments - often those geographically dispersed across multiple sites - this full replication step can be time consuming. In these instances, we recommend the use of a single-object replication step, which will run more quickly.<br><br><em><strong>Note:</strong> these instructions apply only to releases of SbPAM prior to 3.7CU1 (3.7.1250). In SbPAM 3.7.1250 and all subsequent releases, the &quot;Run AD Replication for User&quot; step is included by default.</em>
+
+<h1>Instructions</h1>
+� � 1. First, download the <a href="https://www.netwrix.com/download/SingleObjReplication.Addon.zip" target="_blank">SingleObjReplication.Addon</a> zip archive to the SbPAM server.<br>� ��2. Extract the archive, which contains a README file, an ActionTemplates directory, and an Install-Addon.ps1 script file. Right-click Install-Addon.ps1 and select &quot;Run with PowerShell&quot;.<br><img alt="Untitled.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000005f3zs"></img><br>� � 3. When prompted, select &quot;Y&quot; to proceed.<br><img alt="Untitled2.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000005f3zZ"></img><br>� � 4. The PowerShell window should quickly execute the script and close.<br>� � 5. Log in to the SbPAM console. (If SbPAM was already open, be sure to refresh the console.)<br>� � 6.�In SbPAM, navigate to Activities, select an Activity, and click the green plus sign in either the Pre-Session or Post-Session. Note that the &quot;Run AD Replication for User&quot; activity step is now available.<br><img alt="Untitled3.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDb&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000005f40R"></img>
+</body>
+</html>

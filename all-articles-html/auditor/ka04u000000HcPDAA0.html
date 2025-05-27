@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHO changed is showing &quot;System&quot; in Netwrix Auditor for SQL Server reports</title>
+    <meta name="article-id" content="ka04u000000HcPDAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:53.000Z">
+    <meta name="articlenumber" content="000003189">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:08.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:21.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VyCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9VyCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:08.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:21.000Z">
+    <meta name="meta-description" content="WHO changed is showing &quot;System&quot; in Netwrix Auditor for SQL Server reports">
+    <meta name="meta-title" content="WHO changed is showing &quot;System&quot; in Netwrix Auditor for SQL Server reports">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="762">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VyCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>WHO changed is showing &quot;System&quot; in Netwrix Auditor for SQL Server reports</h1>
+    Netwrix Auditor for SQL Server changes have &quot;System&quot; reported in the WHO field.
+<hr></hr> Netwrix Auditor for SQL Server <span style="color: black;">is using two sources of data for analysis: </span>
+
+<ul><li><span style="color: black;"><a href="http://technet.microsoft.com/en-us/library/dd392015(v=sql.100).aspx" target="_blank">SQL Server native auditing</a> - </span><span style="color: black;">used for retrieving change details</span></li><li><span style="color: black;">SQL Server configuration snapshot - used for determining what has changed since the previous data collection.</span></li></ul>
+<span style="color: black;">For example: </span> <span style="color: black;">You have changed the column parameters. This action must be captured by SQL Server native auditing and logged into the auditing log on the SQL Server (with information on Who made the change and When the change was made). </span> Netwrix Auditor for SQL Server w<span style="color: black;">ill detect that change during the snapshot comparison (the column parameter has been changed) and then search the SQL Server native auditing logs for corresponding events to add WHO CHANGED and WHEN CHANGED information. If the corresponding event cannot be found, the product reports WHO as SYSTEM. </span> You can always prove the system changes by reviewing the SQL Server native auditing logs. In order to do that please open the SQL Server Profiler application and open SQL traces from <a target="_blank"><span style="color: #000000;">C:\Program</span></a><span style="color: #000000;"> </span>Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\Log<br>Note: the path above may vary depending on the version of SQL Server you have installed.
+</body>
+</html>

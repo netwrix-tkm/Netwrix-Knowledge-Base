@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unhandled Error: there has been an Error Processing the Registration Request: &#x27;ascii&#x27; Codec can&#x27;t Encode Character u</title>
+    <meta name="article-id" content="ka04u00000116Y1AAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-07-07T10:14:15.000Z">
+    <meta name="articlenumber" content="000008642">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-07-07T10:14:15.000Z">
+    <meta name="firstpublisheddate" content="2023-07-07T10:14:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110p1CAA">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-07T10:14:50.000Z">
+    <meta name="lastpublisheddate" content="2023-07-07T10:14:50.000Z">
+    <meta name="meta-description" content="Unhandled Error: there has been an Error Processing the Registration Request: &#x27;ascii&#x27; Codec can&#x27;t Encode Character u">
+    <meta name="meta-title" content="Unhandled Error: there has been an Error Processing the Registration Request: &#x27;ascii&#x27; Codec can&#x27;t Encode Character u">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8642">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unhandled Error: there has been an Error Processing the Registration Request: &#x27;ascii&#x27; Codec can&#x27;t Encode Character u</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span><br>�
+<h1>Symptom</h1>
+Example of error when running registration via Postman:
+
+<pre>
+{
+    &quot;name&quot;: &quot;UnprocessableEntityError&quot;,
+    &quot;message&quot;:&quot;Unhandled error: (&#39;There has been an error processing the registration request:&#39;, \&quot;&#39;ascii&#39; codec can&#39;t encode character u&#39;\\\�&#39; in position 28: ordinal not in range(128)\&quot;)&quot;,
+    &quot;code&quot;: 1779
+ }</pre>
+
+<h1>Cause</h1>
+There is a unicode character in the sudoers file that Netwrix Privilege Secure for Discovery have an issue with. In the above example it was a En Dash (long dash), or unicode character U+2013, in a sudo command instead of a standard dash.
+
+<h1>Resolution</h1>
+The solution is to replace any En Dashes with standard dashed in the sudoers file using:
+
+<pre>
+sudo visudo</pre>
+</body>
+</html>

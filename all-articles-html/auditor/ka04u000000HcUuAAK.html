@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Policy Fake Changes</title>
+    <meta name="article-id" content="ka04u000000HcUuAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:55.000Z">
+    <meta name="articlenumber" content="000003567">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:35.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9c9CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9c9CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:36.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="meta-description" content="Explains why you are getting fake changes and how it can be fixed.">
+    <meta name="meta-title" content="Group Policy Fake Changes">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1403">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9c9CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Group Policy Fake Changes</h1>
+    You received Group Policy Change Report showing some changes you do not believe you made.
+<hr></hr> By default the product is using the most available domain controller for the data collection. On some of the domain controllers Group Policy replication may not occur correctly. The product may connect to the domain controller that has a replication issue with regards to Group Policies, hence the outdated information, and gather GPOs that contain outdated policy settings. The outdated information in gathered GPOs will be considered as a change when comparing to the previous snapshot.
+<hr></hr> To prevent this from happening, we recommend using a single domain controller for collecting Group Policy changes. In order to check which domain controller is currently used for Group Policy changes collection, see this file: <strong>%Working Folder%\AD Change Reporter\Omitlists\%domain.name%\dclist.txt</strong>. By default %Working Folder% is C:\ProgramData\Netwrix Auditor. If there is more than one DC listed in that file, it means that the first DC in the list didn&#39;t respond at some point and Netwrix had to pick a new one. This could be the reason for fake changes. If you know a DC which is highly available and stable, feel free to put its FQDN into that file instead of the current ones.
+</body>
+</html>

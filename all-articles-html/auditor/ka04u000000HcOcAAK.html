@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When a file/folder is moved how does Netwrix Auditor - Fileserver report this?</title>
+    <meta name="article-id" content="ka04u000000HcOcAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:51.000Z">
+    <meta name="articlenumber" content="000003150">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:52.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VLCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9VLCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:52.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:14.000Z">
+    <meta name="meta-description" content="file moved, folder moved, find where folder went, folder move, file move">
+    <meta name="meta-title" content="When a file/folder is moved how does Netwrix Auditor - Fileserver report this?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="724">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VLCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>When a file/folder is moved how does Netwrix Auditor - Fileserver report this?</h1>
+    When a file/folder is moved how does Netwrix Auditor - Fileserver report this?
+
+<hr></hr>
+
+The following explains how the audit trail appears when a folder or file is moved FROM an audited location TO an audited location. If the file/folder is moved to a location that is not Audited there will be NO audit trail other than the Removal from the original location. The behavior is depend on<b> Audit trail settings</b>:<br><br>In <b>Basic mode</b>:<br>File/Folder <span style="color: #FF0000;">Removed</span> from original location<br>File/Folder <span style="color: #0000FF;">Added</span> to new location - but this depends on several conditions, like applications or methods used for moving the object.<br><br>In<b> Enhanced mode</b>:<br>File/Folder<span style="color: #FF0000;"> Removed</span> from original location<br>File/Folder<span style="color: #00FF00;"> </span><span style="color: #008000;">Modified </span>in new location<br><br>In Netwrix Auditor 9.0 and newer file/folder moves are reported properly.
+</body>
+</html>

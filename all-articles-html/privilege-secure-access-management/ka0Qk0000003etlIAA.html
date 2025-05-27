@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Automation - Write to File on Target Resource</title>
+    <meta name="article-id" content="ka0Qk0000003etlIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2024-05-08T18:33:57.000Z">
+    <meta name="articlenumber" content="000009159">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2024-05-08T18:33:57.000Z">
+    <meta name="firstpublisheddate" content="2024-05-08T18:58:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000015GzKAI">
+    <meta name="knowledge-article-id" content="kA0Qk00000015GzKAI">
+    <meta name="lastmodifiedbyid" content="0054u000006gpnvAAA">
+    <meta name="lastmodifieddate" content="2024-05-08T18:58:06.000Z">
+    <meta name="lastpublisheddate" content="2024-05-08T18:58:06.000Z">
+    <meta name="meta-description" content="Task Automation - Write to File on Target Resource">
+    <meta name="meta-title" content="Task Automation - Write to File on Target Resource">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9159">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000015GzKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Task Automation - Write to File on Target Resource</h1>
+    <h1>Overview</h1>
+This article provides an example of a Task Automation script that can be used to write to a specified file on the targeted resource. This will give a basic framework on using Task Automation to write to files, and can be modified as needed. The example provided is for a simple find and replace script.
+
+<h1>Summary</h1>
+1. In NPS, navigate to the Activities page and create an Activity with the &quot;Task Automation&quot; Activity Type. The activity should be configured to provide sufficient privilege to remotely execute scripts on the target resource, and the Login Account, Requester Login Format, and Pre- and Post-Session action steps should reflect this.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000003etl&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004iG8P" style="width: 795px;height: 534.986px;"></img><br>2. In the Session of the Activity, click the &quot;+&quot; button and add a &quot;Run Custom Powershell Script&quot; action step.<br>3. Supply the following script block inside of the action step:
+<pre class="ckeditor_codeblock">
+$findString = &quot;findMe&quot;
+$replaceString = &quot;replaceMe&quot;
+$filePath = &quot;C:\sampledir\example.txt&quot; #specify your file path here!
+
+Import-Module (Join-Path $SbPAMScriptDirectory &quot;SbPAMWindows.psm1&quot;)
+if (![string]::IsNullOrEmpty($HostId)) {
+    $targetHost = Get-SbPAMHost -Id $HostId
+    if ($null -eq $targetHost -or [string]::IsNullOrEmpty($targetHost.DnsHostName)) {
+        Write-Error &quot;Unable to find host.&quot;
+        exit 2
+    }
+    Write-Host (ConvertTo-Json $targetHost)
+}
+
+$session = New-SbPAMPSSession -RemoteHost $targetHost -Credential (Get-PSCredential -Credentials $Credentials)
+if ($null -ne $session) {
+	try{
+	Add-SbPAMActionLog -Type Info -Message &quot;Running custom powershell script block - Write to File: $filePath - Find: $findString - Replace: $replaceString&quot;
+	Invoke-Command -Session $Session -ArgumentList $findString,$replaceString,$filePath `
+		-ScriptBlock {
+			param($findString,$replaceString,$filePath)
+
+			try {
+				(Get-Content $filePath).Replace($findString,$replaceString) | Set-Content $filePath
+				Add-SbPAMActionLog -Type Info -Message &quot;Running custom powershell script block - Write to File - SUCCESS&quot;
+			}
+			catch {
+				Add-SbPAMActionLog -Type Info -Message &quot;Running custom powershell script block - Write to File - ERROR&quot;
+			} } -ErrorAction SilentlyContinue 
+	}
+	finally {Remove-PSSession -Session $session}
+}
+
+Add-SbPAMActionLog -ActionQueueActionId $ActionQueueActionId -Type Info -Message &quot;Finished custom powershell script block - Write to File: $filePath - Find: $findString - Replace: $replaceString&quot;</pre>
+4. Modify the script block according to your needs. This example is for a find and replace, with the $findString and $replaceString containing the original and replacement values, and the $filePath containing the local path for the target file. This is just a basic example and could be modified for different use cases.<br>5. Save the activity. Ensure that the activity is added to an Access Policy. It can now be run, and will find/replace strings in the targeted file on the targeted resource.
+</body>
+</html>

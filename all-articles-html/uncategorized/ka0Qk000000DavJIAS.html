@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Weak Password - Error &quot;fkatana&quot; Key being added</title>
+    <meta name="article-id" content="ka0Qk000000DavJIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:33:26.000Z">
+    <meta name="articlenumber" content="000007196">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IptCAE">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T11:28:53.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:33:27.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IptCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IptCAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T11:40:11.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:33:27.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Access Analyzer Weak Password - Error &quot;fkatana&quot; Key being added">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7196">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IptCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Weak Password - Error &quot;fkatana&quot; Key being added</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> While running Access Analyzer Version 8.1 Weak Password report I came across the following error. &quot;System. Exception: Item has already been added. Key in dictionary: &#39;fkatana&#39; Key being added: &#39;fkatana&#39;&quot;</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> &quot;System. Exception: Item has already been added. Key in dictionary:� &#39;fkatana&#39; Key being added:� &#39;fkatana&#39;&quot; when running Weak Passwords report in Access Analyzer for AD Solution Set.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The issue is usually related to one or more settings within local group policy settings on the Access Analyzer Console Server.</p>
+<ul><li>
+<strong>Impersonate a client after authentication</strong> - enabling this policy and adding the service account to this policy may resolve the issue. (path: <em>Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment</em>)
+<ul><li><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/impersonate-a-client-after-authentication" target="_blank">https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/impersonate-a-client-after-authentication</a></li><li><span style="color: #1f497d;"><a href="https://www.stigviewer.com/stig/windows_10/2016-06-24/finding/V-63889" target="_blank">https://www.stigviewer.com/stig/windows_10/2016-06-24/finding/V-63889</a></span></li></ul>
+</li></ul>
+<p>�</p>
+<ul><li>
+<strong>Network access: Do not allow storage of passwords and credentials for network authentication</strong> - disabling this policy may resolve the issue (path: �<em>Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options</em>)
+<ul><li><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-do-not-allow-storage-of-passwords-and-credentials-for-network-authentication" target="_blank">https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-do-not-allow-storage-of-passwords-and-credentials-for-network-authentication</a></li></ul>
+</li></ul>
+<p>�<strong>Additional Notes:</strong></p>
+<ul><li>Ensure any GPO Policies pushed down from the AD Domain include this setting. Otherwise when you next run the job, the Domain GPO might have overwritten the local policy</li><li>Adding the service account directly to the policy was required in testing (Administrators were added, and service account was an Administrator). Logging off and logging back on to refresh the token may have helped with that.</li><li>No reboot was required in testing</li></ul>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - Solution Set - Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1+<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2111</p>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rollback for Attribute Has Failed Error in Object Restore for Active Directory</title>
+    <meta name="article-id" content="ka04u00000117eoAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-07-21T12:02:39.000Z">
+    <meta name="articlenumber" content="000008681">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-09-07T12:12:09.000Z">
+    <meta name="firstpublisheddate" content="2023-07-24T08:27:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110v4CAA">
+    <meta name="knowledge-article-id" content="kA04u00000110v4CAA">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T12:13:41.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T12:13:41.000Z">
+    <meta name="meta-description" content="This article contains resolution for &quot;The rollback for the attribute *** to *** has failed.&quot; error.">
+    <meta name="meta-title" content="Active Directory objects restore completes with the following error: The rollback for the attribute *** to *** has failed">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8681">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110v4CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rollback for Attribute Has Failed Error in Object Restore for Active Directory</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>An attribute was collected in a snapshot and is visible in reports after it has been removed. When trying to restore an attribute or a change via Netwrix Auditor Object Restore, the following error is prompted:</p>
+
+<pre class="has-inner-focus">
+The rollback for the attribute %attribute% of %user% from %state% to %state% has failed</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>Insufficient permissions for the account used to run Netwrix Auditor Object Restore.</p>
+	</li><li>
+	<p>The Object Restore for Active Directory tool is unable to restore specific object attributes.</p>
+	</li><li>
+	<p>The Enabled User Account Control (UAC) option causes errors when restoring Active Directory objects with the tool.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>The account used to run the Netwrix Auditor Object Restore tool must be a member of the Domain Administrators user group and have permissions to read the Deleted Objects container. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/ActiveDirectory/Permissions.htm#Grant" target="_blank">Permissions for AD Auditing: Grant Permissions for &#39;Deleted Objects&#39; Container ? v10.6</a>.</p>
+	</li><li>
+	<p>Particular AD object attributes cannot be restored with the tool. You can review the <strong>omitproplist_rw.txt</strong> file to see the list of object types and attributes excluded from the list of changes available for roll back. Refer to the following default path to find the .txt file:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\Program Files (x86)\Netwrix Auditor\Active Directory Auditing</code></pre>
+
+	<p>Alternatively, the file will be found in the Auditor installation folder specified during the installation process. Refer to the path <code>%Netwrix_Auditor_installation folder%\Netwrix Auditor\Active Directory Auditing</code>.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>If you would like specific objects and (or) attributes to become restorable after deletion, either comment the line using the <code>#</code> symbol in the beginning of the line, or just delete the required line.</p>
+	</blockquote>
+	</li><li>
+	<p>Disable User Account Control (UAC), and restart the Object Restore for Active Directory tool. Learn more on how to disable UAC in <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/disable-user-account-control" target="_blank">How to disable User Account Control (UAC) on Windows Server ? Microsoft &#129125;</a>.</p>
+	</li></ul>
+</div>
+
+<h4>List of attributes unavailable for a roll back for a user</h4>
+
+<div>
+<ul><li>
+	<p>user.badPwdCount</p>
+	</li><li>
+	<p>user.objectCategory</p>
+	</li><li>
+	<p>user.lastLogoff</p>
+	</li><li>
+	<p>user.sAMAccountType</p>
+	</li><li>
+	<p>user.badPasswordTime</p>
+	</li><li>
+	<p>user.logonCount</p>
+	</li><li>
+	<p>user.cn</p>
+	</li><li>
+	<p>user.lastLogon</p>
+	</li><li>
+	<p>user.pwdLastSet</p>
+	</li></ul>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/ActiveDirectory/Permissions.htm#Grant" target="_blank">Permissions for AD Auditing: Grant Permissions for &#39;Deleted Objects&#39; Container ? v10.6</a></p>
+
+<p><a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/disable-user-account-control" target="_blank">How to disable User Account Control (UAC) on Windows Server ? Microsoft &#129125;</a></p>
+</div>
+</body>
+</html>

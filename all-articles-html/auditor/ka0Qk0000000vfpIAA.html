@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor System Health Log Contains EventIDs 3127 and 3129</title>
+    <meta name="article-id" content="ka0Qk0000000vfpIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-22T11:33:23.000Z">
+    <meta name="articlenumber" content="000008915">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-12-11T10:27:16.000Z">
+    <meta name="firstpublisheddate" content="2023-11-22T11:33:30.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnqWCAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wnqWCAQ">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-12-11T10:29:07.000Z">
+    <meta name="lastpublisheddate" content="2023-12-11T10:29:07.000Z">
+    <meta name="meta-description" content="Netwrix Auditor System Health Log Contains EventIDs 3127 and 3129">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log Contains EventIDs 3127 and 3129">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8915">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnqWCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor System Health Log Contains EventIDs 3127 and 3129</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>A monitoring plan in Netwrix Auditor is constantly in the <b>Working</b> status and the product fails to collect historical snapshots.</p>
+
+<p>The Netwrix Auditor System Health Log contains the following errors:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Event ID 3127: Import of the latest snapshot failed. No items were imported.</code></pre>
+</div>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Event ID 3129: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. Operation cancelled by user.</code></pre>
+
+<h2>Cause</h2>
+
+<div>
+<p>These errors basically occur when the Auditor Audit databases misbehave with the current version of Microsoft SQL Server. However, there might be multiple root causes for the issue but below is the only one potential resolution.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To resolve the issue, you need to install cumulative update for your SQL Server.</p>
+
+<p>Download and install <a href="https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2017/cumulativeupdate31" target="_blank">Cumulative Update 31 for SQL Server 2017 ? Microsoft &#129125;</a></p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE:</strong></span> The State-in-Time snapshot for SharePoint Online occurs every 24 hours, usually at 03:00 or 04:00. So, once the above Cummulative Update is applied, you will need to wait until the following day to see the results.</p>
+</blockquote>
+
+<p>To check the the issue has been resolved, run one of the SharePoint Online State-in-Time Reports. Make sure to provide it with a well-known object so that there is the greatest possibility of there being data returned, such as the <b>SharePoint Online Site Collections Access by User</b> Report.</p>
+</div>
+</body>
+</html>

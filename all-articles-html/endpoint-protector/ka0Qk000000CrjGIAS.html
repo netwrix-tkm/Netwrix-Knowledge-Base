@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing or Uninstalling the Windows epp agent from the terminal / command prompt / sccm</title>
+    <meta name="article-id" content="ka0Qk000000CrjGIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:11.000Z">
+    <meta name="articlenumber" content="000009841">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B71KAE">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nViKIAU">
+    <meta name="assignmentdate" content="2025-03-19T17:34:09.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:11.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B71KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B71KAE">
+    <meta name="lastmodifiedbyid" content="005Qk000001nViKIAU">
+    <meta name="lastmodifieddate" content="2025-05-07T21:39:33.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9841">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B71KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Installing or Uninstalling the Windows epp agent from the terminal / command prompt / sccm</h1>
+    <h2><strong>Question:</strong></h2>
+<p>How do I install or uninstall the Windows epp agent from the terminal / command prompt / sccm?</p>
+<h2><strong>Answer:</strong></h2>
+<p>�</p>
+<h4><strong>For uninstalling�the EPP agent please use the following syntax from the windows command line :</strong></h4>
+<p>msiexec.exe /x &quot;path_to_msi&quot; ADMIN_PASSWORD_0=&quot;your_uninstall_password&quot; REBOOT=ReallySuppress REMOVE_PROP=1 /qn</p>
+<p>�</p>
+<p>Note :</p>
+<p>You will have to input your uninstall password in above command only if such a password was previously configured from server UI, otherwise you can include an empty string for field ADMIN_PASSWORD_0.</p>
+<p>�</p>
+<h4><strong>For installing�the EPP agent please use the following syntax from the windows command line:</strong></h4>
+<p>msiexec.exe /i &quot;path_to_msi&quot; WSIP=&quot;EPP_server_IP&quot; WSPORT=&quot;443&quot; DEPT_CODE=defdep /q REBOOT=ReallySuppress</p>
+<p>�</p>
+<p>E.g. :</p>
+<p>msiexec.exe /i &quot;C:\EPPClientSetup.5.9.3.0_x86_64&quot; WSIP=&quot;192.168.7.108&quot; WSPORT=&quot;443&quot; DEPT_CODE=defdep /q REBOOT=ReallySuppress</p>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling-Log Fix: &quot;ItemStoragePipeline - Error processing item, couldn&#x27;t collect filehashsha256 for file: /mydir/my.file Error: Failed to collect data for attribute (Could not find file /mydir/my.file)&quot;</title>
+    <meta name="article-id" content="ka04u000000Hd9mAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:49:58.000Z">
+    <meta name="articlenumber" content="000008205">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:41.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:49:58.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JZwCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JZwCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:41.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Rolling-Log Fix: &quot;ItemStoragePipeline - Error processing item, couldn&#x27;t collect filehashsha256 for file: /mydir/my.file Error: Failed to collect data for attribute (Could not find file /mydir/my.file)&quot;">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8205">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JZwCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rolling-Log Fix: &quot;ItemStoragePipeline - Error processing item, couldn&#x27;t collect filehashsha256 for file: /mydir/my.file Error: Failed to collect data for attribute (Could not find file /mydir/my.file)&quot;</h1>
+    <div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style=""><b>Example Error Message</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre"># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                   															Example Message:																										  #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+2017-10-11 08:11:18,385 [4] ERROR ItemStoragePipeline - Error processing item, couldn&#39;t collect filehashsha256 for file: /etc/rc6.d/K05dsmcad Error: Failed to collect data for attribute (Could not find file &quot;/etc/rc6.d/K05dsmcad&quot;)
+
+</pre>
+</div></div><p><br></p><h2 id="Rolling-LogFix:"><strong><span style="color: rgb(51,153,102);">What Does It Mean?</span></strong></h2><p>This error occurs when you have your configuration template in Change Tracker looking to track a file and the agent cannot hash the file because it is not found. In this case, we are looking to track &quot;/etc/rc6.d/K05dsmcad&quot;.</p><p><br></p><h2 id="Rolling-LogFix:"><strong><span style="color: rgb(51,102,255);">How Can I Fix This / Should I Worry?</span></strong></h2><p>If you are recieving this for a file that actually does not exist, then no, do not worry. If you are using one template to track multiple agents, and some agents do have the file, while others dont, it is not a problem to let it track this file. The only caution to have with this is the amount of files it is looking for. If the template grows exponentially, having a large volume of these errors may cause performance issues, however, in most cases, it is perfectly fine.</p><p><br></p><p>If you are positive the file exists, but are getting this error, do the following</p><ol><li>Check your configuration template. Is it looking for the file in the same place you have placed the file?</li><li>Is this a file that is in different places on different servers? if so, please define all of the potential spots in the template.</li><li>Does this file have special permissions that do not allow it to be read by our agent? If so, adjust the file permissions, or adjust the privilages of the account our agent uses.</li></ol><p><br></p><div class="confluence-information-macro confluence-information-macro-information conf-macro output-block"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><span style="color: rgb(51,153,102);">In most cases, you can simply ignore this error as it is not harmful.</span></div></div><h2 id="Rolling-LogFix:">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+</p><ul class="content-by-label conf-macro output-block"><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8133" target="_blank">How to fix the &quot;Check Log for Details&quot; message in the event details</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8302" target="_blank">Support for TLS 1.2 in the .NET Framework 3.5.1</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8285" target="_blank">MongoDB - Pre-allocated Log Files Accumulate &amp; Result to Disk Space Errors</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8265" target="_blank">Change Tracker ��� How to Create a Custom Tracked Attributes Filter Within a Configuration Template</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8284" target="_blank">How To Turn Off Bulk Email Notifications (Force Change Tracker to send one email for each change instead of compiling into one email with multiple changes)</a>
+                        
+                        
+                    </div>
+    </li></ul>
+<p><br></p><p><br></p>
+</body>
+</html>

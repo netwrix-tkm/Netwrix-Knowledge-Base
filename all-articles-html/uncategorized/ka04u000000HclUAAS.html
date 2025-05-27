@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: AIC_8.1_003</title>
+    <meta name="article-id" content="ka04u000000HclUAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:20:22.000Z">
+    <meta name="articlenumber" content="000006553">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:06:10.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:20:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IMdCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IMdCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:06:10.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:20:22.000Z">
+    <meta name="meta-description" content="360008984011">
+    <meta name="meta-title" content="Hotfix: AIC_8.1_003">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6553">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IMdCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: AIC_8.1_003</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SMPC-4923: AIC exported report format changes
+.	Issue/Current behavior: Exporting Permissions and Effective Access reports to Excel format was aligning columns to center and the rights columns were showing a 1 instead of check marks.
+.	Fix/Enhancement: The excel exports now show the trustee type, name, and paths columns left justified, and the rights columns show a check mark.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:</span></strong><br>SMPC-4923: AIC exported report format changes 
+</p><ul><li>
+<i>Issue/Current behavior</i>: Exporting Permissions and Effective Access reports to Excel format was aligning columns to center and the rights columns were showing a 1 instead of check marks.
+</li><li>
+<i>Fix/Enhancement</i>: The excel exports now show the trustee type, name, and paths columns left justified, and the rights columns show a check mark.</li></ul>�<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Jazmina D?az<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>8.1<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong> 
+<ul><li>AIC - Reporter</li></ul><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong> 
+<ul><li>SMPC-4923</li></ul><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong> 
+<ul><li>AccessInformationCenter.msi8.1.0.50</li></ul>�<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>�������������� Hotfix<br>�<br>�<br>�<br>�<br>�<br>�<br>�<br>�<br>�<br><strong><span style="font-family: calibri,sans-serif;">Issue:</span></strong><br><strong><span style="font-family: calibri,sans-serif;">Modules Included</span></strong> 
+<ul><li>AccessInformationCenter.msi8.1.0.50</li></ul>�<br><b>YouTrack/Escalations</b> 
+<ul><li>
+<b>SMPC-4923 \ Escalations 27112: </b>AIC exported report format changes</li></ul><b>Customers��������� </b>
+<ul><li>First Commonwealth Bank.</li></ul><b>Cumulative List of fixes included since Service Pack:</b><br>- ���� SMPC-4266:� AIC Installer: Support TLS 1.2 (SQL Native Client)<br>- ���� SMPC-4290:� 23263 - Deleted Sensitive Data Files Still Present (AIC)<br>- ���� SMPC-4292:� 24435 - SDD Results Missing if Resource is Not Scanned by FSAA<br>- ���� Improved security for deleting entitlement reviews<br>- ���� SMPC-4497: Enable NFS Activity reports<br>- ���� File system activity: exclude subfolders unless the &#39;include Subfolders&#39; option is set<br>- ���� Fixed lookup for DFS local trustees in entitlement reviews<br>- ���� SMPC-4658: 26171 - Allow computer objects to be managed with AIC&#39;s group membership features<br>- ���� SMPC-4807: Selecting a deleted active directory principal stops review resource selection<br>- ���� SMPC-4923: 27112 - AIC exported report format changes<br>- ���� Making keep-alive less aggressive in case the server is busy or latency becomes an issue<br>- ���� Improved performance of trustee audit permissions query for File System�<br>- ���� SharePoint - Fixed permissions for resources with no rights<br>- ���� File System - optimized folder children query<br>- ���� SMPC-5101: Adding a member to access the console requires refresh<br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Instructions:</span></strong> 
+</p><ol><li>Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there
+</li><li>Uninstall current version of AIC if it is already installed
+</li><li>Install version of AIC included with this hotfix.</li></ol><br><br><br><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/AIC_8.1_003.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/AIC_8.1_003.zip</a><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> AIC<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> AIC - Reporter<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SMPC-4923<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> AccessInformationCenter.msi	8.1.0.50<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000002080<br></p>
+</body>
+</html>

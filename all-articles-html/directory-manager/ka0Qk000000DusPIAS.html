@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enforce Group Type as Distribution or Security v10</title>
+    <meta name="article-id" content="ka0Qk000000DusPIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F0JoAAK">
+    <meta name="articlecreateddate" content="2024-05-13T18:42:55.000Z">
+    <meta name="articlenumber" content="000009174">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk00000015vJKAQ">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210004550299135?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F0JoAAK">
+    <meta name="createddate" content="2025-05-14T17:33:32.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-05-13T18:43:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000015vJKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk00000015vJKAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-14T17:47:04.000Z">
+    <meta name="lastpublisheddate" content="2025-05-14T17:47:04.000Z">
+    <meta name="meta-description" content="Enforce Group Type">
+    <meta name="meta-title" content="How To: Enforce Group Type as �Distribution� or �Security�">
+    <meta name="ownerid" content="0054u000008F0JoAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9174">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000015vJKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Enforce Group Type as Distribution or Security v10</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 10</p>
+<h2>Overview</h2>
+<p>This article explains how to enforce the Group Type as <strong>Distribution</strong> in the Self-Service portal of Netwrix Directory Manager (formerly GroupID).</p>
+<p>Directory Manager allows administrators to configure object creation settings, including the ability to customize the Create wizard, define default values, and set visibility rules based on user roles. By customizing the Create Group wizard, administrators can restrict users to creating only distribution groups, ensuring consistent group types across the directory.</p>
+<h2>Instructions</h2>
+<ol><li>In the Directory Manager Admin Center, go to <strong>Applications</strong> &gt; <strong>Directory Manager Portals</strong> and locate the required portal.�</li><li>Once you have chosen the required portal, click the three-dot icon on the portal then click <strong>Settings</strong>. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DusP&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C19C1" alt="Steps 1-2" width="682" height="380"></img>�</li><li>Under <strong>Application Settings</strong>, select an identity store from the <strong>Design Settings</strong> section. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DusP&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C13Mk" alt="Step 3" width="682" height="338"></img>�</li><li>Click the <strong>Create Object</strong> tab.</li><li>In the <strong>Select Directory Object</strong> list, choose <strong>Group</strong>.</li><li>In the <strong>Name</strong> list, select <strong>General</strong> and click <strong>Edit</strong>.</li><li>In the <strong>Edit Category</strong> dialog box, select <strong>Group Type</strong> from the Fields list and click <strong>Edit</strong>.</li><li>In the <strong>Edit Field</strong> dialog box, click <strong>Advanced Options</strong>.</li><li>From the <strong>Default Value</strong> dropdown, select <strong>Distribution</strong>.</li><li>To restrict changes to this setting, do one of the following:
+<ul><li>Select the <strong>Is Read Only</strong> checkbox.</li><li>Or set the <strong>Visibility Role</strong> to <strong>Never</strong>.</li></ul>
+</li><li>To enforce the setting for a specific role (e.g., Role C), set the visibility level to a role with a higher priority than Role C. Roles with equal or lower priority will not be able to change the group type.</li><li>Click <strong>OK</strong> to close the dialog boxes and save your changes.</li></ol>
+<p>After saving your changes, the Group Type field will default to <strong>Distribution</strong> in the Self-Service portal, and users will not be able to change it. This ensures that all newly created groups are distribution lists only.</p>
+</body>
+</html>

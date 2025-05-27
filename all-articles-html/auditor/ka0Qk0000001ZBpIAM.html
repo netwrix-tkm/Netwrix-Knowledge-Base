@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: An Unknown Error Occurred While Processing the Request on the Server</title>
+    <meta name="article-id" content="ka0Qk0000001ZBpIAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-01-25T13:32:37.000Z">
+    <meta name="articlenumber" content="000009024">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-01-29T18:06:10.000Z">
+    <meta name="firstpublisheddate" content="2024-01-25T13:32:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000PmPKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000PmPKAU">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-01-29T18:06:42.000Z">
+    <meta name="lastpublisheddate" content="2024-01-29T18:06:42.000Z">
+    <meta name="meta-description" content="Error: An Unknown Error Occurred While Processing the Request on the Server">
+    <meta name="meta-title" content="Error: An Unknown Error Occurred While Processing the Request on the Server">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9024">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000PmPKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: An Unknown Error Occurred While Processing the Request on the Server</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When running State-in-Time reports for items that contain large amount of data, the report completes with the following error:</p>
+
+<div>
+<pre class="has-inner-focus">
+ 
+        Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. 
+        The status code returned from the server was: 500.
+            </pre>
+</div>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The error occurs due to large amount of processed data.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Extend the report timeout on the on the Report Manager URL. For that:</p>
+
+<ol><li>
+	<p>Go to your Report Manager URL: in Netwrix Auditor, navigate to <b>Settings</b> -&gt; <b>Audit Database</b> and click the <b>Report Manager URL</b> link.</p>
+	</li><li>
+	<p>Find the problematic report and open it.</p>
+	</li><li>
+	<p>Click the 3 dots in the Reports Manager for the report itself, then click <b>Manage</b>.</p>
+	</li><li>
+	<p>In the <b>Advanced</b> section, modify the report timeout settings.<br>	<img alt="User-added image" height="398" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001ZBp&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000002dUpt" width="500"></img></p>
+	</li></ol>
+</div>
+</body>
+</html>

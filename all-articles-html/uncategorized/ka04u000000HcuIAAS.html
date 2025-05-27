@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWindowsAgent_5.0.0.817_5.1.0.455_5.2.0.280_6.0.0.399_7.0.0.283</title>
+    <meta name="article-id" content="ka04u000000HcuIAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:28:48.000Z">
+    <meta name="articlenumber" content="000006982">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:10:20.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:28:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IiiCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IiiCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:10:20.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:28:48.000Z">
+    <meta name="meta-description" content="360008877892">
+    <meta name="meta-title" content="Hotfix: SIWindowsAgent_5.0.0.817_5.1.0.455_5.2.0.280_6.0.0.399_7.0.0.283">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6982">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IiiCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWindowsAgent_5.0.0.817_5.1.0.455_5.2.0.280_6.0.0.399_7.0.0.283</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SI Agent Causing Failing Backups</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong>SI Agent Causing Failing Backups<br><strong><span style="font-family: calibri,sans-serif;">Behavior before Fix: </span></strong><br>When Lsass.exe audit mode is enabled SI Agent &#39;thinks&#39; that lsass is protected and tries to unprotect it to be able to inject into lsass and protect is back with very high restrictions for signature level which make impossible to load any Micsosoft library by lsass process.<br><strong><span style="font-family: calibri,sans-serif;">Behavior after Fix: </span></strong>
+</p><ol><li>Now SI Agent to decide if lsass is protected in addition to &#39;IsProceted&#39; flag will also analyze Protection.Type value and will assume lsass is not protected if Protection.Type is &#39;0&#39;.
+</li><li>If lsass IS protected then SI Agent will restore original signature level values and as a result will set lsass protection parameters to original state.</li></ol><b>Changes since Last Hotfix:</b><br>I-4936 [LINK - Alior] SI-3828 33296 - SI Agent Causing Failing Backups<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau��<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>5.0.0����� SIWindowsAgent_5.0.0.817_SI-3828<br>5.1.0����� SIWindowsAgent_5.1.0.455_SI-3828<br>5.2.0����� SIWindowsAgent_5.2.0.280_SI-3828<br>6.0.0����� SIWindowsAgent_6.0.0.399_SI-3828<br>7.0.0����� SIWindowsAgent_7.0.0.283_SI-3828<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Agent<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br><em><span style="font-family: calibri,sans-serif;">I-4936</span></em><br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>5.0.0.817<br>5.1.0.455<br>5.2.0.280<br>6.0.0.399<br>7.0.0.283<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><b>Modules Included:</b><br>SI - Windows Agent<br><b>YouTrack/Escalations: </b>SI-3828 / 33296<br><b>Customers:� </b>Alior Bank Sp?lka Akcyjna<br><b>Cumulative List of fixes included since Service Pack:</b><br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Applying patch for SI Windows Agent: 
+</p><ol><li>Stop SIWindowsAgent service
+</li><li>Extract attached files:</li></ol>
+<ul><li>SI 5.x-6.0 - �to the &quot; C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder
+</li><li>SI 7.0 - to the &quot;C:\Program Files\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder</li></ul>3. Start SIWindowsAgent service 
+<table cellspacing="0" cellpadding="0" width="320" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64">�</td><td colspan="1" rowspan="1" width="64">�</td><td colspan="1" rowspan="1" width="64">�</td><td colspan="1" rowspan="1" width="64">�</td><td colspan="1" rowspan="1" width="64">�</td></tr></tbody></table><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWindowsAgent_5.0.0.817_SI-3828.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWindowsAgent_5.0.0.817_SI-3828.zip</a><br><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.1.0/SIWindowsAgent_5.1.0.455_SI-3828.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.1.0/SIWindowsAgent_5.1.0.455_SI-3828.zip</a><br><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.2.0/SIWindowsAgent_5.2.0.280_SI-3828.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.2.0/SIWindowsAgent_5.2.0.280_SI-3828.zip</a><br><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI6.0.0/SIWindowsAgent_6.0.0.399_SI-3828.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI6.0.0/SIWindowsAgent_6.0.0.399_SI-3828.zip</a><br><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI7.0.0/SIWindowsAgent_7.0.0.283_SI-3828.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI7.0.0/SIWindowsAgent_7.0.0.283_SI-3828.zip</a><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.0.0, 5.1.0, 5.2.0, 6.0.0, 7.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3828<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 5.0.0.817
+5.1.0.455
+5.2.0.280
+6.0.0.399
+7.0.0.283<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2345<br></p>
+</body>
+</html>

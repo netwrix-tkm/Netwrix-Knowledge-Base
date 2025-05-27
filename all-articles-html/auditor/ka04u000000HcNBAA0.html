@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to omit certain object changes from being reported?</title>
+    <meta name="article-id" content="ka04u000000HcNBAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:10.000Z">
+    <meta name="articlenumber" content="000003035">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:55.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:52.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TPCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9TPCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:56.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:52.000Z">
+    <meta name="meta-description" content="How to omit certain object changes from being reported?">
+    <meta name="meta-title" content="How to omit certain object changes from being reported?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="618">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TPCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to omit certain object changes from being reported?</h1>
+    How to omit certain object changes from being reported? 
+
+<hr></hr>
+
+The Server Configuration Change Reporter software provides the option to exclude certain data from the reports. In the product installation folder, you can find a number of files named &quot;omit***.txt&quot;. For example, the file called omitregkeys.txt contains a list of registry keys that are not stored in the Server Configuration Change Reporter snapshot. Each one of these omit files contains examples of the file�s use (special symbols used: * - any symbol, # - comment, this line will not be processed). <br><br>Examples from the omitpathlist.txt: <br> 
+<div style="margin-left: 40px;">1. <a href="file://server1/root/cimv2" target="_blank">Server1rootcimv2</a>:Win32_BaseBoard* <br>   Specifies that data related to the Win32_BaseBoard class from the rootcimv2 namespace on the Server1 server will not be included; <br><br>2. <a href="file://server1/root/cimv2" target="_blank">Server1rootcimv2</a>* <br>   Specifies that data from the rootcimv2 namespace on the Server1 server will not be included; <br><br>3. <a href="file://server1/" target="_blank">Server1</a>*Win32_Keyboard* <br>   Specifies that data related to the Win32_Keyboard class on the Server1 server will not be included; <br><br>4. *Win32_CacheMemory* <br>   Specifies that data related to the Win32_CacheMemory class on all the servers will not be included; <br><br>5. *rootaspnet* <br>   Specifies that data from the rootaspnet namespace on all the servers will not be included; <br><br>6. <a href="file://server1/root/cimv2" target="_blank">Server1rootcimv2</a>:Win32_UsbHub.deviceid=&quot;usb<a href="file://root_hub//4&amp;630cc7&amp;0" target="_blank">
+oot_hub4&amp;630cc7&amp;0</a> <br>   Specifies that data related to the deviceid=&quot;usb<a href="file://root_hub//4&amp;630cc7&amp;0" target="_blank">
+oot_hub4&amp;630cc7&amp;0</a>&quot; object of the Win32_UsbHub class from the namespace rootcimv2 on the Server1 server will not be included; <br><br>7. <a href="file://server1/" target="_blank">Server1</a>*.deviceid=&quot;usb<a href="file://root_hub//4&amp;630cc7&amp;0" target="_blank">
+oot_hub4&amp;630cc7&amp;0</a>&quot; <br>   Specifies that data related to the deviceid=&quot;usb<a href="file://root_hub//4&amp;630cc7&amp;0" target="_blank">
+oot_hub4&amp;630cc7&amp;0</a>&quot; object on the Server1 server will not be included <br><br>8. *.deviceid=&quot;usb<a href="file://root_hub//4&amp;630cc7&amp;0" target="_blank">
+oot_hub4&amp;630cc7&amp;0</a>&quot; <br>   Specifies that data related to the deviceid=&quot;usb<a href="file://root_hub//4&amp;630cc7&amp;0" target="_blank">
+oot_hub4&amp;630cc7&amp;0</a>&quot; object on all the servers will not be included. <br><br>9. *ScheduledTasksClass*.*MicrosoftWindowsCustomer Experience Improvement ProgramServer* <br>   Specifies that data related to the Windows Customer Experience Improvement Program scheduled tasks will not be included</div>
+</body>
+</html>

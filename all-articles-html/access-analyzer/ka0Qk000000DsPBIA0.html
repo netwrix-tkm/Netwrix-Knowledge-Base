@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Information Center Requiring Domain Prefix to Log In to Web Page</title>
+    <meta name="article-id" content="ka0Qk000000DsPBIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000003KXurAAG">
+    <meta name="articlecreateddate" content="2024-11-25T16:40:33.000Z">
+    <meta name="articlenumber" content="000009335">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001jO5KAI">
+    <meta name="assignedbyid" content="005Qk0000017MRRIA2">
+    <meta name="assignedtoid" content="005Qk0000017MRRIA2">
+    <meta name="assignmentdate" content="2025-05-12T21:50:21.000Z">
+    <meta name="case" content="500Qk00000IabxyIAB">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="00570000003KXurAAG">
+    <meta name="createddate" content="2025-05-12T21:50:21.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-01-27T16:19:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001jO5KAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000001jO5KAI">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-05-14T09:09:52.000Z">
+    <meta name="lastpublisheddate" content="2025-01-27T16:19:34.000Z">
+    <meta name="ownerid" content="00570000003KXurAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9335">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001jO5KAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Information Center Requiring Domain Prefix to Log In to Web Page</h1>
+    <h2>Symptom</h2>
+<p>You receive the following error when Domain Prefix is required for log-in:</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DsPB&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AGwf1" alt="image (14).png" width="293" height="394"></img></div>
+<h2>Cause</h2>
+<p>Due to the change from IIS to a new web server, subdomain users will now need to include their domain prefix before their username when logging in.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DsPB&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000009d2RO" width="293" height="499" alt="Login prompt showing username field with domain prefix required."></img></p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> You can create a more uniform and consistent log-in experience across all domains connected to the AIC by leaving it as is and requiring the domain prefix.</p>
+</blockquote>
+<h2>Resolution</h2>
+<p>Ensure that the <strong>Default Domain</strong> is based on the AIC <strong>Use the following Active Directory account</strong> setting, which must be the desired domain.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>All domains enabled to access the AIC must also have data collected by the Enterprise Auditor Active Directory Inventory solution as per the following article: <a target="_self" href="https://helpcenter.netwrix.com/bundle/AIC_11.6/page/Content/Access/InformationCenter/Admin/Configuration/ActiveDirectory.htm#multiple_domains">Active Directory�Multiple Domains</a>.</p>
+</blockquote>
+</body>
+</html>

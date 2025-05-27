@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolving &quot;No Common Algorithm for Key Exchange&quot; SSH Error for Cisco Resources</title>
+    <meta name="article-id" content="ka0Qk0000006rPpIAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2023-02-22T14:34:47.000Z">
+    <meta name="articlenumber" content="000008549">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2024-10-18T18:41:11.000Z">
+    <meta name="firstpublisheddate" content="2023-02-22T14:53:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000LLlLCAW">
+    <meta name="knowledge-article-id" content="kA04u000000LLlLCAW">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2024-10-18T18:43:16.000Z">
+    <meta name="lastpublisheddate" content="2024-10-17T15:41:36.000Z">
+    <meta name="meta-description" content="Resolving &quot;No Common Algorithm for Key Exchange&quot; SSH Error for Cisco Resources">
+    <meta name="meta-title" content="Resolving &quot;No Common Algorithm for Key Exchange&quot; SSH Error for Cisco Resources">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8549">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000LLlLCAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Resolving &quot;No Common Algorithm for Key Exchange&quot; SSH Error for Cisco Resources</h1>
+    <h2>Overview</h2>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>This article applies only to Cisco connections.</p>
+</blockquote>
+<div>
+<p>It may occur that Privilege Secure is not configured to use the same key exchange algorithm as a target resource when brokering an SSH connection. This will cause the following error to appear in the &quot;PAM-SSHClient&quot; log:</p>
+<pre class="has-inner-focus">Error=&quot;ssh: handshake failed: ssh: no common algorithm for key exchange; client offered: [ARRAY_OF_ALGORITHMS], server offered: [ARRAY_OF_ALGORITHMS]&quot;</pre>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE:</strong></span> Here, the two arrays of algorithms would <strong>not</strong> contain any shared algorithms.</p>
+</blockquote>
+</div>
+<h2>Instructions</h2>
+<div>
+<p>Refer to the following steps to configure the use of the same key exchange algorithm as a target resource when brokering an SSH connection:</p>
+<ol><li>
+<p>Choose an acceptable algorithm from the list of <strong>server offered</strong> algorithms given in the error message you have received. For example, suppose your server offered <strong>diffie-hellman-group14-sha1</strong>.</p>
+</li><li>
+<p>On your <strong>Privilege Secure</strong> server, navigate to the <strong>ActionServiceWorker</strong> directory.</p>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE:</strong></span> On a default installation, it should be <code>C:\Program Files\Stealthbits\PAM\ActionServiceWorker</code></p>
+</blockquote>
+</li><li>
+<p>Open the <strong>sbpam_sshclient.json</strong> file in a text editor.</p>
+</li><li>
+<p>Navigate to the <strong>KeyExchanges</strong> section, which should resemble the following:</p>
+<pre class="has-inner-focus">&quot;KeyExchanges&quot;: [
+		&quot;diffie-hellman-group-exchange-sha256&quot;,
+		&quot;diffie-hellman-group-exchange-sha1&quot;,
+		&quot;diffie-hellman-group1-sha1&quot;</pre>
+</li><li>
+<p>Modify the array to include your desired algorithm, keeping the array properly comma-separated. In our example:</p>
+<pre class="has-inner-focus">&quot;KeyExchanges&quot;: [
+		&quot;diffie-hellman-group-exchange-sha256&quot;,
+		&quot;diffie-hellman-group-exchange-sha1&quot;,
+		&quot;diffie-hellman-group1-sha1&quot;,
+		&quot;diffie-hellman-group14-sha1&quot;</pre>
+</li><li>
+<p>You should now be able to negotiate an SSH connection with the target resource using its preferred algorithm.</p>
+</li></ol>
+</div>
+</body>
+</html>

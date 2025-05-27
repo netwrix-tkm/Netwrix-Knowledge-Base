@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Log Activity of PPE Mailer</title>
+    <meta name="article-id" content="ka04u000000HcZgAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-08-24T12:34:26.000Z">
+    <meta name="articlenumber" content="000005902">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T09:57:29.000Z">
+    <meta name="firstpublisheddate" content="2021-08-24T12:35:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HKpCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000HKpCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:29.000Z">
+    <meta name="lastpublisheddate" content="2021-08-24T13:01:25.000Z">
+    <meta name="meta-description" content="How to Log Activity of PPE Mailer">
+    <meta name="meta-title" content="How to Log Activity of PPE Mailer">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5902">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HKpCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Log Activity of PPE Mailer</h1>
+    <span style="font-size: 11pt;"><span style="">This article will be useful if you need to have a reporting on the activity of the PPE Mailer e.g. you want to know whom has PPE Mailer sent email to.<br>In order to do this follow these steps:</span></span>
+<ol><li><span style="font-size: 11pt;"><span style="">Stop the <b>&quot;PPE Mailer&quot; </b>service and set the startup for the service to <b>disabled</b></span></span></li><li><span style="font-size: 11pt;"><span style="">in Windows Task Scheduler, <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/system-management-components/schedule-server-process" target="_blank">create a task</a> to be run once a day with these settings: &quot;ppemail.exe /send &gt;&gt; c:\logs\ppemail.txt&quot; It will create a log file in c:\logs\ folder and will write the activity there once a day. </span></span></li></ol>
+<span style="font-size: 11pt;"><span style=""><b>NOTE:</b> The task can be set to be ran more often than once a day, however it will generate a lot of activity and cause unnecessary load on the server.</span></span><br>�
+</body>
+</html>

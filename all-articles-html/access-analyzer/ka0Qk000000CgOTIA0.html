@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Not Found Reports Error: Unable to Log Error to Access Analyzer</title>
+    <meta name="article-id" content="ka0Qk000000CgOTIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MdqrAAC">
+    <meta name="articlecreateddate" content="2025-02-19T22:09:39.000Z">
+    <meta name="articlenumber" content="000009412">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209447931209136">
+    <meta name="assignedbyid" content="005Qk000001wMM9IAM">
+    <meta name="assignedtoid" content="005Qk000001wMM9IAM">
+    <meta name="assignmentdate" content="2025-03-04T17:17:58.000Z">
+    <meta name="case" content="500Qk00000J62YtIAJ">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000007MdqrAAC">
+    <meta name="createddate" content="2025-03-04T17:17:58.000Z">
+    <meta name="draft-status" content="Awaiting R&amp;D">
+    <meta name="firstpublisheddate" content="2025-02-20T18:07:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000022s9KAA">
+    <meta name="knowledge-article-id" content="kA0Qk00000022s9KAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-09T08:48:24.000Z">
+    <meta name="lastpublisheddate" content="2025-02-20T18:07:49.000Z">
+    <meta name="meta-description" content="File Not Found Error For Reports">
+    <meta name="meta-title" content="File Not Found Error For Reports">
+    <meta name="ownerid" content="0054u000007MdqrAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9412">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000022s9KAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>File Not Found Reports Error: Unable to Log Error to Access Analyzer</h1>
+    <h2>Symptom</h2>
+<div>
+<p>When the report grid settings are configured for a non-interactive grid on the AD Group Members View table of the report, and you are attempting to download an exported report as a CSV file, the system generates the following error message:</p>
+<pre class="has-inner-focus">(File not found error) <br><br>Unable to log error to Access Analyzer: Object doesn&#39;t support property or method &#39;LogJSMessage&#39;.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000B05RB" alt="" width="476" height="205"></img> </pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>This error message is caused by setting the report grid configuration to Non Interactive grid.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>To resolve this error, refer to the following steps:</p>
+<ol><li>
+<p>Click <strong>Configure</strong> to access the report settings.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Aq6Zr" alt="" width="679" height="271"></img><br><br></li><li>
+<p>Navigate to the <strong>Widgets</strong> node and select <strong>Configure</strong> on the layout location of the report.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AqZFF" alt="" width="842" height="506"></img><br><br></li><li>
+<p>After clicking Configure, select the <strong>Interactive grid</strong> option in the top-right corner under Table Properties.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AqJtg" alt="" width="842" height="301"></img><br><br></li><li>
+<p>Ensure that you have the <strong>Export table data as CSV</strong> box checked.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BF2eH" alt="" width="316" height="40"></img>�<br><br></p>
+</li><li>
+<p>Confirm that the error has been resolved using either of the following methods:</p>
+<ul><li>
+<p>Right-click the <strong>Job</strong> itself and select <strong>Run Job</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Aqj6X" alt="" width="316" height="178"></img>�</p>
+</li><li>
+<p>In the Reports pane, click the <strong>Kebab menu</strong> (three vertical dots) next to Configure and select <strong>Generate</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CgOT&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Aqj6Y" alt="" width="679" height="327"></img>�</p>
+</li></ul>
+</li></ol>
+</div>
+</body>
+</html>

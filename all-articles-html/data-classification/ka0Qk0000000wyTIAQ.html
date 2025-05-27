@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Sharepoint Modern Authentication</title>
+    <meta name="article-id" content="ka0Qk0000000wyTIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-05-03T12:20:53.000Z">
+    <meta name="articlenumber" content="000008425">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-12-12T10:10:15.000Z">
+    <meta name="firstpublisheddate" content="2022-05-03T12:45:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000K8wCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000K8wCAE">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-12-12T10:16:04.000Z">
+    <meta name="lastpublisheddate" content="2023-12-12T10:16:04.000Z">
+    <meta name="meta-description" content="Using Sharepoint Modern Authentication for Netwrix Data Classification">
+    <meta name="meta-title" content="Using Sharepoint Modern Authentication for Netwrix Data Classification">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8425">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000K8wCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Using Sharepoint Modern Authentication</h1>
+    <h2>Step 1: Preparing an Application Certificate</h2>
+Prepare application certificate as follows:
+
+<ol><li>Create (or load) an IIS certificate on NDC Server (recommended).<br>	<b>NOTE</b>: This certificate should be installed for the local machine so that it can be accessed by Netwrix Data Classification and other services.</li><li>Export the certificate (.CER file):
+	<ol><li>Open the certificate in IIS management console.</li><li>Go to the Details tab.</li><li>Select Copy to File.<br>		<b>NOTE</b>: Do not export private key.</li><li>Set file type to DER-encoded CER.</li></ol>
+	</li></ol>
+
+<h2>Step 2: Creating and Registering a New App in�Microsoft Entra ID (formerly Azure AD)</h2>
+To register a new application, do the following:
+
+<ol><li>Sign into the <b>Microsoft 365 Admin Center </b>(with your Global Administrator, Application Administrator or Cloud Application Administrator account).</li><li>Search for and select the <b>Microsoft Entra admin center</b>.</li><li>Under the Azure Directory select the <b>App registrations </b>section.</li><li>Select <b>New registration</b><br>	:<img alt="Picture1.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000wyT&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dBat"></img></li><li>In the <b>Name </b>field, enter the application name.</li><li>In the <b>Supported account types </b>select who can use this application � use the <b>Accounts in this organizational directory only </b>option.</li><li>Click the <b>Register </b>button.<img alt="Picture2.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000wyT&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dBay"></img><br>	<b>NOTE</b>: Application redirect URl is optional, you can leave it blank on this step.�</li><li>Copy your application ID from the <b>Overview </b>section it to a safe location.</li></ol>
+
+<h2>Step 3: Granting Required Permissions</h2>
+Next, you need to grant your new application the required API permissions.<br>Azure AD applications can be assigned <i>Delegated </i>or <i>Application </i>permissions:
+
+<ul><li>Delegated permissions require a signed-in user present who consents to the permissions every time an API call is sent.</li><li>Application permissions are consented by an administrator once granted.</li></ul>
+For the newly created app, you should use <i>Application </i>permissions.<br><b>NOTE</b>: By default, a new application is granted one delegated permission for <b>Microsoft Graph API � User.Read. </b>It is not required and can be removed.<br>Do the following:<br>When found, click on the entry and proceed with adding the necessary permissions. The steps from here on remain the same, so in most cases you would need the Application permissions entry, and the relevant set of permissions therein.
+<ol><li>Select the relevant entries, hit the Add permissions.</li><li>On the <b>Request API permissions?Microsoft APIs </b>pane, scroll down and select SharePoint.</li><li>Select Application Permissions.</li><li>Apply the following permissions:
+	<ol><li>Graph � Application permissions (With admin consent granted)
+		<ul><li>Sites.FullControl.All (Crawling)</li></ul>
+		</li><li>SharePoint � Application permissions (With admin consent granted)
+		<ul><li>Sites.FullControl.All (Crawling)</li><li>TermStore.ReadWrite.All (Term Set access)<br>			<b>NOTE</b>: For taxonomy manager to full operate you must also make the user �app@sharepoint� a taxonomy admin (or group admin)<br>			<img alt="Picture3.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000wyT&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004dBb3"></img></li></ul>
+		</li></ol>
+	</li><li>Click <b>Add permissions</b>.</li></ol>
+
+<h2>Step 4: Configuring Certificates &amp; Secrets</h2>
+Having configured the app, you can upload its application certificate.
+
+<ol><li>In the app settings, click <b>Certificates &amp; secrets </b>and select <b>Upload certificate</b>.</li><li>Upload the .CER file you prepared at <a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.6.2/page/NDC/Config_Infrastructure/Config_SPO_Modern_Auth.html#Step1" target="_blank">Step 1: Preparing an Application Certificate</a> .</li><li>Copy the certificate thumbprint to a safe location.</li></ol>
+
+<h2>Step 5: Obtaining Tenant ID</h2>
+
+<ol><li>Open <b>Microsoft Entra admin center</b>.</li><li>Select <b>Azure Active Directory &gt; Overview </b>section for the required Exchange Online organization.</li><li>Locate the <b>Tenant ID </b>and copy it to a safe location.</li></ol>
+<br><br><br><br><br>�
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Netwrix Auditor to process NetApp Clustered Data ONTAP 9.x using TLS 1.2</title>
+    <meta name="article-id" content="ka04u000000HcMoAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:09.000Z">
+    <meta name="articlenumber" content="000003011">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:48.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9T1CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9T1CAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:49.000Z">
+    <meta name="lastpublisheddate" content="2022-03-10T10:34:54.000Z">
+    <meta name="meta-description" content="NetApp 9 mode audit configuration">
+    <meta name="meta-title" content="How to Configure Netwrix Auditor to process NetApp Clustered Data ONTAP 9.x using TLS 1.2">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="582">
+    <meta name="versionnumber" content="9">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9T1CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Netwrix Auditor to process NetApp Clustered Data ONTAP 9.x using TLS 1.2</h1>
+    This article contains instructions regarding configuration of Netwrix Auditor to allow it to work with NetApp Clustered Data ONTAP 9.x using TLS 1.2?<br>�
+<h2>�Configuring for .NET 4.5 or later (CLR 4.0)</h2>
+
+<ol><li>Make sure .NET 4.5 (or later) is installed on the machine where Netwrix Auditor server runs.</li><li>In the registry editor, go to <b>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319</b> and specify the key value: <b>&quot;SchUseStrongCrypto&quot;=dword:00000001</b></li><li>Go to <b>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 </b>and make sure the necessary key values are configured:
+	<ul><li>under <b>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Security\Providers\SCHANNEL\Protocols\TLS 1.2\Client</b>
+		<ul><li><b>&quot;</b>DisabledByDefault&quot;=dword:00000000</li><li><b>&quot;</b>Enabled&quot;=dword:00000001</li></ul>
+		</li><li>under <b>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server</b>
+		<ul><li><b>&quot;</b>DisabledByDefault&quot;=dword:00000000</li><li><b>&quot;</b>Enabled&quot;=dword:00000001</li></ul>
+		</li></ul>
+	</li></ol>
+
+<h2>Configuring for .NET 3.5 SP1 (CLR 2.0)</h2>
+
+<ol><li>Make sure .NET 3.5 SP1 is installed on the machine where Netwrix Auditor server runs.</li><li>Install update <a href="https://support.microsoft.com/en-ca/help/3154520/support-for-tls-system-default-versions-included-in-the-net-framework" target="_blank">KB3154520</a> (for Windows Server 2012R2) from Microsoft.</li><li>In the registry editor, go to <b>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727</b> and specify the key value <b>&quot;SystemDefaultTlsVersions&quot;=dword:00000001</b></li><li>Go to <b>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727 </b>and specify the key value <b>&quot;SystemDefaultTlsVersions&quot;=dword:00000001</b></li><li>Go to <b>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 </b> and make sure the necessary key values are configured:
+	<ul><li>under <b>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client</b>
+		<ul><li>&quot;DisabledByDefault&quot;=dword:00000000</li><li>&quot;Enabled&quot;=dword:00000001</li></ul>
+		</li><li>under <b>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server</b>
+		<ul><li>&quot;DisabledByDefault&quot;=dword:00000000</li><li>&quot;Enabled&quot;=dword:00000001</li></ul>
+		</li></ul>
+	</li></ol>
+<br>� Original KB Article 2120
+</body>
+</html>

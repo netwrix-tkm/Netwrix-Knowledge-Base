@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.2_026</title>
+    <meta name="article-id" content="ka04u000000Hd68AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:53:08.000Z">
+    <meta name="articlenumber" content="000007937">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:15:58.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:53:08.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JGbCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JGbCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:15:59.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:53:08.000Z">
+    <meta name="meta-description" content="360012326351">
+    <meta name="meta-title" content="Hotfix: SA_8.2_026">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7937">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JGbCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.2_026</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Fed Reserve | 8.2 build with new AD perms</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Title:</span></strong><br>32057 - Fed Reserve | 8.2 build with new AD perms<br><strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong><br>32057 - Fed Reserve | 8.2 build with new AD perms<br><span><span style="color: #1f2326;"><span style="font-family: segoe ui,sans-serif;"><span style="font-size: 10.5pt;">Request: 8.2 build with AD perm DC and jobs</span></span></span></span><br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Nicholas Zimmer<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>8.2<br>�<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SA - DC - ADPerms<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SAT-4911<br>�<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>8.2<br>�<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br>�<br>�<br>�<br><strong><span style="font-family: calibri,sans-serif;">Issue:</span></strong><br>Included modules:<br>Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.ADP.UI.dll���� �������������� v8.2.16<br>Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.ADP.dll������������������������ v8.2.16<br>Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.AD.Common.dll��������� v8.2.16<br>Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.Common.dll��������������� �������������� v8.2.9<br>Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.UI.Common.dll���������� v8.2.9<br>Private Assemblies\Ninject.Extensions.NamedScope.dll ��������������� �������������� �������������� v3.3.0<br>Private Assemblies\Ninject.dll �������������������������������������������������������������� �������������� �������������� v3.3.4<br>dc\DCADPermissions.DLL<br>dc\DCList.xml<br>JOBS\Group_Active Directory Permissions Analyzer<br>StealthAudit\StealthAUDIT.exe.config<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <strong><span style="font-family: calibri,sans-serif;">1. Unblock the hotfix zip file in the windows property dialog(Get-ChildItem -Path &#39;&#39; -Recurse | Unblock-File), if an unblock button exists there. </span></strong><br><strong><span style="font-family: calibri,sans-serif;">2. Close all instances of StealthAUDIT (check task manager under processes for all users)</span></strong><br><strong><span style="font-family: calibri,sans-serif;">3. Exit StealthAUDIT console</span></strong><br><strong><span style="font-family: calibri,sans-serif;">4. Copy and replace files from the PrivateAssemblies folder in this hotfix, to the PrivateAssemblies folder in SA Install dir.</span></strong><br><strong><span style="font-family: calibri,sans-serif;">5. Copy and replace files from the DC folder in this hotfix, to the DC folder in the SA install dir. </span></strong><br><strong><span style="font-family: calibri,sans-serif;">6. Copy and replace files from the Jobs folder in this hotfix, to the Jobs folder in the SA install dir. </span></strong><br><strong><span style="font-family: calibri,sans-serif;">7. Copy and replace files from the StealthAUDIT folder in this hotfix, to the StealthAUDIT folder in the SA install dir. </span></strong><br><br>This hotfix has been superseded by HF 8.2 027�<a href="https://na103.salesforce.com/articles/General/Hotfix-SA-8-2-027" target="_blank">https://na103.salesforce.com/articles/General/Hotfix-SA-8-2-027</a></p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-4911<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.ADP.UI.dll		v8.2.16
+Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.ADP.dll		v8.2.16
+Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.AD.Common.dll	v8.2.16
+Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.Common.dll		v8.2.9
+Private Assemblies\Stealthbits.StealthAUDIT.DataCollectors.UI.Common.dll	v8.2.9
+Private Assemblies\Ninject.Extensions.NamedScope.dll 				v3.3.0
+Private Assemblies\Ninject.dll 							v3.3.4
+dc\DCADPermissions.DLL
+dc\DCList.xml
+JOBS\Group_Active Directory Permissions Analyzer
+StealthAudit\StealthAUDIT.exe.config<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2299<br></p>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharepoint Online Activity Scan Warning: Unknown Item Type</title>
+    <meta name="article-id" content="ka0Qk000000CnwDIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-02-11T15:54:05.000Z">
+    <meta name="articlenumber" content="000009401">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209378183184415">
+    <meta name="case" content="500Qk00000IGSUIIA5">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-03-13T20:38:31.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-03-04T22:20:54.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000020K5KAI">
+    <meta name="knowledge-article-id" content="kA0Qk00000020K5KAI">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-13T20:38:54.000Z">
+    <meta name="lastpublisheddate" content="2025-03-04T22:20:54.000Z">
+    <meta name="meta-description" content="Sharepoint Online Activity Scan Error">
+    <meta name="meta-title" content="Sharepoint Online Activity Scan Error">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9401">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000020K5KAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Sharepoint Online Activity Scan Warning: Unknown Item Type</h1>
+    <h2>Symptom</h2>
+<div>
+<p>When running SPAC System Scans for SharePoint Online in <strong>Netwrix Enterprise Auditor</strong> (NEA), the system generates the following error message:</p>
+<pre class="has-inner-focus">[8] Unknown item type 
+  </pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>This issue occurs because these are newer event types being collected by <strong>Netwrix Activity Monitor</strong> for which NEA do not have mappings.</p>
+</div>
+<h2>Resolutions</h2>
+<div>
+<p>To address this issue, it is recommended to do one of the following:</p>
+<ul><li>
+<p>Ignore the warnings, as they do not inhibit data collection.</p>
+</li><li>
+<p>Upgrade to the latest version of NEA, which should include all SharePoint Online activity types known up until the most recent release date.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>If you are on the latest released version of NEA and are still encountering this issue, please submit an escalation to have new event types added to a future release.</p>
+</blockquote>
+</li><li>
+<p>Disable the collection of <strong>Other event types</strong> in Netwrix Activity Monitor:</p>
+<ol><li>
+<p>Open <strong>Netwrix Activity Monitor</strong> and navigate to the SharePoint Online file output in the <strong>Monitored Hosts</strong> tab.</p>
+</li><li>
+<p>On the <strong>Other</strong> tab, uncheck the <strong>Other events</strong> option:</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CnwD&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BF8bi" alt="" width="753" height="263"></img> ��</li></ol>
+</li></ul>
+</div>
+</body>
+</html>

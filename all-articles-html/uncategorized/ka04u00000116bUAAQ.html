@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load-balancing cluster for Password Manager</title>
+    <meta name="article-id" content="ka04u00000116bUAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:55.000Z">
+    <meta name="articlenumber" content="000003228">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T11:52:16.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WbCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9WbCAK">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T11:52:32.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:28.000Z">
+    <meta name="meta-description" content="Password manager Load balancing setup">
+    <meta name="meta-title" content="Load-balancing cluster for Password Manager">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="811">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WbCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Load-balancing cluster for Password Manager</h1>
+    How to setup a load balancing cluster for Password Manager
+
+<hr></hr>
+
+<strong>Note: </strong>Load-balancing can be used for the frontend only. It is impossible to load-balance a single-server installation, because in this case there will be several copies of the Password Manager service running at the same time and we will not be able to share the internal database of Password Manager between them.
+
+<strong>Note: </strong>A load-balanced cluster can be built both with domain or non-domain members, however the best practice is to use domain members as cluster nodes. The instruction below refers to creating Load balancing cluster with domain members.
+<ol><li>Enable the <strong>Network Load Balancing </strong> feature (only available in Windows 2008 R2 Datacenter and Enterprise)</li></ol>
+<ol start="1" style="margin-left: 80px;list-style-type: lower-alpha;"><li>Run <strong>Server Manager</strong> snap-in</li><li>In the left pane right-click to <strong>Features</strong>, select <strong>Add feature</strong>. A wizard opens.</li><li>Enable the checkbox in front of <strong>Network Load Balancing </strong>, click <strong>Next</strong>, then click <strong>Install</strong>.</li></ol>
+<ol start="2"><li>On any server that has the Network Load Balancing feature installed, run <strong>Control panel &quot;  Administrative tools &quot;  Network Load Balancing Manager</strong></li><li>From the menu select <strong>Cluster &quot;  New</strong></li><li> In the <strong>Host</strong> field specify a name of a machine that is to be part of the new cluster, click <strong>Connect</strong></li><li> Select the network Interface that will be used to build a cluster, click <strong>Next</strong></li></ol>
+<div style="margin-left: 40px;"><img style="width: 297px;height: 257px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bU&amp;feoid=00N0g000004CA0p&amp;refid=0EM70000000554p" alt="User-added image" width="474" height="443"></img></div>
+<ol start="6"><li>In the <strong>New Cluster: Cluster IP</strong> addresses window click <strong>Add</strong> and specify the IP address and subnet mask that will be used to access the cluster. Click <strong>OK</strong>, then <strong>Next</strong></li></ol>
+<div style="margin-left: 40px;"><img style="width: 315px;height: 234px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bU&amp;feoid=00N0g000004CA0p&amp;refid=0EM70000000554u" alt="User-added image" width="500" height="362"></img></div>
+<ol start="7"><li>In the <strong>New cluster: Cluster Parameters</strong> window verify cluster IP, specify cluster internet name and cluster operational mode. Click <strong>Next.</strong></li></ol>
+<div style="margin-left: 40px;"><strong>Note: </strong>For servers with only one network interface set <strong>Multicast.</strong></div>
+<div style="margin-left: 40px;"><img style="width: 303px;height: 258px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bU&amp;feoid=00N0g000004CA0p&amp;refid=0EM70000000554z" alt="User-added image" width="476" height="445"></img></div>
+<ol start="8"><li>In the <strong>New cluster: Port rules</strong> window click <strong>Finish</strong>.</li></ol>
+<div style="margin-left: 40px;"><strong>Note: </strong>By default all traffic (on all protocols and ports) is equally divided between all cluster nodes. If you want to load-balance request on specific protocol or port, in the New cluster: Port rules window highlight the rule and click Modify.</div>
+<div style="margin-left: 40px;"><img style="width: 344px;height: 272px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bU&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005554" alt="User-added image" width="500" height="410"></img></div>
+<ol start="9"><li>Right-click the newly created cluster in the left pane and select <strong>Add host to cluster </strong>and add more nodes if needed.</li><li>Repeat steps 4-9 of this procedure for every server that is to be a cluster node.</li><li>Install Web-Applications on every node per procedure 12 of the <a href="https://www.netwrix.com/download/documents/NetWrix_Password_Manager_Administrator_Guide.pdf" target="_blank">Administrators guide</a></li></ol>
+</body>
+</html>

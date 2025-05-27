@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB_Owner has been removed from Databases</title>
+    <meta name="article-id" content="ka04u000000HcTbAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003485">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:03.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9apCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9apCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:03.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="meta-description" content="DB_Owner has been removed from Databases  DB_Owner has been removed from Database">
+    <meta name="meta-title" content="DB_Owner has been removed from Databases">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1324">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9apCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>DB_Owner has been removed from Databases</h1>
+    You have configured Database Content Audit in Netwrix Auditor for SQL Servers and ran a collection and DB_OWNER has been removed from your databases.
+<hr></hr>
+<div>When the Database Content Audit option is selected, on each data collection the program checks if the TRUSTWORTHY property is enabled on the monitored databases, and enables the property when it is disabled. Sometimes this process can corrupt the database owner record.</div>
+
+<hr></hr>
+<div>In Microsoft SQL Server Management Studio, run the following command: &quot;ALTER AUTHORIZATION ON DATABASE::db_name TO user_name&quot; where &quot;db_name&quot; is a name of the corrupted database and &quot;user_name&quot; is the db owner account name.</div>
+
+<div>�</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable OCR for Non-English Images</title>
+    <meta name="article-id" content="ka0Qk0000002cUDIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:01.000Z">
+    <meta name="articlenumber" content="000003685">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-03-15T10:28:41.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:04.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9e3CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9e3CAC">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-03-15T10:35:26.000Z">
+    <meta name="lastpublisheddate" content="2024-03-15T10:35:26.000Z">
+    <meta name="meta-description" content="How to enable OCR for non-English images">
+    <meta name="meta-title" content="How to enable OCR for non-English images">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="3519">
+    <meta name="versionnumber" content="13">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9e3CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Enable OCR for Non-English Images</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How can I enable OCR for non-English images?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>The below steps define how to deploy the additional <b>OCR</b> <b>language</b> <b>pack(s)</b> and how to identify which <b>files</b> should be <b>processed</b> via the installed <b>pack(s)</b>. It should be noted that this assumes that the user has enabled <b>OCR</b> correctly. More details can be found in the following KB article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9e1CAC.html" target="_blank">Process Document Images results in no extracted text or invalid text</a>.<br>Select the language you wish to use from the list below to download the corresponding language pack:</p>
+
+<ol><li>
+	<p>Ensure that the <b>pack</b> is deployed on all <b>servers</b> to the following locations:</p>
+
+	<ol><li>
+		<p><b>conceptQS</b> (typically: C:\inetpub\wwwroot\NDC\bin\Tesseract-OCR\tessdata)</p>
+		</li><li>
+		<p><b>conceptCollector</b> (typically :C:\Program Files\Netwrix\Data Classification\Services\ConceptCollectorService\Tesseract-OCR\tessdata)</p>
+		</li></ol>
+	</li><li>
+	<p>The <b>language pack</b> file should not be <b>renamed.</b></p>
+	</li></ol>
+
+<p>Then, identify which files should be processed via a particular language pack:</p>
+
+<ol><li>
+	<p>Log into the <b>Administration Portal.</b></p>
+	</li><li>
+	<p>Select <b>Config.</b></p>
+	</li><li>
+	<p>Expand <b>Text Processing.</b></p>
+	</li><li>
+	<p>Select <b> OCR Path Mapping.</b></p>
+	</li><li>
+	<p>Each mapping allows you to define part of a <b>path</b> to identify specific files for processing:</p>
+
+	<ol><li>
+		<p>Select <b>Add.</b></p>
+		</li><li>
+		<p>Define the <b>inclusion</b> filter, such as:</p>
+
+		<ul><li>
+			<p>*ru_* - Identifies any file that contains ru_ within the path</p>
+			</li><li>
+			<p>* - Identifies any file</p>
+			</li></ul>
+		</li><li>
+		<p>Select the <b>language</b> (mapped to the deployed language pack).</p>
+		</li><li>
+		<p>Select <b>Save.</b></p>
+		</li></ol>
+	</li><li>
+	<p>In the event that a <b>file</b> matches <b>multiple</b> <b>inclusion</b> <b>rules</b> the longest matching <b>rule</b> will be used.</p>
+	</li></ol>
+
+<p><b><u>Language Packs:</u></b></p>
+
+<ul><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/afr.traineddata" target="_blank">Afrikaans</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/sqi.traineddata" target="_blank">Albanian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ara.traineddata" target="_blank">Arabic</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/eus.traineddata" target="_blank">Basque</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/bel.traineddata" target="_blank">Belarusian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ben.traineddata" target="_blank">Bengali</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/bul.traineddata" target="_blank">Bulgarian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/cat.traineddata" target="_blank">Catalan</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ces.traineddata" target="_blank">Czech</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/chi_sim.traineddata" target="_blank">Chinese Simplified</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/chi_tra.traineddata" target="_blank">Chinese Traditional</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/hrv.traineddata" target="_blank">Croatian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/dan.traineddata" target="_blank">Danish</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/nld.traineddata" target="_blank">Dutch</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/eng.traineddata" target="_blank">English</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/est.traineddata" target="_blank">Estonian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/fin.traineddata" target="_blank">Finnish</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/fra.traineddata" target="_blank">French</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/glg.traineddata" target="_blank">Galician</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/deu.traineddata" target="_blank">German</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ell.traineddata" target="_blank">Greek</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/heb.traineddata" target="_blank">Hebrew</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/hin.traineddata" target="_blank">Hindi</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/hun.traineddata" target="_blank">Hungarian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/isl.traineddata" target="_blank">Icelandic</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ita.traineddata" target="_blank">Italian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/jpn.traineddata" target="_blank">Japanese</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/kan.traineddata" target="_blank">Kannada</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/kor.traineddata" target="_blank">Korean</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/lav.traineddata" target="_blank">Latvian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/lit.traineddata" target="_blank">Lithuanian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/mal.traineddata" target="_blank">Malayalam</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/mkd.traineddata" target="_blank">Macedonian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/mlt.traineddata" target="_blank">Maltese</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/msa.traineddata" target="_blank">Malay</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/nor.traineddata" target="_blank">Norwegian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/pol.traineddata" target="_blank">Polish</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/por.traineddata" target="_blank">Portuguese</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ron.traineddata" target="_blank">Romanian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/rus.traineddata" target="_blank">Russian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/slk.traineddata" target="_blank">Slovak</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/slv.traineddata" target="_blank">Slovenian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/spa.traineddata" target="_blank">Spanish</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/srp.traineddata" target="_blank">Serbian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/swa.traineddata" target="_blank">Swahili</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/swe.traineddata" target="_blank">Swedish</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/tam.traineddata" target="_blank">Tamil</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/tel.traineddata" target="_blank">Telugu</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/tgl.traineddata" target="_blank">Tagalog</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/tha.traineddata" target="_blank">Thai</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/tur.traineddata" target="_blank">Turkish</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/ukr.traineddata" target="_blank">Ukrainian</a></li><li><a href="https://www.netwrix.com/download/products/DDC/TesseractLanguagePacks/vie.traineddata" target="_blank">Vietnamese</a></li></ul>
+</div>
+</body>
+</html>

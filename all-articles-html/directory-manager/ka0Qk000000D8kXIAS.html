@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Notify Objects When a Profile is Modified</title>
+    <meta name="article-id" content="ka0Qk000000D8kXIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1XhAAK">
+    <meta name="articlecreateddate" content="2025-04-08T08:34:03.000Z">
+    <meta name="articlenumber" content="000010127">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002IP3KAM">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210127073087851?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F1XhAAK">
+    <meta name="createddate" content="2025-04-08T08:34:03.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-30T19:08:35.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002IP3KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002IP3KAM">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-04-30T19:08:35.000Z">
+    <meta name="lastpublisheddate" content="2025-04-30T19:08:35.000Z">
+    <meta name="meta-title" content="How To Notify an object being modified">
+    <meta name="ownerid" content="0054u000008F1XhAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10127">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002IP3KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Notify Objects When a Profile is Modified</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11</p>
+<h2>Overview</h2>
+<p>You can configure Netwrix Directory Manager (formerly GroupID) 11 to automatically send an email notification to a group, user, or contact whenever their profile is modified through the portal. To enable this feature, update the notification settings in the identity store.</p>
+<p>When the <strong>Object being modified</strong> option is enabled, the following occurs:</p>
+<ul><li>For a group, group members are notified of changes.</li><li>For a user or contact, the individual is notified about changes to their profile.</li></ul>
+<p>Notifications are generated for events such as group renewal, expiry policy changes, membership changes, property or attribute modifications, and updates made by scheduled jobs.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>An SMTP server must be configured for the identity store for notifications to be sent.</p>
+</blockquote>
+<h2>Instructions</h2>
+<ol><li>In Directory Manager Admin Center, select <strong>Identity Stores</strong>. For your identity store, click the three dots (<strong>...</strong>) and select <strong>Edit</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8kX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFwM" alt="Identity Stores list with edit option highlighted in Directory Manager Admin Center" width="624" height="253"></img></li><li>On the next page, click <strong>Configurations</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8kX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpG9G" alt="Configurations button in Directory Manager Admin Center" width="624" height="254"></img></li><li>Click <strong>Notifications</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8kX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpGCT" alt="Notifications button in Directory Manager Admin Center" width="624" height="246"></img></li><li>Under the <strong>Also Notify</strong> option, select the checkbox for <strong>Object being modified</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8kX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpG9H" alt="Also Notify option with Object being modified checkbox selected" width="624" height="232"></img></li><li>Scroll down and click the <strong>Save</strong> button.</li></ol>
+<h2>Impact</h2>
+<p>For example, if an administrator changes the <strong>Notes</strong> field of a user account in Active Directory, the user whose account was modified will receive an email notification about the change.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8kX&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpGAr" alt="Sample email notification sent to user after profile modification in Directory Manager" width="495" height="513"></img></p>
+</body>
+</html>

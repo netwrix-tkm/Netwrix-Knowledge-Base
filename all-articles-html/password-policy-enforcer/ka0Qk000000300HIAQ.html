@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Not Logged-On Warning During HIBP Updates</title>
+    <meta name="article-id" content="ka0Qk000000300HIAQ">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-04-02T08:55:23.000Z">
+    <meta name="articlenumber" content="000009112">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-04-23T07:54:27.000Z">
+    <meta name="firstpublisheddate" content="2024-04-23T07:54:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000ZaTKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000ZaTKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-04-23T07:54:34.000Z">
+    <meta name="lastpublisheddate" content="2024-04-23T07:54:24.000Z">
+    <meta name="meta-description" content="User Not Logged-On Warning During HIBP Updates">
+    <meta name="meta-title" content="User Not Logged-On Warning During HIBP Updates">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9112">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000ZaTKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>User Not Logged-On Warning During HIBP Updates</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>The weekly HaveIBeenPwned (HIBP) database update fails.</p>
+	</li><li>
+	<p>Netwrix Password Policy Enforcer prompts the following warning in the schedule history:</p>
+
+	<pre class="has-inner-focus">
+Launch condition not met, user not logged-on</pre>
+
+	<p>The warning includes the following description:</p>
+
+	<pre class="has-inner-focus">
+Task Scheduler did not launch task &quot;\Netwrix\%task_name%&quot;
+because user &quot;%user_account%&quot; was not logged on when the launching conditions were met.
+User Action: Ensure user is logged on or change the task definition to allow launching when user is logged off.</pre>
+	</li></ul>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Refer to the following steps to review the schedule history:</p>
+
+<ol><li>
+	<p>In the Password Policy Enforcer window, select <strong>Action</strong> and click the <strong>Run HIBP Updater</strong> button.</p>
+	</li><li>
+	<p>Click the <strong>Scheduler</strong> button.</p>
+	</li><li>
+	<p>Select a schedule from the list and click <strong>Edit schedule</strong>.</p>
+	</li><li>
+	<p>In the right pane, click the <strong>History</strong> button.</p>
+	</li></ol>
+</blockquote>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <strong>Run only when user is logged in</strong> feature is enabled in the scheduled task to update the HIBP database. The corresponding user is not logged in during the weekly HIBP database update attempt.</p>
+
+<div><img height="380" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000300H&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004P0aP" width="500"></img></div>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Switch the radio button to the <strong>Run whether user is logged on or not</strong> option in the Task Scheduler task.</p>
+
+<ol><li>
+	<p>On the Password Policy Enforcer server, launch Task Scheduler.</p>
+	</li><li>
+	<p>In the left pane, extend the <strong>Task Scheduler Library</strong> folder and select the <strong>Netwrix</strong> folder.</p>
+	</li><li>
+	<p>In the central view, select the Password Policy Enforcer task, right-click it, and select <strong>Properties</strong>.</p>
+	</li><li>
+	<p>In the Properties window, switch the security option to the <strong>Run whether user is logged on or not</strong> option.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Alternatively, you can change the designated user to keep the <strong>Run only when user is logged in</strong> feature on. To change the user, click the <strong>Change User of Group...</strong> button in the <strong>Properties</strong> window. Specify the new user.</p>
+</blockquote>
+</div>
+</body>
+</html>

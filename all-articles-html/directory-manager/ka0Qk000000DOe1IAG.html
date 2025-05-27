@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Enforce group naming convention and input validation with regular expressions</title>
+    <meta name="article-id" content="ka0Qk000000DOe1IAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1XhAAK">
+    <meta name="articlecreateddate" content="2025-04-24T07:59:55.000Z">
+    <meta name="articlenumber" content="000010151">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002NN7KAM">
+    <meta name="assignedbyid" content="0054u000008F1XhAAK">
+    <meta name="assignedtoid" content="0054u000008F1XhAAK">
+    <meta name="assignmentdate" content="2025-04-24T07:59:55.000Z">
+    <meta name="createdbyid" content="0054u000008F1XhAAK">
+    <meta name="createddate" content="2025-04-24T07:59:55.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002NN7KAM">
+    <meta name="lastmodifiedbyid" content="0054u000008F1XhAAK">
+    <meta name="lastmodifieddate" content="2025-04-24T07:59:55.000Z">
+    <meta name="meta-title" content="How To Enforce group naming convention and input validation with regular expressions">
+    <meta name="ownerid" content="0054u000008F1XhAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10151">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Enforce group naming convention and input validation with regular expressions</h1>
+    <h4><b>Applies To:</b></h4>
+<p>GroupID 11</p>
+<h4><b>Summary:</b></h4>
+<p>Naming standards play a bigger role in your IT enterprise than you may think. It becomes even more important when users are given access to Active Directory via the User portal.</p>
+<p>GroupID administrators can enforce a naming convention for groups that are created using the User portal by defining regular expressions. This involves two main steps:</p>
+<ul><li><a href="#create">Create a display type</a></li><li><a href="#associate">Associate this display type with the desired field</a></li></ul>
+<h4><b>Create a display type</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMI5" height="1" width="1" border="0"></img></b></h4>
+<ol start="1"><li>In the GroupID Admin Panel, select�<b>Applications,</b> and against your desired portal/application, click on the 3 dots button and select <b>Settings</b>.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMMv" height="253" width="624" border="0"></img></p>
+<ol start="2"><li>On the next page, under <b>Design Settings,</b> select your Identity Store�s name to expand it.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMJh" height="247" width="623" border="0"></img></p>
+<ol start="3"><li>Select <b>Custom Display Types</b> and click the <b>Add</b> button.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMLJ" height="252" width="623" border="0"></img></p>
+<ol start="4"><li>On the <b>New Display Type</b> page, enter a name for the display type in the <b>Name</b> box. This name should reflect the purpose of the display type, for example, <b>Regular Expression Policy 1</b>.</li><li>From the <b>Type</b> list, select the <b>Textbox</b> option and click <b>OK</b>. Fill out the other options based on information below.</li></ol>
+<table cellpadding="0" cellspacing="0" border="1"><tbody><tr><td colspan="1" rowspan="1">
+<p><i>Default Value</i></p>
+</td><td colspan="1" rowspan="1">
+<p>Specify a default value that will be displayed in the textbox.</p>
+</td></tr><tr><td colspan="1" rowspan="1">
+<p><i>Regular Expression</i></p>
+</td><td colspan="1" rowspan="1">
+<p>Specify a regular expression to perform a validation on the data entered in the textbox.</p>
+</td></tr><tr><td colspan="1" rowspan="1">
+<p><i>Error Message</i></p>
+</td><td colspan="1" rowspan="1">
+<p>Type the text that would be displayed as an error message when a portal user enters data in the text box that does not conform to the regular expression.</p>
+</td></tr></tbody></table>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAKTC" height="577" width="431" border="0"></img></p>
+<ol start="6"><li>Click <b>OK</b> and then click the <b>Save</b> button to save your changes.<br>This new display type will be listed under the <b>Custom Display Types</b> area, along with the already defined display types.</li></ol>
+<h4><b>Associate the display type with a field</b><b><img alt="Anchor" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMOX" height="1" width="1" border="0"></img></b></h4>
+<p>The next step is to associate the display type with the required field. Let&#39;s suppose you want to associate the display type with the <b>Group Name</b> field on the <b>Create Group</b> wizard in the User portal.</p>
+<ol start="1"><li>In the GroupID Admin Panel, select�<b>Applications,</b> and against your portal/application where you just added the new display type, click on the 3 dots button and select <b>Settings</b>.</li><li>On the next page, under <b>Design Settings,</b> select your Identity Store�s name to expand it.</li><li>�Scroll down and click on the Create Object option. Under the <b>Select Directory Object </b>option, select�<b>Group</b> from the drop-down list.</li><li>In the <b>Name</b> list, select <b>General</b> and click <b>Edit</b>.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMTN" height="322" width="624" border="0"></img></p>
+<ol start="5"><li>On the <b>Edit Design Category</b> page, select <b>Group name</b> in the <b>Fields</b> area and click <b>Edit</b>.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAM6o" height="573" width="420" border="0"></img></p>
+<ol start="6"><li>On the <b>Edit Field</b> page, select the display type you created (<i>namely, Regular Expression Policy 1</i>) from the <b>Display Type</b> drop-down list.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMRl" height="568" width="416" border="0"></img></p>
+<ol start="7"><li>Click <b>OK </b>and then click<b> OK </b>for<b> </b>2<sup>nd</sup> time to close the dialog boxes, and then <b>Save</b> the changes by scrolling down the page.<br>Now, this display type is linked to the <b>Group name</b> field on the <b>Create Group</b> wizard in the portal.</li></ol>
+<h4><strong>Final Result:</strong></h4>
+<p>The naming convention we defined using a regular expression was to ensure that group names only contain alphabetic characters (<em>lowercase and uppercase</em>), without spaces and special characters. So, when a user tries to enter a group name with spaces or special characters, the portal will not validate the name and will display the standard example that we specified. It is as follows:</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DOe1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CAMQ9" height="74" width="471" border="0"></img></p>
+<p>Some examples of regular expressions are discussed below.</p>
+<p><b>Example 1:</b></p>
+<p>Ensure that the desired field only contains alphabetic characters (<i>lowercase &amp; uppercase</i>) and numeric digits (<i>0-9</i>). In addition, the length must be constrained between 1 to 25 characters.</p>
+<p>Regular Expression:<br><i>^[A-Za-z0-9-]{1,25}$</i></p>
+<p><b>Example 2:</b></p>
+<p>Ensure that the desired field only contains alphabetic characters (<i>lowercase &amp; uppercase</i>), numeric digits (<i>0-9</i>), underscores (<i>_</i>), hyphens (<i>-</i>), asterisks (<i>*</i>), commas (,), and space characters. In addition, the length is constrained between 1 to 30 characters.</p>
+<p>Regular Expression:<br><i>^[A-Za-z0-9-,_*\s]{1,30}$</i></p>
+<p><b>Example 3:</b></p>
+<p>A phone number in North America starts with three numbers, which represent the area code, followed by seven digits split into sections of three and four (which represent the local number), so the number looks like (555) 123-4567. We have been facing this problem where users do not follow the pattern or add an extra number at the end. We want to make sure that users follow the standard pattern while entering phone numbers.</p>
+<p>Regular Expression:<br><i>^\ (\d\d\d\) \d\d\d-\d\d\d\d$</i></p>
+<p><b>Example 4:</b></p>
+<p>The following regular expression will accept telephone numbers in the format: 1 555 555 5555.</p>
+<p>^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$<b></b></p>
+<p>�</p>
+<p>�</p>
+</body>
+</html>

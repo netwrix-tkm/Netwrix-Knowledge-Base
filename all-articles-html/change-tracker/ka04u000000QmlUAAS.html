@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Log Fix. Error reading collection: an operation on a socket could not be performed because the system lacked sufficient buffer space or because a queue was full</title>
+    <meta name="article-id" content="ka04u000000QmlUAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:41:12.000Z">
+    <meta name="articlenumber" content="000008156">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-06-06T11:00:07.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:41:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JWnCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JWnCAM">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-06-06T11:00:25.000Z">
+    <meta name="lastpublisheddate" content="2022-04-12T16:16:05.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="MongoDB Log Fix: - &quot;Error reading collection: An operation on a socket could not be performed because the system lacked sufficient buffer space or because a queue was full.&quot;">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8156">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JWnCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>MongoDB Log Fix. Error reading collection: an operation on a socket could not be performed because the system lacked sufficient buffer space or because a queue was full</h1>
+    <h1>Question</h1>
+I try to perform a MongoDump on me Mongo Database. How to troubleshoot if the MongoDump failed?
+
+<p>Error Message Example:</p>
+
+<pre class="ckeditor_codeblock">
+Failed: error reading collection: WSARecv tcp 127.0.0.1:50290: An operation on a socket could not be performed because the system lacked sufficient buffer space or because a queue was full.
+</pre>
+
+<h1>Answer</h1>
+The error message is linked to a Windows issue, rather than a MongoDB issue. The error is seen when a system tries to connect to a TCP port which is greater than 5000 and if you look at the error message the TCP port should be referenced.<br><a href="https://learn.microsoft.com/en-GB/troubleshoot/windows-client/networking/connect-tcp-greater-than-5000-error-wsaenobufs-10055" target="_blank">Read more</a>�about cause and resolution of this issue. If possible, please implement the steps they recommend and then re-run the mongo dump task.
+
+<p>�</p>
+</body>
+</html>

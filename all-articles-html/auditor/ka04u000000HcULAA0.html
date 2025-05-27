@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: The object invoked has disconnected from its clients.</title>
+    <meta name="article-id" content="ka04u000000HcULAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:53.000Z">
+    <meta name="articlenumber" content="000003533">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:20.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bbCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9bbCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:20.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:55.000Z">
+    <meta name="meta-description" content="Exception from HRESULT: 0x80010108 (RPC_E_DISCONNECTED)">
+    <meta name="meta-title" content="Error: The object invoked has disconnected from its clients.">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1362">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bbCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: The object invoked has disconnected from its clients.</h1>
+    <span style="background-color: #ffffff;">I get the following message in reports from Event Log Manager:
+
+Event collection completed with errors. See the &#39;Error text&#39; column for details. </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">The object invoked has disconnected from its clients. (Exception from HRESULT: 0x80010108 (RPC_E_DISCONNECTED))</span>
+
+<hr></hr>
+
+The error message occurs when connection to the event log agent on the target machine was reset.
+
+<hr></hr>
+
+<span style="background-color: #ffffff;">If the OS on the target machine is Windows 2003, please refer to the following KB article </span><a style="color: #000000;background-color: #ffffff;" href="http://support.microsoft.com/kb/924432" target="_blank">http://support.microsoft.com/kb/924432</a><span style="background-color: #ffffff;"> </span>
+<br style="background-color: #ffffff;"><span style="background-color: #ffffff;">If </span><span style="background-color: #ffffff;">the OS on the target machine </span><span style="background-color: #ffffff;">is Windows 2008 or later, please try to manually remove the Event Log agent from this server and Let the product reinstall it. </span><br style="background-color: #ffffff;"><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">To remove the agent, please unregister the Event Log Collector service with help of the &quot;sc delete&quot; command and remove the entire </span><a style="color: #000000;background-color: #ffffff;" href="file:///C:/Windows/NWAgentShare" target="_blank">C:WindowsNWAgentShare</a><span style="background-color: #ffffff;"> folder. </span>
+<span style="background-color: #ffffff;">The agent will be reinstalled during the next data collection.
+
+If these steps do not help, disable Network traffic compression for the corresponding managed object
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUL&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000053hV" alt="User-added image" width="500" height="341"></img></span>
+</body>
+</html>

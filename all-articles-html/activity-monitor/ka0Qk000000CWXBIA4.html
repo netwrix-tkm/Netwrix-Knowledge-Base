@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitymonitor-8.0.124</title>
+    <meta name="article-id" content="ka0Qk000000CWXBIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006goGXAAY">
+    <meta name="articlecreateddate" content="2025-02-24T21:28:31.000Z">
+    <meta name="articlenumber" content="000009416">
+    <meta name="case" content="500Qk00000Ln2ZFIAZ">
+    <meta name="createdbyid" content="0054u000006goGXAAY">
+    <meta name="createddate" content="2025-02-24T21:28:31.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-02-24T21:29:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk000000242jKAA">
+    <meta name="knowledge-article-id" content="kA0Qk000000242jKAA">
+    <meta name="lastmodifiedbyid" content="0054u000006goGXAAY">
+    <meta name="lastmodifieddate" content="2025-02-24T21:29:53.000Z">
+    <meta name="lastpublisheddate" content="2025-02-24T21:29:53.000Z">
+    <meta name="ownerid" content="0054u000006goGXAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9416">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk000000242jKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>activitymonitor-8.0.124</h1>
+    <p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Summary:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">NAM - User SID resolves incorrectly</span></i></li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">NetApp. Occasional errors when an SVM is being monitored by several agents</span></i></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">SUVP 25-02 support</span></i></li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior Before Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Previously the search behavior was to resolve the account SID that started with the SID value. And this resolved incorrectly because there was another account starting with the same values.</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">When two or more agents are monitoring the same SVM, they compete against each other to update the FPolicy configuration of the SVM. As a result, one of the agents may fail and display an error in the Console. The end result is that the FPolicy configuration is accurate and the error disappears in several minutes.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</li></ol>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">2025 Server -�KB5051987
+<ul style="list-style-type: circle;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">LDAP Bind events�will�be lost or incomplete</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Logs:�
+<ul style="list-style-type: square;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve LDAP_CONN::BindRequest</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve CConnectionEx::InitializeClientData (4 param)|<br><br></li></ul>
+</li></ul>
+</li></ul>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">2022 Server -�KB5051979
+<ul style="list-style-type: circle;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">�<i>NTLM, FSMO roles and LDAP Bind</i> events will be lost or incomplete</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Logs:�
+<ul style="list-style-type: square;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve NlpUserValidate<br><br></li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve DsaGetValidFSMOs<br><br></li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve LDAP_CONN::BindRequest<br><br></li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve KdcGetTicket</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve HandleTGSRequest</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve I_GetASTicket</li></ul>
+</li></ul>
+</li></ul>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">2019 Server -�KB5052000
+<ul style="list-style-type: circle;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">NTLM, LDAP Bind and Kerberos events�will�be lost or incomplete</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Logs:�
+<ul style="list-style-type: square;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve NlpUserValidate</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve LDAP_CONN::BindRequest</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve KdcGetTicket</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve HandleTGSRequest</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve I_GetASTicket</li></ul>
+</li></ul>
+</li></ul>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">2016 Server - KB5052006
+<ul style="list-style-type: circle;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">NTLM and AD Replication events�will�be lost or incomplete</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Logs:�
+<ul style="list-style-type: square;margin-bottom: 0in;margin-top: 0px;"><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve NlpUserValidate</li><li style="line-height: normal;margin: 0in 0in 8pt 42px;font-size: 11pt;font-family: Calibri, sans-serif;">Couldn&#39;t resolve IDL_DRSGetNCChanges</li></ul>
+</li></ul>
+</li></ul>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior After Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">We updated the search behavior to resolve the account SID that fully matches the SID value.</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Conflicts during FPolicy updates are not reported in the Console.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">AD Module updated. Product should report Active Directory events as expected</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Changes Since Last Hotfix:</b></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">N/A</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Submitted by: </span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Kevin Duddy</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Versions:</span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Activity Monitor 8.0</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Module:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Search</span></li><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">NetApp</span></li><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Active Directory</span></li></ol>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Dev Ticket:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">374999</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">365901</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">374172</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Resolved in Version:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 8.0.124</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">�</span></i></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">KB Type: </span></strong></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Hotfix</span></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><i><span style="font-family: Calibri, sans-serif;color: #404040;font-weight: normal;">�</span></i></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Modules Included:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 8.0.124</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBTService.exe </span><i><span style="color: #404040;">1.24.1203.1430</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SI Version </span><i><span style="color: #404040;">7.4.0.163</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>DevOps/Escalations</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">374999 / 00435568</li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">365901 / 00428241</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">374172 / NA</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></p>
+<p style="margin: 0in;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;">NA</p>
+<p style="margin: 0in;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Instructions:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Run the MSI file on a host that has the Activity Monitor Console is installed.</span></i></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Upgrade all agents.</span></i></li></ol>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in;font-size: 11pt;font-family: Aptos, sans-serif;"><a href="https://releases.netwrix.com/products/activitymonitor/8.0/activitymonitor-8.0.124.zip" target="_blank">https://releases.netwrix.com/products/activitymonitor/8.0/activitymonitor-8.0.124.zip</a>� ���</p>
+</body>
+</html>

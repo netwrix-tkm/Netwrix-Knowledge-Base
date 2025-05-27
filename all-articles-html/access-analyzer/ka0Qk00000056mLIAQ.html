@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable Debug Logging Manually</title>
+    <meta name="article-id" content="ka0Qk00000056mLIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2024-07-18T19:47:22.000Z">
+    <meta name="articlenumber" content="000009222">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2024-08-26T11:15:19.000Z">
+    <meta name="firstpublisheddate" content="2024-07-18T19:47:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001HrdKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000001HrdKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-08-26T11:16:05.000Z">
+    <meta name="lastpublisheddate" content="2024-08-06T11:45:38.000Z">
+    <meta name="meta-description" content="How to Enable Debug Logging When Console Cannot Load">
+    <meta name="meta-title" content="How to Enable Debug Logging When Console Cannot Load">
+    <meta name="ownerid" content="005Qk0000017MRRIA2">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9222">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001HrdKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Enable Debug Logging Manually</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How can you manually enable the debug logging mode in Netwrix Enterprise Auditor?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Refer to the following steps to manually enable the debug mode in Enterprise Auditor:</p>
+
+<ol><li>
+	<p>Locate the <code>GlobalOptionsconfig.xml</code> file in the Enterprise Auditor installation folder. Use the following variable to locate the folder:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">%sainstalldir%</code></pre>
+	</li><li>
+	<p>In the <code>GlobalOptionsconfig.xml</code> file, change the <code>&lt;LOGLEVEL&gt;</code> value to 0 to enable debug logging. Save the changes.</p>
+	</li><li>
+	<p>Open the Enterprise Auditor console to access the application logs.</p>
+	</li></ol>
+
+<p>Refer to the example of the value in the configuration file that must be changed to 0:</p>
+</div>
+
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk00000056mL&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000006Clm6"></img></div>
+</body>
+</html>

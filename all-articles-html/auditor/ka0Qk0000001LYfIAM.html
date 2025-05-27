@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1209 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001LYfIAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:58.000Z">
+    <meta name="articlenumber" content="000003632">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-01-15T14:02:59.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dCCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9dCCAS">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-15T14:03:08.000Z">
+    <meta name="lastpublisheddate" content="2024-01-15T14:02:55.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint Audit issues with Netwrix Auditor&amp;#039;s permissions to access certain Site Collections.">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log - Event ID 1209">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2548">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dCCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1209 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>One of the following error messages under Event ID 1209 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+Unable to obtain the list of SharePoint groups for site collection with ID &#39;{0}&#39;:
+Access is denied. (Exception from HRESULT: 0x80070005 (E_ACCESSDENIED)).</pre>
+
+<pre class="has-inner-focus">
+Unable to obtain the list of SharePoint groups for site collection with ID &#39;{0}&#39;:
+Access to this Web site has been blocked.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<p>The security settings in the audited SharePoint farm do not allow for complete audit data collection. Netwrix Auditor was unable to get a list of security groups from the audited site collection due to one of the following reasons:</p>
+
+<ol><li>
+	<p>The web application hosting the target site collection has insufficient permissions.</p>
+	</li><li>
+	<p>The affected site collection has the <strong>Locked � No Access</strong> status.</p>
+	</li></ol>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Cause #1 ? In SharePoint Central Administration, navigate to <strong>Web Applications</strong> &gt; <strong>%affected_web_application%</strong> &gt; <strong>User Permissions</strong>, and verify the security settings. The minimum required permissions are <strong>Manage Web Site</strong>.</p>
+	</li><li>
+	<p>Cause #2 ? In SharePoint Central Administration, navigate to <strong>Application Management</strong> &gt; <strong>Configure Quotas and Locks</strong> &gt; <strong>%affected_web_application%</strong>, and change the status to <strong>Not locked</strong>.</p>
+	</li></ul>
+
+<p>Learn more on management of the SharePoint site lock status via PowerShell in <a href="https://learn.microsoft.com/en-us/sharepoint/sites/manage-the-lock-status-for-site-collections#manage-the-lock-status-for-a-site-collection-by-using-microsoft-powershell" target="_blank">Manage Lock Status for Site Collections in SharePoint Server ? Manage Lock Status for Site Collection via Microsoft PowerShell ? Microsoft &#129125;</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://learn.microsoft.com/en-us/sharepoint/sites/manage-the-lock-status-for-site-collections#manage-the-lock-status-for-a-site-collection-by-using-microsoft-powershell" target="_blank">Manage Lock Status for Site Collections in SharePoint Server ? Manage Lock Status for Site Collection via Microsoft PowerShell ? Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

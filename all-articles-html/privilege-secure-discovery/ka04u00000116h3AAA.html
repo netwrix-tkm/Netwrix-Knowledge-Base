@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Losing Access to Machines when Moving Between OUs</title>
+    <meta name="article-id" content="ka04u00000116h3AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-07-11T08:58:07.000Z">
+    <meta name="articlenumber" content="000008653">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-07-14T14:25:35.000Z">
+    <meta name="firstpublisheddate" content="2023-07-11T08:58:52.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110puCAA">
+    <meta name="knowledge-article-id" content="kA04u00000110puCAA">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-14T14:25:56.000Z">
+    <meta name="lastpublisheddate" content="2023-07-11T08:58:52.000Z">
+    <meta name="meta-description" content="Losing Access to Machines when Moving Between OUs">
+    <meta name="meta-title" content="Losing Access to Machines when Moving Between OUs">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8653">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110puCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Losing Access to Machines when Moving Between OUs</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span>
+<h1>Symptom</h1>
+
+<div>
+<p>When an update to an AD group is made the Update Sequence Number (USN) is incremented. Netwrix Privilege Secure for Discovery utilizes this to identify the change and flattens the updated group to determine suitable access to a given machine.</p>
+
+<p>When a user is moved from one OU to another, an issue can occur that a user loses access to machines that previously they had access to.</p>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>The distinguished name for the user has changed, due to OU move, however, the groups associated with the user has not updated. As these groups have not been updated, the old distinguished name has not been updated either.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Make a change to the group that the user should be receiving access from. This can be simply, the addition and removal of a different account. This will trigger Netwrix Privilege Secure for Discovery to recognize an update and therefore perform a re-flattening of the group, restoring access.</p>
+</div>
+</body>
+</html>

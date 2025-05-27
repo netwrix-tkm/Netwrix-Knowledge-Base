@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSASS Blocked Warning - Microsoft Defender GPO</title>
+    <meta name="article-id" content="ka0Qk000000CClNIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006QqyEAAS">
+    <meta name="articlecreateddate" content="2025-02-11T14:56:33.000Z">
+    <meta name="articlenumber" content="000009396">
+    <meta name="assignedbyid" content="0050g000006QqyEAAS">
+    <meta name="assignedtoid" content="0054u000006goKoAAI">
+    <meta name="assignmentdate" content="2025-02-11T14:57:12.000Z">
+    <meta name="assignmentduedate" content="2025-02-17T05:00:00.000Z">
+    <meta name="assignmentnote" content="Validate and confirm ready to publish">
+    <meta name="case" content="500Qk00000Kvt9EIAR">
+    <meta name="createdbyid" content="0050g000006QqyEAAS">
+    <meta name="createddate" content="2025-02-11T14:56:33.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000020APKAY">
+    <meta name="lastmodifiedbyid" content="0050g000006QqyEAAS">
+    <meta name="lastmodifieddate" content="2025-02-11T14:56:33.000Z">
+    <meta name="ownerid" content="0050g000006QqyEAAS">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9396">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>LSASS Blocked Warning - Microsoft Defender GPO</h1>
+    <p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="color: black;">Symptom</span></strong></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">The Agent view of Netwrix Threat Prevention 7.3.9 and later displays a warning of &quot;LSASS Access is Blocked.&quot; See <a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Admin_Console_User_Guide/WhatsNew.htm" target="_blank">What&#39;s New</a> for a description of this feature.</span></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">If the Netwrix Threat Prevention agent is not able to inject into LSASS then we woill see an error in the NTP agent logs that includes �processNotFound� in the error message when the agent starts and is trying to access the LSASS process.</span></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong>Cause</strong></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">LSASS is project by antivirus or endpoint protection software. A quick test to confirm this protection is to attempt to create a memory dump of lsass.exe via task manager. If protected, the resulting dump file will be 0KB. This not a conclusive test as many tool allow protection or exceptions by process name or hash and TaskManager.exe may have been excluded with SIAgent.exe may not.</p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong>Resolution</strong></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #c0392b;"><strong>These instructions are specific to Microsoft Defender, actual steps will vary by endpoint protection solution.</strong></span></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #c0392b;"><strong>See this <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000LLO2CAO.html" target="_blank">general KB</a> and <a href="https://helpcenter.netwrix.com/bundle/StealthINTERCEPT_7.3/page/Content/StealthINTERCEPT/Installation_and_Upgrade_User_Guide/AntivirusConsiderations.htm" target="_blank">Antivirus Exclusions</a> for guidance to update other endpoint protection tools.</strong></span></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">If using �standard� Microsoft Defender then check if the following rule is enabled:�</span></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><b><span style="color: black;">&quot;Block credential stealing from the Windows local security authority subsystem&quot;</span></b></p>
+<p style="background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">As a test disable this rule and restart the SI/NTP Agent service.� If this works but you don�t want to �globally� disable the ARS rule then will need to create a Defender Exclusion Policy:</span></p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">Exclusion Policy - </span><span style="color: #0563c1;text-decoration: underline;"><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/enable-attack-surface-reduction#group-policy" target="_blank">https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/enable-attack-surface-reduction#group-policy</a></span></p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">If using Defender Endpoint Protection variant of �Defender� we were not able to find UI for the ASR rule in question but we did find the following registry based controls:</span></p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">Endpoint Protection, ASR rules are specified here:�</span></p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">�HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules</span></p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">and exclusions</span></p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\ASROnlyExclusions</span></p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">�for standard Windows Defender location seems to be this one:�</span></p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">�Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules</span></p>
+<p style="margin: 0in 0in 12pt;line-height: 18pt;background: white;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\ASROnlyExclusions</span></p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">note: exclusion path (folder path for SI Agent) is specified as &#39;string value&#39;, where path itself is the &#39;name&#39; of the reg entry and actual &#39;value&#39; is empty</span></p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;">Example:</span></p>
+<p style="line-height: 18pt;background: white;margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: black;background: white;">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\ASROnlyExclusions\c:\program files\netwrix\Netwrix Threat Prevention\SIWindowsAgent</span></p>
+</body>
+</html>

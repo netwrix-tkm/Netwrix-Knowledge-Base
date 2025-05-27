@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SD_2.0_004</title>
+    <meta name="article-id" content="ka04u000000Hd0TAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:46:29.000Z">
+    <meta name="articlenumber" content="000007434">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:13:30.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:46:30.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J0hCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000J0hCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:13:31.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:46:30.000Z">
+    <meta name="meta-description" content="360012123251">
+    <meta name="meta-title" content="Hotfix: SD_2.0_004">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7434">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J0hCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SD_2.0_004</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This Hotfix addresses a variety of issues relating but not limited to: CPU Usage by the Event Listener, Job Service issues with HTTPS configured, DCSYNC false positive detections, Email Service issues, Nested Group Member Login, and FIPS support.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:</span></strong><br><strong><span style="font-family: calibri,sans-serif;">This Hotfix addresses a variety of issues relating but not limited to: CPU Usage by the Event Listener, Job Service issues with HTTPS configured, DCSYNC false positive detections, Email Service issues, Nested Group Member Login, and FIPS support.</span></strong><br><strong><span style="font-family: calibri,sans-serif;">Behavior before Fix: </span></strong>
+</p><ul><li>Event Listener Service could over-use CPU when scanned by security/port scanning products
+</li><li>DCSync threat could still trigger for Domain Controller servers in some rare instances
+</li><li>Job Service would be unable to launch some jobs when HTTPS is configured
+</li><li>Email Service could send Blank Emails
+</li><li>StealthDEFEND could not be run in a FIPS Compliant operating system environment.
+</li><li>Members of many nested groups scoped with access for DEFEND would be unable to login to the console.</li></ul><strong><span style="font-family: calibri,sans-serif;">Behavior after Fix: </span></strong>
+<ul><li>Event Listener properly handles invalid connections.
+</li><li>DCSync threat detection improved to prevent false positives
+</li><li>Job Service now properly handles HTTPS in all configurations.
+</li><li>Email Service has adding protection/handling to not send invalid emails.
+</li><li>Optional FIPS complaint configuration option now exists for StealthDEFEND.
+</li><li>New Group Evaluation method for Nested Group Members scoped with Access for StealthDEFEND.</li></ul><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Lee Berg<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>Prior versions of 2.0<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br><br><br><a href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6296" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6028</a><br><a href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6794" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6794</a> - Salesforce: <span><span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9pt;">34121</span></span></span></span><br><a href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6879" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6879</a><br><a href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6638" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6638</a> - Salesforce 33566<br><a href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6707" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6707</a> - Salesforce 33793<br><a href="https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6583" target="_blank">https://stealthbits.myjetbrains.com/youtrack/issue/SDFS-6583</a> - Salesforce 32384<br><br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version: </span></strong>2.0.412<br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Download the installer<br>2a. Double click to begin the upgrade process from 2.0<br>2b. For upgrades from 1.2 please contact Andy M<br>� 
+</p><table cellspacing="0" cellpadding="0" width="531" border="0"><tbody><tr height="115"><td colspan="1" rowspan="1" height="115" width="531"><a href="https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.0.412.zip" target="_blank">https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.0.412.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthDEFEND<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> StealthDEFEND - General<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 2.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SDFS-6028
+SDFS-6794
+SDFS-6879
+SDFS-6638
+SDFS-6707
+SDFS-6583<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 2.0.412.0<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2355<br></p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Check Your SQL Server Settings in Audit Database Settings</title>
+    <meta name="article-id" content="ka0Qk0000004BphIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-06-12T08:15:37.000Z">
+    <meta name="articlenumber" content="000009199">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-06-12T08:16:06.000Z">
+    <meta name="firstpublisheddate" content="2024-06-12T08:16:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001D85KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000001D85KAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-06-12T08:18:31.000Z">
+    <meta name="lastpublisheddate" content="2024-06-12T08:16:02.000Z">
+    <meta name="meta-description" content="Error: Check Your SQL Server Settings in Audit Database Settings">
+    <meta name="meta-title" content="Error: Check Your SQL Server Settings in Audit Database Settings">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9199">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001D85KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Check Your SQL Server Settings in Audit Database Settings</h1>
+    <h2>Related Queries</h2>
+
+<ul><li>
+	<p>&quot;We are moving AD Auditor to a new domain/server and getting a connection error on DB restore.&quot;</p>
+	</li><li>
+	<p>&quot;We are migrating our Netwrix DB over to a new domain/server. Netwrix AD Auditor is installed on the new domain/server. SQL DB is coming from SQL 2019, new DB server is SQL 2022 and we are getting a connection error on the SQL listener.&quot;</p>
+	</li></ul>
+
+<h2>Symptoms</h2>
+
+<div>
+<p>Netwrix Auditor prompts one of the following error messages when you set up the Audit Database:</p>
+
+<pre class="has-inner-focus">
+Error validating settings. Check your SQL Server settings.
+The network location cannot be reached. For information about network troubleshooting, see Windows Help</pre>
+
+<pre class="has-inner-focus">
+Error validating settings. Check your SQL Server settings.
+SQL Server error occurred (17, [DBNETLIB][ConnectionOpen (Connect()).] SQL Server does not exist or access denied.)</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<p>Refer to the list of possible causes for the error:</p>
+
+<ol><li>
+	<p>An incorrect SQL Server name is specified in the Audit Database settings.</p>
+	</li><li>
+	<p>The SQL Server is not configured to allow remote connections.</p>
+	</li><li>
+	<p>The SQL Server network protocols are disabled.</p>
+	</li></ol>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ol><li>
+	<p>Verify the SQL Server instance name specified in the Audit Database settings. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001D01KAE.html" target="_self">Specifying the SQL Server Instance Name</a>.</p>
+	</li><li>
+	<p>Configure your SQL Server instance to allow remote connections. Learn more in <a href="https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option?view=sql-server-ver16#SSMSProcedure" target="_blank">Configure remote access (server configuration option) � Use SQL Server Management Studio ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>Enable the TCP/IP protocol in the SQL Server�refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001D6TKAU.html" target="_blank">Enable TCP/IP Protocol in SQL Server</a>.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Alternatively, review the TCP port used for SQL Server communication�learn more in <a href="https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port?view=sql-server-ver15#assign-a-tcpip-port-number-to-the-sql-server-database-engine" target="_blank">Configure SQL Server to listen on a specific TCP port � Assign a TCP/IP port number to the SQL Server Database Engine ? Microsoft &#129125;</a>. For additional information on setting a custom TCP port in Auditor, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110rCCAQ.html" target="_self">Specify Custom SQL Server Port for Netwrix Auditor Audit Database</a>.</p>
+	</blockquote>
+	</li></ol>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001D01KAE.html" target="_self">Specifying the SQL Server Instance Name</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option?view=sql-server-ver16#SSMSProcedure" target="_blank">Configure remote access (server configuration option) � Use SQL Server Management Studio ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001D6TKAU.html" target="_blank">Enable TCP/IP Protocol in SQL Server</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port?view=sql-server-ver15#assign-a-tcpip-port-number-to-the-sql-server-database-engine" target="_blank">Configure SQL Server to listen on a specific TCP port � Assign a TCP/IP port number to the SQL Server Database Engine ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110rCCAQ.html" target="_self">Specify Custom SQL Server Port for Netwrix Auditor Audit Database</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Bad Request</title>
+    <meta name="article-id" content="ka04u000000HcUoAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003561">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:34.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9c3CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9c3CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:34.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="meta-description" content="VMware auditing returns the error message &amp;#039;404 Bad Request&amp;#039;.">
+    <meta name="meta-title" content="404 Bad Request">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1391">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9c3CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>404 Bad Request</h1>
+    The data collection returns the error message &#39;404 Bad Request&#39;.
+
+<hr></hr>
+
+Following to https://hostname:443 gives you a blank page or a malformed page.
+
+<hr></hr>
+
+Check if you have installed the following KB/Update/hotfix on Netwrix host:
+
+<a href="http://support.microsoft.com/kb/2661254" target="_blank">http://support.microsoft.com/kb/2661254</a>
+
+If you have installed the KB above, you need to run the following command:
+
+certutil -setreg chainminRSAPubKeyBitLength512
+
+This will set your security length back down to 512 instead of 1024.  Currently only 512-bit encryption is supported.
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Plan Shows Not Responding Status</title>
+    <meta name="article-id" content="ka0Qk0000002kLJIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-03-25T16:21:14.000Z">
+    <meta name="articlenumber" content="000009090">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-03-29T16:08:38.000Z">
+    <meta name="firstpublisheddate" content="2024-03-25T16:21:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000XLlKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000XLlKAM">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-03-29T16:08:55.000Z">
+    <meta name="lastpublisheddate" content="2024-03-29T16:08:55.000Z">
+    <meta name="meta-description" content="Monitoring Plan Shows Not Responding Status">
+    <meta name="meta-title" content="Monitoring Plan Shows Not Responding Status">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9090">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000XLlKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Monitoring Plan Shows Not Responding Status</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>A monitoring plan in Netwrix Auditor shows the <b>Not responding</b> status.</p>
+
+<p>When drilling down to the <b>Details</b>, the following error appears:</p>
+<code>One of the Netwrix Auditor services is not responding. Navigate to the Services snap-in and check the service statuses</code>.</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This error indicates that a Netwrix Auditor monitoring plan stopped because data collection timed out prematurely.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To prevent premature timeout of data collection, you need to restart some Netwrix services:</p>
+
+<ol><li>
+	<p>On the computer that hosts your Auditor Server, open the <b>Services</b> snap-in.</p>
+	</li><li>
+	<p>Locate and restart the following services depending on your audited data source:</p>
+
+	<ul><li>
+		<p>For all data sources: Netwrix Auditor Data Collection Service</p>
+		</li><li>
+		<p>For a specific data source: Netwrix Auditor for {Your Data Source} Audit Service</p>
+
+		<p>where {Your Data Source} is the name of the source, such as <b>Active Directory</b>.</p>
+		</li></ul>
+	</li></ol>
+</div>
+</body>
+</html>

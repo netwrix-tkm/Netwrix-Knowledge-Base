@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerous access events from antivirus and backup software fill Summary Reports from Netwrix Auditor for File Servers</title>
+    <meta name="article-id" content="ka04u000000HcSEAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:06.000Z">
+    <meta name="articlenumber" content="000003387">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:33.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZDCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZDCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:33.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:34.000Z">
+    <meta name="meta-description" content="This happens because file scan operations are considered by Windows auditing as reads and are logged in the Security event log where Netwrix Auditor pulls
+ %%post_excerpt%%">
+    <meta name="meta-title" content="Numerous access events from antivirus and backup software">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1236">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZDCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Numerous access events from antivirus and backup software fill Summary Reports from Netwrix Auditor for File Servers</h1>
+    <span id="articleDetail:j_id418"><span id="articleDetail:j_id418:j_id419:customFields"><span id="articleDetail:j_id418:j_id419:sectionRepeat:0:fieldRepeat:2:j_id588">Summary reports from Netwrix Auditor for File Servers may show numerous access events for service accounts used to run antivirus and backup software.</span></span></span>
+
+E.g.:
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcSE&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000079Tl" alt="User-added image" width="500" height="172"></img>
+
+<hr></hr>
+
+<span id="articleDetail:j_id418"><span id="articleDetail:j_id418:j_id419:customFields"><span id="articleDetail:j_id418:j_id419:sectionRepeat:0:fieldRepeat:2:j_id588">This happens because file scan operations are considered by Windows auditing as reads and are logged in the Security event log where Netwrix Auditor pulls the data from.</span></span></span>
+
+<hr></hr>
+
+<span id="articleDetail:j_id418"><span id="articleDetail:j_id418:j_id419:customFields"><span id="articleDetail:j_id418:j_id419:sectionRepeat:0:fieldRepeat:2:j_id588">Auditing events generated for such service accounts can be excluded from the data collection by adding them to the <span style="color: black;">omitstoreuserlist_fs.txt file, that can be found in the product installation folder (by default C:Program Files (x86)NetWrixFile Server Change Reporter)</span>. The syntax is following: domainusername</span></span></span>
+
+In order to exclude access events from the &quot;domainsvc_antivirus&quot; account (see the screenshot above), add the following line into the <span id="articleDetail:j_id418"><span id="articleDetail:j_id418:j_id419:customFields"><span id="articleDetail:j_id418:j_id419:sectionRepeat:0:fieldRepeat:2:j_id588"><span style="color: black;">omitstoreuserlist_fs.txt:</span></span></span></span>
+
+domainsvc_antiviurs
+</body>
+</html>

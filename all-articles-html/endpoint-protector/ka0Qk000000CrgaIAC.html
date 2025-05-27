@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- Increase Communication Security Option</title>
+    <meta name="article-id" content="ka0Qk000000CrgaIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:04.000Z">
+    <meta name="articlenumber" content="000009764">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B4KKAU">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nViEIAU">
+    <meta name="assignmentdate" content="2025-03-19T17:26:01.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:04.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B4KKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B4KKAU">
+    <meta name="lastmodifiedbyid" content="005Qk000001nViEIAU">
+    <meta name="lastmodifieddate" content="2025-04-25T09:38:14.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9764">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B4KKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- Increase Communication Security Option</h1>
+    <p>From this section, you can register and then verify the Endpoint Protector Client certificate signature.�<br>The client registration certificate (Increase Communication Security) is an additional security measure enabling certificate-based authentication.<br><strong>Important</strong>: The Client Registration Certificate feature is not available for Linux!</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crga&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BuWV7" width="268" height="86"></img></p>
+<p>Enable the custom certificate setting and then upload the certificate chain, Root CA, and Intermediate;<br>When the custom certificate is enabled then:<br>- Endpoint Protector Server will validate the client certificate at the registration phase.<br>- Endpoint Protector Client will not validate the server certificate.</p>
+<p>When the custom certificate is disabled then:<br>- Endpoint Protector Server will not validate the client certificate at the registration phase.<br>- Endpoint Protector Client will not validate the server certificate.</p>
+<p>Enable the test certificate setting and then upload a certificate signed by root CA just for testing the signature (for example the Endpoint Protector Client certificate);</p>
+<p>Click Save and allow 2 minutes for the information to be validated. You will view a success message confirming the custom certificate was added and the test certificate is valid.</p>
+<p><strong>Important</strong>: The client registration authentication certificate and the Endpoint Protector server certificate must be issued by the same CA.</p>
+<p>For this feature to work, there must be cryptographic identities signed by the root CA deployed on the endpoints.<br>- On macOS these identities should be added to System Keychain in the &quot;My Certificates&quot; section.<br>- On Windows they should be placed in the Certificate Manager&#39;s Local Computer\Certificates\Personal section. 14.2.5.</p>
+</body>
+</html>

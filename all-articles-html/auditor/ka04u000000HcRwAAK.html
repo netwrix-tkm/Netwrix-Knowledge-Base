@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: The remote server returned an error: (407) Proxy authentication required.</title>
+    <meta name="article-id" content="ka04u000000HcRwAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:05.000Z">
+    <meta name="articlenumber" content="000003369">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:48:21.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:31.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9YvCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9YvCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:48:21.000Z">
+    <meta name="lastpublisheddate" content="2022-03-30T20:33:37.000Z">
+    <meta name="meta-description" content="1. Configure the internet connection to not use the Proxy server 2. Disable authentication on the proxy server 3. Check updates on the customer portal">
+    <meta name="meta-title" content="(407) Proxy authentication required">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1219">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9YvCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: The remote server returned an error: (407) Proxy authentication required.</h1>
+    You are getting the following warning message when checking Netwrix Auditor for product updates: &quot;Error: The remote server returned an error: (407) Proxy authentication required. &quot;
+<hr></hr> The &quot;Check for Updates&quot; feature uses a direct internet connection and unfortunately is unable to connect to the Netwrix website since a proxy server is in use.
+<hr></hr> In order to resolve the issue we can recommend the following options:<br><strong>1. Configure the internet connection to not use the Proxy server.</strong><br>In the Internet Explorer, open the Internet Options dialog box, click Connections, click LAN Settings, and disable &quot;Use a Proxy Server...&quot;. <img alt="User-added image" height="331" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcRw&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000008Dtg" width="500"></img><br><strong>2. Disable authentication on the proxy server to allow anonymous connections. In order to do that please perform the following steps:</strong><br><strong>2.1 For ISS version 6.0</strong>
+
+<div id="section-2">- Click the Windows &quot;Start&quot; button on your proxy server. Click &quot;Administrative Tools&quot; and then click &quot;Internet Information Services Manager.&quot; The IIS utility loads and all of your websites and proxy server settings are shown.</div>
+
+<div id="section-3">- Right-click the proxy server name on the left and click &quot;Properties&quot; in the popup menu. Click the &quot;Directory Security&quot; tab to display several security settings.</div>
+
+<div id="section-4">- Click the &quot;Edit&quot; button in the section labeled &quot;Authentication and Access Control.&quot; A new window appears that lists several options for access to the proxy server.</div>
+
+<div id="section-5">- Check the box labeled &quot;Enable Anonymous Access.&quot; Click &quot;OK&quot; in the opened window and then click &quot;OK&quot; again in the main properties window. Anonymous access is set up and no user name or password is required when connecting to the server.<br><strong>2.2 For ISS 7.X and above</strong><br>-Click the Windows &quot;Start&quot; button on your proxy server.<br>-Click &quot;Administrative Tools&quot; and then click &quot;Internet Information Services Manager.&quot; The IIS utility loads and all of your websites and proxy server settings are shown.<br>-Select the proxy server name on the left, in the main window double-click &quot;Authentication&quot; under the IIS section<br>-On the next screen enable &quot;Anonymous Authentication&quot;. Anonymous access is set up and no user name or password is required when connecting to the server.<br><strong>3. Check updates on the customer portal, in &quot;My product&quot; section:</strong><br>- Open and Netwrix website - www.netwrix.com;<br>- Click Sign in at the top right corner and type your login information;<br>- Then navigate to &quot;My Products&quot; section.</div>
+�
+</body>
+</html>

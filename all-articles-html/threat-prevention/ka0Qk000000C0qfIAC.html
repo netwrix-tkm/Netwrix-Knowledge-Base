@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPE Rest Server API returns Error Code 0x80070021</title>
+    <meta name="article-id" content="ka0Qk000000C0qfIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000002AJWTIA4">
+    <meta name="articlecreateddate" content="2025-01-29T00:10:41.000Z">
+    <meta name="articlenumber" content="000009383">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="assignedbyid" content="005Qk000002AJWTIA4">
+    <meta name="assignedtoid" content="005Qk000002AJWTIA4">
+    <meta name="assignmentdate" content="2025-01-29T00:10:41.000Z">
+    <meta name="case" content="500Qk00000KbMJ5IAN">
+    <meta name="createdbyid" content="005Qk000002AJWTIA4">
+    <meta name="createddate" content="2025-01-29T00:10:41.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001vc9KAA">
+    <meta name="knowledge-article-id" content="kA0Qk0000001vc9KAA">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-04-17T20:23:49.000Z">
+    <meta name="meta-description" content="EPE Rest Server Error 0x80070021">
+    <meta name="meta-title" content="EPE Rest Server Error 0x80070021">
+    <meta name="ownerid" content="005Qk000002AJWTIA4">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9383">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001vc9KAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>EPE Rest Server API returns Error Code 0x80070021</h1>
+    <h2>Symptom:</h2>
+<p>When sending an API command to the EPE REST server, the response is &quot;Error Code 0x80070021&quot;</p>
+<p>�</p>
+<p><em>Detailed Error Information:</em><br><em>Module � � � IIS Web Core</em><br><em>Notification � � � BeginRequest</em><br><em>Handler � � � Not yet determined</em><br><em>Error Code � � � 0x80070021</em><br><em>Config Error � � � This configuration section cannot be used at this path. This happens when the section is locked at a parent level. Locking is either by default (overrideModeDefault=&quot;Deny&quot;), or set explicitly by a location tag with overrideMode=&quot;Deny&quot; or the legacy allowOverride=&quot;false&quot;.</em><br><em>Config File � � � \\?\C:\Program Files\Netwrix\Netwrix Threat Prevention\EpeRestSite\web.config</em><em>Config Source:</em><br><em>� �28: � � &lt;/modules&gt;</em><br><em>� �29: � � &lt;handlers&gt;</em><br><em>� �30: � � � &lt;remove name=&quot;ExtensionlessUrlHandler-Integrated-4.0&quot; /&gt;</em></p>
+<h2></h2>
+<h2>Cause:</h2>
+<p>ASP.NET version installed is not a high enough version or is not installed.</p>
+<p>Minimum versions are documented in the EPE Rest Site Requirements documentation.<br><a href="https://helpcenter.netwrix.com/bundle/ThreatPrevention_7.4/page/Content/ThreatPrevention/Requirements/EPERestSite.htm" target="_blank">https://helpcenter.netwrix.com/bundle/ThreatPrevention_7.4/page/Content/ThreatPrevention/Requirements/EPERestSite.htm</a></p>
+<p>�</p>
+<h2>Resolution:</h2>
+<p>Install ASP.NET version that matches requirements documentation or higher on the EPE REST server and restart IIS using the command <strong>iisreset restart</strong> from windows command prompt.</p>
+</body>
+</html>

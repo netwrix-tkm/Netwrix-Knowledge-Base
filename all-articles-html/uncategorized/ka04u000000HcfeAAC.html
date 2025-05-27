@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracting System information using msinfo32.exe</title>
+    <meta name="article-id" content="ka04u000000HcfeAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:22:15.000Z">
+    <meta name="articlenumber" content="000006573">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:03:12.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:22:15.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I5rCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000I5rCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:03:12.000Z">
+    <meta name="lastpublisheddate" content="2022-02-22T13:50:30.000Z">
+    <meta name="meta-description" content="360008816812">
+    <meta name="meta-title" content="Extracting System information using msinfo32.exe">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6573">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I5rCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Extracting System information using msinfo32.exe</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to extract computer information using msinfo32</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span class="wysiwyg-font-size-medium" style="font-size: 11pt;">When collecting information for troubleshooting, it is imperative to collect details of the system that the application is running on. This may also apply to hosts which are targeted for data collection and/or running an agent.</span></p>
+
+<p><strong><span class="wysiwyg-font-size-large">Instructions:�</span></strong>Using Windows built in msinfo32.exe, you can collect detailed information about the affected System. This should be done for any troubleshooting that requires further investigation.<br><br>This can be done using the command line:</p>
+
+<ol><li>Open a Command Prompt as Administrator</li><li>Run the following command, changing the target output destination and name as required.�</li></ol>
+
+<p class="wysiwyg-indent4">msinfo32 /report C:\Stealthbits\Server.txt</p>
+
+<ul><li>To run &#39;Command Prompt&#39; as Administrator, use the Windows search for CMD and when &#39;Command Prompt&#39; appears right click and choose &#39;Run as administrator&#39;.</li></ul>
+
+<p class="wysiwyg-text-align-center"><img alt="mceclip7.png" height="513" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYww&amp;d=%2Fa%2F4u000000Lyaj%2FZqHKOI1zVQMgbRvosoP7Cu7pPCluq0qdnmQEwTcdK00&amp;asPdf=false" width="314"></img></p>
+
+<p>(Please note: if the destination directory does not exist, the following error will occur: &quot;The system cannot find the path specified.&quot;)�</p>
+
+<p class="wysiwyg-indent2 wysiwyg-text-align-center"><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><img alt="mceclip1.png" height="149" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcZ3s&amp;d=%2Fa%2F4u000000LyoQ%2FzyuAveq0n_Gk9LAkJi2sJxbxSoysX_jkyWuHvBo3OOY&amp;asPdf=false" width="297"></img></span></span></p>
+
+<p class="wysiwyg-indent2 wysiwyg-text-align-center">�</p>
+
+<ul><li>A second option is to run msinfo32.exe from the User Interface. This must be run as Administrator, and can be executed from the following location by right clicking msinfo32.exe and choosing &#39;Run as administrator&#39;:</li><li style="list-style-type: none;">
+	<p>%windir%\system32\msinfo32.exe</p>
+	</li></ul>
+
+<p class="wysiwyg-text-align-center"><img alt="mceclip3.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVJN&amp;d=%2Fa%2F4u000000LyoV%2FGG0zfyH_nj1_ZTBPz5CIobViEs7t0UGqnOsks7tOGjI&amp;asPdf=false"></img></p>
+
+<p class="wysiwyg-text-align-center">�</p>
+
+<ul><li>A third option is to use the Windows search for msinfo32, and when &quot;System Information&quot; appears right click and choose &#39;Run as administrator&#39;.</li></ul>
+
+<p class="wysiwyg-text-align-center"><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><img alt="mceclip4.png" height="513" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lca7M&amp;d=%2Fa%2F4u000000Lyoa%2FcZO8T1PJ3eTayRGy5h_bAOQPS7e_sc53p0p6mhXRrdU&amp;asPdf=false" width="314"></img></span></span></p>
+
+<p>You will be presented with the following Window:</p>
+
+<p class="wysiwyg-text-align-center"><img alt="mceclip0.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaAy&amp;d=%2Fa%2F4u000000Lyof%2Fsvmib1FSc7apzETVwP3u1uK2eXXUn1ksBZbdZGoqJgA&amp;asPdf=false"></img></p>
+
+<ul><li>From within the user interface:</li></ul>
+
+<ol><li>Select File &gt; Export</li><li>Enter the location and name of the file to export.</li></ol>
+
+<p><br>Once completed using the command line or user interface collect the exported report file.</p>
+
+<p>�</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000002630</p>
+</body>
+</html>

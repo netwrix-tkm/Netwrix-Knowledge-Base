@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot logon to the system - no options on the logon screen.</title>
+    <meta name="article-id" content="ka04u00000116enAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:09.000Z">
+    <meta name="articlenumber" content="000003436">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:08:25.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9a0CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9a0CAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:08:38.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:43.000Z">
+    <meta name="meta-description" content="Netwrix Password manager client (Logon prompt extension) it is not possible to log on to the system. Cannot log in. Netwrix Assistant. Restore the logon screen">
+    <meta name="meta-title" content="Cannot logon to the system - no options on the logon screen.">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1282">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9a0CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot logon to the system - no options on the logon screen.</h1>
+    After installation of Netwrix Password manager client (Logon prompt extension) it is not possible to log on to the system.
+
+There are no options on the logon screen except Netwrix assistant
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116en&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005kGc" alt="User-added image" width="500" height="443"></img>
+
+<hr></hr>
+
+To allow users reset passwords from the logon screen, Password Manager client adds its own credential providers.
+
+There are two options for this - a link under the logon field, or an additional icon available after &#39;Other credentials&#39; is pressed.
+
+During the deployment of the link to the logon screen, default password providers get disabled and replaced with the Netwrix provider. More details on this can be found in the <a href="https://kb.netwrix.com/2090" target="_blank">KB2090</a>
+
+Such issue can occur when some third-party software blocks the Netwrix credential provider from successful deployment.
+
+<hr></hr>
+
+To restore the logon screen, you will need to access the computer registry, for example, by means of the Remote Registry service
+<ol><li>Run <strong>regedit</strong> on another machine with credentials of an account that has local admin permissions on the problematic machine.</li><li>Select <strong>File - Connect network registry</strong></li><li>Specify the problematic computer name</li><li>When remote registry is connected, expand %servername%<strong>HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionAuthenticationCredential Providers{6f45dc1e-5384-457a-bc13-2cd81b0d28ed}</strong></li><li>Change the <strong>Disabled </strong>DWORD value to 0, or simply delete the value</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116en&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005kGr" alt="User-added image" width="500" height="295"></img>
+
+Alternatively you can restart the computer in safe mode.
+
+The most common reason for Netwrix credential provider deployment to fail is Credential provider Filters installed by third-party vendors.
+The list of filters can be found at the <strong>HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionAuthenticationCredential Provider Filters </strong>registry key
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Netwrix Auditor Reads AD FS DKM Key and Is It Normal?</title>
+    <meta name="article-id" content="ka0Qk0000001LbtIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-28T14:56:22.000Z">
+    <meta name="articlenumber" content="000008925">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-01-15T14:30:30.000Z">
+    <meta name="firstpublisheddate" content="2023-11-28T14:56:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wns3CAA">
+    <meta name="knowledge-article-id" content="kA04u000000wns3CAA">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-01-15T14:30:54.000Z">
+    <meta name="lastpublisheddate" content="2024-01-15T14:30:54.000Z">
+    <meta name="meta-description" content="Why Netwrix Auditor Reads AD FS DKM Key and Is It Normal?">
+    <meta name="meta-title" content="Why Netwrix Auditor Reads AD FS DKM Key and Is It Normal?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8925">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wns3CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why Netwrix Auditor Reads AD FS DKM Key and Is It Normal?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Windows Defender generates the <b>Suspected AD FS DKM key read</b> alert due to activity from the Netwrix account. Is it a normal behavior for the product?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Reading of this key is expected behavior as part of enumerating all AD attributes during DirSync.</p>
+
+<p>Avoiding reading it entirely seems to be impossible as Netwrix Auditor has to enumerate all keys to determine what needs to be collected. However, you can fine tune Auditor to exclude the <b>AD FS DKM key</b> from the auditing scope. For that:</p>
+
+<ol><li>
+	<p>On the computer that hosts Netwrix Auditor Server, navigate to <em>%Installation Path%\Active Directory Auditing\</em>.</p>
+	</li><li>
+	<p>Open the <b>omitstorelist.txt</b> file with any text editor, for example, with Notepad.</p>
+	</li><li>
+	<p>Add the following as a new line:</p>
+	<code>*.thumbnailPhoto</code></li><li>
+	<p>Save your edits.</p>
+	</li></ol>
+</div>
+</body>
+</html>

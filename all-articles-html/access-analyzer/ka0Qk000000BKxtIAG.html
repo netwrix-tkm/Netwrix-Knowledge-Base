@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell Modules Required for O365 Configuration in NEA</title>
+    <meta name="article-id" content="ka0Qk000000BKxtIAG">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2024-11-21T15:39:25.000Z">
+    <meta name="articlenumber" content="000009330">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2024-11-21T15:39:25.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-01-28T19:25:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001i3pKAA">
+    <meta name="knowledge-article-id" content="kA0Qk0000001i3pKAA">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-01-28T19:25:43.000Z">
+    <meta name="lastpublisheddate" content="2025-01-28T19:25:43.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9330">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001i3pKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PowerShell Modules Required for O365 Configuration in NEA</h1>
+    <h2>Question</h2>
+<p>What PowerShell Modules and PackageProviders are required to use the below instant jobs for setting up Entra, Exchange Online, and SharePoint Online auditing with NEA:</p>
+<ul><li>AADI_RegisterAzureAppAuth</li><li>SP_RegisterAzureAppAuth</li><li>EX_RegisterAzureAppAuth</li></ul>
+<h2>Answer</h2>
+<p>The following PowerShell Modules and PackageProviders are required for their respective Instant Job:</p>
+<p>�</p>
+<p><strong>AADI_RegisterAzureAppAuth</strong></p>
+<ul><li>PowerShellGet</li><li>NuGet</li><li>Az.Accounts</li><li>Microsoft.Graph</li></ul>
+<p><strong>EX_RegisterAzureAppAuth</strong></p>
+<ul><li>AzureAD</li><li>ExchangeOnlineManagement</li></ul>
+<p><strong>SP_RegisterAzureAppAuth</strong></p>
+<ul><li>AzureAD</li></ul>
+<p>�</p>
+<p><strong>To install these modules and package providers, the below can be run in an Admin PowerShell:</strong></p>
+<blockquote>
+<p><code>Install-Module -Name PowerShellGet -Force</code><br><code></code></p>
+<p><code>Install-PackageProvider -Name NuGet -Force</code><br><code></code></p>
+<p><code>Install-Module -Name Az.Accounts -Force</code><br><code></code></p>
+<p><code>Install-Module -Name Microsoft.Graph -Force</code><br><code></code></p>
+<p><code>Install-Module -Name AzureAD -Force</code></p>
+<p><code>Install-Module -Name ExchangeOnlineManagemen -Force</code></p>
+</blockquote>
+<p>�</p>
+</body>
+</html>

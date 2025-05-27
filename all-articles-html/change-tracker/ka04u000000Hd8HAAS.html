@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Getting Started Tutorial - File Integrity Monitoring � Host Intrusion Detection/Breach Detection</title>
+    <meta name="article-id" content="ka04u000000Hd8HAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:35:59.000Z">
+    <meta name="articlenumber" content="000008114">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:03.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:36:00.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JU3CAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JU3CAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:03.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="4. Getting Started Tutorial - File Integrity Monitoring � Host Intrusion Detection/Breach Detection">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8114">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JU3CAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>4. Getting Started Tutorial - File Integrity Monitoring � Host Intrusion Detection/Breach Detection</h1>
+    <p>The configuration monitoring policy applied can be exposed by clicking on the ���Tracked Items��� icon or by clicking through on the Config Template name. By default, devices are assigned to a Group once they have been registered into the system and in turn, a configuration monitoring policy will be applied</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJwL&amp;d=%2Fa%2F4u000000LzRF%2FEInM5mzs9DpgJG7fA0oUbBXoSPQFP0gG6bYn8MniCas&amp;asPdf=false"></img></span></p><p>Making a qualifying change ��� in this example, adding a new file to /etc or editing one of the existing config files held here, such as /etc/motd ��� will be detected and alerted within Change Tracker. I created a new file ��� FIM_Test within the /etc path using WinSCP (or if you are using WIndows, any change within a Program FIles folder or the Windows\System32)</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdK8V&amp;d=%2Fa%2F4u000000LzQf%2FkTqfMJub4kKMCdRF.fBUKTGKLI1BYOzK4DZdwPN.6Ps&amp;asPdf=false"></img></span></p><p>To View FIM Change Events, use the Events screen: the file change is reported immediately.</p><p><em>Tip: The Events screen is designed to handle large Enterprise estates with potentially thousands of events, therefore the filtering and masking of events is crucial. If you don���t see the change event as expected, make sure you have selected the right device, and that your filters are not masking the event.</em></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKCl&amp;d=%2Fa%2F4u000000LzTU%2FZWg59y60Fr4aj651Q3B_e_EeCMOyVz5L4Zp9WDenYH8&amp;asPdf=false"></img></span></p><p>In this example, the Device, Start Time/Date, Tracker Type and Unplanned events only were selected.</p><p>The <a href="https://kb.netwrix.com/8111" target="_blank">Event Filter</a> is easy to use ��� just click Reset Filter then Filter to build a new filter ��� See Filters and Scheduled Queries for more details.</p><p>At this stage, security best practice for handling a FIM security incident is to investigate the changes to determine if this is a genuine security breach. Most of the time changes will be unexpected but not a security breach ��� FIM provides the forensic detail visibility and sensitivity to detect even the stealthiest breach but this may mean that previously unseen system activity now also becomes highlighted.</p><p>Regular activity such as patching, system upgrades and normal application operations will all be detected and reported but the beauty of Change Tracker Gen 7 is the range of options and power provided to automatically handle these.</p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKCv&amp;d=%2Fa%2F4u000000LzfQ%2FfUd.FEGs_JT2S9shQzP8fz0KkwBtA7hB4kxtdExTXzI&amp;asPdf=false" target="_blank">image2017-6-2_15-6-48.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKD0&amp;d=%2Fa%2F4u000000Lzfz%2FWvHwZdEpHpGcHAVgk9aSkmLI6Jmd1UH8Ajnjb5yWURs&amp;asPdf=false" target="_blank">image2017-6-2_15-5-23.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKD5&amp;d=%2Fa%2F4u000000Lzgm%2FRSJrPGSIMKMnw8YTpu2qevlJvgmuGyaTdrjcbo0Heko&amp;asPdf=false" target="_blank">image2017-6-2_15-4-57.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKDA&amp;d=%2Fa%2F4u000000Lzgr%2F_Lpe69K17hAZ86Su0prUgeKu_8O8bc9ckd1cNegp_rE&amp;asPdf=false" target="_blank">image2017-6-2_15-3-50.png</a> <br>
+</body>
+</html>

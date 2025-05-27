@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting File System Action Module � KeepSessionFiles xml option</title>
+    <meta name="article-id" content="ka04u000000HdDUAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-04-24T11:03:42.000Z">
+    <meta name="articlenumber" content="000008570">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-05-08T10:19:12.000Z">
+    <meta name="firstpublisheddate" content="2023-04-24T11:05:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000HDhMCAW">
+    <meta name="knowledge-article-id" content="kA04u000000HDhMCAW">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:12.000Z">
+    <meta name="lastpublisheddate" content="2023-04-24T11:05:34.000Z">
+    <meta name="meta-description" content="Troubleshooting File System Action Module � KeepSessionFiles xml option">
+    <meta name="meta-title" content="Troubleshooting File System Action Module � KeepSessionFiles xml option">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8570">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDhMCAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Troubleshooting File System Action Module � KeepSessionFiles xml option</h1>
+    <h1>Symptoms and cause</h1>
+<span style="font-size: 12pt;"><span style="line-height: 115%;"><span style="vertical-align: middle;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 115%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">After executing a File System Action you may encounter errors like &quot;<strong>Failed to import the results into a database</strong>&quot; or other similar errors. These errors often indicate a missing column or invalid data type in the source table for the action. </span></span></span></span></span></span></span></span><br><span style="font-size: 12pt;"><span style="line-height: 115%;"><span style="vertical-align: middle;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 115%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">When any File System Action is executed, an�<strong>input1.db</strong>�and�<strong>output1.db</strong>�file are created for each session, but by default these are deleted once the execution completes. These files are useful for troubleshooting and should be retained and provided to R&amp;D when escalating issues with File System Actions.</span></span></span></span></span></span></span></span>
+
+<h1>Resolution</h1>
+<span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">Follow the steps below to allow these files to be retained:</span></span></span></span></span></span></span>
+
+<ol><li style="margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">Right click on the job and select <strong>Explore Folder</strong></span></span></span></span></span></span></span></li><li style="margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">In the job folder, open the <strong>ActionTasks.xml</strong> file with your preferred text editor</span></span></span></span></span></span></span></li><li style="margin-bottom: 11px;margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">Locate the <strong>&lt;KeepSessionFiles&gt;</strong>�option for the specific action task and set this option to <strong>true�</strong>(case sensitive). </span></span></span></span></span></span></span></li></ol>
+<span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><img alt="A picture containing text  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDU&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084Zvh" style="width: 536px;height: 612px;"></img></span></span></span>
+
+<ol start="4"><li style="margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">Save the <strong>ActionTasks.xml</strong> file then run the action.</span></span></span></li><li style="margin-bottom: 11px;margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">Once the action completes navigate to <strong>%SAINSTALLDIR%Actions\FileSystem</strong> and open the folder that has the timestamp of when the action was executed as its name</span></span></span></li></ol>
+<span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">�<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDU&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084Zvi" style="width: 624px;height: 74px;"></img></span></span></span>
+
+<ol start="6"><li style="margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">You should see two files within this folder:</span></span></span>
+
+	<ul style="list-style-type: disc;"><li style=""><strong><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">[HOST].input1.db.zip</span></span></span></strong></li><li style="margin-bottom: 11px;"><strong><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">[HOST].output1.db.zip</span></span></span></strong></li></ul>
+	</li></ol>
+<span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><img alt="Graphical user interface, text, application  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdDU&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000084Zvj" style="width: 624px;height: 139px;"></img></span></span></span>
+
+<ol start="7"><li style="margin-bottom: 11px;margin-left: 8px;"><span style="font-size: 12pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">Copy these two files and provide them to R&amp;D when escalating </span></span></span></li></ol>
+
+<h1>Related articles</h1>
+<a href="https://helpcenter.netwrix.com/bundle/StealthAUDIT_11.5/page/Content/StealthAUDIT/Action_Modules/File_System_Action_Module/File_System_Action_Module.htm" target="_blank"><span style="font-size: 12pt;"><span style="line-height: 115%;"><span style="vertical-align: middle;"><span style="font-family: Calibri,sans-serif;"><span style="font-size: 12pt;"><span style="line-height: 115%;"><span style="font-family: &quot;Segoe UI&quot;,sans-serif;"><span style="color: black;">File System Action Module</span></span></span></span></span></span></span></span></a>
+</body>
+</html>

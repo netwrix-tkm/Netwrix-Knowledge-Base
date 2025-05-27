@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;Error saving AD history to database: ExecuteNonQuery requires an open and available Connection. The connection&#x27;s current state is closed.&quot;</title>
+    <meta name="article-id" content="ka04u000000HcSMAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:07.000Z">
+    <meta name="articlenumber" content="000003395">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:35.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZLCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZLCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:35.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:34.000Z">
+    <meta name="meta-description" content="1. Restart SQL server hosting the product database;
+2. In case where a restart does not help perform
+2.1. Logon with an account...  for Netwrix Auditor tasks">
+    <meta name="meta-title" content="&amp;quot;Error saving AD history to database: ExecuteNonQuery&amp;quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1242">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZLCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;Error saving AD history to database: ExecuteNonQuery requires an open and available Connection. The connection&#x27;s current state is closed.&quot;</h1>
+    You get the following error in the summary email reports:
+&quot;Error saving AD history to database: ExecuteNonQuery requires an open and available Connection. The connection&#39;s current state is closed.&quot;
+
+<hr></hr>
+
+Database corruption can cause the error above to be thrown during a product database upgrade.
+
+Such corruption can
+- go unnoticed in the database until the upgrade is attempted.
+- be caused by the loss of connectivity or disk corruption on the storage device where the database resides.
+
+<hr></hr>
+
+In order resolve this issue please do the following:
+
+1. Restart SQL server hosting the product database;
+2. In case where a restart does not help perform the following steps on SQL Server:
+2.1. Logon with an account that you are using for Netwrix Auditor tasks
+2.2. Launch Microsoft SQL Server Management Studio
+2.3. Open a Query window focused on the database.
+2.4. Run the following SQL command against the product database: dbcc checkdb
+2.5 Review and save to a file the results of the command to confirm database corruption due to consistency errors. A sample of the command output is:
+
+CHECKDB found 0 allocation errors and 29 consistency errors in database &#39;&#39;.
+repair_allow_data_loss is the minimum repair level for the errors found by DBCC CHECKDB (...).
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+
+2.6. Open a ticket with Netwrix Tech Support and upload the command results as well as product log files - a zip of the %Netwrix Installation Folder%Active Drirectory AuditingTracing folder.
+</body>
+</html>

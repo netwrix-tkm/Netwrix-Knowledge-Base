@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to specify Dell EMC Unity server as a monitored item</title>
+    <meta name="article-id" content="ka04u000000HdETAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2020-07-17T11:35:26.000Z">
+    <meta name="articlenumber" content="000005806">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-05-08T10:19:32.000Z">
+    <meta name="firstpublisheddate" content="2020-07-17T14:04:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000PcpRCAS">
+    <meta name="knowledge-article-id" content="kA04u000000PcpRCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:32.000Z">
+    <meta name="lastpublisheddate" content="2020-07-17T14:04:20.000Z">
+    <meta name="meta-description" content="How-to-specify-a-EMC-Unity-server-as-monitored-item">
+    <meta name="meta-title" content="How-to-specify-a-EMC-Unity-server-as-monitored-item">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5806">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PcpRCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to specify Dell EMC Unity server as a monitored item</h1>
+    <p><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">To audit Dell EMC Unity storage system, Netwrix Auditor needs to access its registry data. For that,�FQDN of the Unity storage system is required. Enter it when adding�a Dell EMC Unity storage as a monitored item in�the Netwrix Auditor monitoring plan.<br><br>Alternatively, you can enter the IP address. In this case, consider that if your Netwrix Auditor server is located in another domain (untrusted domain or workgroup), then you should ensure any of the following:</span></span></p>
+
+<ul><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">A reverse lookup zone is configured on the DNS server for the Unity system - to resolve its IP address into FQDN.</span></span></li></ul>
+
+<p><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">-OR-</span></span></p>
+
+<ul><li><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">�Netwrix Auditor data collecting account has <i>Read</i> permissions for the <b>OU=EMC NAS servers</b>�node in Active Directory.��</span></span></li></ul>
+
+<p><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Otherwise, data collection will fail, reporting an error caused by network path not found.</span></span><br>�</p>
+</body>
+</html>

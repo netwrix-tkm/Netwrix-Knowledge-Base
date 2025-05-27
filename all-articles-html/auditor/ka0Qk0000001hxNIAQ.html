@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compression Service Does Not Appear Under Installed Programs but Still Exists in The Services Overview</title>
+    <meta name="article-id" content="ka0Qk0000001hxNIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-02-06T11:36:45.000Z">
+    <meta name="articlenumber" content="000009043">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-02-06T13:56:55.000Z">
+    <meta name="firstpublisheddate" content="2024-02-06T11:36:54.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000R53KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000R53KAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-02-06T13:57:17.000Z">
+    <meta name="lastpublisheddate" content="2024-02-06T13:57:17.000Z">
+    <meta name="meta-description" content="Compression Service Does Not Appear Under Installed Programs but Still Exists in The Services Overview">
+    <meta name="meta-title" content="Compression Service Does Not Appear Under Installed Programs but Still Exists in The Services Overview">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9043">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000R53KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Compression Service Does Not Appear Under Installed Programs but Still Exists in The Services Overview</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>After uninstallation of Netwrix Compression Service, it does not appear under <b>Programs and Features</b> in the Control Panel, but still exists in the <b>Services Overview</b>.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Compression service components were not completely removed during uninstallation.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>You can manually delete the Service and its components. For that:</p>
+
+<ol><li>
+	<p>Open the <b>Services</b> snap-in and open properties of the problematic service.</p>
+	</li><li>
+	<p>Copy the full name of the service and the path to executable, for example, to a Notepad document.</p>
+	<img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001hxN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000002u2KX"></img></li><li>
+	<p>Run the command prompt as administrator and run the following command:</p>
+	<code>sc delete &lt;service_name</code>
+
+	<p>where the &lt;<code>service_name&gt;</code> is the full name of the service you copied on the step 2.</p>
+	</li><li>
+	<p>After that, navigate to the file path you copied earlier and delete all the files.</p>
+	</li></ol>
+</div>
+</body>
+</html>

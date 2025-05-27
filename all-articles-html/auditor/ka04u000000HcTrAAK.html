@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The event log file is corrupted. (Error number: 0x80004005)</title>
+    <meta name="article-id" content="ka04u000000HcTrAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:52.000Z">
+    <meta name="articlenumber" content="000003501">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:13.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9b5CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9b5CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:13.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:51.000Z">
+    <meta name="meta-description" content="The event log file is corrupted. (Error number: 0x80004005)
+
+Event log read failure. Error details: The event log file is corrupted. (Error number: 0x80004005)">
+    <meta name="meta-title" content="The event log file is corrupted. (Error number: 0x80004005)">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1330">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9b5CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The event log file is corrupted. (Error number: 0x80004005)</h1>
+    In summary reports you see the following error: <strong>Event log read failure. Error details: The event log file is corrupted. (Error number: 0x80004005)</strong>
+
+<hr></hr>
+
+The event log has been corrupted. If you are using the product without agents, the product uses the Application log and if you are using the product with agents, the product uses its own log located under <strong>Event viewerApplications and Service Logs Netwrix Non-owner Mailbox Access Agent.</strong>
+
+<hr></hr>
+
+Please perform steps from the <a href="http://technet.microsoft.com/en-us/library/bb457024.aspx" target="_blank">following Microsoft Article</a>.
+If it does not helped, please also perform the following steps:
+<ul><li>Disable the <strong>Windows event log</strong> service on the target Exchange server</li><li>Reboot the server</li><li>Stop the <strong>Netwrix Non-owner Mailbox Access Reporter Agent</strong> service</li><li>Renamed the C:WindowsSystem32winevtLogsNetWrix Non-owner Mailbox Access Agent to NetWrix Non-owner Mailbox Access Agent.old</li><li>Enable the <strong>Windows event log</strong> service, <strong>Netwrix Non-owner Mailbox Access Reporter Agent</strong> service, reboot the server.</li></ul>
+</body>
+</html>

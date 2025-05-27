@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Copy the Design of Portal via SQL Query</title>
+    <meta name="article-id" content="ka0Qk000000DSzNIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F0JoAAK">
+    <meta name="articlecreateddate" content="2024-05-13T19:04:14.000Z">
+    <meta name="articlenumber" content="000009178">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk000000161lKAA">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210098285877712?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F0JoAAK">
+    <meta name="createddate" content="2025-04-28T17:31:18.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-05-13T19:04:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk000000161lKAA">
+    <meta name="knowledge-article-id" content="kA0Qk000000161lKAA">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-04-28T18:12:13.000Z">
+    <meta name="lastpublisheddate" content="2025-04-28T18:12:13.000Z">
+    <meta name="meta-description" content="Copy the Design of Portal via SQL Query">
+    <meta name="meta-title" content="How To: Copy the Design of Portal via SQL Query">
+    <meta name="ownerid" content="0054u000008F0JoAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9178">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk000000161lKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Copy the Design of Portal via SQL Query</h1>
+    <h2>Overview</h2>
+<p>This article provides step-by-step instructions for copying a portal design between environments using SQL queries. The process covers scenarios for the same SQL server and database, different databases on the same server, and different SQL servers.</p>
+<h2>Instructions</h2>
+<h4>Copy the Design Within the Same SQL Server and Database</h4>
+<ol><li>Go to the database used with the test server.</li><li>Select the database and create a new query. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004n9O2" alt="SQL Server Management Studio new query window with database selected"></img></li><li>Enter the following query:</li></ol>
+<pre class="has-inner-focus">DECLARE @fromClient AS int = n
+DECLARE @fromStore AS int = n
+DECLARE @toClient AS int = n
+DECLARE @tostore AS int = n
+
+UPDATE [SSPR].[PortalDesigns]
+SET Design = (SELECT Design FROM [SSPR].[PortalDesigns] WHERE ClientId = @fromClient AND IdentityStoreId = @fromStore)
+WHERE ClientId = @toClient AND IdentityStoreId = @tostore
+</pre>
+<ol start="4"><li>In <code class="lang-Registry">@fromClient</code>, enter the Client ID of the portal you want to copy. For example, to copy the design of Portal 1, use Client ID 11. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nLdh" alt="PortalDesigns table showing Client ID and Identity Store ID values"></img></li><li>In <code class="lang-Registry">@fromStore</code>, enter the Identity Store ID. For example, use 2. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nH3t" alt="Identity Store ID value in PortalDesigns table"></img></li><li>In <code class="lang-Registry">@toClient</code> and <code class="lang-Registry">@toStore</code>, enter the Client ID and Identity Store ID for the target portal. For example, Client ID 13 and Store ID 2.</li><li>Run the query.</li><li>The following screenshot shows the executed query:</li></ol>
+<p>��<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nLfJ" alt="Screenshot of executed SQL query"></img></p>
+<h4>Copy the Design with the Same SQL Server and Different Databases</h4>
+<p><strong>Environment:</strong> Test instance configured with <strong>SQLTestServer-DB1</strong>, production instance configured with <strong>SQLTestServer-DB2</strong>.</p>
+<ol><li>Go to SQL Server and create a new query.</li><li>Enter the following query:</li></ol>
+<pre class="has-inner-focus">DECLARE @fromClient AS int = n
+DECLARE @fromStore AS int = n
+DECLARE @toClient AS int = n
+DECLARE @tostore AS int = n
+
+UPDATE [toDB].[SSPR].[PortalDesigns]
+SET Design = (SELECT Design FROM [fromDB].[SSPR].[PortalDesigns] WHERE ClientId = @fromClient AND IdentityStoreId = @fromStore)
+WHERE ClientId = @toClient AND IdentityStoreId = @tostore
+</pre>
+<ol start="3"><li>In <code class="lang-Registry">@fromClient</code>, <code class="lang-Registry">@fromStore</code>, <code class="lang-Registry">@toClient</code>, and <code class="lang-Registry">@toStore</code>, enter the appropriate Client ID and Store ID values as described above.</li><li>In <code class="lang-Registry">[toDB]</code>, enter the database name of the production portal. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nLgv" alt="Screenshot of SQL query for copying design between databases"></img></li><li>In <code class="lang-Registry">[fromDB]</code>, enter the database name of the test portal.</li><li>Run the query.</li><li>The following screenshot shows the executed query: <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nLiX" alt="Screenshot of executed SQL query for different databases"></img></li></ol>
+<p>�</p>
+<h4>Copy the Design with Different SQL Servers and Databases</h4>
+<p><strong>Environment:</strong> Test server configured with <strong>DB1</strong>, production server configured with <strong>DB2</strong>.</p>
+<ol><li>On the test server, connect to the SQL Server instance where you want to create the linked server.</li><li>In Object Explorer, go to <strong>Server Objects</strong> and click <strong>Linked Servers</strong>.</li><li>Create a new linked server.</li><li>In the <strong>New Linked Server</strong> window, enter the name of the server you want to link.</li><li>Select <strong>Server type</strong> as <strong>SQL Server</strong>. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nIXn" alt="Linked server properties window"></img></li><li>Select <strong>Security</strong> from the left pane, choose the appropriate login option, and enter the server credentials.</li><li>Click <strong>OK</strong>. The linked server will appear in the list. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nIXo" alt="Linked server security settings"></img></li></ol>
+<p>��<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nIXp" alt="Linked server shown in SQL Server Management Studio"></img></p>
+<ol start="8"><li>Go to the GroupID portal of the test server and make the required changes to the portal design.</li><li>Return to SQL Server.</li><li>Right-click the server and select <strong>New Query</strong>. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nIXq" alt="SQL Server Management Studio new query window for linked server"></img></li><li>Enter the following query:</li></ol>
+<pre class="has-inner-focus">DECLARE @fromClient AS int = n
+DECLARE @fromStore AS int = n
+DECLARE @toClient AS int = n
+DECLARE @tostore AS int = n
+
+UPDATE [toSourceServer].[toDB].[SSPR].[PortalDesigns]
+SET Design = (
+    SELECT Design FROM [fromSourceServer].[fromDB].[SSPR].[PortalDesigns]
+    WHERE ClientId = @fromClient AND IdentityStoreId = @fromStore
+)
+WHERE ClientId = @toClient AND IdentityStoreId = @tostore
+</pre>
+<ol start="12"><li>In <code class="lang-Registry">@fromClient</code>, <code class="lang-Registry">@fromStore</code>, <code class="lang-Registry">@toClient</code>, and <code class="lang-Registry">@toStore</code>, enter the appropriate Client ID and Store ID values as described above.</li><li>In <code class="lang-Registry">[toSourceServer]</code>, enter the server name of the production server. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nIXr" alt="Linked server name entry in SQL query"></img></li><li>In <code class="lang-Registry">[fromSourceServer]</code>, enter the server name of the test server.</li><li>In <code class="lang-Registry">[fromDB]</code> and <code class="lang-Registry">[toDB]</code>, enter the database names as described above.</li><li>Execute the query.�</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSzN&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nIXs" alt="Screenshot of executed SQL query for linked server"></img></p>
+</body>
+</html>

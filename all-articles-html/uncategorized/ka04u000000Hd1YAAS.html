@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SAM_3.1_005</title>
+    <meta name="article-id" content="ka04u000000Hd1YAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:47:21.000Z">
+    <meta name="articlenumber" content="000007502">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:13:53.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:47:21.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J3WCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000J3WCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:13:54.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:47:21.000Z">
+    <meta name="meta-description" content="360012124671">
+    <meta name="meta-title" content="Hotfix: SAM_3.1_005">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7502">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J3WCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SAM_3.1_005</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> TLS cert issue with NetApp</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:</span></strong><br><i><span style="color: #404040;">TLS cert issue with NetApp</span></i><br><strong><span style="font-family: calibri,sans-serif;">Behavior Before Fix:</span></strong><br><i><span style="color: #404040;">Certain TLS certificates don&#39;t work.</span></i><br><strong><span style="font-family: calibri,sans-serif;">Behavior After Fix:</span></strong><br><i><span style="color: #404040;">TLS Certificates now work as expected.</span></i><br><b>Changes Since Last Hotfix:</b> 
+</p><ul><li><span style="color: #3b3838;">N/A</span></li></ul>�<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Kevin Duddy<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>STEALTHbits Activity Monitor 3.1<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>Activity Monitor<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SFAM-2631<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>SBActivityMonitorSetup.msi 3.1.0.392<br>�<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><strong><span style="font-family: calibri,sans-serif;">Modules Included:</span></strong><br>SBActivityMonitorSetup.msi 3.1.0.392<br>SBActivityMonitorSetup_unsigned.msi 3.1.0.392<br>Windows Driver 1.4.0.445<br>�<br><b>YouTrack/Escalations</b> 
+<ul><li><i><span style="color: #404040;">SFAM-2631 / 31814</span></i></li></ul>�<br><b>Customers</b> 
+<ul><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">General Atomics</span></span></strong></li></ul>�<br><b>Cumulative List of fixes included since Service Pack:</b> 
+<ul><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">SFAM-2058: Activity Monitor not logging full path when documents are downloaded</span></span></strong>
+</li><li>
+<span style="color: #404040;">SFAM-2327: SAM Netapp Service does not start. Always stopping and starting</span>
+</li><li><span style="color: #404040;">SFAM-2431: SAM Agent | Adding process exclusion wipes out previous list</span></li></ul><span style="color: #404040;"><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SFAM-2654: Update DEFEND Syslog template in SAM 3.1 / SAM 4.0</span></span></span><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<i><span style="color: #404040;">Run msi file on host that has the SBActivityMonitor installed. (No need to uninstall previous version, msi will upgrade the monitor). </span></i>
+</li><li><i><span style="color: #404040;">Upgrade all agents.</span></i></li></ol>
+<table cellspacing="0" cellpadding="0" width="484" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="484"><a href="https://downloads.stealthbits.com/access/files/SAMHotfixes/3.1/SAM_3.1_005.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAMHotfixes/3.1/SAM_3.1_005.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - NetApp<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 3.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SFAM-2631<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 3.1.0.392<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2265<br></p>
+</body>
+</html>

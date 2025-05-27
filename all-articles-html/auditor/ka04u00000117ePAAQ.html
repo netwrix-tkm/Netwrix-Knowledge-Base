@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Audit User Password Changes</title>
+    <meta name="article-id" content="ka04u00000117ePAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:03.000Z">
+    <meta name="articlenumber" content="000003721">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-09-07T11:31:10.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9edCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9edCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T11:32:24.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T11:32:24.000Z">
+    <meta name="meta-description" content="How to Audit User Password Changes">
+    <meta name="meta-title" content="How to Audit User Password Changes">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="4721">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9edCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Audit User Password Changes</h1>
+    <h2>Symptom</h2>
+
+<p>User Password Changes are not appearing in Search or Report results.</p>
+
+<h2>Cause</h2>
+
+<p>By default User Password Change auditing is disabled via omitlist.</p>
+
+<h2>Reolution</h2>
+
+<p>This functionality can be easily enabled by navigating to the following file location:<br><br>&quot;C:\Program Files (x86)\Netwrix Auditor\Active Directory Auditing\omitproplist.txt&quot;</p>
+
+<p>Open &quot;omitproplist.txt&quot; in a text editor, find the entry of <em>*.PasswordChanged</em> and comment it out with a pound/hash sign (#), like this: #<em>*.PasswordChanged . </em>By doing so you make the omit list ignore this entry, effectively re-enabling it for reporting.�All future User Password Changes will now be audited by Netwrix Auditor.<br>Instead of commenting, the line can also be deleted.<br><br><strong>Note</strong>: When you upgrade Netwrix Auditor to a new version, it would restore that parameter in the omit list, so you will have to comment/delete it again.</p>
+
+<p><b>Tip</b>: When saving changes to the omit list, you may receive &quot;Access is Denied&quot; error. In order to proceed, either open the text editor as Administrator or save the file to the desktop and drag&#39;n&#39;drop to the original folder, which would trigger the admin prompt.</p>
+</body>
+</html>

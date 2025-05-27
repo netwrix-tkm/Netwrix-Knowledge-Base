@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Threats Detected Despite Web Console Reporting Events</title>
+    <meta name="article-id" content="ka0Qk0000005DSrIAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-11-07T19:07:49.000Z">
+    <meta name="articlenumber" content="000008893">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2024-08-29T21:11:35.000Z">
+    <meta name="firstpublisheddate" content="2023-11-07T19:09:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnnICAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wnnICAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-08-30T08:06:39.000Z">
+    <meta name="lastpublisheddate" content="2024-08-01T11:26:53.000Z">
+    <meta name="meta-description" content="No Threats Detected Despite Web Console Reporting Events">
+    <meta name="meta-title" content="No Threats Detected Despite Web Console Reporting Events">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8893">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnnICAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>No Threats Detected Despite Web Console Reporting Events</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>No threats are detected for several days. However, the web console continues to report events.</p>
+	</li><li>
+	<p>The backlog section of the Threat Manager console is not populated. As a result, it&#39;s impossible to determine the status of the database maintenance job, as well as other components of the console.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>An EDR, XDR, or antivirus solution in your Netwrix Threat Manager environment conflicts with the PostgreSQL application.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Create exclusions for the PostgreSQL file paths below:</p>
+
+<pre>
+\Program Files\Stealthbits\PostgreSQL14 
+\ProgramData\Stealthbits\PostgreSQL14 
+\Program Files\Stealthbits\StealthDEFEND 
+\Program Files\STEALTHbits\PostgreSQL14\bin\postgres.exe 
+\Program Files\STEALTHbits\PostgreSQL14\bin\psql.exe
+\Program Files\STEALTHbits\PostgreSQL14\bin\pg_ctl.exe</pre>
+</div>
+
+<blockquote>
+<p><strong>TIP:</strong> Learn more about custom IOA rules in <a href="https://www.crowdstrike.com/blog/tech-center/custom-ioas/" target="_blank">How to Create Custom Rules ? CrowdStrike &#129125;</a></p>
+</blockquote>
+
+<h2>Related articles</h2>
+
+<p><a href="https://www.crowdstrike.com/blog/tech-center/custom-ioas/" target="_blank">How to Create Custom Rules ? CrowdStrike &#129125;</a></p>
+</body>
+</html>

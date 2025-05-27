@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lockouts are not tracked</title>
+    <meta name="article-id" content="ka04u000000HcWDAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:59.000Z">
+    <meta name="articlenumber" content="000003648">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:51:05.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dSCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9dSCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:05.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:57.000Z">
+    <meta name="meta-description" content="Troubleshooting issues with Netwrix Account Lockout Examiner not reporting lockouts, despite being correctly configured.">
+    <meta name="meta-title" content="Lockouts are not tracked">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2763">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dSCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Lockouts are not tracked</h1>
+    <h4>You noticed that some lockout events are not tracked even though audit and all settings for NetWrix Account Lockout Examiner have been configured correctly and connection to the required domain controller (DC) and audit setup are shown as OK.</h4>
+
+<hr></hr>
+
+First, make sure the Windows security log on your DC is reachable: connect via Event Viewer and check that events are logged. If the events are written correctly, but NetWrix Account Lockout Examiner still does not track them, do the following:
+<ol><li>On the computer where NetWrix Account Lockout Examiner is installed, open Registry Editor: navigate to <strong>Start</strong> - <strong>Run</strong>, enter <em>regedit</em> and click <strong>OK</strong>.</li><li>In the Registry Editor left pane, navigate to <strong>HKLM</strong><strong>Software</strong><strong>Wow6432Node</strong><strong>NetWrix</strong><strong>Account Lockout Examiner</strong>, (Wow6432Node only for x64 OS).</li><li>In the right pane, double-click <strong>readLog</strong> and set its value to 0.</li><li>Create a new DWORD named <strong>UseWatcher</strong> and set its value to 1.</li><li>Restart the Netwrix Account Lockout Examiner service via the Services snap-in.</li></ol>
+<a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g000000kAcl&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004udF" target="_blank"><img style="width: 732px;height: 286px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcWD&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004udF" alt="User-added image" width="500" height="161"></img></a>
+
+If the above doesn&#39;t help, try to change the value of <strong>UseWMI</strong> registry key to 0
+
+<a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g000000kAcl&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004wzc" target="_blank"><img style="width: 706px;height: 353px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcWD&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wzc" alt="User-added image" width="500" height="245"></img></a>
+</body>
+</html>

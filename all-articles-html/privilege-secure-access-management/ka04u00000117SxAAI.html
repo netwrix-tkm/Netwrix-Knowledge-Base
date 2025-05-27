@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using the Database Configuration Tool to Change the Postgres DB Password</title>
+    <meta name="article-id" content="ka04u00000117SxAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2023-08-17T09:18:05.000Z">
+    <meta name="articlenumber" content="000008734">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2023-08-29T16:00:38.000Z">
+    <meta name="firstpublisheddate" content="2023-08-17T09:42:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001112KCAQ">
+    <meta name="knowledge-article-id" content="kA04u000001112KCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-08-29T16:01:18.000Z">
+    <meta name="lastpublisheddate" content="2023-08-17T09:42:24.000Z">
+    <meta name="meta-description" content="Using the Database Configuration Tool to Change the Postgres DB Password">
+    <meta name="meta-title" content="Using the Database Configuration Tool to Change the Postgres DB Password">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8734">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001112KCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Using the Database Configuration Tool to Change the Postgres DB Password</h1>
+    <h1>Summary</h1>
+While it is essential that remote access to the NPS server be locked down, as an additional layer of security, organizations may wish to further harden their NPS server by periodically changing the password to the NPS Postgres database. As such, NPS comes with a Database Configuration tool (<strong>DbCfg.msi</strong>) that allows the changing of the privileged Postgres service account password used by NPS.<br><br><em><strong>The changed password should be securely vaulted, and local Administrator access to the DbCfg tool should be tightly controlled.</strong></em>
+
+<h1>Instructions</h1>
+<span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">1. On the NPS server, navigate to the &quot;Extras&quot; folder in the NPS installer download directory. The Database Configuration tool installer�</span></span></span>(<strong>DbCfg.msi</strong>) <span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">is included in this directory. Launch the installer, and select &quot;Next&quot;.</span></span></span><br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxNl"></img><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">2. Review and accept the EULA. Select &quot;Next&quot;.</span></span></span><br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxOZ"></img><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;">3. Choose an installation path. The default installation path is C:\Program Files\Stealthbits\PAM\. Select &quot;Next&quot;.</span></span></span><br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxOj"></img><br>4. Select &quot;Install&quot;, and confirm any UAC prompt that occurs.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxOo"></img><br>5. The installation will complete shortly.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxOt"></img><br>6. Navigate to the installation directory and launch�<strong>DbCfg.exe</strong>�from your chosen installation directory.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxOy"></img><br>7. You can click &quot;Test&quot; to confirm your connection to the Postgres DB.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxP3"></img><br>8. You can set a new password in the Password field and hit Save to change the Postgres password. If your Test connection from 7 was successful, then you should receive a &quot;Configuration saved successfully&quot; response, which indicates a successful password change. This change will have propagated to any NPS service that needs to use the database password.<br><img alt="image.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117Sx&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LxP8"></img>
+</body>
+</html>

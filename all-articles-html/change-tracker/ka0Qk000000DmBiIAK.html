@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMWare ESXi Host Compliance Reporting</title>
+    <meta name="article-id" content="ka0Qk000000DmBiIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:27:19.000Z">
+    <meta name="articlenumber" content="000008049">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JPICA2">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T04:46:49.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:27:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JPICA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JPICA2">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T04:50:13.000Z">
+    <meta name="lastpublisheddate" content="2022-04-12T16:16:05.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="VMWare ESXi Host Compliance Reporting">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8049">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JPICA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>VMWare ESXi Host Compliance Reporting</h1>
+    <p>For background please read the previous section regarding Agentless Compliance Reporting and the Proxy Agent and Credentials Key concepts as ESXi Compliance reports are all run on an Agentless-basis, however there are some critical pre-requisites, see later.</p><p>Use �Add Credentials� to create/add a new Credential Key for ESXi Compliance Reporting � please follow the notes below to construct your Connection String.</p><p><strong><em>Important</em></strong>: Note that the Connection String defines PowerCLI access to the ESXi Server � the specific ESXi Host details are defined in the step following creation of the ESXi Credential key.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJur&amp;d=%2Fa%2F4u000000LzMw%2FrhPoO1012JDcLoTt0pvd3ZgVu9wuCgNTpNjrk.x2flI&amp;asPdf=false"></img></span></p><p>The specific named-ESXi Host instance to be reported on is then defined as a Device related to a chosen Proxy Agent in a similar way to any other Agentless device is configured.</p><p>Pre-Requisites for ESXi Agentless Compliance Reporting</p><p>The Netwrix ESXi Compliance Reports utilize the VMWare PowerCLI cmdlets for Powershell. In order to run an Netwrix ESXi Compliance Report the following pre-requisites are mandatory</p><ul><li>Netwrix Windows Proxy Agent (or Windows Gen 7 Agent with Proxy capabilities) must be used</li><li>Proxy Agent Windows platform must have PowerShell V5.0 or later installed (installed using the <a class="external-link" href="https://www.microsoft.com/en-us/download/details.aspx?id=50395" target="_blank">Windows Management Framework 5.0</a>)</li><li>VMWare PowerCLI V6.3 or later (installed using the <a class="external-link" href="https://my.vmware.com/web/vmware/details?downloadGroup=PCLI600R3&amp;productId=491" target="_blank">VMWare.com download</a>) and In the VMware vSphere PowerCLI console window, run Set-ExecutionPolicy RemoteSigned See <a class="external-link" href="https://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.powercli.ug.doc_50%2FGUID-97ED8CFB-AA71-405C-A540-CFF15B28ED11.html" target="_blank">https://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.powercli.ug.doc_50%2FGUID-97ED8CFB-AA71-405C-A540-CFF15B28ED11.html</a></li><li>If the Netwrix Proxy Agent-hosting platform is a Domain Member and subject to Group Policy Computer Configuration settings, you will also need to set the Windows Powershell Script Execution policy setting to �Allow local scripts and remote signed scripts�</li></ul><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdJnD&amp;d=%2Fa%2F4u000000LzN1%2FR_nMLG2QzttMd0WbYpKPtfk1EYhEX5UcD1R6IO4peJg&amp;asPdf=false"></img></span></p>
+</body>
+</html>

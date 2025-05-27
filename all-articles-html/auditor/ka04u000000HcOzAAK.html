@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How can I decrease number of events generated for Directory Service Access auditing?</title>
+    <meta name="article-id" content="ka04u000000HcOzAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:53.000Z">
+    <meta name="articlenumber" content="000003173">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:05.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ViCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9ViCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:05.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:17.000Z">
+    <meta name="meta-description" content="event log overwrites">
+    <meta name="meta-title" content="How can I decrease number of events generated for Directory Service Access auditing?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="754">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ViCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How can I decrease number of events generated for Directory Service Access auditing?</h1>
+    I enabled Directory Service Access auditing and configured auditing categories in accordance with Netwrix instructions, but this configuration generates a lot of events and Security event log keeps being overwritten (even after increasing its size to 4GB). How can I decrease the number of events being generated for Directory Service Access auditing?
+<hr></hr> Despite the fact that <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Configuration/ActiveDirectory/ObjectLevelAuditing.htm" target="_blank">Netwrix Guides</a> recommend enabling almost all categories while configuring object-level auditing, not all of them are being used by Netwrix Auditor. So, to decrease the event generation you can uncheck the unnecessary categories in default domain container auditing settings. The following steps outline how to modify domain container auditing settings and prevent the generation of unnecessary events (decrease the Security event log usage):
+
+<ol><li>Log on to any Domain Controller in the monitored domain.</li><li>Open<strong> Active Directory Users and Computers.</strong></li><li>Right-click on domain node and select <strong>Properties</strong>.</li><li>Navigate to <strong>Security tab --&gt; Advanced --&gt; Audit tab</strong>.</li><li>Select <strong>Everyone </strong>and click <strong>Edit</strong>.</li><li>And uncheck following check boxes (you need to have only <strong>SUCCESSFUL</strong> checkboxes checked):
+	<ul><li><strong>Full Control </strong></li><li><strong>List Contents</strong></li><li><strong>Read all properties</strong></li><li><strong>Read permissions</strong></li><li><strong>All extended rights</strong></li><li><strong>Add GUID</strong></li><li>And all after &quot;<strong>Add GUID</strong>&quot; except &quot;<strong>Reanimate tombstones</strong>&quot;</li></ul>
+	</li></ol>
+</body>
+</html>

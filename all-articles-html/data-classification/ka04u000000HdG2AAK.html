@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;Failed to load Classifier data cache&quot;</title>
+    <meta name="article-id" content="ka04u000000HdG2AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000005YG2zAAG">
+    <meta name="articlecreateddate" content="2021-01-28T21:03:32.000Z">
+    <meta name="articlenumber" content="000005848">
+    <meta name="createdbyid" content="0050g000005YG2zAAG">
+    <meta name="createddate" content="2023-05-08T10:20:09.000Z">
+    <meta name="firstpublisheddate" content="2021-01-28T21:03:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000XmHACA0">
+    <meta name="knowledge-article-id" content="kA04u000000XmHACA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:20:09.000Z">
+    <meta name="lastpublisheddate" content="2021-01-28T21:03:57.000Z">
+    <meta name="meta-description" content="Error: &quot;Failed to load Classifier data cache&quot;">
+    <meta name="meta-title" content="Error: &quot;Failed to load Classifier data cache&quot;">
+    <meta name="ownerid" content="0050g000005YG2zAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5848">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000XmHACA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;Failed to load Classifier data cache&quot;</h1>
+    <h3 style="color: red;">Scenario</h3>
+The Netwrix Data Classification: Service Viewer displays the following error message for the Classifier Service:<br><br><b>Failed-to-load-Classifier-data-cache</b><br><br><img alt="User-added image" height="447" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdG2&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000001rDFG" width="500"></img>
+<h3 style="color: green;">Solution</h3>
+Navigate to <b>http://hostname/conceptQS/Taxonomies/GlobalSettings</b> and confirm the status of each taxonomy. This error will be caused by a failed connection to a SharePoint termset. Find the faulting termset and update the credentials and/or confirm account permissions for that termset. Restart the classifier service and then the service should immediately begin processing documents pending classifications.
+</body>
+</html>

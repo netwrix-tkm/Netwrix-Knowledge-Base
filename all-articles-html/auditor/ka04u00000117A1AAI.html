@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection to Microsoft 365 Tenant in Netwrix Auditor Completes with Error Validating Your Account�s Rights and Permissions</title>
+    <meta name="article-id" content="ka04u00000117A1AAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-08-11T13:55:35.000Z">
+    <meta name="articlenumber" content="000008726">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-08-14T16:37:53.000Z">
+    <meta name="firstpublisheddate" content="2023-08-11T13:56:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001111bCAA">
+    <meta name="knowledge-article-id" content="kA04u000001111bCAA">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-08-14T16:39:46.000Z">
+    <meta name="lastpublisheddate" content="2023-08-14T16:39:46.000Z">
+    <meta name="meta-description" content="This article contains resolution steps for the &#x27;Error validating your account�s rights and permissions&#x27; error.">
+    <meta name="meta-title" content="The &#x27;Error validating your account�s rights and permissions&#x27; error occurs when trying to connect to Microsoft 365 tenant in Netwrix Auditor">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8726">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001111bCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Connection to Microsoft 365 Tenant in Netwrix Auditor Completes with Error Validating Your Account�s Rights and Permissions</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>When trying to connect to Office 365 Tenant using�modern authentication, the following error appears:</p>
+
+<pre class="has-inner-focus">
+Error validating your account�s rights and permissions: Tenant name &#39;Tenant_name&#39; specified is not a valid DNS name. </pre>
+</div>
+
+<div>
+<h1>Cause</h1>
+
+<div>
+<p>The issue occurred due to incorrect Office 365 tenant credentials provided in Netwrix Auditor.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Make sure you provided same parameters in a Netwrix Auditor monitoring plan and Microsoft Office 365 Admin center.</p>
+
+<ol><li>
+	<p><b>Tenant name</b> in Netwrix should equal the <b>Directory (tenant) ID</b> in Microsoft Office 365 Admin center.</p>
+	</li><li>
+	<p><b>Modern authentication application ID</b> should equal <b>Application (client) ID</b> in Microsoft Office 365 Admin center.</p>
+	</li></ol>
+</div>
+
+<div>
+<p><img alt="00371273 O365 Tenant.PNG" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117A1&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LuEC" style="width: 1022px;height: 288px;"></img><br>For additional information on configuring Office 365 tenant, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/Overview.htm" target="_blank">Microsoft 365</a>. Select the data source you want to audit and review the corresponding section.</p>
+</div>
+</div>
+</body>
+</html>

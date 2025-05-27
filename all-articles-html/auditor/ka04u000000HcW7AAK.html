@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incorrect data in reports without any warnings</title>
+    <meta name="article-id" content="ka04u000000HcW7AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:59.000Z">
+    <meta name="articlenumber" content="000003643">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:59.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dNCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9dNCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:59.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:57.000Z">
+    <meta name="meta-description" content="Reports/Searches display &amp;quot;system&amp;quot; instead of the username, while Netwrix Auditor doesn&amp;#039;t display any errors.">
+    <meta name="meta-title" content="Incorrect data in reports without any warnings">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2750">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dNCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Incorrect data in reports without any warnings</h1>
+    You receive reports containing no information or &quot;<strong><em>System</em></strong>&quot; value in the &quot;<strong><em>Who</em></strong>&quot; column. and there are no errors and warnings in the Netwrix Auditor System Health log.
+<hr></hr> There possible cause of this issue is Security Event Log on the File Server:
+<ul><li>The Security event log is not populated with new events.</li><li>The Security event log was relocated.</li></ul>
+
+<div>
+<hr></hr></div>
+
+<ul><li>If you changed the Security event log location and did not reboot your file server, the system services may fail to update their settings based on the updated configuration. Therefore, you must reboot your file server.</li><li>If you did not relocate the Security event log, perform one of the following to resolve the issue:
+	<ul><li>Open the Security event log using the Event Viewer. If the log is corrupted or contains events with ID 521, this may indicate that there is not enough free disk space to store new information. Provide more disk space and clear the log. Refer to the <a href="https://kb.netwrix.com/1262" target="_blank">The disk on a monitored file server is overfilled</a> knowledge base article for more information.</li><li>Make sure that either the <strong>Overwrite events as needed</strong> retention method is selected, or the Security log automatic archiving option is enabled:�<a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Configuration/WindowsFileShares/EventLog.htm" target="_blank">https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Configuration/WindowsFileShares/EventLog.htm</a></li><li>Verify with gpresult tool if your settings are being�overwritten by Group Policies.</li></ul>
+	</li></ul>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_value</title>
+    <meta name="article-id" content="ka0Qk0000002sCPIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-04-15T10:45:28.000Z">
+    <meta name="articlenumber" content="000009133">
+    <meta name="assignedbyid" content="0054u000008ic83AAA">
+    <meta name="assignedtoid" content="0054u000008ic83AAA">
+    <meta name="assignmentdate" content="2024-04-15T10:45:28.000Z">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-04-15T10:45:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000bHJKAY">
+    <meta name="knowledge-article-id" content="kA0Qk0000000bHJKAY">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-02-06T08:26:38.000Z">
+    <meta name="meta-description" content="test_value">
+    <meta name="meta-title" content="test_value">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9133">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000bHJKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>test_value</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The hub service log file in Netwrix Change Tracker contains the following error:</p>
+
+<pre class="has-inner-focus">
+MongoDB.Driver.MongoConnectionException: An exception occurred while receiving a message from the server.
+
+System.IO.IOException: Unable to read data from the transport connection: 
+A connection attempt failed because the connected party did not properly respond after a period of time,
+or established connection failed because connected host has failed to respond.
+
+System.Net.Sockets.SocketException (10060): 
+A connection attempt failed because the connected party did not properly respond after a period of time,
+or established connection failed because connected host has failed to respond.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>Requests between Change Tracker Hub and MongoDB instance time out.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Increase the IIS pool size and the timeout limit to prevent requests from timing out:</p>
+
+<ol><li>
+	<p>Stop your IIS instance. Run the following line in elevated Command Prompt:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">iisreset /stop</code></pre>
+	</li><li>
+	<p>Navigate to <code>C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) Hub\Configs\</code> and locate the <code>appsettings.Production.json</code> file.</p>
+	</li><li>
+	<p>Back up the file and open the original file. In the file, locate the following line:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;connectionString&quot;: &quot;mongodb://%IP_address%&quot;</code></pre>
+
+	<p>Edit the line to reflect the following changes:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;connectionString&quot;: &quot;mongodb://%IP_address%/?maxPoolSize=500&amp;connectTimeoutMS=120000&quot;</code></pre>
+	</li><li>
+	<p>Save the changes and start your IIS instance. Run the following line in elevated Command Prompt:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">iisreset /start</code></pre>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Added CEE device in NAM but unable to import data</title>
+    <meta name="article-id" content="ka0Qk000000CCrpIAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-02-11T15:16:39.000Z">
+    <meta name="articlenumber" content="000009397">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209368786702226">
+    <meta name="assignedbyid" content="005Qk000001wMM9IAM">
+    <meta name="assignedtoid" content="005Qk000002AJWTIA4">
+    <meta name="assignmentdate" content="2025-02-11T15:20:34.000Z">
+    <meta name="assignmentduedate" content="2025-02-24T05:00:00.000Z">
+    <meta name="assignmentnote" content="Hi Ian,
+
+We are assigning this draft for you to work on. Please reach out if you have any questions. 
+
+The article should be revised into the Symptom/Cause/Resolution structure. The steps for correcting the host list for the job should also be described in detail. You may coordinate with Josh for this information who should still have access to the ticket&#x27;s recording. 
+
+Thanks for your help!">
+    <meta name="case" content="500Qk00000KbwXlIAJ">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-02-11T15:16:39.000Z">
+    <meta name="draft-status" content="Awaiting TSE">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000020DdKAI">
+    <meta name="knowledge-article-id" content="kA0Qk00000020DdKAI">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-09T13:00:34.000Z">
+    <meta name="meta-description" content="Added CEE device in NAM but unable to import data">
+    <meta name="meta-title" content="Added CEE device in NAM but unable to import data">
+    <meta name="ownerid" content="0054u000007oss5AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9397">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000020DdKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Added CEE device in NAM but unable to import data</h1>
+    -reviewed the configuration of the Netwrix Activity Monitor (NAM) agent being used to audit NAS device<br>-found that NAM was configured correctly and successfully collecting events. <br><br>This issue was with the configuration of FSAC System Scan job in Netwrix Access Analyzer. The job was trying to target the agent server, but we needed it to target the NAS server instead.<br><br>Once we corrected the host list the job was using, it started working<br><br>-Access Analyzer successfully collected the FSAC data from the NAS device<br>-also ran the File Deletions job as a test, and it seemed to return good data.
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWinConsole_SIEntManager_SIWindowsAgent_6.0.0.375</title>
+    <meta name="article-id" content="ka04u000000HciYAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:30:09.000Z">
+    <meta name="articlenumber" content="000007076">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:04:33.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:30:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IFNCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IFNCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:04:34.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:30:10.000Z">
+    <meta name="meta-description" content="360008877892">
+    <meta name="meta-title" content="Hotfix: SIWinConsole_SIEntManager_SIWindowsAgent_6.0.0.375">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7076">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IFNCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWinConsole_SIEntManager_SIWindowsAgent_6.0.0.375</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SI-don&#39;t alert on inherited permission changes</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong>SI-don&#39;t alert on inherited permission changes<br><strong><span style="font-family: calibri,sans-serif;">Behavior before Fix: </span></strong><br>SI reports permission changes for parent and all child objects<br><strong><span style="font-family: calibri,sans-serif;">Behavior after Fix: </span></strong><br>Now it can set FQDN or NetBIOS name of the host depending from the &#39;File System StealthAUDIT&#39; Policy settings. This setting can be configured on the &#39;File System Agents&#39; tab.<br><b>Changes since Last Hotfix:</b><br>SI Console: added new option in the Configuration/File Monitor Settings: &#39;FS inherited permissions filtering&#39;<br>This option will change the &#39;DISCARD_INHERITED_ACL&#39; key in .INI files.<br>�Enable &#39;FS inherited permissions filtering&#39; - SI will report only initial permission change and filter out inherited changes.<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau��<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>6.0.0����� SIWinConsole_SIEntManager_SIWindowsAgent_6.0.0.375_SI-3766<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Console<br>SI - Enterprise Manager<br>SI - Windows Agent<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br><em><span style="font-family: calibri,sans-serif;">I-4612</span></em><br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>6.0.0.375<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><b>Modules Included:</b><br>�SI - Windows Console<br>SI - Enterprise Manager<br>SI - Windows Agent<br>�<br><b>YouTrack/Escalations: </b>SI-3766 / 30997<br><b>Customers:� </b>Municipal Property Assessment Corporation (MPAC)<br><b>Cumulative List of fixes included since Service Pack:</b><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Applying patch for Enterprise Manager:<br>1. Stop &#39;SIEnterpriseManager&#39; service.<br>2. Extract files from attached &#39;SIEnterpriseManager&#39; folder to the C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIEnterpriseManager folder<br>3. Start &#39;SIEnterpriseManager&#39; service<br>�<br>Applying patch for SI Windows Console:<br>1. Close the SI Win Console<br>2. Extract files from attached &#39;SIWinConsole&#39; folder to the C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWinConsole folder<br>3. Start SI Win Console.<br>�<br>Applying patch for SI Windows Agent:<br>1. Stop SIWindowsAgent service<br>2. Extract files from attached &#39;SIWindowsAgent&#39; to the &quot;C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder<br>3. Extract files from attached &#39;SBFileMonitor&#39; folder:<br>� - SBTService.exe C:\Program Files\STEALTHbits\StealthAUDIT\FSAC\<br>� - SBTFSF.sys to the &#39;C:\Windows\System32\drivers&#39; folder<br>4. Start SIWindowsAgent serviceservice<br>�<br><u>Please note that applying &#39;FS inherited permissions filtering&#39; option may take up to 10 minutes.</u><br><br>� 
+</p><table cellspacing="0" cellpadding="0" width="484" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="484"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI6.0.0/SIWinConsole_SIEntManager_SIWindowsAgent_6.0.0.375_SI-3766.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI6.0.0/SIWinConsole_SIEntManager_SIWindowsAgent_6.0.0.375_SI-3766.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Admin Console;SI - Enterprise Manager;SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 6.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3766<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 6.0.0.375<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2326<br></p>
+</body>
+</html>

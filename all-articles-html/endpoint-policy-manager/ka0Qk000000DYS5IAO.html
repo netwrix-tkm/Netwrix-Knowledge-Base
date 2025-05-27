@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why is Browser Router&#x27;s &quot;Default Browser&quot; or File Associations Manager&#x27;s configuration not working when I also have a Default Associations Configuration file?</title>
+    <meta name="article-id" content="ka0Qk000000DYS5IAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gqNAAAY">
+    <meta name="articlecreateddate" content="2025-04-29T15:47:26.000Z">
+    <meta name="articlenumber" content="000010164">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002PC1KAM">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000006gqNAAAY">
+    <meta name="createddate" content="2025-05-05T09:19:03.000Z">
+    <meta name="firstpublisheddate" content="2025-04-29T15:51:36.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002PC1KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002PC1KAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gqNAAAY">
+    <meta name="lastmodifieddate" content="2025-05-05T11:05:25.000Z">
+    <meta name="lastpublisheddate" content="2025-05-05T11:05:25.000Z">
+    <meta name="ownerid" content="0054u000006gqNAAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10164">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002PC1KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Why is Browser Router&#x27;s &quot;Default Browser&quot; or File Associations Manager&#x27;s configuration not working when I also have a Default Associations Configuration file?</h1>
+    <ul class="off-canvas-drilldown vertical menu off-canvas-list"></ul>
+<ul class="off-canvas-accordion vertical menu sidenav"></ul>
+<p>If you&#39;re using�<span class="mc-variable PolicyPak.Product_Long_Name variable">Netwrix PolicyPak</span> Browser Router -OR- you&#39;re using <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager to make associations, you CANNOT also use the Group Policy or MDM method for setting default associations files, like what&#39;s seen here.</p>
+<p class="img-inside-p"><img alt="This image is not available because: You don�t have the privileges to see it, or it has been removed from the system" src="/img/rte_broken_image.png"></img></p>
+<p>Underneath the hood, you are &quot;fighting&quot; with <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> Browser Router and/or File Associations manager, like this.</p>
+<p class="img-inside-p"><img alt="This image is not available because: You don�t have the privileges to see it, or it has been removed from the system" src="/img/rte_broken_image.png"></img></p>
+<p>For <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> Browser Router, <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> Browser Router must &quot;become&quot; the default OS browser like what&#39;s seen here. If <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> Browser Router is not set as the Default Browser (automatically, using <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> �) then you will get unusual behavior.</p>
+<p class="img-inside-p"><img alt="This image is not available because: You don�t have the privileges to see it, or it has been removed from the system" src="/img/rte_broken_image.png"></img></p>
+<p>For <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager, you must remove any Group Policy File Associations file for it to work reliably.<br>Summary: Use only <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> � when using <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> Browser Router and also <span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager and don&#39;t try to use a Group Policy or MDM File Associations alongside it.</p>
+<p>�</p>
+</body>
+</html>

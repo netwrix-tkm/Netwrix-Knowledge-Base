@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI Migration to 7.0.1</title>
+    <meta name="article-id" content="ka04u000000HczhAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:45:27.000Z">
+    <meta name="articlenumber" content="000007396">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:13:04.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:45:27.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IyqCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IyqCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:13:04.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:45:27.000Z">
+    <meta name="meta-description" content="360008304132">
+    <meta name="meta-title" content="SI Migration to 7.0.1">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7396">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IyqCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>SI Migration to 7.0.1</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Process overview to migrate customers to SI 7.0.1</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Purpose of this KB is to start &#39;socializing&#39; the SI 7.0.1 migration process / requirements internally and externally early so that customers are not surprised at the &#39;last minute&#39; when ready to upgrade.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">SI Versions prior to 7.0 use .Net remoting for communication between modules including Agent to EM and Console to EM.� .Net remoting has become an obsolete RPC technology.� SI 7.0.1 replaces .Net remoting with gRPC.� We can cover the why&#39;s and benefits of gRPC, which are many, later.� Focus of this KB is on what customers will need to do.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Since 7.0 includes a complete removal of reliance on .Net remoting the SI 7.0 EM cannot connect or talk to pre 7.0 agents.� This presents a problem for customers with large numbers of SI agents that want to migrate agents in small groups over an extended period of time to ensure stability of the environment.� As with past upgrades the SI 7.0 EM can connect and use the customer&#39;s pre 7.0 SQL backend database (Event and Config).� What is new is that the SI 7.0 EM can run and be connected to the SQL DB at the same time as the previous (6.x - 6.x) existing EM.� The 7.0 SI Server (EM, Console, Web Reporting services) MUST be installed on a separate machine from the existing SI Server.� Either or both of the 7.0 and pre 7.0 consoles can be used to manage SI policies, view recent events, etc.� The 7.0 Console must be used to upgrade existing agents to 7.0 agents.� The SI 7.0 console will show all pre 7.0 agents but can stop/start/upgrade pre 7.0 agents as this is done via WMI calls not RPC calls.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Once all agents migrated to 7.0 the pre 7.0 SI Server box can be decommissioned.� Assuming that box does not also have the SQL Server for SI on it.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">By allowing a pre SI 7.0 Server and the new SI 7.0.1 SI Servers to run &#39;side-by-side&#39;, talking to the same SI SQL Server, customers can migrate from pre 7.0 to 7.0.1 agents on their time frame.� Does not matter is this takes hours, days or months.</span></span><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">For customers with existing SI 5.0 - 6.1 environments:</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Prerequisite:� If using customer supplied certificates obtain and pre stage these first.� This will be covered in a separate document.� Most customers will opt for built in SI certificates which requires no extra steps.</span></span><br>� 
+</p><ol><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">STOP the EM Service on the existing pre SI 7.0.1 server (this step MUST NOT be skipped)</span></span>
+</li><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Install SI 7.0.1 SI Server (EM, Console, Web Services) on a NEW box independent of existing SI Server.</span></span> 
+<ol style="list-style-type: lower-alpha;"><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Point to the existing SQL Server for SI</span></span>
+</li><li class="MsoPlainText"><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Complete the install steps - same process as all past versions</span></span></li></ol>
+</li><li class="MsoPlainText"><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Once install has finished restart the pre 7.0 EM service (steps 1 and 2 should only require a few minutes) </span></span></li></ol>� 
+<ul><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Use the SI 7.0.1 Console to upgrade existing agents to 7.0.1 (Pre 7.0 agents will be visible)</span></span>
+</li><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Use the pre 7.0 Console to manage pre 7.0 Agents</span></span>
+</li><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Use the 7.0.1 Console to manage 7.0 Agents</span></span>
+</li><li class="MsoPlainText">
+<span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Use either console to create/delete/edit Policies, view recent events, Alerts etc.</span></span>
+</li><li class="MsoPlainText"><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Once all agents migrated to 7.0 decommission pre SI 7.0 Server - or just uninstall pre 7.0 server if the machine also is hosting the SI SQL Server.</span></span></li></ul><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Note: If a customer only has a few Agents then there may be no need to take advantage of the &#39;side-by-side&#39; dual EM&#39;s.� In such cases can simply uninstall &#39;old&#39; SI Server, install 7.0.1 Server pointed to existing SQL then use console to upgrade each agent to 7.0.1 agents</span></span><br>�<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Admin Console;SI - Alerts;SI - Enterprise Manager;SI - Exchange Agent;SI - File System Agent;SI - Installer;SI - Policy;SI - SIEM Integration;SI - Web Reporting;SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.0 through 6.1<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2474<br></p>
+</body>
+</html>

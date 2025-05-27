@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.2_SP1_064</title>
+    <meta name="article-id" content="ka04u000000HctoAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:29:36.000Z">
+    <meta name="articlenumber" content="000007034">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:10:11.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:29:37.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IhlCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IhlCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:10:11.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:29:37.000Z">
+    <meta name="meta-description" content="360012217812">
+    <meta name="meta-title" content="Hotfix: SA_7.2_SP1_064">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7034">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IhlCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.2_SP1_064</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Running the Mailbox Permissions Collection job, the memory consumption of Stealthbits.PowerShell.Server.exe process taking all available memory and never returning data in a collection that is not scoped. This happens in both scheduled and interactive executions. During the interactive execution the job status message stays hung on initializing and the log never gets past the PowerShell script that the data collector is attempting to execute.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Modules:</span></span></strong><br>- DC\DCExchangePS.dll v. 7.2.109.0<br>- PrivateAssemblies\Stealthbits.StealthAUDIT.DataCollectors.ExchangePS.dll v. 7.2.109.0<br>- PrivateAssemblies\Stealthbits.PowerShell.Server.exe v. 7.2.40.0<br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">YouTrack/Escalations</span></span></strong><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">SAT-2257������������ 20760 / 20765</span></span></strong><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Customer: </span></span></strong>
+</p><ul><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Federated Investors, Inc., American Fidelity Assurance</span></span></strong><br>�</li></ul><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></span></strong><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">RMT/YouTrack: ��� Description:</span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1621������������ �������������� Running ExchangePS with no scope against localhost results in errors and no data collected</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1622 ����������� ��������������� Running ExchangePS with a Mailbox Server scope results in several different errors</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1231 ����������� ��������������� ExchangePS DC Public Folder Scoping Freezes Console and Returns Nothing</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1653 ����������� ��������������� Mailbox Logons not collecting all events</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1592 ����������� ��������������� Scanning O365, MbxSend As Permissions Collection | Returns success but no data</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1633 /15033 ������������� StealthAUDIT PowerShell issue after upgrade to v7.2</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1621 ����������� ��������������� Running ExchangePS with no scope against localhost results in errors and no data collected</span></span></span></strong><br><strong><span><span style="font-family: calibri,sans-serif;"><span style="font-size: 11pt;">SAT-1622 ����������� ��������������� Running ExchangePS with a Mailbox Server scope results in several different errors</span></span></span></strong><br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Close all instances of StealthAUDIT</span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all PrivateAssemblies files in your StealthAUDIT\PrivateAssemblies directory</span></span></strong>
+</li><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all DC files in your StealthAUDIT\DC directory</span></span></strong></li></ol>Link updated on 12/12/17: 
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="180"><td colspan="1" rowspan="1" height="180" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/7.2/SA_7.2_SP1_064.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/7.2/SA_7.2_SP1_064.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ExchangePS<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.2 SP1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-2257<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 7.2.642<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1715<br></p>
+</body>
+</html>

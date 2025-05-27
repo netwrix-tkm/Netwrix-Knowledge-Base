@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitymonitor-7.1.221</title>
+    <meta name="article-id" content="ka0Qk000000BM5FIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006goGXAAY">
+    <meta name="articlecreateddate" content="2024-11-22T18:56:09.000Z">
+    <meta name="articlenumber" content="000009334">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000006goGXAAY">
+    <meta name="createddate" content="2024-11-22T18:56:09.000Z">
+    <meta name="firstpublisheddate" content="2024-11-22T18:56:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001j6LKAQ">
+    <meta name="lastmodifiedbyid" content="0054u000006goGXAAY">
+    <meta name="lastmodifieddate" content="2024-11-22T18:56:25.000Z">
+    <meta name="lastpublisheddate" content="2024-11-22T18:56:25.000Z">
+    <meta name="ownerid" content="0054u000006goGXAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9334">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>activitymonitor-7.1.221</h1>
+    <p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Title: </span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">activitymonitor-7.1.221</span></i></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Summary:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span class="test-idfield-value"><i><span style="color: #404040;">NAM reporting wrong user domain</span></i></span></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span class="test-idfield-value"><i><span style="color: #404040;">Not Recording Events for NFS Mount � Several Other servers are working new one is not.</span></i></span></li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior Before Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">In some environments when netbios and fqdn domain name differ, we report the wrong user domain.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">For Linux samba / smb activity we were reporting the path incorrectly.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior After Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Implemented fix to always report the netbios domain name.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">Implemented several improvements in the logic how we process the events from auditd in order to have a better caching of path names and reconstruct correct full path based on the information we get from auditd.� Reporting of samba / smb paths should work as expected now.</span></li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Changes Since Last Hotfix:</b></p>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">�361982: API Server - &#39;status&#39; and &#39;stats&#39; not included with GET response</span></li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">364830: Package &#39;DotNetZip&#39; 1.16.0 has a known high severity vulnerability</span></li><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">364073: Linux - Activity script not reporting events</span></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">364345: Linux - Permission events not reported for remote samba activity</span></li></ul>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Submitted by: </span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Kevin Duddy</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Versions:</span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Activity Monitor 7.1</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Module:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Windows</span></li><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Linux</span></li></ol>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Dev Ticket:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">364891</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">310536</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Resolved in Version:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 7.1.221</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">�</span></i></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">KB Type: </span></strong></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Hotfix</span></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><i><span style="font-family: Calibri, sans-serif;color: #404040;font-weight: normal;">�</span></i></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Modules Included:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 7.1.221</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBTService.exe </span><i><span style="color: #404040;">1.24.1119.1033</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SI Version </span><i><span style="color: #404040;">7.3.9.231</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>DevOps/Escalations</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">364891 / 00427127</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">310536 / 00397493</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">345503: MS updates: SUVP 24-07 support</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">342521: Agent Crashed on 3/28</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">349229: MS updates: SUVP 24-08 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">346065: Path being reported incorrectly for NetApp</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">348796: NetApp File Path Discrepancies</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">339474: have the latest &quot;Received Events&quot; that is currently visible only in the Activity Monitor also be available from the API Server</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">356344: MS updates: SUVP 24-09 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">357592: Customer observed several agents are frequently disconnecting momentarily from console</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">359550: MS updates: SUVP 24-10 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">362194: Filter Activity from App@sharepoint from SharePoint Online</span></li></ol>
+<p style="margin: 0in;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Instructions:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Run the MSI file on a host that has the Activity Monitor Console is installed.</span></i></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Upgrade all agents. </span></i></li></ol>
+<p>�</p>
+<p>https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.221.zip</p>
+</body>
+</html>

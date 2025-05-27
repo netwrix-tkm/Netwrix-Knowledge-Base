@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor Stops Working After Upgrading Host Server Windows</title>
+    <meta name="article-id" content="ka04u00000116G7AAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000004OzLTAA0">
+    <meta name="articlecreateddate" content="2023-05-24T16:02:52.000Z">
+    <meta name="articlenumber" content="000008593">
+    <meta name="createdbyid" content="00570000004OzLTAA0">
+    <meta name="createddate" content="2023-06-21T09:29:20.000Z">
+    <meta name="firstpublisheddate" content="2023-05-25T07:29:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000PoKECA0">
+    <meta name="knowledge-article-id" content="kA04u000000PoKECA0">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-06-21T09:40:27.000Z">
+    <meta name="lastpublisheddate" content="2023-05-25T07:29:18.000Z">
+    <meta name="meta-description" content="After upgrading Windows on the Netwrix Auditor server the license breaks">
+    <meta name="meta-title" content="Windows upgrade Netwrix Auditor License issues">
+    <meta name="ownerid" content="00570000004OzLTAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8593">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PoKECA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor Stops Working After Upgrading Host Server Windows</h1>
+    <h2>Symptom</h2>
+
+<ul><li>Netwrix Auditor stops working after the Windows version on the Netwrix host server was upgraded.</li><li>Monitoring plans are disabled.</li><li>License status for a product states <b>Unavailable</b>.<br>	<img alt="1.png" height="536" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116G7&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007ceka" width="801"></img></li></ul>
+
+<h2>Cause</h2>
+
+<div>Windows Setup suite overwrites license-related settings of Netwrix Auditor during the upgrade procedure.</div>
+
+<h2>Solution</h2>
+
+<h4>For trial or normal licenses</h4>
+
+<div>Re-apply your license:
+<ol><li>In the main Netwrix Audior screen, go to <b>Settings</b> &gt; <b>Licenses</b> and click <b>Update</b>.<br>	<img alt="2.png" height="536" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116G7&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000007cekk" width="800"></img></li><li>Navigate to your .lic file and select the file.</li><li>Click <b>Open</b>.</li></ol>
+</div>
+�
+
+<h4>For Netwrix Auditor Free Community Edition</h4>
+
+<div>Reinstall your Netwrix Auditor instance. For additional information on Auditor uninstallation process, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.0/page/Content/Installation/Uninstall_Netwrix_Auditor.htm" target="_self">Uninstall Netwrix Auditor</a>.</div>
+</body>
+</html>

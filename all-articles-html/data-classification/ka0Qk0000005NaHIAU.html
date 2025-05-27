@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Granular Permissions for a Service Account</title>
+    <meta name="article-id" content="ka0Qk0000005NaHIAU">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-06-20T16:21:06.000Z">
+    <meta name="articlenumber" content="000008619">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2024-09-09T09:02:53.000Z">
+    <meta name="firstpublisheddate" content="2023-06-20T16:21:35.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110j3CAA">
+    <meta name="knowledge-article-id" content="kA04u00000110j3CAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-09-09T09:05:55.000Z">
+    <meta name="lastpublisheddate" content="2024-06-06T12:51:37.000Z">
+    <meta name="meta-description" content="How to Configure Granular Permissions for a Service Account">
+    <meta name="meta-title" content="How to Configure Granular Permissions for a Service Account">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8619">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110j3CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Granular Permissions for a Service Account</h1>
+    <h2>Overview</h2>
+
+<p>Granular permissions are needed to reduce the number of accounts with unnecessary administrative rights when implementing the Principle of Least Privilege (POLP). Using granular permissions, you can avoid granting local admin rights to the NDC Service Account.</p>
+
+<h2>Instructions</h2>
+
+<p>To configure granular permissions for a Service Account:</p>
+
+<ol><li>
+	<p>Check if your Service Account has the following permissions:</p>
+
+	<ul><li>
+		<p>Permissions to run the Windows Services and IIS Application pool</p>
+		</li><li>
+		<p>SQL Server DBO permissions to the NDC SQL database (if using Windows Authentication to access SQL Server)</p>
+		</li><li>
+		<p>The Logon as a service privilege</p>
+		</li></ul>
+
+	<p>Read more in the <a href="https://helpcenter.netwrix.com/bundle/DataClassification_5.7/page/Content/NDC/Requirements/AccountReqs.htm" target="_blank">Accounts and Required Permissions </a> article.</p>
+	</li><li>
+	<p>Add Read permissions to a folder where NDC is installed (NTFS Permissions).</p>
+	</li><li>
+	<p>Add Write permissions to the index files&#39; location (NTFS Permissions)<br>	The index files&#39; location can be looked up in <strong>conceptConfig.exe</strong> in <code>C:\inetpub\wwwroot\NDC\bin</code>:</p>
+
+	<div><img alt="index_files_location.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000005NaH&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LGlJ"></img></div>
+	</li></ol>
+
+<blockquote>
+<p><strong>TIP:�</strong>In some instances, the NDC Service Viewer Utility won&#39;t work correctly if the service account is not a member of the Local Administrators group on the NDC server. In this case, they should use the Service Viewer built into the web UI.</p>
+</blockquote>
+</body>
+</html>

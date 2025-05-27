@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unable to Upload Agent Update Files</title>
+    <meta name="article-id" content="ka0Qk0000003eNVIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-03-26T12:07:49.000Z">
+    <meta name="articlenumber" content="000009093">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-05-08T10:20:48.000Z">
+    <meta name="firstpublisheddate" content="2024-05-08T10:20:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000XYfKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000XYfKAM">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-05-08T10:20:54.000Z">
+    <meta name="lastpublisheddate" content="2024-05-08T10:20:41.000Z">
+    <meta name="meta-description" content="Unable to Upload Agent Update Files in Netwrix Change Tracker">
+    <meta name="meta-title" content="Unable to Upload Agent Update Files in Netwrix Change Tracker">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9093">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000XYfKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Unable to Upload Agent Update Files</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When you attempt to upload agent updates in Netwrix Change Tracker, the following errors are prompted:</p>
+
+<pre class="has-inner-focus">
+System Error
+An unknown error occurred</pre>
+
+<pre class="has-inner-focus">
+%number_of% File(s) failed to upload</pre>
+
+<p>The upload attempt fails.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The default size for the maximum file upload in Internet information services (IIS) is too low. The default value prevents Change Tracker from uploading agent updates.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Increase the predefined file upload size in <code>Web.config</code>:</p>
+
+<ol><li>
+	<p>Run the following line in elevated Command Prompt to stop all IIS services:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">iisreset /stop</code></pre>
+	</li><li>
+	<p>Locate and open the <code>Web.config</code> file:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\inetpub\wwwroot\Change Tracker Generation 7 (NetCore) Hub\Web.config</code></pre>
+	</li><li>
+	<p>Modify the <code>&lt;requestFiltering&gt;</code> node to specify the following value:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&lt;requestFiltering&gt;
+    &lt;requestLimits maxAllowedContentLength=&quot;250000000&quot; /&gt;
+&lt;/requestFiltering&gt;</code></pre>
+
+	<p>Save the changes.</p>
+	</li><li>
+	<p>Run the following line in elevated Command Prompt to start all IIS services:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">iisreset /start</code></pre>
+	</li><li>
+	<p>Log in to the Change Tracker console and reupload the update files.</p>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Information Center Not Reporting Attribute Changes</title>
+    <meta name="article-id" content="ka0Qk000000DXPZIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2024-12-23T20:35:03.000Z">
+    <meta name="articlenumber" content="000009357">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001oQzKAI">
+    <meta name="assignedbyid" content="005Qk0000017MRRIA2">
+    <meta name="assignedtoid" content="005Qk0000017MRRIA2">
+    <meta name="assignmentdate" content="2025-05-02T11:53:13.000Z">
+    <meta name="case" content="500Qk00000FNTYYIA5">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2025-05-02T11:53:13.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-02-04T20:48:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001oQzKAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000001oQzKAI">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-05-02T11:53:13.000Z">
+    <meta name="lastpublisheddate" content="2025-02-04T20:48:12.000Z">
+    <meta name="meta-description" content="Access Information Center - Not Reporting Attribute Changes">
+    <meta name="meta-title" content="Access Information Center - Not Reporting Attribute Changes">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9357">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001oQzKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Information Center Not Reporting Attribute Changes</h1>
+    <h2>Symptom</h2>
+<div>
+<p>When viewing the <strong>Attribute Changes</strong> in the <strong>Reports</strong> section of the Access Information Center (AIC), no updates appear for users, even though changes have been made since the last Active Directory (AD) Inventory scan.</p>
+</div>
+<h2>Cause</h2>
+<div>
+<p>When differential scans for AD Inventory are not running, attribute changes are not collected.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Ensure that differential scans for AD Inventory are enabled and running. This will allow the AIC to capture and report any changes made to AD user attributes.</p>
+<ul><li>
+<p>To enable differential scanning of AD Inventory, enable the <strong>Collect only updates since the last scan</strong> option in the query configuration as shown below:</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DXPZ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AQtvx" width="511" height="416"></img></li><li>
+<p>For further information on customizing the AD &gt; 1-AD_Scan job, please visit: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/ActiveDirectoryInventory/1-AD_Scan.htm" target="_self">https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/ActiveDirectoryInventory/1-AD_Scan.htm</a>.</p>
+</li></ul>
+</div>
+<h2>Related Article</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/ActiveDirectoryInventory/1-AD_Scan.htm" target="_self">https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/ActiveDirectoryInventory/1-AD_Scan.htm</a></p>
+</li></ul>
+</div>
+</body>
+</html>

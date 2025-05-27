@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Error 401.2 on the Help-Desk Portal</title>
+    <meta name="article-id" content="ka04u000000HcQvAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:59.000Z">
+    <meta name="articlenumber" content="000003305">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:59.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:42.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XqCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XqCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:59.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:42.000Z">
+    <meta name="meta-description" content="Netwrix Auditor, Account Lockout Examiner, Error 401.2 on the Help-Desk Portal">
+    <meta name="meta-title" content="HTTP Error 401.2 on the Help-Desk Portal">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1149">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XqCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>HTTP Error 401.2 on the Help-Desk Portal</h1>
+    HTTP Error: 401.2 while trying to open Account Lockout Examiner Help-Desk Portal (installed on Windows 7)
+
+<hr></hr>
+
+The issue occurs because authentication to the Help-Desk portal fails. Usually it happens beause of invalid authentication settings in Windows 7.
+
+<hr></hr>
+
+In order to resolve the issue configure Windows authentication.
+
+Step 1: <strong>Turn on the Windows Authentication </strong>feature:
+<ol><li>Open <strong>Control Panel</strong>.</li><li>Click <strong>Programs and Features </strong>and then click <strong>Turn Windows features on or off.</strong></li><li>Expand the <strong>Internet Information Services -&gt; World Wide Web Services -&gt; Security node</strong>.</li><li>Select the <strong>Windows Authentication </strong>check box. Click <strong>OK</strong> to save the changes.</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcQv&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wpw" alt="User-added image"></img>
+
+Step 2: <strong>Add the Integrated Windows authentication module to IIS Manager </strong>(however, this step is usually perfromed automatically after enabling Windows authentication feature)
+<ol><li>Click <strong>Start </strong>and type <em>Inetmgr</em> in the Start Search box. Click <strong>Inetmgr</strong> in the Programs list (you can be prompted to specify the administrator&#39;s password).</li><li>In the <strong>Connections</strong> pane, expand the computer that is running IIS 7.0. Then expand <strong>Web Sites </strong>and click <strong>Default Web Site</strong>.</li><li>On the page that opens, double-click <strong>Modules</strong>.</li><li>In the Actions pane, click<strong> Add Native Module</strong>.</li><li>In the Add Native Module dialog box select the <strong>Windows Authentication Module </strong>check box. Click <strong>OK</strong> to save the changes.</li></ol>
+Step 3: <strong>Enable WIndows authentication </strong>for ALE virtual directory
+<ol><li>Run <strong>IIS Manager </strong>(<em>Inetmgr</em>)</li><li>In the Connections pane, expand the computer that is running IIS 7.0. Then expand <strong>Web Sites - Default Web Site  </strong>and select <strong>ALE</strong> virtual directory</li><li>In the central pane under IIS section double-click <strong>Authenticatio</strong>n</li><li>Highligh <strong>Windows authentication </strong>and <strong>Enable</strong> it.</li><li>Disable other types of authentication</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcQv&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wq1" alt="User-added image"></img>
+</body>
+</html>

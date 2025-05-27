@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Change the Default Ports in Netwrix Auditor User Activity Video Recording</title>
+    <meta name="article-id" content="ka0Qk000000CYM5IAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:52.000Z">
+    <meta name="articlenumber" content="000003167">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2025-02-26T15:19:45.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VcCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9VcCAK">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-02-26T15:20:15.000Z">
+    <meta name="lastpublisheddate" content="2025-02-20T20:57:04.000Z">
+    <meta name="meta-description" content="User Activity Video Recording � Custom Ports">
+    <meta name="meta-title" content="How to set up non-default ports for agent and server?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="742">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VcCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Change the Default Ports in Netwrix Auditor User Activity Video Recording</h1>
+    <h2>Related Query</h2>
+<div>
+<ul><li>
+<p>&quot;Is there a way to configure the agent to use different ports instead of 9003 and 9004 for User Activity Video Recording?&quot;</p>
+</li></ul>
+</div>
+<h2>Question</h2>
+<div>
+<p>How can you change the default ports in Netwrix Auditor User Activity Video Recording?</p>
+</div>
+<h2>Answer</h2>
+<div>
+<p>Yes, you can configure the agent to use different ports by modifying the registry settings on both the Netwrix Auditor host server and the target servers. Follow these steps:</p>
+<h4>On the Netwrix Auditor Host Server</h4>
+<ol><li>
+<p>Open <strong>Registry Editor</strong> and navigate to:</p>
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\(Wow6432Node)\NetWrix Auditor\User Activity Video Reporter</code></li><li>
+<p>Create a new <strong>DWORD (32-bit)</strong> value named <strong>ServerPort</strong> (default: <code>9004</code>).</p>
+</li></ol>
+<h4>On Each Target Machine</h4>
+<ol><li>
+<p>Open <strong>Registry Editor</strong> and navigate to:</p>
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\(Wow6432Node)\NetWrix\User Activity Video Reporter Agent</code></li><li>
+<p>Create a new <strong>String</strong> value named <strong>ServerPort</strong> (this should match the value specified on the Netwrix host).</p>
+</li><li>
+<p>Create another <strong>String</strong> value named <strong>CallbackPort</strong> (default: <code>9003</code>).</p>
+</li><li>
+<p>Specify the desired ports in both values.</p>
+</li><li>
+<p>Restart the <strong>UAVR Service</strong> on each target machine to apply the changes.</p>
+</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workstation Name Is not Shown</title>
+    <meta name="article-id" content="ka04u00000118ESAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:59.000Z">
+    <meta name="articlenumber" content="000003645">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-10-17T13:49:59.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dPCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9dPCAS">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-10-17T15:52:03.000Z">
+    <meta name="lastpublisheddate" content="2023-10-17T13:43:54.000Z">
+    <meta name="meta-description" content="Netwrix Account Lockout Examiner - &amp;quot;Workstation&amp;quot; field is empty.">
+    <meta name="meta-title" content="Workstation Name Is not Shown">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2744">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dPCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Workstation Name Is not Shown</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Netwrix Account Lockout Examiner shows no data in the <strong>Workstation</strong> field, while the fields <strong>Domain Controller</strong> and <strong>Lockout Time</strong> are populated correctly. Why is it happening?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>As Netwrix Account Lockout Examiner processes Windows security logs, it gets data present in these logs only. The issue means that the Account locked out event (ID 644 for Windows XP/2003, ID 4740 for the later versions of Windows) contains the empty <strong>Caller Machine Name</strong> field. Here is an example of the Account locked out event 644 with the empty <strong>Caller Machine Name</strong> field:</p>
+<a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g0000004KSJ&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004udP" target="_blank"><img alt="User-added image" height="385" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000118ES&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004udP" style="width: 443px;height: 290px;" width="500"></img></a>
+
+<p>The field can be empty for the events where some local computer account has been locked out due to a local policy or as a result of computer synchronization with some mobile device.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.2_040</title>
+    <meta name="article-id" content="ka0Qk000000DqQbIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:52:13.000Z">
+    <meta name="articlenumber" content="000007870">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JFcCAM">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-11T17:55:54.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:52:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JFcCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JFcCAM">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-11T18:00:20.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:52:13.000Z">
+    <meta name="meta-description" content="360012326351">
+    <meta name="meta-title" content="Hotfix: SA_8.2_040">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7870">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JFcCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.2_040</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Currently the process parents stored procedure is not scoped down to the domain, so we&#39;re trying to join on all objects that have been collected
+The DC matches children based on DN values but there is an issue. The current processor would match the following DNs even though they are not a parent/child.&quot;</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Summary: </span></span></strong><br><span style="font-size: 10pt;">Currently the process parents stored procedure is not scoped down to the domain, so we&#39;re trying to join on all objects that have been collected</span><br><span style="font-size: 10pt;">The DC matches children based on DN values but there is an issue. The current processor would match the following DNs even though they are not a parent/child.</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Submitted by: </span></span></strong><br><span style="font-size: 10pt;">Justin Giemza</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Cumulative List of fixes included since Service Pack:</span></span></strong><br><span style="font-size: 10pt;">Previous HF&#39;s for this customer should be installed prior to this one being used</span><br><span style="font-size: 10pt;">SA_8.2_022�������� </span><br><span style="font-size: 10pt;">SA_8.2_026</span><br><span style="font-size: 10pt;">SA_8.0.035</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Affected Versions:</span></span></strong><br><b><span style="font-size: 10pt;">PrivateAssemblies:</span></b><br><span style="font-size: 10pt;">Stealthbits.StealthAUDIT.DataCollectors.ADP.UI.dll v. 8.2.21</span><br><span style="font-size: 10pt;">Stealthbits.StealthAUDIT.DataCollectors.AD.Common.dll v. 8.2.21</span><br><span style="font-size: 10pt;">Stealthbits.StealthAUDIT.DataCollectors.ADP.dll v. 8.2.21</span><br><span style="font-size: 10pt;">Stealthbits.StealthAUDIT.DataCollectors.Common.dll v. 8.2.11</span><br><span style="font-size: 10pt;">Stealthbits.StealthAUDIT.DataCollectors.UI.Common.dll v. 8.2.11</span><br><b><span style="font-size: 10pt;">DC:</span></b><br><span style="font-size: 10pt;">DCADPermissions.DLL v. 8.2.21</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Affected Module:</span></span></strong><br><span style="font-size: 10pt;">DC ADP</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Dev Ticket:</span></span></strong><br><span style="font-size: 10pt;">SAT-5207/SAT-5204 Escalation 32057</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Resolved in Version:</span></span></strong><br><span style="font-size: 10pt;">8.2</span><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">KB Type: Bug</span></span></strong><br><strong><span style="font-family: calibri,sans-serif;"><span style="font-size: 10pt;">Issue:</span></span></strong><br><span style="font-size: 10pt;">Currently the process parents stored procedure is not scoped down to the domain, so we&#39;re trying to join on all objects that have been collected</span><br><span style="font-size: 10pt;">The DC matches children based on DN values but there is an issue. The current processor would match the following DNs even though they are not a parent/child.</span><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<span style="font-size: 10pt;">Check that all previous ADP HF&#39;s for this customer are installed</span>
+</li><li>
+<span style="font-size: 10pt;">Close all instances of Access Analyzer</span>
+</li><li>
+<span style="font-size: 10pt;">Replace the files listed above in the DC and PrivateAssemblies folder (check files are not locked)</span>
+</li><li>
+<span style="font-size: 10pt;">Re Open Access Analyzer</span>
+</li><li>
+<span style="font-size: 10pt;">Create a new job to drop permissions table</span>
+</li><li>
+<span style="font-size: 10pt;">Rerun permissions scan </span><br><img alt="User-added image" src="" width="500" height="159"></img><br>�<br>�</li></ol>
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="115"><td colspan="1" rowspan="1" height="115" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_040.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.2/SA_8.2_040.zip</a></td></tr></tbody></table><br>�<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - DC - Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.2<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-5207<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> Stealthbits.StealthAUDIT.DataCollectors.ADP.UI.dll v. 8.2.21
+Stealthbits.StealthAUDIT.DataCollectors.AD.Common.dll v. 8.2.21
+Stealthbits.StealthAUDIT.DataCollectors.ADP.dll v. 8.2.21
+Stealthbits.StealthAUDIT.DataCollectors.Common.dll v. 8.2.11
+Stealthbits.StealthAUDIT.DataCollectors.UI.Common.dll v. 8.2.11
+DC:
+DCADPermissions.DLL v. 8.2.21<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2343<br></p>
+</body>
+</html>

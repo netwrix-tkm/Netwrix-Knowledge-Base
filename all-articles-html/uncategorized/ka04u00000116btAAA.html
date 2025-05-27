@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot access Licensing page</title>
+    <meta name="article-id" content="ka04u00000116btAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003556">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T12:04:23.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9byCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9byCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T12:04:44.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:41.000Z">
+    <meta name="meta-description" content="Following to License page of the Password Manager returns the error message:
+An error occurred on the server when processing the URL.">
+    <meta name="meta-title" content="Cannot access Licensing page">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1393">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9byCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot access Licensing page</h1>
+    I get the following error when trying to get to a License page in the Administration console of the Password manager.
+
+An error occurred on the server when processing the URL. Please contact the system administrator.
+If you are the system administrator please click here to find out more about this error.
+
+<hr></hr>
+
+The error occurs because Password Manager service fails to get information about current license form the registry.
+
+<hr></hr>
+
+To address the issue make sure that the Password Manager service account has Full control on the following:
+<ol><li>Password Manager installation directory</li><li>Registry key HKLMSoftware[Wow6432Node]NetwrixPassword Manager (Wow6432Node only for x64 OS)</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bt&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yh6" alt="User-added image" width="282" height="368"></img>  <img style="width: 275px;height: 367px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116bt&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yh1" alt="User-added image" width="277" height="380"></img>
+
+Even if the service account is a member of local Administrators group, please try to grant Full control to the service account explicitly.
+Restart the Netwrix Password Manager service after granting permissions.
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Investigate Compression Services Errors</title>
+    <meta name="article-id" content="ka0Qk00000045E1IAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-05-24T13:32:05.000Z">
+    <meta name="articlenumber" content="000008439">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2024-06-06T13:34:52.000Z">
+    <meta name="firstpublisheddate" content="2022-05-24T13:48:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000TsqpCAC">
+    <meta name="knowledge-article-id" content="kA04u000000TsqpCAC">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2024-06-06T13:47:24.000Z">
+    <meta name="lastpublisheddate" content="2024-06-06T13:47:24.000Z">
+    <meta name="meta-description" content="How to investigate compression Services errors">
+    <meta name="meta-title" content="How to investigate compression Services errors">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8439">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000TsqpCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Investigate Compression Services Errors</h1>
+    <h2>Overview</h2>
+
+<p>In the Netwrix Auditor health log, some error events mention issues with the compression service or its connectivity, such as <strong>Compression service is unavailable</strong> and <strong>Unable to update the Compression Service</strong>. This article describes how to troubleshoot these errors.</p>
+
+<h2>Description</h2>
+
+<ol><li>If you recently migrated Netwrix Auditor to a new server, check that the old Netwrix instance doesn&#39;t have access to your environment. Navigate to the old Netwrix server and stop all Netwrix Auditor services.</li><li>Log in to the Netwrix server with Data Collection Account credentials (monitoring plan � settings � data collection) and check that you can open this path via File Explorer:
+	<ul><li>\\*<strong>audited_server</strong>*\c$\Windows\</li></ul>
+	Check if you can add or remove files from this folder. If not, check the permissions for the Data Collection account:
+
+	<ul><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/DataAccounts.htm" target="_blank">MonitoringPlans � Data Collecting Account ? v10.6</a></li></ul>
+	<strong>Note:</strong> Pay attention to which collector you&#39;re going to adjust permissions.</li><li>Test the ports required for the problematic monitoring plan:
+	<ul><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/Ports.htm" target="_blank">Requirements � Protocols and Ports ? v10.6</a> (choose the problematic monitoring plan on the left).</li></ul>
+	Here is an article on how to check ports:
+
+	<ul><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000TsquCAC.html" target="_blank">How to check TCP, UDP and Dynamic ports required for Netwrix Auditor monitoring plans</a></li></ul>
+	</li><li>Check Remote Registry and Windows Management Instrumentation Services:
+	<ul><li>For File Servers Auditing: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Windows/RemoteRegistryService.htm" target="_blank">Windows File Servers � Enable Remote Registry Service ? v10.6</a></li><li>For Windows Server Auditing: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/RemoteRegistry.htm" target="_blank">Windows Server � Enable Remote Registry and Windows Management Instrumentation Services ? v10.6</a></li></ul>
+	</li><li>Add antivirus exclusions on the Netwrix and target servers for folders:
+	<ul><li>See the article on how to do it: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HirCAE.html" target="_blank">Antivirus Exclusions for Netwrix Auditor</a></li></ul>
+	</li></ol>
+</body>
+</html>

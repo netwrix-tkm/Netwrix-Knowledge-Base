@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure SharePoint Online Permissions with PowerShell</title>
+    <meta name="article-id" content="ka0Qk00000048yHIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-03-15T09:33:00.000Z">
+    <meta name="articlenumber" content="000008392">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2024-06-07T15:04:39.000Z">
+    <meta name="firstpublisheddate" content="2022-03-15T09:33:36.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JwWCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JwWCAU">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2024-06-07T15:06:21.000Z">
+    <meta name="lastpublisheddate" content="2024-06-07T15:06:21.000Z">
+    <meta name="meta-description" content="How to Configure SharePoint Online Permissions with PowerShell">
+    <meta name="meta-title" content="How to Configure SharePoint Online Permissions with PowerShell">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8392">
+    <meta name="versionnumber" content="8">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JwWCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure SharePoint Online Permissions with PowerShell</h1>
+    <h2>Overview</h2>
+
+<p>This article includes a PowerShell script that automates the configuration of the required permissions for scanning SharePoint Online with Netwrix Enterprise Auditor versions 11.5+.</p>
+
+<h2>Instructions</h2>
+
+<ul><li>
+	<p><span style="font-size: 11pt;"><span style=""><b>Step 1.</b> Configure/confirm prerequisites for the register_spaa.ps1. You can download script <a href="https://www.netwrix.com/download/products/Stealthbits/register_spaa.ps1" target="_blank">here</a> or copy it from the end of the article.</span></span></p>
+	</li></ul>
+
+<ol><li>
+	<p><span style="font-size: 11pt;"><span style="">Make sure you have the TLS version set to TLS 1.2 (required to install the AzureAD Powershell module): [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12</span></span></p>
+	</li><li>
+	<p><span style="font-size: 11pt;"><span style="">The PowerShell script requires scripting to be enabled in Internet Options. Refer to the following link on how to enable scripting on your console: <a href="https://www.enablejavascript.io/en/how-to-enable-javascript-on-internet-explorer" style="color: #0563c1;text-decoration: underline;" target="_blank">https://www.enablejavascript.io/en/how-to-enable-javascript-on-internet-explorer</a></span></span></p>
+	</li></ol>
+
+<ul><li>
+	<p><span style="font-size: 11pt;"><span style=""><b>Step 2.</b> Open the register_spaa.ps1 script and change the <b>$appName </b>variable (line 1) to the desired Sharepoint application name (must be unique). Save the script. Also edit the <b>$pwd </b>variable (line 5) to contain a password of your choosing that will be used later.</span></span></p>
+	</li><li>
+	<p><span style="font-size: 11pt;"><span style=""><b>Step 3.</b> Run Powershell as an Adminstrator on the SA console and run register_spaa.ps1</span></span></p>
+	</li><li>
+	<p><span style="font-size: 11pt;"><span style=""><b>Step 4.</b> Find the App in SPO (Azure Active Directory &gt; App registrations) and grant admin consent. To grant admin consent: click the app&#39;s name, click API Permissions, then click the option to grant admin consent.</span></span></p>
+	</li></ul>
+
+<p><span style="font-size: 11pt;"><span style="">�</span></span><br><span style="font-size: 11pt;"><span style=""><i>To configure the connection profile in StealthAUDIT, select the Azure Active Directory Account Type and configure the values as follows:</i></span></span><br><span style="font-size: 11pt;"><span style="">�</span></span><br><span style="font-size: 11pt;"><span style="">- <b>Client ID </b>� Paste Client Id of the Azure AD Application</span></span><br><span style="font-size: 11pt;"><span style="">- <b>Password Storage </b>� Application (uses StealthAUDIT�s configured Profile Security setting as selected at the Settings &gt; Application node)</span></span><br><span style="font-size: 11pt;"><span style="">- <b>Key </b>� The comma delimited string containing the certification path, certification password, and the Azure AD environment identifier (ex. CertPath,CertPassword,AzureEnvironment).</span></span></p>
+
+<ul><li>
+	<p><span style="font-size: 11pt;"><span style="">The AzureEnvironment is typically 0 for the default Azure Production Environment. Other possible values are:</span></span></p>
+
+	<ul><li>
+		<p><span style="font-size: 11pt;"><span style="">PPE = 1</span></span></p>
+		</li><li>
+		<p><span style="font-size: 11pt;"><span style="">China = 2</span></span></p>
+		</li><li>
+		<p><span style="font-size: 11pt;"><span style="">Germany = 3</span></span></p>
+		</li><li>
+		<p><span style="font-size: 11pt;"><span style="">US Government = 4</span></span></p>
+		</li></ul>
+	</li></ul>
+
+<p><span style="font-size: 11pt;"><span style="">�</span></span><br><span style="font-size: 11pt;"><span style="">An example password string matching the configuration from above would be:</span></span><br><span style="font-size: 11pt;"><span style="">C:\Program Files (x86)\STEALTHbits\StealthAUDIT\PrivateAssemblies\spaa_cert.pfx,PasswordGoesHere,0</span></span><br><span style="font-size: 11pt;"><span style="">�</span></span><br><span style="font-size: 11pt;"><span style=""><b>Note:</b> where <b>PasswordGoesHere </b>above is the password chosen in step 2 above.</span></span><br><span style="font-size: 11pt;"><span style="">�</span></span><br><span style="font-size: 11pt;"><span style=""><b><i>The script is attached to this KB article but it can also be found below:</i></b></span></span><br><span style="font-size: 11pt;"><span style="">�</span></span><br><span style="font-size: 11pt;"><span style=""><b>Script:</b></span></span></p>
+
+<p><span style="font-size: 11pt;"><span style=""><span style="font-size: 10.0pt;"><span style="">#region version control:<br># -16DEC2021 (added version control)<br># -10JAN2022 (reduced cert expiration to 1 year, added more console logging, added regions to code for readability)<br>#endregion</span></span></span></span></p>
+
+<p>#region App Name and pwd<br># this is the name of the app as it will apear in the Azure Applications list<br># do not change this without justification<br>$appName = &#39;StealthAUDIT SharePoint Auditor&#39;</p>
+
+<p># this is the password used to encrypt the certificate file in the local file system;<br># change to something more secure before running in a production environment<br>$pwd = &#39;YourPasswordHere&#39;<br>#endregion</p>
+
+<p>#region check if AzureAd module installed<br>$admod = Get-InstalledModule AzureAd<br>if (!$admod){<br># install azure powershell module if not present<br>Install-Module AzureAD<br>$admod = Get-InstalledModule AzureAd<br>if (!$admod) {<br>Write-Host &quot;Could not install AzureAD module&quot;<br>pause<br>exit<br>}<br>}<br>Write-Host &quot;AzureAD Module Version: $($admod.Version) (requires at least 2.0.2.135)&quot;<br># tested with version 2.0.2.135, 2.0.2.140</p>
+
+<p>if ($null -eq $env:SAINSTALLDIR) {<br>Write-Host &quot;SAINSTALLDIR environment variable is missing&quot;<br>Write-Host &quot;Ensure StealthAUDIT is installed&quot;<br>pause<br>exit<br>}<br>#endregion</p>
+
+<p>#region generate and save certificates<br>$certPath = &quot;$($env:SAINSTALLDIR)PrivateAssemblies\spaa_cert.cer&quot;<br>$pfxPath = &quot;$($env:SAINSTALLDIR)PrivateAssemblies\spaa_cert.pfx&quot;</p>
+
+<p># check for an existing cert<br>$cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object { $_.Subject -eq &quot;CN=$appName&quot; }<br>if ($cert){<br>Write-Host &quot;Removing existing certificate from local certificate store&quot;<br>$cert | Remove-Item<br>}</p>
+
+<p># generate self signed cert<br>Write-Host &quot;Generating certificate&quot;<br>$currentDate = Get-Date<br>$endDate = $currentDate.AddYears(1).Date<br>$sscert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName stealthbits.com -Subject &quot;CN=$appName&quot; -FriendlyName $appName -KeyAlgorithm RSA -KeyLength 2048 -KeyExportPolicy Exportable -Provider &quot;Microsoft Enhanced RSA and AES Cryptographic Provider&quot; -NotAfter $endDate<br>$thumb = $sscert.Thumbprint<br>Write-Host &quot;Certificate created for $appName which expires on $endDate&quot;</p>
+
+<p># save the certificates<br>$pwd = ConvertTo-SecureString -String $pwd -Force -AsPlainText<br>Write-Host &quot;Saving certificate CER file to $certPath&quot;<br>Export-Certificate -Cert &quot;Cert:\CurrentUser\My\$thumb&quot; -Force -FilePath $certPath -Type CERT<br>Write-Host &quot;Saving certificate PFX file to $pfxPath&quot;<br>Export-PfxCertificate -cert &quot;Cert:\CurrentUser\My\$thumb&quot; -Force -FilePath $pfxPath -Password $pwd</p>
+
+<p># Load the certificate<br>$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate($certPath, $pwd)<br>$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate($pfxPath, $pwd)<br>$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())<br>#endregion</p>
+
+<p>#region login to azure<br># to connect to other azure environments add -AzureEnvironmentName AzureChinaCloud (or AzureUSGovernment, or AzureGermanyCloud as required)<br>$userAuth = Connect-AzureAd<br>if (!$UserAuth) {<br>Write-Host &quot;Could not connect to Azure AD&quot;<br>pause<br>exit<br>}<br>Write-Host &quot;TenantID: $($userAuth.TenantId)&quot;<br>$usr = Get-azureaduser -objectid $userAuth.Account<br>if (!$usr) {<br>Write-Host &quot;Could not authenticate with Azure AD&quot;<br>pause<br>exit<br>}<br>Write-Host &quot;User: $($usr.UserPrincipalName)&quot;</p>
+
+<p>$jsonAccessRequest = ConvertFrom-Json -InputObject @&quot;<br>{<br>&#39;requiredResourceAccess&#39;: [<br>{<br>&#39;resourceAppId&#39;: &#39;c5393580-f805-4401-95e8-94b7a6ef2fc2&#39;,<br>&#39;resourceAccess&#39;: [<br>{<br>&#39;id&#39;: &#39;4807a72c-ad38-4250-94c9-4eabfe26cd55&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;594c1fb6-4f81-4475-ae41-0c394909246c&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;e2cea78f-e743-4d8f-a16a-75b629a038ae&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>}<br>]<br>},<br>{<br>&#39;resourceAppId&#39;: &#39;00000003-0000-0000-c000-000000000000&#39;,<br>&#39;resourceAccess&#39;: [<br>{<br>&#39;id&#39;: &#39;e1fe6dd8-ba31-4d61-89e7-88639da4683d&#39;,<br>&#39;type&#39;: &#39;Scope&#39;<br>},<br>{<br>&#39;id&#39;: &#39;332a536c-c7ef-4017-ab91-336970924f0d&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;498476ce-e0fe-48b0-b801-37ba7e2685c6&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;658aa5d8-239f-45c4-aa12-864f4fc7e490&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;246dd0d5-5bd0-4def-940b-0421030a5b68&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;19da66cb-0fb0-4390-b071-ebc76a349482&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;01d4889c-1287-42c6-ac1f-5d1e02578ef6&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;df021288-bdef-4463-88db-98f22de89214&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;b0afded3-3588-46d8-8b3d-9842eff778da&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;5b567255-7703-4780-807c-7be8301ae99b&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;7ab1d382-f21e-4acd-a863-ba3e13f7da61&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;e1a88a34-94c4-4418-be12-c87b00e26bea&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;9a5d68dd-52b0-4cc2-bd40-abcf44ac3a30&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;98830695-27a2-44f7-8c18-0c3ebc9698f6&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;dbb9058a-0e50-45d7-ae91-66909b5d4664&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;2280dda6-0bfd-44ee-a2f4-cb867cfc4c1e&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;660b7406-55f1-41ca-a0ed-0b035e182f3e&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;9e640839-a198-48fb-8b9a-013fd6f6cbcd&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;79c261e0-fe76-4144-aad5-bdc68fbe4037&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;1b620472-6534-4fe6-9df2-4680e8aa28ec&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;37730810-e9ba-4e46-b07e-8ca78d182097&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>}<br>]<br>},<br>{<br>&#39;resourceAppId&#39;: &#39;00000003-0000-0ff1-ce00-000000000000&#39;,<br>&#39;resourceAccess&#39;: [<br>{<br>&#39;id&#39;: &#39;df021288-bdef-4463-88db-98f22de89214&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;2a8d57a5-4090-4a41-bf1c-3c621d2ccad3&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;678536fe-1083-478a-9c59-b99265e6b0d3&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>},<br>{<br>&#39;id&#39;: &#39;d13f72ca-a275-4b96-b789-48ebcc4da984&#39;,<br>&#39;type&#39;: &#39;Role&#39;<br>}<br>]<br>}<br>]<br>}<br>&quot;@<br>#endregion</p>
+
+<p>#region create new Azure app<br>$app = Get-AzureADApplication -Filter &quot;DisplayName eq &#39;$($appName)&#39;&quot;<br>if(!$app){<br>$app = New-AzureADApplication -DisplayName $appName -AvailableToOtherTenants $false -Oauth2AllowImplicitFlow $false -Oauth2Permissions @() -RequiredResourceAccess $jsonAccessRequest.requiredResourceAccess -Homepage &quot;<a href="https://stealthbits.com/stealthaudit-for-sharepoint-product/" style="color: #0563c1;text-decoration: underline;" target="_blank">https://stealthbits.com/stealthaudit-for-sharepoint-product/</a>&quot; -ReplyUrls &quot;<a href="https://stealthbits.com" style="color: #0563c1;text-decoration: underline;" target="_blank">https://stealthbits.com</a>&quot;<br>if (!$app){<br>Write-Host &quot;Unable to create Azure App&quot;<br>pause<br>exit<br>}<br># OAuth2Permissions get created despite asking it not to<br>if (0 -ne $app.Oauth2Permissions.Count){<br># can&#39;t delete enabled permissions<br>foreach($op in $app.Oauth2Permissions){<br>$op.IsEnabled = $false<br>}<br>Set-AzureAdApplication -ObjectId $app.ObjectId -Oauth2Permissions $app.Oauth2Permissions<br># finally delete the permissions<br>Set-AzureAdApplication -ObjectId $app.ObjectId -Oauth2Permissions @()<br>$app = Get-AzureADApplication -Filter &quot;DisplayName eq &#39;$($appName)&#39;&quot;<br>}<br>} else {<br>Write-Host &quot;`&quot;$appName`&quot; application already exists! Delete application in Azure Admin Console and rerun script&quot;<br>pause<br>exit<br>}<br>Write-Host &quot;AppID: $($app.AppId)&quot;<br>Write-Host &quot;ObjectId: $($app.ObjectId)&quot;</p>
+
+<p># set app ownership<br>$owner = Get-AzureADApplicationOwner -ObjectId $app.ObjectId<br>if (!$owner){<br># set the application owner to the logged in user<br>Add-AzureADApplicationOwner -ObjectId $app.ObjectId -RefObjectId $usr.ObjectId<br>Write-Host &quot;App Owner set to $($usr.UserPrincipalName)&quot;<br>} else {<br>Write-Host &quot;App Owner: $($owner.UserPrincipalName)&quot;<br>}<br>#endregion</p>
+
+<p>#region upload the certificate as an application key credential<br>if ($app.KeyCredentials.Exists({[System.Text.Encoding]::ASCII.GetString($args[0].CustomKeyIdentifier) -eq $appName })){<br>Write-Host &quot;App key credential already defined&quot;<br>Write-Host &quot;Delete application in Azure Admin Console and rerun script&quot;<br>pause<br>}<br>$appCert = New-AzureADApplicationKeyCredential -ObjectId $app.ObjectId -CustomKeyIdentifier $appName -StartDate $currentDate -EndDate $endDate -Type AsymmetricX509Cert -Usage Verify -Value $keyValue<br>if(!$appCert){<br>Write-Host &quot;App key credentials not registered with Azure&quot;<br>pause<br>exit<br>}<br>Write-Host &quot;App key credentials registered with Azure&quot;<br>#endregion</p>
+
+<p>#region create a service principal for the app<br>$sp = Get-AzureADServicePrincipal -Filter &quot;DisplayName eq &#39;$($appName)&#39;&quot;<br>if(!$sp){<br>$sp = New-AzureADServicePrincipal -AppId $app.AppId -Tags @(&#39;apiConsumer&#39;, &#39;desktopApp&#39;, &#39;HideApp&#39;, &#39;WindowsAzureActiveDirectoryIntegratedApp&#39;)<br>Write-Host &quot;App Azure AD service principal created&quot;<br>}<br>#endregion</p>
+
+<p>#region all done<br>Write-Host &quot;Registration complete. Record these IDs.&quot;<br>Write-Host &quot;Launching Azure Admin Consent page, after pause.&quot;<br>Write-Host &quot;Displays stealthbits.com after granting consent.&quot;<br>pause</p>
+
+<p>Start-Process &quot;<a href="https://login.microsoftonline.com/$($userAuth.TenantId)/adminconsent?client_id=$($app.AppId)" style="color: #0563c1;text-decoration: underline;" target="_blank">https://login.microsoftonline.com/$($userAuth.TenantId)/adminconsent?client_id=$($app.AppId)</a>&quot;<br>#endregion</p>
+</body>
+</html>

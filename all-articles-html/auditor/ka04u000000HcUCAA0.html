@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slow examination</title>
+    <meta name="article-id" content="ka04u000000HcUCAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:52.000Z">
+    <meta name="articlenumber" content="000003523">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:18.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bRCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9bRCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:18.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:53.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when examination of lockouts does not return any result.">
+    <meta name="meta-title" content="Slow examination">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1360">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bRCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Slow examination</h1>
+    Examination of lockouts runs for several hours without returning any results.
+
+<hr></hr>
+
+During examination Account Lockout Examiner service connects to the workstation where the lockout occurred and scans it.
+Time of examination depends on several factors, e.g.
+<ul><li>Bandwidth of the connection to the workstation - for workstations located on other continents examination might run for a long time</li><li>The Account Lockout Examiner service load - if there are a lot of events to process in your environment, the service might not have resources to perform the examination</li><li>Permissions or connection issues.</li><li>etc</li></ul>
+
+<hr></hr>
+
+Ensure that:
+<ol><li>Workstation is reachable from the Account Lockout Examiner server.</li><li>Connection is not blocked by the firewall.</li><li>CPU and Memory usage of Account Lockout Examiner (ALEService.exe process) is normal</li><li>The Account Lockout Examiner service account has local administrator permissions on the target workstation.</li><li>There is not a network bottleneck between the two endpoints (Account Lockout Examiner and target workstation).</li></ol>
+It is recommended to perform examination of workstations located in the same site with the Account Lockout Examiner host machine.  Using separate installations of Account Lockout Examiner for other sites is recommended.
+
+If all above factors are OK, please try to perform the steps from the  following articles and re-run examination:
+
+<a href="https://kb.netwrix.com/2763" target="_blank">https://kb.netwrix.com/2763</a>
+<a href="https://kb.netwrix.com/1406" target="_blank">https://kb.netwrix.com/1406</a>
+<a href="https://kb.netwrix.com/2777" target="_blank">https://kb.netwrix.com/2777</a>
+</body>
+</html>

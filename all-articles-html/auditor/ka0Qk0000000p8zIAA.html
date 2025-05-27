@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Cannot Insert Duplicate Key in Object</title>
+    <meta name="article-id" content="ka0Qk0000000p8zIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-05T09:41:41.000Z">
+    <meta name="articlenumber" content="000008932">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-12-05T09:41:41.000Z">
+    <meta name="firstpublisheddate" content="2023-12-05T09:41:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000GsnKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000GsnKAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-12-05T09:41:49.000Z">
+    <meta name="lastpublisheddate" content="2023-12-05T09:41:49.000Z">
+    <meta name="meta-description" content="Error: Cannot Insert Duplicate Key in Object">
+    <meta name="meta-title" content="Error: Cannot Insert Duplicate Key in Object">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8932">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000GsnKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Cannot Insert Duplicate Key in Object</h1>
+    <blockquote>
+<div><span style="color: #c0392b;"><strong>!</strong></span> This article is currently under review. Some of the information below may not be up to date.</div>
+</blockquote>
+
+<h2>Symptom</h2>
+
+<div>
+<p>The following warning appears in the Netwrix Auditor System Health log:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Upload failed due to the following error:
+Violation of PRIMARY KEY constraint &#39;item name&#39;. Cannot insert duplicate key in object &#39;object name&#39;. The duplicate key value is (1, 1).
+The statement has been terminated.</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This message occurs if the <code>SqlCalculateRequiredAttributesCommandTimeout</code> was set incorrectly in the <b>SPODDCCoreSettings.xml</b> file.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To resolve the issue, you need to set the timeout to <code>7200</code>. For that:</p>
+
+<ol><li>
+	<p>On the computer that hosts Netwrix Auditor Server, stop the <b>Netwrix Auditor NDC Provider</b> service.</p>
+	</li><li>
+	<p>Navigate to <em>C:\ProgramData\Netwrix Auditor\Data Discovery and Classification\</em> and open the <b>SPODDCCoreSettings.xml</b> configuration file with any text editor, e.g., Notepad.</p>
+	</li><li>
+	<p>Locate the <code>SqlCalculateRequiredAttributesCommandTimeout</code> the line and set the timeout to <code>7200</code>.</p>
+	</li><li>
+	<p>Save the file.</p>
+	</li><li>
+	<p>Start the <b>Netwrix Auditor NDC Provider</b> service.</p>
+	</li></ol>
+</div>
+</body>
+</html>

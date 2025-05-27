@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Reports from User Activity Video Recorder resolve host names</title>
+    <meta name="article-id" content="ka04u000000HdF0AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-07-02T14:18:27.000Z">
+    <meta name="articlenumber" content="000005881">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T10:19:47.000Z">
+    <meta name="firstpublisheddate" content="2021-07-02T14:18:32.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000PdIsCAK">
+    <meta name="knowledge-article-id" content="kA04u000000PdIsCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:47.000Z">
+    <meta name="lastpublisheddate" content="2021-07-02T14:18:32.000Z">
+    <meta name="meta-description" content="How Reports from User Activity Video Recorder resolve host names">
+    <meta name="meta-title" content="How Reports from User Activity Video Recorder resolve host names">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5881">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PdIsCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How Reports from User Activity Video Recorder resolve host names</h1>
+    <b>Question</b>: When I check reports, the server name is shown differently as when I try to resolve its&#39; name using the DNS server. How does User Activity Video Recorder resolve host names?<br><b>Answer:</b> First of all, the UAVR Agent looks locally in the hosts file of the server (located in &quot;C:\Windows\System32\drivers\etc&quot; folder). You can also check the Name resolution by utilizing this command in PowerShell on the monitored server:
+<pre class="ckeditor_codeblock">
+[System.Net.Dns]::GetHostEntry(&quot;127.0.0.1&quot;).HostName</pre>
+The resulting name will match the name of the server in the UAVR report. If there is no record for 127.0.0.1-localhost on the server, the DNS server will be polled for the name.
+</body>
+</html>

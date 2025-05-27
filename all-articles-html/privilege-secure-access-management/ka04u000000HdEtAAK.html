@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs Location</title>
+    <meta name="article-id" content="ka04u000000HdEtAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-05-06T08:55:10.000Z">
+    <meta name="articlenumber" content="000005874">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T10:19:45.000Z">
+    <meta name="firstpublisheddate" content="2021-07-12T11:42:00.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Pd89CAC">
+    <meta name="knowledge-article-id" content="kA04u000000Pd89CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:46.000Z">
+    <meta name="lastpublisheddate" content="2021-11-03T20:06:22.000Z">
+    <meta name="meta-description" content="Logs Location">
+    <meta name="meta-title" content="Logs Location">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5874">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Pd89CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Logs Location</h1>
+    <div class="ControlZone ControlZone--clean a_b_50a7110f" id="1212fc8d-dd6b-408a-8d5d-9f1cc787efbb">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<h1>Summary</h1>
+
+<p>By default, SbPAM logs are stored on the SbPAM install drive in:</p>
+
+<pre class="ckeditor_codeblock">
+\ProgramData\STEALTHbits\PAM\Log</pre>
+
+<p>SbPAM uses the <b>%PROGRAMDATA%</b> environment variable to determine the location of the log directory.<br><br>Command Prompt can be used to locate this directory by running the following command:</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="0e799ac8-eeed-46c2-bbb9-668666dbb0a8">
+<div class="ControlZone--control">
+<div style="">
+<div>
+<div class="ai_g_9f38462c css-202">
+<div class="bs_g_9f38462c">
+<div class="aq_g_9f38462c" style="">
+<pre class="ckeditor_codeblock">
+echo %PROGRAMDATA%</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="18f08b04-2571-4ad1-8b10-877e03be2492">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">�
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<p>SbPAM logs can also be viewed, and downloaded, via the SbPAM web interface, by navigating to�<b>Audit &amp; Reporting &gt; Log Files</b>.<br><br><img alt="Image of SbPAM web application&#39;s log files page, listing log files and displaying contents." height="334" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdEt&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bh8h" width="500"></img></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="cfff72af-7656-49cf-8e0d-95d1bf449904">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">�
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<h1>Log Descriptions</h1>
+
+<p><strong>Action Service - PAM-ActionService&lt;date&gt;.log</strong><br>The action service is the component that connects SbPAM to managed resources. Use cases include Active Directory synchronization, password changes, and account orchestration. If an action experiences an issue, this log should be reviewed.</p>
+
+<p><strong>DbUpdater - PAM-DbUpdater&lt;date&gt;.log</strong><br>The DbUpdater updates the database with schema changes and updates to built-in activities and new activity steps (actions). If an upgrade fails or an expected activity update isn&#39;t applied, this log should be reviewed.</p>
+
+<p><strong>Proxy Service - PAM-Proxy-&lt;date&gt;.log</strong><br>The SbPAM proxy service connects users to resources via RDP and SSH protocols; the proxy is also responsible for storage of session recordings via its iolog component. When a user cannot access a resource via RDP or SSH, this log should be reviewed.</p>
+
+<p><strong>Scheduling Service - PAM-SchedulingService&lt;date&gt;.log</strong><br>The scheduler service is responsible for setting up and maintaining any date/time-specific actions such as password changes and system scans, etc. If a scheduled action fails to execute, this log should be reviewed in addition to the action service log.</p>
+
+<p><strong>Siem Service - PAM-SiemService&lt;date&gt;.log</strong><br>The SIEM service forwards events to configured SIEM endpoints. If there&#39;s an issue with event forwarding to a SIEM, this log should be reviewed.</p>
+
+<p><strong>Web Service - PAM-Web&lt;date&gt;.log</strong><br>The central web service is responsible for database access and communication out to each service component (i.e., licensing, email, action, and proxy). If experiencing login failures, this log should be reviewed. Also, if the proxy or action service logs shows a failure communicating with the web service, this log should be reviewed for more information.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

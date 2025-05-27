@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDC Dashboard Failure</title>
+    <meta name="article-id" content="ka04u000000HcXbAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005700000042ELcAAM">
+    <meta name="articlecreateddate" content="2020-05-07T12:43:12.000Z">
+    <meta name="articlenumber" content="000003746">
+    <meta name="createdbyid" content="005700000042ELcAAM">
+    <meta name="createddate" content="2023-05-08T09:51:33.000Z">
+    <meta name="firstpublisheddate" content="2020-05-07T12:57:09.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000PbcnCAC">
+    <meta name="knowledge-article-id" content="kA00g000000PbcnCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:33.000Z">
+    <meta name="lastpublisheddate" content="2020-05-07T12:57:09.000Z">
+    <meta name="meta-description" content="[not provided]">
+    <meta name="meta-title" content="[not provided]">
+    <meta name="ownerid" content="005700000042ELcAAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5606">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbcnCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>NDC Dashboard Failure</h1>
+    <h3 style="color: red;">Scenario</h3>
+
+
+
+<p><strong>NDC Dashboard fails to load and the conceptsearching eventlog shows this error: </strong></p>
+
+
+
+<p>Component: conceptClassifier<br> Caller: Run<br> Level: Error<br> conceptEngine2.ServiceModel.PingQs<br> Failed to contact QS: <a href="http://localhost:80/conceptQS/conceptQS.asmx" target="_blank">http://localhost:80/conceptQS/conceptQS.asmx</a>, error: System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---&gt; System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---&gt;</p>
+
+
+
+<p><strong>In addition to this error, in the <em>conceptsearching</em> log, you will see the below error in the Windows Application Event Log:</strong></p>
+
+
+
+<p>Faulting application name: w3wp.exe, version: 10.0.17763.1, time stamp: 0xcfdb13d8<br> Faulting module name: PerfMon64.dll, version: 8.0.13053.0, time stamp: 0x5a26da79<br> Exception code: 0xc0000409<br> Fault offset: 0x000000000013f68f<br> Faulting process id: 0x2940<br> Faulting application start time: 0x01d53c07a74a0b75<br> Faulting application path: c:windowssystem32inetsrvw3wp.exe<br><em> <strong>Faulting module path: C:Program FilesMicrosoft Monitoring AgentAgentAPMDOTNETAgentV8.0.13053.0PerfMon64.dll</strong></em><br> Report Id: 84973451-9fbf-4b31-9dd8-ca486181ffd2<br> Faulting package full name:<br> Faulting package-relative application ID:</p>
+
+
+
+<p>The faulting module path listed in the error points out that the cause of the IIS fault is the 2016 SCOM agent. </p>
+
+
+
+<h3 style="color: green;">Solution</h3>
+
+
+
+<p>Uninstall the 2016 SCOM agent from the IIS server, stop the
+conceptclassifier, conceptcollector, and conceptindexer services, and restart
+the server. The dashboard will load and the issue is resolved.</p>
+
+
+
+<p>If uninstalling the SCOM 2016 agent is not an option, follow either Method 1 or Method 2 in the below article, depending on your SCOM needs:</p>
+
+
+
+<p><a href="https://support.microsoft.com/en-us/help/4457771/resolve-issues-by-removing-apm-components-in-operations-manager-2016" target="_blank">Resolve Issues by Removing APM Components in Operations Manager 2016</a></p>
+</body>
+</html>

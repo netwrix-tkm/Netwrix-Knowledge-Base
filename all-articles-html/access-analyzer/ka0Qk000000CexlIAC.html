@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: HTTP 400 Bad Request: Request Header Too Long</title>
+    <meta name="article-id" content="ka0Qk000000CexlIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-02-11T15:48:18.000Z">
+    <meta name="articlenumber" content="000009400">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209378183184406">
+    <meta name="case" content="500Qk00000IoK1JIAV">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-03-04T15:37:17.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-03-04T15:24:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000020ITKAY">
+    <meta name="knowledge-article-id" content="kA0Qk00000020ITKAY">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-04T16:42:50.000Z">
+    <meta name="lastpublisheddate" content="2025-03-04T15:24:14.000Z">
+    <meta name="meta-description" content="Request Header Too Long">
+    <meta name="meta-title" content="Request Header Too Long">
+    <meta name="ownerid" content="0054u000006goLGAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9400">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000020ITKAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: HTTP 400 Bad Request: Request Header Too Long</h1>
+    <h2>Symptom</h2>
+<div>
+<p>When attempting to use SSO for the <strong>Published Reports</strong> web console (port 8082), you encounter the following error:</p>
+<pre class="has-inner-focus">HTTP 400 Bad Request (Request Header too long) responses to HTTP requests
+  </pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>This issue may occur if the user is a member of many Active Directory user groups.</p>
+<p>The HTTP request to the server contains the Kerberos token in the <code>WWW-Authenticate</code> header. The header size increases together with the number of user groups. If the HTTP header or packet size increases past the limits configured on the server, the server may reject the request and send an error message as the response.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>To resolve this error, follow the steps below:</p>
+<ol><li>
+<p>For IIS 6.0 and later, the <code>MaxFieldLength</code> and <code>MaxRequestBytes</code> registry keys are located at the following subkey:</p>
+<ul><li>
+<p><code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters</code></p>
+</li></ul>
+</li><li>
+<p>Set the key values as shown in the following table:</p>
+<table style="border: 1px solid black;border-collapse: collapse;width: 100%;"><thead><tr style="border: 1px solid black;"><th colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">Name</th><th colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">Value Type</th><th colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">Value Data</th></tr></thead><tbody><tr style="border: 1px solid black;"><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">MaxFieldLength</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">DWORD</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">(4/3 * T bytes) + 200</td></tr><tr style="border: 1px solid black;"><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">MaxRequestBytes</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">DWORD</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">(4/3 * T bytes) + 200</td></tr></tbody></table>
+��</li><li>
+<p>You can also set the registry keys to their maximum values, as shown in the table below. Consider all potential security ramifications before making any changes to the registry settings:</p>
+<table style="border: 1px solid black;border-collapse: collapse;width: 100%;"><thead><tr style="border: 1px solid black;"><th colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">Name</th><th colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">Value Type</th><th colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">Value Data</th></tr></thead><tbody><tr style="border: 1px solid black;"><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">MaxFieldLength</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">DWORD</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">65536 (Decimal) or 10000 (Hexadecimal)</td></tr><tr style="border: 1px solid black;"><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">MaxRequestBytes</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">DWORD</td><td colspan="1" rowspan="1" style="border: 1px solid black;padding: 8px;">16777216 (Decimal) or 1000000 (Hexadecimal)</td></tr></tbody></table>
+</li></ol>
+<p>For detailed information on this error message, refer to the full Microsoft documentation: <a href="https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/iis/www-authentication-authorization/http-bad-request-response-kerberos#workaround-1-decrease-the-number-of-active-directory-groups" target="_blank"> Troubleshooting HTTP 400 Bad Request Responses � Microsoft &#129125;</a>.</p>
+</div>
+<h2>Related Article</h2>
+<div>
+<ul><li><a href="https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/iis/www-authentication-authorization/http-bad-request-response-kerberos#workaround-1-decrease-the-number-of-active-directory-groups" target="_blank"> Troubleshooting HTTP 400 Bad Request Responses � Microsoft &#129125;</a></li></ul>
+</div>
+</body>
+</html>

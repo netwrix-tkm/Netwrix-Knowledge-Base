@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection String Is Not Valid in SQL Server Monitoring Plan</title>
+    <meta name="article-id" content="ka04u000000wvzgAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-10-31T14:52:11.000Z">
+    <meta name="articlenumber" content="000008883">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-11-01T05:53:59.000Z">
+    <meta name="firstpublisheddate" content="2023-10-31T14:52:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnkxCAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnkxCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-11-01T05:54:14.000Z">
+    <meta name="lastpublisheddate" content="2023-10-31T14:52:43.000Z">
+    <meta name="meta-description" content="Connection String Is Not Valid in SQL Server Monitoring Plan">
+    <meta name="meta-title" content="Connection String Is Not Valid in SQL Server Monitoring Plan">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8883">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnkxCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Connection String Is Not Valid in SQL Server Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error is prompted in Health Log for your SQL Server monitoring plan in Netwrix Auditor:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Netwrix Auditor State-in-Time error: 
+Monitoring plan: %SQL_monitoring_plan_name%. 
+Item: %SQL_server% 
+The following error occurred during state-in-time operation snapshot collection:
+A network-related or instance-specific error occurred while establishing a connection to SQL Server.
+The server was not found or was not accessible.
+Verify that the instance name is correct and that SQL Server is configured to allow remote connections.
+(provider: SQL Network Interfaces, error: 25 - Connection string is not valid)</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The SQL Server instance name was specified incorrectly in the affected monitoring plan item.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Review the affected item in your SQL Server monitoring plan:</p>
+
+<ol><li>
+	<p>In the main Netwrix Auditor menu, click <strong>Monitoring Plans</strong>.</p>
+	</li><li>
+	<p>Select the affected SQL Server monitoring plan and click <strong>Edit</strong>. Refer to the error message to establish the affected monitoring plan name.</p>
+	</li><li>
+	<p>Select the affected instance and click <strong>Edit item</strong>. Refer to the error message to establish the affected item name.</p>
+	</li><li>
+	<p>Review the instance name specified:</p>
+
+	<ul><li>
+		<p>For a default SQL instance name (MSSQLSERVER), only specify the server FQDN or NetBIOS name. See the example for a reference.</p>
+
+		<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvzg&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008pVor"></img></div>
+		</li><li>
+		<p>For a named SQL instance, specify FQDN\Instance_name.</p>
+
+		<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000wvzg&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008pVow"></img></div>
+		</li></ul>
+	</li><li>
+	<p>Once the changes are introduced, click <strong>Save &amp; Close</strong>.</p>
+	</li></ol>
+</div>
+</body>
+</html>

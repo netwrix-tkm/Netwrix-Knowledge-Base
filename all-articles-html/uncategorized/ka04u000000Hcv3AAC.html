@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWindowsAgent_5.2.0.287</title>
+    <meta name="article-id" content="ka04u000000Hcv3AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:29:46.000Z">
+    <meta name="articlenumber" content="000007048">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:10:47.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:29:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IkoCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IkoCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:10:47.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:29:46.000Z">
+    <meta name="meta-description" content="360008877892">
+    <meta name="meta-title" content="Hotfix: SIWindowsAgent_5.2.0.287">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7048">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IkoCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWindowsAgent_5.2.0.287</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Agents not collecting events and &quot;Member &#39;fqdnAgents&#39; was not found&quot; errors observed after upgrade to 5.2.0.266</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong>Agents not collecting events and &quot;Member &#39;fqdnAgents&#39; was not found&quot; errors observed after upgrade to 5.2.0.266<br><strong><span style="font-family: calibri,sans-serif;">Behavior before Fix: </span></strong><br>When new feature was implemented which allows to select between FQDN and NetBIOS name for HOST parameter in the &#39;SBTFileMon.ini&#39; file for &#39;File System StealthAUDIT&#39; event type it was needed to add new parameter (&#39;fqdnAgent&#39;) into policy filter which contains a list of Agents where HOST must be in FQDN format. Therefore if new Agent is running under old EM it can&#39;t find this parameter and generates error.<br><strong><span style="font-family: calibri,sans-serif;">Behavior after Fix: </span></strong><br>Now behavior in Agent changed to always use NetBIOS format if there is no &#39;fqdnAgents&#39; parameter in the filter.<br><b>Changes since Last Hotfix:</b><br>I-5018 [LINNK - Stephens] SI-3827 33129 - Agents not collecting events and &quot;Member &#39;fqdnAgents&#39; was not found&quot; errors observed after upgrade to 5.2.0.266<br><strong><span style="font-family: calibri,sans-serif;">Submitted by:</span></strong><br>Maxim Sidarau��<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>5.2.0����� SIWindowsAgent_5.2.0.287_SI-3827<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Agent<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br><em><span style="font-family: calibri,sans-serif;">I-5018</span></em><br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>5.2.0.287<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><b>Modules Included:</b><br>SI - Windows Agent<br><b>YouTrack/Escalations: </b>SI-3827 / 33129<br><b>Customers:� </b>Stephens<br><b>Cumulative List of fixes included since Service Pack:</b><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> Applying patch for SI Windows Agent: 
+</p><ol><li>Stop SIWindowsAgent service
+</li><li>Extract attached files to the &quot; C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder</li></ol>3. Start SIWindowsAgent service<br><br>� 
+<table cellspacing="0" cellpadding="0" width="78" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="78"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.2.0/SIWindowsAgent_5.2.0.287_SI-3827.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.2.0/SIWindowsAgent_5.2.0.287_SI-3827.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.2.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3827<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 5.2.0.287<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2358<br></p>
+</body>
+</html>

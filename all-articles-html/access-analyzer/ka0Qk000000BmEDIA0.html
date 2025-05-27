@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer console does not open with error code 5 access is denied.</title>
+    <meta name="article-id" content="ka0Qk000000BmEDIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000002AJWTIA4">
+    <meta name="articlecreateddate" content="2025-01-10T18:59:43.000Z">
+    <meta name="articlenumber" content="000009368">
+    <meta name="assignedbyid" content="005Qk000002AJWTIA4">
+    <meta name="assignedtoid" content="005Qk000002AJWTIA4">
+    <meta name="assignmentdate" content="2025-01-10T18:59:43.000Z">
+    <meta name="case" content="500Qk00000JI1faIAD">
+    <meta name="createdbyid" content="005Qk000002AJWTIA4">
+    <meta name="createddate" content="2025-01-10T18:59:43.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001rK1KAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000001rK1KAI">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-09T13:00:35.000Z">
+    <meta name="meta-description" content="Access Analyzer console does not open with error code 5 access is denied.">
+    <meta name="meta-title" content="Access Analyzer console does not open with error code 5 access is denied.">
+    <meta name="ownerid" content="005Qk000002AJWTIA4">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9368">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001rK1KAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer console does not open with error code 5 access is denied.</h1>
+    <h2>Symptom</h2>
+<p>When opening the Access Analyzer console the user receives the message &quot;System Error. Code: 5. Access is denied.&quot; while checking schemas.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000BmED&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000009wP2V"></img></p>
+<p>�</p>
+<h2>Cause</h2>
+<p>The current user does not have sufficient permissions to the %SAInstallDir% folder. User must have minimum of modify access to the folder and all child objects.</p>
+<p>�</p>
+<h2>Resolution</h2>
+<p>Add the user or group to the security permissions on the %SAInstallDir% folder and ensure that they have at least modify permissions.</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.0_070</title>
+    <meta name="article-id" content="ka04u000000Hd5SAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:51:39.000Z">
+    <meta name="articlenumber" content="000007827">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:15:43.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:51:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JEKCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JEKCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:15:43.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:51:39.000Z">
+    <meta name="meta-description" content="360012326291">
+    <meta name="meta-title" content="Hotfix: SA_8.0_070">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7827">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JEKCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.0_070</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Active Directory Inventory is collecting the extended attribute objectGUID as System.Byte.  This fix allows the objectGUID to be collected and it now appears correctly in the extended attributes table.</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Modules Included:</span></span></strong><br><span style="color: black;">Stealthbits.StealthAUDIT.DataCollectors.ADInventory.dll v8.0.89<br>Stealthbits.StealthAUDIT.DataCollectors.ADInventory.UI.dll v8.0.89<br>DCADInventory.dll v8.0.89</span><br>�<br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">YouTrack/Escalations</span></span></strong><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">-������������� SAT-2697/23069</span></span></strong><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Customer: </span></span></strong>
+</p><ul><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">ExxonMobil Corporation</span></span></strong><br>�</li></ul>�<br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></span></strong><br><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">SAT-2304 - ADInventory DC is throwing a Primary Key Constraint Violation Error during the insertion of group membership changes.</span></span></strong><br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there. </span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Close all instances of StealthAUDIT (check task manager under processes for all users)</span></span></strong>
+</li><li>
+<strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all files in your %SAInstallDir%PrivateAssemblies folder.</span></span></strong>
+</li><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Update all files in your %SAInstallDir%DC folder.</span></span></strong></li></ol>
+<div>� 
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="77"><td colspan="1" rowspan="1" height="77" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.0/SA_8.0_070.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.0/SA_8.0_070.zip</a></td></tr></tbody></table>
+</div><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ADInventory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-2697<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> DCADInventory.dll v8.0.89<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1808<br></p>
+</body>
+</html>

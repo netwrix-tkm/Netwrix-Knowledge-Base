@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Encryption Keys in Multiple NPS Server Environments</title>
+    <meta name="article-id" content="ka0Qk000000AqyDIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-04-30T13:48:01.000Z">
+    <meta name="articlenumber" content="000009154">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209717804277544">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-11-08T19:31:25.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-04-30T13:49:23.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000rYzKAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000000rYzKAI">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-03-27T18:40:33.000Z">
+    <meta name="lastpublisheddate" content="2025-03-27T18:40:33.000Z">
+    <meta name="meta-description" content="How to Configure Encryption Keys in Multiple NPS Server Environments">
+    <meta name="meta-title" content="How to Configure Encryption Keys in Multiple NPS Server Environments">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9154">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000rYzKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Encryption Keys in Multiple NPS Server Environments</h1>
+    <h2>Overview</h2>
+<div>
+<p>This article covers the steps to configure encryption keys in environments with multiple Netwrix Privilege Secure (NPS) servers. Apply these steps when setting up high availability (HA) in your environment. Refer to the following article for additional information on establishing active/passive HA with PostgreSQL backend: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HfOCAU.html" target="_self">How to Use NPS.HaMgr.exe</a>.</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The following steps apply to SbPAM v3.6, v3.7, and higher and to NPS v.4.0 and higher.</p>
+</blockquote>
+<p>Refer to the following steps to verify that NPS encryption keys are configured on all NPS servers:</p>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>For the following steps, if the application was installed to a dedicated drive, change the drive letter from <strong>X</strong> to the appropriate letter.</p>
+</blockquote>
+<ol><li>
+<p>Install NPS on the primary and secondary servers. Apply your license file to both NPS instances. Refer to the following article for additional information on applying a license: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PdKZCA0.html" target="_self">Apply a New License</a>.</p>
+</li><li>
+<p>On your primary server, run the following lines in elevated Command Prompt:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">cd &quot;X:\Program Files\Stealthbits\PAM\KeyTools&quot;
+.\SbPAM.RotateKey.exe export -n keys.exp</code></pre>
+</li><li>
+<p>Command Prompt prompts a password used to protect the NPS encryption keys. Take note of the password to use it later.</p>
+</li><li>
+<p>Copy the exported file to the following path on the secondary server:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">X:\Program Files\Stealthbits\PAM\KeyTools</code></pre>
+</li><li>
+<p>On your secondary server, run the following lines in elevated Command Prompt:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">cd &quot;X:\Program Files\Stealthbits\PAM\KeyTools&quot;
+.\SbPAM.RotateKey.exe import -n keys.exp</code></pre>
+</li><li>
+<p>Enter the password when prompted.</p>
+</li><li>
+<p>Delete the exported keys file and any saved passwords from both servers.</p>
+</li></ol>
+</div>
+<h2>Related articles</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HfOCAU.html" target="_self">How to Use NPS.HaMgr.exe</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000PdKZCA0.html" target="_self">Apply a New License</a></p>
+</li></ul>
+</div>
+</body>
+</html>

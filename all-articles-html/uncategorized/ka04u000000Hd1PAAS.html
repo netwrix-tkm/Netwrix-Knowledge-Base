@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SAM_4.0_004</title>
+    <meta name="article-id" content="ka04u000000Hd1PAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:47:14.000Z">
+    <meta name="articlenumber" content="000007493">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:13:51.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:47:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J3HCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000J3HCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:13:51.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:47:14.000Z">
+    <meta name="meta-description" content="360012124691">
+    <meta name="meta-title" content="Hotfix: SAM_4.0_004">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7493">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J3HCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SAM_4.0_004</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SFAM disconnects from SVM with 2 VM</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:</span></strong><br><i><span style="color: #404040;">SFAM disconnects from SVM with 2 VM</span></i><br><strong><span style="font-family: calibri,sans-serif;">Behavior Before Fix:</span></strong><br><i><span style="color: #404040;">Cmode Netapp disconnections were not being auto-healed with multiple fpolicy servers.</span></i><br><strong><span style="font-family: calibri,sans-serif;">Behavior After Fix:</span></strong><br><i><span style="color: #404040;">Cmode Netapp disconnections are now being autohealed with multiple fpolicy servers.</span></i><br><b>Changes Since Last Hotfix:</b> 
+</p><ul><li>
+<span style="color: #3b3838;">SFAM-2719: AD - UI Crash on Remote DC Depoyment</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2755: Missing AD events</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2712: AD Monitoring IP whitelist blocks incoming connections from external host IP</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2798: Change SAM Agent &quot;Test&quot; to &quot;Connect&quot;</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2752: NetApp Cmode: Disabling Multiple Agents at once doesn&#39;t disable policy</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2704: Extend CEE warning for SAM and IBM</span>
+</li><li>
+<span style="color: #3b3838;">SFAM-2812: AD - Multi Agent Upgrade Issue</span>
+</li><li><span style="color: #3b3838;">SFAM-2611: Update OpenSSL to 1.0.2r</span></li></ul>�<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Kevin Duddy<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>STEALTHbits Activity Monitor 4.0<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>Activity Monitor<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SFAM-1934<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>SBActivityMonitorSetup.msi 4.0.0.257<br>�<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><strong><span style="font-family: calibri,sans-serif;">Modules Included:</span></strong><br>SBActivityMonitorSetup.msi <i><span style="color: #404040;">4.0.0.257</span></i><br>SBActivityMonitorSetup_unsigned.msi <i><span style="color: #404040;">4.0.0.257</span></i><br>SBTService.exe 1.4.0.453<br>SI Version 6.0.0.365<br>�<br><b>YouTrack/Escalations</b> 
+<ul><li><i><span style="color: #404040;">SFAM-1934 / 28918</span></i></li></ul>�<br><b>Customers</b> 
+<ul><li><strong><span style="color: #404040;"><span style="font-family: calibri,sans-serif;">Qualcomm</span></span></strong></li></ul>�<br><b>Cumulative List of fixes included since Service Pack:</b> 
+<ul><li>
+<span style="color: #404040;">SFAM-2654: Update DEFEND Syslog template in SAM 3.1 / SAM 4.0</span>
+</li><li>
+<span style="color: #404040;">SFAM-2631: TLS cert issue with NetApp</span>
+</li><li><span style="color: #404040;">SFAM-2570: SAM Netapp Service does not start. Always stopping and starting (#2)</span></li></ul>�<br>�<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> </p><ol><li>
+<i><span style="color: #404040;">Run msi file on host that has the SBActivityMonitor installed. (No need to uninstall previous version, msi will upgrade the monitor).</span></i>
+</li><li><i><span style="color: #404040;">Upgrade all agents.</span></i></li></ol>� 
+<table cellspacing="0" cellpadding="0" width="506" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="506"><a href="https://downloads.stealthbits.com/access/files/SAMHotfixes/4.0/SAM_4.0_004.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAMHotfixes/4.0/SAM_4.0_004.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - NetApp<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 4.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SFAM-1934<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 4.0.0.257<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2312<br></p>
+</body>
+</html>

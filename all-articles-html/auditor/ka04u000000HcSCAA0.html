@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: &quot;The new task has been created but may not run because of an error: Exception from HRESULT: 0x80070520.&quot;</title>
+    <meta name="article-id" content="ka04u000000HcSCAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:06.000Z">
+    <meta name="articlenumber" content="000003385">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:33.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:32.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ZBCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9ZBCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:33.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:32.000Z">
+    <meta name="meta-description" content="Network access: Do not allow storage of passwords &amp;amp;credentials
+To disable the policy
+Select Start -&amp;gt; Run and type rsop.msc
+Resultant Set of Policy
+Source GPO
+ %%post_excerpt%%">
+    <meta name="meta-title" content="new task has been created but may not run because of an error">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1231">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ZBCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: &quot;The new task has been created but may not run because of an error: Exception from HRESULT: 0x80070520.&quot;</h1>
+    The product scheduled task does not start and the following error occurs:
+
+<strong>&quot;The new task has been created but may not run because of an error: A specified logon session does not exist. It may already have been terminated. (Exception from HRESULT: 0x80070520).&quot;</strong>
+
+<hr></hr>
+
+The &quot;<strong>Network access: Do not allow storage of credentials or .NET Passports for network authentication</strong>&quot; policy does not allow to store passwords and credentials  in the product scheduled task.
+
+<hr></hr>
+
+Disable the &quot;<strong><span style="background-color: #ffffff;font-family: Arial;">Network access: Do not allow storage of passwords and credentials for network authentication</span></strong>&quot; policy on the computer where this issue appears.
+
+To disable the policy, please perform the following steps:
+<ol><li>Select <strong>Start -&gt; Run</strong> and type <em>rsop.msc</em>.</li><li>In the R<strong>esultant Set of Policy</strong> dialog, navigate to <strong>Computer Configuration -&gt; Windows Settings -&gt;Security Settings -&gt; Local Policies -&gt; Security Options</strong>.</li><li>Select the policy on the right and change the Source GPO accordingly.</li></ol>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifying SAM API Server</title>
+    <meta name="article-id" content="ka04u000000HcbIAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T17:52:14.000Z">
+    <meta name="articlenumber" content="000006007">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T09:58:48.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T17:52:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HudCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000HudCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:58:48.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T17:52:14.000Z">
+    <meta name="meta-description" content="360008602431">
+    <meta name="meta-title" content="Verifying SAM API Server">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6007">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HudCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Verifying SAM API Server</h1>
+    <p><strong>Summary:</strong>�Verifying SAM API Server</p>
+<p>�</p>
+<p><strong>Issue:</strong> It can be difficult to troubleshoot or verify that SAM API Server is working correctly when other products / components are in use.� This will take SA and other components out of the picture to verify SAM API Server alone. </p>
+<p>�</p>
+<p><strong>Instructions:</strong>� I&#39;m including 2 powershell scripts that will help troubleshoot and verify SAM API server issues...</p>
+<ul><li>1.API-GetTokens.ps1
+<ul><li>This script invokes SAM API to generate a refresh token. It asks for API URL, Client ID, and Client Secret. Can be used for API on local or remote agents.</li><li>Script will output refresh token.</li></ul>
+</li><li>2.API-Test.ps1
+<ul><li>This invokes SAM API and outputs hosts and agents data from SAM API.</li></ul>
+</li></ul>
+<ol><li>Install SAM Agent.</li><li>Enable API Server for installed agent and Add New Application for API Testing.</li><li>Copy Client ID and Secret.</li><li>Execute 1.API-GetTokens.ps1
+<ul><li>Enter API URL ( https://localhost:4494 ), Client ID, and Client Secret.</li></ul>
+</li><li>Execute 2.API-Test.ps1</li><li>Global variables are used and can be manipulated after script execution
+<ul><li>$agents</li><li>$hosts</li><li>$domains</li></ul>
+</li></ol>
+<p>�</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUio&amp;d=%2Fa%2F4u000000Ly99%2FFplwcXRQIpVMc7kowww83KXvDZa2z65RuO.39vMdu.0&amp;asPdf=false" alt="1.png"></img></p>
+<p>�</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUit&amp;d=%2Fa%2F4u000000Ly9c%2FuqyjCroiaqN9xh.1cyhb8v6Cx6BgJAJqawWFjoLYYJ4&amp;asPdf=false" alt="2.PNG"></img></p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcUiy&amp;d=%2Fa%2F4u000000Ly9h%2F57M2YiX0EW7tDhx45FEqH1e.wY39jA6c7Vmk.OJjG.g&amp;asPdf=false" alt="3.PNG"></img></p>
+<p>�</p>
+<p>API-GetTokens.ps1</p>
+<pre>param (<br>[parameter(Mandatory=$false)][string]$url<br>,[parameter(Mandatory=$false)][int]$clientId<br>,[parameter(Mandatory=$false)][string]$clientSecret<br>)<br><br><br>Set-StrictMode -Version Latest<br>$ErrorActionPreference = &quot;Stop&quot;<br><br><br><br>if(!($url)) { $url = Read-Host -Prompt &quot;Enter API URL (Leave blank for default: &#39;https://localhost:4494&#39;)&quot; }<br>if(!($url)) { $url = &quot;https://localhost:4494&quot; }<br><br>if(!($clientId)) { $clientId = Read-Host -Prompt &quot;Enter API Client ID&quot; }<br>if(!($clientSecret)) { $clientSecret = Read-Host -Prompt &quot;Enter API Client Secret&quot; }<br><br>if(!($clientId) -or !($clientSecret)) { throw &quot;Client ID and Client Secret required.&quot; }<br><br><br>class TrustAll : System.Net.ICertificatePolicy {<br>[bool] CheckValidationResult([System.Net.ServicePoint] $point,<br>[System.Security.Cryptography.X509Certificates.X509Certificate] $cert,<br>[System.Net.WebRequest] $req,<br>[int] $problem) {<br>return $true<br>}<br>}<br>[System.Net.ServicePointManager]::CertificatePolicy = [TrustAll]::new()<br><br><br><br><br>function Authenticate($baseUrl, $clientId, $secret) {<br><br><br><br><br>$body = @{<br>client_id = $clientId<br>client_secret = $secret<br>grant_type = &quot;client_credentials&quot;<br>};<br><br><br><br><br>Invoke-RestMethod &quot;$baseUrl/api/v1/token&quot; -Method Post -Body $body<br>}<br><br><br><br><br>$tokens = Authenticate $url $clientId $clientSecret<br><br><br><br><br>Write-Host &quot;Here&#39;s your refresh token: &quot;<br>$global:refreshToken = $($tokens.refresh_token)<br>$global:url = $url<br>echo $refreshToken</pre>
+<p>�</p>
+<p>2.API-Test.ps1</p>
+<pre>Set-StrictMode -Version Latest<br>$ErrorActionPreference = &quot;Stop&quot;<br><br><br>Write-Host &quot;Here&#39;s your refresh token: &quot;<br>echo $refreshToken<br><br><br><br>class TrustAll : System.Net.ICertificatePolicy {<br>[bool] CheckValidationResult([System.Net.ServicePoint] $point,<br>[System.Security.Cryptography.X509Certificates.X509Certificate] $cert,<br>[System.Net.WebRequest] $req,<br>[int] $problem) {<br>return $true<br>}<br>}<br>[System.Net.ServicePointManager]::CertificatePolicy = [TrustAll]::new()<br><br><br><br><br><br>function RefreshToken($baseUrl, $refreshToken) {<br><br><br><br><br>$body = @{<br>refresh_token = $refreshToken<br>grant_type = &quot;refresh_token&quot;<br>};<br><br><br><br><br>Invoke-RestMethod &quot;$baseUrl/api/v1/token&quot; -Method Post -Body $body<br>}<br><br><br><br><br>$tokens = RefreshToken $url $refreshToken<br><br><br><br><br>$headers = @{<br>Authorization = &quot;Bearer $($tokens.access_token)&quot;<br>};<br><br><br><br><br>$global:agents = Invoke-RestMethod &quot;$url/api/v1/agents&quot; -Headers $headers<br>$global:hosts = Invoke-RestMethod &quot;$url/api/v1/hosts&quot; -Headers $headers<br>$global:domains = Invoke-RestMethod &quot;$url/api/v1/domains&quot; -Headers $headers<br><br><br>echo &quot;`n`n`$agents:&quot;<br>$agents<br><br>echo &quot;`n`n`n&quot;<br>echo &quot;`n`n`$hosts:&quot;<br><br>$hosts<br><br>echo &quot;`n`n`n&quot;<br>echo &quot;`n`n`$domains:&quot;<br><br>$domains</pre>
+<p>�</p>
+<p><strong>Channel:� </strong>Internal</p>
+<p><strong>Submitted by:</strong>��Kevin Duddy</p>
+<p><strong>Product:</strong>�SAM</p>
+<p><strong>Affected Versions:</strong>�SAM 5.0+</p>
+<p><strong>Affected Module:</strong>�SAM API</p>
+<p><strong>Dev Ticket:</strong>�N/A</p>
+<p><strong>Resolved In Version:</strong>�N/A</p>
+<p><strong>KB Type:</strong>�How To</p>
+</body>
+</html>

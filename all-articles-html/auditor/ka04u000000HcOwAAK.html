@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to omit warnings in Netwrix Auditor for Active Directory when audit is properly configured?</title>
+    <meta name="article-id" content="ka04u000000HcOwAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:52.000Z">
+    <meta name="articlenumber" content="000003169">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:04.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:17.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VeCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9VeCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:04.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:17.000Z">
+    <meta name="meta-description" content="omit warning agent.ini audit properly configured">
+    <meta name="meta-title" content="How to omit warnings in Netwrix Auditor for Active Directory when audit is properly configured?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="746">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VeCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to omit warnings in Netwrix Auditor for Active Directory when audit is properly configured?</h1>
+    I recieve warnings about some of my domain controllers while they are properly configured and do not have any issues.
+How can I omit warnings in Netwrix Auditor for Active Directory?
+
+<hr></hr>
+
+Netwrix Auditor may throw warnings about some of your domain controllers. This article should be used when the audit is properly configured and/or the connection between the Netwrix server and the affected domain controller is not stable (RPC errors).
+
+<strong>Caution! </strong>This article should not be used when &quot;<em>System</em>&quot; is shown in &quot;<strong>Who Changed</strong>&quot; column of the daily summary report.
+
+To omit the warnings:
+<ol><li>Navigate <em>C:Program Files (x86)Netwrix AuditorActive Directory Auditing </em></li><li>Open <strong>agent.ini</strong>.</li><li>Add FQDN&#39;s in the following format: <strong><em>&lt;domain_controller&gt;=suppresswarnings</em></strong></li></ol>
+<div style="margin-left: 40px;"><strong><em>For example: </em></strong>
+DC1.contoso.com=suppresswarnings
+DC2.contoso.com=suppresswarnings</div>
+Each DC should be entered on a separate line.
+</body>
+</html>

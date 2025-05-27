@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Domain Audit Data from Reports ? Drop Domains</title>
+    <meta name="article-id" content="ka0Qk000000CYE1IAO">
+    <meta name="articlecaseattachcount" content="2">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-02-06T10:06:25.000Z">
+    <meta name="articlenumber" content="000009042">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-02-26T15:11:04.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-02-06T10:07:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000R3RKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000R3RKAU">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-02-26T15:11:47.000Z">
+    <meta name="lastpublisheddate" content="2024-02-06T10:07:44.000Z">
+    <meta name="meta-description" content="Drop Domains">
+    <meta name="meta-title" content="Drop Domains">
+    <meta name="ownerid" content="005Qk000001wMM9IAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9042">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000R3RKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Remove Domain Audit Data from Reports ? Drop Domains</h1>
+    <h2>Related Query</h2>
+<div>
+<ul><li>
+<p>�Why is data from an old, removed domain still appearing in tables and reports?�</p>
+</li></ul>
+</div>
+<h2>Overview</h2>
+<div>
+<p>In case a domain was decommissioned or excluded from the monitoring scope, the Netwrix Eterprise Auditor reports may still contain audit data for the domain. This article lists the steps to implement the <strong>Drop Domain</strong> task to remove the related domain data from your SQL Server.</p>
+</div>
+<h2>Instructions</h2>
+<div>
+<blockquote>
+<p><strong>TIP:</strong> You can create a separate folder (e.g., called <strong>Sandbox</strong>) for custom Jobs.</p>
+</blockquote>
+<ol><li>
+<p>Right-click the custom or <strong>Jobs</strong> folder and select <strong>Create Job</strong>.</p>
+</li><li>
+<p>Navigate to the <strong>Configure</strong> node and select the <strong>Queries</strong> node.</p>
+</li><li>
+<p>Click the <strong>Create Query</strong> button.</p>
+</li><li>
+<p>In the <strong>General</strong> tab, specify the <strong>AD Domain Drop</strong> name in the <strong>Name</strong> field.</p>
+</li><li>
+<p>In the <strong>Data Source</strong> tab, specify <code>ADINVENTORY</code> in the <strong>Data Collector</strong> drop-down menu.</p>
+</li><li>
+<p>Click <strong>Configure</strong> to launch Active Directory Inventory DC Wizard.</p>
+</li><li>
+<p>In the <strong>Category</strong> page, select the <strong>Drop Domain</strong> task and click <strong>Next</strong>.</p>
+</li><li>
+<p>In the <strong>Domains</strong> page, select the domains you would like to drop the AD data from.</p>
+</li><li>
+<p>Proceed with the wizard steps and save the configuration.</p>
+</li><li>
+<p>In the <strong>Hosts</strong> node, select the <strong>Local host</strong> checkbox to save the changes.</p>
+</li><li>
+<p>Run the job to drop the target domains.</p>
+</li></ol>
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>To update the AD reports results, re-run the reports.</p>
+</blockquote>
+</div>
+</body>
+</html>

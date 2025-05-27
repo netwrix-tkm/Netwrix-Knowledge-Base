@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Reports do not Complete, Stuck in Processing xx %</title>
+    <meta name="article-id" content="ka04u000000Hd9SAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:45:28.000Z">
+    <meta name="articlenumber" content="000008181">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:36.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:45:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JYPCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JYPCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:36.000Z">
+    <meta name="lastpublisheddate" content="2022-04-12T16:01:01.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Compliance Reports do not Complete, Stuck in Processing xx %">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8181">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JYPCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Compliance Reports do not Complete, Stuck in Processing xx %</h1>
+    <p>NNT has seen instances over the years of Change Tracker servers unable to run compliance reports against registered devices. When this occurs the &#39;Status&#39; value for the report will display &#39;Processing&#39; with an�<span style="color: rgb(34,34,34);">arbitrary completion percentage that never reaches 100%.</span></p><p><br></p><p><br></p><p>�<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="250" width="1004" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKPL&amp;d=%2Fa%2F4u000000Lzfp%2Fg1Y8rf9_gDebBNIHOCyC5QoOGX35XPrMdkyiGutcWIc&amp;asPdf=false"></img></span></p><p>Rather than this being a problem on the target device against which the report is being run, testing has shown that IIS specific security tools have the ability to block Change Tracker&#39;s collection of the report information and therefore the report never completes.</p><p>By far the most common security tool NNT encounters which causes this problem is UrlScan. UrlScan <span style="color: rgb(31,40,52);">helps to prevent potentially harmful requests from reaching applications on the server by�<span style="color: rgb(31,40,52);">screening all incoming requests, filtering the requests based on rules that are set by the administrator. Filtering requests helps secure the server by ensuring that only valid requests are processed.One such filtering option is to prevent�Transfer-Encoding. Such a prevention filter in UrlScan impacts Change Tracker as�<span style="color: rgb(31,40,52);"><span style="color: rgb(31,40,52);">Transfer-Encoding is</span></span> uses to gather the report data together from a remote system.</span></span></p><p><br></p><h2 id="ComplianceReportsdonotComplete,StuckinProcessingxx%-Step-by-stepguide">Step-by-step guide</h2><p>To prevent UrlScan from blocking�<span style="color: rgb(31,40,52);"><span style="color: rgb(31,40,52);"><span style="color: rgb(31,40,52);"><span style="color: rgb(31,40,52);">Transfer-Encoding, follow these steps.</span></span></span></span></p><ol><li>Move to the UrlScan install location at C:\Windows\system32/inetsrv/urlscan</li><li>Locate the .ini file which controls all filtering options and open the ini file in a text editor</li><li>Search through the file for the entry &#39;Transfer-Encoding&#39;</li><li>comment out�Transfer-Encoding by placing a ; at the start of the line, the finished line should look like this:�;Transfer-Encoding:</li><li>Save and close the ini file</li><li>Restart IIS</li></ol><p>�</p><p><br></p>
+</body>
+</html>

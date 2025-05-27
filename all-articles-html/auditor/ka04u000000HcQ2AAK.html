@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor for File Servers reports excessive file read attempts that did not actually occur</title>
+    <meta name="article-id" content="ka04u000000HcQ2AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:56.000Z">
+    <meta name="articlenumber" content="000003243">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:36.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WqCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9WqCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:36.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:29.000Z">
+    <meta name="meta-description" content="Netwrix Auditor for File Servers reports excessive file read attempts that did not actually occur.">
+    <meta name="meta-title" content="Netwrix Auditor for File Servers reports excessive file read attempts that did not actually occur">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1092">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WqCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor for File Servers reports excessive file read attempts that did not actually occur</h1>
+    Netwrix Auditor search, alerts and/or summary emails contain excessive file read attempts.
+
+If the thumbnail previews option is enabled for an account in File Explorer, each time the user opens a folder, internal icons cache is overwritten.
+
+<hr></hr>
+
+In order to reduce the number of such read attempts, you should configure the following policies:
+<ol><li>Open the Local Group Policy Editor snap-in on any domain controller in the target domain: navigate to Start &gt; Run and type &quot;gpedit.msc&quot;.</li><li>In the Local Group Policy Editor snap-in, navigate to User Configuration &gt; Administrative Templates &gt; Windows Components &gt; File Explorer.</li><li>Enable the following policies:</li></ol>
+<ul><li>Turn off the display of thumbnails and only display icons;</li><li>Turn off the display of thumbnails and only display icons on network folders;</li><li>Turn off the caching of thumbnails in hidden thumbs.db files;</li><li>Turn off caching of thumbnail pictures.</li></ul>
+Note: You should be signed in as an administrator to perform this operation.
+</body>
+</html>

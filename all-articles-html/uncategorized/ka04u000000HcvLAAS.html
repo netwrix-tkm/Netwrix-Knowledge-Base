@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWindowsAgent_5.0.0.824_5.1.0.459_5.2.0.291_6.0.0.414_7.0.0.294</title>
+    <meta name="article-id" content="ka04u000000HcvLAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:30:10.000Z">
+    <meta name="articlenumber" content="000007077">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:10:52.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:30:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IlcCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IlcCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:10:52.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:30:10.000Z">
+    <meta name="meta-description" content="360008877892">
+    <meta name="meta-title" content="Hotfix: SIWindowsAgent_5.0.0.824_5.1.0.459_5.2.0.291_6.0.0.414_7.0.0.294">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7077">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IlcCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWindowsAgent_5.0.0.824_5.1.0.459_5.2.0.291_6.0.0.414_7.0.0.294</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SI-Alerts SBTService is &quot;Stopped&quot;</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong><br>SI-Alerts SBTService is &quot;Stopped&quot;<br><strong><span style="font-family: calibri,sans-serif;">Behavior before Fix: </span></strong><br>When ini file has two sections: first SI with office filtering and the second SA without office filtering next situation can happen. When permission event arrives security difference is calculated. Event is passed to office filtering that might trigger several events. When events are extracted from office filtering security difference is calculated one more time. This might lead to the state when the difference is null. Next goest SA section. The same permission event is passed to SA section and as it doesn&#39;t have office filtering event is directly sent to the output but with incorrect security difference. In older versions this lead to crash due to AV in latest versions event will be skipped or incorrectly written to file.<br><strong><span style="font-family: calibri,sans-serif;">Behavior after Fix: </span></strong><br>Now events should be processed correctly without SBTService crash<br><b>Changes since Last Hotfix:</b><br>I-4985 [LINK - Teledyne] SI-3849 34136 - SI-Alerts SBTService is &quot;Stopped&quot;2<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau��<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>5.0.0����� SIWindowsAgent_5.0.0.824_SI-3849<br>5.1.0����� SIWindowsAgent_5.1.0.459_SI-3849<br>5.2.0����� SIWindowsAgent_5.2.0.291_SI-3849<br>6.0.0����� SIWindowsAgent_6.0.0.414_SI-3849<br>7.0.0����� SIWindowsAgent_7.0.0.294_SI-3849<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Agent<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>I-4985<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>5.0.0.824<br>5.1.0.459<br>5.2.0.291<br>6.0.0.414<br>7.0.0.294<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><b>Modules Included: </b>SI - Windows Agent<br><b>YouTrack/Escalations: </b>SI-3849 / 34136<br><b>Customers:� </b>Teledyne Technologies, Inc.<br><b>Cumulative List of fixes included since Service Pack:</b><br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Stop SIWindowsAgent service<br>2. Replace by attached files:<br>-� C:\Program Files\STEALTHbits\StealthAUDIT\FSAC\SBTService.exe<br>-� C:\Windows\System32\drivers\SBTFSF.sys<br>3. Start SIWindowsAgent service<br>� 
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWindowsAgent_5.0.0.824_SI-3849.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWindowsAgent_5.0.0.824_SI-3849.zip</a></td></tr></tbody></table>
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.1.0/SIWindowsAgent_5.1.0.459_SI-3849.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.1.0/SIWindowsAgent_5.1.0.459_SI-3849.zip</a></td></tr></tbody></table>
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.1.0/SIWindowsAgent_5.1.0.459_SI-3849.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.1.0/SIWindowsAgent_5.1.0.459_SI-3849.zip</a></td></tr></tbody></table>
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI6.0.0/SIWindowsAgent_6.0.0.414_SI-3849.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI6.0.0/SIWindowsAgent_6.0.0.414_SI-3849.zip</a></td></tr></tbody></table>
+<table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI7.0.0/SIWindowsAgent_7.0.0.294_SI-3849.zip" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI7.0.0/SIWindowsAgent_7.0.0.294_SI-3849.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.0.0, 5.1.0, 5.2.0, 6.0.0, 7.0.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3849<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 5.0.0.824
+5.1.0.459
+5.2.0.291
+6.0.0.414
+7.0.0.294<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2368<br></p>
+</body>
+</html>

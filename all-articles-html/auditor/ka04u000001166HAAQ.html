@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Characters Missing or Displayed Incorrectly in PDF Reports</title>
+    <meta name="article-id" content="ka04u000001166HAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-06-13T11:53:16.000Z">
+    <meta name="articlenumber" content="000008616">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-06-13T12:40:42.000Z">
+    <meta name="firstpublisheddate" content="2023-06-13T11:53:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110hCCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110hCCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-06-13T12:41:18.000Z">
+    <meta name="lastpublisheddate" content="2023-06-13T11:53:24.000Z">
+    <meta name="meta-description" content="japanese in reports showing incorrectly pdf export">
+    <meta name="meta-title" content="Auditor Reports not Showing Japanese Characters in Exported PDF reports">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8616">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110hCCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Japanese Characters Missing or Displayed Incorrectly in PDF Reports</h1>
+    <h2>Symptom</h2>
+
+<div>When exporting a report in the .PDF format, Japanese characters appear missing or displaying improperly.</div>
+
+<h2>Cause</h2>
+
+<div>Starting Windows Server 2016, Japanese TTF files are optional for installations with system locale different from Japanese.</div>
+
+<h2>Resolution</h2>
+
+<div>For Windows 10 clients and newer, refer to the following steps:</div>
+
+<ul><li>Open <strong>Settings</strong> &gt; <strong>Apps</strong> &gt; <strong>(Manage) Optional features</strong> &gt; <strong>Add a feature</strong> &gt; type <strong>Japanese Supplemental Fonts</strong> &gt; check the checkbox and click <strong>Install</strong>.</li></ul>
+
+<div>For Windows Server 2016 and newer, refer to the following steps:</div>
+
+<ul><li>Open <strong>Settings</strong> &gt; <strong>Apps</strong> &gt; <strong>(Manage) Optional features</strong> &gt; <strong>Add a feature</strong> &gt; type <strong>Japanese Supplemental Fonts</strong> &gt; check the checkbox and click <strong>Install</strong>.</li><li>In case no online option is possible, refer to the following step in the Microsoft article: <a href="https://learn.microsoft.com/en-US/troubleshoot/windows-server/shell-experience/cannot-configure-language-pack-windows-server-desktop-experience#method-2-use-lpksetup" target="_blank">Cannot configure a language pack for Windows Server 2019 � Use LPKSetup</a>.</li></ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-owner mailbox access attempts are not reflected in reports.</title>
+    <meta name="article-id" content="ka0Qk000000DS1iIAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:07.000Z">
+    <meta name="articlenumber" content="000002974">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA00g000000H9SQCA0">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2025-04-28T08:46:46.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9SQCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9SQCA0">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-28T08:55:03.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:40.000Z">
+    <meta name="meta-description" content="No access attempts report empty native audit Exchange configuration">
+    <meta name="meta-title" content="Non-owner mailbox access attempts are not reflected in reports.">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="225">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SQCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Non-owner mailbox access attempts are not reflected in reports.</h1>
+    Perform the following configuration steps on your monitored Exchange servers (depending of the Exchange server version):
+
+<strong>For Exchange server 2003</strong>:
+<div>
+<ol><li style="list-style-type: none;">
+<ol><li>Start the Microsoft Management Console (MMC) Exchange System Management snap-in.</li><li>Expand your administrative group --&gt; <b>Servers</b>.</li></ol>
+</li></ol>
+<ol><li>Right-click the Exchange Server and select <b>Properties</b>.</li><li>Open the <b>Diagnostics Logging</b> tab.</li><li>Under the <b>Services List</b>, expand the <b>MSExchangeIS Service</b> and select <b>Mailbox</b>.</li><li>In the <b>Categories</b> list, select <b>Logons</b>, set logging level to <b>Minimum</b> and click <b>Apply</b>.</li><li>Click <b>OK</b>.</li><li>Navigate to <b>Start</b> --&gt; <b>Administrative Tools</b> --&gt; <b>Services</b>. Click <b>Microsoft Exchange Information Store</b> and restart the service.</li></ol>
+</div>
+<div>
+
+<b>For Exchange 2007/2010</b>:
+<ol><li>Start the Exchange Management Shell.</li><li>Run the following command: &#39;Set-EventLogLevel &quot;MSExchangeIS9000 PrivateLogons&quot; -Level Low&#39;</li><li>Navigate to <b>Start</b> --&gt; <b>Administrative Tools</b> --&gt; <b>Services</b>. Click <b>Microsoft Exchange Information Store</b> and restart the service.</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows - Change the DB location</title>
+    <meta name="article-id" content="ka04u000000Hd8BAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:34:57.000Z">
+    <meta name="articlenumber" content="000008108">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:01.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:34:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JTeCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JTeCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:01.000Z">
+    <meta name="lastpublisheddate" content="2022-04-12T16:18:18.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Windows - Change the DB location">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8108">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JTeCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Windows - Change the DB location</h1>
+    <p>Stop the IIS Web server using command line iisreset /stop or use the IIS Management Console, or use the Windows Services Console.</p><p>Next, stop the Mongo DB service using the Windows Services Console.</p><p>Edit the mongod.conf file located in C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\conf</p><p>Edit the parameters for dbpath to change the location for DB files.</p><p>Then start the Mongod service, followed by an iisreset /start.</p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKBT&amp;d=%2Fa%2F4u000000LzeS%2FaNBRGcLX_rWYT53yHbH1dnquGmBv8cvLfFyt6gSF8iI&amp;asPdf=false" target="_blank">image2017-6-2_12-50-34.png</a> <br>
+</body>
+</html>

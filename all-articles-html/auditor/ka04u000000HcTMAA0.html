@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error : &quot;Encountered an error while parsing. Incorrect document syntax. File &lt;path to file&gt;&quot;</title>
+    <meta name="article-id" content="ka04u000000HcTMAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:50.000Z">
+    <meta name="articlenumber" content="000003470">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:59.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9aaCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9aaCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:59.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="meta-description" content="Encountered an error while parsing, adm, admx, Group Policy">
+    <meta name="meta-title" content="Error : &quot;Encountered an error while parsing. Incorrect document syntax. File &lt;path to file&gt;&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1305">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9aaCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error : &quot;Encountered an error while parsing. Incorrect document syntax. File &lt;path to file&gt;&quot;</h1>
+    You get the &quot;Encountered an error while parsing. Incorrect document syntax. File &lt;path to file&gt;&quot; error in the summary reports and sessions for Group Policy auditing.
+
+For example:
+<span style="background-color: #ffffff;">&quot;Encountered an error while parsing. Incorrect document syntax. File </span><a style="color: #000000;background-color: #ffffff;" href="file://roc-dc2.jjkllc.com/sysvol/jjkllc.com/Policies/PolicyDefinitions/EnhancedStorage.admx," target="_blank">&lt;DC name&gt;sysvol&lt;domain name&gt;PoliciesPolicyDefinitionsEnhancedStorage.admx,</a><span style="background-color: #ffffff;"> line 1, column 1&quot;</span>
+
+<hr></hr>
+
+<span style="background-color: #ffffff;">Solution for Group Policy during the data collection process uses the native Windows tools like GP Management Console, and if any issues appears it will shows up in summary reports and sessions for Group Policy  too. </span><br style="background-color: #ffffff;"><span style="background-color: #ffffff;">Error means that files or administrative templates have incorrect structure and cannot be processed. </span>
+
+<hr></hr>
+
+<span style="background-color: #ffffff;">To troubleshoot this issue, please open these GPOs in Microsoft Group Policy Management Console, try to view their settings and fix the errors.
+In some cases it is not possible to fix it and it is recommended to recreate them from scratch.</span>
+</body>
+</html>

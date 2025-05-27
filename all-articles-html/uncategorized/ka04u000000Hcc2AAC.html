@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIEntManager_SIAgent_7.2.0.293_7.3.0.197</title>
+    <meta name="article-id" content="ka04u000000Hcc2AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T17:53:17.000Z">
+    <meta name="articlenumber" content="000006045">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T09:59:08.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T17:53:18.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Hx3CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Hx3CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:59:08.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T17:53:18.000Z">
+    <meta name="meta-description" content="360012021532">
+    <meta name="meta-title" content="Hotfix: SIEntManager_SIAgent_7.2.0.293_7.3.0.197">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6045">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Hx3CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIEntManager_SIAgent_7.2.0.293_7.3.0.197</h1>
+    <p><strong>Summary: </strong></p>
+<p>SI-4469 60748 - Multiple agents go into status &quot;unknown&quot;</p>
+<p>SI-4404 58894 - domain controllers were inactive in SI</p>
+<p><strong>Behavior before Fix: </strong></p>
+<p>Agent  EM communication was based on a mix of asynchronous and synchronous code which also required locking of streaming grpc calls</p>
+<p><strong>Behavior after Fix: </strong></p>
+<p>Agent  EM communication is based on asynchronous code only and queuing of streaming grpc calls instead of locking, which should result in much better performance in case of hundreds of connected agents</p>
+<p>�</p>
+<p><strong>Changes since Last Hotfix:</strong></p>
+<p>I-7414 [Link] SI-4469 60748 - Multiple agents go into status &quot;unknown&quot;</p>
+<p><strong>Submitted by: </strong></p>
+<p>Maxim Sidarau��</p>
+<p><strong>Affected Versions:</strong></p>
+<p>7.3.0.196 and older</p>
+<p>7.2.0.292 and older</p>
+<p><strong>Affected Module:</strong></p>
+<p>SI - Enterprise Manager</p>
+<p>SI � Windows Agent</p>
+<p><strong>Dev Ticket:</strong></p>
+<p>I-7414</p>
+<p><strong>Resolved in Version:</strong></p>
+<p>7.3.0.197</p>
+<p>7.2.0.293</p>
+<p><strong>KB Type: </strong></p>
+<p>Hotfix</p>
+<p><strong>�</strong></p>
+<p><strong>Modules Included: </strong></p>
+<p>SI - Enterprise Manager</p>
+<p>SI � Windows Agents</p>
+<p><strong>YouTrack/Escalations: </strong></p>
+<p>SI-4456 / 60483</p>
+<p>SI-4404 / 60748</p>
+<p><strong>Cumulative List of fixes included since Service Pack:</strong></p>
+<p><strong>Instructions:</strong></p>
+<p>The following SI modules should be upgrade to the newest version:</p>
+<p>* SI Enterprise Manager</p>
+<p>* SI Windows Agents</p>
+<p>�</p>
+<p><a href="https://stealthbits.com/product-downloads/" target="_blank">https://stealthbits.com/product-downloads/</a></p>
+<p>�</p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password</title>
+    <meta name="article-id" content="ka04u00000116e9AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-07-11T15:44:41.000Z">
+    <meta name="articlenumber" content="000008661">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-07-11T15:44:41.000Z">
+    <meta name="firstpublisheddate" content="2023-07-11T15:45:45.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110qYCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T15:45:45.000Z">
+    <meta name="lastpublisheddate" content="2023-07-11T15:45:45.000Z">
+    <meta name="meta-description" content="Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password">
+    <meta name="meta-title" content="Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8661">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: 9999 Mismatch in Service Account Username when Attempting to Rotate Service Password</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span>
+<h1>Symptom</h1>
+
+<div>
+<p>When attempting to scan an endpoint the following error occurs:</p>
+
+<pre>
+9999 Mismatch in service account username when attempting to rotate service password</pre>
+
+<p>The scan will not complete.</p>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>It is a bug related to the <strong>Local Admin Password TTL Days</strong>. This is an older feature that supported rotating local account passwords which is no longer supported/leveraged. We have set this to 0 in all installations/upgrades moving forward.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<ol><li>
+	<p>Update the Local Admin Password TTL Days to 0 for the respective service</p>
+	</li><li>
+	<p>Restart the service via the UI</p>
+	</li></ol>
+</div>
+</body>
+</html>

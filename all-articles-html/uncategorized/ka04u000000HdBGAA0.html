@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo Commands - Change Tracker Poor Performance Prior to Version 7.2.1.20</title>
+    <meta name="article-id" content="ka04u000000HdBGAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:00:18.000Z">
+    <meta name="articlenumber" content="000008303">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:18:18.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:00:19.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JfzCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000JfzCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:19.000Z">
+    <meta name="lastpublisheddate" content="2022-02-07T01:00:19.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Mongo Commands - Change Tracker Poor Performance Prior to Version 7.2.1.20">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8303">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfzCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Mongo Commands - Change Tracker Poor Performance Prior to Version 7.2.1.20</h1>
+    <p>If Change Tracker is running slowly or you find that the Change Tracker reports are running all the time then the system might be impacted by reports running against the report schedule used pre R2. If the old schedule is in use it is not visible through the GUI, and would require a mongo command to be revealed. Regardless, it is a prudent step if the Change Tracker version is prior to version .20 that the following command is run against the system.</p><p><br></p><p>Enter the following command: cd <span>&quot;C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin&quot;</span></p><p><span>This is the default location of the Mongo binary files. If you are unsure to which path the Mongo database has been installed, view the properties of the Mongod service and the path to execute parameter.</span></p><p>Enter the following command: mongo.exe</p><p>Enter the following command: use NNTHubService</p><p>Enter the following command: db.ScheduledPolicy.remove({_t:<span>&quot;MongoPolicyScheduleItem&quot;</span>,<span>&quot;TemplateType&quot;</span>:2})</p><p>Enter the following command:�db.AgentTasks.remove({&quot;AgentTask.AgentTaskType&quot;:5});</p><p>The above commands will correct any occurance of the old style schedule (db.ScheduledPolicy.remove) and remove any reports that are waiting to be executed (db.AgentTasks.remove).</p>
+</body>
+</html>

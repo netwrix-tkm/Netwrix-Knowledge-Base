@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to: Change a User&#x27;s Membership Type</title>
+    <meta name="article-id" content="ka0Qk000000DKs9IAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1WUAA0">
+    <meta name="articlecreateddate" content="2025-04-21T18:16:01.000Z">
+    <meta name="articlenumber" content="000010150">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002MNpKAM">
+    <meta name="assignedbyid" content="0054u000008F1WUAA0">
+    <meta name="assignedtoid" content="0054u000008F1WUAA0">
+    <meta name="assignmentdate" content="2025-04-21T18:16:01.000Z">
+    <meta name="createdbyid" content="0054u000008F1WUAA0">
+    <meta name="createddate" content="2025-04-21T18:16:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002MNpKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002MNpKAM">
+    <meta name="lastmodifiedbyid" content="0054u000008F1WUAA0">
+    <meta name="lastmodifieddate" content="2025-04-21T18:16:29.000Z">
+    <meta name="meta-description" content="Change a User&#x27;s Membership Type">
+    <meta name="meta-title" content="How to: Change a User&#x27;s Membership Type">
+    <meta name="ownerid" content="0054u000008F1WUAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10150">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002MNpKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to: Change a User&#x27;s Membership Type</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11</p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>We have added some external users to an Active Directory group. These users need to access a network location for 30 days to perform a financial audit.</p>
+<p>Is it possible to add these users to group membership for one month and then have them automatically removed? We do not want to expire the group as some of our permanent employees are also members of the group.</p>
+<h2><span style="color: #2980b9;"><b>Solution:</b></span></h2>
+<p>Using Directory Manager, you can add users to a group as temporary members and specify dates for temporary membership.</p>
+<p>A scheduled Membership Life Cycle job in GroupID runs in the background and adds/removes temporary group members on the specified dates.</p>
+<p>Other membership options are:</p>
+<p>�</p>
+<table cellpadding="0" cellspacing="0" border="1"><thead><tr><td colspan="1" rowspan="1" style="width: 102.75pt;">
+<p><b>Membership Type</b></p>
+</td><td colspan="1" rowspan="1" style="width: 15.0in;">
+<p><b>Description</b></p>
+</td></tr></thead><tbody><tr><td colspan="1" rowspan="1" style="width: 102.75pt;">
+<p>Perpetual</p>
+</td><td colspan="1" rowspan="1" style="width: 15.0in;">
+<p>To make the object a permanent member of the group.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 102.75pt;">
+<p>Temporary Member</p>
+</td><td colspan="1" rowspan="1" style="width: 15.0in;">
+<p>To make the object a temporary member of the group for the period you specify in the�<b>Beginning</b>�and�<b>Ending</b>�boxes. At the end of the period, the object is removed from group membership.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 102.75pt;">
+<p>Addition Pending</p>
+</td><td colspan="1" rowspan="1" style="width: 15.0in;">
+<p>Indicates that the object will be a temporary member of the group for a period in the future. Use the�<b>Beginning</b>�and�<b>Ending</b>�boxes to set a period. Before the beginning date, the object�s membership type is displayed as �Addition Pending�. On the beginning date, the membership type changes to �Temporary Member�.</p>
+<p><b>Example:</b></p>
+<p>You add Smith as a temporary member to Group A on May 15, 2019 for future dates, May 20-30, 2019.</p>
+<p>Smith will be displayed in Group A�s membership with �Addition Pending� as its membership type from May 15 to 19, 2019. However, Smith would not be added to group membership in the provider.</p>
+<p>On May 20, Smith will become a temporary member of Group A and its membership type will change to �Temporary Member� from May 20 to 30, 2019. Smith will also be added to group membership in the provider.</p>
+<p>After May 30, Smith will be removed from Group A as a member in GroupID and in the provider.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 102.75pt;">
+<p>Removal Pending</p>
+</td><td colspan="1" rowspan="1" style="width: 15.0in;">
+<p>Indicates that the object will be temporarily removed from group membership for a period in the future. Use the�<b>Beginning</b>�and�<b>Ending</b>�boxes to set a period. Before the beginning date, the object�s membership type is displayed as �Removal Pending�. On the beginning date, the membership type will change to �Temporary Removed�.</p>
+<p><b>Example:</b></p>
+<p>You remove Smith from Group A on May 15, 2019 for future dates, May 20-30, 2019.</p>
+<p>Smith will be displayed in Group A�s membership with �Removal Pending� as membership type from May 15 to 19, 2019.</p>
+<p>On May 20, Smith�s membership type in GroupID will change to �Temporary Removed�; lasting till May 30, 2019. However, Smith will be removed from Group A�s membership in the provider.</p>
+<p>After May 30, Smith will be added back to Group A as a permanent member in GroupID and in the provider.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="width: 102.75pt;">
+<p>Temporary Removed</p>
+</td><td colspan="1" rowspan="1" style="width: 15.0in;">
+<p>Indicates that the object is temporarily removed from group membership for the period specified in the�<b>Beginning</b>�and�<b>Ending</b>�boxes. At the end of the period, the object is added back to the group membership as a permanent member.</p>
+</td></tr></tbody></table>
+<p>�</p>
+<p>�</p>
+<h2><span style="color: #2980b9;"><strong>Steps to Achieve the Use Case:�</strong></span></h2>
+<p>1) In the Directory Manager Portal, search a group to change the membership type of its member(s).</p>
+<p>2) Select this group on the�<b>Search Results</b>�page and click�<b>Properties</b> on the toolbar.�The�<b>Members</b>�tab in group properties lists the group members.</p>
+<p>3) To change the membership type of a member, click anywhere in the respective row to make it editable and select <i>Temporary Member</i>�from the�<b>Membership</b>�Then specify the membership period using the�<b>Beginning</b>�and�<b>Ending</b>�boxes. Other membership options are discussed in the table above.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DKs9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C65MH" alt="" width="768" height="202"></img></p>
+<p>�</p>
+<p>4) Save the changes.</p>
+</body>
+</html>

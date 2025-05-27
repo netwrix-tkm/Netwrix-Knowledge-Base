@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Detect a Windows System Time Change With the Log Tracker Server?</title>
+    <meta name="article-id" content="ka04u000000Qmc2AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:52:26.000Z">
+    <meta name="articlenumber" content="000008244">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-25T15:08:57.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:52:27.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JTRCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JTRCA2">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-05-25T15:11:18.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to detect a Windows system time change with the Log Tracker Server">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8244">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JTRCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Detect a Windows System Time Change With the Log Tracker Server?</h1>
+    <h1>Question</h1>
+How to detect a Windows system time change with the Log Tracker Server?
+
+<h1>Answer</h1>
+First, you will need to have the <strong>Log Tracker Windows Agent</strong> installed on the Windows platform. By default, the agent configuration monitors changes to the system clock, and will generate a system message such as the following if the system clock is changed:
+
+<pre class="ckeditor_codeblock">
+Location: WINDOWS7
+
+Security 4616: Microsoft-Windows-Security-Auditing: The system time was changed. 
+
+ Subject: 
+   Security ID: WINDOWS7\jeff-davison 
+   Account Name: jeff-davison 
+   Account Domain: WINDOWS7 
+   Logon ID: 0x21a7a 
+
+ Process Information: 
+   Process ID: 0x159c 
+   Name: C:\Windows\System32\rundll32.exe 
+   Previous Time: 2014-12-12T20:26:54.000000000Z 
+   New Time: 2014-12-12T20:26:54.000000000Z 
+
+This event is generated when the system time is changed. (Audit Success)
+</pre>
+No other action (other than installing the agent) is necessary to get the above messages correctly logged.<br>If you would like to trigger an alert if the above message occurs, match the above message in the <strong>Alerts &gt; Device</strong> screen. You can set up a single alert across all devices.<br>If you set up an alert, you will then receive a ticket if the system time changes for any device.
+<h3 id="">Related articles</h3>
+
+<ul><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JWTCA2.html" target="_blank">How to Backup / Restore / Move your MongoDB Database</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JemCAE.html" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JgJCAU.html" target="_blank">How to Change the Admin Password of your Mongo Database</a></div>
+	</li><li>
+	<div><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JdtCAE.html" target="_blank">Supporting Documents for Hub Server Problems</a></div>
+	</li></ul>
+
+<p>�</p>
+
+<p>�</p>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Could Not Find Stored Procedure GetAllProperties</title>
+    <meta name="article-id" content="ka04u000001171mAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-08-03T15:39:53.000Z">
+    <meta name="articlenumber" content="000008709">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-08-04T07:38:56.000Z">
+    <meta name="firstpublisheddate" content="2023-08-03T15:40:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110zQCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110zQCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-08-04T07:39:18.000Z">
+    <meta name="lastpublisheddate" content="2023-08-03T15:40:11.000Z">
+    <meta name="meta-description" content="Could not find stored procedure GetAllProperties">
+    <meta name="meta-title" content="Could not find stored procedure GetAllProperties">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8709">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110zQCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Could Not Find Stored Procedure GetAllProperties</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>You&#39;ve encountered the following error running reports:</p>
+
+<pre class="has-inner-focus">
+An error occurred within the report server database.
+This may be due to a connection failure, timeout or low disk condition within the database. (rsReportServerDatabaseError)
+Could not find stored procedure &#39;GetAllProperties&#39;</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The ReportServer database is corrupted and has to be rebuilt.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>In your Netwrix Auditor server, disable <strong>Netwrix Auditor Archive Service</strong> and <strong>Netwrix Auditor Management Service</strong> via Services.</p>
+	</li><li>
+	<p>Open the SQL server instance used by Netwrix Auditor via SQL Server Management Studio, and delete both the <strong>ReportServer</strong> and <strong>ReportServerTemp</strong> databases.</p>
+
+	<ol><li>
+		<p>Once you&#39;ve opened SSMS, unfold the <strong>Databases</strong> folder in the <strong>Object Explorer</strong> pane on the left.</p>
+		</li><li>
+		<p>Right-click each (<strong>ReportServer</strong> and <strong>ReportServerTemp</strong>) database and select <strong>Delete</strong>.</p>
+		</li><li>
+		<p>Before confirming the deletion, make sure to check the <strong>Close existing connections</strong> checkbox.</p>
+		</li></ol>
+	</li><li>
+	<p>Once the databases are deleted, regenerate the <strong>ReportServer</strong> database. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html" target="_blank">Deploying the Report Server Database</a>.</p>
+	</li><li>
+	<p>After you&#39;ve configured the <strong>ReportServer</strong> database, grant the roles to the SSRS service account the roles required. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Permissions/SSRSAccount/Overview.htm" target="_blank">Configure SSRS Account</a>.</p>
+	</li><li>
+	<p>Restart <strong>Netwrix Auditor Archive Service</strong> and <strong>Netwrix Auditor Management Service</strong> via Services.</p>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Service Terminated Unexpectedly</title>
+    <meta name="article-id" content="ka04u000000wwBDAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-09T10:34:14.000Z">
+    <meta name="articlenumber" content="000008894">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-11-21T10:50:21.000Z">
+    <meta name="firstpublisheddate" content="2023-11-09T10:34:21.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnncCAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnncCAA">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-11-21T10:51:10.000Z">
+    <meta name="lastpublisheddate" content="2023-11-21T10:51:10.000Z">
+    <meta name="meta-description" content="MongoDB Service Terminated Unexpectedly">
+    <meta name="meta-title" content="MongoDB Service Terminated Unexpectedly">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8894">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnncCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>MongoDB Service Terminated Unexpectedly</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The MongoDB Service is not stay running and stops after each startup.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The issue occurs if a database was corrupted and this can happen when a server is shutdown unexpectedly as MongoDB doesn&#39;t have time to shutdown safely.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>On the computer that hosts <b>Change Tracker</b> software, Stop the <b>MongoDB</b> service.</p>
+	</li><li>
+	<p>Open a <b>Command Prompt</b>, ensure that you run it as an <b>Administrator</b>.</p>
+	</li><li>
+	<p>Enter the following command:<code>cd &quot;C:\Program Files\NNT Change Tracker Suite (Netcore)\Gen7\MongoDB\bin&quot;</code>.</p>
+	</li><li>
+	<p>Enter the following command:<code>mongod.exe --dbpath &quot;C:\ProgramData\Change Tracker Generation 7 (Netcore)\MongoDB\db&quot; --repair</code>.</p>
+	</li><li>
+	<p>Enter the following command:<code>iisreset</code>.</p>
+	</li><li>
+	<p>Close the command prompt window.</p>
+	</li></ol>
+</div>
+</body>
+</html>

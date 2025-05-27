@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to learn which of devices were audited on which days (Gen 7 R2)</title>
+    <meta name="article-id" content="ka04u000000QmY5AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-05-05T11:49:03.000Z">
+    <meta name="articlenumber" content="000008577">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-05-23T09:09:05.000Z">
+    <meta name="firstpublisheddate" content="2023-05-22T18:15:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000HDiUCAW">
+    <meta name="knowledge-article-id" content="kA04u000000HDiUCAW">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-05-23T09:10:19.000Z">
+    <meta name="lastpublisheddate" content="2023-05-22T18:15:12.000Z">
+    <meta name="meta-description" content="How to learn which of devices were audited on which days">
+    <meta name="meta-title" content="How to learn which of devices were audited on which days">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8577">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000HDiUCAW.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to learn which of devices were audited on which days (Gen 7 R2)</h1>
+    <h1>Question</h1>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">How does Gen 7 R2 event record work?</span></span></span>
+
+<h1>Answer</h1>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">Netwrix Change Tracker�Gen 7 R2 records an Audit Event for every day a device is active.</span></span></span><br><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">Each new event is incremented by 1 � in other words, for every agent seen active in any day period, an event will be recorded with one added to the�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;"><span style="font-weight: normal;">Licensed Day Usage</span></span></strong>�count.</span></span></span>
+
+<h4><strong>Examples</strong></h4>
+
+<ul><li style="margin-left: 8px;"><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">System�<span style="font-family: &quot;Calibri Light&quot;,sans-serif;">with</span><strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;"> 1 agent only</span></strong>, active every day for a�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">30-day period</span></strong>, will record�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">30 Licensed Day Usage Audit Events</span></strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">, numbered </span><strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">1 to 30</span></strong>.</span></span></span></li><li style="margin-left: 8px;"><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">Alternatively, a system with�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">25 devices</span></strong>, where all devices have been active in�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">each day period</span></strong>�for a�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">ten-day period</span></strong>, will record�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">10 Licensed Day Usage events for each device</span></strong>, the last of these events will therefore be numbered�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">250</span></strong>.</span></span></span></li></ul>
+<span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">To assess the total number of Licensed Day Usage events in any period, run a query for the period, with a text search for <strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">Licensed</span></strong> for�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">Audit Events</span></strong>.</span></span></span><br><span style="font-size: 12pt;"><span style="font-family: &quot;Times New Roman&quot;,serif;"><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">The actual consumption of�<strong><span style="font-family: &quot;Calibri Light&quot;,sans-serif;">Licensed Days</span></strong>�during the period will the difference between the last and first events number.</span></span></span><br>�
+</body>
+</html>

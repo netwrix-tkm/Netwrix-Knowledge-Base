@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure Website Accessibility Using Server Hostname Only</title>
+    <meta name="article-id" content="ka0Qk0000002mmvIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-03-29T16:19:03.000Z">
+    <meta name="articlenumber" content="000009108">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-04-02T13:37:35.000Z">
+    <meta name="firstpublisheddate" content="2024-03-29T16:19:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000YrJKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000YrJKAU">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-04-02T13:38:22.000Z">
+    <meta name="lastpublisheddate" content="2024-04-02T13:38:22.000Z">
+    <meta name="meta-description" content="How to Configure Website Accessibility Using Server Hostname Only">
+    <meta name="meta-title" content="How to Configure Website Accessibility Using Server Hostname Only">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9108">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000YrJKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure Website Accessibility Using Server Hostname Only</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How can you get Netwrix Password Reset to redirect a site to its hostname?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Follow the steps below to configure Netwrix Password Reset to redirect a site to its hostname:</p>
+
+<ol><li>
+	<p>Open <b>IIS Manager</b>.</p>
+	</li><li>
+	<p>Select <b>Default web site</b> and click <b>Advanced Settings...</b> in the right pane.</p>
+
+	<p><img alt="User-added image" height="258" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xo2I" width="500"></img></p>
+	</li><li>
+	<p>Change the <b>Application Pool</b> from <b>DefaultAppPool</b> to <b>Netwrix Password Reset</b>.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xwuH"></img></p>
+	</li><li>
+	<p>Change <b>Physical Path</b> from <b>%SystemDrive%\inetpub\wwwroot</b> to <b>%SystemDrive%\inetpub\wwwroot\pwreset</b>.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xsCM"></img></p>
+	</li><li>
+	<p>Click <b>OK</b>, then double-click the <b>Default Document</b> icon in the middle pane.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xfbi"></img></p>
+	</li><li>
+	<p>Click <b>Add...</b> in the right pane, then enter <b>en_default.htm</b> and press <b>Enter</b>.</p>
+
+	<p><img alt="User-added image" height="191" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xx2L" width="500"></img></p>
+	</li><li>
+	<p>Double-click <b>Handler Mappings</b> and select <b>ISAPI-dll</b>.</p>
+	</li><li>
+	<p>click <b>Edit Feature Permissions...</b> in the right pane.</p>
+
+	<p><img alt="User-added image" height="192" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xx5Z" width="500"></img></p>
+	</li><li>
+	<p>Check <b>Execute</b>, then <b>OK</b>.</p>
+	</li></ol>
+
+<p>Your default page when inputting Hostname or IP address should now be your Netwrix Password Reset site.</p>
+
+<p><img alt="User-added image" height="335" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002mmv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003xxC1" width="500"></img></p>
+</div>
+</body>
+</html>

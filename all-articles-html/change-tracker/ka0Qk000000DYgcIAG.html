@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to fix The Netwrix Agent Service not Starting</title>
+    <meta name="article-id" content="ka0Qk000000DYgcIAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:45:23.000Z">
+    <meta name="articlenumber" content="000008179">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JYFCA2">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T10:39:29.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:45:23.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JYFCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000JYFCA2">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:44:20.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to fix The Netwrix Agent Service not Starting">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8179">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JYFCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to fix The Netwrix Agent Service not Starting</h1>
+    <p>On completion of the Netwrix Agent installation, the agent&#39;s service should start automatically. If you find that the service has not started and, when manual attempts to start the service timeout, the following may be the cause.</p><p>The agent&#39;s files are signed with a certificate and therefore Windows will attempt to confirm the validity of the certificate as the service starts. If the Windows server is able to reach a certificate server or if access to a certificate server is rejected, then the agent service will start as normal. If, for whatever reason the a certificate server cannot be reached or <strong>the attempt to reach the certificate server does not timeout within 30 seconds</strong>, the default time allowed for a Windows service to start, then the service will fail with the error.</p><h2 id="HowtofixTheNNTAgentServicenotStarting-"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKJJ&amp;d=%2Fa%2F4u000000LzWb%2FRctImuhLp0rFqd2lhyPHq.90DKvazPKLk5jnFhFG3zQ&amp;asPdf=false"></img></span></h2><p><br></p><p>Consider the following steps to eliminate the problem, the below configuration will prevent the certificate look up when the agent&#39;s service starts.</p><h2 id="HowtofixTheNNTAgentServicenotStarting-Step-by-stepguide">Step-by-step guide</h2><p>Add the highlighted lines to the file - &#39;<strong>NNTAgentService.exe.config&#39;</strong>found in this location &#39;<strong>C:\Program Files\NNT Change Tracker Suite\Agent&#39;</strong></p><p></p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p><span style="color: rgb(0,255,0);"></span></p><p><span style="color: rgb(0,255,0);"> </span></p><p><span style="color: rgb(0,255,0);"> </span></p><h2 id="HowtofixTheNNTAgentServicenotStarting-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+</p><ul class="content-by-label conf-macro output-block"><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8150" target="_blank">How to Backup / Restore / Move your MongoDB Database</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8282" target="_blank">Monitoring Oracle Databases using Change Tracker</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8295" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8283" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8164" target="_blank">How to Add Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen7</a>
+                        
+                        
+                    </div>
+    </li></ul>
+<p><br></p><p><br></p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKMh&amp;d=%2Fa%2F4u000000LzY1%2F9TmGc30hA1WjaKoMt0TaW88BjFS60e_08cY2mHZofI8&amp;asPdf=false" target="_blank">image2017-12-4_18-32-45.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKP7&amp;d=%2Fa%2F4u000000LzuZ%2FQZ3eX0pbeqwDNpGUamx9XLixTFGs_7RxRO4mSqBufZ0&amp;asPdf=false" target="_blank">image2017-12-4_18-32-19.png</a> <br>
+</body>
+</html>

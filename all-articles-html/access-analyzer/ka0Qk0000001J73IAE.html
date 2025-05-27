@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Remove Servers from Host Lists</title>
+    <meta name="article-id" content="ka0Qk0000001J73IAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:20:21.000Z">
+    <meta name="articlenumber" content="000006552">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2024-01-11T13:26:54.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:20:21.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IPDCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IPDCA2">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2024-01-11T13:28:47.000Z">
+    <meta name="lastpublisheddate" content="2024-01-11T13:28:47.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="How to remove servers no longer present in the environment from host lists.">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6552">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IPDCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Remove Servers from Host Lists</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>Delete servers no longer in the environment from host lists, as these lists contain machines that have been removed from the network.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<h4>Remove a machine from the Host Management</h4>
+
+<div>
+<ol><li>
+	<p>Select the <strong>Host Management</strong> node in the top-left corner.</p>
+	</li><li>
+	<p>Search for the required machine.</p>
+
+	<blockquote>
+	<p><strong>TIP:</strong> The name column can be sorted alphabetically by clicking the Name column header (once for ascending, a second time for descending), or filtered for a specific host by clicking on the drop-down option on the right hand side of the column header. Additionally you may search for hosts with an offline status in the same manner using the <strong>HostStatus</strong> column.</p>
+	</blockquote>
+	</li><li>
+	<p>Right click the machine, and select <strong>Delete Host(s)</strong>. Multiple sequential hosts can be selected by holding down the &#39;shift&#39; key while selecting hosts or multiple non-sequential hosts can be selected by holding down the &#39;ctrl&#39; key while selecting hosts.</p>
+	</li></ol>
+</div>
+
+<h4>Removed machine is still in the list</h4>
+
+<div>
+<p>If you have removed the machine from the host management, and the next day you see it in the list again, it is possible that the machine is still in AD. During an AD host discovery query, all computers in AD will be added to the host list. Once the machine is removed from AD, and then removed from the host list, it should no longer show on the host lists.</p>
+</div>
+
+<div>
+<p><strong>Module:</strong> SA - DC - Active Directory; SA - DC - ADInventory<br>�</p>
+</div>
+</body>
+</html>

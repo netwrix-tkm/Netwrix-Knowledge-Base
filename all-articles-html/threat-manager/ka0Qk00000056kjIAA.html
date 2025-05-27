@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjusting Log Level in Threat Manager</title>
+    <meta name="article-id" content="ka0Qk00000056kjIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:35:09.000Z">
+    <meta name="articlenumber" content="000007226">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2024-08-26T11:10:24.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:35:09.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IqmCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IqmCAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-08-26T11:11:08.000Z">
+    <meta name="lastpublisheddate" content="2024-07-30T09:48:59.000Z">
+    <meta name="meta-description" content="360008304072">
+    <meta name="meta-title" content="Adjust log level in StealthDEFEND">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7226">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IqmCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Adjusting Log Level in Threat Manager</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>Netwrix Threat Manager job services support several logging levels to provide the required level of details to users. This article covers the steps to adjust the logging level for a specific service.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>Refer to the following steps to modify the logging level for a Threat Manager job service:</p>
+
+<ol><li>
+	<p>Proceed to the installation folder. Refer to the following default location:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">C:\Program Files\STEALTHbits\StealthDEFEND</code></pre>
+	</li><li>
+	<p>The <code>StealthDEFEND</code> folder contains separate folders for all job services. Proceed to the required service folder and locate the <code>appsettings.default.json</code> file to manage the service settings. Open the file with an available text editor.</p>
+	</li><li>
+	<p>Locate the <code>&quot;Serilog&quot;: { }</code> node and modify the values. Refer to the following example:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">&quot;Serilog&quot;: {
+    &quot;MinimumLevel&quot;: {
+        &quot;Default&quot;: &quot;Debug&quot;,
+        &quot;Override&quot;: {
+          &quot;Microsoft&quot;: &quot;Warning&quot;,
+           &quot;System&quot;: &quot;Warning&quot;
+        }
+    }
+},</code></pre>
+	</li></ol>
+
+<p>The default logging level is <code>Warning</code>. The <code>Information</code> or <code>Debug</code> level is necessary to provide a sufficient level of logging to troubleshoot most issues. Refer to the following list of available logging options from least detailed to most detailed:</p>
+
+<ul><li>
+	<p>Error</p>
+	</li><li>
+	<p>Warning</p>
+	</li><li>
+	<p>Information</p>
+	</li><li>
+	<p>Debug</p>
+	</li></ul>
+</div>
+</body>
+</html>

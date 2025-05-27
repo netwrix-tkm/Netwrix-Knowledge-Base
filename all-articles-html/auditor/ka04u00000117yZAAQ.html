@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error When Applying New Wildcard Certificate to SSRS: The Specified URL Was Unexpectedly Reserved</title>
+    <meta name="article-id" content="ka04u00000117yZAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-09-28T10:37:53.000Z">
+    <meta name="articlenumber" content="000008826">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-09-28T12:02:54.000Z">
+    <meta name="firstpublisheddate" content="2023-09-28T10:38:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111GqCAI">
+    <meta name="knowledge-article-id" content="kA04u00000111GqCAI">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-28T12:04:49.000Z">
+    <meta name="lastpublisheddate" content="2023-09-28T12:04:49.000Z">
+    <meta name="meta-description" content="Error When Applying New Wildcard Certificate to SSRS: The Specified URL Was Unexpectedly Reserved">
+    <meta name="meta-title" content="Error When Applying New Wildcard Certificate to SSRS: The Specified URL Was Unexpectedly Reserved">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8826">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111GqCAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error When Applying New Wildcard Certificate to SSRS: The Specified URL Was Unexpectedly Reserved</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>When trying to add new certificate the following error occurs:</p>
+
+	<pre>
+The specified URL was unexpectedly reserved</pre>
+	</li><li>
+	<p>When trying to reserve <code>https:443</code>, I get another error and the services restarts</p>
+	</li><li>
+	<p>The certificate is not listed</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>Open Command Prompt (CMD) as administrator and unbind the certificate using a command below:</p>
+
+	<pre>
+netsh http delete sslcert ipport=[::]:443</pre>
+	</li><li>
+	<p>Bind the new certificate in Reporting Service Configuration Manager</p>
+	</li></ol>
+</div>
+</body>
+</html>

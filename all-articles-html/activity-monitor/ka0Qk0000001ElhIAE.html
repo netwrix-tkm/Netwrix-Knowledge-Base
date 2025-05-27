@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents Have Become Unresponsive Error</title>
+    <meta name="article-id" content="ka0Qk0000001ElhIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-12-26T08:02:27.000Z">
+    <meta name="articlenumber" content="000008984">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-01-04T17:01:56.000Z">
+    <meta name="firstpublisheddate" content="2023-12-26T08:02:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000LinKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000LinKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-04T17:02:23.000Z">
+    <meta name="lastpublisheddate" content="2023-12-26T08:02:49.000Z">
+    <meta name="meta-description" content="Agents Have Become Unresponsive Error">
+    <meta name="meta-title" content="Agents Have Become Unresponsive Error">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8984">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000LinKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Agents Have Become Unresponsive Error</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ul><li>
+	<p>The <code>Agents have become unresponsive</code> error is prompted in Netwrix Threat Manager.</p>
+	</li><li>
+	<p>The environment is set up to process events via Netwrix Activity Monitor.</p>
+	</li></ul>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ol><li>
+	<p>Periodic AD Status Check event reporting is disabled for the monitored domain.</p>
+	</li><li>
+	<p>The output for the affected domain was disabled in Activity Monitor.</p>
+	</li></ol>
+</div>
+
+<h2>Resolutions</h2>
+
+<h4>Cause #1</h4>
+
+<div>
+<p>Enable the <strong>Periodic AD Status Check event reporting</strong> option in Activity Monitor for the affected domain ? refer to the <strong>StealthDEFEND Output</strong> section of the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/ActivityMonitor_7.0/page/Content/ActivityMonitor/Admin/Domains/Output.htm" target="_self">Monitored Domains ? Domain Event Outputs � v7.0</a>.</p>
+</div>
+
+<h4>Cause #2</h4>
+
+<div>
+<p>Verify the monitoring for the affected domain is enabled ? review the state of the domain in the <strong>Monitored Domains</strong> tab of Activity Monitor.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/ActivityMonitor_7.0/page/Content/ActivityMonitor/Admin/Domains/Output.htm" target="_self">Monitored Domains ? Domain Event Outputs � v7.0</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

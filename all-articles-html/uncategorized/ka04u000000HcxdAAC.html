@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building an LDAP Query to List Disabled User Accounts</title>
+    <meta name="article-id" content="ka04u000000HcxdAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:38:21.000Z">
+    <meta name="articlenumber" content="000007277">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:17.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:38:22.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IsnCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IsnCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:17.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:38:22.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Building an LDAP Query to List Disabled User Accounts">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7277">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IsnCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Building an LDAP Query to List Disabled User Accounts</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> This article describes how to use the LDAP Data Collector to generate a listing of disabled user accounts from targeted domains</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong>The LDAP data collector can be used to quickly search for and return a list of objects</strong></p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <strong><span style="color: black;">Instructions for building a query to return a current listing of disabled user objects from the target domain:</span></strong></p>
+<ol><li>Create a query selecting the LDAP data collector</li><li>Click &#39;Option&#39; button in the upper right-hand corner of the query configuration dialogue to select the connection type and associated port
+<ol style="list-style-type: lower-alpha;"><li>For non TLS/SSL connections, ensure the &#39;Connect Securely..&#39; check box is unchecked and the Server Port value is set to 389</li><li>For TLS/SSL connections, ensure the &#39;Connect Securely..&#39; option is checked and the port value is set to 636</li></ol>
+</li></ol>
+<p class="wysiwyg-indent6"><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lcafm&amp;d=%2Fa%2F4u000000Lz0W%2FDsPBsKLMn6XRbYfoIIPF2w.VZv7Ae3T8xFg6PT75R10&amp;asPdf=false" alt="mceclip0.png"></img></p>
+<ol><li>In the &quot;Connect to the server&quot; text entry box, enter the name of a domain controller or leave the default value to connect to a local domain controller in the domain where the StealthAUDIT console resides</li><li>To build a query to return information on user objects, navigate through the directory structure and select a user to use for query construction</li><li>With the user selected in the left-hand explorer pane, hold control down and select individual user attributes to extract during the course of query execution from the upper right-hand pane; e.g., CN, DisplayName, DistinguishedName, SamAccountName, LastLogonTimeStamp</li><li>With the desired attributes selected, click the red down arrow icon in the center tool bar to add the attributes to the query</li></ol>
+<p>*Properties added to the query will display under the toolbar in the lower pane<br>� � � � � <img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaZR&amp;d=%2Fa%2F4u000000Lz0b%2FbsVfB2RQjppJq4UTgCA_GhyABas76oQMOvC4SandSb0&amp;asPdf=false" alt="mceclip1.png"></img></p>
+<ol><li>To list only user accounts that are disabled, we need to add a filter to restrict results to only user objects where bit 2 in the UserAccountControl attribute has been enabled.� To do this, we copy/paste the filter expression &quot;(&amp;(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))&quot; into the LDAP filter dialogue</li></ol>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaYw&amp;d=%2Fa%2F4u000000Lz0g%2FrSVtwU5j6HFEPSFgSUuIv5bqml6R5ykME7i9jgPJ9GA&amp;asPdf=false" alt="mceclip2.png"></img><br>8. Replace the root path value pointing to the sample user account with the wild card expression &quot;**,[Org]&quot;.� The wildcard instructs the query to search recursively through the entire targeted domain for user objects matching the query filter<br><br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000Lcafr&amp;d=%2Fa%2F4u000000Lz0l%2FPjZOOEfnl2pTd61wkCKgfF5IK5kPQuvpZx9Sm3KLQrk&amp;asPdf=false" alt="mceclip3.png"></img><br>9. Click ok to save the query configuration.� Click OK once again to finalize query configuration</p>
+<ol><li>From the hosts node, target a domain controller for the targeted domain and execute the job</li><li>When the job completes, review the results in the source data table.� Disabled user objects in the targeted domain will be listed</li></ol>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - LDAP<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> V6.x, V7.x<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1428</p>
+</body>
+</html>

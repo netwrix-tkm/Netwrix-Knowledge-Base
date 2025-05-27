@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Changed Object Path after Account Name Change</title>
+    <meta name="article-id" content="ka04u00000116T1AAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:08.000Z">
+    <meta name="articlenumber" content="000002990">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-03T07:53:36.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9SgCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9SgCAK">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-07-03T07:54:11.000Z">
+    <meta name="lastpublisheddate" content="2023-07-03T07:35:24.000Z">
+    <meta name="meta-description" content="Active Directory audit object path change reporting �System�">
+    <meta name="meta-title" content="Computer name changes trigger &quot;object path&quot; changes where the WHO CHANGED is reporting �System�">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="257">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SgCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>System Changed Object Path after Account Name Change</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Why did System stated in the WHO field change Object Path after the account name change?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>This behavior is expected. When an account name is modified, the Active Directory Activity Summary contains 2 changes:</p>
+
+<ul><li>
+	<p>The change indicating the name modification.</p>
+	</li><li>
+	<p>The change indicating the modifications to the Object Path of the same account.</p>
+	</li></ul>
+
+<p>When an account name is modified, Active Directory represented by System automatically changes the account attribute named Canonical-Name. Netwrix Auditor interprets changes to this attribute as object path changes as Canonical-Name attribute reflects the full path to the object in Active Directory. In addition to the name change, Netwrix Auditor creates a change entry with System in the WHO column to reflect the Object Path change details. For additional information on the attribute, refer to the following Microsoft article: <a href="https://learn.microsoft.com/en-us/windows/win32/adschema/a-canonicalname?redirectedfrom=MSDN" target="_blank">Canonical-Name Attribute</a>.</p>
+
+<p>Netwrix Auditor reports the second change as Active Directory represented by System changes Object Path in the Canonical-Name attribute. The actual object path wasn&#39;t changed as the account is still in the OU. If you move an account to another OU, WHO field will contain the corresponding account name.</p>
+</div>
+</body>
+</html>

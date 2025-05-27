@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Find Logon IDs in Windows Event Viewer and Link It to Other Events?</title>
+    <meta name="article-id" content="ka0Qk0000001KG1IAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-13T11:49:21.000Z">
+    <meta name="articlenumber" content="000008961">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-01-12T11:49:06.000Z">
+    <meta name="firstpublisheddate" content="2023-12-13T11:49:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000JyjKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000JyjKAE">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-01-12T11:49:25.000Z">
+    <meta name="lastpublisheddate" content="2024-01-12T11:49:25.000Z">
+    <meta name="meta-description" content="How To Find Logon IDs in Windows Event Viewer and Link It to Other Events?">
+    <meta name="meta-title" content="How To Find Logon IDs in Windows Event Viewer and Link It to Other Events?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8961">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000JyjKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Find Logon IDs in Windows Event Viewer and Link It to Other Events?</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>How to validate data from Netwrix Auditor Activity Records?</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>For example, Netwrix Auditor determines the <b>Workstation</b> field of changes made in the File Server data source by matching the Logon ID from a Logon event with the change event.</p>
+
+<p>In order to detect changes, the product collects events with certain IDs (4633 and others). Those events themselves do not contain any originating workstation information. However, they have a field with a distinct <b>Logon ID</b> that can be matched to the <b>Logon ID in local logon events</b> (ID 4624).<br>There might be several open sessions on different workstations for a single user, or no recent logons or logoffs events on workstations registered. In this case,�the�<strong>Workstation</strong>�field might be returned as�<strong>unknown</strong>�in Activity Summary, reports, and search results.�</p>
+
+<p>Logon events, in turn, include the <b>Source Network Address</b> for the originating workstation which is then resolved to FQDN and displayed in Netwrix Auditor.</p>
+
+<p>The simplest example (adding a file).<br><strong>LogonID</strong> of the events 4656 and 4663:</p>
+
+<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001KG1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001pgKn"></img></p>
+
+<p>Matches to the <strong>LogonID of the logon event</strong>:</p>
+
+<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001KG1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001pgMP"></img></p>
+
+<p>Which also contains the <b>Source Network Address:</b></p>
+
+<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001KG1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001pgPd"></img></p>
+
+<p>Which is resolved to the <b>FQDN name:</b></p>
+
+<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000001KG1&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001pgB8"></img></p>
+
+<blockquote>
+<p><strong>TIP:�</strong>For testing purposes in the lab, it&#39;d be better to use a dedicated account or do a sign-in/sign-out for the currently used one.</p>
+</blockquote>
+
+<blockquote>
+<p><span style="color: #c0392b;"><strong>IMPORTANT:</strong></span> If the product reports the <b>Workstation</b> field as <code>NULL</code> then in both: Search and SSRS reports this field will be hidden for those Activity Records. There is a common Auditor logic specifically for the <b>Workstation</b> field.</p>
+</blockquote>
+</div>
+
+<h3>Related Article:</h3>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VdCAK.html" target="_blank">Workstation Field Reported as Unknown</a>.</p>
+	</li></ul>
+</div>
+</body>
+</html>

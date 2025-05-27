@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failed to connect to server or shared folder server name. Access is denied</title>
+    <meta name="article-id" content="ka04u000000HcU1AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:52.000Z">
+    <meta name="articlenumber" content="000003512">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:15.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bGCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9bGCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:15.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:53.000Z">
+    <meta name="meta-description" content="Access denied 
+WMI provider
+Failed to connect to server or shared folder server name. Access is denied">
+    <meta name="meta-title" content="Failed to connect to server or shared folder server name. Access is denied">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1341">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bGCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Failed to connect to server or shared folder server name. Access is denied</h1>
+    Each data collection results in an Access denied error in the report.
+
+<hr></hr>
+
+To get the information about disk space state or service status, the product uses the <a href="http://msdn.microsoft.com/en-us/library/aa394582%28v=vs.85%29.aspx" target="_blank">WMI</a> system which requires administrative rights on the monitored computer. When the service account does not have enough rights to connect to the necessary WMI provider on the remote computer, the system blocks the connection.
+
+<hr></hr>
+
+In order to resolve the issue, please perform the following steps:
+<p style="margin-left: 40px;">1. Make sure the remote computer is not protected by a firewall.
+2. Make sure that the product service account has enough rights to access the monitored server:</p>
+<p style="margin-left: 80px;">- Log on to the computer (where the product is installed) under the account that you use to run the product
+- Run the Services snap-in, right click the services node and select &quot;Connect to another computer&quot;
+- Specify the problematic server name and click OK. You should be able to successfully connect to that computer.</p>
+<p style="margin-left: 40px;">NOTE: the best account for the Disk Space Monitor and Service Monitor tools is a domain administrators&#39; account.</p>
+</body>
+</html>

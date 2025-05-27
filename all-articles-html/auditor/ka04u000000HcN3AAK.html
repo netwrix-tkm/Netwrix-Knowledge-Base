@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exporting information on account lockout events</title>
+    <meta name="article-id" content="ka04u000000HcN3AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:10.000Z">
+    <meta name="articlenumber" content="000003027">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:53.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9THCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9THCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:53.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:50.000Z">
+    <meta name="meta-description" content="ALE Account Lockout Examiner export events">
+    <meta name="meta-title" content="Exporting information on account lockout events">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="602">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9THCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exporting information on account lockout events</h1>
+    Can I export information on account lockout events for audit purposes?
+
+<hr></hr>
+
+NetWrix Account Lockout Examiner console does not have the Export feature. However all lockout information is stored in the <strong>allinfo.xml</strong> file located in the product installation directory. It can be easily parsed by third-party tool or script to get required information. However account names are not sotred in the allinfo.xml, all accounts are referred to as SIDs.
+
+<img style="width: 620px;height: 404px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcN3&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wrO" alt="User-added image" width="500" height="321"></img>
+
+NetWrix also has another product called NetWrix Event Log Manager for this purpose. This product is able to collect event log entries from multiple computers across the network and centrally store all events in a central location in a compressed format.
+For more information, refer to the following link: <a href="https://www.netwrix.com/event_log_archiving_consolidation_freeware.html" target="_blank">https://www.netwrix.com/event_log_archiving_consolidation_freeware.html</a>
+</body>
+</html>

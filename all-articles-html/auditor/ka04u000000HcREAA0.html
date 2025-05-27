@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error &quot;There is a duplicate &#x27;system.web.extensions/scripting/scriptResourceHandler&#x27;</title>
+    <meta name="article-id" content="ka04u000000HcREAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:11:00.000Z">
+    <meta name="articlenumber" content="000003324">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:48:04.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:23.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9Y9CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9Y9CAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:48:04.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:23.000Z">
+    <meta name="meta-description" content="After installing the Helpdesk portal, the following IIS error is seen: &amp;quot;There is a duplicate &amp;#039;system.web.extensions/scripting/scriptResourceHandler&amp;#039; section defined.&amp;quot;">
+    <meta name="meta-title" content="Error &amp;quot;There is a duplicate &amp;#039;system.web.extensions/scripting/scriptResourceHandler&amp;#039;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1171">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9Y9CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error &quot;There is a duplicate &#x27;system.web.extensions/scripting/scriptResourceHandler&#x27;</h1>
+    After installation of help desk portal I get the IIS error: &quot;There is a duplicate &#39;system.web.extensions/scripting/scriptResourceHandler&#39; section defined.
+
+<hr></hr>
+
+The error occurs because &lt;system.web.extensions&gt; sections are defined in both site-level and application level web.configs.
+This can happen with applications developed for ASP.NET 2.0 when ASP.NET 4.0 is set as default.
+
+<hr></hr>
+
+Please, go to IIS manager, in the left pane select Application pools, make sure that DefaultAppPool uses ASP.NET 2.0 (.NET Framework column in the central pane)
+
+<img style="width: 654px;height: 401px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcRE&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xUB" alt="User-added image" width="500" height="303"></img>
+
+The workaround for the this is to delete or comment out all the <strong>&lt;system.web.extensions&gt;</strong> configuration section definitions and configuration section group definitions from the application-level <strong>Web.config </strong>file. It is located in the <strong>Web</strong> foler in the Account Lockout Examiner installation directory.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcRE&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xUG" alt="User-added image" width="500" height="289"></img>
+</body>
+</html>

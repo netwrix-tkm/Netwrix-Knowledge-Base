@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference between data stored in SQL versus the Audit Archive</title>
+    <meta name="article-id" content="ka04u000000HcMLAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:08.000Z">
+    <meta name="articlenumber" content="000002981">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:41:20.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9SXCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9SXCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:41:21.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:41.000Z">
+    <meta name="meta-description" content="audit archive, SQL Database size, audit archive size">
+    <meta name="meta-title" content="Difference between data stored in SQL versus the Audit Archive">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="250">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SXCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Difference between data stored in SQL versus the Audit Archive</h1>
+    When Netwrix Auditor performs data collections, the data is simultaneously sent and saved in two locations: SQL databases and a disk drive in the Audit Archive location.<br>The data in SQL databases is stored in a non-compressed format and used for fast operational reporting. It is not intended for long term storage. The default and recommended retention for SQL is 180 days. If you are collecting huge amounts of data, your SQL DBs might grow too big causing disk space and report generation speed issues. In this case it is recommended to reduce the database retention as explained in this article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Install/Deployment/SQLServerDatabase/DatabaseSettings.htm" target="_blank">https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Install/Deployment/SQLServerDatabase/DatabaseSettings.htm</a>.�<br>On the other hand the data stored in the audit archive consists of compressed flat files and is intended for long term storage. When you have a compliance or an internal requirement to store audit data for a long period of time this is where you would do that. If at any time you need to report on archived data that is no longer in the SQL database, it is possible to import it back to SQL using Investigations functionality:�<a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Admin/Reports/Investigations.htm" target="_blank">https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Admin/Reports/Investigations.htm</a>
+</body>
+</html>

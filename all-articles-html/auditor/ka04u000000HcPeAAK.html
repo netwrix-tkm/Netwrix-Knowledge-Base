@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Configure User Activity to Trigger a Recording Session on Program Execution</title>
+    <meta name="article-id" content="ka04u000000HcPeAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:55.000Z">
+    <meta name="articlenumber" content="000003220">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:16.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:26.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WTCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9WTCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:16.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:26.000Z">
+    <meta name="meta-description" content="User Session Activity, trigger on program execution, record a program, record when program opened, window title, application description">
+    <meta name="meta-title" content="How to Configure User Activity to Trigger a Recording Session on Program Execution">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="802">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WTCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Configure User Activity to Trigger a Recording Session on Program Execution</h1>
+    How to configure User Activity to start recording when a particular program is launched?
+<hr></hr> Netwrix Auditor for User Activity offers three options:<br>1) Record when any application is run.<br>2) Record when a specific application is run.<br>3) Record when any application is run except the ones specified.<br><br>This article addresses #2 and #3 specifically as the way in which the application names are entered is the same for both. Note: It is required that the program has a window with a title. For example programs executed via command line without a GUI would not apply.<br><br>There are two ways to find the application description:
+<ol><li>Launch the application you want to monitor and start Task Manager. In the Task Manager dialog, open the <strong>Processes</strong> tab and look for the application description in the <strong>Description</strong> column.</li><li>Locate the executable file for the application you want to monitor, right-click it and select <strong>Properties</strong>. In the <strong>Properties</strong> dialog, switch to the <strong>Details</strong> tab and look for the application description in the <strong>File Description </strong>field.</li></ol>
+Note: Although the video recording will only start when a particular application is opened, it still records the entire screen.<br><strong>Example:</strong> If you want to configure to record each time Notepad is open you would use <em>Notepad</em> as the Application Description and for the Window Title you can use something like *Notepad* as the word &quot;Notepad&quot; is always in the Window Title regardless of the name of the document open.
+</body>
+</html>

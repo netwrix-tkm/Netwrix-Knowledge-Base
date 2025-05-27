@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Retransmit Messages With Log Tracker CLI-BIN Tools</title>
+    <meta name="article-id" content="ka04u000000HdAAAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:51:47.000Z">
+    <meta name="articlenumber" content="000008233">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:54.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:51:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JbTCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JbTCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:54.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to Retransmit Messages With Log Tracker CLI-BIN Tools">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8233">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JbTCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Retransmit Messages With Log Tracker CLI-BIN Tools</h1>
+    <p><span style="">When forwarding messages from Log Tracker Server to a third-party SIEM system, there may be situations or times that you need to resend and retransmit messages that were not forwarded. This may occur if, for example, the third-party SIEM was down or inaccessible to Log Tracker Server for an extended period of time.</span></p>
+<p style=""><span style="">You can retransmit any or all Log Tracker Server messages using the command line tools residing in the CLI-BIN folder of the Log Tracker Server.</span></p>
+<p style=""><span style="">Specifically, to retransmit all the messages for a specific date and time range, you can execute the following at a command prompt or within a batch file:</span></p>
+<div class="" style="">
+    <div class="">
+        <pre class="">cd C:\Program Files (x86)\NNT Log Tracker Suite\cli-bin
+.\CatMsg -date YYYY/MM/DD -time HH:MM:SS -maxcount N &gt; messages.txt
+type messages.txt | ..\system\sendlog N.N.N.N -stdin
+
+</pre>
+    </div>
+</div>
+<p><span style="">The above command sequence first creates a file &quot;messages.txt&quot; that contain all the messages for the date YYYY/MM/DD starting at the time HH:MM:SS, to a maximum of N messages. This is done by the CatMsg.exe program, which is one of several ways of listing messages from the message archive.</span></p>
+<p style=""><span style="">Once the &quot;messages.txt&quot; file is created, the user can send this data to the third-party SIEM or syslog collector at the IP address &quot;N.N.N.N&quot; using the &quot;sendlog&quot; command,</span></p>
+<p style=""><span style="">Depending on how many messages you are sending, the &quot;sendlog.exe&quot; program can take a few minutes to a few hours to execute.</span></p>
+<p style=""><span style="">If only certain messages are to be forwarded, you can use any of the other &quot;cli-bin&quot; tools to filter the messages, or send messages associated with just a single device or user.</span></p>
+<p style=""><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">What Change Tracker Gen7 Objects to Monitor Using Application Performance Monitoring (APM) Tools</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker Tags Facility</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to use CloseTicket.exe to Immediately Close Log Tracker Tickets</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p>
+</body>
+</html>

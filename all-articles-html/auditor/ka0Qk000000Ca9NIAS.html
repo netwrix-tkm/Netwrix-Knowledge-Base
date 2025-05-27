@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports do not contain logon/logoff events of users on workstations</title>
+    <meta name="article-id" content="ka0Qk000000Ca9NIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003543">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2025-02-26T19:05:38.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9blCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9blCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-02-26T19:05:51.000Z">
+    <meta name="lastpublisheddate" content="2025-02-26T19:05:51.000Z">
+    <meta name="meta-description" content="logon logoff users workstation">
+    <meta name="meta-title" content="Reports do not contain logon/logoff events of users on workstations">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1383">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9blCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Reports do not contain logon/logoff events of users on workstations</h1>
+    <blockquote><span class="Caution"><strong>IMPORTANT:</strong> This article is outdated and is no longer applicable.</span></blockquote>
+<div><strong>SQL reports</strong> do not contain <strong>logon/logoff</strong> events of users on <strong>workstations</strong>.</div>
+<div>The <strong>NetWrix Logon Reporter Event Detail</strong> e-mail report does not contain <strong>logon/logoff</strong> events of users on <strong>workstations</strong>.</div>
+<hr></hr>
+<p><strong>NetWrix Logon Reporter</strong> is not configured to collect the <strong>logon/logoff</strong> events from the <strong>workstations</strong> by default. Tracking <strong>logon/logoff</strong> events only on <strong>domain controllers</strong> is not enough to get the information about users&quot; <strong>logons/logoffs</strong> on their <strong>workstations</strong>.</p>
+<hr></hr>
+<p>Enable the workstations event logs collecting:</p>
+<ul><li>start <strong>NetWrix Logon Reporter</strong>;</li><li>in the <strong>Scope</strong> tab, enable the <strong>Workstations</strong> check box;</li><li>click the<strong> Apply </strong>button to apply changes.</li></ul>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Ca9N&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yNk" alt="Enable Workstations"></img></p>
+</body>
+</html>

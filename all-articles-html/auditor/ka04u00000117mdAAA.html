@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor Failed to Collect the Administrator Audit Log</title>
+    <meta name="article-id" content="ka04u00000117mdAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-09-13T14:25:03.000Z">
+    <meta name="articlenumber" content="000008806">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-09-14T13:44:55.000Z">
+    <meta name="firstpublisheddate" content="2023-09-13T14:25:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111CtCAI">
+    <meta name="knowledge-article-id" content="kA04u00000111CtCAI">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-09-14T13:45:27.000Z">
+    <meta name="lastpublisheddate" content="2023-09-14T13:45:27.000Z">
+    <meta name="meta-description" content="This article provides resolution steps for the following error: Failed to collect the Administrator audit log. Unable to obtain a list of Exchange servers: Object reference not set to an instance of an object.">
+    <meta name="meta-title" content="Netwrix Auditor Failed to Collect the Administrator Audit Log">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8806">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111CtCAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor Failed to Collect the Administrator Audit Log</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>A <b>Domain</b> item has the <em>Take Action</em> status and the Netwrix Auditor Health Log contains the following error:</p>
+
+<pre class="has-inner-focus">
+            Failed to collect the Administrator audit log. Unable to obtain a list of Exchange servers: Object reference not set to an instance of an object. 
+        </pre>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>Invalid format of the domain name is specified in your monitoring plan settings.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Provide a name for your domain in the FQDN format. For that:</p>
+
+<ol><li>
+	<p>In Netwrix Auditor, navigate to <b>Monitoring Plans</b>.</p>
+	</li><li>
+	<p>Select the monitoring plan that contains item with the <em>Take Action</em> status.</p>
+	</li><li>
+	<p>Click <b>Edit Item</b> on the right.</p>
+	</li><li>
+	<p>On the <b>General</b> tab, provide the domain name in the FQDN format (e.g., corp.local) under <strong>Specify Active Directory</strong> domain.</p>
+	</li><li>
+	<p>Save your edits.</p>
+	</li></ol>
+</div>
+</body>
+</html>

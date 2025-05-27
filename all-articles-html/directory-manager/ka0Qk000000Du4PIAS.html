@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating and Managing Dynasties</title>
+    <meta name="article-id" content="ka0Qk000000Du4PIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1WeAAK">
+    <meta name="articlecreateddate" content="2025-03-18T20:36:45.000Z">
+    <meta name="articlenumber" content="000010081">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BQnKAM">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210244548567338?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F1WeAAK">
+    <meta name="createddate" content="2025-05-14T16:09:48.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-05-14T16:09:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002BQnKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002BQnKAM">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-14T16:26:58.000Z">
+    <meta name="lastpublisheddate" content="2025-05-14T16:26:58.000Z">
+    <meta name="ownerid" content="0054u000008F1WeAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10081">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BQnKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Creating and Managing Dynasties</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11</p>
+<h2>Overview</h2>
+<p>A Dynasty is a set of groups automatically created and managed in Directory Manager based on unique values of a selected Active Directory attribute (the <strong>Group By</strong> attribute). For example, if you group by <strong>Department</strong>, Directory Manager creates a group for each department and adds users to the appropriate group according to their department value.<br><br></p>
+<p>You can also create nested Dynasties by grouping on multiple attributes, such as <strong>Country</strong> and <strong>City</strong>. In this case, city groups are nested within their respective country groups.<br><br></p>
+<p>Child groups are standard security groups or distribution lists. Directory Manager Automate keeps group membership up to date: when a user�s attribute changes (for example, their department), they are automatically moved to the correct group. New groups are created as needed, and groups with no members can be deleted automatically (if configured).<br><br></p>
+<p>Child groups inherit properties from their parent Dynasty, including group type, security settings, expiry policy, owner, delivery restrictions, and message size limits. This automation saves significant time compared to manually creating and managing groups and their settings.<br><br></p>
+<h4>Dynasty Templates</h4>
+<p>Directory Manager offers three types of Dynasty templates to help you get started:</p>
+<ul><li><strong>Organizational Dynasty:</strong> Creates a child group for each Company, Department, and Title.</li><li><strong>Geographical Dynasty:</strong> Creates a child group for each Country, State, and City.</li><li><strong>Managerial Dynasty:</strong> Creates a child group for the direct reports of each manager, including subordinates of the manager&#39;s direct reports.</li><li><strong>Custom:</strong> Creates a Dynasty by AD attributes of your choice.</li></ul>
+<p>The three templates are configurable, whereas the custom Dynasty can fulfill numerous other requirements.</p>
+<h2>Instructions</h2>
+<h4>Creating an Organizational Dynasty</h4>
+<ol><li>In Directory Manager Portal, select <strong>Create New</strong> &gt; <strong>Organizational Dynasty</strong> template and click <strong>Next</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Du4P&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BS5BL" width="1000" height="500" alt="Selecting Organizational Dynasty template"></img></li><li>On the <strong>Group Options</strong> page, enter the group name, select the container where the group will be created, and specify the group type, scope, and security settings.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Du4P&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BS8nW" width="1000" height="500" alt="Group Options page"></img></li><li>On the <strong>Dynasty Options</strong> page, review and modify the attributes that will be used to create child groups. For example, you can remove <em>Title</em> and add <em>Office</em> as needed.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Du4P&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BS9zh" width="1000" height="600" alt="Dynasty Options page"></img></li><li>On the <strong>Query Options</strong> page, review the current configuration of your Dynasty. You can click <strong>Query Designer</strong> to launch the Query Designer, where you can modify the query to filter the objects for group membership. For example, you may filter out disabled users or get a specific employee type.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Du4P&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BRwsy" width="1000" height="848" alt="Query Options page"></img></li><li>Once your query is complete, proceed to the <strong>Update Options</strong> page. The Dynasty can be updated manually or via an automated schedule.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Du4P&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BS4Gs" width="1000" height="600" alt="Update Options page"></img></li><li>On the <strong>Owners</strong> page, you can specify additional owners for the group. By default, Directory Manager sets the logged-in user as the primary owner. The primary owner will be inherited by all child groups. You can add additional owners by clicking the <strong>Add</strong> button. Users, contacts, and even security groups can be set as additional owners.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Du4P&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BS48q" width="1000" height="500" alt="Owners page"></img></li><li>The <strong>Completion</strong> page gives a summary of the selected settings. Click <strong>Finish</strong>.</li><li>If you selected <strong>Now</strong> for your update options, a parent Dynasty will be created with the name provided on the <strong>Group Options</strong> page, and child groups will be created according to the configured template.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>The Dynasty created in this article is just an example; you can customize the naming template, separator, inheritance, and much more.</p>
+</blockquote>
+</body>
+</html>

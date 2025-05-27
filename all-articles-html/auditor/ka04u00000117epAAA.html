@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error During Report Processing � rsErrorImpersonatingUser Running Netwrix Auditor Reports</title>
+    <meta name="article-id" content="ka04u00000117epAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-08-08T12:22:51.000Z">
+    <meta name="articlenumber" content="000008718">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-09-07T12:37:06.000Z">
+    <meta name="firstpublisheddate" content="2023-08-08T12:22:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001110TCAQ">
+    <meta name="knowledge-article-id" content="kA04u000001110TCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T12:42:35.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T12:42:35.000Z">
+    <meta name="meta-description" content="This article provides resolution steps for the &#x27;(rsProcessingAborted) Cannot impersonate user for data source &#x27;DS&#x27;. (rsErrorImpersonatingUser)&#x27; error when trying to run Netwrix Auditor reports.">
+    <meta name="meta-title" content="The &#x27;(rsProcessingAborted) Cannot impersonate user for data source &#x27;DS&#x27;. (rsErrorImpersonatingUser)&#x27; error occurred when trying to run Netwrix Auditor reports.">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8718">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001110TCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error During Report Processing � rsErrorImpersonatingUser Running Netwrix Auditor Reports</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error occurred when trying to run Netwrix Auditor reports:</p>
+
+<pre class="has-inner-focus">
+An error has occurred during report processing. (rsProcessingAborted)
+Cannot impersonate user for data source &#39;DS&#39;. (rsErrorImpersonatingUser)
+Log on failed. Ensure the user name and password are correct. (rsLogonFailed)
+The user name or password is incorrect.</pre>
+</div>
+
+<div>
+<h2>Cause</h2>
+
+<div>
+<p>SQL Server Reporting Services (SSRS) connection issues or insufficient permissions for the data collection account.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>Make sure you are using a supported SQL Server edition. Refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm" target="_blank">Requirements for SQL Server to Store Audit Data ? v10.6</a>.</p>
+	</li><li>
+	<p>Check the permissions for your Audit Database account. Refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm#configure_audit_database_account" target="_blank">Requirements for SQL Server to Store Audit Data: Configure Audit Database Account ? v10.6</a>.</p>
+	</li><li>
+	<p>Check the permissions for the account used to collect data in your environment. Refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/DataAccounts.htm" target="_blank">Monitoring Plans � Data Collecting Account ? v10.6</a>.</p>
+
+	<blockquote>
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>The account should be a member of local Administrators group.</p>
+	</blockquote>
+
+	<p>If you use a gMSA account for data collection, refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/gMSA.htm" target="_blank">Requirements � Use Group Managed Service Account (gMSA) ? v10.6</a>.</p>
+	</li><li>
+	<p>Check your Report Services configuration. Refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html" target="_blank">Deploying the Report Server Database</a>.</p>
+	</li><li>
+	<p>Check the permissions for your SSRS Account. Refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServerReportingService.htm#configure_ssrs_account" target="_blank">SQL Server Reporting Services: Configure SSRS Account ? v10.6</a>.</p>
+
+	<blockquote>
+	<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>The account should be a member of local Administrators group.</p>
+	</blockquote>
+	</li><li>
+	<p>On the computer that hosts the Auditor Server, open the <b>Services</b> snap-in and restart the <b>Netwrix Auditor Management Service</b>.</p>
+	</li><li>
+	<p>Make sure you provided valid credentials to connect to your Audit Database in Netwrix Auditor. For that, open Netwrix Auditor, navigate to <b>Settings</b> &gt; <b>Audit Database</b>, click <b>Configure</b> under <b>Audit Database settings</b> and verify your credentials.</p>
+	</li></ol>
+
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Netwrix also recommends upgrading the product for the latest version to avoid SSRS-related issues.</p>
+</div>
+</div>
+
+<h4>Related articles</h4>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm" target="_blank">Requirements for SQL Server to Store Audit Data ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServer.htm#configure_audit_database_account" target="_blank">Requirements for SQL Server to Store Audit Data: Configure Audit Database Account ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/DataAccounts.htm" target="_blank">Monitoring Plans � Data Collecting Account ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/gMSA.htm" target="_blank">Requirements � Use Group Managed Service Account (gMSA) ? v10.6</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eUCAS.html" target="_blank">Deploying the Report Server Database</a></p>
+
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Requirements/SQLServerReportingService.htm#configure_ssrs_account" target="_blank">SQL Server Reporting Services: Configure SSRS Account ? v10.6</a></p>
+</body>
+</html>

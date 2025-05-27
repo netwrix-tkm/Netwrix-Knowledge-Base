@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixing reports displaying letters instead of command text in SSRS</title>
+    <meta name="article-id" content="ka04u000000HdFqAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2022-08-03T10:23:49.000Z">
+    <meta name="articlenumber" content="000008473">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T10:20:06.000Z">
+    <meta name="firstpublisheddate" content="2022-08-03T15:57:08.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Tt80CAC">
+    <meta name="knowledge-article-id" content="kA04u000000Tt80CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:20:06.000Z">
+    <meta name="lastpublisheddate" content="2022-08-04T11:44:02.000Z">
+    <meta name="meta-description" content="Fixing reports displaying letters instead of command text in SSRS">
+    <meta name="meta-title" content="Fixing reports displaying letters instead of command text in SSRS">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8473">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Tt80CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Fixing reports displaying letters instead of command text in SSRS</h1>
+    <h2>Scenario</h2>
+Upon opening reports, the command buttons have been replaced by text symbols and it looks similar to this:<br><img alt="Screenshot_1.png" height="108" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFq&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052m0m" width="817"></img>
+<h2>Solution</h2>
+The issue lies with internet explorer&#39;s handling of permissions. To fix the issue you need to add the reporting server to the <strong>Trusted Sites </strong>and disable the <strong>Protected Mode </strong>for Admins on the Netwrix Server.
+
+<h3>Adding Reporting Server to the Trusted sites</h3>
+to do it, follow these steps:
+
+<ol><li>In Internet Explorer, click <strong>Tools</strong>, then <strong>Internet Options</strong>, in there, go to the<strong> Security</strong> tab.</li><li>In the <strong>Select a Web content zone to specify its current security settings</strong> box, click <strong>Trusted Sites</strong>, and then click <strong>Sites</strong>.</li><li>In the <strong>Add this Web site to the zone</strong> box, type the IP address of the Netwrix Server, and then click <strong>Add.</strong></li><li>Click <strong>OK</strong> two times to accept the changes and return to Internet Explorer.</li></ol>
+
+<h3>Disabling Protected Mode for Admins</h3>
+This operation can be done using group policies. To do so, you need to first locate the Group Policy that applies to the Admins of the Netwrix Server. To disable Protected mode, follow these steps:
+
+<ol><li>Launch�Group Policy Management Console and Edit a policy.</li><li>Expand: <strong>User Configuration &gt; Administrative Templates &gt; Windows Components &gt; Internet Explorer&gt; Internet Control Panel &gt; Security Page &gt; Internet Zone</strong></li><li>Double click <strong>Turn On Protected mode</strong></li><li>Select <strong>ENABLED</strong></li><li>Select <strong>DISABLED</strong> from the PROTECTED MODE selection box.</li></ol>
+If this solution didn&#39;t help, please contact Netwrix Technical Support.<br><br>�
+</body>
+</html>

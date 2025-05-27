@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to automatically apply Office Classification Labels</title>
+    <meta name="article-id" content="ka04u000000HcWmAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:01.000Z">
+    <meta name="articlenumber" content="000003686">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:51:14.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:04.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9e4CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9e4CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:14.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:04.000Z">
+    <meta name="meta-description" content="How to automatically apply Office Classification Labels">
+    <meta name="meta-title" content="How to automatically apply Office Classification Labels">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="3495">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9e4CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to automatically apply Office Classification Labels</h1>
+    The below steps can be followed to ensure that Office Classification Labels will be automatically applied at the time of classification.
+
+There are two methods of applying labels, both of which are described below:
+<ul><li><strong>Taxonomy Mapping </strong>- For a simple automated experience it is possible to assign labels to existing Term Set structures within <strong>Taxonomy Manager</strong></li><li><strong>Workflow</strong> <strong>Action</strong> - For a more complex assignment experience it is also possible to both add, and remove labels via <strong>Workflow Actions</strong></li></ul>
+<h2>Taxonomy Mapping</h2>
+<ol><li>Log into the <b>QS Administration interface</b></li><li>Navigate to the &quot;<strong>Taxonomies</strong>&quot; area</li><li>Navigate to the <strong>Term</strong> that is to be used to define when the <strong>Classification Label </strong>should be applied (please note, the <strong>taxonomy </strong>in question should be an auto-classified <strong>SharePoint Term Set.</strong></li><li>Select the &quot;<strong>Settings</strong>&quot; tab</li><li>Scroll to the &quot;<strong>Microsoft Office Classification Labels&quot; </strong>section</li><li>Select &quot;<strong>Add</strong>&quot; and choose the label that you wish to apply (if the site collection has only recently been added then the label may not yet have been synchronised down)</li></ol>
+<b>How does this work?</b>
+
+At the time of classification the Classifier process will identify any terms that have both met their threshold and also contain mappings to Office Classification Labels. The engine will then select the highest scoring term, and automatically apply the mapped label to the document in SharePoint (taking into account which labels are available per site collection as well as the setting specified at the term level).
+<h2><strong>Workflow Action</strong></h2>
+<ol><li>Log into the <b>QS Administration interface</b></li><li>Navigate to the &quot;<strong>Workflows</strong>&quot; area</li><li>Create a <strong>Workflow, </strong>either selecting a <strong>SharePoint</strong> source - or creating the workflow against the generic <strong>SharePoint</strong> type</li><li>Configure the <strong>Workflow </strong>conditions</li><li>Select <strong>&quot;Add&quot; </strong>to add a new &quot;<strong>Rule Action</strong>&quot;</li><li>Under &quot;<strong>SharePoint</strong>&quot;, select either: &quot;<strong>Write O365 Label</strong>&quot; or &quot;<strong>Remove O365 Label</strong>&quot;</li><li>Specify the <strong>label</strong> that should be <strong>written</strong> or <strong>removed</strong> and then select &quot;<strong>Save</strong>&quot;</li></ol>
+</body>
+</html>

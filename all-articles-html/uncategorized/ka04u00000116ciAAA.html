@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client crash - Runtime Error!</title>
+    <meta name="article-id" content="ka04u00000116ciAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:53.000Z">
+    <meta name="articlenumber" content="000003534">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T13:07:01.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:37.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bcCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9bcCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T13:07:16.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:37.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when Password Manager&amp;#039;s client returns &amp;#039;Runtime Error!&amp;#039; message.">
+    <meta name="meta-title" content="Client crash - Runtime Error!">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1378">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bcCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Client crash - Runtime Error!</h1>
+    I deployed the Password Manager client on several machines and on some of them I receive the following error at startup
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ci&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000052dI" alt="User-added image"></img>
+
+<hr></hr>
+
+The application adds files to Program files and keys to the registry, also registers its components in registry.
+The error above occurs because some of required components were not installed or registered.
+
+The most common reason is the lack of permissions granted to the account under which the client was installed.
+Microsoft User Account Control (UAC) can also cause this.
+
+<hr></hr>
+
+First of all make sure that the account used to deploy the client has full access to the local system (local admin permissions or local system account).
+
+Try perform the deployment with UAC disabled.
+
+If the issue persists, please manually check that after deployment of the client the following registry keys exist.
+
+HKEY_LOCAL_MACHINESOFTWAREPoliciesNetWrixPasswordManager
+HKEY_LOCAL_MACHINESOFTWAREWow6432NodePoliciesNetwrixPasswordManager (this is only in 64-bit OS)
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ci&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000052dS" alt="User-added image"></img>
+
+If the key does not exist you can create it manually.  No values are necessary.
+Change the deployment procedure to create this key.
+</body>
+</html>

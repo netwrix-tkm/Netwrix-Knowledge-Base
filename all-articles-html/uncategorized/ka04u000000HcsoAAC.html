@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover SQL Script</title>
+    <meta name="article-id" content="ka04u000000HcsoAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:40:34.000Z">
+    <meta name="articlenumber" content="000007304">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:09:31.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:40:34.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IfOCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IfOCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:09:31.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:40:34.000Z">
+    <meta name="meta-description" content="360008816812">
+    <meta name="meta-title" content="Recover SQL Script">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7304">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IfOCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Recover SQL Script</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to (hopefully) recover a SQL script that&#39;s recently been run.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> How to (hopefully) recover a SQL script that&#39;s recently been run. �</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="color: black;"><span style="font-family: segoe ui,sans-serif;">Requires VIEW SERVER STATE permission on the server.</span></span><br><br><span style="color: #1f497d;">select </span><br><span style="color: #1f497d;">distinct text</span><br><span style="color: #1f497d;">from </span><br><span style="color: #1f497d;">(</span><br><span style="color: #1f497d;">select</span><br><span style="color: #1f497d;">* from sys.dm_exec_query_stats d</span><br><span style="color: #1f497d;">cross apply sys.dm_exec_sql_text(d.plan_handle) as e</span><br><span style="color: #1f497d;">) as c</span><br><span style="color: #1f497d;">where c.text like &#39;%value to search for%&#39;</span><br>�<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1848</p>
+</body>
+</html>

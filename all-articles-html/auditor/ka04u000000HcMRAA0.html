@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to troubleshoot overwrites in change reports for VMWare</title>
+    <meta name="article-id" content="ka04u000000HcMRAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:08.000Z">
+    <meta name="articlenumber" content="000002987">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:41:22.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9SdCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9SdCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:41:22.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:43.000Z">
+    <meta name="meta-description" content="VMWare, system, overwrites">
+    <meta name="meta-title" content="How to troubleshoot overwrites in change reports for VMWare">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="253">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SdCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to troubleshoot overwrites in change reports for VMWare</h1>
+    Refer to the <a href="https://kb.netwrix.com/258" target="_blank">KB258</a> for details about how VMWare auditing with Netwrix Auditor works.
+
+Overwrites warnings occur because there is some gap between the last collected and the oldest of newly received events.
+
+Try running collections more frequently by configuring a scheduled task trigger.
+
+If this doesn&#39;t help  please perform the following steps to troubleshot this and localize the problematic place:
+<ol><li>Download and install VMWare PowerCLI, this package contains set of Powershell cmdlets which can be used to retrieve audit events from ESX server vCenter.</li></ol>
+<div style="margin-left: 80px;">To download VMWare PowerCLI you need to register on the VMware website <a href="https://my.vmware.com/web/vmware/login" target="_blank">https://my.vmware.com/web/vmware/login</a>,
+Alternatively you can download them  from our file service using <a href="https://rcpt.hightail.com/2425066560/c824d2481536a7ac3bc9f026bd0d2d4e" target="_blank">this link</a>
+<strong>NOTE. </strong>We uploaded them just for the case you are unable to register at VMWare website
+The VMWare PowerCLI documentation available here:  <a href="https://www.vmware.com/support/developer/PowerCLI/" target="_blank">https://www.vmware.com/support/developer/PowerCLI/</a></div>
+<ol start="2"><li>Then after receiving a Change report for VMware with event overwrites warning and changes, which as a results of event overwrites were reported as made by system, retrieve audit events  using  VMWare PowerCLI cmdlets  by connecting to vCenter and ESX hosts:</li></ol>
+<ol start="1" style="list-style-type: lower-alpha;margin-left: 80px;"><li>Run  the Connect-VIServer cmdlet and connect to the VMWare host (<a href="https://www.vmware.com/support/developer/windowstoolkit/wintk40u1/html/Connect-VIServer.html" target="_blank">https://www.vmware.com/support/developer/windowstoolkit/wintk40u1/html/Connect-VIServer.html</a>)  by running this command:</li></ol>
+<div style="margin-left: 120px;"> <em>Connect-VIServer %ESXhostname% -User %username% -Password %Password%</em></div>
+<ol start="2" style="list-style-type: lower-alpha;margin-left: 80px;"><li>Run  the Get-VIEvent cmdlet (<a href="https://www.vmware.com/support/developer/windowstoolkit/wintk40u1/html/Get-VIEvent.html" target="_blank">https://www.vmware.com/support/developer/windowstoolkit/wintk40u1/html/Get-VIEvent.html</a>)  and get all events for last 24 hours by running this command:</li></ol>
+<div style="margin-left: 120px;"><em>Get-VIEvent -Entity *  -Start (Get-Date).AddDays(-1) &gt;&gt; D:%ESX_host_name%.txt</em></div>
+This command will export all available events for all VMs for the last 24 hours and save it to the D:%ESX_host_name%.txt file
+<ol start="3"><li>Perform these steps for every ESX host which is managed with vCenter specified In the Netwrix Auditor for  VMware</li></ol>
+<ol start="4"><li><a href="https://www.netwrix.com/support.html?source=sitemenu" target="_blank">Submit a case</a> and send  us the following information:</li></ol>
+<ul><li>Events  retrieved with VMWare PowerCLI cmdlets from vCenter and ESX hosts (files created during the steps described in the section 2 above)</li><li>Received change summary report of VMware (after that receiving which the event files were generated) and inventory report</li><li>Events from from the following directory %% for the day you the report with warning and day before</li></ul>
+Archive these files and provide them with your support case with our Technical Support team.
+
+Having the files with events from every server involved into the VMWare data collection we will be able to see which server events are overwritten and probably why.
+
+<em>Originally KB1845 </em>
+</body>
+</html>

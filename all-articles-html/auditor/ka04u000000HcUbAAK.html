@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failed to open log</title>
+    <meta name="article-id" content="ka04u000000HcUbAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003548">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:31.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bqCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9bqCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:31.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when the error message: Failed to open log &amp;#039;&amp;lt;Log Type&amp;gt;&amp;#039; (API used: NT). Error details: The network path was not found.">
+    <meta name="meta-title" content="Failed to open log">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1384">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bqCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Failed to open log</h1>
+    The following error appears in the Event Log Manager (ELM) - Summary Report:
+ERROR: Failed to open log &quot;Log Type&quot; (API used: NT). Error details: The network path was not found. (Error number: 0x80070035)
+
+<hr></hr>
+
+This error usually appears when ELM is configured to collect event logs without agent services (i.e. network traffic compression option is turned off).
+There are several possible reasons for this error to appear:
+<ol><li>The problematic server is turned off or not accessible through the network.</li><li>The &quot;Server&quot; service is stopped on the problematic server.</li><li>The &quot;File &amp; Printer Sharing for Microsoft Networks&quot; feature is turned off in the Local Area Connection properties.</li><li>The remote connection is blocked by &quot;Windows Firewall&quot;.</li></ol>
+
+<hr></hr>
+
+<ol><li>Make sure the problematic server is started and is accessible through the network.</li><li>Make sure the &quot;Server&quot; service is started and set to &quot;Automatic&quot; on the problematic server.</li></ol>
+<div style="margin-left: 40px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUb&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000051QD" alt="Services snap-in: Server service" width="500" height="398"></img></div>
+<ol start="3"><li>Make sure the &quot;File and Printer Sharing for Microsoft Networks&quot; component is enabled in the Local Area Connection properties.</li></ol>
+<div style="margin-left: 40px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUb&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000051QI" alt="Local Area Connection Properties: File and Printer sharing"></img></div>
+<ol start="4"><li>Disable the &quot;Windows Firewall&quot; service on the problematic server:</li></ol>
+<ul><li style="margin-left: 40px;">Launch the &quot;Services&quot; snap-in (Click Start / Run, type services.msc and press Enter).</li><li style="margin-left: 40px;">Locate the &quot;Windows Firewall&quot; service, stop it and set to Disable.</li></ul>
+<div style="margin-left: 40px;">Or configure the Windows Firewall exception:</div>
+<ul><li style="margin-left: 40px;">Launch the Group Policy Object Editor snap-in (gpedit.msc) to edit the Group Policy object (GPO) that is used to manage the Windows Firewall settings in your organization.</li><li style="margin-left: 40px;">Expand nodes as follow: Computer Configuration / Administrative Templates / Network / Network Connections / Windows Firewall, and then open either Domain Profile or Standard Profile, depending on which profile you want to configure.</li><li style="margin-left: 40px;">Enable the &quot;Allow inbound file and printer sharing exception&quot; exception.</li></ul>
+<div style="margin-left: 80px;"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUb&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000051QN" alt="Firewall Settings: Allow inbound file and printer sharing exception" width="500" height="266"></img></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Customize Event Service Listening Port(s)</title>
+    <meta name="article-id" content="ka0Qk000000DkZhIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-06-13T11:10:07.000Z">
+    <meta name="articlenumber" content="000008615">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u00000110h7CAA">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2025-05-09T03:40:15.000Z">
+    <meta name="firstpublisheddate" content="2023-06-13T11:13:45.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110h7CAA">
+    <meta name="knowledge-article-id" content="kA04u00000110h7CAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T03:46:34.000Z">
+    <meta name="lastpublisheddate" content="2023-06-13T11:13:45.000Z">
+    <meta name="meta-description" content="How to Customize Event Service Listening Port(s)">
+    <meta name="meta-title" content="How to Customize Event Service Listening Port(s)">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8615">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110h7CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Customize Event Service Listening Port(s)</h1>
+    <h1>Symptoms</h1>
+Customer/Environmental need to customize Threat Manager listening ports for Event Service.
+
+<h1>Cause</h1>
+Customer or environmental need dictates that default DEFEND Event Service listening port(s) need to be altered.
+
+<h1>Resolution</h1>
+Alter the Default DFENEND Event Service Listening port(s) via PGAdmin:
+
+<ol><li>Install the latest PGAdmin Console: https://www.pgadmin.org/download/</li><li>Connect to the DEFEND database. You will have to create a �Master� password for PGAdmin as well as enter the DEFEND database password: <code>DEFEND124!!</code></li><li>Select <strong>Tables</strong> &gt; <strong>defend_config table</strong></li><li>Right click and select <strong>View/Edit Data</strong> &gt; <strong>First 100 Rows</strong></li><li>Change the Value for the port in question on the line 2 (10000 is the Default FS Port and 10001 is the Default AD Port):
+	<pre class="ckeditor_codeblock">
+[{&quot;id&quot;:1,&quot;port&quot;:10000,&quot;enabled&quot;:true, ...}{&quot;id&quot;:2,&quot;port&quot;:10001,&quot;enabled&quot;:true, ...}{...}]</pre>
+	For Example, change the FS port to 514 and click <strong>OK</strong>:<br>	<img alt="port512.png" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DkZh&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008LC2a"></img></li><li>In the Window below click the Save Data Changes icon</li><li>Restart the DEFEND Event Service</li></ol>
+</body>
+</html>

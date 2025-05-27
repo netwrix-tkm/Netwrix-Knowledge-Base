@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSAA Proxy Scans in Non-trusted Domains</title>
+    <meta name="article-id" content="ka0Qk0000004rs9IAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-08-01T12:29:47.000Z">
+    <meta name="articlenumber" content="000009235">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-08-01T12:30:32.000Z">
+    <meta name="firstpublisheddate" content="2024-08-01T12:30:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001JgXKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000001JgXKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-08-01T12:30:42.000Z">
+    <meta name="lastpublisheddate" content="2024-08-01T12:30:24.000Z">
+    <meta name="meta-description" content="FSAA Proxy Scans in Non-trusted Domains">
+    <meta name="meta-title" content="FSAA Proxy Scans in Non-trusted Domains">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9235">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001JgXKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>FSAA Proxy Scans in Non-trusted Domains</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>In Netwrix Enterprise Auditor v11.6, the communication between the FSAA Data Collector and the FSAA Applet is secured via the HTTPS protocol. This article covers the steps to correctly set up the FSAA Proxy service in your environment to scan the non-trusted domain resources.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Allocate a separate service account with local Administrator rights to implement the FSAA Proxy scans in your non-trusted domain.</p>
+</blockquote>
+
+<p>Refer to the following steps:</p>
+
+<ol><li>
+	<p>Manually create and set up certificates for the FSAA Proxy using the allocated service account. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/FSAA/ManualCertificate.htm" target="_self">FSAA Applet Certificate Management Overview � FSAA Manual Certificate Configuration � v11.6</a>.</p>
+	</li><li>
+	<p>In the target server, run <strong>Services</strong> &gt; select the <code>StealthAUDITFSAA</code> service &gt; switch the <strong>Log On</strong> account to the service account.</p>
+	</li><li>
+	<p>Add a connection profile with the corresponding credentials of the service account to use for the FSAA Proxy scans. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/Settings/Connection/Profile/Create.htm" target="_self">Connection � Create a Connection Profile � v11.6</a>.</p>
+	</li><li>
+	<p>Run the FSAA Proxy scan job.</p>
+	</li></ol>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/FSAA/ManualCertificate.htm" target="_self">FSAA Applet Certificate Management Overview � FSAA Manual Certificate Configuration � v11.6</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/Settings/Connection/Profile/Create.htm" target="_self">Connection � Create a Connection Profile � v11.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

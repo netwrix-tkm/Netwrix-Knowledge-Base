@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot login the Helpdesk and Admin portal</title>
+    <meta name="article-id" content="ka04u00000116eiAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:50.000Z">
+    <meta name="articlenumber" content="000003474">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:06:58.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9aeCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9aeCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:07:16.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:46.000Z">
+    <meta name="meta-description" content="When trying to access Admin or Helpdesk portal you receive an IIS login prompt.  You have verified that username and password are correct.">
+    <meta name="meta-title" content="Cannot login the Helpdesk and Admin portal">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1302">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9aeCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot login the Helpdesk and Admin portal</h1>
+    When trying to access Admin or Helpdesk portal, in both cases you receive an IIS login prompt that you are unable to get past.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ei&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OOZ" alt="User-added image" width="500" height="252"></img>
+You have verified that username and password are correct.
+
+<hr></hr>
+
+The portals keep prompting for credentials because the account you are entering cannot be used to authenticate for some reason.
+
+It can happen if, for example:
+<ol><li>Authentication settings are misconfigured</li><li>The account does not have read NTFS permissions to the files</li><li>Proxy is affecting request</li></ol>
+There could be other reasons but these are the most common.
+
+<hr></hr>
+
+To resolve the issue please verify the following:
+<ol><li>It is not because of Loopback authentication. <a href="http://support.microsoft.com/kb/896861" target="_blank">http://support.microsoft.com/kb/896861</a></li><li>All authentication types excepting <strong>Windows authentication </strong>or <strong>Basic authentication </strong>are disabled in the <strong>Internet Information Services (IIS) Manager</strong>, and either Windows or Basic authentication is enabled.To ensure the required settings are enabled in <strong>IIS6,</strong> do the following:
+a) In the <strong>IIS Manager </strong>left pane, navigate to the Password manager virtual directory (by default  &lt;your computer name&gt; -&gt; Web Sites -&gt; Default Web Site -&gt; PM).
+b) Right-click the <strong>PM</strong> folder and select <strong>Properties</strong>.
+c) In the<strong> Properties </strong>dialog, open the <strong>Directory Security </strong>tab, and select <strong>Edit </strong>for <strong>Authentication and Access Control</strong>.
+d) In the <strong>Authentication Methods </strong>dialog, select either the <strong>Integrated Windows authentication </strong>box or <strong>Basic authentication </strong>(password is sent in clear text), and clear all other authentication options for Authentication access.</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ei&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xES" alt="User-added image" width="325" height="375"></img>
+
+To ensure the required settings are enabled in<strong> I<strong>IS7</strong>,</strong> do the following:
+a) In the <strong>IIS Manager </strong>left pane, navigate to the Password Manager virtual directory (by default  &lt;your computer name&gt; -&gt; Sites -&gt; Default Web Site -&gt; PM).
+b) In the Manager central pane, double-click the <strong>Authentication o</strong>ption.
+c) In the Authentication list, enable either the <strong>Windows Authentication </strong>option or <strong>Basic Authentication</strong>, and disable all other authentication options.
+
+<img style="width: 446px;height: 326px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ei&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xEN" alt="User-added image" width="500" height="379"></img>
+<ol start="3"><li>The account you are using has READ access to the physical directory of the Web-portal (by default C:Program Files (x86)Netwrix Password Manager</li></ol>
+<ol start="4"><li>Your proxy server is disabled or bypassed. To check the proxy settings, do the following:
+a) Go to <strong>Control panel -&gt; Internet options</strong>.
+b) In the <strong>Internet Properties </strong>dialog, open the <strong>Connections</strong> tab and click the <strong>LAN settings </strong>button.
+c) Make sure the <strong>Use a proxy server for your LAN </strong>option is not enabled. Otherwise, make sure the <strong>Bypass proxy server for local addresses </strong>option is enabled too; in this case the Help-Desk portal must be a member of the <strong>Local intranet zone</strong>, or specified as an exception.</li></ol>
+<img style="width: 421px;height: 421px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116ei&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004xEI" alt="User-added image" width="500" height="481"></img>
+</body>
+</html>

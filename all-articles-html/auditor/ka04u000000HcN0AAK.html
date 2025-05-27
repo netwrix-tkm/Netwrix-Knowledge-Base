@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High CPU load and memory usage</title>
+    <meta name="article-id" content="ka04u000000HcN0AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:10.000Z">
+    <meta name="articlenumber" content="000003023">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:52.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TDCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9TDCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:52.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:48.000Z">
+    <meta name="meta-description" content="ALE Account Lockout Examiner high CPU load and memory load">
+    <meta name="meta-title" content="High CPU load and memory usage">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="600">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TDCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>High CPU load and memory usage</h1>
+    Account Lockout Examiner Service causes high CPU spikes and uses up a large percent of memory. What can I do?
+
+<hr></hr>
+
+<div>In order to reduce CPU load and memory usage, perform the following steps:</div>
+<div>
+<ol><li>Open the <strong>Registry Editor </strong>(navigate to Start --&gt; Run and type <em>regedit</em>).</li><li>Navigate to <strong>HKEY_LOCAL_MACHINESOFTWARE[Wow6432Node]NetWrixAccount Lockout Examiner </strong>(Wow6432Node only for x64 OS)</li><li>Locate the <strong>Readlog</strong> key and set its value to 0.</li><li>Create a new key called <strong>UseWatcher</strong>, set its type to DWORD and value to 1.</li><li>Restart the <strong>NetWrix Account Lockout Examiner </strong>service via<strong> Services.msc</strong></li></ol>
+<div>If this does not help, set the <strong>LockoutStatusRefreshPeriod</strong> key value to 0, but in this case the Account Lockout Examiner will not verify accounts status via Active Directory, so account lockouts will not be reported if a corresponding event is not found in the event log.</div>
+</div>
+<img style="width: 619px;height: 280px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcN0&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wxW" alt="User-added image" width="500" height="222"></img>
+</body>
+</html>

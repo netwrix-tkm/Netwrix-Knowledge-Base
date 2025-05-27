@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Threat Prevention Windows agent entries in the Threat Prevention Admin Console</title>
+    <meta name="article-id" content="ka0Qk000000DaC9IAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:46:13.000Z">
+    <meta name="articlenumber" content="000007419">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000J0DCAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T11:05:38.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:46:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J0DCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000J0DCAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T11:20:12.000Z">
+    <meta name="lastpublisheddate" content="2022-02-22T13:30:13.000Z">
+    <meta name="meta-description" content="360008304132">
+    <meta name="meta-title" content="Duplicate Threat Prevention Windows agent entries in the Threat Prevention Admin Console">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7419">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J0DCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Duplicate Threat Prevention Windows agent entries in the Threat Prevention Admin Console</h1>
+    <p><strong>Summary:</strong> Basic steps to remove duplicate Threat Prevention Windows agent� entries</p>
+
+<p>�</p>
+
+<p><strong>Issue: </strong>Remove duplicate Threat Prevention Windows agent entries in Threat Prevention Admin Console</p>
+
+<p>�</p>
+
+<p><strong>Instructions: </strong></p>
+
+<p>Threat Prevention Admin Console duplicate Threat Prevention Windows agent entries steps -</p>
+
+<ul><li>Open the Threat Prevention Admin console</li><li>Verify duplicate Threat Prevention Windows agent entries in the Threat Prevention Admin console
+	<ul><li>As needed, use the data grid in the agents view to filter the duplicate entries</li><li>As needed, take reference screen shot of the duplicate entries</li></ul>
+	</li><li>Try to delete duplicate entry using �Remove Server from List� right-click menu option. If this fails then perform the following steps:
+	<ul><li>Exit the Threat Prevention Admin console</li><li>Exit any additional Threat Prevention Admin console sessions</li><li>Temporarily stop the Threat Prevention Scheduler service
+		<ul><li>Stopping the Threat Prevention Scheduler service will also stop the Threat Prevention Reporting service</li></ul>
+		</li><li>Temporarily stop the Threat Prevention Enterprise Manager service</li><li>Query the server table in the nvmonitorconfig database to list all entries</li><li>Referencing duplicate server entries, usually the �Name� and LastMgrContact� columns, remove duplicate entries in the server table in the nvmonitorconfig database</li><li>Query the server table in the nvmontiorconfig database, and verify duplicate entries are deleted</li><li>Start the Threat Prevention Enterprise Manager service</li><li>Check log entries in the Threat Prevention Enterprise Manager service logs for any errors
+		<ul><li>If there are any errors captured, compress and send the Threat Prevention Enterprise Manager log folder</li></ul>
+		</li><li>Open the Threat Prevention Admin console, and check for duplicate Threat Prevention Windows agent entries�</li><li>Start the Threat Prevention Reporting service
+		<ul><li>Starting the Threat Prevention Reporting service will also start the Threat Prevention Scheduler service</li></ul>
+		</li></ul>
+	</li></ul>
+
+<p>Note: �Threat Prevention services need to be stopped to avoid any caching of Threat Prevention Windows agent entries</p>
+
+<p>�</p>
+
+<p><strong>Affected Versions:</strong> Threat Prevention 4.0, Threat Prevention 4.1, Threat Prevention 5.0, Threat Prevention 5.1, Threat Prevention 5.2, Threat Prevention 6.0, Threat Prevention 6.1, Threat Prevention 7.0</p>
+
+<p><strong>Affected Module:</strong> Threat Prevention Admin Console</p>
+
+<p><strong>Dev Ticket:</strong> SI-3193</p>
+
+<p><strong>Resolved In Version:</strong>� not applicable</p>
+
+<p><strong>KB Type: </strong>How To</p>
+</body>
+</html>

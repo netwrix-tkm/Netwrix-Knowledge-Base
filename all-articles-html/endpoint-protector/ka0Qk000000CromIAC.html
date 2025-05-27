@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATE]- Client Modes</title>
+    <meta name="article-id" content="ka0Qk000000CromIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:24.000Z">
+    <meta name="articlenumber" content="000009967">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BCRKA2">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nVi2IAE">
+    <meta name="assignmentdate" content="2025-03-19T17:39:28.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:24.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002BCRKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000002BCRKA2">
+    <meta name="lastmodifiedbyid" content="005Qk000001nVi2IAE">
+    <meta name="lastmodifieddate" content="2025-04-24T11:07:40.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9967">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BCRKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATE]- Client Modes</h1>
+    <p>The Endpoint Protector Client offers several modes that define its behaviour on an enduser&quot;s system. There are six modes to choose from, and they can be changed at any given time. Below is a quick summary of each mode available for configuration by an EndpointProtector Administrator:</p>
+<ol><li>
+<p>Normal � this is the default and recommended setting to use before being fully aware of what the other modes imply. Normal mode does not apply to Content Aware Protection; all other client modes, except Silent mode, are speci?c to Device Control.</p>
+<p><strong>NOTE:�</strong>If the Normal Mode does not suit your needs, consider the Hidden or Silent modes as the best alternatives.</p>
+</li><li>
+<p>Transparent � use this mode to block all devices whilst maintaining users unaware of any restrictions or presence of the�Endpoint Protector�Client. Transparent mode does not apply to Content Aware Protection; all other client modes, except Silent mode, are speci?c to Device Control.</p>
+<p>Selecting this mode will:</p>
+<ul><li>
+<p>Not display the system tray icon</p>
+</li><li>
+<p>Not display system tray noti?cations</p>
+</li><li>
+<p>Block all devices, regardless of authorization, with the following exceptions:</p>
+<ul><li>
+<p>Keyboards are blocked either when a third one is connected to the same computer or after 48 hours have passed</p>
+</li><li>
+<p>Wi-Fi connections are not blocked</p>
+</li><li>
+<p>Bluetooth devices remain operational</p>
+</li><li>
+<p>USB modems are not blocked</p>
+</li></ul>
+</li><li>
+<p>Administrator receives alerts for all activities</p>
+</li></ul>
+</li><li>
+<p>Stealth - Use this mode to discreetly monitor users and computers with a focus on Device Control and ?le-tracing. Stealth mode does not apply to Content Aware Protection; all other client modes, except Silent mode, are speci?c to Device Control.</p>
+<p><strong>NOTE:�</strong>As everything is allowed, there will be no disruptions in the daily activities of the users.</p>
+<p>Selecting this mode will:</p>
+<ul><li>
+<p>Not display the system tray icon</p>
+</li><li>
+<p>Not display system tray noti?cations</p>
+</li><li>
+<p>Allow everything, regardless of authorized or not</p>
+</li><li>
+<p>Enable ?le shadowing and ?le tracing to view and monitor all user activity</p>
+</li><li>
+<p>Administrator receives alerts for all activities</p>
+</li></ul>
+</li><li>
+<p>Panic � This mode should be selected under extreme situations when a user�s malicious intent or activity is detected by the�Endpoint Protector�Admin. Panic mode does not apply to Content Aware Protection; all other client modes, except Silent mode, are speci?c to Device Control.</p>
+<p><strong><em>RECOMMENDED:�</em></strong>It is recommended to use this mode for selected users/groups/computers only, as it will block all devices and generate a high volume of logs.</p>
+<p>Selecting this mode will:</p>
+<ul><li>
+<p>Display the system tray icon</p>
+</li><li>
+<p>Display system tray noti?cations</p>
+</li><li>
+<p>Block all devices, regardless of authorization,, with the following exceptions:</p>
+<ul><li>
+<p>Keyboards are blocked either when a third one is connected to the same computer or after 48 hours have passed</p>
+</li><li>
+<p>Wi-Fi connections are not blocked</p>
+</li><li>
+<p>Bluetooth devices remain operational</p>
+</li><li>
+<p>USB modems are not blocked</p>
+</li></ul>
+</li><li>
+<p>Enable ?le shadowing and ?le tracing to view and monitor all user activity</p>
+</li><li>
+<p>Administrator receives alerts when computers go in and out of Panic Mode</p>
+</li></ul>
+</li><li>
+<p>Hidden Icon - this mode is similar to Normal mode, except that the�Endpoint Protector�Client is not visible to the user. Hidden Icon mode does not apply to Content Aware Protection; all other client modes, except Silent mode, are speci?c to Device Control.</p>
+<p>Selecting this mode will:</p>
+<ul><li>
+<p>Not display the system tray icon</p>
+</li><li>
+<p>Not display system tray noti?cations</p>
+</li><li>
+<p>Apply all set rights and settings as per their con?guration</p>
+</li></ul>
+</li><li>
+<p>Silent - this mode is similar to Normal mode, except that pop-up noti?cations are not visible to the user.</p>
+<p>Selecting this mode will:</p>
+<ul><li>
+<p>Display the system tray icon</p>
+</li><li>
+<p>Not display system tray noti?cations</p>
+</li><li>
+<p>Apply all set rights and settings as per their con?guration</p>
+</li></ul>
+</li></ol>
+<p>�</p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to reduce the NetWrix Event Log Manager database size</title>
+    <meta name="article-id" content="ka04u000000HcMzAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:10.000Z">
+    <meta name="articlenumber" content="000003022">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:52.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TCCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9TCCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:52.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:48.000Z">
+    <meta name="meta-description" content="Netwrix Auditor Event Log Manager database retention">
+    <meta name="meta-title" content="How to reduce the NetWrix Event Log Manager database size">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="595">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TCCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to reduce the NetWrix Event Log Manager database size</h1>
+    Our NetWrix Event Log Manager database size is getting too large. How can we reduce its size and delete old events?
+
+<hr></hr>
+
+You can reduce the database size by setting the SQL database retention period that allows controlling the amount of data stored in your SQL database. In accordance with this setting, the database size is automatically updated during the event collection process.
+To configure the SQL database retention settings, do the following:
+<ol><li>Start NetWrix Enterprise Management Console, and navigate to <strong>Managed Objects</strong>  <strong>&lt;your Managed Object&gt;</strong>  <strong>Event Log Manager </strong> <strong>Reports</strong>.</li><li>In the right pane, switch to the <strong>Settings</strong> tab, select the <strong>Store audit data in the database for () days</strong> check box, and specify the number of days (for example, 30 days).  <strong>Note</strong>: the longer the period you specify, the larger your database size is.</li><li>Click <strong>Apply</strong> to save the changes.</li></ol>
+<div>
+<div>The NetWrix Event Log Manager  database size will be reduced during the next data collection.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateSchema Error: �dbo.SA_FSAA_Resources.ID� is not the same data type as referencing column</title>
+    <meta name="article-id" content="ka0Qk000000De9JIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2025-05-06T16:51:52.000Z">
+    <meta name="articlenumber" content="000010181">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002RLtKAM">
+    <meta name="assignedbyid" content="0054u000007MiY9AAK">
+    <meta name="assignedtoid" content="0054u000007MiY9AAK">
+    <meta name="assignmentdate" content="2025-05-06T16:51:52.000Z">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-05-06T16:51:52.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002RLtKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002RLtKAM">
+    <meta name="lastmodifiedbyid" content="0054u000007MiY9AAK">
+    <meta name="lastmodifieddate" content="2025-05-06T17:00:13.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10181">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002RLtKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>CreateSchema Error: �dbo.SA_FSAA_Resources.ID� is not the same data type as referencing column</h1>
+    <blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Symptom</h2>
+<p>When running the File System, 0.CreateSchema job in Netwrix Access Analyzer (NAA), the job fails with the following errors:</p>
+<ul><li>
+<p dir="auto"><code>Column �dbo.SA_FSAA_Resources.ID� is not the same data type as referencing column �SA_FSAA_AzureFilesShares_ResourceID�. Could not create constraint or index.</code></p>
+</li><li>
+<p dir="auto"><code>Foreign key �FK_SA_FSAA_AzureFilesShareProperties_AzureShareID� references invalid table �dbo.SA_FSAA_AzureFileShares�. Could not create constraint or index.</code></p>
+</li><li>
+<p dir="auto"><code>Column �dbo.SA_FSAA_Resources.ID� is not the same data type as referencing column �SA_FSAA_ResourceMap_ID� in foreign key �FK_SA_FSAA_ResourceMap_ID�. Could not create constraint or index.</code></p>
+</li><li>
+<p dir="auto"><code>Column �dbo.SA_FSAA_Resources.ID� is not the same data type as referencing column �SA_FSAA_ResourcesScanTypeDetails.ID� in foreign key �FK_SA_FSAA_ResourcesScanTypeDetails_ID�. Could not create constraint or index.</code></p>
+</li><li>
+<p dir="auto"><code>Invalid object name �dbo.SA_FSAA_ResourceMap�.
+</code></p>
+</li></ul>
+<pre class="has-inner-focus"></pre>
+<h2>Cause</h2>
+<p>These errors may be caused by any one of the following causes:</p>
+<ul><li>The Netwrix Access Analyzer (NAA) database was originally created pre-StealthAUDIT v10.0.</li><li>
+<p dir="auto">The ID column of the SA_FSAA_Resources table has a data type of �int� instead of �bigint�.</p>
+</li></ul>
+<h2>Resolutions</h2>
+<p>To address these causes, refer to the following steps.</p>
+<ol><li>
+<p>In the NAA Database, run the following SQL Script:</p>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>SELECT 
+    t.name AS TableName,
+    c.name AS ColumnName,
+    tp.name AS DataType,
+    CASE 
+        WHEN tp.name = &#39;bigint&#39; THEN &#39;FS_MigrateSchema job not needed.&#39;
+        WHEN tp.name = &#39;int&#39; THEN &#39;Run FS_MigrateSchema job from InstantJobs before running 0.CreateSchema job.&#39;
+        ELSE &#39;Unknown data type.&#39;
+    END AS ActionMessage
+FROM 
+    sys.tables AS t
+INNER JOIN 
+    sys.columns AS c ON t.object_id = c.object_id
+INNER JOIN 
+    sys.types AS tp ON c.user_type_id = tp.user_type_id
+WHERE 
+    t.name = &#39;SA_FSAA_Resources&#39; AND 
+    c.name = &#39;ID&#39; AND
+    tp.name IN (&#39;int&#39;, &#39;bigint&#39;)
+ORDER BY 
+    t.name, c.name;</code></pre>
+</li><li>If the script result says &quot;Run FS_MigrateSchema job from InstantJobs before running 0.CreateSchema job.&quot; open the NAA console and add the FS_MigrateSchema job from the InstantJob Library.<br><blockquote><strong>NOTE:</strong> For more information on pulling jobs from the InstantJob library, please visit the Netwrix HelpCenter: <a class="use-hover-preview" href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Jobs/InstantJobs/Overview.htm" target="_blank">https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Jobs/InstantJobs/Overview.htm</a></blockquote>
+</li><li>Configure the job with the runtime details below:<br><blockquote><strong>NOTE:</strong> For more information on the FS_MigrateSchema job, please visit the Netwrix HelpCenter: <a href="https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Jobs/InstantJobs/FS_MigrateSchema.htm" target="_blank">https://helpcenter.netwrix.com/bundle/AccessAnalyzer_12.0/page/Content/EnterpriseAuditor/Admin/Jobs/InstantJobs/FS_MigrateSchema.htm</a></blockquote>
+<strong></strong>
+<ol><li><strong>Hosts</strong>: localhost.</li><li><strong>Connection Profile</strong>: Account with DBO permissions on NAA database.<br><br></li></ol>
+</li><li>Create a scheduled task for the FS_MigrateSchema job with the below criteria:
+<ol><li>No Schedule/Trigger</li><li>&quot;Stop the task if it runs for&quot; option unchecked.<br><br></li></ol>
+</li><li>From the Schedules, right-click the FS_MigrateSchema scheduled task and select <strong>Run</strong>.</li></ol>
+</body>
+</html>

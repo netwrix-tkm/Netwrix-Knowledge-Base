@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Event Logs reports for Windows Server does not contain any data</title>
+    <meta name="article-id" content="ka04u0000011776AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-08-01T10:43:50.000Z">
+    <meta name="articlenumber" content="000008703">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-08-10T09:25:15.000Z">
+    <meta name="firstpublisheddate" content="2023-08-01T10:43:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110yXCAQ">
+    <meta name="knowledge-article-id" content="kA04u00000110yXCAQ">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-08-10T09:26:30.000Z">
+    <meta name="lastpublisheddate" content="2023-08-10T09:26:30.000Z">
+    <meta name="meta-description" content="This article contains resolution steps if the Event Log reports do not contain any data.">
+    <meta name="meta-title" content="The Event Logs reports for Windows Server does not contain any data">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8703">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110yXCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The Event Logs reports for Windows Server does not contain any data</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>You have configured a <b>Windows Servers</b> monitoring plan in Netwrix Auditor, the data is being collected, however, the reports under <b>Windows Server</b> -&gt; <b>Event Log</b> do not show any data.</p>
+</div>
+
+<div>
+<h1>Cause</h1>
+
+<div>
+<p>To review your data in these reports, you should configure a monitoring plan for Netwrix Auditor Event Log Manager.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<ol><li>
+	<p>On the computer that hosts Netwrix Auditor Server, run Netwrix Auditor Event Log Manager.</p>
+	</li><li>
+	<p>Navigate to Audit Archiving filters and configure them as described in <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.5/page/Content/Auditor/Tools/EventLogManager/AuditArchivingFilters.htm" target="_blank">Configure Audit Archiving Filters for Event Log</a>.<br>	<img alt="User-added image" height="228" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u0000011776&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008Ls7s" width="500"></img></p>
+	</li><li>
+	<p>Perform any test changes, for example, log in to a server for which you want to review data in reports.</p>
+	</li><li>
+	<p>Wait for 10 - 15 minutes for changes to take effect and run reports.</p>
+	</li></ol>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Failed to check for event log existence</title>
+    <meta name="article-id" content="ka04u000000HcUrAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:55.000Z">
+    <meta name="articlenumber" content="000003564">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:35.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9c6CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9c6CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:35.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:43.000Z">
+    <meta name="meta-description" content="error summary email Failed to check for event log existence">
+    <meta name="meta-title" content="Error: Failed to check for event log existence">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1404">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9c6CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Failed to check for event log existence</h1>
+    The following error is displayed in the session results/ daily change summary email:
+&quot;Failed to check for event log existence&quot;.
+
+<hr></hr>
+
+This problem occurs because the loopback check functionality is active on the problematic server.
+
+<hr></hr>
+
+To solve the problem, perform the following test:
+<ol><li>Launch Event Viewer on the machine where Netwrix product is installed.</li><li>From the Action menu, select the Connect to another computer option and specify the name of the problematic computer.</li><li>Select the Connect as another user option, click the Set user button and specify the account which is used to run the Event Log Manager scheduled task (the default data processing account).</li></ol>
+If you can connect successfully, the issue can be resolved by turning off the Network Traffic Compression option in the Event Log Manager settings, or by performing the procedure described in the following Microsoft Knowledge Base article: <a href="http://support.microsoft.com/kb/926642" target="_blank">http://support.microsoft.com/kb/926642</a>.
+</body>
+</html>

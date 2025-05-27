@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identify and Delete Duplicates</title>
+    <meta name="article-id" content="ka04u000000HcejAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:19:16.000Z">
+    <meta name="articlenumber" content="000006530">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:02:03.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:19:16.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I3gCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000I3gCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:02:03.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:19:16.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Identify and Delete Duplicates">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6530">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I3gCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Identify and Delete Duplicates</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to Identify and Delete Duplicates</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span>�</strong>Duplicate entries need to be removed from the database for reasons.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<p><span class="wysiwyg-color-black">If this is critical data, </span><span class="wysiwyg-color-red">BACKUP THE TABLE FIRST BEFORE DELETING ANY DATA!!!</span></p>
+<p>The following syntax will give you a count of rows per unique value(s) specified</p>
+<pre>SELECT COUNT(*), [value] <br>FROM [table] <br>GROUP BY [value] <br>ORDER BY COUNT(*) DESC</pre>
+<p>�</p>
+<p>To put some context into the above query, here is an example with output in SSMS. A table was created with intentional duplicate entries for files. In the output we see there are 6 duplicated entries.</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcZbx&amp;d=%2Fa%2F4u000000Lymp%2FPB4tpe3N7oApwy1.EU8VCt1dKzOA6Vc60nI1H.Ti0zc&amp;asPdf=false" alt="mceclip1.png"></img></p>
+<p>�</p>
+<p>Now we will leverage the Transact-SQL &#39;common table expression&#39;, or CTE to more efficiently root out and delete the duplicates.�</p>
+<pre><code>;WITH cte AS (SELECT col2, ROW_NUMBER() OVER (PARTITION BY Col1, Col3 ORDER BY ( SELECT 0)) RN FROM #MyTable) DELETE FROM cte WHERE RN &gt; 1</code></pre>
+<p>I am using�<code>ORDER BY (SELECT 0)</code>�above as�it is arbitrary�which row to preserve in the event of a tie.</p>
+<p>To preserve the latest one in�<code>RowID</code>�order for example you could use�<code>ORDER BY RowID DESC</code>.</p>
+<p class="wysiwyg-text-align-left">Here is an example to provide some context. Rather than completing with <code>DELETE FROM CTE WHERE RN &gt; 1</code>, we will use <code>SELECT * FROM CTE WHERE RN &gt; 1</code> as this will display which duplicate rows are to be deleted. It is highly recommended to verify what data is to be deleted beforehand to ensure accuracy.</p>
+<p class="wysiwyg-text-align-left"><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcZ3r&amp;d=%2Fa%2F4u000000LynD%2FZjrz5_S26VMeWEMdOtkS6etTjbnW9gv5Jrgmt_Znhpk&amp;asPdf=false" alt="mceclip3.png"></img></p>
+<p class="wysiwyg-text-align-left">A more detailed discussion is available from this thread:</p>
+<p class="wysiwyg-text-align-left"><a href="http://stackoverflow.com/questions/18932/how-can-i-remove-duplicate-rows/3822833#3822833" target="_self">http://stackoverflow.com/questions/18932/how-can-i-remove-duplicate-rows/3822833#3822833</a> �</p>
+<p>�</p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Database/SQL;SA - Core<br><br></p>
+</body>
+</html>

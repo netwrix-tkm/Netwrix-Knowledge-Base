@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exporting the Activity Log as a CSV</title>
+    <meta name="article-id" content="ka04u000000HdD5AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2022-08-25T13:17:51.000Z">
+    <meta name="articlenumber" content="000008484">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2023-05-08T10:19:00.000Z">
+    <meta name="firstpublisheddate" content="2022-08-25T13:55:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000004mylCAA">
+    <meta name="knowledge-article-id" content="kA04u0000004mylCAA">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:00.000Z">
+    <meta name="lastpublisheddate" content="2022-08-25T13:55:13.000Z">
+    <meta name="meta-description" content="Exporting the Activity Log as a CSV">
+    <meta name="meta-title" content="Exporting the Activity Log as a CSV">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8484">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000004mylCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Exporting the Activity Log as a CSV</h1>
+    <h1>Summary</h1>
+
+<p>Exporting the &quot;Activity Log&quot; report is a common auditing and compliance use case. This article provides a scripted method of exporting the Activity Log data from SbPAM.</p>
+
+<h1><br>Instructions</h1>
+� � 1. On your SbPAM server, ensure that PowerShell 7.1 is installed. It can be obtained from <a href="https://github.com/PowerShell/PowerShell/releases/tag/v7.1.7" target="_blank">the official PowerShell github repository</a>.<em>�(Note: This specific version of PowerShell is a necessary prerequisite to running the SbPAM API. Do not install PowerShell 7.2+)</em><br>� � 2. Locate the &quot;Extras&quot; folder, which was packaged alongside your SbPAM installer. Run the SbPAMPowerShellModules installer.<br>� � �<img alt="User-added image" height="223" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdD5&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000005yZ7y" width="500"></img><br>� � 3. In your preferred text editor, paste the following PowerShell script. Save it as &quot;ActivityReport.ps1&quot;.
+<pre class="ckeditor_codeblock">
+[cmdletbinding()]
+param(
+    [Parameter(Mandatory)][PSCredential]$UserCred,
+    [Parameter()][String]$UserCode = $null,
+    [Parameter(Mandatory)][String]$SbPamUrl,
+    [Parameter(Mandatory)][datetime]$StartDate,
+    [Parameter(Mandatory)][datetime]$EndDate,
+    [Parameter()][string]$FilePath = &quot;out.csv&quot;
+)
+
+Import-Module SbPAMAPI -Force
+
+function Renew-Token {
+    [CmdletBinding()]
+    param (
+        [string]
+        $Token,
+        $Uri
+    )
+    $mfaObj = Convert-SbPAMToken $Token
+    if ($null -eq $global:expiration) {
+        $global:expiration = Get-Date -UnixTimeSeconds $mfaObj.exp
+    }
+
+    if ($global:expiration -lt (Get-Date).AddMinutes(7)) {
+        Write-Host &quot;$(Get-Date) Refreshing token&quot;
+        $Token = Invoke-SbPAMRest -Uri &quot;$Uri/api/v1/UserToken&quot; -Token $Token -ErrorAction Stop -SkipCertificateCheck
+        $mfaObj = Convert-SbPAMToken $Token
+        $global:expiration = Get-Date -UnixTimeSeconds $mfaObj.exp
+    }
+    return $Token
+}
+
+function Get-SbPAMActivitySessionReport {
+    param(
+        $Uri,
+        $Token,
+        $StartDate,
+        $EndDate
+    )
+    $Token = Renew-Token -Uri $Uri -Token $Token
+    $Skip = 0
+    $Take = 100
+    $StartDateString = $StartDate.ToUniversalTime().ToString(&quot;yyyy-MM-ddTHH:mm:ssZ&quot;)
+    $EndDateString = $EndDate.ToUniversalTime().ToString(&quot;yyyy-MM-ddTHH:mm:ssZ&quot;)
+    
+    $ApiUri = &quot;$($Uri)/api/v1/ActivitySession/Search?skip=$($Skip)&amp;filterText=&amp;filterDateTimeMin=$($StartDateString)&amp;filterDateTimeMax=$($EndDateString)&amp;filterTopUsersType=1&amp;take=$Take&quot;
+    $Data = @()
+    
+    $Results = Invoke-SbPAMRest -Uri $ApiUri -SkipCertificateCheck -Token $Token
+    while ($Results.Data.Length -ge $Take) {
+        $Data += $Results.Data
+        $Skip += $Take
+        Write-Progress -Activity &quot;Fetching activity report from $StartDate to $EndDate&quot; -PercentComplete 0 -Status &quot;$Skip of $($Results.recordsTotal) $($Results.Data.Length)&quot;
+        
+        $ApiUri = &quot;$($Uri)/api/v1/ActivitySession/Search?skip=$($Skip)&amp;filterText=&amp;filterDateTimeMin=$($StartDateString)&amp;filterDateTimeMax=$($EndDateString)&amp;filterTopUsersType=1&amp;take=$Take&quot;
+        $Results = Invoke-SbPAMRest -Uri $ApiUri -SkipCertificateCheck -Token $Token
+    }
+    $Data += $Results.Data
+    $Data
+}
+
+# &quot;https://192.168.77.99:6500/api/v1/ActivitySession/Search?skip=0&amp;filterText=&amp;filterDateTimeMin=2022-07-01T05:00:00.000Z&amp;filterDateTimeMax=2022-08-24T04:59:59.999Z&amp;filterTopUsersType=1&amp;take=30&quot; 
+# Create the web session
+$WebSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+# Set up the user credentials - MFA and JWT objects
+$userToken = Get-SbPAMToken -Credential $userCred -Uri $SbPamUrl -WebSession $WebSession -SkipCertificateCheck -ErrorAction Stop
+if (&quot;&quot; -eq $UserCode -or $null -eq $UserCode) {
+    $userCode = Read-Host -Prompt &quot;Enter MFA code&quot;
+}
+$userToken = Get-SbPAMMfaToken -Uri $SbPamUrl -Token $userToken -Code $userCode -WebSession $WebSession -SkipCertificateCheck -ErrorAction Stop
+
+Write-Progress -Activity &quot;Fetching activity report from $StartDate to $EndDate&quot; -PercentComplete 0 -Status &quot;Fetching...&quot;
+Write-Host &quot;Exporting From $StartDate to $EndDate to $FilePath&quot;
+
+$Data = Get-SbPAMActivitySessionReport -Uri $SbpamUrl -Token $userToken -StartDate $StartDate -EndDate $EndDate
+
+$Data | ConvertTo-Csv -NoTypeInformation -UseQuotes Always | Out-File -FilePath $FilePath
+Write-Host &quot;Export complete found $($Data.Length) records&quot;</pre>
+� � 4. Open up PowerShell 7. Navigate to the directory containing ActivityReport.ps1, and execute the following command:
+
+<pre class="ckeditor_codeblock">
+.\ActivityReport.ps1</pre>
+� � 5. You will be prompted for an SbPAM administrator username and password, your SbPAM URL, and an MFA code (if applicable).<br>� ��<img alt="User-added image" height="206" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdD5&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000005yZ83" width="500"></img><br>� � 6.�Your activity data will then be output to a file called &quot;out.csv&quot;.<br>� ��<img alt="User-added image" height="157" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdD5&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000005yZ88" width="500"></img>
+</body>
+</html>

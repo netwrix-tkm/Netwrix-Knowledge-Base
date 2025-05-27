@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Lockout Examiner works very slowly</title>
+    <meta name="article-id" content="ka04u000000HcWKAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:59.000Z">
+    <meta name="articlenumber" content="000003655">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:51:07.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:58.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dZCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9dZCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:07.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:58.000Z">
+    <meta name="meta-description" content="Netwrix Account Lockout Examiner - Troubleshooting performance issues.">
+    <meta name="meta-title" content="Account Lockout Examiner works very slowly">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2777">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dZCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Account Lockout Examiner works very slowly</h1>
+    To address the slow performance issue, perform the following steps:
+<ol><li style="list-style-type: none;">
+<ol><li>Stop the Netwrix Account Lockout Examiner service via Services snap-in. If the service fails to stop, kill ALEService.exe process via Task manager.</li><li>Go to the Account Lockout Examiner installation directory</li><li>Delete or rename the following files.</li></ol>
+</li></ol>
+<ul style="margin-left: 80px;"><li>allinfo.xml</li><li>inv_logon.xml</li><li>readEvents.xml</li><li>sessions.xml</li></ul>
+<div style="margin-left: 40px;"><strong>NOTE</strong>: This will remove info about all old lockouts from Account Lockout Examiner. Backup this files if you need them for the further access.</div>
+<ol start="4"><li>Start Netwrix Account Lockout Examiner Service</li></ol>
+<a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g000000kAbJ&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004wmE" target="_blank"><img style="width: 543px;height: 410px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcWK&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wmE" alt="User-added image" width="500" height="397"></img></a>
+</body>
+</html>

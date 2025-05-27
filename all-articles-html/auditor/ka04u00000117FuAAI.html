@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Size Exceeds Fixed Maximum Message Size Error in Health Log</title>
+    <meta name="article-id" content="ka04u00000117FuAAI">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:55.000Z">
+    <meta name="articlenumber" content="000003226">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-08-18T10:24:55.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:28.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9WZCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9WZCA0">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-08-18T10:25:53.000Z">
+    <meta name="lastpublisheddate" content="2023-08-18T10:24:51.000Z">
+    <meta name="meta-description" content="maximum email size limit on our Exchange server">
+    <meta name="meta-title" content="How to deal with large html reports that are above the maximum email size limit?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="807">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9WZCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Message Size Exceeds Fixed Maximum Message Size Error in Health Log</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>You&#39;ve encountered one of the following errors in your Health Log:</p>
+
+<pre class="has-inner-focus">
+Netwrix Auditor was unable to send Activity Summary to %email_address%. 
+Error: SMTP Exception: The server rejected the message: %message%
+Message size exceeds fixed maximum message size.  
+Check your SMTP settings. Make sure the Exchange server is up and running and recipient&#39;s mailbox is accessible.
+</pre>
+
+<pre class="has-inner-focus">
+Netwrix Auditor was unable to deliver the subscription %subscription_name% due to the following error: 
+The following subscriptions could not be sent to the recipient %email_address%: 
+Error: Exceeded storage allocation. The server response was: %message%
+Message size exceeds fixed maximum message size.
+</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>Size of the attached report exceeds the maximum message size.</p>
+	</li><li>
+	<p>Your Exchange server is affected by a connectivity issue.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Activity Summaries in large environments may exceed the maximum message size.</p>
+
+	<ol><li>
+		<p>In the main Netwrix Auditor menu, select <strong>Monitoring plans</strong>, select the affected monitoring plan in the left pane, and click <strong>Edit</strong>.</p>
+		</li><li>
+		<p>In the right pane, click <strong>Edit settings</strong> under the <strong>Monitoring plan</strong> section.</p>
+		</li><li>
+		<p>In the left pane, select <strong>Notifications</strong>.</p>
+		</li><li>
+		<p>Check the <strong>Compress attachment before sending</strong> checkbox, and click <strong>Save</strong>.</p>
+		</li></ol>
+	</li><li>
+	<p>Subscription reports in large environments may exceed the maximum message size.</p>
+
+	<ol><li>
+		<p>In the main Netwrix Auditor menu, select <strong>Subscriptions</strong>, select the affected subscription, and click <strong>Edit</strong>.</p>
+		</li><li>
+		<p>In the left pane, select the <strong>General</strong> tab.</p>
+		</li><li>
+		<p>Under the <strong>Specify delivery options</strong>, select <strong>CSV</strong> in the drop-down <strong>File format</strong> list.</p>
+		</li><li>
+		<p>Click <strong>Save</strong> to save changes.</p>
+		</li></ol>
+	</li><li>
+	<p>Restart your Exchange server to verify the issue is not related to the server.</p>
+	</li></ul>
+</div>
+</body>
+</html>

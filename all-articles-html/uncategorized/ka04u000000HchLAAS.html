@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up SAM to collect file activity from Hitachi NAS devices with multiple EVS logs</title>
+    <meta name="article-id" content="ka04u000000HchLAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:08:09.000Z">
+    <meta name="articlenumber" content="000006293">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:03:59.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:08:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IByCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IByCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:03:59.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:08:10.000Z">
+    <meta name="meta-description" content="360008602431">
+    <meta name="meta-title" content="Setting up SAM to collect file activity from Hitachi NAS devices with multiple EVS logs">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6293">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IByCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Setting up SAM to collect file activity from Hitachi NAS devices with multiple EVS logs</h1>
+    <p><strong>Title:</strong> Setting up SAM to collect from Hitachi NAS devices with multiple EVS logs</p>
+<p><strong>Channel:</strong>� Internal</p>
+<p><strong>Summary:</strong> SAM only allows you to define one log file per NAS device monitored host, however Hitachi NAS devices can have multiple EVS storage locations for a single hostname. Each EVS requires the activity logfile to be set up separately.</p>
+<p><strong>Submitted by:</strong> Robert Parsons</p>
+<p><strong>Product:</strong> SAM</p>
+<p><strong>Affected Versions:</strong> All</p>
+<p><strong>Affected Module:</strong> File system activity</p>
+<p><strong>Dev Ticket:</strong> N/A</p>
+<p><strong>Resolved In Version:</strong> N/A</p>
+<p><strong>KB Type:</strong> How To</p>
+<p>�</p>
+<p><strong>Issue:</strong> SAM (Stealthbits Activity Monitor) only allows you to define one log file per NAS device monitored host, however Hitachi NAS devices can have multiple EVS storage locations for a single hostname. Each EVS requires the activity logfile to be set up separately.</p>
+<p>�</p>
+<p><strong>Instructions:</strong></p>
+<p>1. Configure log file settings for each Hitachi EVS.� �Hitachi NAS logs must be configured to be exposed via a UNC for SAM to read them.� �(Note that you also have to set up the actual auditing to be enabled on desired location once the logging is set up.� See the Stealthbits_SMP_FS_Hitachi_ConfigGuide.pdf document for more details, especially the section &quot;Hitachi Device Configuration for Activity Monitoring.)</p>
+<p>NOTE: Be sure the log roll over policy is set to &quot;NEW&quot; logs instead of &quot;WRAP&quot;.� (SAM does not support wrapped log files for Hitachi, and the debug logs will show you an error if you configure it that way.� You activity collection will simply appear to stop when the log wraps.)</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcXMH&amp;d=%2Fa%2F4u000000LyaT%2Fty6gOTBe3EZXdl.kd9L29nsGxDTwtN_pdUPZ8yiuoQI&amp;asPdf=false" alt="mceclip1.png"></img></p>
+<p>�</p>
+<p>2. Deploy / choose your SAM agent that will be responsible for the Hitachi NAS activity collection.</p>
+<p>�</p>
+<p>3. Create a separate monitored host entry for *EACH* EVS!� It is recommended to name these monitored hosts for the EVS names so that you can easily identify them.� DO NOT USE THE HOSTNAME AS THE MONITORED HOST NAME.� �</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcXMM&amp;d=%2Fa%2F4u000000LyaY%2FQNvExv340kW41KSPOPcrNj2vgIX87Qk3zDUNUoIaMi4&amp;asPdf=false" alt="mceclip2.png"></img></p>
+<p>�</p>
+<p>4. Confirm you are receiving activity as expected for each EVS and you can see it in a SAM event search.� Note that the Hitachi NAS hostname will be the host in the search results, not the EVS name.� Be sure you can distinguish between EVS locations by the path when checking.� (NOTE: SAM will let you set up multiple monitored hosts with the same hostname, but you will likely be unable to see results from all of them in the search function.� This is one of multiple reasons we are setting up the monitor host with the EVS hostname.)</p>
+<p>�</p>
+<p>5. Edit the SAM configuration file SBTFileMon.ini.� (You may want to do this by opening notepad as an administrator, to prevent issues saving later.) The default location for this is on the agent machine in the directory C:\Program Files\Stealthbits\StealthAUDIT\FSAC.� This is a text file you can edit.� Each monitored host will have a section that begins with [HNAS_MONITOR1], [HNAS_MONITOR2), etc.� In EACH monitored host section, you will need to add the line ALT_HOST=youractualhostname.domain.com (put your Hitachi NAS machine name).� �This name is the name you will be using as a target host in StealthAUDIT&#39;s FSAC jobs later.)� You will need to add this line for EACH monitored host (each EVS).</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcTAA&amp;d=%2Fa%2F4u000000LyVA%2FDGGmH0azrBu9xxpfinJAub1jEudSV.e6Yg_XkT1ZBfs&amp;asPdf=false" alt="mceclip3.png"></img></p>
+<p>Save the configuration file.� (If you have trouble saving or get an access denied error, save elsewhere and then copy the file over to replace the original manually.)</p>
+<p>�</p>
+<p>6. Disable and then Re-Enable each monitored host that is for an EVS.� (This is simply to ensure that our configuration file changes are read.)</p>
+<p>7. Set up StealthAUDIT&#39;s FSAC job to collect the data as you would normally.� The target host is the Hitachi NAS server hostname, and the proxy server is the SAM agent hostname.� When you run the FSAC collection, it should collect all the data for the hostname you put into ALT_HOST in our configuration file from all the different EVS monitored hosts on the SAM agent.</p>
+<p>�</p>
+</body>
+</html>

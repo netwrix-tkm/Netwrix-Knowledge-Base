@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Are Not Running</title>
+    <meta name="article-id" content="ka04u000000HdEuAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-05-06T08:56:28.000Z">
+    <meta name="articlenumber" content="000005875">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T10:19:46.000Z">
+    <meta name="firstpublisheddate" content="2021-07-12T11:54:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Pd8ECAS">
+    <meta name="knowledge-article-id" content="kA04u000000Pd8ECAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:19:46.000Z">
+    <meta name="lastpublisheddate" content="2021-11-09T00:48:38.000Z">
+    <meta name="meta-description" content="If SbPAM services are down, you will receive a warning at the top of the user interface. This article outlines steps that can be taken to bring SbPAM services back online.">
+    <meta name="meta-title" content="Services Are Not Running">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5875">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Pd8ECAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Services Are Not Running</h1>
+    <div class="ControlZone ControlZone--clean a_b_50a7110f" id="1212fc8d-dd6b-408a-8d5d-9f1cc787efbb">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<h1>Summary</h1>
+
+<p>If SbPAM services are down, you will receive a warning at the top of the user interface. This article outlines steps that can be taken to bring SbPAM services back online.</p>
+
+<h1>Instructions</h1>
+
+<p>If a warning appears at the top of the SbPAM interfacing stating a service is offline, take the following steps to attempt to bring the affected service back online.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="207fe570-3167-4714-9344-53cbe929d8c1">
+<div class="ControlZone--control">
+<div style="">
+<div class="ai_g_9f38462c css-202">
+<div class="bs_g_9f38462c">
+<div class="aq_g_9f38462c" style=""><img alt="SbPAM&#39;s web application interface, displaying a warning that a service is not running or registered." height="84" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdEu&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bjCW" width="500"></img></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="0a08bee4-1e00-4505-a6e5-5719296e5196">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<p>First, check Windows Services to see if any of the SbPAM services are not running.<br><br><img alt="Windows Services interface displaying installed SbPAM services, with five out of six displayed as not running." height="109" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdEu&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bjCb" width="500"></img><br><br>If any aren&#39;t running, either start them using the Windows Services interface or run the following�in an elevated PowerShell:<br>�</p>
+
+<pre class="ckeditor_codeblock">
+Start-Service sbpam*</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="eb1f9e0a-bcfd-4b16-9a50-efab408a5783">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">�
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<p>In this instance 1 out of the 5 services are running so I will manually start the services by opening services.msc on the local SbPAM Server.</p>
+
+<p>If all SbPAM services are running in Windows Services yet there&#39;s still a services warning in the SbPAM web application interface, then the next step is to re-register the services with SbPAM.<br><br>Log-in to SbPAM&#39;s web application as an Admin. In the upper-right click the current logged-in user&#39;s name,�then click <b>Settings, </b>and then�click�<b>Register Services.<br><br><img alt="The SbPAM web application interface&#39;s user settings menu dropdown." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdEu&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bjCq"></img></b><br><br><img alt="The SbPAM web application interface&#39;s settings page, displaying the Register Services button." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdEu&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bjCv"></img></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ControlZone ControlZone--clean a_b_50a7110f" id="5b22cf3b-b56a-4029-beba-61c09df946ab">
+<div class="ControlZone--control">
+<div class="rte-webpart rte-margin-bottom rte-webpart-inlineImageHidden">
+<div class="rte--read ckeditable_removeMargin highlightFocusFix fontWeightStrongForIEFireFox rteEmphasis root-79">
+<p>If issues persist, please <a href="https://kb.netwrix.com/5874" target="_blank">gather SbPAM&#39;s logs</a> and contact�<a href="https://www.netwrix.com/support.html" target="_blank">Netwrix Support</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

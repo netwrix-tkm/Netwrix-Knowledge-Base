@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubservice-Log Fix: Command aggregate failed: Sort exceeded memory limit of 104857600 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in</title>
+    <meta name="article-id" content="ka04u000000Hd9FAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:53:47.000Z">
+    <meta name="articlenumber" content="000008264">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:25.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:53:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JXdCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000JXdCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:25.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Hubservice-Log Fix: Command aggregate failed: Sort exceeded memory limit of 104857600 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8264">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JXdCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hubservice-Log Fix: Command aggregate failed: Sort exceeded memory limit of 104857600 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in</h1>
+    <h2 id="Hubservice-LogFix:Commandaggregatefailed:Sortexceededmemorylimitof104857600bytes,butdidnotoptintoexternalsorting.Abortingoperation.PassallowDiskUse:truetooptin-Problem">Problem</h2><p>You are unable to log into Change Tracker, receiving the error username or password incorrect.</p><p>The Mongodb service is running as is the IIS service and upon looking into the log for Change Tracker Hub, the hubservice-log.txt found here by default -C:\inetpub\wwwroot\Change Tracker Generation 7 Hub\log the below error is listed and repeats:</p><p>MongoDB.Driver.MongoCommandException: Command aggregate failed: Sort exceeded memory limit of 104857600 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in..</p><h2 id="Hubservice-LogFix:Commandaggregatefailed:Sortexceededmemorylimitof104857600bytes,butdidnotoptintoexternalsorting.Abortingoperation.PassallowDiskUse:truetooptin-"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="400" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKMO&amp;d=%2Fa%2F4u000000Lzs2%2FzsuKN6UK.ZUWoERo5KKIzPnZusTTjDSJaMw2B04JgM4&amp;asPdf=false"></img></span></h2><h2 id="Hubservice-LogFix:Commandaggregatefailed:Sortexceededmemorylimitof104857600bytes,butdidnotoptintoexternalsorting.Abortingoperation.PassallowDiskUse:truetooptin-Solution">Solution</h2><p>The cause of the error has been found to be a sub-optimal query running during the hub service start up. This has been fixed in later releases of the software7.0.1.58 and onwards.</p><p>For earlier versions of Change Tracker, perform the task listed below to rectify the issue.</p><p>Log into the Change Tracker server and open a command prompt to perform the following commands:</p><p><br>cd &quot;C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin&quot;<br>mongo.exe<br>use NNTHubService<br>db.SystemDirectory.createIndex({OrganizationId:1, _t:1, DisplayName:1})<br><br></p><p>The output of the command should be:</p><p><br>{<br>&quot;createdCollectionAutomatically&quot; : false,<br>&quot;numIndexesBefore&quot; : 5,<br>&quot;numIndexesAfter&quot; : 6,<br>&quot;ok&quot; : 1<br>}<br><br></p><p>Attempt to once again log into Change Tracker.</p><p><br></p><div class="confluence-information-macro confluence-information-macro-information conf-macro output-block"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"> </div></div><h2 id="Hubservice-LogFix:Commandaggregatefailed:Sortexceededmemorylimitof104857600bytes,butdidnotoptintoexternalsorting.Abortingoperation.PassallowDiskUse:truetooptin-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+</p><ul class="content-by-label conf-macro output-block"><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8150" target="_blank">How to Backup / Restore / Move your MongoDB Database</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8282" target="_blank">Monitoring Oracle Databases using Change Tracker</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8295" target="_blank">How to Configure The FAST Cloud Integration With Proxy Internet Settings</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8283" target="_blank">How to move your Linux Server MongoDB Database to a Windows server?</a>
+                        
+                        
+                    </div>
+    </li><li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                                    <a href="https://kb.netwrix.com/8164" target="_blank">How to Add Palo Alto Device to a Proxy Agent as a Proxy Device in Change Tracker Gen7</a>
+                        
+                        
+                    </div>
+    </li></ul>
+<p><br></p><p><br></p> <br><b>Attachments:</b><br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKXy&amp;d=%2Fa%2F4u000000M01l%2FEP5oJdhdbI9Yg.AfVi1GiCXfCztPdgM0PS8OZnbym0M&amp;asPdf=false" target="_blank">image2018-7-23_14-51-29.png</a> <br><a href="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LdKQp&amp;d=%2Fa%2F4u000000Lzgn%2Ft7LhHwI4_4WryjAU2EN2q_RoLjD04VPuVyqBVpTTNWE&amp;asPdf=false" target="_blank">image2018-7-23_14-50-59.png</a> <br>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block File Transfers to or from Network Shares</title>
+    <meta name="article-id" content="ka0Qk000000DyZRIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:10.000Z">
+    <meta name="articlenumber" content="000009828">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B6oKAE">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="article-sme" content="005Qk000001nViBIAU">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210264961716991?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-05-15T17:10:45.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-05-15T17:07:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B6oKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B6oKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-16T13:24:11.000Z">
+    <meta name="lastpublisheddate" content="2025-05-16T13:24:11.000Z">
+    <meta name="ownerid" content="005Qk000001nViKIAU">
+    <meta name="urlname" content="9828">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B6oKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Block File Transfers to or from Network Shares</h1>
+    <h2>Overview</h2>
+<p>This article explains how to block file transfers to or from network shares using the Content Aware Protection policy.</p>
+<h2>Instructions</h2>
+<ol><li>Ensure that <strong>Network Share</strong> is selected in the Content Aware Protection policy.</li><li>Navigate to <strong>Denylists and Allowlists &gt; Denylists</strong>.</li><li>Select the <strong>File Location</strong> tab.</li><li>Click the <strong>Add</strong> button.</li><li>In the <strong>Content</strong> text box, add the network share path <strong>without</strong> the two leading backslashes (<code class="lang-Registry">\</code>):
+<ul><li>This is correct and will block file transfers: <code class="lang-Registry">192.168.10.10\test</code></li><li>This is incorrect and will not block file transfers: <code class="lang-Registry">\\192.168.10.10\test</code></li></ul>
+</li><li>In the <strong>Groups</strong> or <strong>Computers</strong> section, select the computers or groups that the denylist should be applied to.</li><li>Save the changes.</li></ol>
+</body>
+</html>

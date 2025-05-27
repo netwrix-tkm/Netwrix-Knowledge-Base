@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walkthrough Search Policy - Define Scope and Filter Results</title>
+    <meta name="article-id" content="ka0Qk000000Dg1RIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-05T15:25:02.000Z">
+    <meta name="articlenumber" content="000008936">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000HQfKAM">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2025-05-08T10:26:46.000Z">
+    <meta name="firstpublisheddate" content="2023-12-05T15:25:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000HQfKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000HQfKAM">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-08T10:32:42.000Z">
+    <meta name="lastpublisheddate" content="2023-12-18T14:30:38.000Z">
+    <meta name="meta-description" content="Walkthrough Search Policy - Define Scope and Filter Results">
+    <meta name="meta-title" content="Walkthrough Search Policy - Define Scope and Filter Results">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8936">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HQfKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Walkthrough Search Policy - Define Scope and Filter Results</h1>
+    <h2>Applies To:</h2>
+
+<div>
+<p>Directory Manager 11</p>
+</div>
+
+<h2>Business Requirement:</h2>
+
+<div>
+<p>Set Directory Manager search in such a way that AD objects (e.g., <em>Groups, Users, Contacts</em>) can only be searched within a specific OU and filtered based on Active Directory attributes.</p>
+</div>
+
+<h2>Solution:</h2>
+
+<div>
+<p>This business requirement can be achieved by configuring the Search Policy for security roles in an identity store.</p>
+</div>
+
+<h2>More Information:</h2>
+
+<div>
+<p>Use the Search policy to:</p>
+
+<ul><li>
+	<p>Limit the search scope to a particular container for role members.</p>
+	</li><li>
+	<p>Designate an LDAP criterion that uses AD attributes to add a search filter.</p>
+	</li></ul>
+
+<p>Let&#39;s assume you specify a container and set the LDAP filter to (<em>Country</em>=<em>United States</em>*). When a role member performs a search, Directory Manager looks up the container and displays objects that have the <em>United States</em> as a value for the <em>Country</em> attribute.</p>
+
+<p>Now consider these scenarios:</p>
+
+<ul><li>
+	<p>If you only specify a container, a search performed by role members returns all matching objects residing in that container.</p>
+	</li><li>
+	<p>If you only specify an LDAP filter, a search performed by role members displays only those objects with the Country attribute set to the United States from all containers in the identity store.</p>
+	</li></ul>
+
+<p>By default, or in the absence of this policy, any search performed by role members returns objects from all containers in the identity store.</p>
+</div>
+
+<h2>Apply the Search Policy:</h2>
+
+<div>
+<ol><li>
+	<p>In Directory Manager Admin Center, click the <b>Identity Stores</b> node.</p>
+	</li><li>
+	<p>On the <b>Identity Stores</b> tab, click on the <b>Triple Dot</b> button, and then click on the <b>Edit</b> button to go to the properties of the required identity store.</p>
+
+	<p><img alt="User-added image" height="354" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001eu1K" width="500"></img></p>
+	</li><li>
+	<p>On the <b>Security Roles</b> tab, select a role to define a search policy for it, and click <b>Edit</b>.</p>
+
+	<p><img alt="User-added image" height="171" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001f0gD" width="500"></img></p>
+	</li><li>
+	<p>On the <b>Role Properties</b> page, click the <b>Policies</b> tab and then click <b>Search</b> in the left pane.</p>
+
+	<p><img alt="User-added image" height="185" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001ezqc" width="500"></img></p>
+	</li><li>
+	<p>Click the <b>Plus</b> button and select a container. A search performed by role members would return objects that reside in this container.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001f0pt"></img></p>
+	</li></ol>
+</div>
+
+<h3>Choose a Search Filter:</h3>
+
+<div>
+<p>When you apply an LDAP filter, a search performed by role members only shows objects that match the specified criterion.</p>
+
+<ol><li>
+	<p>In the <b>Filter</b> area on the <b>Search</b> page, click on <b>+Add Filter</b>, and select a schema attribute from the drop-down list (for example, <em>Company</em>).</p>
+	</li><li>
+	<p>Select an operator from the second drop-down list (for example, <em>Is Exactly</em>).</p>
+	</li><li>
+	<p>Enter a value concerning the selected schema attribute in the third box.</p>
+
+	<p><img alt="User-added image" height="72" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001ezDu" width="500"></img></p>
+	</li></ol>
+
+<p>You can define multiple queries by clicking on the <b>+Add More Filters</b> and using the <b>AND</b> or <b>OR</b> operator to group all rows that make up a query.</p>
+
+<p>A down arrow appears in the applied operator&#39;s icon. Click it to display the context menu with the following options:</p>
+
+<ul><li>
+	<p><b>Select Group</b> to select all rows that make up the query.</p>
+	</li><li>
+	<p><b>Ungroup</b> to remove the operator and ungroup the rows.</p>
+	</li><li>
+	<p><b>Change</b> to change the AND operator to OR and vice versa.</p>
+	</li><li>
+	<p><b>Add Clause</b> to add a new row for specifying an additional clause for the query.</p>
+	</li><li>
+	<p><b>Delete</b> to delete the query with all its rows.</p>
+	</li></ul>
+</div>
+
+<h2>Some Useful Examples:</h2>
+
+<div>
+<ul><li>
+	<p>To limit searches to mail-enabled distribution groups and all users:</p>
+
+	<p><img alt="User-added image" height="169" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001exAU" width="500"></img></p>
+	</li><li>
+	<p>Limit searches to all global security groups and all users:</p>
+
+	<p><img alt="User-added image" height="140" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001evqG" width="500"></img></p>
+	</li><li>
+	<p>Limit searches to mail-enabled groups and mail-enabled users:</p>
+
+	<p><img alt="User-added image" height="167" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg1R&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001f1KX" width="500"></img></p>
+	</li></ul>
+</div>
+
+<h2>Reference:</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/GroupID_11.0/page/Content/GroupID/AdminCenter/SecurityRole/Policy/Search.htm" target="_blank">Admin Center � Security Roles � Search Policy for Security Roles � v11.0</a></p>
+</div>
+
+<h3>Related Articles:</h3>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">How To Enforce Users to Create Groups in a Specific OU</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HthKAE.html" target="_blank">How To Import Members to a Group Using Self-Service Import Wizard</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HwvKAE.html" target="_blank">How to Trigger a workflow When a User ?reates a Group</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HyXKAU.html" target="_blank">How To Add Message Approvers in Group Properties in Self-Service</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">Best Practices for Controlling Changes to Group Membership</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000IPxKAM.html" target="_blank">Best Practices for Preventing Accidental Data Leakage</a>.</p>
+	</li></ul>
+</div>
+</body>
+</html>

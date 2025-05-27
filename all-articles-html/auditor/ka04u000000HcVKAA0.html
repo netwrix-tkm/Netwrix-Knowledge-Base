@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to exclude Smart Card users from monitoring by Password Expiration Notifier?</title>
+    <meta name="article-id" content="ka04u000000HcVKAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:56.000Z">
+    <meta name="articlenumber" content="000003593">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:42.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9cZCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9cZCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:42.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:48.000Z">
+    <meta name="meta-description" content="The KB provides how to exclude Smart Card users of being monitored by Password Expiration Notifier.">
+    <meta name="meta-title" content="How to exclude Smart Card users from monitoring by Password Expiration Notifier?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2277">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cZCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to exclude Smart Card users from monitoring by Password Expiration Notifier?</h1>
+    How to exclude Smart Card users from Password Expiration Notifier monitoring scope?
+<hr></hr> Perform the following steps:
+<ol><li>On the computer where Netwrix Auditor Server resides, open Registry Editor: navigate to Start &gt; Run and type &quot;regedit&quot;;</li><li>In the Registry Editor, create a new registry key: HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Netwrix Auditor\Password Expiration Notifier\&lt;Monitoring plan GUID&gt;.</li><li>Create the new DWORD &quot;IgnoreUsersWithSmartCardsSettings&quot; value under this key and set it to 1.</li></ol>
+Note: The shortest way to learn the Monitoring plan GUID would be looking up the trace file for the following line: Profile: {0}
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To: Generate a Report on &#x27;All groups with Report to Originator set to True&#x27;</title>
+    <meta name="article-id" content="ka0Qk000000DEJhIAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1WUAA0">
+    <meta name="articlecreateddate" content="2025-04-14T17:06:03.000Z">
+    <meta name="articlenumber" content="000010140">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002KaXKAU">
+    <meta name="assignedbyid" content="0054u000008F1WUAA0">
+    <meta name="assignedtoid" content="0054u000008F1WUAA0">
+    <meta name="assignmentdate" content="2025-04-14T17:06:03.000Z">
+    <meta name="createdbyid" content="0054u000008F1WUAA0">
+    <meta name="createddate" content="2025-04-14T17:06:03.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002KaXKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002KaXKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008F1WUAA0">
+    <meta name="lastmodifieddate" content="2025-04-14T17:36:59.000Z">
+    <meta name="meta-description" content="Generate a Report on &#x27;All groups with Report to Originator set to True&#x27;">
+    <meta name="meta-title" content="How To: Generate a Report on &#x27;All groups with Report to Originator set to True&#x27;">
+    <meta name="ownerid" content="0054u000008F1WUAA0">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10140">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002KaXKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To: Generate a Report on &#x27;All groups with Report to Originator set to True&#x27;</h1>
+    <h2><span style="color: #2980b9;"><b>Applies To:</b></span></h2>
+<p>Directory Manager 11 - <a href="https://www.imanami.com/reports/" target="_blank">Reports</a></p>
+<h2><span style="color: #2980b9;"><b>Business Scenario:</b></span></h2>
+<p>You need a report to view a list of all groups with�<i>report to originator</i>�set to true.��</p>
+<h2><span style="color: #2980b9;"><b>More Information:</b></span></h2>
+<p>The Directory Manager Reports enables you to generate web-based reports for an identity store. It offers a wizard guided report generation process that accounts for quick and easy reporting.</p>
+<p><strong><u>reportToOrginator:</u></strong></p>
+<p>This parameter sends a delivery report to the user (originator) who sends an email message to this�distribution group. We can use�<i>$true</i>�or�<i>$false</i>�as its value; the default value is set to�<i>$true</i>.</p>
+<p><strong>Note: </strong>The values of the�<i>reportToManager�</i>and�<i>reportToOriginator�</i>parameters cannot be set to <i>$true</i> at the same time. If one is set to <i>$true</i>, the other must be set to <i>$false</i>; else, all the delivery status messages will be suppressed.</p>
+<h2><span style="color: #2980b9;"><b>Steps to generate the report:</b></span></h2>
+<p>1. Open the Portal and go to the Reports options.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DEJh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BxHL4" alt="" width="721" height="375"></img></p>
+<p>�</p>
+<p>2.� Select�<b>Group Reports</b>�&gt;�All groups with report to originator set to True<b>.</b></p>
+<p>3. Click<b> Create Report</b>. This launches the�<b>Create Report</b>�wizard.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DEJh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BxMhJ" alt="" width="720" height="307"></img></p>
+<p>�</p>
+<p>4. On the very first�page, you can specify a custom title for your report. Type the title of the report, replacing the existing one, in the <b>Report Name</b> box. By default, for this report, the title is �All Groups with Report to Originator Set to True.�</p>
+<p>5. Click <b>Browse</b> to open the <b>Select Container </b>dialog box and select the required source container. The default selection is the Global Catalog.</p>
+<p>6. Select <b>the Include sub containers</b> check box to include the sub-containers for the selected container when reporting.</p>
+<p>7. In the <b>Filter Criteria </b>section, modify the default LDAP filter as required. This filter is used for selecting items from the container, to display in the report. To add additional filters, click�<b>Add More Filters.</b></p>
+<p>8. Click <b>Next</b>.</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DEJh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BxMpN" alt="" width="719" height="298"></img></p>
+<p>9. The <b>Fields�</b>section displays the fields that will be included in the report. You can add or remove fields from the list. You can also move the given fields to change their order.</p>
+<p>10. From the <b>Sort By</b> drop-down list, select the field by which you want to sort the results in the report.</p>
+<p>11. From the <b>Schedule</b> drop-down list, select the schedule for the report. If you select a schedule, the report will run automatically on the specified time of the schedule.</p>
+<p>12. Click�<b>Finish.</b></p>
+<p>�</p>
+<p><b><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DEJh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BxMuD" alt="" width="722" height="291"></img></b></p>
+<p>�</p>
+<p>13. The report based on the setting you set on the portal is displayed. The report displays the following information:</p>
+<ul><li>Connected identity store name.</li><li>The selected container.</li><li>Number of the records fetched.</li><li>Date the report was created on.</li><li>The filter applied while creating the report.</li><li>List of the report results.</li></ul>
+<p>The report is then listed in the template&#39;s page. You can create multiple reports of the same template.</p>
+<p>14. To download the report, click <b>Download</b> and select the format for the report (PDF, Excel, or HTML).</p>
+<p>15. You can also pin the report on Dashboard by clicking <b>Pin Report</b>.</p>
+</body>
+</html>

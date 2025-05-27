@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_11.0_008</title>
+    <meta name="article-id" content="ka04u000000HcgOAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:03:55.000Z">
+    <meta name="articlenumber" content="000006236">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:03:33.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:03:56.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000I8VCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000I8VCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:03:33.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:03:56.000Z">
+    <meta name="meta-description" content="360012217892">
+    <meta name="meta-title" content="Hotfix: SA_11.0_008">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6236">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000I8VCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_11.0_008</h1>
+    <p><strong>Summary: </strong>� SPO Permission change activity and group membership change activity is not being captured in SPO activity reports</p>
+<p><strong>Submitted by: </strong></p>
+<p>Michael Burrofato</p>
+<p><strong>Affected Versions:</strong></p>
+<p>11.0</p>
+<p><strong>Affected Module:</strong></p>
+<p>SA � Solution Set - SharePoint</p>
+<p><strong>�</strong></p>
+<p><strong>Dev Ticket:</strong></p>
+<ul><li>SAFS-20784</li></ul>
+<p><strong>Resolved in Version:</strong></p>
+<ul><li>GROUP_SharePoint\GROUP_8.Activity\GROUP_Forensics\JOB_SP_GroupMembershipChanges\DataAnalysis.XML</li><li>GROUP_SharePoint\GROUP_8.Activity\GROUP_Forensics\JOB_SP_PermissionChanges\DataAnalysis.XML</li></ul>
+<p><strong>KB Type: </strong></p>
+<p>�������������� Hotfix</p>
+<p><strong>�</strong></p>
+<p><strong>YouTrack/Escalations</strong></p>
+<p><strong>�</strong></p>
+<p><strong>-������������� SAFS-20784/56667</strong></p>
+<p>�</p>
+<p><strong>Cumulative List of fixes included since GA:</strong></p>
+<p>-������������� SAFS-20784 56667 - StealthAUDIT - SharePoint activity - SPO Permission change activity and group membership change activity is not being captured in SPO activity reports</p>
+<p>�</p>
+<p><strong>Comments:</strong></p>
+<p>This hotfix addresses an issue with the Permission Change/Group membership change activity report, in order to leverage these reports we require SPAA version 11.0.0.881 or higher (Hotfix SA_11.0_007).</p>
+<p><strong>Instructions:</strong></p>
+<ol><li><strong>Unblock the hotfix zip file in the windows property dialog, if an unblock button exists there.�</strong></li><li>Close all instances of StealthAUDIT (check task manager under processes for all users)</li><li>Exit StealthAUDIT console</li><li>Copy and replace files from the folders in this hotfix to the corresponding folders in SA Install dir.</li><li>If DataAnalysisTasks.change file exists in any of the following folders delete the file.</li></ol>
+<p>- GROUP_SharePoint\GROUP_8.Activity\GROUP_Forensics\JOB_SP_GroupMembershipChanges\</p>
+<p>- GROUP_SharePoint\GROUP_8.Activity\GROUP_Forensics\JOB_SP_PermissionChanges\</p>
+<ol start="6"><li>Restart SA console</li></ol>
+<p><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/11.0/SA_11.0_008.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/11.0/SA_11.0_008.zip</a></p>
+<p>�</p>
+</body>
+</html>

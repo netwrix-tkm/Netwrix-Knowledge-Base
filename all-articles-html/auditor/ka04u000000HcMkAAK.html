@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to exclude Smart Card users from monitoring by Password Expiration Notifier?</title>
+    <meta name="article-id" content="ka04u000000HcMkAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:09.000Z">
+    <meta name="articlenumber" content="000003006">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:45:47.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:47.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9SwCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9SwCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:45:47.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:47.000Z">
+    <meta name="meta-description" content="This article describes how to exclude Smart Card users from Password Expiration Notifier monitoring scope.">
+    <meta name="meta-title" content="How to exclude Smart Card users from monitoring by Password Expiration Notifier?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="587">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9SwCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to exclude Smart Card users from monitoring by Password Expiration Notifier?</h1>
+    How to exclude Smart Card users from Password Expiration Notifier monitoring scope?
+
+<hr></hr>
+
+<span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;">Perform the following steps:</span></span></span>
+<ol><li><span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;">On the computer where <b>Netwrix Auditor Server</b> resides, open Registry Editor: navigate to <b>Start</b> -&gt; <b>Run</b> and type &quot;<i>regedit</i>&quot;;</span></span></span></li><li><span style="font-family: arial, sans-serif;"><span style="font-size: 12px;">In the <b>Registry Editor</b>, create </span></span><span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;">a new registry key:</span></span></span></li></ol>
+<ul><li style="margin-left: 40px;"><span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;">HKEY_LOCAL_MACHINESOFTWAREWow6432NodeNetwrix</span></span></span> <span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;">AuditorPassword Expiration Notifier&lt;domain name&gt;.</span></span></span></li></ul>
+<ol start="3"><li><span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;">Create the new DWORD <b>IgnoreUsersWithSmartCardsSettings</b> value under this key and set it to 1.</span></span></span></li></ol>
+<span style="color: black;"><span style="font-family: arial,sans-serif;"><span style="font-size: 9.0pt;"><b>Note</b>: The shortest way to learn the Monitoring plan GUID would be looking up the trace file for the following line: </span></span></span>
+<span style="color: #a31515;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">Profile</span></span></span>: <span style="color: mediumseagreen;"><span style="font-family: consolas;"><span style="font-size: 9.5pt;">{0}</span></span></span>
+
+�
+
+Original KB Article 2108
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecting and Blocking ZeroLogon Exploitation with Threat Prevention</title>
+    <meta name="article-id" content="ka0Qk000000Da7JIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:13:15.000Z">
+    <meta name="articlenumber" content="000006382">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IHJCA2">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T11:05:02.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:13:16.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IHJCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000IHJCA2">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T11:19:55.000Z">
+    <meta name="lastpublisheddate" content="2022-02-22T13:34:06.000Z">
+    <meta name="meta-description" content="360011001571">
+    <meta name="meta-title" content="Detecting and Blocking ZeroLogon Exploitation with Threat Prevention">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6382">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IHJCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Detecting and Blocking ZeroLogon Exploitation with Threat Prevention</h1>
+    <h2>Overview</h2>
+
+<p>This document will guide you though the process of setting up Threat Prevention policies to detect and block password change events that may occur when an attempt to exploit ZeroLogon is successful.</p>
+
+<p>�</p>
+
+<h2>Who will this help?</h2>
+
+<p>This will help customers who have domain controllers which have not yet applied the patches by Microsoft or have specific known exclusions which allow vulnerable netlogon connections.</p>
+
+<p>�</p>
+
+<h2>The ZeroLogon Detection Policy</h2>
+
+<p>Threat Prevention can be used for detection for the actual exploit running and resetting the password of a Domain Controller where the source host is not another domain controller. This can be done by setting up a policy for Active Directory Changes with the following settings:</p>
+
+<ul><li>AD Event: Object Modified</li><li>AD Context: Domain Controllers container with &#39;Sub Tree&#39; selected (include)</li><li>AD Classes: computer (include)</li><li>AD Attributes: unicodePwd (include)</li><li>Hosts (from): all domain controllers (exclude).</li></ul>
+
+<p>Here are some step by step instructions on setting up the Threat Prevention ZeroLogon Detection policy for Active Directory Changes.</p>
+
+<p><img alt="mceclip0.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWNk&amp;d=%2Fa%2F4u000000Lygq%2FUSsiQZo1CFEi2lQXNIKrdgbVRfeTRprSBJ734y32h8U&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip1.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcY99&amp;d=%2Fa%2F4u000000Lygv%2Fk31m2Va.aUbFHwPOEyJCp8RpMiv2SgdW5iw_dtvO6Ig&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip2.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCS&amp;d=%2Fa%2F4u000000LyJP%2FkM05xlfSd2ST1yV5qnf83RZGdnX1hMpWfruvBJwfU58&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip3.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWkO&amp;d=%2Fa%2F4u000000Lyh0%2FaE4ufvJiRjXpCFomY.qBqSjXpcozrSoEn1kTKi04Ozo&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip4.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcX33&amp;d=%2Fa%2F4u000000Lyh5%2FogAcMyRVj0bKMAq2MiPcgq0COFFBHwAdnuBdJKZ8uQQ&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip5.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCc&amp;d=%2Fa%2F4u000000LyhA%2FJOhGyIdngF63YtEM.IlT8fvcY3pjDCKcPM84OAFzfbI&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip6.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCh&amp;d=%2Fa%2F4u000000LySG%2FChG2FiKRrEoo_QRMIZZ.BSk_aKfQL8wlI0IVwRCw5QE&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip7.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCm&amp;d=%2Fa%2F4u000000LyhF%2FcQKXBqALB1nztRrptpgo_PWJLWjNuxnU5piRGpWPr1U&amp;asPdf=false"></img></p>
+
+<h2>The ZeroLogon Lockdown Policy</h2>
+
+<p>You can also setup an Active Directory Lockdown policy in Threat Prevention but this requires you and your team to be fully on top of it whenever new domain controllers are added. Here is what the settings look like,</p>
+
+<ul><li>AD Event: Object Modified</li><li>AD Objects and Containers: Domain Controllers container with &#39;Sub Tree&#39; selected (block)</li><li>AD Classes: computer (block)</li><li>AD Attributes: unicodePwd (block)</li><li>Hosts (from): all domain controllers (allow).</li></ul>
+
+<p><span class="wysiwyg-color-red"><strong>Important:</strong> The list of domain controllers, Hosts (from), is maintained manually. If domain controllers are added or removed from the environment this list MUST be updated. Any domain controller not on this list may encounter problems, including an inability to replicate from the domain.</span></p>
+
+<p>�</p>
+
+<p>To prevent the possibility of one compromised domain being used to compromise another trusted domain, we recommend deploying policies per domain so the list of domain allowed domain controllers for each domain is limited to the domain controllers in that domain.</p>
+
+<p>�</p>
+
+<p>Here are some step by step instructions on setting up the Threat Prevention ZeroLogon Lockdown policy for Active Directory Changes.</p>
+
+<p><img alt="mceclip8.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCr&amp;d=%2Fa%2F4u000000LyhK%2FUnevSuua0ORGG0mOUYeKfhSTtQtigvdnSP_VX.ylX7I&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip9.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcVlp&amp;d=%2Fa%2F4u000000LyhP%2FRvSFFYyFUMZYkjBa6Iu.hdrMeqk95yvZVHplYVxK6eQ&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip10.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYDY&amp;d=%2Fa%2F4u000000LyYi%2F3fBi0SJfTBDYZOIq1SmpcqdSlbsS376E3kyp20YSDMc&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip11.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWrK&amp;d=%2Fa%2F4u000000LyhU%2F0viU8nIZamKPFm.9nQFdsjMxYwQHsqzOhug7Lx5tHDA&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip12.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYDd&amp;d=%2Fa%2F4u000000LyU8%2FYJruHDlqPOENw_2oZtrvnpgHCaTr5rOpgbwbxfcsNrg&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip13.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYDi&amp;d=%2Fa%2F4u000000LyhZ%2FdwFNk9_MJtEGcRgq5jkhZ9yYFHdWUwvHWCJ.8VqdGlk&amp;asPdf=false"></img></p>
+
+<p><img alt="mceclip14.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWFg&amp;d=%2Fa%2F4u000000LygI%2FlfdRb5SYo5Bya9a84_QeXM.h5.KI_FuRpuIpjM3pHt4&amp;asPdf=false"></img></p>
+
+<p>�</p>
+</body>
+</html>

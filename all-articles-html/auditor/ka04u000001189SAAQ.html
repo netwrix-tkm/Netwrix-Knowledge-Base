@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Generation Fails Due To Incorrect Date_From Value</title>
+    <meta name="article-id" content="ka04u000001189SAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-10-09T16:52:35.000Z">
+    <meta name="articlenumber" content="000008849">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-10-11T08:26:41.000Z">
+    <meta name="firstpublisheddate" content="2023-10-09T16:52:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111KECAY">
+    <meta name="knowledge-article-id" content="kA04u00000111KECAY">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-10-11T08:27:07.000Z">
+    <meta name="lastpublisheddate" content="2023-10-11T08:27:07.000Z">
+    <meta name="meta-description" content="This article contains resolution for the &quot;value provided for the report parameter &#x27;Date_From&#x27; is not valid for its type&quot; error.">
+    <meta name="meta-title" content="Subscription Generation Fails Due To Incorrect Date_From Value">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8849">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111KECAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Subscription Generation Fails Due To Incorrect Date_From Value</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>The subscription generation fails and the subscription history contains the following error:</p>
+
+<pre class="has-inner-focus">
+The value provided for the report parameter &#39;Date_From&#39; is not valid for its type.</pre>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>The issue occurs for the subscriptions based on the reports with date and time fields when a non-English locate has been enabled in the OS on the computer that hosts Auditor Server.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Change the system locale to English (United States). For that:</p>
+
+<ol><li>
+	<p>On the computer that hosts Auditor Server, navigate to <b>Control Panel</b> <b>Region</b> <b>Administrative tab</b>.</p>
+	</li><li>
+	<p>Click the <b>Change system locale ...</b> button and select <b>English (United States)</b> in the <em>Current system locale:</em> field.</p>
+	</li><li>
+	<p>Change the system locale for the system accounts. For that:</p>
+
+	<ul><li>
+		<p>Navigate to <b>Control Panel</b> <b>Region</b> <b>Administrative tab</b>.</p>
+		</li><li>
+		<p>Click <b>Copy settings ...</b> and tick <em>Welcome screen and system accounts&#39;</em>.</p>
+		</li></ul>
+	</li><li>
+	<p>Reboot Auditor Server.</p>
+	</li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triggering Microsoft Flow from Directory Manager Workflows</title>
+    <meta name="article-id" content="ka0Qk000000DSL3IAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F0JoAAK">
+    <meta name="articlecreateddate" content="2024-05-13T18:19:46.000Z">
+    <meta name="articlenumber" content="000009168">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk00000015ldKAA">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210005948461794?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F0JoAAK">
+    <meta name="createddate" content="2025-04-28T09:21:36.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-05-13T18:20:07.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000015ldKAA">
+    <meta name="knowledge-article-id" content="kA0Qk00000015ldKAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-28T09:24:25.000Z">
+    <meta name="lastpublisheddate" content="2025-04-16T20:10:20.000Z">
+    <meta name="meta-description" content="MS Flow workflow from GroupID">
+    <meta name="meta-title" content="How To: Trigger an MS Flow workflow from GroupID">
+    <meta name="ownerid" content="0054u000008F0JoAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9168">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000015ldKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Triggering Microsoft Flow from Directory Manager Workflows</h1>
+    <h2>Overview</h2>
+<p>This article explains how to trigger a Microsoft Flow (MS Flow) from Netwrix Directory Manager (formerly GroupID). The goal is to automate user provisioning by linking user creation in Directory Manager to a corresponding SharePoint site access flow based on department information.</p>
+<p>By integrating Directory Manager workflows with MS Flow, administrators can ensure that when a user is created and assigned a department, a flow is automatically triggered to grant them access to their department�s SharePoint site. When the MS Flow is approved, the linked Directory Manager workflow is also approved automatically.</p>
+<h4>Prerequisites</h4>
+<p>The Directory Manager application in Azure must have the following permissions for MS Flow:</p>
+<p><img alt="A screenshot of a computer  Description automatically generated" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSL3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000004nGNu" width="618" height="364"></img></p>
+<h2>Instructions</h2>
+<p>Follow the steps below to link a MS Flow to a Directory Manager Workflow:</p>
+<ol><li>In Netwrix Directory Manager Management Console, go to the <strong>Identity Stores</strong> node.</li><li>Double-click the required identity store to open its properties.</li><li>On the <strong>Workflow</strong> tab, click <strong>Microsoft Flow</strong> and configure the following:
+<ul><li><strong>Org Code:</strong> The unique name for the MS Flow environment.</li><li><strong>Region:</strong> The location of your MS Flow environment.</li><li><strong>Directory Manager Server:</strong> The name or IP of your Directory Manager server.</li><li><strong>ClientID:</strong> The application ID of the Directory Manager app registered in Azure.</li></ul>
+</li><li>Click <strong>OK</strong> to save changes.</li><li>Log into the MS Flow portal and open the flow you want to link.</li><li>Generate a request URL for the MS Flow. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSL3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C1KQo" alt="" width="592" height="450"></img>�</li><li>In the Directory Manager Console, go back to the <strong>Workflow</strong> tab of the identity store properties.</li><li>Select the workflow to link (e.g., <strong>Create User</strong>) and click <strong>Edit</strong>.</li><li>In the <strong>Edit Workflow Route</strong> dialog box, paste the MS Flow request URL into the <strong>Microsoft Flow Request URL</strong> field.�</li><li>Click <strong>Authenticate</strong> and provide identity store credentials. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSL3&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C1M61" alt="" width="536" height="72"></img>�
+<blockquote>
+<p><span class="Note"><strong>NOTE:</strong></span> To quickly define a flow in MS Flow, click <strong>Create Temp</strong> to create a basic template and connect it.</p>
+</blockquote>
+</li><li>Click <strong>OK</strong> to finalize the link between the Directory Manager workflow and MS Flow.</li></ol>
+<p>Now, when a user is created in Directory Manager Self-Service and assigned a department, it will trigger the Create User workflow. That workflow will trigger the MS Flow to grant access to the department�s SharePoint site. Approval of the MS Flow will automatically approve the Directory Manager workflow.</p>
+<h4>Validation Checklist</h4>
+<ul><li>Confirm on the Self-Service portal that the user has been created.</li><li>Navigate to SharePoint and verify that the user has access to the appropriate department site.</li></ul>
+</body>
+</html>

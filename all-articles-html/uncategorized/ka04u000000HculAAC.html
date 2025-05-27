@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_8.1_137</title>
+    <meta name="article-id" content="ka04u000000HculAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:29:20.000Z">
+    <meta name="articlenumber" content="000007015">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:10:42.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:29:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IjqCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IjqCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:10:42.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:29:20.000Z">
+    <meta name="meta-description" content="360012217852">
+    <meta name="meta-title" content="Hotfix: SA_8.1_137">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7015">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IjqCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_8.1_137</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> ADInventory error &#39;Error while searching &#39;SA_ADInventory_DistinguishedNames&#39;</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary: </span></strong><br>ADInventory error &#39;Error while searching &#39;SA_ADInventory_DistinguishedNames&#39;<br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Justin Giema<br><strong><span style="font-family: calibri,sans-serif;">Cumulative List of fixes included since Service Pack:</span></strong><br>SAT-2850 ADI Extended attributes truncation error<br>SAT-3154 Enhancement to allow ADI DC to collect attributes as an extended attribute even if we collect the attribute already.<br>SAT-4125 ADI hanging / running for many hours / days. Sped up Effective membership calculation<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>8.1<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SA - DC - ADInventory<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>SAT-5259<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>Private Assemblies:<br>Stealthbits.StealthAUDIT.DataCollectors.ADInventory.UI.dll v. 8.1.99<br>Stealthbits.StealthAUDIT.DataCollectors.ADInventory.dll v. 8.1.99<br>DC:<br>DCADInventory.DLL v. 8.1.99<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong>Bug<br><strong><span style="font-family: calibri,sans-serif;">Issue:</span></strong><br>ADI scan failing with Error while adding: user &#39;CN=Som, Sayan,OU=Corporate,OU=Users,OU=IN,DC=global,DC=anz,DC=com&#39; &#39;Error while searching &#39;SA_ADInventory_DistinguishedNames&#39; Table : System.Data.SqlClient.SqlException (0x80131904): Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, , &gt;= or when the subquery is used as an expression.<br>this then stops ADI processing any more objects for the affected domain rendering the data inaccurate in the ADI tables.<br>Validated using the following powershell<br>get-aduser walters1 -Server oceania -properties * | select -expand memberof | ? { $_ -match &quot;NZ Role&quot; }<br>validated in SQL using following:<br>select p.* from SA_ADInventory_Usersview uv<br>cross apply SA_ADInventory_GetEffectivePrincipalMemberOf(uv.PrincipalId) p<br>where uv.SamAccountName =&#39;walters1&#39; and (p.SamAccountName LIKE &#39;NZ Role %&#39; OR p.SamAccountName LIKE &#39;NZ Admin Role %&#39;)<br>AND p.DomainName IN (&#39;Global&#39;,&#39;Oceania&#39;)<br>Group membership should be the same in each domain as shown in the powershell output.<br>attached screenshot of DistinguishedNames table. As you can see the object which shows error is not listed.<br>set the ADI scan properties to full scan and kicked that off in lieu of any further troubleshooting<br>added historical logs also as this issues seems to have been happening for a few months<br>full scan returned same error for GLOBAL domain. I have attached partial log as the job is still running for the other domains. Note we have not yet dropped the ADI tables until DEV have had chance to review. Another hurdle for the customer to jump is really not doing us any favours on this customer<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> 1. Close all instances of StealthAUDIT<br>2. Replace the files listed above in the DC and PrivateAssemblies folder (check files are not locked)<br>3. Re Open StealthAUDIT<br>� 
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="38"><td colspan="1" rowspan="1" height="38" width="64"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_137.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/8.1/SA_8.1_137.zip</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - ADInventory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 8.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-5259<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> Private Assemblies:
+Stealthbits.StealthAUDIT.DataCollectors.ADInventory.UI.dll v. 8.1.99
+Stealthbits.StealthAUDIT.DataCollectors.ADInventory.dll v. 8.1.99
+DC:
+DCADInventory.DLL v. 8.1.99<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2341<br></p>
+</body>
+</html>

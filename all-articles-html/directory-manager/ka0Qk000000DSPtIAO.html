@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Elastic Repository on a Separate Instance with V11</title>
+    <meta name="article-id" content="ka0Qk000000DSPtIAO">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F0JoAAK">
+    <meta name="articlecreateddate" content="2024-05-13T18:25:23.000Z">
+    <meta name="articlenumber" content="000009169">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk00000015nFKAQ">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210004550299143?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F0JoAAK">
+    <meta name="createddate" content="2025-04-28T09:21:55.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-05-13T18:25:46.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000015nFKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk00000015nFKAQ">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-04-28T09:23:42.000Z">
+    <meta name="lastpublisheddate" content="2025-04-16T18:17:55.000Z">
+    <meta name="meta-description" content="Manage Elastic Repository on a Separate Instance with V11">
+    <meta name="meta-title" content="How To: Manage Elastic Repository on a Separate Instance with V11">
+    <meta name="ownerid" content="0054u000008F0JoAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9169">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000015nFKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Manage Elastic Repository on a Separate Instance with V11</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11</p>
+<h2>Question</h2>
+<p>Is it possible to manage the Elastic repository on a separate instance in Netwrix Directory Manager (formerly GroupID) 11?</p>
+<h2>Answer</h2>
+<p>Yes, this is possible. To improve performance and manageability, you can install and configure Elasticsearch on a separate machine for use with Directory Manager 11. Follow the steps below to complete the setup.</p>
+<h4>Prerequisites</h4>
+<ul><li>Ensure that <strong>Java 11 or higher</strong> is installed. You can verify this by running <code>java -version</code> in Command Prompt (CMD).</li><li>If you&#39;re installing Elasticsearch version 8.12 or later, Java installation is not required.</li><li>Install a separate box for Elasticsearch for elastic repository management.</li></ul>
+<h4>Instructions</h4>
+<ol><li>Install Elasticsearch on a separate machine by downloading the latest version from the official website.</li><li>Extract the package and open CMD.</li><li>Navigate to the <code>bin</code> directory and run <code>elasticsearch.bat</code>. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSPt&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C0zmA" alt="Steps 1-3 in CMD" width="1146" height="209"></img>�</li><li>Take note of the <strong>username</strong> and <strong>password</strong> provided upon successful installation. You may keep the password provided, but if you would like to reset the password, run the command below:<br><code>bin/elasticsearch-reset-password -u elastic</code></li><li>Access Elasticsearch via browser to confirm it is running.</li></ol>
+<blockquote>
+<p><span class="Note"><strong>NOTE:</strong></span> If you run <code>elasticsearch.bat</code> in CMD without installing it as a service, Elasticsearch will stop running when the CMD window is closed. To keep it running independently, follow the next steps to install Elasticsearch as a Windows service.</p>
+</blockquote>
+<ol><li>To install Elasticsearch as a Windows service, run <code>elasticsearch-service.bat install</code> in CMD. Let the installation complete.</li><li>Open <code>services.msc</code>, find <strong>elasticsearch-service-x64</strong>, set <strong>Startup Type</strong> to <strong>Automatic</strong>, and start the service.</li><li>Verify Elasticsearch is running by navigating to the service URL in your browser.</li><li>On the Directory Manager server, open the <strong>Netwrix Directory Manager Configuration Tool</strong>. When prompted, select <strong>I will install and manage Elastic myself</strong>.</li><li>Enter the <strong>URL</strong> and <strong>credentials</strong> for the separate Elasticsearch machine. <img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DSPt&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000C15Bd" alt="GroupID Config Tool" width="729" height="459"></img>�</li><li>Complete the remaining configuration steps to finalize the setup.</li></ol>
+<p>Once completed, Directory Manager 11 will be successfully configured to use an external Elasticsearch instance for its repository.</p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Invalid Local Storage Version</title>
+    <meta name="article-id" content="ka0Qk000000C7qXIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-09-20T14:18:48.000Z">
+    <meta name="articlenumber" content="000009281">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-02-03T20:23:46.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-09-20T14:19:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001RUPKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000001RUPKA2">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-02-18T21:34:53.000Z">
+    <meta name="lastpublisheddate" content="2025-02-18T21:34:53.000Z">
+    <meta name="meta-description" content="Error: Invalid Local Storage Version">
+    <meta name="meta-title" content="Error: Invalid Local Storage Version">
+    <meta name="ownerid" content="0054u000006goFUAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9281">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001RUPKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Invalid Local Storage Version</h1>
+    <h2>Symptom</h2>
+<div>
+<p>After the recent Netwrix Enterprise Auditor upgrade (11.6.0.69), an Activity Auditing (SPAC) scan populates the following error:</p>
+<pre class="has-inner-focus"><code class="lang-Registry">Stealthbits.StealthAUDIT.DataCollectors.SPAA.Storage.InvalidStorageVersionException:
+Invalid local SPAA storage version. Expected %x&amp; but found %y%.</code></pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>The SPAA database schema is outdated and requires an update.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Perform the following steps to update the database schema:</p>
+<ol><li>
+<p>Run either the <strong>1-SPSEEK_SystemScans</strong> or <strong>2-SPAA_SystemScans</strong> job at level 0. Refer to the following articles for additional information: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/1-SPSEEK_SystemScans.htm" target="_self">0.Collection Job Group � 1-SPSEEK_SystemScans Job � v11.6</a> and <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/2-SPAA_SystemScans.htm" target="_self">0.Collection Job Group � 2-SPAA_SystemScans Job � v11.6</a>.</p>
+</li><li>
+<p>Depending on the previously selected job, run either the <strong>4-SPSEEK_BulkImport</strong> or <strong>5-SPAA_BulkImport</strong> job to update the schema.</p>
+</li><li>
+<p>Run the <strong>3-SPAC_SystemScans</strong> job to verify that the issue is resolved.</p>
+</li></ol>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/1-SPSEEK_SystemScans.htm" target="_self">0.Collection Job Group � 1-SPSEEK_SystemScans Job � v11.6</a></p>
+</li><li>
+<p><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Solutions/SharePoint/Collection/2-SPAA_SystemScans.htm" target="_self">0.Collection Job Group � 2-SPAA_SystemScans Job � v11.6</a></p>
+</li></ul>
+</div>
+</body>
+</html>

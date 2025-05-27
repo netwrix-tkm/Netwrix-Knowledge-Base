@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How can I assign a specific user read-only permissions for the SQL Server Reporting Services reports?</title>
+    <meta name="article-id" content="ka04u000000HcNSAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:11.000Z">
+    <meta name="articlenumber" content="000003051">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:26.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TfCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9TfCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:27.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:53.000Z">
+    <meta name="meta-description" content="SQL Server Reporting Services read-only permissions">
+    <meta name="meta-title" content="How can I assign a specific user read-only permissions for the SQL Server Reporting Services reports?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="628">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TfCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How can I assign a specific user read-only permissions for the SQL Server Reporting Services reports?</h1>
+    How can I assign a specific user read-only permissions for the SQL Server Reporting Services reports?
+
+<hr></hr>
+
+To grant a user read-only permissions, perform the following steps:
+<ol><li>Start <b>Report Manager</b>. </li><li>Depending on SQL Server you use:
+	<ul><li>For<strong> SQL Server 2005 (including Express) </strong>proceed with the following:
+		<ol><li> Select the <b>Properties </b>tab and click the <b>New Role Assignment</b> button. </li><li>Add the user or users group name, check the <b>Browser </b>box and click <b>OK</b>. </li></ol>
+		</li><li>For<strong> SQL Server 2008 / 2008 R2 / 2012 (including Express) </strong>proceed with the following:
+		<ol><li>Click <b>Site Settings</b> -&gt; <b>Security </b>and select <b>New Role Assignment. </b></li><li>In <b>Group or user name</b>, specify a Windows domain user or group account in this format: &lt;domain&gt;&lt;account&gt;. Select <b>System User</b>, and then click <b>OK</b>. </li></ol>
+		</li></ul>
+	</li><li>Open <b>SQL Server Management Studio Express</b> and connect to a server. </li><li>Navigate to <b>Security</b>, right-click <b>Logins </b>and select <b>New Login</b>.</li><li>On the <b>General </b>screen, select a user or users group. </li><li>On the <b>User Mappings</b> screen, assign all tables related to NetWrix software the db_datareader role (for example NetWrix_FS_Change_Reporter, or NetWrix_Event_Log_Manager etc). </li></ol>
+
+<p><strong>Note:</strong> If you are still unable to access the report manager after following this KB,  add your user account to the local administrators group on the SQL server.</p>
+</body>
+</html>

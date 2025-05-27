@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large SSD Extractor Logs Issue in Netwrix Access Analyzer</title>
+    <meta name="article-id" content="ka0Qk000000DYv7IAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-04-11T17:20:21.000Z">
+    <meta name="articlenumber" content="000009132">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000b2nKAA">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2025-05-05T10:29:02.000Z">
+    <meta name="firstpublisheddate" content="2024-04-12T09:31:15.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000b2nKAA">
+    <meta name="knowledge-article-id" content="kA0Qk0000000b2nKAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:32:20.000Z">
+    <meta name="lastpublisheddate" content="2024-04-17T09:53:19.000Z">
+    <meta name="meta-description" content="Large Extractor Logs Issue in Netwrix Access Analyzer">
+    <meta name="meta-title" content="Large Extractor Logs Issue in Netwrix Access Analyzer">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9132">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000b2nKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Large SSD Extractor Logs Issue in Netwrix Access Analyzer</h1>
+    <blockquote>
+<div><span style="color: #c0392b;"><strong>!</strong></span> This article is currently under review. Some of the information below may not be up to date.</div>
+</blockquote>
+
+<h2>Symptom</h2>
+
+<div>
+<p>The Extractor logs significally grows each time SDD runs for a specific host. This is causing disk space to fill up and attempts to reduce logging levels for these files have been unsuccessful. The logs are primarily comprised of INFO level entries.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The root cause of this issue is the default logging level configuration in Netwrix Access Analyzer, which generates large Extractor logs containing a significant number of INFO level entries during SDD operations.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To resolve the issue, follow these steps:</p>
+
+<ol><li>
+	<p>Access the Netwrix Access Analyzer server.</p>
+	</li><li>
+	<p>Open the <b>1-SEEK System Scans</b> query properties.</p>
+	</li><li>
+	<p>Hit <b>View XML</b> to view the XML configuration of the query.</p>
+	</li><li>
+	<p>Locate the section around line <code>305</code> of the XML configuration.</p>
+	</li><li>
+	<p>Add the following line between <code>&lt;FileScanningTimeout&gt;</code> and <code>&lt;ExtendedConfig&gt;</code>: <code>&lt;SDDLogLevel&gt;ERROR&lt;/SDDLogLevel&gt;</code></p>
+	</li><li>
+	<p>Save the changes to the XML configuration.</p>
+	</li><li>
+	<p>Rerun the SDD operation to generate new Extractor logs with reduced logging levels.</p>
+	</li><li>
+	<p>Monitor the new Extractor logs to ensure that they are no longer excessively large and that they contain fewer INFO level entries.</p>
+	</li></ol>
+</div>
+</body>
+</html>

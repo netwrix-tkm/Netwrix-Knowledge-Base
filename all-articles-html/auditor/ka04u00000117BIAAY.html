@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Netwrix Auditor Collects Data from Replicated Domain Controllers?</title>
+    <meta name="article-id" content="ka04u00000117BIAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-08-10T13:11:13.000Z">
+    <meta name="articlenumber" content="000008723">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-08-16T10:54:41.000Z">
+    <meta name="firstpublisheddate" content="2023-08-10T13:11:23.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000001111HCAQ">
+    <meta name="knowledge-article-id" content="kA04u000001111HCAQ">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-08-16T10:56:36.000Z">
+    <meta name="lastpublisheddate" content="2023-08-16T10:56:36.000Z">
+    <meta name="meta-description" content="This article explains how Netwrix Auditor collects data from replicated Domain Controllers.">
+    <meta name="meta-title" content="How Netwrix Auditor collects data from replicated Domain Controllers?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8723">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000001111HCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How Netwrix Auditor Collects Data from Replicated Domain Controllers?</h1>
+    <h1>Question</h1>
+
+<div>
+<p>Is Netwrix Auditor able to show data collected from one of several replicated Domain Controllers in search, reports, alerts, and emails?</p>
+
+<p>Example deployment scenario:</p>
+
+<ol><li>
+	<p>There are two Domain Controllers within a domain. The replication configured successfully between these Domain Controllers, and neither one is read-only.</p>
+	</li><li>
+	<p>A monitoring plan is configured to collect data <b>only from a single Domain Controller</b>.</p>
+	</li></ol>
+</div>
+
+<h1>Answer</h1>
+
+<div>
+<p>Yes, Netwrix Auditor can show these events with some considerations.<br>Netwrix collects data, including but not limited to Windows Security Event Logs that are not replicated from one Domain Controller to another. Even if an action itself was replicated, the product will not be able to show correctly all issue details in search, reports, alerts, and emails since event log entries are not replicated. Review the following for additional information:</p>
+
+<table border="1" style="width: 900px;"><thead><tr><th colspan="1" rowspan="1">Detail</th><th colspan="1" rowspan="1">How the product report it</th></tr></thead><tbody><tr><td colspan="1" rowspan="1">What</td><td colspan="1" rowspan="1">Actual information</td></tr><tr><td colspan="1" rowspan="1">Object type</td><td colspan="1" rowspan="1">Actual information</td></tr><tr><td colspan="1" rowspan="1">Who</td><td colspan="1" rowspan="1">System</td></tr><tr><td colspan="1" rowspan="1">Where</td><td colspan="1" rowspan="1">Unknown</td></tr><tr><td colspan="1" rowspan="1">Workstation</td><td colspan="1" rowspan="1">�</td></tr><tr><td colspan="1" rowspan="1">When</td><td colspan="1" rowspan="1">This detail shows�the time when the action was collected by the product rather than the time when it actually happened.</td></tr></tbody></table>
+</div>
+</body>
+</html>

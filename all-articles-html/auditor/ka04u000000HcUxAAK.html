@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission denied, error code -2146828218</title>
+    <meta name="article-id" content="ka04u000000HcUxAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:55.000Z">
+    <meta name="articlenumber" content="000003570">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:36.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9cCCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9cCCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:36.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:44.000Z">
+    <meta name="meta-description" content="The KB explains how to fix the permissions issue.">
+    <meta name="meta-title" content="Permission denied, error code -2146828218">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1408">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cCCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Permission denied, error code -2146828218</h1>
+    When trying to access the Help-Desk portal, a non-admin user gets a &quot;You do not have a Helpdesk operator permissions&quot; message or &quot;Permission denied&quot; error (error code -2146828218)
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUx&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wyo" alt="User-added image"></img>
+
+<hr></hr>
+
+This message occurs because the user whose credentials were used to enter the Helpdesk portal is not granted Help-Desk operator role in the product settings.
+
+<hr></hr>
+
+To grant a user access to the Help-Desk portal, add this user to the Help Desk Operators role.
+
+To do this, perform the following steps:
+1. In the Account Lockout Examiner console, navigate to File &gt; Settings and select the Security roles tab.
+2. In the Help-Desk Operators section, click the Modify button.
+3. In the dialog that opens, click the Add button and specify user(s) that you want to add to this role.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUx&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wyy" alt="User-added image" width="500" height="549"></img>
+
+If the issue persists, check that Authentication options are configured properly in IIS:
+4. Start the IIS Manager and navigate to your Account Lockout Examiner web portal virtual directory (by default - Default Web SiteALE).
+5. Select this folder by left-clicking on it and look for the Authentication feature under IIS block in the central pane. Double-click on it.
+6. Make sure that &quot;Anonymous Authentication&quot; is disabled.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUx&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wyt" alt="User-added image" width="500" height="379"></img>
+</body>
+</html>

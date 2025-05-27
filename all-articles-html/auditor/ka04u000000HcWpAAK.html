@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Classification services do not start</title>
+    <meta name="article-id" content="ka04u000000HcWpAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:01.000Z">
+    <meta name="articlenumber" content="000003689">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:51:14.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:05.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9e7CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9e7CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:15.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:05.000Z">
+    <meta name="meta-description" content="Data Classification services do not start">
+    <meta name="meta-title" content="Data Classification services do not start">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="3515">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9e7CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Data Classification services do not start</h1>
+    You may see one of the following errors:
+<ul><li>The <strong>service</strong> did not start due to a <strong>logon</strong> <strong>failure</strong></li><li>The <strong>service</strong> did not respond to the start or control request in a timely fashion</li><li><strong>Service</strong> cannot be started. The <strong>service</strong> <strong>process</strong> could not connect to the <strong>service</strong> <strong>controller</strong></li><li>A <strong>timeout</strong> was reached (30000 milliseconds) while waiting for the <strong>&lt;</strong><strong>ServiceName&gt;</strong> <strong>service</strong> to connect.</li></ul>
+Typically this is related to one of the following issues:
+<ul><li>Invalid/Incorrect credentials</li><li>Low service start-up time thresholds for the server specification</li></ul>
+<strong>Verify Credentials</strong>
+<ol><li>Open the &quot;<strong>Run&quot;</strong> window by clicking the &quot;<strong>Start&quot;</strong> button and then clicking &quot;<strong>Run&quot;</strong></li><li>In the <strong>Run</strong> window, type &quot;<strong>services.msc&quot;</strong> and then click <strong>OK</strong></li><li>Locate the affected <strong>service</strong></li><li>Right-click and select &quot;<strong>Properties</strong>&quot;</li><li>Select the tab &quot;<strong>Log On</strong>&quot;</li><li>Update the <strong>credentials</strong></li><li>Click <strong>OK</strong></li><li><strong>Restart</strong> the <strong>service</strong></li></ol>
+<strong>Increase Service Start-up Timeout</strong>
+
+We may need to increase the default startup timeout period on the server. Follow the below steps to increase the startup timeout value for all services:
+<ol><li>Open the <strong>Run</strong> window by clicking the <strong>Start</strong> button and then clicking &quot;<strong>Run&quot;</strong></li><li>In the <strong>Run</strong> window, type &quot;<strong>regedit&quot;</strong> and then click <strong>OK</strong> to open the <strong>Registry Editor</strong></li><li>Locate and then select the following registry subkey: <strong>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControl</strong></li><li>In the right pane locate the <strong>ServicesPipeTimeout</strong> entry</li><li>Right-click the <strong>ServicesPipeTimeout </strong>entry and select &quot;<strong>Modify&quot;</strong></li><li>Ensure &quot;<strong>Decimal&quot; </strong>is selected</li><li>Specify a value of &quot;<strong>120000&quot;</strong> (2 mins)</li><li>Click <strong>OK</strong></li><li><strong>Restart</strong> the server</li></ol>
+<strong>Note</strong>: If the <strong>ServicesPipeTimeout</strong> entry does not exist you should first create it:
+<ol><li>On the Edit menu hover over &quot;<strong>New&quot; </strong>and then select <strong>DWORD</strong> <strong>Value</strong>.</li><li>Type <strong>ServicesPipeTimeout</strong> and then press <strong>ENTER</strong>.</li></ol>
+</body>
+</html>

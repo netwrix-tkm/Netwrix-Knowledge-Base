@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database contains tables not compatible with the product</title>
+    <meta name="article-id" content="ka04u000000HcT5AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:53:09.000Z">
+    <meta name="articlenumber" content="000003442">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:54.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9a6CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9a6CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:54.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:43.000Z">
+    <meta name="meta-description" content="This article will explain the following error that shows in the change summary report and will detail how to resolve it. &quot;Error saving history to database: Database %name of database% already contains tables that aren&#x27;t compatible with the product&quot;">
+    <meta name="meta-title" content="Database contains tables not compatible with the product">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1216">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9a6CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Database contains tables not compatible with the product</h1>
+    Your audited system fails with the following error:
+
+Error saving history to database: Database %name of database%
+already contains tables that are not compatible with the product
+
+<hr></hr>
+
+Database permissions for the Data Processing Account are not sufficient. The Data Processing Account must either be a Sysadmin or have DB_Owner permission to each Netwrix database in order to upload audit data to the reporting database
+
+<hr></hr>
+
+Using SQL Management Studio give the Data Processing Account DB_Owner rights to the product database in question.
+
+To do this perform the following:
+
+1) Log into the instance which contains the product database using SQL Management Studio with a <strong>sysadmin account</strong>.
+
+2) Expand <strong>Security</strong> and then <strong>Logins</strong>.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcT5&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000008DPW" alt="User-added image"></img>
+3) <strong>Right click</strong> the <strong>Data Processing Account</strong> and go to <strong>Properties</strong> (add the account if it doesn&#39;t exist).
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcT5&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000008DPb" alt="User-added image"></img>
+4) Under <strong>Server Roles</strong> you can give <strong>sysadmin</strong> to this account OR alternatively you can go to <strong>User Mapping</strong> and select each Netwrix database individually and add <strong>DB_Owner</strong> permissions.
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcT5&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000008DPg" alt="User-added image" width="500" height="451"></img>
+</body>
+</html>

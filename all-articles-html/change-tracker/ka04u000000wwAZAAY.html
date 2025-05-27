@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Setup SIEM Integration with Netwrix Change Tracker?</title>
+    <meta name="article-id" content="ka04u000000wwAZAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-16T15:33:57.000Z">
+    <meta name="articlenumber" content="000008905">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-11-21T10:42:10.000Z">
+    <meta name="firstpublisheddate" content="2023-11-16T15:34:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnp9CAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnp9CAA">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-11-21T10:42:43.000Z">
+    <meta name="lastpublisheddate" content="2023-11-21T10:42:43.000Z">
+    <meta name="meta-description" content="How to Setup SIEM Integration with Change Tracker?">
+    <meta name="meta-title" content="How to Setup SIEM Integration with Change Tracker?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8905">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnp9CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Setup SIEM Integration with Netwrix Change Tracker?</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How can I setup SIEM integration with Netwrix Change Tracker?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>To setup SIEM integration with Netwrix Change Tracker, do the following:</p>
+
+<ol><li>
+	<p>In the Change Tracker console, navigate to <b>Settings</b> -&gt; <b>System Setings</b>.</p>
+	</li><li>
+	<p>Configure the <b>Syslog Server</b> settings according to the SIEM&#39;s server information and allowed protocols.</p>
+
+	<ul><li>
+		<p>Set the Syslog version to a specific one that your SIEM supports or to CEF;</p>
+		</li><li>
+		<p>Specify a UDP port for common default settings.</p>
+		</li></ul>
+	</li><li>
+	<p>Click the <b>Test</b> button to ensure you receive the Change Tracker test message.</p>
+	</li></ol>
+
+<p>Once the syslog server has been configured, you may configure alerts to be sent to your SIEM solution.</p>
+
+<ol><li>
+	<p>In the Change Tracker console, navigate to <b>Settings</b> -&gt; <b>User Notifications</b>.</p>
+	</li></ol>
+
+<p>Here you may configure the specific items to be sent to your SIEM solution such as Device Offline, Unplanned Changes, etc.</p>
+</div>
+</body>
+</html>

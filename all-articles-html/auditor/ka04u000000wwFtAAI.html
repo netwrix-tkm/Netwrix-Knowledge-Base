@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error During Agent Operation on Server: No Such Host is Known</title>
+    <meta name="article-id" content="ka04u000000wwFtAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:59.000Z">
+    <meta name="articlenumber" content="000003301">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-11-27T12:37:15.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9XmCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9XmCAK">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-11-27T12:37:41.000Z">
+    <meta name="lastpublisheddate" content="2023-09-02T15:27:52.000Z">
+    <meta name="meta-description" content="Netwrix Auditor, Windows Server, No such host is known">
+    <meta name="meta-title" content="Error During Agent Operation on Server: No Such Host is Known">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1147">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9XmCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error During Agent Operation on Server: No Such Host is Known</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>Activity Summary contains the following error message:</p>
+
+<pre class="has-inner-focus">
+&lt;ServerName&gt;: Error during agent operation on server &lt;ServerName&gt;. No such host is known. Additional information: none.</pre>
+</div>
+
+<h1>Causes</h1>
+
+<div>
+<p>Here are the possible causes for the issue:</p>
+
+<ul><li>
+	<p>Cause 1. Incorrect server names are specified.</p>
+	</li><li>
+	<p>Cause 2. DNS-request fails.</p>
+	</li></ul>
+</div>
+
+<h1>Resolutions</h1>
+
+<div>
+<p>Here are possible options to resolve the issue:</p>
+</div>
+
+<h4>Check Server Names</h4>
+
+<div>
+<p>First of all, check that all server names are specified correctly in the program settings. Make sure that your DNS server, has the DNS-records registered for your problematic servers:</p>
+
+<ol><li>
+	<p>On the server running Netwrix Auditor Server host, launch the<b> nslookup</b> tool: click <b>Start</b> / <b>Run</b>, type in <b>nslookup.exe</b> and press <b>Enter</b>.</p>
+	</li><li>
+	<p>In the <b>nslookup</b> dialog, check all your problematic servers one by one: specify a server name and press <b>Enter</b>.</p>
+	</li><li>
+	<p>If the IP-addresses appear in the command output, your DNS server has the DNS-records registered correctly.</p>
+	</li></ol>
+</div>
+
+<h4>Check DNS Records</h4>
+
+<div>
+<p>If the DNS-records are not registered correctly, perform the steps below:</p>
+
+<ol><li>
+	<p>On each problematic server, launch the command prompt: click <b>Start /</b> <b>Run</b>, type in <b>cmd</b> and press <b>Enter.</b>.</p>
+	</li><li>
+	<p>Type in the <code>ipconfig /registerdns</code> command and press <b>Enter</b>.</p>
+	</li><li>
+	<p>As a result, the DNS records will be registered for your servers.</p>
+	</li></ol>
+</div>
+</body>
+</html>

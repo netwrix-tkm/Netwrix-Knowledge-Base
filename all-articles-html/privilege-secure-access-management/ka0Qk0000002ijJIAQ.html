@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Was Outside the Bounds of Array Error</title>
+    <meta name="article-id" content="ka0Qk0000002ijJIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-07-25T11:19:51.000Z">
+    <meta name="articlenumber" content="000008687">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-03-28T08:24:48.000Z">
+    <meta name="firstpublisheddate" content="2023-07-25T11:20:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110w7CAA">
+    <meta name="knowledge-article-id" content="kA04u00000110w7CAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-03-28T08:24:56.000Z">
+    <meta name="lastpublisheddate" content="2024-03-28T08:24:06.000Z">
+    <meta name="meta-description" content="Index Was Outside the Bounds of the Array Error in Netwrix Privilege Secure">
+    <meta name="meta-title" content="Index Was Outside the Bounds of the Array Error in Netwrix Privilege Secure">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8687">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110w7CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Index Was Outside the Bounds of Array Error</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Privilege Secure generates the following error on each launch of the High Availability (HA) Configuration tool (NPS.HAMgr):</p>
+
+<pre class="has-inner-focus">
+Index was outside the bounds of the array.</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The HA Configuration tool expects a port value at the end of the NPS Rest URL. In case you configured your NPS Rest URL to have no port, the HA Configuration tool prompts an error because it expects a port.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>To verify how your NPS Rest URL is set up, refer to the following steps:</p>
+
+<ol><li>
+	<p>On the main Privilege Secure screen, click the <strong>Configuration</strong> tab.</p>
+	</li><li>
+	<p>In the left pane, select <strong>Services</strong>. The page will include the <strong>NPS Rest URL</strong> field. To learn more about the <strong>Services</strong> page in Netwrix Privilege Secure, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/PrivilegeSecure_4.0/page/Content/PrivilegeSecure/Admin/Configuration/Page/Services.htm" target="_self">System Settings Pages ? Services Page � v4.0 </a>.</p>
+
+	<div><img height="400" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000002ijJ&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000003vpYj" width="650"></img></div>
+	</li></ol>
+</blockquote>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Specify the 443 port in the NPS Rest URL. Refer to the following codeblock for the Rest URL syntax and example:</p>
+
+<pre class="has-inner-focus">
+FQDN:port
+https://pam.netwrix.com:443</pre>
+</div>
+</body>
+</html>

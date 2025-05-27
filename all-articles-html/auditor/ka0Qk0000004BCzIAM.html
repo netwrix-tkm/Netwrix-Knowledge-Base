@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specifying the SQL Server Instance Name</title>
+    <meta name="article-id" content="ka0Qk0000004BCzIAM">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-06-11T13:53:15.000Z">
+    <meta name="articlenumber" content="000009197">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-06-11T13:53:35.000Z">
+    <meta name="firstpublisheddate" content="2024-06-11T13:53:31.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001D01KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000001D01KAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-06-11T13:53:43.000Z">
+    <meta name="lastpublisheddate" content="2024-06-11T13:53:31.000Z">
+    <meta name="meta-description" content="Specifying the SQL Server Instance Name">
+    <meta name="meta-title" content="Specifying the SQL Server Instance Name">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9197">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001D01KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Specifying the SQL Server Instance Name</h1>
+    <h2>Question</h2>
+
+<div>
+<p>What SQL Server instance name should you specify in the Audit Database settings in Netwrix Auditor?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Depending on the SQL Server setup, you should specify the instance differently. Refer to the following steps to establish the correct instance name:</p>
+
+<ul><li>
+	<p>In environments with a single default SQL Server instance (i.e., <code>MSSQLSERVER</code>), specify the server FQDN or NetBIOS name to connect to the SQL Server.</p>
+	</li><li>
+	<p>In environments with multiple SQL Server instances and named instances, specify the instance in the <code>Server_Name\Instance_Name</code> format. Refer to the following example:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">SQLMachine\SQLExpress</code></pre>
+	</li></ul>
+
+<p>Learn more about establishing the instance name in <a href="https://learn.microsoft.com/en-us/sql/relational-databases/lesson-1-connecting-to-the-database-engine?view=sql-server-ver15#determine-the-name-of-the-instance-of-the-database-engine" target="_blank">Connecting to the Database Engine � Determine the name of the instance of the Database Engine � Microsoft &#129125;</a>.</p>
+</div>
+
+<h2>Related Articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://learn.microsoft.com/en-us/sql/relational-databases/lesson-1-connecting-to-the-database-engine?view=sql-server-ver15#determine-the-name-of-the-instance-of-the-database-engine" target="_blank">Connecting to the Database Engine � Determine the name of the instance of the Database Engine � Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

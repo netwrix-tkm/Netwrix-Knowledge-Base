@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports for Subscriptions Are Missing in Netwrix Auditor</title>
+    <meta name="article-id" content="ka04u000000wwFjAAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-09-08T10:38:33.000Z">
+    <meta name="articlenumber" content="000008794">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-11-27T12:04:17.000Z">
+    <meta name="firstpublisheddate" content="2023-09-08T10:38:54.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111AYCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111AYCAY">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-11-27T12:05:42.000Z">
+    <meta name="lastpublisheddate" content="2023-09-08T10:38:54.000Z">
+    <meta name="meta-description" content="Reports for Subscriptions Are Missing in Netwrix Auditor">
+    <meta name="meta-title" content="Reports for Subscriptions Are Missing in Netwrix Auditor">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8794">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111AYCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Reports for Subscriptions Are Missing in Netwrix Auditor</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>A subscription to a report was previously set up, but on some days no report for the set up subscription is sent to specified recipients.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The affected subscription has the <strong>Send empty subscriptions when no activity occurred</strong> setting turned off.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Enable the <strong>Send empty subscriptions when no activity occurred</strong> setting to receive empty reports on no activity:</p>
+
+<ol><li>
+	<p>In the main Netwrix Auditor menu, select <strong>Subscriptions</strong>.</p>
+	</li><li>
+	<p>Select the affected subscription, and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>In the <strong>General</strong> tab, enable the <strong>Send empty subscriptions when no activity occurred</strong> switch, and click <strong>Save &amp; Close</strong>.</p>
+	</li></ol>
+
+<p>Refer to the following article for additional information on subscriptions in Netwrix Auditor: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Subscriptions/Create.htm" target="_blank">Subscriptions � Create Subscriptions ? v10.6</a>.</p>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Alternatively, you can alter the schedule to include records from multiple days:</p>
+
+<ol><li>
+	<p>In the main Netwrix Auditor menu, select <strong>Subscriptions</strong>.</p>
+	</li><li>
+	<p>Select the affected subscription, and click <strong>Edit</strong>.</p>
+	</li><li>
+	<p>In the left pane, select <strong>Schedule</strong> ? select the appropriate time window to build reports for, and click <strong>Save &amp; Close</strong>.</p>
+	</li></ol>
+</blockquote>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/Subscriptions/Create.htm" target="_blank">Subscriptions � Create Subscriptions ? v10.6</a></p>
+</div>
+</body>
+</html>

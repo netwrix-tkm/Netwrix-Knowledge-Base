@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Add Message Approvers in Group Properties in GroupID Portal</title>
+    <meta name="article-id" content="ka0Qk000000D2DhIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-06T10:58:58.000Z">
+    <meta name="articlenumber" content="000008941">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000HyXKAU">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2025-03-28T23:21:08.000Z">
+    <meta name="firstpublisheddate" content="2023-12-06T10:59:13.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000HyXKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000HyXKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008F1XIAA0">
+    <meta name="lastmodifieddate" content="2025-03-28T23:22:01.000Z">
+    <meta name="lastpublisheddate" content="2023-12-18T14:22:34.000Z">
+    <meta name="meta-description" content="How To Add Message Approvers in Group Properties in Self-Service">
+    <meta name="meta-title" content="How To Add Message Approvers in Group Properties in Self-Service">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8941">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HyXKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Add Message Approvers in Group Properties in GroupID Portal</h1>
+    <h2>Applies To:</h2>
+
+<div>
+<p>GroupID 11</p>
+</div>
+
+<h2>Business Scenario:</h2>
+
+<div>
+<p>We have set up message approvers/moderators for various distribution lists in our Microsoft Exchange and we would like to view these settings in our GroupID portal. Is there a way to customize the GroupID portal to show such settings?</p>
+</div>
+
+<h2>Solution:</h2>
+
+<div>
+<p>To enable GroupID portal customization for displaying Message Approvers for Distribution Lists using Microsoft Exchange-based Active Directory attributes, you can utilize the following Active Directory attributes associated with Message Moderation for On-Premises MS Exchange:</p>
+
+<ul><li>
+	<p><b>msExchEnableModeration</b> This attribute is used in Microsoft Exchange to enable or disable message moderation for a specific distribution group. When this attribute is set to true, it indicates that messages sent to the distribution group will be subject to moderation, which means they will need approval from a moderator before being delivered to the group members.</p>
+	</li><li>
+	<p><b>msExchModeratedByLink</b> This attribute is used to associate a distribution list or security group that contains the list of moderators for a moderated recipient. When this attribute is configured, it links the moderated recipient to the specified distribution list or security group, allowing the members of that group to act as moderators for the recipient.</p>
+	</li><li>
+	<p><b>msExchBypassModerationLink</b> This attribute is used to associate a distribution list or security group that contains the list of senders who can bypass the moderation process for a moderated recipient. When this attribute is set, it links the moderated recipient to the specified distribution list or security group, allowing the members of that group to send messages that bypass the moderation process.</p>
+	</li></ul>
+
+<p>By leveraging these attributes, you can create a customized view in the GroupID portal that shows the appropriate Message Approvers for the Distribution Lists. This customization enables you to manage message moderation effectively and efficiently within your organization&#39;s Exchange environment.</p>
+</div>
+
+<h2>Steps:</h2>
+
+<div>
+<p>Follow the below-provided instructions to customize the portal:</p>
+
+<ol><li>
+	<p>In the <b>GroupID Admin Center Portal</b>, select <b>Self-Service</b> <b>GroupID Portals</b> <b>[required portal]</b> <b>Triple Dot button</b> <b>Settings</b>.</p>
+
+	<p><img alt="User-added image" height="346" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001gaph" width="500"></img></p>
+	</li><li>
+	<p>Under the <b>Design Settings</b> tab, select the <b>Identity Store</b> you want to customize in the portal.</p>
+	</li><li>
+	<p>On the <b>Properties</b> tab, select <b>Group</b> from the <b>Select Directory Object</b> list.</p>
+	</li><li>
+	<p>Select <b>Advanced</b> in the <b>Name</b> list and click <b>Edit</b>.</p>
+
+	<p><img alt="User-added image" height="269" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001garJ" width="500"></img></p>
+	</li><li>
+	<p>On the <b>Edit Design Category</b> dialog box, click <b>Add Field</b>.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001gasv"></img></p>
+	</li><li>
+	<p>Select the <b>mxExchEnableModeration</b> attribute in the <b>Field</b> list, enter the display name as <b>Is Moderator Enabled</b> and set the display type to <b>Check</b>.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001gauX"></img></p>
+	</li><li>
+	<p>Click <b>Add</b> on the dialog boxes and then click <b>Add Field</b> again on the <b>Edit Design Category</b>.</p>
+	</li><li>
+	<p>Select the <b>mxExchModeratedByLink</b> attribute in the <b>Field</b> list, enter the display name as <b>Moderators</b>, and set the display type to <b>DNs</b>.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001gaxl"></img></p>
+	</li><li>
+	<p>Click <b>Add</b> on the dialog boxes and then click <b>Add Fields</b> again on the <b>Edit Design Category</b>.</p>
+	</li><li>
+	<p>Select the <b>mxExchBypassModerationLink</b> attribute in the <b>Field</b> list, enter the display name as <b>Bypass Moderators</b>, and set the display type to <b>DNs</b>.</p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001gazN"></img></p>
+	</li><li>
+	<p>Click <b>Add</b> on the dialog boxes and then click the <b>Save</b> button to save the settings.</p>
+	</li><li>
+	<p>Launch the <b>Group ID</b> portal. You should be able to see the newly added attributes in the <b>Group�s Properties</b> under the <b>Advanced</b> tab.</p>
+
+	<p><img alt="User-added image" height="236" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D2Dh&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001gb0z" width="500"></img></p>
+	</li></ol>
+</div>
+
+<h2>Reference:</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/GroupID_11.0/page/Content/GroupID/AdminCenter/Portal/Design/ObjectProperties.htm" target="_blank">Admin Center � Applications � Customize Properties Pages � v11.0</a></p>
+</div>
+
+<h3>Related Articles:</h3>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HQfKAM.html" target="_blank">Walkthrough Search Policy - Define Scope and Filter Results</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">How To Enforce Users to Create Groups in a Specific OU</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HthKAE.html" target="_blank">How To Import Members to a Group Using Self-Service Import Wizard</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HwvKAE.html" target="_blank">How to Trigger a workflow When a User ?reates a Group</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">Best Practices for Controlling Changes to Group Membership</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000IPxKAM.html" target="_blank">Best Practices for Preventing Accidental Data Leakage</a>.</p>
+	</li></ul>
+</div>
+</body>
+</html>

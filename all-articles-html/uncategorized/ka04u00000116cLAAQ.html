@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 401 in the Enrollment wizard</title>
+    <meta name="article-id" content="ka04u00000116cLAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:13.000Z">
+    <meta name="articlenumber" content="000003102">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T13:02:44.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:33:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9UUCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9UUCA0">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T13:03:02.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:33:02.000Z">
+    <meta name="meta-description" content="Fix Error 401 when starting Enrollment wizard">
+    <meta name="meta-title" content="Error 401 in the Enrollment wizard">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="673">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9UUCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error 401 in the Enrollment wizard</h1>
+    I get the Error 401 (Not authorized) message when starting Enrollment wizard
+
+<hr></hr>
+
+To resolve the issue, please add the Password Manager Self-service portal URL to the <strong>Local Intranet Zone</strong>.
+<ol><li>Launch <strong>Internet Options </strong>from <strong>Control Panel</strong></li><li>Go to <strong>Security</strong> tab</li><li>Select <strong>Local intranet</strong>, click <strong>Sites</strong></li><li>Click <strong>Advanced</strong></li><li>Type the URL and click <strong>Add</strong></li><li>Click<strong> Close</strong>, then<strong> Ok</strong>, and again <strong>Ok</strong></li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116cL&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yGK" alt="User-added image" width="500" height="385"></img>
+
+As a workaround, there is an option to force the browser to send credential to the Internet zone
+<ol><li>Launch <strong>Internet Options </strong>from <strong>Control Panel</strong></li><li>Go to <strong>Security</strong> tab</li><li>Select<strong> Internet</strong>, click <strong>Custom level</strong></li><li>In<strong> Security Settings </strong>window that opens sroll to the bottom</li><li>Select<strong> Automatic logon with current username and password </strong>radio-button under <strong>User authentication - Logon</strong></li><li>Click<strong> Ok</strong> than<strong> Ok</strong> again</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116cL&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yGP" alt="User-added image" width="500" height="373"></img>
+
+These settings can also be applied via Group Policy.
+<div></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parse CSV / Custom Delimiters</title>
+    <meta name="article-id" content="ka04u000000HcxeAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:38:22.000Z">
+    <meta name="articlenumber" content="000007278">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:17.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:38:24.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IssCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IssCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:17.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:38:24.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Parse CSV / Custom Delimiters">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7278">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IssCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Parse CSV / Custom Delimiters</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to parse a CSV file or similar using the PowerShell data collector, specifying the delimiter.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Sometimes we need to parse a file using something other than commas. Text search has limited capability here, and PowerShell can parse a file much quicker.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> How to parse a CSV file or similar using the PowerShell data collector, specifying the delimiter:�<br><br><span style="color: #1f4e79;">This job will allow SA to Parse a data file with a Custom Delimiter using PowerShell DC</span><br>�<br><span style="color: #1f4e79;">The path is hard coded in the example, and the delimiter in this example job is a pipe &quot;|&quot;. �<br>Change it to a comma or whatever is appropriate for the file you&#39;d like to parse. �<br>This should be much faster and simpler to use than the text search data collector. �</span><br><br><a href="http://downloads.stealthbits.com/access/files/Utilities/Jobs/JOB_customDelimiterParse.zip" target="_blank">http://downloads.stealthbits.com/access/files/Utilities/Jobs/JOB_customDelimiterParse.zip</a><br><br>PowerShell code is:�<br><br>$resultObj = import-csv &quot;c:\dattest\pipedelim.dat&quot; -delimiter &quot;|&quot;<br>$resultObj<br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - TextSearch<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1175</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to move reporting databases to a new drive</title>
+    <meta name="article-id" content="ka04u000000HcPFAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:53.000Z">
+    <meta name="articlenumber" content="000003191">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:47:09.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:21.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9W0CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9W0CAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:47:09.000Z">
+    <meta name="lastpublisheddate" content="2021-07-08T15:10:27.000Z">
+    <meta name="meta-description" content="how to move reporting datases to a new drive, move databases, move database">
+    <meta name="meta-title" content="How to move reporting databases to a new drive">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="769">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9W0CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to move reporting databases to a new drive</h1>
+    How do I move the Netwrix Reporting databases to another drive?
+<hr></hr>
+<div style="margin-left: 40px;">1) Open <strong>SQL Management Studio</strong> on the computer where the SQL Instance resides.<br>2) <strong>Right click</strong> on the <strong>database</strong> you would like to move and go to <strong>Properties</strong>.<br>3) Under <strong>Select a page</strong>, select <strong>Files</strong>.<br>4) By default there will be two files for each database, an <strong>MDF</strong> and an <strong>LDF</strong> file. Note the location of these files in the <strong>Path</strong> column.<br>5) Hit <strong>Okay</strong><br>6) <strong>Right click</strong> the database and go to <strong>Tasks -&gt; Detach</strong>.<br>7) In the <strong>Detach Database Window</strong> check the box to <strong>Drop Connections</strong> and hit <strong>Okay</strong>.<br>8) Navigate to the location from <strong>step #4</strong> and copy the <strong>MDF and LDF file</strong> to the new location.<br>9) In <strong>SQL Management Studio</strong> <strong>right click</strong> the <strong>Databases folder</strong> and select <strong>Attach</strong>.<br>10) <strong>Click Add</strong> under <strong>Databases to Attach</strong> and select the location and <strong>MDF</strong> file for the database and hit okay (The LDF will be located automatically if in the same location).<br>11) Hit <strong>okay</strong> again on the <strong>Attach databases</strong> screen. Your database should now be attached once again and now residing in it&#39;s new location.</div>
+</body>
+</html>

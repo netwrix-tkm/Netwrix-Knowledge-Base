@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How do I enable security log autobackups on each domain controller?</title>
+    <meta name="article-id" content="ka04u000000HcOLAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:14.000Z">
+    <meta name="articlenumber" content="000003129">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:48.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9UvCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9UvCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:48.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:11.000Z">
+    <meta name="meta-description" content="How do I enable security log autobackups on each domain controller?">
+    <meta name="meta-title" content="How do I enable security log autobackups on each domain controller?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="712">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9UvCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How do I enable security log autobackups on each domain controller?</h1>
+    How do I enable security log autobackups on each domain controller?
+
+<hr></hr>
+
+To do this, use the Security Log Autobackup.adm file attached to this article. Perform the following steps:
+<div>
+<div>
+<ol><li>Download the attached file.</li><li>Navigate to <b>Start</b> --&gt; <b>Administrative Tools</b> --&gt; <b>Group Policy Management</b> and navigate to the effective domain controllers policy (the Default Domain Controllers policy by default).</li><li>Right-click the policy and select <b>Edit</b> from the popup menu.</li><li>In the left pane, expand the <b>Computer Configuration</b> --&gt; <b>Policies</b> node.</li><li>Right-click the <b>Administrative Templates</b> node and select <b>Add/Remove Templates...</b> from the popup menu.</li><li>In the dialog that opens, browse to the downloaded file and add it. Then click <b>Close</b>.</li><li>Expand the Administrative Templates --&gt; Classic Administrative Templates --&gt; NetWrix node and click on the <b>Event Log</b> node.</li><li>In the right pane, double-click on <b>Automatically enable backups of the security log file</b>.</li><li>Select <b>Enabled</b>, click the <b>Apply</b> button and then click <b>OK</b>.</li></ol>
+</div>
+
+<div>NOTE: If you are running Windows 2003, some nodes may not be displayed after you have added an administrative template. To fix this, make sure that the <b>Only show policy settings that can be fully managed</b> option is disabled. To do this, perform the following steps:</div>
+
+<div> </div>
+
+<div>
+<ol><li>Navigate to <b>Start</b> --&gt; <b>Administrative Tools</b> --&gt; <b>Group Policy Management</b> and navigate to the effective domain controllers policy (the Default Domain Controllers policy by default).</li><li>Right-click the policy and select <b>Edit</b> from the popup menu.</li><li>In the left pane, expand the <b>Computer Configuration</b> --&gt; <b>Policies</b> node and click on <b>Administrative Templates</b>.</li><li>In the main menu, select <b>View</b> --&gt; <b>Filtering </b>and deselect the <b>Only show policy settings that can be fully managed</b> option.</li></ol>
+
+<div>Now you will be able to manage the imported administrative template.</div>
+</div>
+</div>
+
+<div>If you need to change the status of security log autobackupsretention&#39;MaxSize&#39;, perform the following steps:</div>
+
+<div> </div>
+
+<div>
+<ol><li>Download the attached file.</li><li>Navigate to <b>Start</b> --&gt; <b>Administrative Tools</b> --&gt; <b>Group Policy Management</b> and navigate to the effective domain controllers policy (the Default Domain Controllers policy by default).</li><li>Right-click the policy and select <b>Edit</b> from the popup menu.</li><li>In the left pane, expand the <b>Computer Configuration</b> --&gt; <b>Policies</b> node.</li><li>Right-click the <b>Administrative Templates</b> node and select <b>Add/Remove Templates...</b> from the popup menu.</li><li>In the dialog that opens, browse to the downloaded file and add it. Then click <b>Close</b>.</li><li>Expand the Administrative Templates --&gt; Classic Administrative Templates --&gt; NetWrix node and click on the <b>Event Log</b> node.</li><li>In the right pane, double-click on <b>Automatically enable backups of the security log file</b>.</li><li>Select the <b>Disabled</b>/<b>Enable</b>, click the <b>Apply</b> button and then click <b>OK</b>.</li><li>Double-click on &quot;Automatically set the &quot;MaxSize&quot; filed for the security log backup&quot;. Select the <b>Disabled</b>/<b>Enable</b>, click the <b>Apply</b> button and then click <b>OK</b>.</li><li>Double-click the &quot;Automatically set the &quot;Retention&quot; filed for the security log backup. Select the <b>Disabled</b>/<b>Enable</b>, click the <b>Apply</b> button and then click <b>OK</b>.</li></ol>
+</div>
+</body>
+</html>

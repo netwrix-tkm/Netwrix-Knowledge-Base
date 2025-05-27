@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolving &quot;Invalid Connection String&quot; for DirectConnect in mRemoteNG</title>
+    <meta name="article-id" content="ka04u000000Hca3AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gXu5AAE">
+    <meta name="articlecreateddate" content="2021-12-03T15:19:03.000Z">
+    <meta name="articlenumber" content="000005925">
+    <meta name="createdbyid" content="0054u000006gXu5AAE">
+    <meta name="createddate" content="2023-05-08T09:57:49.000Z">
+    <meta name="firstpublisheddate" content="2021-12-03T16:36:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HdXCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000HdXCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:49.000Z">
+    <meta name="lastpublisheddate" content="2021-12-03T16:36:20.000Z">
+    <meta name="meta-description" content="Resolving &quot;Invalid Connection String&quot; for DirectConnect in mRemoteNG">
+    <meta name="meta-title" content="Resolving &quot;Invalid Connection String&quot; for DirectConnect in mRemoteNG">
+    <meta name="ownerid" content="0054u000006gXu5AAE">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5925">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HdXCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Resolving &quot;Invalid Connection String&quot; for DirectConnect in mRemoteNG</h1>
+    <h1>Summary</h1>
+In a specific scenario, valid SbPAM DirectConnect strings used in mRemoteNG will result in an invalid connection string error, stating the connection string is empty.<br><br><img alt="Screenshot of SbPAM DirectConnect error, stating the connection string is invalid (empty)." src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca3&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bv9Z"></img>
+<h1>Instructions</h1>
+This error is caused by having credentials saved for the SbPAM server (i.e. SbPAM Proxy Server) in the Windows built-in RDP client, Remote Desktop Connection, on the same host that&#39;s running mRemoteNG.<br><br><img alt="Screenshot of a credential saved in Remote Desktop Connection, the built-in Windows RDP client, for the SbPAM Proxy Server." height="286" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000Hca3&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bv9t" width="500"></img><br><br>To resolve the issue, there are two options:<br><br><b>1.�</b>Delete the credential saved in Remote Desktop Connection. After doing so, the valid DirectConnect string will work as expected in mRemoteNG.<br><br><b>2.�</b>Fill in a password for each DirectConnect connection saved in mRemoteNG. This resolves the issue without deleting any credentials from Remote Desktop Connection.
+</body>
+</html>

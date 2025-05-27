@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Does the Password Manager always use your current Windows user to authenticate?</title>
+    <meta name="article-id" content="ka04u00000116d7AAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:00.000Z">
+    <meta name="articlenumber" content="000003678">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T13:20:42.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dwCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9dwCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T13:20:58.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:02.000Z">
+    <meta name="meta-description" content="Netwrix Password Manager using currently logged in user credentials to authenticate.">
+    <meta name="meta-title" content="Does the Password Manager always use your current Windows user to authenticate?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2820">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dwCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Does the Password Manager always use your current Windows user to authenticate?</h1>
+    Netwrix Password Manager uses Integrated Windows authentication. By default for Local Intranet zone there is a setting to logon automatically using current credentials.
+
+There are two options to force prompting for credentials:
+
+1. Move Helpdesk portal to the Internet zone.
+To do it, go to <strong>Control panel - Internet options - Security </strong>tab. Select Local Internet zone, click <strong>Sites</strong> and remove the Helpdesk portal URL. Click <strong>Ok</strong> and then disable Automatic detection of local intrnate sites.
+
+<a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g000000kAb4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004yI6" target="_blank"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d7&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yI6" alt="User-added image" width="500" height="390"></img></a>
+
+2. Disable automatic authentication for Local intrantet zone
+To do it, go to <strong>Control panel - Internet options - Security </strong>tab. Select Local Intranet zone, click Custom level, in subwindows scroll to the very bottom and under <strong>User Authentication - Logon </strong>select <strong>Prompt for user name and password</strong>.
+
+<a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g000000kAb4&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004yHw" target="_blank"><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116d7&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004yHw" alt="User-added image" width="500" height="381"></img></a>
+</body>
+</html>

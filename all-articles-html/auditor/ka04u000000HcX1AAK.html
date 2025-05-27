@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The conceptServiceViewer application fails to show the current service statuses after installation</title>
+    <meta name="article-id" content="ka04u000000HcX1AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:01.000Z">
+    <meta name="articlenumber" content="000003700">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:51:25.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:07.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9eICAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9eICAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:25.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:07.000Z">
+    <meta name="meta-description" content="The conceptServiceViewer application fails to show the current service statuses after installation">
+    <meta name="meta-title" content="The conceptServiceViewer application fails to show the current service statuses after installation">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="3540">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eICAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The conceptServiceViewer application fails to show the current service statuses after installation</h1>
+    Typically an <strong>error</strong> similar to the below is logged to the &quot;<strong>Concept</strong> <strong>Searching</strong>&quot; <strong>Event</strong><strong>Viewer</strong> log:
+<p style="">Error: System.Exception: This schema for this assembly has not been registered with WMI.
+at System.Management.Instrumentation.Instrumentation.Initialize(Assembly assembly)
+at System.Management.Instrumentation.Instrumentation.GetInstrumentedAssembly(Assembly assembly)
+at System.Management.Instrumentation.Instrumentation.GetFireFunction(Type type)
+at System.Management.Instrumentation.BaseEvent.get_FireFunction()
+at System.Management.Instrumentation.BaseEvent.Fire()</p>
+The specified <strong>error </strong>can occur when the initial <strong>installation</strong> is completed with an <strong>account</strong> does not have <strong>local administration</strong> <strong>rights</strong>.
+<ol><li>Ensure that the <strong>account</strong> specified to run each <strong>Windows</strong> <strong>service</strong> is configured as a <strong>local</strong><strong>administrator</strong>:
+<ol><li>Open the &quot;<strong>Run&quot;</strong> window by clicking the &quot;<strong>Start&quot;</strong> button and then clicking &quot;<strong>Run&quot;</strong></li><li>In the <strong>Run</strong> window, type &quot;<strong>services.msc&quot;</strong> and then click <strong>OK</strong></li><li>Locate each <strong>Windows </strong>service (conceptCollector, conceptIndexer, and conceptClassifier)</li><li>Ensure that each <strong>user</strong> specified as the &quot;<strong>Log on as</strong>&quot; value is a <strong>local administrator</strong></li></ol>
+</li><li><strong>Restart</strong> the <strong>Server</strong></li><li><strong>Logon </strong>as the specified service account (or, another <strong>local administrator</strong>)</li><li><strong>Re-run</strong> the <strong>conceptInstaller application</strong> and run a <strong>&quot;Repair&quot; </strong>operation</li></ol>
+<b>Making the user a local administrator on Server 2016 computer:</b>
+<ol><li>Click <strong>Start</strong> &gt; <strong>Server Manager</strong></li><li>On the upper-right corner of the <strong>Server</strong> <strong>Manager</strong> dashboard page, click <strong>Tools</strong> &gt; <strong>Computer Management</strong></li><li>In the navigation pane of the <strong>Computer Management</strong> page, expand &quot;<strong>Local Users and Groups&quot;</strong>, and then click &quot;<strong>Users&quot;</strong></li><li>From the <strong>users</strong> list, right-click the <strong>user</strong> to which you want to assign <strong>administrator</strong>rights, and click <strong>Properties</strong></li><li>Click the <strong>Member Of tab</strong>, and click
+<strong>Add</strong></li><li>On the &quot;<strong>Select Group&quot;</strong> page, type <strong>&quot;Administrators&quot;</strong>, and then click <strong>OK</strong>.</li><li>Click <strong>Apply </strong>and <strong>OK</strong>.</li></ol>
+</body>
+</html>

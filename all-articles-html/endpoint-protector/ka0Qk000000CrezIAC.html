@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[UPDATED] - How to remotely activate and collect endpoint client logs from the EPP Server interface</title>
+    <meta name="article-id" content="ka0Qk000000CrezIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:01.000Z">
+    <meta name="articlenumber" content="000009728">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B2cKAE">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nViCIAU">
+    <meta name="assignmentdate" content="2025-03-19T17:17:55.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-03-18T20:26:01.000Z">
+    <meta name="draft-status" content="Awaiting TKM">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B2cKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B2cKAE">
+    <meta name="lastmodifiedbyid" content="005Qk000001nViCIAU">
+    <meta name="lastmodifieddate" content="2025-04-25T17:43:43.000Z">
+    <meta name="ownerid" content="0054u000008icp2AAA">
+    <meta name="urlname" content="9728">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B2cKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>[UPDATED] - How to remotely activate and collect endpoint client logs from the EPP Server interface</h1>
+    <p><strong>How to remotely activate and collect endpoint client logs from the EPP Server interface</strong></p>
+<p>�</p>
+<p><br>Below is a guide on how to remotely enable debug logging on an endpoint machine and then also remotely initiate the upload of these logs to the Endpoint Protector Server without input or knowledge from the endpoint user.</p>
+<p><br>Please follow the below steps to remotely enable debug logging and then to collect logs.</p>
+<p><br>1. Navigate to &quot;Device Control&quot; &gt; &quot;Computers&quot; select the target computer and then go to &quot;Manage Settings&quot;.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CD80t"></img></p>
+<p><br>2. Scroll down to &quot;Debug Logging&quot; click on the &quot;Set Log Level&quot; drop down menu and select &quot;Debug&quot;.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CD1p0"></img></p>
+<p><br>3. After selecting &quot;Debug&quot; click on &quot;Save&quot; and wait for the green notification &quot;Changes have been saved!&quot; to appear.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CD1KO"></img></p>
+<p><br>4. Return to the computer listed under &quot;Device Control&quot; &gt; &quot;Computers&quot; then click on &quot;Collect diagnostics&quot;</p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CCtme"></img></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CD8NR"></img></p>
+<p><br>5. Logs will be sent to the Endpoint Protector Server under &quot;Reports and Analysis&quot; &gt; &quot;Logs Report&quot;.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CD4LU"></img></p>
+<p><br>6. Navigate to &quot;Reports and Analysis&quot; &gt; &quot;Logs Report&quot;, expand the filters and click on the &quot;Event&quot; drop down menu then select &quot;Artifact Received&quot; and then click on &quot;Apply&quot;.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CCxTh"></img></p>
+<p><br>7. Under the events the uploaded &quot;Artifact or EPP Client logs&quot; will be listed and be available to the system administrator to download.<br><strong>Please note that the artifact may not be able to download immediately and will give error �File not found� it may take 20 � 30 minutes before the file is ready to download.</strong></p>
+<p>�</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Crez&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CD5So"></img></p>
+<p><br>8. Once the EPP client logs are downloaded then this can be submitted to the Endpoint Protector Support team.</p>
+</body>
+</html>

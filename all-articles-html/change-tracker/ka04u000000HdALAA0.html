@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Generate an Alert When Devices Stop Sending Messages on Log Tracker</title>
+    <meta name="article-id" content="ka04u000000HdALAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:52:40.000Z">
+    <meta name="articlenumber" content="000008246">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:57.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:52:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JcMCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JcMCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:57.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to Generate an Alert When Devices Stop Sending Messages on Log Tracker">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8246">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JcMCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Generate an Alert When Devices Stop Sending Messages on Log Tracker</h1>
+    <p>When a device stops sending messages, the device icon on the &quot;Messages &gt; Device&quot; screen turns red. (The exact threshold time for this is configured in the &quot;Advanced&quot; screen of the &quot;Messages &gt; Device&quot; screen, and is the &quot;Message Idle Time Threshold&quot; value, by default one day.)</p>
+<p>When Log Tracker detects that the last message for that device exceeds this configured time, not only does the device icon turn red, but the system also logs a message to itself as follows:</p>
+<p>Log Tracker<em> Network Monitor: Message source is idle. No messages received from (iapddr) during last (threshold-time)</em></p>
+<h2 id="">Step-by-step guide</h2>
+<p>So, given the above info, you can receive e-mail when any device stops sending messages using the following procedure:</p>
+<ol><li>Create a Correlation Thread via the &quot;Correlation &gt; Threads &gt; AddNew&quot; screen, and configure the match expression to be the phrase &quot;message source is idle&quot;. This thread will collect all the messages that have this key text.</li><li>Create an alert via the &quot;Alerts &gt; Counter &gt; AddNew&quot; screen, and configure a threshold of 1 count in 60 seconds. This will open a ticket when any device turns red. (If two devices turn red within 60 seconds, only one ticket is opened. Some people like to set the severity of this alert high -- such as to &quot;critical&quot; -- but it is up to the end user.</li><li>As needed, configure a notification via the&quot;Tickets &gt; Actions &gt; AddNew&quot; screen, to send e-mail (or perform other notification) when the alert triggers.</li></ol>
+<p>The above steps are sufficient to receive e-mail when any device turns red, a useful precaution against any misconfiguration of an agent, or firewall changes that may prevent a managed device from communicating with the Log Tracker Server.</p>
+<p><br></p>
+<p><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Rolling-Log Fix: &quot;Couldn&#39;t get credentials for remote platform discovery on&quot;</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">MongoDB - Pre-allocated Log Files Accumulate &amp; Result to Disk Space Errors</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How To Turn Off Bulk Email Notifications (Force Change Tracker to send one email for each change instead of compiling into one email with multiple changes)</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p>
+</body>
+</html>

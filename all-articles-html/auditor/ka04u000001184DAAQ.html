@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Netwrix Auditor to Use Microsoft 365 for Email Notifications</title>
+    <meta name="article-id" content="ka04u000001184DAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005700000042ELcAAM">
+    <meta name="articlecreateddate" content="2020-05-07T12:43:13.000Z">
+    <meta name="articlenumber" content="000003783">
+    <meta name="createdbyid" content="005700000042ELcAAM">
+    <meta name="createddate" content="2023-10-05T08:40:54.000Z">
+    <meta name="firstpublisheddate" content="2020-05-07T12:57:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000PbdOCAS">
+    <meta name="knowledge-article-id" content="kA00g000000PbdOCAS">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-10-05T08:42:25.000Z">
+    <meta name="lastpublisheddate" content="2023-08-07T09:28:00.000Z">
+    <meta name="meta-description" content="Configure Netwrix Auditor to Use Microsoft 365 for Email Notifications">
+    <meta name="meta-title" content="Configure Netwrix Auditor to Use Microsoft 365 for Email Notifications">
+    <meta name="ownerid" content="005700000042ELcAAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="698">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbdOCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configure Netwrix Auditor to Use Microsoft 365 for Email Notifications</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to configure Netwrix Auditor to use Microsoft 365 for email notifications?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Refer to the following steps to configure Netwrix products to use Microsoft 365 for email notifications:</p>
+
+<ol><li>
+	<p>Open the main Microsoft 365 page � <a href="https://www.microsoft365.com/" target="_blank">Microsoft 365 ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>In the left pane, click the <strong>Outlook</strong> logo to proceed to the main Outlook page.</p>
+	</li><li>
+	<p>Once the main Outlook page opens, click the <strong>Settings</strong> icon in the top right corner.</p>
+	</li><li>
+	<p>In the left pane, select <strong>Mail</strong> &gt; <strong>Sync email</strong>.</p>
+	</li><li>
+	<p>Copy the SMTP settings (e.g., server name: outlook.office365.com, port: 587).</p>
+	</li><li>
+	<p>Open Netwrix Auditor. Click <strong>Settings</strong> in the top right corner &gt; select <strong>Notifications</strong> in the left pane. Click <strong>Modify</strong> under the <strong>Default SMTP Settings</strong>.</p>
+	</li><li>
+	<p>Specify the SMTP settings copied from the Microsoft 365 Outlook page.</p>
+	</li><li>
+	<p>Specify your Microsoft 365 email address as the <strong>Sender</strong> address.</p>
+	</li><li>
+	<p>Check the <strong>SMTP authentication</strong> checkbox, and specify your Microsoft 365 account credentials.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>The email address specified in the <strong>User name</strong> field must match the email address specified in the <strong>Sender address</strong> field.</p>
+	</blockquote>
+	</li><li>
+	<p>Check the <strong>Use Secure Sockets Layer encrypted connection (SSL/TLS)</strong> checkbox.</p>
+
+	<ul><li>
+		<p>Uncheck the <strong>Use implicit SSL authentication</strong> checkbox.</p>
+		</li></ul>
+	</li></ol>
+</div>
+
+<div>
+<blockquote>
+<p><span style="color: rgb(235, 14, 58);"><strong>IMPORTANT: </strong></span>Multi-Factor Authorization is incompatible with this functionality. Learn more in <a href="https://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/fix-issues-with-printers-scanners-and-lob-applications-that-send-email-using-off#error-authentication-unsuccessful" target="_blank">Fix Issues when Sending Email Using Microsoft 365 ? Microsoft &#129125;</a>.</p>
+</blockquote>
+</div>
+
+<h4>Related articles</h4>
+
+<div>
+<p><a href="https://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/fix-issues-with-printers-scanners-and-lob-applications-that-send-email-using-off#error-authentication-unsuccessful" target="_blank">Fix Issues when Sending Email Using Microsoft 365 ? Microsoft &#129125;</a></p>
+</div>
+</body>
+</html>

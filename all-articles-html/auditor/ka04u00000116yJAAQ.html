@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrate Event Log Manager Monitoring Plans</title>
+    <meta name="article-id" content="ka04u00000116yJAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-07-28T16:15:06.000Z">
+    <meta name="articlenumber" content="000008699">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-07-31T13:18:26.000Z">
+    <meta name="firstpublisheddate" content="2023-07-28T16:29:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110xoCAA">
+    <meta name="knowledge-article-id" content="kA04u00000110xoCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-07-31T13:18:56.000Z">
+    <meta name="lastpublisheddate" content="2023-07-28T16:29:41.000Z">
+    <meta name="meta-description" content="Migrate Event Log Manager Monitoring Plans">
+    <meta name="meta-title" content="Migrate Event Log Manager Monitoring Plans">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8699">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000110xoCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Migrate Event Log Manager Monitoring Plans</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to migrate a monitoring plan for Event Log Manager (ELM) to a different server?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<table border="1"><tbody><tr><td colspan="1" rowspan="1">On your prior Netwrix Auditor server</td><td colspan="1" rowspan="1">
+			<div>
+			<ol><li>
+				<p>Copy the folders located in <code>%Working Folder%\Event Log Management\Rules\</code>. Each folder represents a single monitoring plan in Event Log Manager.</p>
+				</li><li>
+				<p>Export the Event Log Manager tasks from Task Scheduler:</p>
+
+				<ol><li>
+					<p>Open your Task Scheduler either via the Search bar or <code>taskschd.msc</code> in the Run command window.</p>
+					</li><li>
+					<p>Locate all tasks related to Event Log Manager. They will have the following line in the description under the <strong>General</strong> tab:</p>
+
+					<pre class="has-inner-focus">
+Starts Netwrix Auditor data collection on Event Log for &#39;%monitoring_plan_name%&#39;</pre>
+					</li><li>
+					<p>To export a task, right-click a task and click <strong>Export</strong>. Perform these steps for all tasks.</p>
+					</li></ol>
+				</li></ol>
+			</div>
+			</td></tr><tr><td colspan="1" rowspan="1">On your new Netwrix Auditor server</td><td colspan="1" rowspan="1">
+			<div>
+			<ol><li>
+				<p>Create a monitoring plan in Event Log Manager using the name of the prior monitoring plan.</p>
+				</li><li>
+				<p>Copy the folder from your prior server to the new one to <code>%Working Folder%\Event Log Management\Rules\</code>.</p>
+				</li><li>
+				<p>Import the tasks for Task Scheduler:</p>
+
+				<ol><li>
+					<p>On your new server, open Task Scheduler, and click <strong>Action</strong> in the top row &gt; <strong>Import...</strong>.</p>
+					</li><li>
+					<p>Select the previously exported tasks and import them to your new server.</p>
+					</li></ol>
+				</li></ol>
+			</div>
+			</td></tr></tbody></table>
+</div>
+</body>
+</html>

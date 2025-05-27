@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Server Service Terminated ? Raised an Exception</title>
+    <meta name="article-id" content="ka0Qk0000001U8vIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:27:00.000Z">
+    <meta name="articlenumber" content="000003671">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-01-25T10:23:39.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:02.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dpCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9dpCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-25T10:23:47.000Z">
+    <meta name="lastpublisheddate" content="2024-01-25T10:23:34.000Z">
+    <meta name="meta-description" content="Configuration Server Service Terminated ? Raised an Exception">
+    <meta name="meta-title" content="Netwrix Auditor Configuration Server Service fails to start">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="3284">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dpCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configuration Server Service Terminated ? Raised an Exception</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Auditor Configuration Server Service stopped. When attempting to restart the service, the following error is prompted:</p>
+
+<pre class="has-inner-focus">
+The Netwrix Auditor Configuration Server Service service terminated with the following error 0x80040208:
+A user-supplied component or subscriber raised an exception.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<p>Any of the following potential causes may lead to corruption of the configuration server status file:</p>
+</div>
+
+<ul><li>
+	<p>The C drive of the Netwrix Auditor server has reached or is running out of its capacity.</p>
+	</li><li>
+	<p>Unexpected shutdown of the Netwrix Auditor server (e.g. due to the power outage).</p>
+	</li><li>
+	<p>Cross-program interaction (e.g. antivirus software blocks an operation performed by Netwrix Auditor).</p>
+	</li></ul>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to the following steps to troubleshoot the issue:</p>
+</div>
+
+<ol><li>
+	<p>Stop all Auditor services in the server via elevated PowerShell:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Stop-Service -DisplayName &quot;Netwrix Auditor *&quot;</code></pre>
+	</li><li>
+	<p>Navigate to <code>%Working Folder%\AuditCore\ConfigServer</code> and back up the contents of the <strong>ConfigServer</strong> folder except for the <strong>StorageBackups</strong> directory.</p>
+	</li><li>
+	<p>Delete the contents of <strong>ConfigServer</strong> folder except for the <strong>StorageBackups</strong> directory.</p>
+	</li><li>
+	<p>In the <strong>StorageBackups</strong> directory, locate the previous to the latest <code>Configuration.xml</code> file and copy it to the <strong>ConfigServer</strong> folder.</p>
+	</li><li>
+	<p>Run the following line in elevated PowerShell to start all Netwrix services:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Start-Service -DisplayName &quot;Netwrix Auditor *&quot;</code></pre>
+	</li></ol>
+</body>
+</html>

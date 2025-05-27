@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to exclude certain file/folders/shares from auditing by Netwrix Auditor for File Servers?</title>
+    <meta name="article-id" content="ka04u000000HcOeAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:10:51.000Z">
+    <meta name="articlenumber" content="000003152">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:52.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:14.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9VNCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9VNCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:53.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:31:14.000Z">
+    <meta name="meta-description" content="Instructions on how to exclude some file/folders/shares from auditing by Netwrix Auditor">
+    <meta name="meta-title" content="How to exclude certain file/folders/shares from auditing by Netwrix Auditor for File Servers?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="730">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9VNCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to exclude certain file/folders/shares from auditing by Netwrix Auditor for File Servers?</h1>
+    How to exclude files, folders or shares from auditing by Netwrix Auditor for File Servers?
+
+<hr></hr>
+
+If you do not want to audit every folder and/or file defined on the file server&#39;s shares or are monitoring the whole server but want to omit a specific share, you can omit them using the a special omit file.
+
+1. Navigate to the product installation folder via Windows Explorer (by default: C:Program Files (x86)NetwrixFile Server Change Reporter)
+2. Open <b>omitcollectlist.txt</b> file (<b>omitpathlist.txt</b> in 6.0 or older) in any text editor
+3. Add the paths you do not want to be audited.  For example:
+
+File Exclusion: \servershare_folderfilename
+All Files in a Folder Exclusion: \servershare_folder*
+All Folders in a share: \servershare*
+
+4. Save modifications made to the file.
+
+Note: The above changes will not take effect until the next data collection.  Also this will only omit changes/reads made on those files/folders that are excluded.  It will not omit warnings/error related to those files/folders such as access denied.
+</body>
+</html>

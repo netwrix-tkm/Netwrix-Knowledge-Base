@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error:&quot;An error occurred during installation of service NetWrix Non-owner Mailbox Access Agent. Error details: The handle is invalid.&quot;</title>
+    <meta name="article-id" content="ka04u000000HcXOAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:31:06.000Z">
+    <meta name="articlenumber" content="000003725">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:51:30.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9ejCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9ejCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:30.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:11.000Z">
+    <meta name="meta-description" content="An error occurred during installation of service NetWrix Non-owner Mailbox Access Agent. Error details: The handle is invalid.">
+    <meta name="meta-title" content="Error:&quot;An error occurred during installation of service NetWrix Non-owner Mailbox Access Agent. Error details: The handle is invalid.&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1343">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9ejCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error:&quot;An error occurred during installation of service NetWrix Non-owner Mailbox Access Agent. Error details: The handle is invalid.&quot;</h1>
+    You get the following errors in the summary email reports:
+An error occurred during installation of service NetWrix Non-owner Mailbox Access Agent. Error details: The handle is invalid.
+Failed to open log &#39;NetWrix Non-owner Mailbox Access Agent&#39; (API used: NT, Vista). Error details: There are no more endpoints available from the endpoint mapper. (Error number: 0x800706D9)
+
+<hr></hr>
+
+This issue can be cause by following:
+- permissions issues for the account that you are using for Netwrix Non-owner Mailbox Access task
+- issues with Admin$ share on Exchange server
+- AV, protected software
+
+<hr></hr>
+
+In order to troubleshoot this issue please perform the following steps:
+1. Please make sure that the admin$ share is enabled on the Exchange server. For details you can use the following MS article:
+http://support.microsoft.com/kb/314984
+2. Please make sure that the account which you are using for the Netwrix Non-owner Mailbox Access task has write permissions to the admin$ share.
+</body>
+</html>

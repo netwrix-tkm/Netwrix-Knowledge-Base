@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications are not sent</title>
+    <meta name="article-id" content="ka04u000000HcU5AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:52.000Z">
+    <meta name="articlenumber" content="000003516">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:16.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:37.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bKCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9bKCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:16.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:37.000Z">
+    <meta name="meta-description" content="Notifications are not sent
+
+Account Lockout Examiner does not notify about account lockouts although Notifications are enabled.">
+    <meta name="meta-title" content="Notifications are not sent">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1353">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bKCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Notifications are not sent</h1>
+    Account Lockout Examiner does not notify about account lockouts although Notifications are enabled.
+
+<hr></hr>
+
+An e-mail notification is sent only when an actual lockout security event is tracked.
+
+There are two possible reasons why notifications typically are not sent - either lockout is not tracked, or there are some errors during sending of the notification.
+
+<hr></hr>
+
+To make sure that an actual lockout event is tracked, make sure that the lockout timestamp is correct. If it is not, then please refer to the following KB article <a href="https://kb.netwrix.com/2763" target="_blank">https://kb.netwrix.com/2763</a>
+
+If the lockout timestamp is correct, then a notification should be sent.
+First of all make sure all settings are correct:
+<ol><li>Go to File &quot; Settings &quot; Notifications</li><li>Check mail server address and port.</li><li>Your mailserver should accept anonymous SMTP connections. Test with telnet if it is possible to connect on the specified port.</li><li>Make sure that there is no firewall or antivirus software blocking inbound and outbound connections</li></ol>
+If all the settings are correct, then the easiest way to find out the error is to review the product log.
+
+NOTE. If you have a valid support contract you can submit a support ticket and send the log to Netwrix Support.
+
+By default it is located in C:Program Files (x86)NetWrixAccount Lockout ExaminerTracingALEService.log
+
+Scroll to the very bottom and search for the &quot;NOTIFICATIONS&quot; text in the Up direction.
+
+NOTE. Messages of Notification type are logged only in case an error occurred. If there are no such messages, than either there were no errors during notification sending, or the product did not try to send it at all - there were no lockout events tracked.
+
+When you find the corresponding &quot;NOTIFICATIONS&quot; message, the error message is listed in the second line, for example:
+<div><strong>ALEService.exe Warning: 0 : [TID, &lt;timestamp&gt;] NOTIFICATIONS: smtpserver: &lt;IP&gt;, smtpport: &lt;port&gt;, from: &lt;fromemail&gt;, to: &lt;toemail&gt;</strong>
+<strong>System.Net.Mail.SmtpException: Failure sending mail. ---&gt; System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond </strong>
+<strong>   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)</strong>
+<strong>   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)</strong>
+<strong>   --- End of inner exception stack trace ---</strong></div>
+</body>
+</html>

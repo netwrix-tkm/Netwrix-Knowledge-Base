@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SA_7.1_023</title>
+    <meta name="article-id" content="ka04u000000Hd3bAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:49:49.000Z">
+    <meta name="articlenumber" content="000007703">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:14:41.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:49:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J8dCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000J8dCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:14:41.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:49:49.000Z">
+    <meta name="meta-description" content="360012326231">
+    <meta name="meta-title" content="Hotfix: SA_7.1_023">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7703">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J8dCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SA_7.1_023</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> FSAA SDD scan will limit queue size to 100 files</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> YouTrack/Escalations <br><br>- SASP-651 FSAA SDD scan should limit queue size to 100 files <br><br>Customers <br><br>- St. Jude <br><br>Cumulative List of fixes included since Service Pack: <br><br>- SASP-651 FSAA SDD scan should limit queue size to 100 files <br>- SAFS-753 Deadlock during FSAC BI <br>- SAFS-838 FSAC GUID mismatch warning <br>- SAFS-786 DLL Mismatch between Proxy and SMP Console <br>- SAFS-787 FSAA Blank GUID Functionality <br>- SAFS-749 FSAA | Bulk Import timeouts <br>- SAFS-723 Foreign Key Issue in FSAC BI <br>- SASP-399 FSAA - limit queue size for DLP file processing <br>- SAFS-563 Update FSAA to NetApp SDK 5.4 <br>- SAFS-334 FSAA does not explicitly indicate in the DEFAULT table when TEP have been skipped, due to use of &quot;Rescan unimported hosts after ...&quot; FSAA option. <br>- SAFS-340 Re-establishing communications with a proxy server after a console failure does not return all of the Tier 2 databases. <br><br>Comments: <br>To work around side-by-side errors for windows hosts, you can install &quot;Microsoft Visual C++ 2005 Service Pack 1 Redistributable Package MFC Security Update&quot; wherever the StealthAUDITRPC process is being run. <br>(vcredist_x86.exe) (Link: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=26347" target="_blank">https://www.microsoft.com/en-us/download/details.aspx?id=26347</a>) <br>o The side-by-side error is harmless for scanning Windows machines. <br>o SAFS-754 is currently in development to address this issue, and once it&#39;s completed, will not require the patch to be installed. <br>o Where to install: <br>- Local Mode: install on StealthAUDIT Console <br>- Proxy: install on proxy server <br>- Applet mode: install on target server</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> http://downloads.stealthbits.com/access/files/SAHotFixes/7.1/SA_7.1_023.zip<br><br><strong><span style="font-family: calibri,sans-serif;">1.����������� Update FSAA Data Collector</span></strong><br><strong><span style="font-family: calibri,sans-serif;">2.����������� Install SDD addon from HF SDD_7.1_003</span></strong><br>�</p><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Activity;SA - DC - FSAA - DFS;SA - DC - FSAA - Permissions;SA - DC - FSAA - Sensitive Data<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 7.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SASP-651<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> -	DCFSAA.dll 		7.1.619.420
+-	FSAASvr.dll     	7.1.619.420
+-	patterndefs.update<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1212<br></p>
+</body>
+</html>

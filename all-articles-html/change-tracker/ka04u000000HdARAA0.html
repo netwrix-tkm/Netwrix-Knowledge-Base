@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Send E-Mails to Multiple Users on Log Tracker</title>
+    <meta name="article-id" content="ka04u000000HdARAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:52:51.000Z">
+    <meta name="articlenumber" content="000008249">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:17:58.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:52:52.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JcWCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JcWCAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:17:59.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="How to Send E-Mails to Multiple Users on Log Tracker">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8249">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JcWCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Send E-Mails to Multiple Users on Log Tracker</h1>
+    <p>The &quot;SENDMAIL.bat&quot; ticket action (added via the &quot;Tickets &gt; Actions&quot; screen) accepts only one argument, which is the e-mail address to send data to. You cannot send e-mail to multiple users with this batch file. You cannot add multiple users as arguments.</p>
+<p>HOWEVER -- to send e-mail to multiple users, there are two simple techniques you can use:</p>
+<h2 id="">Step-by-step guide</h2>
+<ol><li>If you want to send e-mail to a few arbitrary users, you can add the SENDMAIL.bat file as another ticket action, and just have both of these executed when a ticket is opened. For example, see screenshot:</li></ol>
+<p style=""><strong> Screenshot</strong></p>
+<p style=""><span class=""><img class="" height="" width="" src=""></img>  </span> </p> <p style="">2. If you want to send e-mail to a group of users, it may be simpler to just create another ticket action, called SENDGROUP.bat, and have this call the SENDMAIL.bat for each user in the group.</p>
+<p>The actual SENDGROUP.bat file is simple, and consists of something like this:</p>
+<p><br></p>
+<p>REM: Send e-mail to each user below using SENDMAIL.bat:</p>
+<p>CALL SENDMAIL.bat<a class="" href="" target="_blank">user1@mydom.com</a></p>
+<p>CALL SENDMAIL.bat<a class="" href="" target="_blank">user2@mydom.com</a></p>
+<p>CALL SENDMAIL.bat<a class="" href="" target="_blank">user3@mydom.com</a></p>
+<p><br></p>
+<p><br></p>
+<p>File:<a href="" target="_blank">SENDGROUP_A_bat.txt</a></p>
+<p><br></p>
+<p><br></p>
+<h2 id="">Related articles</h2>
+<p></p>
+<p>
+</p>
+<ul class=""><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to delete a device in Log Tracker</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How To Turn Off Bulk Email Notifications (Force Change Tracker to send one email for each change instead of compiling into one email with multiple changes)</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker - Types of Authentication</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">Log Tracker Tags Facility</a>
+        </div>
+    </li><li>
+        <div>
+            <span class="" title="">Page:</span> </div>
+        <div class="">
+            <a href="" target="_blank">How to use CloseTicket.exe to Immediately Close Log Tracker Tickets</a>
+        </div>
+    </li></ul>
+<p><br></p>
+<p><br></p>
+<p><br></p> <br><b>Attachments:</b><br><a href="" target="_blank">SENDGROUP_A_bat.txt</a> <br><a href="" target="_blank">Screenshot1.PNG</a> <br>
+</body>
+</html>

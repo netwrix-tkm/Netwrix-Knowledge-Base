@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session expired</title>
+    <meta name="article-id" content="ka04u00000116eYAAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:51.000Z">
+    <meta name="articlenumber" content="000003483">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-07-11T16:03:35.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9anCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9anCAC">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T16:03:50.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:48.000Z">
+    <meta name="meta-description" content="Session Expired 
+
+Receiving session expired message when trying to reset  password 
+
+Self-service portal">
+    <meta name="meta-title" content="Session expired">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1313">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9anCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Session expired</h1>
+    A user receives a Session expired message when trying to reset their password using the Self-Service portal.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000116eY&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000005OD2" alt="User-added image" width="500" height="116"></img>
+
+<hr></hr>
+
+Password Manager is based on IIS and uses internal IIS session variables to handle info.
+IIS session is limited and may expire. Default timeout is 20 minutes.
+
+Such error can also occur when there are issues with cookies, for example they do not correspond to the current session, or refer to another URL, etc.
+
+<hr></hr>
+
+First of all, make sure that it is not a real session expiration. If a user started the password reset procedure more that 20 minutess ago, then this is an expected message.
+
+Also please try clearing up all cookies.
+
+If this does not help, check if there is an incorrect redirection in IIS.
+
+Please refer to the <a href="https://kb.netwrix.com/823" target="_blank">KB823</a> for instructions on how to set up redirection for Password Manager.
+</body>
+</html>

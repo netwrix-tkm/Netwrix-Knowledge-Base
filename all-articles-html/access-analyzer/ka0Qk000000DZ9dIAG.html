@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit PostgreSQL Databases in Netwrix Access Analyzer</title>
+    <meta name="article-id" content="ka0Qk000000DZ9dIAG">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-09-28T12:34:38.000Z">
+    <meta name="articlenumber" content="000008828">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u00000111H0CAI">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-05-05T10:35:52.000Z">
+    <meta name="firstpublisheddate" content="2023-09-28T12:35:27.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111H0CAI">
+    <meta name="knowledge-article-id" content="kA04u00000111H0CAI">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:42:32.000Z">
+    <meta name="lastpublisheddate" content="2023-09-28T12:35:27.000Z">
+    <meta name="meta-description" content="Audit PostgreSQL Databases in Netwrix Access Analyzer">
+    <meta name="meta-title" content="Audit PostgreSQL Databases in Netwrix Access Analyzer">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8828">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111H0CAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Audit PostgreSQL Databases in Netwrix Access Analyzer</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to set up the PostgreSQL databases audit in Netwrix Access Analyzer?</p>
+</div>
+
+<h2>Answer</h2>
+
+<h4>Requirements</h4>
+
+<div>
+<ul><li>
+	<p>Requirements for PostgreSQL:</p>
+
+	<ul><li>
+		<p>Read access to all databases contained within each PostgreSQL instance.</p>
+		</li><li>
+		<p>Domain Admin or Local Admin privilege (Windows only).</p>
+		</li></ul>
+	</li></ul>
+</div>
+
+<h4>Create the SQL logins</h4>
+
+<div>
+<p>Create a login on each instance of PostgreSQL to be audited.</p>
+</div>
+
+<h4>Configure the connection profile</h4>
+
+<div>
+<p>While this guide describes the configuration steps to audit PostgreSQL standard edition with PostgreSQL logins, the GSSAPI protocol support in PostgreSQL allows for the use of Active Directory. If available, Active Directory authentication to PostgreSQL is recommended and supported by Access Analyzer.</p>
+
+<ol><li>
+	<p>Open the Netwrix Access Analyzer console. Click <strong>Settings</strong> -&gt; <strong>Connection</strong>.</p>
+	</li><li>
+	<p>Click <strong>Add Connection Profile</strong>.</p>
+	</li><li>
+	<p>Replace the default name with <strong>PostgreSQL</strong>.</p>
+	</li><li>
+	<p>Click <strong>Add User Credential</strong>.</p>
+	</li><li>
+	<p>Set <strong>Select Account Type</strong> to <strong>SQL Authentication</strong>.</p>
+	</li><li>
+	<p>Enter the username and password of the PostgreSQL login.</p>
+	</li><li>
+	<p>If different logins were created on different instances, add them all to the connection profile.</p>
+	</li></ol>
+</div>
+
+<h4>Create the host list</h4>
+
+<div>
+<ol><li>
+	<p>Under <strong>Host Management</strong>, click <strong>Add hosts</strong> and enter the domain name or IP address into the <strong>Host name</strong> input box. Repeat this for each instance.</p>
+
+	<blockquote>
+	<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>For AWS RDS instances, enter the endpoint. This value may change after saving the list if the instance is part of a cluster.</p>
+	</blockquote>
+	</li><li>
+	<p>Click <strong>Next</strong> and name the host list <strong>PostgreSQL Instances</strong>.</p>
+	</li><li>
+	<p>Select the <strong>PostgreSQL</strong> connection profile as the credentials to use when querying hosts in this list.</p>
+	</li><li>
+	<p>4. Click <strong>Finish</strong>.</p>
+	</li></ol>
+</div>
+
+<h4>Configure and run the PostgreSQL Collection job set</h4>
+
+<div>
+<ol><li>
+	<p><strong>Jobs</strong> -&gt; <strong>Databases</strong> -&gt; <strong>PostgreSQL</strong> -&gt; <strong>Settings</strong> -&gt; <strong>Connection</strong>. Select the <strong>PostgreSQL</strong> connection profile. Click to set all child objects to inherit the setting. Click <strong>Save</strong> and <strong>OK</strong>.</p>
+	</li><li>
+	<p><strong>Jobs</strong> -&gt; <strong>Databases</strong> -&gt; <strong>PostgreSQL</strong> -&gt; <strong>Settings</strong> -&gt; <strong>Host List Assignment</strong>. Uncheck the <strong>Use Default Setting</strong> checkbox and select the <strong>PostgreSQL Instances</strong> host list and click <strong>Save</strong>.</p>
+	</li><li>
+	<p>For AWS RDS and Aurora instances, right click each job in the PostgreSQL -&gt; <strong>0.Collection folder</strong> and open the properties window. Ensure the checkbox <strong>Skip Hosts that do not respond to PING</strong> is unchecked in the <strong>Performance</strong> tab.</p>
+	</li></ol>
+</div>
+</body>
+</html>

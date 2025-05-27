@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SIWindowsAgent_SIEntManager_5.0.0.753</title>
+    <meta name="article-id" content="ka0Qk000000DjKHIA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:27:57.000Z">
+    <meta name="articlenumber" content="000006928">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IgrCAE">
+    <meta name="assignedbyid" content="0054u0000093LZ4AAM">
+    <meta name="assignedtoid" content="0054u0000093LZ4AAM">
+    <meta name="assignmentdate" content="2025-05-09T03:12:22.000Z">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T03:12:22.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:27:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IgrCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000IgrCAE">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T03:12:33.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:27:57.000Z">
+    <meta name="meta-description" content="360008877892">
+    <meta name="meta-title" content="Hotfix: SIWindowsAgent_SIEntManager_5.0.0.753">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6928">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IgrCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SIWindowsAgent_SIEntManager_5.0.0.753</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Message: AD Shared memory IPC overflow</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <strong><span style="font-family: calibri,sans-serif;">Summary:� </span></strong>Message: AD Shared memory IPC overflow<br><b><i>Before fix:</i></b> When some script generates a big number of AD Modify events which has no attributes or has only attributes which are configured to be thrown away then AD Monitor still send these events to Shared Memory buffer which fills this buffer and causing loosing events.<br><strong><i><span style="font-family: calibri,sans-serif;">After fix: </span></i></strong><em><span style="font-family: calibri,sans-serif;">Events which have no attributes are useless and thrown away by the SIAgent. Therefore it doesn&#39;t make any sense to put them to the shared memory buffer. So, new noise reduction rule is added to filter these events on AD Monitor side.</span></em><br><strong><span style="font-family: calibri,sans-serif;">Submitted by: </span></strong><br>Maxim Sidarau<br><strong><span style="font-family: calibri,sans-serif;">Affected Versions:</span></strong><br>3.4.0����� No Patch created at this time<br>3.4.1����� No Patch created at this time<br>3.4.2 ���� No Patch created at this time<br>4.0.0����� No Patch created at this time<br>4.1.0 ���� No Patch created at this time<br>5.0.0 ���� SIWindowsAgent_SIEntManager_5.0.0.753_SI-3486<br><strong><span style="font-family: calibri,sans-serif;">Affected Module:</span></strong><br>SI - Windows Agent<br>SI - Enterprise Manager<br>�<br><strong><span style="font-family: calibri,sans-serif;">Dev Ticket:</span></strong><br>I-3496<br><strong><span style="font-family: calibri,sans-serif;">Resolved in Version:</span></strong><br>5.0.0.753<br><strong><span style="font-family: calibri,sans-serif;">KB Type: </span></strong><br>Hotfix<br>�<br><b>Escalations: </b>23978<br><b>Customers: �</b>John Deere Company<br>�</p><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> The following modules should be patched:<br>�<br>* SI Enterprise Manager<br>* SI Windows Agent<br>�<br>Applying patch for Enterprise Manager:<br>1. Stop &#39;SIEnterpriseManager&#39; service.<br>2. Extract files from attached &#39;SIEnterpriseManager&#39; folder to the C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIEnterpriseManager folder<br>3. Start &#39;SIEnterpriseManager&#39; service<br>�<br>Applying patch for SI Windows Agent:<br>1. Stop SIWindowsAgent service<br>2. Extract attached archive to the &quot;C:\Program Files (x86)\STEALTHbits\StealthINTERCEPT\SIWindowsAgent&quot; folder<br>3. Start SIWindowsAgent service<br><br>� 
+</p><table cellspacing="0" cellpadding="0" width="64" border="0"><tbody><tr height="19"><td colspan="1" rowspan="1" height="19" width="64"><a href="https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWindowsAgent_SIEntManager_5.0.0.753_SI-3486.ZIP" target="_blank">https://downloads.stealthbits.com/access/files/SIHotFixes/SI5.0.0/SIWindowsAgent_SIEntManager_5.0.0.753_SI-3486.ZIP</a></td></tr></tbody></table><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthINTERCEPT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SI - Enterprise Manager;SI - Windows Agent<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 5.0<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SI-3486<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 5.0.0.753<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 1868<br></p>
+</body>
+</html>

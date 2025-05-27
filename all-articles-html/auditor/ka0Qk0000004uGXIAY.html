@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKLM or HKU Error in Windows Server Auditing Monitoring Plan</title>
+    <meta name="article-id" content="ka0Qk0000004uGXIAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2024-08-01T17:56:55.000Z">
+    <meta name="articlenumber" content="000009238">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2024-08-05T07:44:33.000Z">
+    <meta name="firstpublisheddate" content="2024-08-01T17:57:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001JobKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000001JobKAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-08-05T07:49:19.000Z">
+    <meta name="lastpublisheddate" content="2024-08-05T07:49:19.000Z">
+    <meta name="meta-description" content="HKLM or HKU Error in Windows Server Auditing Monitoring Plan">
+    <meta name="meta-title" content="HKLM or HKU Error in Windows Server Auditing Monitoring Plan">
+    <meta name="ownerid" content="005Qk000001wMM9IAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9238">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001JobKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>HKLM or HKU Error in Windows Server Auditing Monitoring Plan</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Netwrix Auditor prompts the following error in the Health Log for the Windows Server Auditing monitoring plan:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">Event ID: 1016
+Monitoring plan: %monitoring_plan_name% 
+Item: %server_name% 
+On %date_stamp%, the following error has occurred while processing %server_name%:  
+The collector Registry data provider failed while gathering data on the server %server_name% due to the following error: HKLM or HKU 
+Parameter name: path 
+Actual value was %value%.</code></pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>This is a known issue fixed in the release v10.7.13728.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Upgrade your Auditor instance to the build v10.7.13728 or later. Download the latest version in <a href="https://www.netwrix.com/my_products.html" target="_blank">My Products � Netwrix &#129125;</a>.</p>
+</div>
+</body>
+</html>

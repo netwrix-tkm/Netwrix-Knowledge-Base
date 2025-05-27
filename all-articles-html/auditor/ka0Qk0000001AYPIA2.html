@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1205 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001AYPIA2">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:58.000Z">
+    <meta name="articlenumber" content="000003636">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-12-28T09:33:48.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dGCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9dGCAS">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-28T09:34:07.000Z">
+    <meta name="lastpublisheddate" content="2023-12-27T09:26:01.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint Audit issues caused by connectivity problems.">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log - Event ID 1205">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2540">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dGCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1205 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<p>The following error message under Event ID 1205 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="ckeditor_codeblock">
+The following unexpected error has occurred: &lt;%error_message%&gt;.</pre>
+
+<h2>Causes</h2>
+
+<ul><li><code>Could not connect to &lt;URL&gt;/_vti_bin/Netwrix/ManagementService.svc. TCP error code 10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond &lt;address&gt;</code>.
+
+	<ul><li>
+		<p>Missing network connection between the computer with Netwrix Auditor installed and the computer hosting SharePoint Central Administration.</p>
+		</li><li>
+		<p>WebService is not responding.</p>
+		</li></ul>
+	</li><li><code>Insufficient winsock resources available to complete socket connection initiation.</code>
+	<ul><li>
+		<p>Insufficient system resources on the computer with SharePoint Central Administration installed.</p>
+		</li></ul>
+	</li><li><code>The requested service &lt;service name&gt; could not be activated</code>.
+	<ul><li>
+		<p>Insufficient system resources on the computer with SharePoint Central Administration installed.</p>
+		</li><li>
+		<p>Access to the Central Administration site is performed via the https protocol not specified in the Alternate Access Mapping.</p>
+		</li><li>
+		<p>Access to the Central Administration site is performed through alternative access.</p>
+		</li><li>
+		<p>IIS Bindings contain several Host names for the Central Administration site.</p>
+		</li></ul>
+	</li><li><code>Cannot create a file when that file already exists.</code>
+	<ul><li>
+		<p>Audit log trimming is not configured correctly.</p>
+		</li></ul>
+	</li><li><code>Access to the path %PATH% is denied.</code>
+	<ul><li>
+		<p>Events auditing settings are not cofigured correctly.</p>
+		</li></ul>
+	</li></ul>
+
+<h2>Resolutions</h2>
+
+<div>
+<p>Proceed with one of the following solutions depending on the error:</p>
+
+<ul><li>
+	<p>Make sure that SharePoint Central Administration is reachable.</p>
+	</li><li>
+	<p>Free or add system resources and execute the <b>iisreset</b> command.</p>
+	</li><li>
+	<p>Specify the URL in the Alternate Access Mapping for the Central Administration site, or use a different URL when creating a monitoring plan.</p>
+	</li><li>
+	<p>Leave one Host Name for the Central Administration site in IIS Bindings.</p>
+	</li><li>
+	<p>Configure Audit log trimming. For additional info, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/SharePoint/Overview.htm#configure_audit_log_trimming" target="_self">Configuration � SharePoint: Configure Audit Log Trimming ? v10.6</a>.</p>
+	</li><li>
+	<p>Configure events auditing settings. For additional info, refer to the following link: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/SharePoint/Overview.htm#configure_events_auditing_settings" target="_self">Configuration � SharePoint: Configure Events Auditing Settings ? v10.6</a>.</p>
+	</li></ul>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/SharePoint/Overview.htm#configure_audit_log_trimming" target="_self">Configuration � SharePoint: Configure Audit Log Trimming ? v10.6</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/SharePoint/Overview.htm#configure_events_auditing_settings" target="_self">Configuration � SharePoint: Configure Events Auditing Settings ? v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling-Log Fix: &quot;ERROR NNT.Hub.ServiceClient.HubAdapter - Certificate thumbprint does not match trusted ... Consider setting Thumbprint in HubDetails.xml. Server certificate details..�</title>
+    <meta name="article-id" content="ka0Qk000000DlifIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T00:50:00.000Z">
+    <meta name="articlenumber" content="000008209">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JaGCAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-09T04:14:17.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T00:50:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JaGCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JaGCAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-09T04:18:37.000Z">
+    <meta name="lastpublisheddate" content="2022-06-29T14:14:44.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Rolling-Log Fix: &quot;ERROR NNT.Hub.ServiceClient.HubAdapter - Certificate thumbprint does not match trusted ... Consider setting Thumbprint in HubDetails.xml. Server certificate details..�">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8209">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JaGCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Rolling-Log Fix: &quot;ERROR NNT.Hub.ServiceClient.HubAdapter - Certificate thumbprint does not match trusted ... Consider setting Thumbprint in HubDetails.xml. Server certificate details..�</h1>
+    <h1>Symptoms</h1>
+The following may occur when the Agent password being sent to the Hub Server is incorrect:
+
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                   Example Message:													  #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+2017-10-08 11:17:36,935 [Threadpool worker] ERROR NNT.Hub.ServiceClient.HubAdapter - Certificate thumbprint does not match trusted (BAD1067FBAB59CCED21786657C672F6AB5BE824C/6F7F11707C0C93CD0F7E92D5BC0F1C9345D68A64). Consider setting Thumbprint in HubDetails.xml. Server certificate details
+</pre>
+</div>
+</div>
+
+<h1 id="Rolling-LogFix:">Cause</h1>
+
+<p>This means that you are using a customor unrecognized IIS Certificate. You need to specify to the agent the certificate thumbprint so that it can use the new certificate.</p>
+
+<h1 id="Rolling-LogFix:">Resolution</h1>
+
+<p>If you are receiving this error, the Netwrix Agent is NOT reporting to your hub. This is a critical error and for monitoring to continue, it must be resolved. To resolve this error:</p>
+
+<ol><li>Stop the Netwrix Agent Service</li><li>Navigate to your Netwrix Agent Directory which contains the Rolling-Log Files,�defined in this article <a href="https://kb.netwrix.com/8048" target="_blank">Netwrix Software Problem? What Info Should I Provide?</a></li><li>Right click and edit the <strong>Hubdetails.xml</strong> file</li><li>Remove the tags as they are the agent password which has been encrypted</li><li>In the place of the tags, enter the tags. See example hubdetails below. The default password is used as an example.</li><li>In between the password entries, enter your Agent Account password as defined on your Netwrix Hub Server.</li><li>In between the <strong>Thumbprint</strong> entries, enter your custom certificate thumbprint which.</li><li>Save the file out, replacing the old one. Note that you may need to save this to the desktop and copy and paste replacing the old file back into the directory.</li><li>Restart the Agent service</li></ol>
+
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block">
+<p class="title"><span style="color: #2980b9;"><strong>NOTE:</strong></span>�When you start the service, the agent will automatically re-encrypt your password, and the E1 tags will replace the password tags. Also, There is a ten minute cool off when this happens. Now that the username and password has been corrected the agent should register after the ten minutes has elapsed. This cool off period is counted at the Netwrix Hub server, and does not take effect at the agent level. If you have stopped the service, you do not have to wait 10 minutes after restarting it.<br>�</p>
+</div>
+
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block">
+<h2>HubDetails.xml Example</h2>
+
+<pre class="ckeditor_codeblock">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;HubDetails xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+� � � �&lt;Url&gt;https://myserver.mydomain.local/api&lt;/Url&gt;
+
+� � � �&lt;Username&gt;agent&lt;/Username&gt;
+
+� � � �&lt;Password&gt;passWord121&lt;/Password&gt;
+
+� � � �&lt;Proxy /&gt;
+
+� � � �&lt;ProxyDomain /&gt;
+
+� � � �&lt;ProxyUsername /&gt;
+
+� � � �&lt;ProxyPassword /&gt;
+
+� � � �&lt;UseDefaultProxy&gt;false&lt;/UseDefaultProxy&gt;
+
+� � � �&lt;NamePrefix&gt;&lt;/NamePrefix&gt;
+
+� � � �&lt;NameSuffix&gt;&lt;/NameSuffix&gt;
+
+� � � �&lt;Thumbprint&gt;BCD1067FBAB59CCED21786657C672F6AB5BE824C&lt;/Thumbprint&gt;
+
+&lt;/HubDetails&gt;
+</pre>
+</div>
+</body>
+</html>

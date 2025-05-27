@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALE service is unable to start during installation</title>
+    <meta name="article-id" content="ka04u000000HcRHAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:11:00.000Z">
+    <meta name="articlenumber" content="000003327">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:48:05.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:23.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9YCCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9YCCA0">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:48:05.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:23.000Z">
+    <meta name="meta-description" content="During installation of NetWrix Account Lockout Examiner on Windows 2003, a &amp;quot;Service &amp;#039;NetWrix Account Lockout Examiner&amp;#039; (ALService) failed to start&amp;quot; message is received.">
+    <meta name="meta-title" content="ALE service is unable to start during installation">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1176">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9YCCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>ALE service is unable to start during installation</h1>
+    During installation of NetWrix Account Lockout Examiner on <strong>Windows 2003</strong>, a &quot;<strong>Service &#39;NetWrix Account Lockout Examiner&#39; (ALService) failed to start</strong>&quot; message is received that the service cannot be started due to insufficient permissions. The account in use is a domain admin.
+
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcRH&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wmJ" alt="User-added image"></img>
+
+<hr></hr>
+
+NetWrix Account Lockout Examiner uses .NET Framework and requires .NET 3.5 SP1.
+The message appears if only NET 3.5 is installed.
+
+<hr></hr>
+
+Please make sure that .NET Framework 3.5 SP1 is installed.
+If it is installed, reinstall it or upgrade to .NET 4.
+
+Also:
+<ol><li>Verify that the account specified during installation is a local admin</li><li>Check that there are no restrictive policies for this account to run services.</li><li>Try entering another local admin or domain admin account during the installation.</li></ol>
+</body>
+</html>

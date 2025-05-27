@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Type of &quot;RRAS-Administration-Connection-Point&quot;</title>
+    <meta name="article-id" content="ka04u000000HcUIAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:53.000Z">
+    <meta name="articlenumber" content="000003530">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:20.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:55.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bYCAS">
+    <meta name="knowledge-article-id" content="kA00g000000H9bYCAS">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:20.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:55.000Z">
+    <meta name="meta-description" content="The KB provides how to exclude &amp;quot;rRASAdministrationConnectionPoint&amp;quot; object of being reported in Netwrix Auditor for Active Directory.">
+    <meta name="meta-title" content="Object Type of &quot;RRAS-Administration-Connection-Point&quot;">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1365">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bYCAS.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Object Type of &quot;RRAS-Administration-Connection-Point&quot;</h1>
+    The summary report contains a change to an object titled &quot;rRASAdministrationConnectionPoint&quot;.
+
+Computer objects have an Object Type of &quot;RRAS-Administration-Connection-Point&quot; that is named &quot;RouterIdentity&quot; attached to them (RouterIdentity is a visible container in ADSIEdit under the computer object). The computer objects cannot be deleted.
+
+<hr></hr>
+
+This could be caused from the use of the Routing and Remote Access service; if the Routing and Remote Access Service runs it stores information in AD as a child object under the particular computer that hosts the RRAS service. Check to see if the affected computers have the Routing and Remote Access Service running.
+
+It may be a printer or something similar that is installed from the computers in question and published in AD. Again if this is the case, the Delete Subtree resolution below should resolve the inability to delete the computer objects. Using ADUC, from the View menu; select the option for &quot;Users, Groups, and Computers as Containers&quot;. This will show items that are usually objects as containers (similar to an OU). From there you can see what objects exist inside that computer&#39;s container.
+
+<hr></hr>
+
+To delete these objects, the &quot;Delete Subtree&quot; permission on Computer objects in addition to the &quot;Delete&quot; permission will be required. The &quot;Delete&quot; permission alone will not work.
+</body>
+</html>

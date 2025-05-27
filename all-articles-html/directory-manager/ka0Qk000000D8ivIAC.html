@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify Logged-In Users About Changes Made to Directory Objects</title>
+    <meta name="article-id" content="ka0Qk000000D8ivIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008F1XhAAK">
+    <meta name="articlecreateddate" content="2025-04-08T08:28:20.000Z">
+    <meta name="articlenumber" content="000010126">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002INRKA2">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210127073087840?focus=true">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="0054u000008F1XhAAK">
+    <meta name="createddate" content="2025-04-08T08:28:20.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-30T18:33:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002INRKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000002INRKA2">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-04-30T18:33:48.000Z">
+    <meta name="lastpublisheddate" content="2025-04-30T18:33:48.000Z">
+    <meta name="meta-title" content="How To Notify logged-in users about changes they make to directory objects">
+    <meta name="ownerid" content="0054u000008F1XhAAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10126">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002INRKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Notify Logged-In Users About Changes Made to Directory Objects</h1>
+    <h2>Applies To</h2>
+<p>Directory Manager 11</p>
+<h2>Overview</h2>
+<p>You can configure Netwrix Directory Manager 11 (formerly GroupID) to send users an email notification whenever they make changes to directory objects through the user portal. To enable this feature, update the notification settings in the identity store.</p>
+<h2>Instructions</h2>
+<ol><li>In Directory Manager Admin Center, click the <strong>Identity Stores</strong> node.</li><li>For your identity store, click the three dots (<strong>...</strong>) button and select <strong>Edit</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8iv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFrV" alt="Identity Stores list with edit option highlighted in Directory Manager Admin Center"></img></li><li>On the next page, click the <strong>Configurations</strong> button. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8iv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFoH" alt="Configurations button in Directory Manager Admin Center"></img></li><li>Click the <strong>Notifications</strong> button. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8iv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFmf" alt="Notifications button in Directory Manager Admin Center"></img></li><li>Under the <strong>Also Notify</strong> option, select the checkbox labeled <strong>Logged in users for their actions</strong>. <br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8iv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFuj" alt="Also Notify option with Logged in users for their actions checkbox selected"></img></li><li>Scroll down and click the <strong>Save</strong> button.</li></ol>
+<p>With this notification setting enabled, email notifications will be sent to the logged-in user for changes they make to directory objects using the portal.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>This setting applies to mail-enabled users only.</p>
+</blockquote>
+<h2>Impact</h2>
+<p>In the example below, an end user changes the <strong>Description</strong> field of a group.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8iv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFt7" alt="User editing the Description field of a group in Directory Manager user portal"></img></p>
+<p>The user will receive an email notification for the changes they made.</p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000D8iv&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BpFpt" alt="Sample email notification sent to user after making changes in Directory Manager user portal"></img></p>
+</body>
+</html>

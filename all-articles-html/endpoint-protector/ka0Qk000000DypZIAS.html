@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to De-Obfuscate Sensitive Data</title>
+    <meta name="article-id" content="ka0Qk000000DypZIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:08.000Z">
+    <meta name="articlenumber" content="000009810">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002B6WKAU">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="article-sme" content="005Qk000001nViBIAU">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210264961717011?focus=true">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-05-15T17:27:12.000Z">
+    <meta name="draft-status" content="Awaiting SME">
+    <meta name="firstpublisheddate" content="2025-05-15T17:27:07.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002B6WKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000002B6WKAU">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-15T17:37:19.000Z">
+    <meta name="lastpublisheddate" content="2025-05-15T17:37:19.000Z">
+    <meta name="ownerid" content="005Qk000001nViHIAU">
+    <meta name="urlname" content="9810">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002B6WKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to De-Obfuscate Sensitive Data</h1>
+    <h2>Overview</h2>
+<p>By default, all sensitive data is obfuscated according to the Data Obfuscation Rules:</p>
+<ul><li>The first 4 characters are displayed if the length of the threat is fewer than 12 characters.</li><li>The first 6 characters are displayed if the length of the threat is greater than 12 characters.</li></ul>
+<p>Specific use cases:</p>
+<ul><li>For credit cards, PCI Security Standards are implemented.</li><li>For SSNs, only the last 4 characters are displayed.</li><li>For Brazil ID (CPF), the first 3 and the last 2 characters are obfuscated.</li></ul>
+<p><strong>Important:</strong> Data is not obfuscated for file-type threat, file-size threat, and date threat.</p>
+<p>If you need to view sensitive data in a de-obfuscated form, you can do so by following the steps below. Note that there is no specific feature for this in the EPP console, but it can be achieved through configuration changes.</p>
+<h2>Instructions</h2>
+<ol><li>Log in to the EPP console.</li><li>Go to <strong>Device Control &gt; Global Settings &gt; Debug Logging &gt; Set Log Level</strong>.</li><li>Select a log level: <strong>Error</strong>, <strong>Warning</strong>, <strong>Informational</strong>, or <strong>Debug</strong>.<br><br><strong>Note:</strong> Selecting <strong>Debug</strong> will generate a large number of log entries. If you only need de-obfuscated data, it is recommended to select <strong>Error</strong>.<br><br></li><li>The <strong>Obfuscate Sensitive Data</strong> checkbox will appear ticked. Clear this checkbox so that EPP agents send sensitive data in a de-obfuscated form.</li><li>Save the changes.</li><li>Sensitive data will now be displayed in a de-obfuscated form.</li></ol>
+</body>
+</html>

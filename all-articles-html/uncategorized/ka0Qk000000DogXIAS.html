@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo Commands - Certain Change Tracker Agents Spike RAM When Connected after a report has run repeatedly (for example, being set to 0, no repeat)</title>
+    <meta name="article-id" content="ka0Qk000000DogXIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:00:36.000Z">
+    <meta name="articlenumber" content="000008308">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000JfMCAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-11T17:02:18.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:00:37.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000JfMCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000JfMCAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-11T17:07:52.000Z">
+    <meta name="lastpublisheddate" content="2022-02-07T01:00:37.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="Mongo Commands - Certain Change Tracker Agents Spike RAM When Connected after a report has run repeatedly (for example, being set to 0, no repeat)">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8308">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000JfMCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Mongo Commands - Certain Change Tracker Agents Spike RAM When Connected after a report has run repeatedly (for example, being set to 0, no repeat)</h1>
+    <p>If Change Tracker Agents are consuming a lot of RAM on the IIS Server after a report has gone haywire from being set to 0, no repeat and has created thousands of copies, the below commands can be used to clear up the Agent&#39;s report requests</p><p><br></p><p><strong>To Validate How Many Reports the Agent is Waiting to Run or has Completed:</strong></p><p style=""><br></p><p style="">On the Change Tracker server and in the installation directory of the Mongo DB, C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin by default, there is a mongo shell executable, mongo.exe.</p><p style="">Open a command prompt with admin privileges and change directory to the location of mongo.exe.<br>run the following commands:</p><div class="code-block" style=""><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">&gt; mongo.exe
+&gt; use NNTHubService</pre>
+</div></div></div><p style="">This will log you in and move you to the Netwrix Change Tracker database. Now run the following command and note the results. Note that you must change the &quot;AgentTask.AgentDevice.AgentId&quot; and &quot;AgentTask.AgentDevice.DeviceId&quot; to match the ID numbers of the problem agents. You must also specify the report in question &quot;AgentTask.PolicyTemplateName&quot;.�</p><div class="code-block right-shadow" style=""><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">&gt; db.AgentTasks.find({$and: [{&quot;AgentTask.AgentTaskType&quot;:5},{&quot;AgentTask.PolicyTemplateName&quot;:&quot;Wescom Server 2016 Phase 1 v1 CIS v1.0.0 - Level 1 Member Server&quot;},{&quot;AgentTask.AgentDevice.AgentId&quot; : &quot;927&quot; },{&quot;AgentTask.AgentDevice.DeviceId&quot; : &quot;927&quot; }]}).count();</pre>
+</div></div></div><p class="auto-cursor-target">The example below can be used if you do not want to specify any report, and just want to know the total number:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">&gt; db.AgentTasks.find({$and: [{&quot;AgentTask.AgentTaskType&quot;:5},{&quot;AgentTask.AgentDevice.AgentId&quot; : &quot;927&quot; },{&quot;AgentTask.AgentDevice.DeviceId&quot; : &quot;927&quot; }]}).count();</pre>
+</div></div><p class="auto-cursor-target"><strong>To Clear Reports the Agent is Waiting to Run or Has Completed:</strong></p><p style="">The following procedure should be followed to clear the results:</p><p style=""><br></p><p style=""><strong>1. Stop the agent service on the problem systems</strong></p><p style=""><strong>2. Delete the agent rebuild-able files on the system (reset the agent)</strong></p><p style=""><br></p><p style="">Then, On the Change Tracker server and in the installation directory of the Mongo DB, C:\Program Files\NNT Change Tracker Suite\Gen7\MongoDB\bin by default, there is a mongo shell executable, mongo.exe.</p><p style="">Open a command prompt with admin privileges and change directory to the location of mongo.exe.<br>run the following commands:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">&gt; mongo.exe
+&gt; use NNTHubService</pre>
+</div></div><p style="">This will log you in and move you to the Netwrix Change Tracker database. Now run the following command to remove the queued reports for a specific agent / report combination:</p><div class="code-block" style=""><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">&gt; db.AgentTasks.remove({$and: [{&quot;AgentTask.AgentTaskType&quot;:5},{&quot;AgentTask.PolicyTemplateName&quot;:&quot;Wescom Server 2016 Phase 1 v1 CIS v1.0.0 - Level 1 Member Server&quot;},{&quot;AgentTask.AgentDevice.AgentId&quot; : &quot;927&quot; },{&quot;AgentTask.AgentDevice.DeviceId&quot; : &quot;927&quot; }]});</pre>
+</div></div></div><p class="auto-cursor-target">To remove all results for a specific agent, the below can be used instead of the above:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">&gt; db.AgentTasks.remove({$and: [{&quot;AgentTask.AgentTaskType&quot;:5},{&quot;AgentTask.AgentDevice.AgentId&quot; : &quot;927&quot; },{&quot;AgentTask.AgentDevice.DeviceId&quot; : &quot;927&quot; }]});</pre>
+</div></div><p style=""><br></p><p style="">Once this is complete for all problem agents, proceed with the following:</p><p style=""><br></p><p style=""><strong>4. Start the agent service</strong></p><p style=""><strong>5. Do an IIS Reset for good measure.</strong></p><p style=""><br></p><p style="">Does the RAM still spike after the IIS reset with the agent running? If not, repeat this process on the other problem machines one by one.</p><p style=""><br></p>
+</body>
+</html>

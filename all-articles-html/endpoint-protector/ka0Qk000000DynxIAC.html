@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Set FQDN in Server Certificate Subject</title>
+    <meta name="article-id" content="ka0Qk000000DynxIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008icp2AAA">
+    <meta name="articlecreateddate" content="2025-03-18T20:26:21.000Z">
+    <meta name="articlenumber" content="000009945">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002BB7KAM">
+    <meta name="article-reviewer" content="0054u000008icp2AAA">
+    <meta name="article-sme" content="005Qk000001nViBIAU">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1210264961717001?focus=true">
+    <meta name="assignedbyid" content="0054u000008icp2AAA">
+    <meta name="assignedtoid" content="005Qk000001nViBIAU">
+    <meta name="assignmentdate" content="2025-05-15T17:21:35.000Z">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000008icp2AAA">
+    <meta name="createddate" content="2025-05-15T17:21:15.000Z">
+    <meta name="draft-status" content="Awaiting R&amp;D">
+    <meta name="firstpublisheddate" content="2025-05-15T17:13:20.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002BB7KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000002BB7KAM">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-05-16T13:36:53.000Z">
+    <meta name="lastpublisheddate" content="2025-05-15T17:21:07.000Z">
+    <meta name="ownerid" content="005Qk000002lX5pIAE">
+    <meta name="urlname" content="9945">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002BB7KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Set FQDN in Server Certificate Subject</h1>
+    <h2>Question</h2>
+<p>Can you set the Fully Qualified Domain Name (FQDN) in the server certificate subject?</p>
+<h2>Answer</h2>
+<p>Yes, this is possible. Follow these steps to set the FQDN in the server certificate subject:</p>
+<ol><li>Go to <strong>System Configuration &gt; System Settings &gt; Server Certificate Stack</strong>.</li><li>Turn ON <strong>Use FQDN in subject</strong> (or <strong>Generate Custom Server Certificate</strong> if applicable).</li><li>Enter the desired FQDN in the appropriate field.</li><li>At the bottom of the page, click <strong>Save</strong> to apply the changes.</li><li>Verify that a confirmation message appears at the top of the page indicating the changes have been saved.</li><li>Click the <strong>Regenerate</strong> button in the <strong>Regenerate Server Certificate Stack</strong> section.</li><li>When prompted by the pop-up window, select <strong>Yes</strong> to confirm regeneration.</li><li>A green banner will appear at the top of the screen stating that the server certificate will be regenerated in a few minutes. You will be logged out from the user interface and will need to log in again.</li><li>Wait a few minutes until the certificate is regenerated.</li></ol>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dynx&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CKudS" width="1593" height="152" alt="Server Certificate Stack configuration page with FQDN field highlighted"></img></p>
+<h4>Important Notes</h4>
+<ul><li>If you are using FQDN in the subject and a self-signed certificate, you must reimport the self-signed certificate after regenerating the server certificate stack.</li><li>If the server certificate is regenerated, the DPI certificate will also be regenerated. The new DPI certificate must be reimported on all Mac machines.</li><li>MacOS users must proceed with caution when performing these steps. If you regenerate the server certificate stack and do not upload the new DPI certificate, Mac machines may lose internet access.</li></ul>
+</body>
+</html>

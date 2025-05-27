@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to migrate Account Lockout Examiner</title>
+    <meta name="article-id" content="ka04u000000HcNTAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:11.000Z">
+    <meta name="articlenumber" content="000003052">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:27.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:53.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TgCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9TgCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:27.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:53.000Z">
+    <meta name="meta-description" content="How do I migrate NetWrix Account Lockout Examiner to a different server? Migration of Account Lockout Examiner. Copy data to a new server">
+    <meta name="meta-title" content="How to migrate Account Lockout Examiner">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="622">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TgCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to migrate Account Lockout Examiner</h1>
+    How do I migrate NetWrix Account Lockout Examiner to a different server?
+
+<hr></hr>
+
+To migrate NetWrix Account Lockout Examiner to a different server, perform the following steps:
+<ol><li>Install NetWrix Account Lockout Examiner on a new server.</li><li>Stop the product service on a new server</li><li>Stop the NetWrix Account Lockout Examiner service on the old server</li><li>Copy the following files from the old NetWrix Account Lockout Examiner installation directory to the same location on the new server:</li></ol>
+
+<ul style="margin-left: 40px;"><li>alinfo.xml, </li><li>inv_logon.xml,</li><li>settings.xml </li><li>sessions.xml</li><li>notification_template.txt (if you use non-default notification template)</li><li>notifylist.txt (if you use granularity for notifications)</li></ul>
+
+<ol start="5"><li>Start the NetWrix Account Lockout Examiner service on the new server.</li><li>If you are using the NetWrix Account Lockout Examiner Web Help-Desk Portal, install it on the new server.</li></ol>
+<br><img alt="User-added image" height="393" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcNT&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wyK" width="500"></img>
+</body>
+</html>

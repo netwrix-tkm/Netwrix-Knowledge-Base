@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Microsoft 365 Data Sources to Use Proxy Server Settings</title>
+    <meta name="article-id" content="ka0Qk0000000ws1IAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:15.000Z">
+    <meta name="articlenumber" content="000003140">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-12-12T09:37:00.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:12.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9V6CAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9V6CAK">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-12-12T09:38:15.000Z">
+    <meta name="lastpublisheddate" content="2023-12-12T09:38:15.000Z">
+    <meta name="meta-description" content="Change proxy settings for Azure AD and SharePoint Online collection">
+    <meta name="meta-title" content="How to configure the Exchange Online, Azure AD, SharePoint Online solutions to use proxy server settings?">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="713">
+    <meta name="versionnumber" content="6">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9V6CAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Configure Microsoft 365 Data Sources to Use Proxy Server Settings</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to configure Microsoft 365 (Office 365) data sources to use proxy server settings?</p>
+</div>
+
+<h2>Answer</h2>
+
+<h4>Exchange Online</h4>
+
+<div>
+<p>Exchange Online relies on PowerShell gathering proxy settings from the network adapter. Browser proxy settings in Windows are not propagated to the network adapter by default. Refer to the following steps to set up proxy settings for Exchange Online:</p>
+
+<ol><li>
+	<p>In elevated Command Prompt line, check the network adapter settings:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">netsh winhttp show proxy</code></pre>
+
+	<div><img height="93" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000ws1&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MMY1" width="350"></img></div>
+	</li><li>
+	<p>If the system prompts <strong>Direct settings</strong>, configure the network adapter to use the correct proxy settings:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">netsh winhttp set proxy proxy-server=&quot;http=***.***.***.***:port;https=***.***.***.***:port&quot;</code></pre>
+
+	<p>Replace the proxy server settings in the line with your actual settings.</p>
+
+	<div><img height="96" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000ws1&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MMY6" width="704"></img></div>
+	</li></ol>
+</div>
+
+<h4>Microsoft Entra ID (formerly Azure AD)</h4>
+
+<div>
+<p>To use proxy server settings for the Microsoft Entra ID audit, the following files should be edited:</p>
+
+<ul><li>
+	<p><code>Netwrix.Common.AzureAdHelper.exe.config </code></p>
+	</li><li>
+	<p><code>Netwrix.O365.AzureAdCollector.exe.config </code></p>
+	</li><li>
+	<p><code>Netwrix.O365.AzureAdDiffQueryCollector.exe.config </code></p>
+	</li><li>
+	<p><code>Netwrix.O365.AzureADDumper.exe.config </code></p>
+	</li><li>
+	<p><code>Netwrix.O365.AzureAdManagementApiCollector.exe.config </code></p>
+	</li><li>
+	<p><code>Netwrix.O365.AzureAdReporter.exe.config</code></p>
+	</li></ul>
+
+<p>Add the following line at the end of each file before the &lt;/configuration&gt; tag:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">&lt;system.net&gt; &lt;defaultProxy&gt; &lt;proxy proxyaddress=&quot;***.***.***.***:port&quot; usesystemdefault=&quot;True&quot; autoDetect=&quot;False&quot; /&gt; &lt;/defaultProxy&gt; &lt;/system.net&gt;</code></pre>
+
+<table border="1" style="width: 800px;margin-left: auto;margin-right: auto;"><thead><tr><th colspan="1" rowspan="1">Before editing</th><th colspan="1" rowspan="1">After editing</th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><em><strong>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; &lt;configuration&gt; &lt;startup useLegacyV2RuntimeActivationPolicy=&quot;true&quot;&gt; &lt;supportedRuntime version=&quot;v4.0.30319&quot;/&gt; &lt;supportedRuntime version=&quot;v2.0.50727&quot;/&gt; &lt;/startup&gt; &lt;/configuration&gt;</strong></em></td><td colspan="1" rowspan="1"><em><strong>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; &lt;configuration&gt; &lt;startup useLegacyV2RuntimeActivationPolicy=&quot;true&quot;&gt; &lt;supportedRuntime version=&quot;v4.0.30319&quot;/&gt; &lt;supportedRuntime version=&quot;v2.0.50727&quot;/&gt; &lt;/startup&gt; <span style="color: #008000;">&lt;system.net&gt; &lt;defaultProxy&gt; &lt;proxy proxyaddress=&quot;***.***.***.***:port&quot; usesystemdefault=&quot;True&quot; autoDetect=&quot;False&quot; /&gt; &lt;/defaultProxy&gt; &lt;/system.net&gt;</span> &lt;/configuration&gt;</strong></em></td></tr><tr><td colspan="1" rowspan="1"><img height="334" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000ws1&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MMXd" width="380"></img></td><td colspan="1" rowspan="1"><img height="334" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk0000000ws1&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008MMYB" width="380"></img></td></tr></tbody></table>
+
+<p>Replace <code>***.***.***.***:port</code> with your actual proxy settings.</p>
+</div>
+
+<h4>SharePoint Online</h4>
+
+<div>
+<p>To use proxy server settings for the SharePoint Online audit, the following files should be edited:</p>
+
+<ul><li>
+	<p><code>Netwrix.Common.AzureAdHelper.exe.config </code></p>
+	</li><li>
+	<p><code>SpaOnlineHost.exe.config </code></p>
+	</li></ul>
+
+<p>Add the following line at the end of each file before the &lt;/configuration&gt; tag:</p>
+
+<pre class="has-inner-focus">
+<code class="lang-Registry">&lt;system.net&gt; &lt;defaultProxy&gt; &lt;proxy proxyaddress=&quot;***.***.***.***:port&quot; usesystemdefault=&quot;True&quot; autoDetect=&quot;False&quot; /&gt; &lt;/defaultProxy&gt; &lt;/system.net&gt;</code></pre>
+
+<p>Replace <code>proxyaddress=&quot;***.***.***.***:port&quot;</code> with your actual proxy settings.</p>
+</div>
+
+<h4>Microsoft Teams</h4>
+
+<div>
+<p>To use proxy server settings for the Teams audit, set up both Microsoft Entra ID and SharePoint Online settings.</p>
+</div>
+</body>
+</html>

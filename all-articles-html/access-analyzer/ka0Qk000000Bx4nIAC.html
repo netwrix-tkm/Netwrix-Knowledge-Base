@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Correctly Apply the Preserve Last Access Time (LAT) Option to FSAA Scans</title>
+    <meta name="article-id" content="ka0Qk000000Bx4nIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-09-27T20:44:30.000Z">
+    <meta name="articlenumber" content="000008824">
+    <meta name="case" content="500Qk00000FR7cgIAD">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2025-01-27T15:10:18.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2023-09-27T20:45:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000111GWCAY">
+    <meta name="knowledge-article-id" content="kA04u00000111GWCAY">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-01-28T19:13:11.000Z">
+    <meta name="lastpublisheddate" content="2023-09-28T11:22:16.000Z">
+    <meta name="meta-description" content="How to Correctly Apply the Last Access Time (LAT) Preservation Option to FSAA Scans">
+    <meta name="meta-title" content="How to Correctly Apply the Last Access Time (LAT) Preservation Option to FSAA Scans">
+    <meta name="ownerid" content="0054u000006gpoAAAQ">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8824">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111GWCAY.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Correctly Apply the Preserve Last Access Time (LAT) Option to FSAA Scans</h1>
+    <h2>Questions</h2>
+<div>
+<ul><li>
+<p>Why are scans of my NAS failing to open files or skipping them?</p>
+</li><li>
+<p>If we select the <strong>Last Access Time (LAT) Preservation</strong> option, can we avoid a situation in which our FSAA job has changed the time of the last access?</p>
+</li><li>
+<p>What other options must be configured in the FSAA Data Collector Wizard when choosing the LAT Preservation?</p>
+</li></ul>
+</div>
+<h2>Answer</h2>
+<div>
+<p>Follow the recommendations below:</p>
+<ul><li>
+<p>The <strong>Only return file types with these comma-separated values (without leading dots)</strong> option changes the LAT. Therefore, if you want to preserve it, unselect this option. To find this option, go to�the�<strong>FSAA Data Collector Wizard</strong> &gt; <strong>Default Scoping Options</strong> step &gt; <strong>File Properties (Folder Summary)</strong> tab.</p>
+</li><li>
+<p>It is impossible to preserve LAT on a directory. It can be enabled for files only.</p>
+</li><li><em>LAT Preservation is only applicable to Windows File Servers.</em> Enabling <strong>Preserve LAT</strong> on NAS and other file servers may cause unexpected results.</li></ul>
+<p>For more information, please see the following article: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/FSAA/DefaultScopingOptions/ScanSettings.htm" target="_self">Scan Settings Tab</a>.</p>
+</div>
+<h2>Related Articles</h2>
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/FSAA/DefaultScopingOptions/ScanSettings.htm" target="_self">Scan Settings Tab</a></li></ul>
+</div>
+</body>
+</html>

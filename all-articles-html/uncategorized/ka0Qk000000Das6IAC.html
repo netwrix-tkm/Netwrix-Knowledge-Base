@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Prevention LSASS Guardian Protect may prevent LSASS dump file creation</title>
+    <meta name="article-id" content="ka0Qk000000Das6IAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:20:41.000Z">
+    <meta name="articlenumber" content="000006565">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IHiCAM">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-05T11:42:01.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:20:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IHiCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IHiCAM">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T11:48:05.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:20:41.000Z">
+    <meta name="meta-description" content="360008304132">
+    <meta name="meta-title" content="Threat Prevention LSASS Guardian Protect may prevent LSASS dump file creation">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6565">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IHiCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Threat Prevention LSASS Guardian Protect may prevent LSASS dump file creation</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> SI Agent configured with LSASS Guardian Protect policy may prevent LSASS dump file creation</p>
+<p>�</p>
+<p><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong>Issue:</strong></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">The default configuration of an LSASS Guardian Protect policy registration, which blocks programs not in the process &#39;allow&#39; list from accessing LSASS, can result in an inability to create LSASS dump files.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong>Instructions:</strong>�</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">To resolve this issue add the following names to the process filter tab &quot;allow&quot; list:</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Werfault.exe</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Procdump.exe</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Werfault.exe is used internally by windows OS to create crash dump files.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Procdump.exe is often used to get non crash dump files such as process hangs.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">If attempting to get a dump file from task manager then may instead add &quot;taskmgr.exe&quot;.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">At a minimum it is recommended to add &quot;werfault.exe&quot; to the allow list so that if an unexpected LSASS crash occurs at any time the Windows OS will be able to create a crash dump file for later review.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">See following SI Console example:</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><img style="height: 491px;width: 624px;" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcY90&amp;d=%2Fa%2F4u000000Lyo6%2FlOUAvA7Qxqd1I56fFQxIyXEFJRuf2dz2Y1tymOm1M7E&amp;asPdf=false"></img></span></span><br>�</p>
+<p><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><strong>Instructions:</strong>�</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">To resolve this issue add the following names to the process filter tab &quot;allow&quot; list:</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Werfault.exe</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Procdump.exe</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Werfault.exe is used internally by windows OS to create crash dump files.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">Procdump.exe is often used to get non crash dump files such as process hangs.</span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">If attempting to get a dump file from task manager then may instead add &quot;taskmgr.exe&quot;.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">At a minimum it is recommended to add &quot;werfault.exe&quot; to the allow list so that if an unexpected LSASS crash occurs at any time the Windows OS will be able to create a crash dump file for later review.</span></span><br><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;">See following SI Console example:</span></span></p>
+<p></p>
+</body>
+</html>

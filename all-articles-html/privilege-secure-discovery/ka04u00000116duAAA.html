@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Offline Access Management (OAM) Alternate Administrator Account is Locked and the Local Administrator (RID 500) Account is Disabled</title>
+    <meta name="article-id" content="ka04u00000116duAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007Mj6zAAC">
+    <meta name="articlecreateddate" content="2023-07-11T15:04:31.000Z">
+    <meta name="articlenumber" content="000008660">
+    <meta name="createdbyid" content="0054u000007Mj6zAAC">
+    <meta name="createddate" content="2023-07-11T15:04:31.000Z">
+    <meta name="firstpublisheddate" content="2023-07-11T15:05:03.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u00000110qTCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-07-11T15:05:03.000Z">
+    <meta name="lastpublisheddate" content="2023-07-11T15:05:03.000Z">
+    <meta name="meta-description" content="Error: Offline Access Management (OAM) Alternate Administrator Account is Locked and the Local Administrator (RID 500) Account is Disabled">
+    <meta name="meta-title" content="Error: Offline Access Management (OAM) Alternate Administrator Account is Locked and the Local Administrator (RID 500) Account is Disabled">
+    <meta name="ownerid" content="0054u000007Mj6zAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8660">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Offline Access Management (OAM) Alternate Administrator Account is Locked and the Local Administrator (RID 500) Account is Disabled</h1>
+    <span style="color: #7f8c8d;">Formerly SecureONE</span>
+<h1>Symptom</h1>
+
+<div>
+<p>Error message:</p>
+
+<pre>
+Offline Access Management (OAM) alternate administrator account is locked and the local Administrator (RID 500) account is disabled</pre>
+
+<p>The system has either left the domain or lost trust.</p>
+</div>
+
+<h1>Cause</h1>
+
+<div>
+<p>The alternate administrator OAM account is a local account. Netwrix Privilege Secure for Discovery does not use the account to log into the system and does not have the ability to lock the OAM account. Typically, any local account is either locked by an Administrator or exceeded the threshold for failed login attempts.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Use Windows Safe Mode to login with the disabled Administrator (RID 500) account.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB SERVER: AD PERMISSION REQUIREMENT</title>
+    <meta name="article-id" content="ka04u000000HcjlAAC">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:14:04.000Z">
+    <meta name="articlenumber" content="000006402">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:05:02.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:14:05.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IIfCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IIfCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:05:02.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:14:05.000Z">
+    <meta name="meta-description" content="360008816812">
+    <meta name="meta-title" content="WEB SERVER: AD PERMISSION REQUIREMENT">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6402">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IIfCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>WEB SERVER: AD PERMISSION REQUIREMENT</h1>
+    <p>Web server services can be run as local system or domain user, but service needs to read attributes of user &amp; group objects in Active Directory. Web server fails to read attributes if the calling security context that the service runs under, doesn�t have read access to the attributes. When web server service is not able to get value of required attributes then it throws a standard error �The username or password is incorrect� during authentication.</p>
+<p>Here is the full error message on the web page:</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYOO&amp;d=%2Fa%2F4u000000Lyih%2FliPHimp3fk6V5YD4NeyJLR2_WaKJkvxD1PZni4nS0g4&amp;asPdf=false" alt="mceclip0.png"></img></p>
+<p>There were couple of customers who have experienced this issue and resolved it by giving proper permission to security context in AD (<a href="https://stealthbits.myjetbrains.com/youtrack/issue/SMPC-7508" target="_blank">SMPC-7508</a> 39365 - Reporting site allows user to authenticate but does not allow viewing of any reports).</p>
+<p>There are couple of ways to give read access on user and group objects to security context.</p>
+<ol><li>Ensure the service account or computer system has the following permission within the Active Directory applied at the domain level</li></ol>
+<ul><li>List contents, read all properties, read permissions; Applied to: This object and all descendant objects (has not been confirmed by QA yet).</li></ul>
+<ol start="2"><li>There is a �Pre-Windows 2000 Compatible Access� (backward compatibility) group in Active Directory and this group has read access on all users and groups in the domain. For more information, visit <a href="https://support.microsoft.com/en-us/help/331951/some-applications-and-apis-require-access-to-authorization-information" target="_blank">Microsoft support page</a>. To overcome permission issue, add the security context (domain user or SA console) that service run as, to the Pre-Windows 2000 Compatible Access group. <br><br>Below screenshot is showing default group membership and domain user or computer should be added as member of this group.</li></ol>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcWdD&amp;d=%2Fa%2F4u000000Lyim%2FDeENEs9Y_4yRFkktwdVEMclDZqMQmORQro34Z8YKYnU&amp;asPdf=false" alt="mceclip1.png"></img></p>
+</body>
+</html>

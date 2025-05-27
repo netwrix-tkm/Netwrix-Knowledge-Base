@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Recreate Alerts Database?</title>
+    <meta name="article-id" content="ka04u000000wwAPAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-16T11:46:04.000Z">
+    <meta name="articlenumber" content="000008903">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-11-21T10:41:01.000Z">
+    <meta name="firstpublisheddate" content="2023-11-16T11:46:10.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnozCAA">
+    <meta name="knowledge-article-id" content="kA04u000000wnozCAA">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-11-29T08:56:05.000Z">
+    <meta name="lastpublisheddate" content="2023-11-20T15:01:05.000Z">
+    <meta name="meta-description" content="How to Recreate Alerts Database">
+    <meta name="meta-title" content="How to Recreate Alerts Database?">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8903">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnozCAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Recreate Alerts Database?</h1>
+    <h2>Overview</h2>
+
+<div>
+<p>Sometimes, for some reasons, you need to recreate the <b>Netwrix_AlertsDB</b> database used to store your Alerts data and hosted by the specified instance of the SQL Server. For example, if current database is full. For additional information on special Netwrix databases capacity, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/HealthStatus/Dashboard/DatabaseStatistics.htm" target="_blank">Health Status Dashboard � Database Statistics � v10.6</a>.</p>
+
+<p>This article explains how to recreate this database.</p>
+</div>
+
+<h2>Instructions</h2>
+
+<div>
+<p>To recreate the <b>Netwrix_AlertsDB</b> database, do the following:</p>
+
+<ol><li>
+	<p>Connect to SQL Server Management Studio and create a backup of your current <b>Netwrix_AlertsDB</b> database. Learn more in <a href="https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16&amp;tabs=ssms" target="_blank">Quickstart: Backup and restore a SQL Server database with SSMS ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p>Then, delete the existing database and create a new one with the name of <b>Netwrix_AlertsDB</b>.</p>
+	</li><li>
+	<p>On the computer that hosts your Auditor Server, start the <b>Services</b> snap-in and restart the <b>Netwrix Auditor Management</b> service.</p>
+	</li></ol>
+</div>
+</body>
+</html>

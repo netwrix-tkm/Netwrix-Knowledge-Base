@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix Patch 2.7.1448 for Threat Manager 2.7 SP1</title>
+    <meta name="article-id" content="ka0Qk000000DZMXIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006RPEQAA4">
+    <meta name="articlecreateddate" content="2022-08-22T16:24:24.000Z">
+    <meta name="articlenumber" content="000008483">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000004mw6CAA">
+    <meta name="createdbyid" content="0054u000006RPEQAA4">
+    <meta name="createddate" content="2025-05-05T10:37:57.000Z">
+    <meta name="firstpublisheddate" content="2022-08-22T16:24:30.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000004mw6CAA">
+    <meta name="knowledge-article-id" content="kA04u0000004mw6CAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:43:41.000Z">
+    <meta name="lastpublisheddate" content="2022-08-22T16:25:50.000Z">
+    <meta name="meta-description" content="In this hotfix we fixed various issues relating to StealthDefend 2.7 SP1: �	Optimized event insertion �	$AffectedUserTags doesn&#x27;t return tags for users affected by threat �	Updated the End RDP session action to leverage Remote Desktop Services instead of">
+    <meta name="meta-title" content="Hotfix Patch 2.7.1448 for Threat Manager 2.7 SP1">
+    <meta name="ownerid" content="0054u000006RPEQAA4">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8483">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000004mw6CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix Patch 2.7.1448 for Threat Manager 2.7 SP1</h1>
+    <span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Summary:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">In this hotfix we fixed various issues relating to StealthDefend 2.7 SP1:</span></strong></span></span></span>
+<ul><li style="margin-left: 8px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Optimized event insertion</span></strong></span></span></span></li><li style="margin-left: 8px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">$AffectedUserTags doesn&#39;t return tags for users affected by threat</span></strong></span></span></span></li><li style="margin-bottom: 11px;margin-left: 8px;"><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Updated the End RDP session action to leverage Remote Desktop Services instead of WinRM</span></strong></span></span></span></li></ul>
+<span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Greg Connors</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Prior versions of 2.7 SP1</span></span></span></span></span><br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Dev Tickets:</span></strong></span></span></span>
+
+<table align="center" class="SbTable2-withVerticals1" style="width: 672px;border-collapse: collapse;border: none;" width="672"><tbody><tr><td colspan="1" rowspan="1" style="border-bottom: 1px solid #7f7f7f;width: 96px;padding: 0in 7px 0in 7px;height: 22px;background-color: #1c75bc;border-top: 1px solid #7f7f7f;border-right: 1px solid #7f7f7f;border-left: 1px solid #7f7f7f;"><span style="line-height: normal;"><span style="color: white;">Case</span></span></td><td colspan="1" rowspan="1" style="border-bottom: 1px solid #7f7f7f;width: 482px;padding: 0in 7px 0in 7px;height: 22px;background-color: #1c75bc;border-top: 1px solid #7f7f7f;border-right: 1px solid #7f7f7f;border-left: none;"><span style="line-height: normal;"><span style="color: white;">Description</span></span></td><td colspan="1" rowspan="1" style="border-bottom: 1px solid #7f7f7f;width: 94px;padding: 0in 7px 0in 7px;height: 22px;background-color: #1c75bc;border-top: 1px solid #7f7f7f;border-right: 1px solid #7f7f7f;border-left: none;"><span style="line-height: normal;"><span style="color: white;">Escalations</span></span></td></tr><tr><td colspan="1" rowspan="1" valign="top" style="border-bottom: 1px solid #7f7f7f;width: 96px;padding: 0in 7px 0in 7px;height: 22px;background-color: #d9d9d9;border-top: none;border-right: 1px solid #7f7f7f;border-left: 1px solid #7f7f7f;"><span style="line-height: normal;"><span style="color: black;">107334</span></span></td><td colspan="1" rowspan="1" valign="top" style="border-bottom: 1px solid #7f7f7f;width: 482px;padding: 0in 7px 0in 7px;height: 22px;background-color: #d9d9d9;border-top: none;border-right: 1px solid #7f7f7f;border-left: none;"><span style="line-height: normal;"><span style="color: black;">End RDP Session action to not require WinRM</span></span></td><td colspan="1" rowspan="1" valign="top" style="border-bottom: 1px solid #7f7f7f;width: 94px;padding: 0in 7px 0in 7px;height: 22px;background-color: #d9d9d9;border-top: none;border-right: 1px solid #7f7f7f;border-left: none;"><span style="line-height: normal;"><span style="color: black;">351608</span></span></td></tr></tbody></table>
+<br><span style="font-size: 11pt;"><span style="line-height: 107%;"><span style="font-family: Calibri,sans-serif;"><strong><span style="font-family: &quot;Calibri&quot;,sans-serif;">Resolved in Version: </span></strong>2.7.1448</span></span></span><br><br>https://downloads.stealthbits.com/access/files/SDHotfixes/StealthDEFEND_2.7.1448.zip
+</body>
+</html>

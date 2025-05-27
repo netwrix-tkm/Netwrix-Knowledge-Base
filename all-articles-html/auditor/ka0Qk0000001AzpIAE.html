@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1240 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001AzpIAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:57.000Z">
+    <meta name="articlenumber" content="000003617">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-12-28T14:38:18.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9cxCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9cxCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-28T14:38:23.000Z">
+    <meta name="lastpublisheddate" content="2023-12-28T14:38:14.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint issues caused by inaccessible/locked Site Collections.">
+    <meta name="meta-title" content="Netwrix Auditor System Health - Event ID 1240">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2445">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9cxCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1240 in Health Log</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>The following error message under Event ID 1240 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+Unable to get site collection configuration to site collection %site_collection%</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>The web application hosting the target site collection was granted insufficient permissions.</p>
+	</li><li>
+	<p>The audited site collection status is <strong>No Access</strong>.</p>
+	</li></ul>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<p>Review the resolution steps for the corresponding error:</p>
+
+<ul><li>
+	<p>In SharePoint Central Administration, navigate to <strong>Web Applications</strong> &gt; <strong>%affected_application%</strong> &gt; <strong>User Permissions</strong>, and verify the security settings. The minimum required permissions are <strong>Manage Web Site</strong>.</p>
+	</li><li>
+	<p>In SharePoint Central Administration, navigate to <strong>Application Management</strong> &gt; <strong>Configure Quotas and Locks</strong> &gt; <strong>%affected_site_collection%</strong>, and change the status to <strong>Not locked</strong>.</p>
+	</li></ul>
+
+<p>Learn more on management of the SharePoint site lock status via PowerShell in <a href="https://learn.microsoft.com/en-us/sharepoint/sites/manage-the-lock-status-for-site-collections#manage-the-lock-status-for-a-site-collection-by-using-microsoft-powershell" target="_blank">Manage Lock Status for Site Collections in SharePoint Server ? Manage Lock Status for Site Collection via Microsoft PowerShell ? Microsoft &#129125;</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://learn.microsoft.com/en-us/sharepoint/sites/manage-the-lock-status-for-site-collections#manage-the-lock-status-for-a-site-collection-by-using-microsoft-powershell" target="_blank">Manage Lock Status for Site Collections in SharePoint Server ? Manage Lock Status for Site Collection via Microsoft PowerShell ? Microsoft &#129125;</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

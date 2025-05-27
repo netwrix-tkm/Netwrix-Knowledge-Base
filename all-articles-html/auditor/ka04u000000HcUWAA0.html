@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote control does not work.</title>
+    <meta name="article-id" content="ka04u000000HcUWAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:54.000Z">
+    <meta name="articlenumber" content="000003544">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:50:24.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9bmCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9bmCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:50:24.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:39.000Z">
+    <meta name="meta-description" content="The KB provides troubleshooting when Remote Control is configured incorrectly.">
+    <meta name="meta-title" content="Remote control does not work.">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1382">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9bmCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Remote control does not work.</h1>
+    Account Lockout Examiner(ALE) does not work through remote control with Exchange server. Remote control is configured to use Exchange. Notifications are sent without issues, but replying to them does not unlock accounts.
+
+<hr></hr>
+
+This usually happens when Remote Control is configured incorrectly.
+
+<hr></hr>
+
+<div>Please make sure that:</div>
+<ol><li>The Account Lockout Examiner service account is the owner of the mailbox, specified for Remote control.</li><li>Name of a mail server (&#39;Server&#39; field) is entered as Fully qualified domain name (FQDN), and name of a user (&#39;Mailbox&#39; field) is entered as samAccountName of the service account</li></ol>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcUW&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004x0B" alt="User-added image" width="335" height="330"></img></div>
+<ol start="3"><li>The server with the Mailbox role is specified for remote control (&#39;Server&#39; field)</li><li>Your mail server is able to process web-requests. To check it, try to access the server by the URL https://%ServerName%/EWS/Exchange.asmx, you should see an xml file.</li><li>The mailbox specified for remote control is not specified as a recipient in notification list.</li><li>You reply to notifications in plain text format.</li></ol>
+<div></div>
+</body>
+</html>

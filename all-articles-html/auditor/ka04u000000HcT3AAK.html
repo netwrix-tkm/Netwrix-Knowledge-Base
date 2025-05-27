@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.IO.IOException: Authentication failed because the remote party has closed the transport stream</title>
+    <meta name="article-id" content="ka04u000000HcT3AAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:47:09.000Z">
+    <meta name="articlenumber" content="000003438">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:49:54.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:30:43.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9a2CAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9a2CAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:49:54.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:30:43.000Z">
+    <meta name="meta-description" content="Error in _VMware inventory data collection: Error saving current VMware Virtual Center snapshot: The underlying connection was closed: An unexpected error occurred on a send.">
+    <meta name="meta-title" content="System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.IO.IOException: Authentication failed because the remote party has closed the transport stream">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1283">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9a2CAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.IO.IOException: Authentication failed because the remote party has closed the transport stream</h1>
+    When you are trying to connect to vSphere 5.1 and higher from Windows 2003 or XP the following error appear in the log:
+
+<span style="font-family: Arial;">System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.IO.IOException: Authentication failed because the remote party has closed the transport stream.
+at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+at System.Net.TlsStream.CallProcessAuthentication(Object state)
+at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+at System.Net.ConnectStream.WriteHeaders(Boolean async)
+
+--- End of inner exception stack trace ---
+
+at ClientUtils.ServiceUtil.ClientConnect()
+at #=qLTypetNdXRgtjZ5oarkCew==.#=qkNh22T_fDe6KeGYPPku7uw==()
+at #=q6n0019yskoh04kUwRaodAHgJJIkadPEJ0hV7epNjK8E=.#=qWVzNcX8B9oOVI8KMUqqorw==(String #=qp3ysQkh_RnMqOKFVrKR8wg==, String #=qDn7h7Hgh77aVJrsVKRhiwA==, String #=qDqhS0EFSxvajyWc_Ci5Tgw==, String #=q67JaGw_aa7xfomCg5JQWMQ==, String #=qQs0BWGid$1Ml$wmmDiTDBw==)
+
+Error in _VMware inventory data collection: Error saving current VMware Virtual Center snapshot: The underlying connection was closed: An unexpected error occurred on a send.</span>
+
+<hr></hr>
+
+<div>This issue occurs due to increased security of the cipher strengths which are, by default, used by the VMware Management Web Services components. Due to this change that was introduced in vSphere 5.1, the host operating system is required to support a higher cipher strength to be able to connect to these components.</div>
+<div></div>
+<div>In Windows Vista and Windows Server 2008, the proper cipher strengths are built into the operating system. However, for older Windows operating systems, a Microsoft hotfix must be applied to add the supported cipher strengths.</div>
+
+<hr></hr>
+
+In order to resolve this issue the following <a href="http://support.microsoft.com/kb/948963/en-us" target="_blank">Microsoft hot-fix</a> should be installed.
+
+NOTE: This hot-fix is available only for Windows 2003 (32-bit and 64-bit Edition)  and it is <u><strong>NOT</strong></u><u><strong> AVAILABLE</strong></u> for Windows XP.
+</body>
+</html>

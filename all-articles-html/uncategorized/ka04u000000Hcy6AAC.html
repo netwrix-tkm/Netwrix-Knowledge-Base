@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use native multi-threading in Powershell DC</title>
+    <meta name="article-id" content="ka04u000000Hcy6AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:40:38.000Z">
+    <meta name="articlenumber" content="000007305">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:12:25.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:40:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IuACAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IuACAU">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:12:25.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:40:39.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Use native multi-threading in Powershell DC">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7305">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IuACAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Use native multi-threading in Powershell DC</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> In SMP 8.1, there is hidden functionality to enable multi-threading of powershell scripts. Here is how to use it:</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> Engineering has requested a way to allow for easy multi-threading in the powershell DC.� Development has created a hidden cmdlet named ForEach-Parallel that satisfies this request available in StealthAUDIT.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> ForEach-Parallel<br><br>Takes in an input object and runs {ScriptBlock} on a configurable number of threads<br><br>Example:<br>1..5 | ForEach-Parallel -Throttle 4 {<br>��� sleep(5);<br>��� &quot;Time$_ is $(Get-Date)&quot;;<br>}<br>Time1 is 04/11/2017 17:09:59������������������������������������������������������������������������������ �<br>Time2 is 04/11/2017 17:09:59������������������������������������������������������������������������������ �<br>Time3 is 04/11/2017 17:09:59������������������������������������������������������������������������������ �<br>Time4 is 04/11/2017 17:09:59������������������������������������������������������������������������������ �<br>Time5 is 04/11/2017 17:10:04<br><br>In this example, we are instructing powershell to print the current system time.� Since we have limited it to running only 4 threads, you can see in the output that the first four timestamps are the same, followed later by the fifth after a 5 second sleep on all active threads.<br><br>Here is an additional example:<br><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcajG&amp;d=%2Fa%2F4u000000Lz3u%2FWJEDRRnf_ga63t385oKItTabn_0qaZXMEeNnkoSCsFw&amp;asPdf=false" alt="mceclip0.png" width="817" height="216"></img><br><br></p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - PowerShell<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SAT-1574<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 8.1<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 1563</p>
+</body>
+</html>

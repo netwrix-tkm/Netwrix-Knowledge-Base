@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneID Authentication Option Discontinued</title>
+    <meta name="article-id" content="ka0Qk000000Bt1BIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2025-01-22T13:48:12.000Z">
+    <meta name="articlenumber" content="000009376">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2025-01-22T13:50:53.000Z">
+    <meta name="firstpublisheddate" content="2025-01-22T13:48:39.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001tC9KAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000001tC9KAI">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-01-27T13:45:24.000Z">
+    <meta name="lastpublisheddate" content="2025-01-27T13:45:24.000Z">
+    <meta name="ownerid" content="005Qk0000017MRRIA2">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9376">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001tC9KAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PhoneID Authentication Option Discontinued</h1>
+    <h2>Netwrix GroupID - Imanami PhoneID Authentication Option Discontinued</h2>
+<h4>What is happening with Imanami PhoneID?</h4>
+<p>On January 31, 2025, the Imanami PhoneID service will be deprecated. At that time, the following activities using PhoneID will no longer function. An example of activities impacted:</p>
+<ul><li>Requests to authenticate an identity using an already enrolled phone with this application will fail.</li><li>Enrollment requests from the PhoneID mobile application will fail to send SMS notifications.</li><li>Netwrix GroupID deployments will fail to register as a client to the PhoneID service.</li></ul>
+<h4>What will happen in the future?</h4>
+<p>As Netwrix GroupID will no longer support the Imanami PhoneID service, the user interface for enrollment and selection as an authentication service will be removed from the admin and user experiences <span>with the release of Netwrix GroupID version 11.1.</span>�</p>
+<h4>What are the viable replacement options available?</h4>
+<p>Netwrix recommends using Netwrix GroupID in conjunction with a FIDO2-based passkey token, utilizing Netwrix GroupID&#39;s support for WebAuthn. Below is an example of how to achieve this:</p>
+<ol><li>Enable YubiKey support in the configuration, even if you do not plan on using YubiKey hardware tokens.<br><br><span><img style="width: 624px;height: 660px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAgZi" alt="A screenshot of a computerDescription automatically generated"></img><br><img style="width: 622px;height: 864px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAfKI" alt="A screenshot of a phoneDescription automatically generated"></img><br><img style="width: 624px;height: 776px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAfow" alt="A screenshot of a phoneDescription automatically generated"></img><span><br></span><span><img style="width: 362px;height: 472px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAl4j" alt="A screenshot of a computer screenDescription automatically generated"></img><br></span></span></li><li>From the user portal, users should enroll their account and select YubiKey from the available options.<br><br><span><img style="width: 542px;height: 820px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAkS2" alt="A screenshot of a phoneDescription automatically generated"></img></span><span><br></span><span><img style="width: 624px;height: 338px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAl7x" alt="A screenshot of a computer screenDescription automatically generated"></img></span><span><br></span></li><li>Give your passkey-enabled device an appropriate name.<br><br><span><img style="width: 624px;height: 362px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAl9Z" alt="A screenshot of a computerDescription automatically generated"></img></span><span><br></span></li><li>You will be prompted to choose a location to save your passkey.<br><br><span><img style="width: 624px;height: 632px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAlBB" alt="A screenshot of a computerDescription automatically generated"></img></span><span><br></span></li><li>You will receive a notification on your device or be prompted to insert a USB token, depending on the chosen method.<br><br><span><img style="width: 624px;height: 475px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAlEP" alt="A screenshot of a computer error messageDescription automatically generated"></img></span><span><br></span></li><li>If using a mobile phone, you should be prompted to create a key for the web portal enrollment.<br><br><span><img style="width: 624px;height: 605px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAlO5" alt="A screenshot of a phoneDescription automatically generated"></img></span><span><br></span></li><li>After completion, you will receive confirmation on both the mobile device and the portal.<br><br><span><img style="width: 442px;height: 118px;" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Bt1B&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AAlUX" alt="A white sign with black textDescription automatically generated"></img><br></span></li></ol>
+<h4>What is a Passkey, and why do we recommend using it?</h4>
+<p>According to the FIDO Alliance, passkeys are a replacement for passwords that provide a faster, easier, and more secure user login experience. Passkey-based user authentication is immune to phishing risks because it does not rely on a shared secret, as traditional passwords do.</p>
+<p>Technically, a passkey is a discoverable FIDO credential linked to a user account and a specific website or application. As a FIDO credential, a passkey consists of a key pair that employs standard public key cryptography to verify a user&#39;s identity without sharing any secrets. This method aligns with WebAuthn authentication.</p>
+<p>A passkey is associated with both a user account and a website running Netwrix GroupID. When a new passkey is created, it is automatically linked to the user ID and the Relying Party ID � in the case of a website hosting Netwrix GroupID.</p>
+<p>Passkeys are discoverable, meaning they can be automatically detected and utilized by clients for user authentication. When a user initiates the authentication process, the authenticator does not need to know the user&#39;s ID. Instead, it uses the Relying Party ID to locate the correct passkey for authenticating against that website. This process eliminates the need for the user to enter their user ID and ensures that a malicious actor cannot trick them into signing in to a fraudulent website.</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitymonitor-7.1.252</title>
+    <meta name="article-id" content="ka0Qk000000Bm9NIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006goGXAAY">
+    <meta name="articlecreateddate" content="2025-01-10T17:35:22.000Z">
+    <meta name="articlenumber" content="000009367">
+    <meta name="case" content="500Qk00000HvRxmIAF">
+    <meta name="createdbyid" content="0054u000006goGXAAY">
+    <meta name="createddate" content="2025-01-10T17:35:22.000Z">
+    <meta name="firstpublisheddate" content="2025-01-10T17:35:38.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001rIPKAY">
+    <meta name="lastmodifiedbyid" content="0054u000006goGXAAY">
+    <meta name="lastmodifieddate" content="2025-01-10T17:35:38.000Z">
+    <meta name="lastpublisheddate" content="2025-01-10T17:35:38.000Z">
+    <meta name="ownerid" content="0054u000006goGXAAY">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9367">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>activitymonitor-7.1.252</h1>
+    <p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Title: </span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">activitymonitor-7.1.252</span></i></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Summary:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span class="test-idfield-value"><i><span style="color: #404040;">Large Downloads from Office.com</span></i></span></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span class="test-idfield-value"><i><span style="color: #404040;">Large number Nasuni events being captured with &#39;UNKNOWN&#39; protocols and different paths</span></i></span></li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior Before Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">When the number of EXO DLP events exceeded the page size limit used by NAM for queries, NAM failed to correctly save a bookmark to the last read DLP event. This resulted in NAM repeatedly querying the same data pages.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�Unknown events are being reported for Nasuni.</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Behavior After Fix:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">Implemented fix when page size limit is reached.</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">Unknown Nasuni events are now filtered out.</span></li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Changes Since Last Hotfix:</b></p>
+<ul style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #3b3838;">369585: NetApp: no scroll bars for new host wizard</span></li></ul>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Submitted by: </span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Kevin Duddy</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Versions:</span></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Activity Monitor 7.1</span></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Affected Module:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SharePoint Online</span></li><li style="margin: 0in 0in 0in 0px;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Nasuni</span></li></ol>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Dev Ticket:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">363866</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">369289</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Resolved in Version:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 7.1.252</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">�</span></i></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">KB Type: </span></strong></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">Hotfix</span></p>
+<p style="margin: 0in;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><i><span style="font-family: Calibri, sans-serif;color: #404040;font-weight: normal;">�</span></i></strong></p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Modules Included:</span></strong></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBActivityMonitorSetup.msi 7.1.252</span></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SBTService.exe </span><i><span style="color: #404040;">1.24.1203.1430</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;font-style: italic;">SI Version </span><i><span style="color: #404040;">7.3.9.244</span></i></p>
+<p style="margin: 0in;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>DevOps/Escalations</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">363866 / 00426125</li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">369289 / 00430420</li></ol>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">345503: MS updates: SUVP 24-07 support</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">342521: Agent Crashed on 3/28</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">349229: MS updates: SUVP 24-08 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">346065: Path being reported incorrectly for NetApp</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">348796: NetApp File Path Discrepancies</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">339474: have the latest &quot;Received Events&quot; that is currently visible only in the Activity Monitor also be available from the API Server</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">356344: MS updates: SUVP 24-09 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">357592: Customer observed several agents are frequently disconnecting momentarily from console</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">359550: MS updates: SUVP 24-10 support</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">362194: Filter Activity from App@sharepoint from SharePoint Online</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">364891: NAM reporting wrong user domain</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">310536: Not Recording Events for NFS Mount - Several Other servers are working new one is not.</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">350219: NAM - High CPU and RAM usage during scans</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">363318: Nasuni Connection Error post-upgrade to NAM v7.1.194</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">362106: SI - Domain Controller freeze every reboot</span></li></ul>
+</li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">�</span>
+<ul style="list-style-type: circle;margin-top: 0in;margin-bottom: 0in;"><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">367039: Stealthbits Activity Monitor - Agent Install Assistance</span></li><li style="margin: 0in 0in 0in 0px;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;"><span style="color: #404040;">367335: SUVP 24-12 support</span></li></ul>
+</li></ol>
+<p style="margin: 0in;line-height: normal;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin: 0in 0in 8pt;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><strong><span style="font-family: Calibri, sans-serif;">Instructions:</span></strong></p>
+<ol style="margin-bottom: 0in;margin-top: 0px;"><li style="margin: 0in 0in 0in 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Run the MSI file on a host that has the Activity Monitor Console is installed.</span></i></li><li style="margin: 0in 0in 8pt 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;">Upgrade all agents.</span></i></li></ol>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;"><i><span style="color: #404040;"><a style="color: #96607d;text-decoration-line: underline;font-family: Aptos, sans-serif;font-size: 14.6667px;white-space: normal;" title="https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.252.zip" href="https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.252.zip" target="_blank">https://releases.netwrix.com/products/activitymonitor/7.1/activitymonitor-7.1.252.zip</a><span style="caret-color: #212121;color: #212121;font-family: Aptos, sans-serif;font-size: 14.6667px;white-space: normal;text-decoration-line: none;float: none;display: inline;"> �</span></span></i></p>
+<p style="margin-top: 0in;margin-right: 0in;margin-bottom: 8pt;margin-left: 0px;line-height: 107%;font-size: 11pt;font-family: Calibri, sans-serif;">�</p>
+</body>
+</html>

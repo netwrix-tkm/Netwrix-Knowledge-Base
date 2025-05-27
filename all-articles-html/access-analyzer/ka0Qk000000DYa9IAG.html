@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleted AD User(s) Still Show In Netwrix Access Analyzer Reports</title>
+    <meta name="article-id" content="ka0Qk000000DYa9IAG">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000007oss5AAA">
+    <meta name="articlecreateddate" content="2024-11-21T16:00:09.000Z">
+    <meta name="articlenumber" content="000009331">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000001i73KAA">
+    <meta name="case" content="500Qk00000IWX3NIAX">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007oss5AAA">
+    <meta name="createddate" content="2025-05-05T10:17:30.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-02-11T14:53:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001i73KAA">
+    <meta name="knowledge-article-id" content="kA0Qk0000001i73KAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:25:14.000Z">
+    <meta name="lastpublisheddate" content="2025-02-11T14:53:57.000Z">
+    <meta name="meta-description" content="Deleted AD User(s) Still Show In Netwrix Access Analyzer Reports">
+    <meta name="meta-title" content="Deleted AD User(s) Still Show In Netwrix Access Analyzer Reports">
+    <meta name="ownerid" content="0054u000007oss5AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9331">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001i73KAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Deleted AD User(s) Still Show In Netwrix Access Analyzer Reports</h1>
+    <h2>Symptom</h2>
+<div>
+<p>A deleted user account(s) from AD still shows in Netwrix Access Analyzer Reports and is not flagged as deleted.</p>
+</div>
+<h2>Cause</h2>
+<div>
+<p>A failure on the ADI scan that could be caused by a myriad of reasons.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>Run a full <strong>AD Inventory Scan</strong> by disabling differential scanning for the <strong>1-AD_Scan</strong> job using the steps below:</p>
+<ol><li>
+<p>Navigate to <strong>Access Analyzer &gt; Jobs &gt; .Active Directory Inventory &gt; 1-AD_Scan &gt; Configure &gt; Queries &gt; Query Properties &gt; Configure &gt; Options</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYa9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AdoIX" alt="Image_2024-11-19_15-36-30.png" width="683" height="365"></img>�</p>
+</li><li>
+<p>Uncheck the box for <strong>Collect only updates since the last scan</strong>.<br><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DYa9&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000AdoSD" alt="Image_2024-11-19_15-37-33.png" width="542" height="437"></img>�</p>
+</li><li>
+<p>Click <strong>Next</strong> through the end of the Active Directory Inventory DC Wizard.</p>
+</li><li>
+<p>Re-run the <strong>1-AD_Scan</strong> job.</p>
+</li><li>
+<p>Select the previously-unchecked box for <strong>Collect only updates since the last scan</strong>.</p>
+</li><li>
+<p>Re-run the <strong>1-AD_Scan</strong> job.</p>
+</li><li>
+<p>To determine whether the job was successful, verify the results in the <strong>SA_ADInventory_UsersView</strong>. Search for the deleted user to confirm whether it exists or is marked <strong>IsDeleted</strong>.</p>
+</li><li>
+<p>If the deleted user does not exist or is not marked <strong>IsDeleted</strong>, then verify the permissions on the scan account. The permissions must have <strong>List contents &amp; read Property</strong> on the <strong>Deleted Objects</strong> container.</p>
+</li><li>
+<p>For more information, please see the following article: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/EnterpriseAuditor/Admin/DataCollector/ADInventory/Overview.htm" target="_self">ADInventory Data Collector</a>.</p>
+</li></ol>
+</div>
+</body>
+</html>

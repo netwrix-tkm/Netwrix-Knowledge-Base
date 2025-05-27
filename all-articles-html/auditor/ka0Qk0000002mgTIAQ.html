@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emails Are Missing in Password Expiration Notifier</title>
+    <meta name="article-id" content="ka0Qk0000002mgTIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-03-25T06:28:14.000Z">
+    <meta name="articlenumber" content="000009085">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-04-02T12:10:53.000Z">
+    <meta name="firstpublisheddate" content="2024-04-02T12:10:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000XATKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000000XATKA2">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-04-02T12:11:02.000Z">
+    <meta name="lastpublisheddate" content="2024-04-02T12:10:49.000Z">
+    <meta name="meta-description" content="Emails Are Missing in Password Expiration Notifier">
+    <meta name="meta-title" content="Emails Are Missing in Password Expiration Notifier">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9085">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000XATKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Emails Are Missing in Password Expiration Notifier</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>Email notifications and reports from Netwrix Password Expiration Notifier (PEN) are missing.</p>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <strong>Display the following From address in email notifications</strong> option is enabled for a service account with insufficient permissions.</p>
+</div>
+
+<h2>Resolutions</h2>
+
+<div>
+<ul><li>
+	<p>Disable the <strong>Display the following From address in email notifications</strong> option in PEN:</p>
+
+	<ol><li>
+		<p>Launch Password Expiration Notifier, select the affected monitoring plan, and click <strong>Edit</strong>.</p>
+		</li><li>
+		<p>In the <strong>Notifications</strong> tab, uncheck the <strong>Display the following From address in email notifications</strong> checkbox, and click <strong>Save</strong>.</p>
+		</li></ol>
+	</li><li>
+	<p>Grant the appropriate <strong>Send As</strong> or <strong>Send on Behalf</strong> permissions to the service account sending emails in Password Expiration Notifier.</p>
+	</li></ul>
+</div>
+</body>
+</html>

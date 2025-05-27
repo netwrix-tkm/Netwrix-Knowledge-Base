@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Failed to Copy Remote Distributed Modules</title>
+    <meta name="article-id" content="ka0Qk0000005YfNIAU">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2024-09-09T14:27:25.000Z">
+    <meta name="articlenumber" content="000009259">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2024-09-17T13:12:36.000Z">
+    <meta name="firstpublisheddate" content="2024-09-09T14:30:42.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001OQ5KAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000001OQ5KAM">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2024-09-17T13:13:19.000Z">
+    <meta name="lastpublisheddate" content="2024-09-09T14:30:42.000Z">
+    <meta name="meta-description" content="Error: Failed to Copy Remote Distributed Modules">
+    <meta name="meta-title" content="Error: Failed to Copy Remote Distributed Modules">
+    <meta name="ownerid" content="005Qk000001wMM9IAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9259">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001OQ5KAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error: Failed to Copy Remote Distributed Modules</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>Both of the following symptoms are present in your Netwrix Auditor (NA) Event Log Manager (ELM) environment:</p>
+
+<ul><li>
+	<p>The Health Log prompts the following error message:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Failed to copy remote distributed modules.  
+Error details: The process cannot access the file because it is being used by another process.</code></pre>
+	</li><li>
+	<p>ELM is set to audit both a domain OU and the servers within that OU by IP address.</p>
+	</li></ul>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>ELM audits the same server twice. This causes duplicates of the audit logs in the NA ELM monitoring plan.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Refer to one of the following options to resolve the issue:</p>
+
+<ul><li>
+	<p>Review the list of monitored computers. Remove the IP ranges and only audit OUs.</p>
+	</li><li>
+	<p>Review the list of monitored computers. Remove the OU and only audit target IP address ranges.</p>
+	</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>�Check Available Memory�</title>
+    <meta name="article-id" content="ka04u000000HdBTAA0">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-07T01:03:06.000Z">
+    <meta name="articlenumber" content="000008320">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:18:22.000Z">
+    <meta name="firstpublisheddate" content="2022-02-07T01:03:06.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000Jh2CAE">
+    <meta name="knowledge-article-id" content="kA04u0000000Jh2CAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:18:22.000Z">
+    <meta name="lastpublisheddate" content="2022-02-07T01:03:06.000Z">
+    <meta name="meta-description" content="HELPDESK">
+    <meta name="meta-title" content="�Check Available Memory�">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8320">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Jh2CAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>�Check Available Memory�</h1>
+    <p><strong><u>Issue:</u></strong></p><p><strong>GSM Self Check: �Check Available Memory�</strong></p><p><strong><u>Cause:</u></strong></p><ul><li><p>There is less than the recommended amount of memory installed on your GSM VM.</p></li></ul><p><strong><u>Resolution:</u></strong></p><ul><li><p>Ensure that the GSM VM is running on a supported Greenbone Hypervisor (<a class="external-link" href="https://supportnntws.atlassian.net/l/c/ow2b8968" target="_blank">LINK</a>) using the Greenbone Support Package</p></li></ul><p style="margin-left: 60.0px;"><em>\support-package\gsm-support\kernel-journal</em></p><p style="margin-left: 60.0px;"><em>Line: kernel[]: info: Hypervisor detected: <strong><span style="color: rgb(255,86,48);">--HYPERVISOR--</span></strong></em></p><ul><li><p>Check how much memory is assigned to the GSM VM using the Greenbone Support Package</p></li></ul><p style="margin-left: 60.0px;"><em>\support-package\gsm-system\commands.txt</em></p><p style="margin-left: 60.0px;"><em>Line: <strong>Executed command: &#39;vmstat -s&#39;.</strong></em></p><p style="margin-left: 60.0px;"><em>Output: </em></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre">7137672 K total memory
+685820 K used memory
+3014812 K active memory
+3009136 K inactive memory
+722312 K free memory
+228416 K buffer memory
+5501124 K swap cache
+0 K total swap
+0 K used swap
+0 K free swap�</pre>
+</div></div><ul><li><p>Ensure that the amount of resources that are assigned to the VM hosting the GSM, are in line with the specific GSM System Requirements (<a class="external-link" href="https://www.greenbone.net/en/virtual-appliances/" target="_blank">LINK</a>).</p><ul><li><p>If not enough resources are assigned to the VM, add accordingly.</p></li><li><p>If the<strong> total memory</strong> reading does not match with the memory assigned to the GSM VM through the  hypervisor, this is usually due to address space being taken by PCI devices and the details differ from hypervisor to hypervisor. In this scenario, raising the memory assigned to the GSM VM may resolve the issue.</p></li></ul></li></ul>
+</body>
+</html>

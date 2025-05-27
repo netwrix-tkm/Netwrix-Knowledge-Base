@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Failed to Connect to Server</title>
+    <meta name="article-id" content="ka0Qk0000000wlZIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-12-12T07:55:57.000Z">
+    <meta name="articlenumber" content="000008956">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-12-12T07:56:19.000Z">
+    <meta name="firstpublisheddate" content="2023-12-12T07:56:15.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000Jc9KAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000000Jc9KAE">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-12-12T07:56:26.000Z">
+    <meta name="lastpublisheddate" content="2023-12-12T07:56:15.000Z">
+    <meta name="meta-description" content="Transport Failed to Connect to Server">
+    <meta name="meta-title" content="Transport Failed to Connect to Server">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8956">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000Jc9KAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Transport Failed to Connect to Server</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>When verifying <strong>Notifications</strong> settings in Netwrix Password Expiration Notifier, the following error is prompted:</p>
+
+<pre class="has-inner-focus">
+Test failed: The transport failed to connect to the server.
+Exception has been thrown by the target of an invocation.</pre>
+</div>
+
+<h2>Causes</h2>
+
+<div>
+<ul><li>
+	<p>TLS 1.2 is misconfigured in the Netwrix server.</p>
+	</li><li>
+	<p>The implicit SSL connection mode is enabled.</p>
+	</li><li>
+	<p>SMTP settings are misconfigured.</p>
+	</li><li>
+	<p>The monitoring plan is corrupted.</p>
+	</li></ul>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<ol><li>
+	<p>Review the TLS protocol versions enabled in your environment ? refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eOCAS.html" target="_self">?onnection Issue when TLS 1.2 Is Required</a>.</p>
+	</li><li>
+	<p>Uncheck the <strong>Use the Implicit SSL connection mode</strong> checkbox in the <strong>Notifications</strong> tab in PEN, and verify the SMTP settings.</p>
+	</li><li>
+	<p>Verify the SMTP settings ? make sure the specified port corresponds to the server port. Learn more in <a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365" target="_blank">How to set up a multifunction device or application to send email using Microsoft 365 or Office 365 ? Microsoft &#129125;</a>.</p>
+	</li><li>
+	<p>Review the list of ports and protocols required for PEN to operate ? refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Tools/PasswordExpirationNotifier.htm#password_expiration_notifier" target="_self">Tools ? Password Expiration Notifier ? v10.6</a>.</p>
+	</li><li>
+	<p>Recreate your PEN monitoring plan ? it is required to perform the setup manually as there&#39;s no option to copy the existing plan automatically.</p>
+	</li></ol>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eOCAS.html" target="_self">?onnection Issue when TLS 1.2 Is Required</a></p>
+	</li><li>
+	<p><a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365" target="_blank">How to set up a multifunction device or application to send email using Microsoft 365 or Office 365 ? Microsoft &#129125;</a></p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Tools/PasswordExpirationNotifier.htm#password_expiration_notifier" target="_self">Tools ? Password Expiration Notifier ? v10.6</a></p>
+	</li></ul>
+</div>
+</body>
+</html>

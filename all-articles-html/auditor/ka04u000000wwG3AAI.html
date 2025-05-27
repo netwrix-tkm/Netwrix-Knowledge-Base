@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Missing After the License Expiration</title>
+    <meta name="article-id" content="ka04u000000wwG3AAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-11-27T10:17:14.000Z">
+    <meta name="articlenumber" content="000008922">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2023-11-27T14:42:29.000Z">
+    <meta name="firstpublisheddate" content="2023-11-27T10:17:26.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnrZCAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wnrZCAQ">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2023-11-27T14:42:47.000Z">
+    <meta name="lastpublisheddate" content="2023-11-27T10:17:26.000Z">
+    <meta name="meta-description" content="Data Missing After the License Expiration">
+    <meta name="meta-title" content="Data Missing After the License Expiration">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8922">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnrZCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Data Missing After the License Expiration</h1>
+    <h2>Question</h2>
+
+<div>
+<p>Your Netwrix Auditor license has recently expired ? a new license has since been applied. Why do activity records from the downtime period are missing?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>Netwrix Auditor stops monitoring corresponding data sources after the license expiration. Once a new license is applied, Auditor will collect all the data present in event logs as of the moment of the license application. This behavior is expected ? the event logs are set up to be overwritten to prevent the extra space consumption. Any events that were overwritten will not have activity records generated for them.</p>
+
+<p>Depending on the size of your environment and the amount of Activity Records generated per day, you might need to increase the event log size. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/EventLog.htm" target="_self">Adjusting Event Log Size and Retention Settings ? v10.6</a>.</p>
+</div>
+
+<h2>Related articles</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/EventLog.htm" target="_self">Adjusting Event Log Size and Retention Settings ? v10.6</a></p>
+</div>
+</body>
+</html>

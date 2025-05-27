@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannot Establish a Connection to a Windows File Server Compression Service</title>
+    <meta name="article-id" content="ka0Qk0000000vmHIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-11-21T16:01:41.000Z">
+    <meta name="articlenumber" content="000008913">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-12-11T13:01:22.000Z">
+    <meta name="firstpublisheddate" content="2023-11-21T16:01:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000wnqMCAQ">
+    <meta name="knowledge-article-id" content="kA04u000000wnqMCAQ">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-12-11T13:02:06.000Z">
+    <meta name="lastpublisheddate" content="2023-12-11T13:02:06.000Z">
+    <meta name="meta-description" content="Cannot Establish a Connection to a Windows File Server Compression Service error">
+    <meta name="meta-title" content="Cannot Establish a Connection to a Windows File Server Compression Service">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8913">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000wnqMCAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Cannot Establish a Connection to a Windows File Server Compression Service</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<ol><li>
+	<p>Symptom 1. The following error appears when trying to process an item with Netwrix Auditor for File Servers:</p>
+
+	<div>
+	<pre class="has-inner-focus">
+Unable to process item: Cannot establish a connection to a Compression Service (0x80070424 The specified service does not exist as an installed service).</pre>
+	</div>
+	</li><li>
+	<p>Symptom 2. The <b>Netwrix Auditor Application Deployment Service</b> is not installed on the target server.</p>
+	</li></ol>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The error appears when the <b>Remote Registry Service</b> was disabled on the target server.</p>
+
+<h2>Resolution</h2>
+
+<div>
+<p>To resolve the error, do the following:</p>
+
+<ol><li>
+	<p>Enable the <b>Remote Registry Service</b> referencing the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Windows/RemoteRegistryService.htm" target="_blank">Configuration � Windows File Servers � Enable Remote Registry Service � v10.6</a>.</p>
+	</li><li>
+	<p>Reboot Netwrix Auditor Server.</p>
+	</li></ol>
+
+<p>After that, the <b>Netwrix Auditor Application Deployment Service</b> appears on the target file server. Depending on the amount of audited data, further data collection may take a while.</p>
+</div>
+
+<h3>Related Articles</h3>
+
+<div>
+<ul><li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000TsqpCAC.html" target="_blank">How to Investigate Compression Services Errors</a>.</li><li><a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/FileServers/Windows/RemoteRegistryService.htm" target="_blank">Configuration � Windows File Servers � Enable Remote Registry Service � v10.6</a>.</li></ul>
+</div>
+</div>
+</body>
+</html>

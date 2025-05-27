@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 26201: Error Installing Package</title>
+    <meta name="article-id" content="ka0Qk000000BejhIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2024-12-27T16:28:49.000Z">
+    <meta name="articlenumber" content="000009358">
+    <meta name="assignedbyid" content="005Qk0000017MRRIA2">
+    <meta name="assignedtoid" content="005Qk0000017MRRIA2">
+    <meta name="assignmentdate" content="2024-12-27T16:28:49.000Z">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2024-12-27T16:28:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001osPKAQ">
+    <meta name="knowledge-article-id" content="kA0Qk0000001osPKAQ">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-02-06T08:26:38.000Z">
+    <meta name="ownerid" content="005Qk0000017MRRIA2">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9358">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001osPKAQ.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Error 26201: Error Installing Package</h1>
+    <blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Symptom</h2>
+<p>While installing PingCastle on Windows Server, the installer generates the following error message:</p>
+<pre class="has-inner-focus"><span>Error 26201<br>The installer has encountered an unexpected error installing this package</span>
+</pre>
+<h2>Cause</h2>
+<p>These errors may be caused by any one of the following:</p>
+<ul><li>
+<p>Installation process started without Local administrator rights</p>
+</li><li>The account used to perform installation does not belong to the appropriate AD groups</li><li>Group policies or security software blocking the installation</li><li>SQL server is not configured properly</li></ul>
+<p><span class="Note"><strong>NOTE: </strong></span>This is important information to highlight.</p>
+<h2>Resolutions</h2>
+<p>To address these causes, refer to the following steps.</p>
+<ul><li>
+<p>Configure antivirus exclusions in your environment. Refer to the following article for additional information: <a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HirCAE.html" target="_blank">Antivirus Exclusions for Netwrix Auditor</a>.</p>
+</li><li>
+<p>Refer to the following steps in case excluding folders from the antivirus scans didn&#39;t help:</p>
+<ol><li>
+<p>Review the registry permissions for the affected SID, and compare them with the unaffected user SID in the same server.</p>
+</li><li>
+<p>Review the list of users in <code>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\ProfileList\</code>.</p>
+</li></ol>
+</li></ul>
+</body>
+</html>

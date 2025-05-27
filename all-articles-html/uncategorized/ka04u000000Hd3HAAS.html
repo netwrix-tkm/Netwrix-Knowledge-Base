@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotfix: SAM_4.1_010</title>
+    <meta name="article-id" content="ka04u000000Hd3HAAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:48:30.000Z">
+    <meta name="articlenumber" content="000007600">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:14:34.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:48:31.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000J7nCAE">
+    <meta name="knowledge-article-id" content="kA04u0000000J7nCAE">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:14:35.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:48:31.000Z">
+    <meta name="meta-description" content="360012124711">
+    <meta name="meta-title" content="Hotfix: SAM_4.1_010">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7600">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000J7nCAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Hotfix: SAM_4.1_010</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> 1.	Sporadic disconnects from SAM agent and NETAPP
+2.	No Kerberos auth. events after applying MS updates for 2016 and 2019 Servers, released January 23, 2020</p><p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Summary:</span></strong></span></span></span> 
+</p><ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Sporadic disconnects from SAM agent and NETAPP</span></i></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">No Kerberos auth. events after applying MS updates for 2016 and 2019 Servers, released January 23, 2020</span></i></span></span></span></li></ol><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior Before Fix:</span></strong></span></span></span> 
+<ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Sporadic disconnects from netapp devices.</span></i></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><i><span><span style="color: #404040;">No Kerberos auth. events after applying MS updates for 2016 and 2019 Servers, released January 23, 2020</span></span></i></strong></span></span></span></li></ol><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Behavior After Fix:</span></strong></span></span></span> 
+<ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Netapp should not disconnect anymore.</span></i></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Updated Active Directory monitor to support latest windows update changes.</span></i></span></span></span></li></ol><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>Changes Since Last Hotfix:</b></span></span></span> 
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-3988: Force Kill Services if they can&#39;t be started or stopped (Installs, uninstalls, and upgrades)</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-2940: Extend API Server to manipulate SI Agent policies</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4123: SFAM: SharePoint Activity Forward Compatability Broken -Unknown property ItemId</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4203: Implement Forward Compatibility in AD Json Parser</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4076: Update Installer shouldn&#39;t allow selecting current SI Agent</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4179: Investigate netapp new VS dependency issue</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-3887: Unable to connect to SharePoint 2010</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4248: SharePoint - Show Warning if included sites fail to connect</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-1556: Nasuni - Auto Detect - Suppress Connection Error</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4225: AD deploy doesn&#39;t show RODC</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-2224: Update agent host name validation</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-3825: Agent Validation: Cache and improve dns resolution</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4174: Agent logs errors about missing CEE (Remote CEE)</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4236: Add New Host: Hide Operation Types from all NAS (except HNAS)</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4273: Celerra Service Crashes when stopping (disable monitoring) (4.1)</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4023: Install Button Should know to include AD Module</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4101: FPolicy fail with secured connection (pem file) ipv6</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-4332: Console Crashes when using Install button after upgrading AD Agent fails</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-3355: Unable add IPv6 address for syslog output</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-3657: Unable to test syslog server with IPv6 address with port</span></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #3b3838;">SFAM-3334: Default log file name contain invalid characters(ipv6 address)</span></span></span></span></li></ul><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Submitted by: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Kevin Duddy</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Versions:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">STEALTHbits Activity Monitor 4.1</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Affected Module:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Activity Monitor</span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Dev Ticket:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">SFAM-3987</span></i></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Resolved in Version:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SBActivityMonitorSetup.msi 4.1.0.356</span></span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>KB Type: </span></strong></span></span></span><br><span style="font-size: 11pt;"><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">Hotfix</span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Modules Included:</span></strong></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SBActivityMonitorSetup.msi 4.1.0.356</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SBActivityMonitorSetup_unsigned.msi 4.1.0.356</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SBTService.exe 1.5.0.575</span></span></span></span></span><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span class="MsoSubtleEmphasis" style="color: #404040;"><span style="font-style: italic;">SI Version 6.1.0.237</span></span></span></span></span><br><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>YouTrack/Escalations</b></span></span></span> 
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">SFAM-3987 / 39092</span></i></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #333333;">I-5979 / N/A</span></span></span></span></li></ul><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>Customers</b></span></span></span> 
+<ul><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span><span style="color: #404040;">Qualcomm</span></span></strong></span></span></span></li></ul><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><b>Cumulative List of fixes included since Service Pack:</b></span></span></span> 
+<ul><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-3434: SAM/Nasuni Error Collecting Events</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-3765: SAM capture chgrp and chown on NETAPP</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-3637: SFAM SBTService crashing Azure VM server</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-3687: Unable to collect events from Windows 2012 R2 Servers</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-3464: Human Readable Permission Changes (New Syslog Macro)</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-3534: Activity sync for ISILON is a week behind</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-2726: SFAM Falling Behind - Isilon</span></span></span></span>
+</li><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">I-5693: 2019 Server Only | No LDAP events after applying 19-11 MS update (release: 11/12/19)</span></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><span style="color: #404040;">SFAM-4039: collect logs interface: can&#39;t select if list is long and you scroll</span></span></span></span></li></ul><br><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Instructions:</span></strong></span></span></span> 
+<ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Run msi file on host that has the SBActivityMonitor installed. (No need to uninstall previous version, msi will upgrade the monitor).</span></i></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Upgrade all agents.</span></i></span></span></span></li></ol><p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><strong><span>Instructions:</span></strong></span></span></span> 
+</p><ol><li>
+<span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Run msi file on host that has the SBActivityMonitor installed. (No need to uninstall previous version, msi will upgrade the monitor).</span></i></span></span></span>
+</li><li><span style="font-size: 11pt;"><span><span style="font-family: Calibri,sans-serif;"><i><span style="color: #404040;">Upgrade all agents.</span></i></span></span></span></li></ol>
+<div>
+<br><a href="https://downloads.stealthbits.com/access/files/SAMHotfixes/4.1/SAM_4.1_010.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAMHotfixes/4.1/SAM_4.1_010.zip</a>
+</div><p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> STEALTHbits File Activity Monitor<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> File Activity Monitor - EMC/Celerra;File Activity Monitor - NetApp;File Activity Monitor - Windows<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> STEALTHbits Activity Monitor 4.1<br><strong><span class="wysiwyg-font-size-large">Dev Ticket:</span></strong> SFAM-3987<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> SBActivityMonitorSetup.msi 4.1.0.356<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2584<br></p>
+</body>
+</html>

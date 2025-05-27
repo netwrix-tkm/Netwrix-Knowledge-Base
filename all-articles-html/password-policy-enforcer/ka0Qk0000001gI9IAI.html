@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Extended (Debug) Logs</title>
+    <meta name="article-id" content="ka0Qk0000001gI9IAI">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2024-01-30T13:28:32.000Z">
+    <meta name="articlenumber" content="000009032">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2024-02-05T08:39:13.000Z">
+    <meta name="firstpublisheddate" content="2024-01-30T13:28:48.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000QAbKAM">
+    <meta name="knowledge-article-id" content="kA0Qk0000000QAbKAM">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-02-05T08:39:28.000Z">
+    <meta name="lastpublisheddate" content="2024-01-30T13:28:48.000Z">
+    <meta name="meta-description" content="Enable Extended (Debug) Logs">
+    <meta name="meta-title" content="Enable Extended (Debug) Logs">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9032">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000QAbKAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Enable Extended (Debug) Logs</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to enable extended (debug) logs in a Netwrix Password Policy Enforcer client or server installation?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<ol><li>
+	<p>Create a <code>.reg</code> file and paste the following lines:</p>
+
+	<pre class="has-inner-focus">
+<code class="lang-Registry">Windows Registry Editor Version 5.00
+            
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\ANIXIS\Password Policy Enforcer]
+&quot;DebugModeEnable&quot;=dword:00000001</code></pre>
+
+	<p>The <code>.reg</code> file will later be used to create a <code>DWORD</code> <code>DebugModeEnable</code> entry with the value of 1 in the <code>Password Policy Enforcer</code> subkey.</p>
+	</li><li>
+	<p>Open the resulting <code>.reg</code> file to add the new entry to the <code>Password Policy Enforcer</code> subkey. Confirm the addition by clicking <strong>Yes</strong>.</p>
+	</li><li>
+	<p>Reboot the server for changes to apply.</p>
+	</li><li>
+	<p>The <code>ppclt_debug.txt</code> log file will be created in <code>C:\</code>.</p>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #ff0000;"><strong>IMPORTANT: </strong></span>Once the troubleshooting phase is over, make sure to delete the <code>DebugModeEnable</code> entry in <code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\ANIXIS\Password Policy Enforcer</code>. Otherwise, the extended log may take up a significant space in your hard drive.</p>
+</blockquote>
+</div>
+</body>
+</html>

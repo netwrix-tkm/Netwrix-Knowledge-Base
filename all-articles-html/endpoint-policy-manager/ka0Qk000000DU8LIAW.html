@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolicyPak File Associations: Don&#x27;t ask questions (even when you did it right)</title>
+    <meta name="article-id" content="ka0Qk000000DU8LIAW">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk0000017MRRIA2">
+    <meta name="articlecreateddate" content="2025-04-29T15:36:40.000Z">
+    <meta name="articlenumber" content="000010163">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002PAPKA2">
+    <meta name="confidence-level" content="Validated">
+    <meta name="createdbyid" content="005Qk0000017MRRIA2">
+    <meta name="createddate" content="2025-04-29T15:36:40.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-29T15:37:25.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002PAPKA2">
+    <meta name="lastmodifiedbyid" content="005Qk0000017MRRIA2">
+    <meta name="lastmodifieddate" content="2025-04-29T15:37:25.000Z">
+    <meta name="lastpublisheddate" content="2025-04-29T15:37:25.000Z">
+    <meta name="ownerid" content="005Qk0000017MRRIA2">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10163">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot; &quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>PolicyPak File Associations: Don&#x27;t ask questions (even when you did it right)</h1>
+    <ul class="off-canvas-drilldown vertical menu off-canvas-list"></ul>
+<ul class="off-canvas-accordion vertical menu sidenav"></ul>
+<p>How do I get Windows 10 to stop asking me to open PDFs in Microsoft Edge? When you use�<span class="mc-variable PolicyPak.Product_Short_Name variable">PolicyPak</span> File Associations Manager, you might have done &quot;everything right&quot; but even then, it still doesn&#39;t work as expected. See this video for a universal fix.</p>
+<p><iframe frameborder="0" scrolling="auto" width="1642" height="924" src="https://www.youtube.com/embed/cMioz4JQPYI" title="PolicyPak File Associations: Don&#39;t ask questions (even when you did it right)" allowfullscreen="allowfullscreen"></iframe></p>
+<p>Hi, this is Jeremy Moskowitz and if you&#39;re watching this video, you&#39;re probably wondering why when you use file associations manager you still get this question. Do you want to open this file? You&#39;ve already associated it correctly. You can see that it&#39;s correctly going to use Acrobat Reader, but why does Windows still ask? Well, there&#39;s an easy way to make this problem go away. This isn&#39;t a file association manager problem; this is just Windows trying to advertise its own stuff, so let&#39;s go ahead and show you how you can work around this.</p>
+<p>I&#39;ve got a GPO where I like to put things that want to affect all users here, so I&#39;m going to put it into my General Needs GPO here. What you&#39;re going for here is the � under the Policies Admin Templates, you&#39;re looking for Windows Components File Explorer Then you&#39;re looking for Do Not Show the New Application Installed Notifications. Let&#39;s set that to enabled. Okay, so now that we&#39;ve done this guy here, we&#39;ll do a quick AB test. You saw me do that before, so now I&#39;m going to run GP Update, and you may need to log off and log back on. This&#39;ll affect the next time the guy logs on and every user going forward in the future, so let&#39;s go ahead and do that here.</p>
+<p>Alright, so I&#39;ll go ahead and run GP Update here. There we go. GP Update, give this a second to finish up, and then we&#39;ll go ahead and log off and log back on. Alright, so we&#39;re done with that. Go ahead and sign out. Sign back in, and now let&#39;s go ahead and run it and see what happens. Look at that, no more questions. If we were to log off here and log on as, say, West Sales User 3 � let&#39;s go ahead and do that. Sign out here. We&#39;ll sign on as a user that&#39;s never even logged on before. If we do West Sales User 8, give this a second for this guy to log on.</p>
+<p>Now that we&#39;re logged on, here&#39;s that PDF. Go ahead and double-click it, and what do we get? We get no questions. Hopefully that policy setting helps you out and therefore you can use file associations manager quickly and easily and no more questions.</p>
+<p>Thanks so very much for watching and talk to you soon.</p>
+<p>�</p>
+</body>
+</html>

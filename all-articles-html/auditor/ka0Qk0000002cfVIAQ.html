@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor System Health Log Contains Event IDs 1015 and 1016</title>
+    <meta name="article-id" content="ka0Qk0000002cfVIAQ">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-02-07T15:29:43.000Z">
+    <meta name="articlenumber" content="000009046">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-03-15T11:32:19.000Z">
+    <meta name="firstpublisheddate" content="2024-02-07T15:29:56.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000RJZKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000000RJZKA2">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-03-15T11:32:46.000Z">
+    <meta name="lastpublisheddate" content="2024-03-15T11:32:46.000Z">
+    <meta name="meta-description" content="Netwrix Auditor System Health Log Contains Event IDs 1015 and 1016">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log Contains Event IDs 1015 and 1016">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9046">
+    <meta name="versionnumber" content="4">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000RJZKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor System Health Log Contains Event IDs 1015 and 1016</h1>
+    <h2>Symptoms</h2>
+
+<div>
+<p>The corresponding item shows a Ready status after restarting the Netwrix Auditor for Windows Server Compression Service on a target server running Windows Server 2019. However, when clicking the <b>Update</b> option, next to the monitoring plan, the item shows <b>Take Action</b>.</p>
+
+<p>In addition, the <b>Netwrix Auditor System Health</b> log contains the following event IDs:</p>
+
+<div><code>Event ID 1016: Windows Registry audit permissions are not enabled for this server. Adjust Windows Registry audit permissions automatically or manually.</code></div>
+
+<p><br>and</p>
+
+<div><code>Event ID 1015: Multiple errors of the same type have occurred on the Registry data provider.</code></div>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The <b>Everyone</b> group should have permission to access the necessary registry keys rather than the data collection service account.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Grant the necessary permissions to access the registry keys to the <b>Everyone</b> group.</p>
+
+<p>Review the complete list of the required registry keys and learn more about configuring permissions in the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/WindowsServer/WindowsRegistry.htm" target="_blank">Data Source Configuration � Configure Windows Registry Audit Settings � v10.6</a>.</p>
+</div>
+</body>
+</html>

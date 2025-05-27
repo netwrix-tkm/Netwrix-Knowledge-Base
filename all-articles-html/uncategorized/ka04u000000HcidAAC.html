@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Large Amounts of Data from SQL</title>
+    <meta name="article-id" content="ka04u000000HcidAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:18:29.000Z">
+    <meta name="articlenumber" content="000006501">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:04:35.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:18:29.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IFhCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IFhCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:04:35.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:18:29.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Delete Large Amounts of Data from SQL">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6501">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IFhCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Delete Large Amounts of Data from SQL</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> Loop deletes to prevent transaction log from filling.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> there are several scenarios in StealthAUDIT where historical data is maintained over a period of time. <br>this can be done using <br>1) native StealthAUDIT History (job properties &gt; storage tab) <br>2) SQL scripting <br><br>StealthAUDIT native history should loop through native history deletions. <br><br>This can also be a problem in any SQL analysis that attempts to delete (or even affect) a lot of rows.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong> <span style="font-size: 8pt;"><span style="font-family: verdana,sans-serif;"><strong>how to delete where source date time is older than 6 months from today 10k rows at a time:</strong></span></span><br><br>You&#39;ll need to adjust the tablename and where clause to match your specific use case. �<br>You can increase the 10k to 50k or 100k or 500k etc. as you see fit for the size of the transaction log. �The higher you can get it without filling, the less SQL server has to calculate which rows to delete. �<br><br><span style="color: #ff0000;">If it&#39;s feasible, back up the table before deleting data. � </span>(select * into backupTablename from sourceTableName)<br><br><span style="color: #ff0000;">Be certain</span> <span style="color: #ff0000;">that the where clause is set to delete the correct data </span>by using it in a select statement first. �For example:</p>
+<div style="margin-left: 40px;">select min(sourcedatetime) from�SA_JobName_TableName WHERE [SourceDateTime] &lt; dateadd(month,-6,GETDATE())</div>
+<p>or if there&#39;s too much data to wait for that, you can run the following to just make sure your date range calculation is correct</p>
+<div style="margin-left: 40px;">select�dateadd(month,-6,GETDATE())</div>
+<p><br><span style="color: #0000ff;">deleteMore:<br>DELETE TOP(10000) SA_JobName_TableName WHERE [SourceDateTime] &lt; dateadd(month,-6,GETDATE())<br>IF @@ROWCOUNT != 0<br>��� goto deleteMore</span><br>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Database/SQL;SA - Core<br><strong><span class="wysiwyg-font-size-large">Resolved In:</span></strong> 6.3 SP2 (core history)<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 000001132</p>
+</body>
+</html>

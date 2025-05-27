@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue running Weak Passwords job as a scheduled task</title>
+    <meta name="article-id" content="ka04u000000Hcl1AAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:16:49.000Z">
+    <meta name="articlenumber" content="000006463">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:05:48.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:16:49.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000ILQCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000ILQCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:05:48.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:16:49.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Issue running Weak Passwords job as a scheduled task">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6463">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000ILQCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Issue running Weak Passwords job as a scheduled task</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong>�Error running the Weak password job as a scheduled task</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong>�Running the Weak password job manually works without any issues. When running the job as a scheduled task you get the below error</p>
+<p>System.IO.FileNotFoundException: Could not load file or assembly &#39;DSInternals.Replication.Interop.dll&#39; or one of its dependencies. The specified module could not be found. File name: &#39;DSInternals.Replication.Interop.dll&#39; � �at DSInternals.Replication.DirectoryReplicationClient..ctor(String server, RpcProtocol protocol, NetworkCredential credential) � �at Stealthbits.StealthAUDIT.DataCollectors.PasswordSecurity.Tasks.WeakPasswordsScanTask.InternalProcessRecord() � �at Stealthbits.StealthAUDIT.DataCollectors.Tasks.Task.StartExecute()</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong>�Log onto Stealth Audit console</p>
+<p>Confirm that you can run the job manually</p>
+<p>Schedule the Weak password job</p>
+<p>If you get the above error</p>
+<p>Check Program and Features to see if the below application is missing (You need the x86 version)</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcZ3b&amp;d=%2Fa%2F4u000000Lylb%2FgK8YL25TE48ELRpLkF2jLJrZXHX6sF45tA.RK9t_D5Q&amp;asPdf=false" alt="mceclip0.png" width="471" height="30"></img></p>
+<p>The version you need is the x86 version which can be found here</p>
+<p><a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">https://aka.ms/vs/16/release/vc_redist.x86.exe</a></p>
+<p>Once its installed try and run the scheduled task again</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Stealth Audit<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Active Directory<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> 10</p>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>�</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

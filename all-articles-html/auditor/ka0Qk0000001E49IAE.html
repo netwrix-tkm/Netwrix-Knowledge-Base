@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event ID 1259 in Health Log</title>
+    <meta name="article-id" content="ka0Qk0000001E49IAE">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:57.000Z">
+    <meta name="articlenumber" content="000003605">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-01-04T13:10:07.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:50.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9clCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9clCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-01-04T13:10:35.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:29:50.000Z">
+    <meta name="meta-description" content="Troubleshooting SharePoint Audit issues caused by an incomplete or failed Data Collection.">
+    <meta name="meta-title" content="Netwrix Auditor System Health Log - Event ID 1259">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2421">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9clCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Event ID 1259 in Health Log</h1>
+    <h2>Symptom</h2>
+
+<div>
+<p>The following error message under Event ID 1259 is prompted in Health Log for your SharePoint monitoring plan:</p>
+
+<pre class="has-inner-focus">
+Unable to report changes correctly, as the previous configuration snapshot has been removed or is partially invalid</pre>
+</div>
+
+<h2>Cause</h2>
+
+<div>
+<p>The data collection was launched manually while the initial data collection process has been already in progress after the monitoring plan creation. This has led to data collection failure.</p>
+</div>
+
+<h2>Resolution</h2>
+
+<div>
+<p>Restart the data collection ? in the main Auditor menu, select <strong>Monitoring Plans</strong> &gt; select %SharePoint_plan% &gt; <strong>Edit</strong> &gt; click <strong>Update</strong>.</p>
+</div>
+</body>
+</html>

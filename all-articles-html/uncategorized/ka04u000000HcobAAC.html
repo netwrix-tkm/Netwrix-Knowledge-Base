@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add an ability to remove previously found SDD Matches/MatchHits</title>
+    <meta name="article-id" content="ka04u000000HcobAAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:24:25.000Z">
+    <meta name="articlenumber" content="000006674">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2023-05-08T10:07:32.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:24:26.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IUwCAM">
+    <meta name="knowledge-article-id" content="kA04u0000000IUwCAM">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:07:32.000Z">
+    <meta name="lastpublisheddate" content="2022-02-01T18:24:26.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Add an ability to remove previously found SDD Matches/MatchHits">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="6674">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IUwCAM.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Add an ability to remove previously found SDD Matches/MatchHits</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> We created a job (JOB_FS_SDD_DELETE) that allows for the removal of unwanted sensitive data matches/MatchHIts from tier 1 tables. The job contains 3 individual scripts that can be configured to remove data for a given criteria, a given host, or a given Host/criteria combination. When running the script, data will be removed from SA_FSDLP_Matches and SA_FSDLP_MatchHits tables. Data will NOT be removed from the SA_FSDLP_Criteria table.</p>
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> We created a job (JOB_FS_SDD_DELETE) that allows for the removal of unwanted sensitive data matches/MatchHIts from tier 1 tables. The job contains 3 individual scripts that can be configured to remove data for a given criteria, a given host, or a given Host/criteria combination.<br>When running the script, data will be removed from SA_FSDLP_Matches and SA_FSDLP_MatchHits tables. Data will NOT be removed from the SA_FSDLP_Criteria table.</p>
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+<p>Add Job from File Systems Instant Library�or download the job if using StealthAUDIT older than 8.2 (make sure to make sure folder isn&#39;t marked as read only before putting it in StealthAUDIT)</p>
+<table><tbody><tr><td colspan="1" rowspan="1" class="fieldValue">
+<table class="htmlDetailElementTable" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td colspan="1" rowspan="1">
+<div class="sfdc_richtext" id="j_id0:j_id7:j_id8:j_id369:2:j_id372:1:j_id380j_id0:j_id7:j_id8:j_id369:2:j_id372:1:j_id380_00Nj0000000g0MK_div">
+<table style="height: 57px;" border="0" width="64" cellspacing="0" cellpadding="0"><tbody><tr style="height: 57px;"><td colspan="1" rowspan="1" style="height: 57px;width: 640px;" height="58"><a href="https://downloads.stealthbits.com/access/files/SAHotFixes/Jobs/JOB_FS_SDD_DELETE.zip" target="_blank">https://downloads.stealthbits.com/access/files/SAHotFixes/Jobs/JOB_FS_SDD_DELETE.zip</a></td></tr></tbody></table>
+</div>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p><strong><span class="wysiwyg-font-size-large"><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaEw&amp;d=%2Fa%2F4u000000Lypn%2Fi6pFUh_EHxLZJTuMw0GCVfZu5y7yLJsr8WBr7RRNeOo&amp;asPdf=false" alt="mceclip0.png"></img></span></strong></p>
+<p>Choose one of the three drop DLP Analysis Options.��</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaQi&amp;d=%2Fa%2F4u000000Lyps%2FT.Dbi9yVhJcO8FQy1yJInycEuAfixDa6Pn6ZrKigfUk&amp;asPdf=false" alt="mceclip1.png"></img></p>
+<p>The Analysis will have to be modified to specify what host\criteria we are removing</p>
+<p><img src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcYCe&amp;d=%2Fa%2F4u000000Lypx%2FcCX26lHCXyMmPh0EkgkXtL7hgK5IBSIoJTkfwU31wyA&amp;asPdf=false" alt="mceclip2.png"></img></p>
+<p>�</p>
+<p>�</p>
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> StealthAUDIT<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> SA - DC - FSAA - Sensitive Data<br><strong><span class="wysiwyg-font-size-large">Versions:</span></strong> All<br><strong><span class="wysiwyg-font-size-large">Salesforce Article ID:</span></strong> 2177</p>
+</body>
+</html>

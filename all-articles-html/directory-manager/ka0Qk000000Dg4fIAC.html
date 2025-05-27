@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Enforce Users to Create Groups in a Specific OU</title>
+    <meta name="article-id" content="ka0Qk000000Dg4fIAC">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-12-05T15:47:44.000Z">
+    <meta name="articlenumber" content="000008937">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000000HiPKAU">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2025-05-08T10:27:00.000Z">
+    <meta name="firstpublisheddate" content="2023-12-05T15:47:51.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000HiPKAU">
+    <meta name="knowledge-article-id" content="kA0Qk0000000HiPKAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-08T10:32:53.000Z">
+    <meta name="lastpublisheddate" content="2023-12-18T14:20:10.000Z">
+    <meta name="meta-description" content="How To Enforce Users to Create Groups in a Specific OU">
+    <meta name="meta-title" content="How To Enforce Users to Create Groups in a Specific OU">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8937">
+    <meta name="versionnumber" content="5">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Enforce Users to Create Groups in a Specific OU</h1>
+    <h2>Applies To:</h2>
+
+<div>
+<p>Directory Manager 11</p>
+</div>
+
+<h2>Business Requirement:</h2>
+
+<div>
+<p>Using the Directory Manager portal, users can create groups in any OU in the directory. Is there a way to limit users to create groups in a specific OU?</p>
+</div>
+
+<h2>Solution:</h2>
+
+<div>
+<p>In Directory Manager, you can apply policies to security roles, so that role members can use Directory Manager in keeping with the policy restrictions.</p>
+
+<p>Directory Manager�s <em>New Object</em> policy enables you to restrict role members to create new groups in a specific OU only.</p>
+</div>
+
+<h2>Steps:</h2>
+
+<div>
+<ol><li>
+	<p>In the Directory Manager Admin Center portal, click the <b>Identity Stores</b> tab.</p>
+	</li><li>
+	<p>On the <b>Identity Stores</b> tab, click on the <b>Triple Dot</b> button and then click on the <b>Edit</b> button to open its properties.</p>
+	</li><li>
+	<p>On the <b>Security Roles</b> tab, select the security role you would like to apply the <em>New Object</em> policy to (for example, <em>User</em>).</p>
+	</li><li>
+	<p>On the <b>Policies</b> tab, click <b>New Object</b> in the left pane.</p>
+	</li><li>
+	<p>Select <b>Groups</b> and click <b>Add</b>.</p>
+	</li><li>
+	<p>On the <b>Select Container</b> dialog box, select the container in which role members can create groups (this will be the default OU when creating groups).</p>
+
+	<p>The selected OU appears below the <b>Groups</b> option.</p>
+
+	<p><img alt="User-added image" height="189" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg4f&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001f3Kk" width="500"></img></p>
+
+	<p><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000Dg4f&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000001f68v"></img></p>
+	</li><li>
+	<p>Click <b>OK</b>.</p>
+	</li><li>
+	<p>Click <b>Update Security Role</b> and then <b>Save</b>.</p>
+	</li></ol>
+
+<p>Now when members of the security role try to create groups, they will be created in the default OU that you specified in the <em>New Object</em> policy.</p>
+</div>
+
+<h2>Reference:</h2>
+
+<div>
+<p><a href="https://helpcenter.netwrix.com/bundle/GroupID_11.0/page/Content/GroupID/AdminCenter/SecurityRole/Policy/NewObject.htm" target="_blank">Admin Center � Security Roles � New Object Policy for Security Roles � v11.0</a></p>
+</div>
+
+<h3>Related Articles:</h3>
+
+<div>
+<ul><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HQfKAM.html" target="_blank">Walkthrough Search Policy - Define Scope and Filter Results</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HthKAE.html" target="_blank">How To Import Members to a Group Using Self-Service Import Wizard</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HwvKAE.html" target="_blank">How to Trigger a workflow When a User ?reates a Group</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HyXKAU.html" target="_blank">How To Add Message Approvers in Group Properties in Self-Service</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000HiPKAU.html" target="_blank">Best Practices for Controlling Changes to Group Membership</a>.</p>
+	</li><li>
+	<p><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000IPxKAM.html" target="_blank">Best Practices for Preventing Accidental Data Leakage</a>.</p>
+	</li></ul>
+</div>
+</body>
+</html>

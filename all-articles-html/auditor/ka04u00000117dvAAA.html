@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Are not Shown</title>
+    <meta name="article-id" content="ka04u00000117dvAAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T17:11:00.000Z">
+    <meta name="articlenumber" content="000003332">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-09-07T10:46:31.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:31:42.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9YHCA0">
+    <meta name="knowledge-article-id" content="kA00g000000H9YHCA0">
+    <meta name="lastmodifiedbyid" content="0054u000007Mj6zAAC">
+    <meta name="lastmodifieddate" content="2023-09-07T10:48:26.000Z">
+    <meta name="lastpublisheddate" content="2023-09-07T10:48:26.000Z">
+    <meta name="meta-description" content="Web Portal shows no images, just red boxes. The issue occurs because IIS cannot display images due to configuration settings.">
+    <meta name="meta-title" content="Images are not shown">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="1177">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9YHCA0.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Images Are not Shown</h1>
+    <h2>Question</h2>
+Web Portal shows no images just red boxes. Whats the case?
+
+<div><img alt="User-added image" height="249" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u00000117dv&amp;feoid=00N0g000004CA0p&amp;refid=0EM7000000050pb" width="500"></img></div>
+
+<h2>Answer</h2>
+The issue occurs because IIS cannot display images because of configuration.<br>To address the issue, enable the Static content feature within IIS. <strong>In Windows 7:</strong>
+
+<ol><li>Go to Control panel - Programs and features - Turn Windows features on or off.</li><li>Navigate to Internet Information Services (IIS) - World Wide Web Services - Common HTTP features.</li><li>Make sure that the checkbox in front of the Static content is enabled.</li></ol>
+<strong>In Windows 2008</strong>:
+
+<ol><li>Navigate to Server manager - Roles - Web server, find the Role services in the right pane, click Add role services.</li><li>Enable Static content under Common HTTP features.</li></ol>
+</body>
+</html>

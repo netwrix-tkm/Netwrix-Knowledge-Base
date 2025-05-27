@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This schema for this assembly has not been registered with WMI.&quot; NDC Error</title>
+    <meta name="article-id" content="ka04u000000HcXjAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005700000042ELcAAM">
+    <meta name="articlecreateddate" content="2020-05-07T12:43:12.000Z">
+    <meta name="articlenumber" content="000003755">
+    <meta name="createdbyid" content="005700000042ELcAAM">
+    <meta name="createddate" content="2023-05-08T09:51:43.000Z">
+    <meta name="firstpublisheddate" content="2020-05-07T12:57:11.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000PbcwCAC">
+    <meta name="knowledge-article-id" content="kA00g000000PbcwCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:51:43.000Z">
+    <meta name="lastpublisheddate" content="2020-05-07T12:57:11.000Z">
+    <meta name="meta-description" content="[not provided]">
+    <meta name="meta-title" content="[not provided]">
+    <meta name="ownerid" content="005700000042ELcAAM">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5701">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000PbcwCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>This schema for this assembly has not been registered with WMI.&quot; NDC Error</h1>
+    <h3 style="color: red;">Scenario</h3>
+
+
+
+<p><strong> You are receiving the following warning in the conceptsearching event log: </strong></p>
+
+
+
+<p><em>Component: conceptClassifier<br> Level: Warning<br> conceptEngine.ServiceFramework.ServiceViewerController.UpdateStatus<br> Error: System.Exception: This schema for this assembly has not been registered with WMI.<br>    at System.Management.Instrumentation.Instrumentation.Initialize(Assembly assembly)<br>    at System.Management.Instrumentation.Instrumentation.GetInstrumentedAssembly(Assembly assembly)<br>    at System.Management.Instrumentation.Instrumentation.GetFireFunction(Type type)<br>    at System.Management.Instrumentation.BaseEvent.get_FireFunction()<br>    at System.Management.Instrumentation.BaseEvent.Fire()<br>    at conceptEngine.ServiceFramework.ServiceViewerController.UpdateStatus(String status, Boolean force)</em></p>
+
+
+
+<p> This error is repeating multiple times per second and preventing the data crawl from starting.</p>
+
+
+
+<h3 style="color: orange;">Cause</h3>
+
+
+
+<p>The account running the conceptcollector, conceptindexer, and conceptclassifier is not a local admin. This is the permission level needed to register the schema with WMI. The services will be able to stay in the running state but the schema will continuously fail to register. Due to the constant attempts to register, you may potentially see memory consumed on the NDC server.</p>
+
+
+
+<h3 style="color: green;">Solution</h3>
+
+
+
+<p> Grant the account running the conceptcollector, conceptindexer, and conceptclassifier services local admin rights and restart the services. The warnings should immediately stop being recorded in the conceptsearching log.</p>
+</body>
+</html>

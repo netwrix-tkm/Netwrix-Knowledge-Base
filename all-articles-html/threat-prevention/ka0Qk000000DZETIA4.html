@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Up ESET HIPS Rules to Allow Threat Prevention SI Agent Hook</title>
+    <meta name="article-id" content="ka0Qk000000DZETIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000008ic83AAA">
+    <meta name="articlecreateddate" content="2023-09-01T09:45:36.000Z">
+    <meta name="articlenumber" content="000008780">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000011191CAA">
+    <meta name="createdbyid" content="0054u000008ic83AAA">
+    <meta name="createddate" content="2025-05-05T10:36:30.000Z">
+    <meta name="firstpublisheddate" content="2023-09-01T10:32:40.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000011191CAA">
+    <meta name="knowledge-article-id" content="kA04u0000011191CAA">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-05T10:43:01.000Z">
+    <meta name="lastpublisheddate" content="2023-09-01T10:32:40.000Z">
+    <meta name="meta-description" content="Set Up ESET HIPS Rules to Allow NTP/SI Agent Hook">
+    <meta name="meta-title" content="Set Up ESET HIPS Rules to Allow NTP/SI Agent Hook">
+    <meta name="ownerid" content="0054u000008ic83AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8780">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000011191CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Set Up ESET HIPS Rules to Allow Threat Prevention SI Agent Hook</h1>
+    <h2>Question</h2>
+
+<div>
+<p>How to set up ESET HIPS rules to allow Threat Prevention SI Agent hook?</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<ol><li>
+	<p>In the left pane of your ESET PROTECT Web Console, select <strong>Policies</strong>. Select the <strong>Detection Engine</strong> tab &gt; <strong>HIPS</strong>.</p>
+	</li><li>
+	<p>Under the <strong>Rules</strong> section, click <strong>Edit</strong>.</p>
+
+	<div><img alt="Step 2" height="340" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZET&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M9O8" width="700"></img></div>
+	</li><li>
+	<p>In the <strong>HIPS Rules</strong> window, click <strong>Add</strong>.</p>
+	</li><li>
+	<p>Specify the <strong>Rule name</strong>, select <strong>Allow</strong> for the <strong>Action</strong> type, and proceed by clicking <strong>Next</strong>.</p>
+
+	<div><img alt="Steps 3-4" height="352" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZET&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M9OD" width="701"></img></div>
+	</li><li>
+	<p>Select <strong>Specific applications</strong> in the dropdown list, and click <strong>Add</strong> to add the path to <code>SIWindowsAgent.exe</code>. Refer to the following code block for a default path:</p>
+
+	<pre class="has-inner-focus">
+C:\Program Files\STEALTHbits\StealthINTERCEPT\SIWindowsAgent\</pre>
+
+	<p>Proceed to the next step by clicking <strong>Next</strong>.</p>
+
+	<div><img alt="Step 5" height="351" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZET&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M9OI" width="701"></img></div>
+	</li><li>
+	<p>Switch the <strong>All file operations</strong> switch to the on position, and proceed by clicking <strong>Next</strong>. Click <strong>OK</strong> to save changes.</p>
+
+	<div><img alt="Step 6" height="351" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZET&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M9OS" width="701"></img></div>
+	</li><li>
+	<p>Once the configurations steps are completed, proceed to the <strong>Assign</strong> tab. Assign the new rule to corresponding systems.</p>
+
+	<div><img alt="Step 7" height="340" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZET&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M9OX" width="700"></img></div>
+	</li><li>
+	<p>The rule should become visible in your ESET host. Refer to the <strong>Advanced Setup</strong> menu &gt; <strong>HIPS</strong> tab &gt; <strong>Basic</strong> section &gt; <strong>Rules</strong> tab.</p>
+
+	<div><img alt="Step 8" height="367" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DZET&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000008M9Oc" width="700"></img></div>
+	</li></ol>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE: </strong></span>Once the rule is applied, SI Agent should be restarted.</p>
+</blockquote>
+</div>
+
+<h4>Related articles</h4>
+
+<p><a href="https://support.eset.com/en/kb8018-create-a-hips-rule-and-enforce-it-on-a-client-workstation-using-eset-protect" target="_blank">Create a HIPS rule and enforce it on a client workstation using ESET PROTECT (8.x � 10.x) ? ESET &#129125;</a></p>
+
+<p><a href="https://support.eset.com/en/kb2811-enable-or-disable-hips-in-eset-products" target="_blank">Enable or disable HIPS in ESET products (15.x�16.x) ? ESET &#129125;</a></p>
+</body>
+</html>

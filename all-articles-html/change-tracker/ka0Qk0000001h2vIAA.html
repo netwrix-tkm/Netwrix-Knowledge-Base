@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Uninstall Change Tracker Agent via PowerShell Script</title>
+    <meta name="article-id" content="ka0Qk0000001h2vIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2024-01-31T20:18:32.000Z">
+    <meta name="articlenumber" content="000009036">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2024-02-05T16:28:46.000Z">
+    <meta name="firstpublisheddate" content="2024-01-31T20:18:44.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000000QSLKA2">
+    <meta name="knowledge-article-id" content="kA0Qk0000000QSLKA2">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2024-02-05T16:29:30.000Z">
+    <meta name="lastpublisheddate" content="2024-02-05T16:29:30.000Z">
+    <meta name="meta-description" content="How To Uninstall Change Tracker Agent via PowerShell Script">
+    <meta name="meta-title" content="How To Uninstall Change Tracker Agent via PowerShell Script">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9036">
+    <meta name="versionnumber" content="3">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000000QSLKA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How To Uninstall Change Tracker Agent via PowerShell Script</h1>
+    <h2>Question</h2>
+
+<div>
+<p>This article explains how to uninstall Change Tracker Agent via PowerShell Script.</p>
+</div>
+
+<h2>Answer</h2>
+
+<div>
+<p>To uninstal Change Tracker Agent via PowerShell script. do the following, depending on your installation type:</p>
+
+<ul><li>
+	<p>For .NetCore-based installation, navigate to <b>C:\Program Files\NNT Change Tracker Suite\Gen7Agent (NetCore)\</b><b>unins000.exe</b></p>
+	</li><li>
+	<p>For non. NetCore installations the script is located here: <b>C:\Program Files\NNT Change Tracker Suite\Gen7Agent\unins000.exe</b>.</p>
+	</li></ul>
+
+<p>The script itself would be as follows:</p>
+<code>.\unins000.exe /SP-- /VERYSILENT /SUPPRESSMSGBOXES</code>
+
+<blockquote>
+<p><span style="color: #2980b9;"><strong>NOTE:</strong></span> Log Tracker has no Silent Uninstall feature, as of yet.</p>
+</blockquote>
+</div>
+</body>
+</html>

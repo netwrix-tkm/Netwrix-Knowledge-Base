@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add VMware vCenter website to Browser Extension</title>
+    <meta name="article-id" content="ka04u000000HcZrAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006ati4AAA">
+    <meta name="articlecreateddate" content="2021-10-12T13:11:13.000Z">
+    <meta name="articlenumber" content="000005912">
+    <meta name="createdbyid" content="0050g000006ati4AAA">
+    <meta name="createddate" content="2023-05-08T09:57:39.000Z">
+    <meta name="firstpublisheddate" content="2021-10-12T13:39:41.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000HRMCA2">
+    <meta name="knowledge-article-id" content="kA04u0000000HRMCA2">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:57:39.000Z">
+    <meta name="lastpublisheddate" content="2021-10-12T13:39:41.000Z">
+    <meta name="meta-description" content="Add VMware vCenter website to Browser Extension">
+    <meta name="meta-title" content="Add VMware vCenter website to Browser Extension">
+    <meta name="ownerid" content="0050g000006ati4AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="5912">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000HRMCA2.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Add VMware vCenter website to Browser Extension</h1>
+    <h1>Summary</h1>
+
+<p>This article outlines the process of adding a VMware vCenter web application (website) to SbPAM&#39;s Browser Extension, for quick and easy session provisioning.</p>
+
+<h1>Instructions</h1>
+
+<ol><li><strong>Create a VMware vCenter website Activity</strong> (be sure to enter the URL normally used to log-in to vCenter, and any Active Directory (AD) group that would give the account permission to log-in). Note that this example is for an Activity Token, however Managed Account and Requester workflows are also supported.<br>	<br>	<img alt="User-added image" height="327" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcZr&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUlM" width="500"></img><br>	�</li><li><strong>Create a Website Resource</strong>. Enter the URL for vCenter, and also (if possible) choose a resource that is in the same AD domain as the vSphere host. This is to ensure that when an account is created and group permissions are granted to it, it will happen on a Domain Controller (DC) close to where vSphere would normally authenticate to. This prevents needing to wait for permissions to replicate when logging-in to vSphere.<br>	<br>	<img alt="User-added image" height="200" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcZr&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUlR" width="500"></img><br>	�</li><li><strong>Create an Access Policy</strong> that links a user to the vSphere Activity and the Website Resource.<br>	<br>	<img alt="User-added image" height="208" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HcZr&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u000004bUlW" width="500"></img><br>	�</li><li>There should now be a vSphere activity in the SbPAM Browser Extension, with the ability to select it to create a session (click once) and then launch vSphere (click again).</li></ol>
+</body>
+</html>

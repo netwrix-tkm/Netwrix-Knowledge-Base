@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to exclude specific user accounts from reports</title>
+    <meta name="article-id" content="ka04u000000HcNhAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T16:40:12.000Z">
+    <meta name="articlenumber" content="000003067">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2023-05-08T09:46:30.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:32:57.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9TvCAK">
+    <meta name="knowledge-article-id" content="kA00g000000H9TvCAK">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T09:46:30.000Z">
+    <meta name="lastpublisheddate" content="2020-04-01T09:32:57.000Z">
+    <meta name="meta-description" content="exclude certain user accounts File Server Change Reporter Change Summaries Reports service account backup">
+    <meta name="meta-title" content="How to exclude specific user accounts from reports">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="650">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9TvCAK.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to exclude specific user accounts from reports</h1>
+    How do I exclude certain user accounts from <strong>NetWrix File Server Change Reporter Change Summaries</strong> and <strong>Reports</strong> if I do not want to monitor them (for example, a service account used by a backup software)?
+
+<hr></hr>
+
+To exclude user accounts from data collection and reporting, do the following:
+<ol><li>Navigate to <strong>NetWrix File Server Change Reporter</strong> installation folder.</li><li>Open one of the following configuration files:</li></ol>
+
+<ul><li style="margin-left: 40px;"><strong>omituserlist_fs.txt</strong> file to exclude certain users from the email <strong>Change Summaries</strong></li><li style="margin-left: 40px;"><strong>omitstoreuserlist_fs.txt</strong> file to exclude certain users from <strong>SSRS-based Reports</strong> and email <strong>Change Summaries</strong> as well.</li></ul>
+
+<ol start="3" style=""><li>Edit the selected file by specifying the accounts you want to exclude. Accounts must be entered one per line in the &#39;<strong>domainusername</strong>&#39; format. Wildcards (* and ?) are supported.</li><li>Save the changes and close the file.</li></ol>
+</body>
+</html>

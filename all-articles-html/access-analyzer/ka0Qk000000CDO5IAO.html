@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Autodiscover Service Couldn&#x27;t Be Located</title>
+    <meta name="article-id" content="ka0Qk000000CDO5IAO">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2024-11-19T17:14:11.000Z">
+    <meta name="articlenumber" content="000009327">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-02-11T19:48:22.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2024-11-26T20:41:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001hVxKAI">
+    <meta name="knowledge-article-id" content="kA0Qk0000001hVxKAI">
+    <meta name="lastmodifiedbyid" content="0054u000008icp2AAA">
+    <meta name="lastmodifieddate" content="2025-02-18T18:40:15.000Z">
+    <meta name="lastpublisheddate" content="2025-02-18T18:40:15.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9327">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001hVxKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>The Autodiscover Service Couldn&#x27;t Be Located</h1>
+    <h2>Symptom</h2>
+<div>
+<p>When running a job that uses <strong>EWSMailbox Data Collector</strong>, the following error appears:</p>
+<pre class="has-inner-focus">The Autodiscover service couldn&#39;t be located
+</pre>
+</div>
+<h2>Cause</h2>
+<div>
+<p>This error populates due to missing or incorrect Autodiscover settings in the job XML.</p>
+</div>
+<h2>Resolution</h2>
+<div>
+<p>To resolve this error, follow the steps below:</p>
+<ol><li>
+<p>Open the <strong>Query Properties</strong> for the EWSMailbox task.</p>
+</li><li>
+<p>Select <strong>View XML</strong>.</p>
+</li></ol>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CDO5&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008w1gf" alt="View XML screenshot" width="520" height="465"></img>
+<ol><li>
+<p>Insert the following code that best matches your environment within the <strong>&lt;EWS_PROPERTIES&gt;&lt;/EWS_PROPERTIES&gt;</strong> tags. This is located near the bottom of the XML:</p>
+<blockquote>
+<p><span class="note"><strong>NOTE: </strong></span>The XML will automatically reformat itself upon saving.</p>
+</blockquote>
+<ul><li><strong>SCP Disable Variable</strong>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>&lt;HTTP_HEADERS/&gt; 
+&lt;SERVICE_PROPERTIES/&gt; 
+&lt;AUTODISCOVER_PROPERTIES&gt; 
+&lt;EnableScpLookup&gt;False&lt;/EnableScpLookup&gt; 
+&lt;/AUTODISCOVER_PROPERTIES&gt; </code></pre>
+</li><li><strong>Office Online Only</strong>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>&lt;HTTP_HEADERS/&gt;
+&lt;SERVICE_PROPERTIES&gt;
+&lt;Url&gt;https://outlook.office365.com/EWS/Exchange.asmx&lt;/Url&gt;
+&lt;/SERVICE_PROPERTIES&gt;
+&lt;AUTODISCOVER_PROPERTIES&gt;
+&lt;Url&gt;https://autodiscover-s.outlook.com/autodiscover/autodiscover.svc&lt;/Url&gt;
+&lt;/AUTODISCOVER_PROPERTIES&gt;</code></pre>
+</li><li><strong>Hybrid Environment (On-Prem &amp; Online)</strong>
+<pre class="language-markup" style="background: #efefef;padding: 8px;display: block;border: 1px solid rgb(204, 204, 204);overflow-x: auto;"><code>&lt;HTTP_HEADERS/&gt;
+&lt;SERVICE_PROPERTIES&gt;
+&lt;Url&gt;https://outlook.office365.com/EWS/Exchange.asmx&lt;/Url&gt;
+&lt;/SERVICE_PROPERTIES&gt;
+&lt;AUTODISCOVER_PROPERTIES&gt;
+&lt;EnableScpLookup&gt;False&lt;/EnableScpLookup&gt;
+&lt;Url&gt;https://autodiscover-s.outlook.com/autodiscover/autodiscover.svc&lt;/Url&gt;
+&lt;/AUTODISCOVER_PROPERTIES&gt;</code></pre>
+</li></ul>
+</li><li>
+<p>On the <strong>Query Properties</strong> window, select <strong>Configure</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CDO5&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008vjWt" alt="Configure button screenshot" width="520" height="499"></img></li><li>
+<p>On the <strong>Scan options</strong> window, uncheck the option for <strong>Match job host against autodiscovered host</strong>.</p>
+<img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000CDO5&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk000008w3KH" alt="Scan options screenshot" width="520" height="387"></img></li><li>
+<p>Proceed through the wizard by selecting <strong>Next</strong> and complete the process by clicking <strong>Finish</strong> to close out the EWSMailbox DC Wizard.</p>
+</li><li>
+<p>Select <strong>OK</strong> to close the Query Properties window.</p>
+</li></ol>
+</div>
+</body>
+</html>

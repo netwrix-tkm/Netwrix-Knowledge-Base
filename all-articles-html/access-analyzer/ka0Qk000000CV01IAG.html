@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Update the Certificate for SharePoint Online Auditing in Access Analyzer</title>
+    <meta name="article-id" content="ka0Qk000000CV01IAG">
+    <meta name="articlecaseattachcount" content="1">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2025-02-21T18:08:45.000Z">
+    <meta name="articlenumber" content="000009413">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="asana-task-url" content="https://app.asana.com/1/46926129243726/project/1203106155380297/task/1209702345051001">
+    <meta name="assignedbyid" content="0054u000006gpoAAAQ">
+    <meta name="assignedtoid" content="0054u000007MdqrAAC">
+    <meta name="assignmentdate" content="2025-02-25T20:27:51.000Z">
+    <meta name="assignmentduedate" content="2025-03-10T05:00:00.000Z">
+    <meta name="assignmentnote" content="Hey just asking you to do the finishing touches on this one.">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-02-21T18:08:45.000Z">
+    <meta name="draft-status" content="Backlog">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk00000023UrKAI">
+    <meta name="knowledge-article-id" content="kA0Qk00000023UrKAI">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-04-16T01:02:45.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9413">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk00000023UrKAI.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How to Update the Certificate for SharePoint Online Auditing in Access Analyzer</h1>
+    <blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This is a work-in-progress article. The product R&amp;D team has yet to review some or all of the information below.</p>
+</blockquote>
+<h2>Question</h2>
+<p>Our certificate used by Access Analyzer to allow us to audit SharePoint Online has expired and we need to update it. How do we do so?</p>
+<h2>Answer</h2>
+<div>To update the certificate used by Access Analyzer and SharePoint, please follow the steps below:</div>
+<ol><li>Create a new certificate for Access Analyzer and SharePoint to use. This can either come from your organizations Certificate Authority, or can be Self-Signed.
+<ul><li><strong>NOTE:</strong> Instructions for creating a Self-Signed certificate can be found in this article: <a href="https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/Config/SharePointOnline/Access.htm#create_selfsigned_certificate" target="_blank">https://helpcenter.netwrix.com/bundle/EnterpriseAuditor_11.6/page/Content/Config/SharePointOnline/Access.htm#create_selfsigned_certificate</a></li></ul>
+</li><li>Verify both the .cert and .pfx files are located in %SAInstallDir%PrivateAssemblies folder.�
+<ul><li>If using a custom certificate from a Certificate Authority, move both the .cert and .pfx file to this location.</li></ul>
+</li><li>In the Azure Admin Portal, navigate to the App Registration used by Netwrix Access Analyzer for auditing SharePoint Online</li><li>On the�<strong>Certificates &amp; secrets tab</strong>, select�<strong>Upload certificate</strong>�and upload the new .cert file.</li><li>In the Access Analyzer Console, navigate to the Settings &gt; Connection option and edit the key in the Connection Profile used by the SharePoint Online jobs to:�<strong>CertLocation,CertPassword,NumericDesignator</strong>
+<ul><li><strong>Numeric Designator</strong>: 0 is the default; other options are 1 for pre-production environments, 2 for China, 3 for Germany, and 4 for USGovernment</li><li><strong>Example:</strong><em>�C:\Program Files (x86)\STEALTHbits\StealthAUDIT\PrivateAssemblies\spaa_cert_tenant.pfx,YourPasswordHere,0</em></li></ul>
+</li></ol>
+<div><strong>NOTE:�</strong>It may be helpful to create this string in a text file and then copy it into the key field of the connection profile.</div>
+<div>�</div>
+<ol start="6"><li>Save the updated connection profile and now the certificate is updated for SharePoint Online auditing with Access Analyzer.</li></ol>
+</body>
+</html>

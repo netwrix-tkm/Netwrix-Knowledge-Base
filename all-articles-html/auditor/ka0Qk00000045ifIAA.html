@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How does Netwrix Account Lockout Examiner work</title>
+    <meta name="article-id" content="ka0Qk00000045ifIAA">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="00570000005NmamAAC">
+    <meta name="articlecreateddate" content="2020-03-31T18:26:59.000Z">
+    <meta name="articlenumber" content="000003658">
+    <meta name="createdbyid" content="00570000005NmamAAC">
+    <meta name="createddate" content="2024-06-07T09:11:50.000Z">
+    <meta name="firstpublisheddate" content="2020-04-01T09:29:58.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA00g000000H9dcCAC">
+    <meta name="knowledge-article-id" content="kA00g000000H9dcCAC">
+    <meta name="lastmodifiedbyid" content="0054u000008ic83AAA">
+    <meta name="lastmodifieddate" content="2024-06-07T09:12:24.000Z">
+    <meta name="lastpublisheddate" content="2020-10-19T17:31:25.000Z">
+    <meta name="meta-description" content="Explains Netwrix Account Lockout Examiner architecture and workflow.">
+    <meta name="meta-title" content="How does Netwrix Account Lockout Examiner work">
+    <meta name="ownerid" content="00570000005NmamAAC">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="2780">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9dcCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>How does Netwrix Account Lockout Examiner work</h1>
+    <h1>Overview</h1>
+Netwrix Account Lockout Examiner tracks account lockouts in real time, enables proactive lockout resolutions, and helps administrators to effectively troubleshoot account lockouts.<br><br>Account Lockout Examiner is able to determine the origins of lockouts and show detailed information about specified lockouts and invalid logons. The Account Lockout Examiner tool processes Windows security logs without using agents so that the audit policy in the domain be setup, according to the requirements of the tool. Configuration of the audit policy is described in the admin guide and this <a href="http://kb.netwrix.com/1199" target="_blank">article</a>.�<br><br>Since Windows Security log is the only source, Account Lockout Examiner is able to show only the information that is present in the log. After Account Lockout Examiner finds a lockout event, it adds the information about account lockout to the list in the Summary tab. Administrator can investigate an account lockout with the help of the Examination feature.
+<h3>Conducting an Examination</h3>
+To run an examination, an administrator clicks the Examine button at the bottom of the list in the Summary tab, or right-clicks an account and select Examine. Examination shows a list of invalid logons, specifies the names of the processes that have used invalid credentials, and checks the most common reasons of lockouts: mapped drives, scheduled tasks, RDP sessions, and services running under credentials of the account in question. Examination results look like this: <a href="https://netwrix.secure.force.com/kb/servlet/rtaImage?eid=ka40g000000kAbd&amp;feoid=00N700000032Pj2&amp;refid=0EM700000004wzI" target="_blank"><img alt="User-added image" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk00000045if&amp;feoid=00N0g000004CA0p&amp;refid=0EM700000004wzI"></img></a>
+</body>
+</html>

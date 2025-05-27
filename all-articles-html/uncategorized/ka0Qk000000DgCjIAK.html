@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Around Microsoft Entra Multifactor Authentication for SPAA Scans</title>
+    <meta name="article-id" content="ka0Qk000000DgCjIAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006god6AAA">
+    <meta name="articlecreateddate" content="2022-02-01T18:33:01.000Z">
+    <meta name="articlenumber" content="000007188">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA04u0000000IlOCAU">
+    <meta name="createdbyid" content="0054u000006god6AAA">
+    <meta name="createddate" content="2025-05-08T10:30:12.000Z">
+    <meta name="firstpublisheddate" content="2022-02-01T18:33:01.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000000IlOCAU">
+    <meta name="knowledge-article-id" content="kA04u0000000IlOCAU">
+    <meta name="lastmodifiedbyid" content="0054u0000093LZ4AAM">
+    <meta name="lastmodifieddate" content="2025-05-08T10:33:19.000Z">
+    <meta name="lastpublisheddate" content="2023-12-11T08:58:19.000Z">
+    <meta name="meta-description" content="360008408371">
+    <meta name="meta-title" content="Getting around Azure AD multi-factor authentication for SPAA Scans">
+    <meta name="ownerid" content="0054u000006god6AAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="7188">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000IlOCAU.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Getting Around Microsoft Entra Multifactor Authentication for SPAA Scans</h1>
+    <p><strong><span class="wysiwyg-font-size-large">Summary:</span></strong> How to set up an App Password in Microsoft Entra ID (formerly Azure AD) for an O365 environment that uses Microsoft Entra multifactor authentication.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Issue:</span></strong> We do not support multifactor authentication within Access Analyzer for SharePoint (SPAA) scans but we can configure an App Password within Microsoft Entra ID to allow us to use an Microsoft Entra account. App Passwords can be configured for a single account and store an unchanging password that does not require authentication after setting up the password in the connection profile.</p>
+
+<p><strong>Note:</strong> Before setting up the app password, assuming multi-factor authentication is turned on by default - the O365 admin or whomever you are in contact with must be there to handle the initial multi-factor authentication step. This typically means entering a phone number to receive the code sent by Microsoft Entra ID to authenticate the user.</p>
+
+<p><strong><span class="wysiwyg-font-size-large">Instructions:</span></strong></p>
+
+<ol><li>Log into Microsoft Entra ID and click your name icon in the top right corner and select <em>My account.</em>
+
+	<ol style="list-style-type: lower-alpha;"><li>Logging into Microsoft Entra ID may still require MFA at this point, be prepared for the customer to give the code sent via text message or email to access Microsoft Entra ID.</li></ol>
+	</li><li>On the left select <em>Security &amp; Privacy </em></li><li>Select <em>Additional security verification</em></li><li>Select <em>Create and manage app passwords</em></li><li>Click <em>Create </em>and name the password as you please</li><li>Important: Copy the password somewhere safe, you won&#39;t be able to see it after closing this window.</li></ol>
+
+<p>Now create a connection profile (Azure Active Directory type) and copy the app password you generated into the key field and save.<br><br><img alt="mceclip0.png" src="https://nwxcorp--c.na147.content.force.com/sfc/dist/version/download/?oid=00D7000000091pB&amp;ids=0684u00000LcaWu&amp;d=%2Fa%2F4u000000LyrC%2F.k5hyZgLEuxeaYaoybULDMPWdTKQeH.2QEI8LMnXBus&amp;asPdf=false"></img></p>
+
+<p><strong><span class="wysiwyg-font-size-large">Product:</span></strong> Access Analyzer<br><strong><span class="wysiwyg-font-size-large">Module:</span></strong> Access Analyzer - DC - SPAA - Activity;Access Analyzer - DC - SPAA - Permissions<br><strong><span class="wysiwyg-font-size-large">Legacy Article ID:</span></strong> 2086</p>
+</body>
+</html>

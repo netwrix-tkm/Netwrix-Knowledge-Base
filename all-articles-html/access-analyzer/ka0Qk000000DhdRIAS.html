@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disabling the Server Header</title>
+    <meta name="article-id" content="ka0Qk000000DhdRIAS">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="005Qk000001wMM9IAM">
+    <meta name="articlecreateddate" content="2025-02-04T20:03:16.000Z">
+    <meta name="articlenumber" content="000009391">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/:u:/r/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/hilary_writing_syncs/KB-New-Final%20Drafts/Vulnerability%20Assessment%20WebSite%20Banner%20Grabbing.html?csf=1&amp;web=1&amp;e=F5f0IR">
+    <meta name="article-reviewer" content="005Qk000001wMM9IAM">
+    <meta name="article-sme" content="0054u000006gpoAAAQ">
+    <meta name="asana-task-url" content="https://app.asana.com/0/1203106155380297/1209322658629225">
+    <meta name="case" content="5004u00002yeMPDAA2">
+    <meta name="confidence-level" content="Not Validated">
+    <meta name="createdbyid" content="005Qk000001wMM9IAM">
+    <meta name="createddate" content="2025-05-08T19:51:13.000Z">
+    <meta name="draft-status" content="Ready to Publish">
+    <meta name="firstpublisheddate" content="2025-04-24T18:36:05.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000001yerKAA">
+    <meta name="knowledge-article-id" content="kA0Qk0000001yerKAA">
+    <meta name="lastmodifiedbyid" content="005Qk000001wMM9IAM">
+    <meta name="lastmodifieddate" content="2025-05-08T19:53:01.000Z">
+    <meta name="lastpublisheddate" content="2025-04-24T18:36:05.000Z">
+    <meta name="meta-description" content="Vulnerability Assessment">
+    <meta name="meta-title" content="Vulnerability Assessment">
+    <meta name="ownerid" content="00570000003KXurAAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="9391">
+    <meta name="versionnumber" content="1">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001yerKAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Disabling the Server Header</h1>
+    <h2>Overview</h2>
+<p>This article explains how to disable the server header in Netwrix Access Analyzer to prevent banner grabbing, which can expose server information. Banner grabbing can be caused by incorrectly configuring the Windows registry�<code>DisableServerHeader</code> setting on the host.</p>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>Banner grabbing is the process of capturing banner information, such as application type and version, that is transmitted by a remote port when a connection is initiated. More details can be found here:�<a href="https://csrc.nist.gov/glossary/term/banner_grabbing" target="_blank">Banner Grabbing ? NIST &#129125;</a></p>
+<p><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DhdR&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000Brg4P" width="469" height="416" alt="Screenshot showing server information revealed through banner grabbing"></img></p>
+</blockquote>
+<h2>Instructions</h2>
+<p>Follow the steps below to disable the Server header in Access Analyzer.</p>
+<ol><li>
+<p>Add or update the following registry key:</p>
+<p><code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters\DisableServerHeader</code></p>
+<p>Set the value to:</p>
+<p><code>DWORD: 000002</code></p>
+</li><li>
+<p>Reboot the server to apply the changes.</p>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Modifications to this registry setting may occur due to the following reasons:</p>
+<ul><li>Access Analyzer and Access Information Center will not modify this setting during patching.</li><li>Microsoft may release a patch that changes its behavior, or internal configurations may enforce changes to the OS, altering this setting.</li><li>Operating system configurations, such as group policy settings, may impact this setting or product functionality. Configuring the operating system is the customer&#39;s responsibility.</li></ul>
+</blockquote>
+<ul><li>
+<p>If needed, refer to the following image.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DhdR&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000CHuq5" alt="disabled server header" width="629" height="148"></img></div>
+</li></ul>
+</li><li>
+<p>After the reboot, the result should resemble the Edge example below, in which the Server Node is no longer listed.</p>
+<div><img src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka0Qk000000DhdR&amp;feoid=00N0g000004CA0p&amp;refid=0EMQk00000BrSj0" width="469" height="439" alt="Screenshot showing browser developer tools with no server header information displayed"></img></div>
+</li></ol>
+<h2>Related Article</h2>
+<ul><li><a href="https://csrc.nist.gov/glossary/term/banner_grabbing" target="_blank">Banner Grabbing ? NIST &#129125;</a></li></ul>
+</body>
+</html>

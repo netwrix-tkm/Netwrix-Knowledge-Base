@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speeding up CRL Checks on SbPAM Servers without Internet Connectivity</title>
+    <meta name="article-id" content="ka04u000000HdFpAAK">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000006gpnvAAA">
+    <meta name="articlecreateddate" content="2022-08-02T22:42:46.000Z">
+    <meta name="articlenumber" content="000008472">
+    <meta name="createdbyid" content="0054u000006gpnvAAA">
+    <meta name="createddate" content="2023-05-08T10:20:05.000Z">
+    <meta name="firstpublisheddate" content="2022-08-04T11:43:32.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u000000Tt7vCAC">
+    <meta name="knowledge-article-id" content="kA04u000000Tt7vCAC">
+    <meta name="lastmodifiedbyid" content="0054u000006gSmgAAE">
+    <meta name="lastmodifieddate" content="2023-05-08T10:20:05.000Z">
+    <meta name="lastpublisheddate" content="2022-08-25T13:56:00.000Z">
+    <meta name="meta-description" content="Speeding up CRL Checks on SbPAM Servers without Internet Connectivity">
+    <meta name="meta-title" content="Speeding up CRL Checks on SbPAM Servers without Internet Connectivity">
+    <meta name="ownerid" content="0054u000006gpnvAAA">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8472">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Tt7vCAC.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Speeding up CRL Checks on SbPAM Servers without Internet Connectivity</h1>
+    <h1>Summary</h1>
+If SbPAM, or an SbPAM proxy service, is installed on a server without internet connectivity, it may become impossible for the SbPAM proxy to initiate SSL handshakes. The following error message when registering a proxy service is indicative of this problem:
+
+<pre class="ckeditor_codeblock">
+TLS Authentication error One or more errors occurred. (Unable to read data from the transport connection: An established connection was aborted by the software in your host machine.)</pre>
+This issue can be resolved by reducing the timeout setting in Windows that governs CRL (certificate revocation list) checks. Since these CRL checks require internet access, the timeout should be reduced to the minimum possible value when internet connectivity is not present.
+
+<h1>Instructions</h1>
+This timeout setting is governed by a group policy. The following steps will allow it to be configured:<br><br>� � 1. Open up Group Policy Editor (gpedit.msc)<br>� � 2. Navigate to Computer Configuration &gt; Windows Settings &gt; Security Settings &gt; Public Key Policies<br><img alt="User-added image" height="301" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFp&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052lrQ" width="500"></img><br>� � 3. Double-click on &quot;Certificate Path Validation Settings&quot; and go to the &quot;Network Retrieval&quot; tab.<br><img alt="User-added image" height="506" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFp&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052lrf" width="500"></img><br>� � 4. Check the &quot;Define these policy settings&quot; box, and reduce both &quot;Default retrieval timeout settings&quot; to &quot;1&quot;<br><img alt="User-added image" height="171" src="https://nwxcorp.file.force.com/servlet/rtaImage?eid=ka04u000000HdFp&amp;feoid=00N0g000004CA0p&amp;refid=0EM4u0000052lrk" width="500"></img><br>� � 5. Hit &quot;Apply&quot; to save the configuration.
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netwrix Auditor for SharePoint Online Fails to Collect Data Because the Remote Server is Unauthorized</title>
+    <meta name="article-id" content="ka04u00000117AZAAY">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0050g000006HS99AAG">
+    <meta name="articlecreateddate" content="2023-08-15T13:46:48.000Z">
+    <meta name="articlenumber" content="000008731">
+    <meta name="createdbyid" content="0050g000006HS99AAG">
+    <meta name="createddate" content="2023-08-15T14:54:08.000Z">
+    <meta name="firstpublisheddate" content="2023-08-15T13:46:56.000Z">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA04u0000011120CAA">
+    <meta name="knowledge-article-id" content="kA04u0000011120CAA">
+    <meta name="lastmodifiedbyid" content="0050g000006HS99AAG">
+    <meta name="lastmodifieddate" content="2023-08-15T14:54:31.000Z">
+    <meta name="lastpublisheddate" content="2023-08-15T14:54:31.000Z">
+    <meta name="meta-description" content="This article contains resolution steps for the remote server returned an error: (401) Unauthorized error.">
+    <meta name="meta-title" content="Netwrix Auditor for SharePoint Online Fails to Collect Data Because the Remote Server is Unauthorized">
+    <meta name="ownerid" content="0050g000006HS99AAG">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="8731">
+    <meta name="versionnumber" content="2">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000011120CAA.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Netwrix Auditor for SharePoint Online Fails to Collect Data Because the Remote Server is Unauthorized</h1>
+    <h1>Symptom</h1>
+
+<div>
+<p>Data collection for a SharePoint Online monitoring plan completes with the following error:</p>
+
+<pre class="has-inner-focus">
+Failed to collect state-in-time data due to the following error: The remote server returned an error: (401) Unauthorized.</pre>
+</div>
+
+<div>
+<h1>Cause</h1>
+
+<div>
+<p>The error occurred due to incorrect APP registration.</p>
+</div>
+
+<h1>Resolution</h1>
+
+<div>
+<p>Re-create registration for your app in the Microsoft 365 Admin center and create a new SharePoint Online monitoring plan in Netwrix Auditor.</p>
+
+<ol><li>
+	<p>Sign into the Microsoft 365 Admin Center and re-create the registration for your app. For additional information on how to register your app, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Configuration/Microsoft365/SharePointOnline/Permissions.htm" target="_blank">Permissions for SharePoint Online Auditing</a>.</p>
+	</li><li>
+	<p>After that, create a new monitoring plan for SharePoint Online and remove the old one in Netwrix Auditor. For additional information on how to create a monitoring plan, refer to the following article: <a href="https://helpcenter.netwrix.com/bundle/Auditor_10.6/page/Content/Auditor/Admin/MonitoringPlans/SharePointOnline/Overview.htm" target="_blank">SharePoint Online Plans</a>.</p>
+	</li></ol>
+</div>
+</div>
+</body>
+</html>

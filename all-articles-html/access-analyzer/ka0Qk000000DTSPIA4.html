@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Analyzer Console Migration Workflow: Step 1 - Staging the Backup</title>
+    <meta name="article-id" content="ka0Qk000000DTSPIA4">
+    <meta name="articlecaseattachcount" content="0">
+    <meta name="articlecreatedbyid" content="0054u000007MiY9AAK">
+    <meta name="articlecreateddate" content="2025-04-28T21:07:46.000Z">
+    <meta name="articlenumber" content="000010159">
+    <meta name="article-drafts-folder" content="https://nwxcorp.sharepoint.com/sites/TechnicalSupportOperations/Shared%20Documents/Technical%20Knowledge%20Management/Salesforce%20Knowledge%20Drafts/kA0Qk0000002OnpKAE">
+    <meta name="assignedbyid" content="0054u000007MiY9AAK">
+    <meta name="assignedtoid" content="0054u000007MiY9AAK">
+    <meta name="assignmentdate" content="2025-04-28T21:07:46.000Z">
+    <meta name="confidence-level" content="Work In Progress">
+    <meta name="createdbyid" content="0054u000007MiY9AAK">
+    <meta name="createddate" content="2025-04-28T21:07:46.000Z">
+    <meta name="draft-status" content="Backlog">
+    <meta name="islatestversion" content="true">
+    <meta name="knowledgearticleid" content="kA0Qk0000002OnpKAE">
+    <meta name="knowledge-article-id" content="kA0Qk0000002OnpKAE">
+    <meta name="lastmodifiedbyid" content="0054u000007MiY9AAK">
+    <meta name="lastmodifieddate" content="2025-04-30T14:43:47.000Z">
+    <meta name="ownerid" content="0054u000007MiY9AAK">
+    <meta name="recordtypeid" content="0124u000000UUgLAAW">
+    <meta name="urlname" content="10159">
+    <meta name="versionnumber" content="0">
+    <meta name="website-url" content="&lt;a href=&quot;https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000002OnpKAE.html&quot; target=&quot;_blank&quot;&gt;Open in a new window&lt;/a&gt;">
+</head>
+<body>
+    <h1>Access Analyzer Console Migration Workflow: Step 1 - Staging the Backup</h1>
+    <blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span> Return to the main workflow page via this link: <a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTIjIAO/view" target="_self">Access Analyzer Console Migration Workflow</a>.</p>
+<p>Proceed to the next section via this link:�<a href="https://nwxcorp.lightning.force.com/lightning/r/General__kav/ka0Qk000000DTU1IAO/view?ws=%2Flightning%2Fr%2FGeneral__kav%2Fka0Qk000000DTIjIAO%2Fview" target="_self">Access Analyzer Console Migration Workflow: Step 2 - Prepare the Database</a>.</p>
+</blockquote>
+<h2 id="ovrvw">Overview</h2>
+<div>
+<p>This article lists the steps to prepare for the Access Analyzer Console Migration.</p>
+</div>
+<h2 id="neaCUpg">Create the Backup Directory</h2>
+<div>
+<p dir="auto">On the current Netwrix Access Analyzer (NAA) Console Server, create a folder called �NAA_Migration�. Then follow the below steps to prepare the key components necessary for data recovery of the NAA Console Server.�</p>
+</div>
+<h2 id="SDDUpg">Backup Folders and Files</h2>
+<div>
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Store the following in the NAA_Migration directory.</p>
+</blockquote>
+<h3 dir="auto">Netwrix Access Analyzer Console</h3>
+<p dir="auto">Within the NAA_Migration folder, create a folder named �NAA�, and add the following files and folders:</p>
+<div>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong>Stop all currently running jobs and disabled all scheduled jobs prior to backing up and migrating the NAA Console!</span></p>
+</blockquote>
+</div>
+<div>
+<table style="width: 86.9928%;height: 1050.62px;border-color: #000000;border-style: solid;" border="1"><tbody><tr style="height: 60.5781px;"><th colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">File/Folder</p>
+</th><th colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Purpose</p>
+</th></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">...\STEALTHbits\StealthAUDIT\Jobs</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains the jobs from the SA jobs tree.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">...\STEALTHbits\StealthAUDIT\StealthAUDIT.lic</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">The license key for the StealthAUDIT product</p>
+</td></tr><tr style="height: 81.375px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\Reports</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">This will ensure that you don�t have to go and republish all reports</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\CLU</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains any Command Line Utility parameters.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\ODBCProfiles\Custom</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains any custom ODBC connect strings for SQL.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\SADatabase\Views</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains the host list definitions.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">...\STEALTHbits\StealthAUDIT\SecurityMap</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains all of the connection profiles.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">...\STEALTHbits\StealthAUDIT\GlobalOptions.XML</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains the Global Options.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">...\STEALTHbits\StealthAUDIT\SPProfiles.XML</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains the Storage Profiles.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">...\STEALTHbits\StealthAUDIT\rba.conf</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains the Role Based Access Configuration.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\rba-reporting.conf</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Published Reports role-based access.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\Web\webserver.exe.config</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Published Reports web server configuration.</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\DC\patternsdef.xml</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Configured SDD Criteria</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\DC\mypatternsdef.xml</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Custom SDD Criteria</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">�\STEALTHbits\StealthAUDIT\FSAA</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Contains short term data related to file server collections</p>
+</td></tr><tr style="height: 60.5781px;"><td colspan="1" rowspan="1" style="width: 44.02%;border-color: #000000;">
+<p dir="auto">C:\Windows\System32\Tasks</p>
+</td><td colspan="1" rowspan="1" style="width: 52.0984%;border-color: #000000;">
+<p dir="auto">Specifically tasks names beginning with �SA*.job�</p>
+</td></tr></tbody></table>
+</div>
+<h3 dir="auto">Netwrix Access Information Center</h3>
+<p dir="auto">Within the NAA_Migration folder, create a folder named �AIC�, and add the following files and folders:</p>
+<div>
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong>These can be found in the AIC install directory. By default, this is located in C:\Program Files\STEALTHbits\Access Information Center. If you are unsure where the install directory is located, use the following registry key to locate it: <em>HKLM:\SYSTEM\CurrentControlSet\Services\AccessInformationCenter.</em></span></p>
+</blockquote>
+</div>
+<div>
+<table style="border-color: #000000;border-style: solid;" border="1"><tbody><tr><th colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">File/Folder</p>
+</th><th colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Purpose</p>
+</th></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">�\Access Information Center\AccessInformationCenter.Service.exe.Config</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Contains the AIC Configuration.</p>
+</td></tr><tr><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">�\Access Information Center\Templates.zip</p>
+</td><td colspan="1" rowspan="1" style="border-color: #000000;">
+<p dir="auto">Custom email templates used by the AIC.</p>
+</td></tr></tbody></table>
+</div>
+<div>
+<div>�</div>
+<div>
+<h2 dir="auto">Important Things to Note Before Migrating</h2>
+<ul><li>
+<p dir="auto">What accounts are Netwrix Services currently running as?</p>
+</li><li>
+<p dir="auto">Are the AIC and Published Reports secured with SSL Certificates?</p>
+<ul><li>
+<p dir="auto">If <strong>yes</strong>, these will need recreated with the new machine.</p>
+</li></ul>
+</li><li>
+<p dir="auto">Is the Netwrix Vault Service used?</p>
+<ul><li>
+<p dir="auto">If <strong>yes</strong>, disable before migrating, then re-enable post-migration.</p>
+</li></ul>
+</li><li>
+<p dir="auto">Are you currently scanning SharePoint Online or Exchange Online?</p>
+<ul><li>
+<p dir="auto">If <strong>yes</strong>, new certificates will need created after the migration.</p>
+</li></ul>
+</li><li>
+<p dir="auto">It is <em>recommended </em>to take screenshots of the following:</p>
+<ul><li>
+<p dir="auto">NAA Scheduled Tasks</p>
+</li><li>
+<p dir="auto">Settings &gt; Access</p>
+</li><li>
+<p dir="auto">Settings &gt; Storage</p>
+</li><li>
+<p dir="auto">Expanded Settings &gt; Host Management node</p>
+</li><li>
+<p dir="auto">Expanded job tree in NAA Console</p>
+</li><li>
+<p dir="auto">Netwrix Services running in services.msc</p>
+</li></ul>
+</li></ul>
+<p>�</p>
+<p><strong>Once the NAA_Migration back up is complete, move it to the new Netwrix Access Analyzer console server.</strong></p>
+</div>
+</div>
+</div>
+</body>
+</html>
