@@ -19,11 +19,11 @@ from tqdm import tqdm
 # Get the base project directory (2 levels up from this script)
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 
-from kb_refresh.pdf_extractor import get_extractor, PDFExtractor
-from kb_refresh.chunker import DocumentChunker
-from kb_refresh.embedder import TextEmbedder
-from kb_refresh.html_processor import HTMLProcessor
-from kb_refresh.llm_client import AzureOpenAIClient
+from pdf_extractor import get_extractor
+from chunker import DocumentChunker
+from embedder import TextEmbedder
+from html_processor import HTMLProcessor
+from llm_client import AzureOpenAIClient
 
 
 class KBProcessor:
