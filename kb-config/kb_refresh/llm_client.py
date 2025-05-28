@@ -6,10 +6,30 @@ This module handles the integration with Azure OpenAI for article refreshing.
 
 import json
 import os
+import pathlib
 from typing import Dict, List, Optional, Tuple, Union
 from dotenv import load_dotenv
 
 import requests
+
+
+def load_style_guide() -> str:
+    """
+    Load the style guide content from the style_guide.md file.
+    
+    Returns:
+        str: The content of the style guide.
+    """
+    try:
+        # Get the directory where this script is located
+        script_dir = pathlib.Path(__file__).parent.absolute()
+        style_guide_path = script_dir / "style_guide.md"
+        
+        with open(style_guide_path, 'r', encoding='utf-8') as f:
+            return f.read()
+    except Exception as e:
+        print(f"Warning: Could not load style guide: {e}")
+        return ""
 
 
 class AzureOpenAIClient:
@@ -51,7 +71,7 @@ class AzureOpenAIClient:
         article_content: str, 
         reference_chunks: List[Dict], 
         max_tokens: int = 4000,
-        temperature: float = 0.3
+        temperature: float = 0.0
     ) -> Tuple[str, bool]:
         """
         Refresh an article using Azure OpenAI.
@@ -65,6 +85,9 @@ class AzureOpenAIClient:
         Returns:
             Tuple of (refreshed content, outdated flag).
         """
+        # Load the style guide
+        style_guide = load_style_guide()
+        
         # Prepare the context from reference chunks
         context = ""
         for i, chunk in enumerate(reference_chunks):
@@ -73,22 +96,44 @@ class AzureOpenAIClient:
         prompt = f"""
 You are a technical documentation expert tasked with refreshing a knowledge base article using the most recent product documentation.
 
-Instructions:
-1. Use the PROVIDED REFERENCE material to update the ARTICLE CONTENT with accurate, current information.
-2. Maintain the original structure, style and tone of the article.
-3. Integrate useful facts, descriptions, and procedures from the references into the article.
-4. If the article content contradicts the references, prioritize the reference information as it is more recent.
-5. Output HTML format for the refreshed content.
+# INSTRUCTIONS
+1. If the PROVIDED REFERENCES are relevant to the ARTICLE CONTENT, update the article content using the references.
+2. If the PROVIDED REFERENCES are not relevant to the ARTICLE CONTENT, do not make any changes based on references. Simply mark the article as current.
+3. Apply any changes needed to comply with the STYLE GUIDE regardless of reference relevance.
+4. When references contradict the article, prioritize the reference information as it's more recent.
+5. Output in HTML format. Do not use triple backticks or ```html.
+6. Do not remove any images or links from the article.
+7. Begin with a summary blockquote of your changes:
 
-REFERENCES:
+   <blockquote class="change-summary">
+     <p><strong>Changes Made:</strong></p>
+     <ul>
+       <li>List each significant change</li>
+       <li>Explain why each change was made</li>
+     </ul>
+   </blockquote>
+
+8. For UPDATED content: 
+   - Wrap with `<span class="updated" reason="why the content was updated based on the references">New content</span>`
+   - Provide specific, detailed reasons referencing the source
+   - Use for both additions and modifications
+
+9. For that should be REMOVED:
+   - Wrap with `<span class="removed" reason="why the content was removed based on the references">Original text</span>`
+   - Leave the original text inside the span (do not delete it)
+   - Explain specifically why it's outdated or incorrect
+
+10. If the article is completely current and accurate, state this clearly in the summary blockquote.
+
+# PROVIDED REFERENCES
 {context}
 
-ARTICLE CONTENT:
+# ARTICLE CONTENT
 {article_content}
 
-OUTPUT:
-Provide your updated version of the article in valid HTML format.
-If you detect that the article is substantially outdated or contains significant inaccuracies compared to the references, add "<div class="outdated-warning">This article contains outdated information and requires review.</div>" at the beginning.
+# STYLE GUIDE
+{style_guide}
+
 """
 
         headers = {

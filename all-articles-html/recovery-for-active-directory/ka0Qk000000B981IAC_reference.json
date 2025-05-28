@@ -1,0 +1,43 @@
+{
+  "article_id": "ka0Qk000000B981IAC",
+  "article_path": "C:\\Users\\JakeMahon\\knowledge-base\\all-articles-html\\recovery-for-active-directory\\ka0Qk000000B981IAC.html",
+  "embedding_file": "C:\\Users\\JakeMahon\\knowledge-base\\kb-config\\kb_refresh\\embeddings\\recovery_for_active_directory_embeddings.jsonl",
+  "processed_at": "2025-05-28T15:32:41.188582",
+  "relevant_chunks": [
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_396",
+      "text": "Step 1 – To launch the Recovery Configuration Utility, double-click the Recovery_Config.ex e executable at the following location in the Recovery for Active Directory installation directory: ...Netwrix\\Recovery for Active Directory\\Recovery_Config.exe Step 2 – Update the account password for SQL Server Authentication in the Login and Password fields.",
+      "chunk_index": 396,
+      "total_chunks": 397,
+      "similarity_score": 0.5894153524468494
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_140",
+      "text": "v2.6 v2.5 v2.6 Run the NetwrixRecovery_Setup.exe on the Netwrix Recovery for Active Directory server to upgrade to the newer version of the product.",
+      "chunk_index": 140,
+      "total_chunks": 397,
+      "similarity_score": 0.5869935852633179
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_132",
+      "text": "The installer is located in the following installation directory on the Recovery Application Server: ...Netwrix\\Recovery for Active Directory\\RSAT Extension\\NetwrixRecovery_RSAT_Extension.msi Follow the steps to install the RSAT Extension.",
+      "chunk_index": 132,
+      "total_chunks": 397,
+      "similarity_score": 0.5594229588066981
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_87",
+      "text": "Step 1 – Run the NetwrixRecovery_Setup.exe executable as an administrator to launch the Recovery for Active Directory Setup wizard.",
+      "chunk_index": 87,
+      "total_chunks": 397,
+      "similarity_score": 0.5565607208996579
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_139",
+      "text": "Upgrade Procedure This topic describes the steps needed to upgrade Netwrix Recovery for Active Directory from v2.5 to v2.6.",
+      "chunk_index": 139,
+      "total_chunks": 397,
+      "similarity_score": 0.5403495379585317
+    }
+  ]
+}

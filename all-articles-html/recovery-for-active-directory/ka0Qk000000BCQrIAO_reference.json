@@ -1,0 +1,43 @@
+{
+  "article_id": "ka0Qk000000BCQrIAO",
+  "article_path": "C:\\Users\\JakeMahon\\knowledge-base\\all-articles-html\\recovery-for-active-directory\\ka0Qk000000BCQrIAO.html",
+  "embedding_file": "C:\\Users\\JakeMahon\\knowledge-base\\kb-config\\kb_refresh\\embeddings\\recovery_for_active_directory_embeddings.jsonl",
+  "processed_at": "2025-05-28T15:32:53.212028",
+  "relevant_chunks": [
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_139",
+      "text": "Upgrade Procedure This topic describes the steps needed to upgrade Netwrix Recovery for Active Directory from v2.5 to v2.6.",
+      "chunk_index": 139,
+      "total_chunks": 397,
+      "similarity_score": 0.651385025765602
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_140",
+      "text": "v2.6 v2.5 v2.6 Run the NetwrixRecovery_Setup.exe on the Netwrix Recovery for Active Directory server to upgrade to the newer version of the product.",
+      "chunk_index": 140,
+      "total_chunks": 397,
+      "similarity_score": 0.6159358543658751
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_88",
+      "text": "v2.6 Step 2 – On the Netwrix Recovery for Active Directory page, read the End User License Agreement.",
+      "chunk_index": 88,
+      "total_chunks": 397,
+      "similarity_score": 0.5303683424759316
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_75",
+      "text": "v2.6 Installation Recovery for Active Directory consists of the following components: Netwrix Recovery Server Netwrix Recovery Web Console – Installed on the Recovery Application Server and used to perform the operations the application offers RSAT Extension – Installed on the Recovery Application Server automatically.",
+      "chunk_index": 75,
+      "total_chunks": 397,
+      "similarity_score": 0.5266810345684811
+    },
+    {
+      "chunk_id": "netwrix_recovery_for_active_directory_v2_6_2025-05-28-14-52-09_16",
+      "text": "See announcements for Netwrix Recovery for Active Directory in the Recovery for Active Directory area of our new community.",
+      "chunk_index": 16,
+      "total_chunks": 397,
+      "similarity_score": 0.5130645240525312
+    }
+  ]
+}

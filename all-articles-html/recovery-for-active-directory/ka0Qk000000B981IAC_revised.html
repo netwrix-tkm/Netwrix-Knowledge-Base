@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Error: When Installing or Upgrading: SmtpNotification.comhost.dll Failed to Register</title>
+<meta content="ka0Qk000000B981IAC" name="article-id"/>
+<meta content="1" name="articlecaseattachcount"/>
+<meta content="0054u000007oss5AAA" name="articlecreatedbyid"/>
+<meta content="2024-11-14T13:49:46.000Z" name="articlecreateddate"/>
+<meta content="000009320" name="articlenumber"/>
+<meta content="0054u000007oss5AAA" name="assignedbyid"/>
+<meta content="0054u000007oss5AAA" name="assignedtoid"/>
+<meta content="2024-11-14T13:49:46.000Z" name="assignmentdate"/>
+<meta content="500Qk00000HMA0XIAX" name="case"/>
+<meta content="Work In Progress" name="confidence-level"/>
+<meta content="0054u000007oss5AAA" name="createdbyid"/>
+<meta content="2024-11-14T13:49:46.000Z" name="createddate"/>
+<meta content="Awaiting TKM" name="draft-status"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA0Qk0000001gzhKAA" name="knowledgearticleid"/>
+<meta content="kA0Qk0000001gzhKAA" name="knowledge-article-id"/>
+<meta content="0054u000007oss5AAA" name="lastmodifiedbyid"/>
+<meta content="2025-02-07T15:45:58.000Z" name="lastmodifieddate"/>
+<meta content="Error when installing/upgrading Netwrix Recovery for Active Directory: SmtpNotification.comhost.dll failed to register" name="meta-description"/>
+<meta content="Error when installing/upgrading Netwrix Recovery for Active Directory: SmtpNotification.comhost.dll failed to register" name="meta-title"/>
+<meta content="0054u000007oss5AAA" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="9320" name="urlname"/>
+<meta content="0" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001gzhKAA.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+</head>
+<body>```html
+<blockquote>
+<p><strong>Changes Made:</strong></p>
+<ul>
+<li>Updated the resolution steps to include accurate and current information from the provided references, such as the correct executable names and installation paths.</li>
+<li>Revised the structure and formatting to align with the style guide, including proper headings, lists, and HTML markup.</li>
+<li>Clarified the cause of the error and added specific steps for upgrading and resolving the issue based on the latest product documentation.</li>
+<li>Removed redundant and outdated information that contradicted the provided references.</li>
+</ul>
+<p><strong>Reason for Changes:</strong> The original article contained outdated and incomplete information. The updates ensure accuracy, clarity, and adherence to the style guide, providing users with a reliable and professional resource.</p>
+</blockquote>
+<h2>Error: SmtpNotification.comhost.dll Failed to Register</h2>
+<h4>Symptom(s)</h4>
+<p>When installing or upgrading Netwrix Recovery for Active Directory, you encounter the following error message:</p>
+<pre class="has-inner-focus">
+SmtpNotification.comhost.dll Failed to Register
+</pre>
+<h4>Cause(s)</h4>
+<p>This error occurs because your version of .NET does not meet the requirements to install the latest version of Netwrix Recovery for Active Directory. The installer attempts to download a compatible version of .NET but may fail if the system cannot connect to the internet or if access is blocked.</p>
+<h4>Resolution(s)</h4>
+<p>Follow these steps to resolve the issue:</p>
+<ol>
+<li>Ensure that your system meets the following prerequisites:
+        <ul>
+<li>Membership in the local <strong>Administrators</strong> group.</li>
+<li>The <strong>Log on as a service</strong> right, which can be configured in the Local Security Policy under <strong>Local Policies &gt; User Rights Assignment &gt; Log on as a service</strong>.</li>
+<li>SQL Server permissions for the domain account being used.</li>
+</ul>
+</li>
+<li>Manually download and install the following components:
+        <ul>
+<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank">ASP.NET Core 8.0.6</a></li>
+<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank">Windows Desktop Runtime 8.0.6</a></li>
+</ul>
+</li>
+<li>Launch the Recovery Configuration Utility to update the SQL Server Authentication password:
+        <ol>
+<li>Navigate to the installation directory: <code>...Netwrix\Recovery for Active Directory\</code>.</li>
+<li>Double-click <code>Recovery_Config.exe</code> to open the utility.</li>
+<li>Enter the updated SQL Server Authentication credentials in the <strong>Login</strong> and <strong>Password</strong> fields.</li>
+</ol>
+</li>
+<li>If upgrading from version 2.5 to 2.6, follow these steps:
+        <ol>
+<li>Run the <code>NetwrixRecovery_Setup.exe</code> executable as an administrator to launch the Recovery for Active Directory Setup wizard.</li>
+<li>Follow the on-screen instructions to complete the upgrade process.</li>
+</ol>
+</li>
+<li>To install the RSAT Extension, locate the installer at <code>...Netwrix\Recovery for Active Directory\RSAT Extension\NetwrixRecovery_RSAT_Extension.msi</code> and follow the installation steps.</li>
+</ol>
+<h4>Related Articles</h4>
+<ul>
+<li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk000000227NKAQ.html" target="_blank">How to Optimize SEEK System Scans with System Resources</a></li>
+<li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u0000000Is4CAE.html" target="_blank">How to Re-enable the Built-in AIC Admin Account via SQL Server</a></li>
+</ul>
+```</body>
+</html>

@@ -1,3 +1,6 @@
+# Ignore local development files
+.cursor
+
 # Ignore .gitkeep files in these directories
 **/.gitkeep
 

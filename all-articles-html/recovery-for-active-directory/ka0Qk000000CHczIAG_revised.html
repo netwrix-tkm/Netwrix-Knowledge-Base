@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Reset Multi-Factor Authentication</title>
+<meta content="ka0Qk000000CHczIAG" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="0054u000008icp2AAA" name="articlecreatedbyid"/>
+<meta content="2025-02-10T21:47:38.000Z" name="articlecreateddate"/>
+<meta content="000009395" name="articlenumber"/>
+<meta content="https://app.asana.com/0/1203106155380297/1209368774839486" name="asana-task-url"/>
+<meta content="0054u000008icp2AAA" name="createdbyid"/>
+<meta content="2025-02-18T18:34:08.000Z" name="createddate"/>
+<meta content="Ready to Publish" name="draft-status"/>
+<meta content="2025-02-13T19:22:17.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA0Qk0000001zvtKAA" name="knowledgearticleid"/>
+<meta content="kA0Qk0000001zvtKAA" name="knowledge-article-id"/>
+<meta content="0054u000008icp2AAA" name="lastmodifiedbyid"/>
+<meta content="2025-02-18T18:34:48.000Z" name="lastmodifieddate"/>
+<meta content="2025-02-18T18:34:48.000Z" name="lastpublisheddate"/>
+<meta content="0054u000008icp2AAA" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="9395" name="urlname"/>
+<meta content="3" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk0000001zvtKAA.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+</head>
+<body>```html
+<blockquote>
+<p><strong>Changes Made:</strong></p>
+<ul>
+<li>Updated the article to include the most recent and accurate information from the provided references.</li>
+<li>Revised the steps for resetting MFA to align with the updated product documentation, including the confirmation message and re-enabling option.</li>
+<li>Added a section on enabling MFA again after resetting it, as per the references.</li>
+<li>Removed redundant and repeated instructions for clarity and conciseness.</li>
+<li>Formatted the article to adhere to the style guide, including proper use of headings, lists, and HTML tags.</li>
+</ul>
+<p><strong>Reason for Changes:</strong> The original article contained outdated and repetitive information. The updates ensure accuracy, clarity, and compliance with the style guide.</p>
+</blockquote>
+<h2>How to Reset Multi-Factor Authentication in Recovery for Active Directory</h2>
+<h4>Question</h4>
+<p>Can you reset multi-factor authentication (MFA) in Netwrix Recovery for Active Directory (NRAD) after losing access to your authenticator account?</p>
+<h4>Answer</h4>
+<p>Yes, you can reset MFA in NRAD by following the steps below. After resetting, you can also re-enable MFA if needed.</p>
+<h4>Instructions</h4>
+<ol>
+<li>Open <strong>SQL Server Management Studio</strong> and connect to the SQL Server instance used for NRAD.</li>
+<li>Expand the <strong>Tables</strong> in the database used by NRAD. 
+        <blockquote><p><span class="Note"><strong>NOTE: </strong></span>The default database name is <code>NetwrixRecovery</code>, but it may vary if modified during installation.</p></blockquote>
+</li>
+<li>Right-click the <code>dbo.tusers</code> table and select <strong>Edit Top 200 Rows</strong>.</li>
+<li>Locate the user account by identifying their login name in the <strong>Data</strong> column.</li>
+<li>Change the <strong>TwoFactorEnabled</strong> column value from <code>True</code> to <code>False</code> and save the changes.</li>
+<li>After resetting MFA, users can log in to the console without an authenticator code.</li>
+</ol>
+<h4>Re-Enabling MFA</h4>
+<ol>
+<li>Log in to the NRAD console.</li>
+<li>Click the <strong>User Profile</strong> icon in the top-right corner.</li>
+<li>Select <strong>Manage</strong> to open the MFA page.</li>
+<li>Follow the prompts to set up multi-factor authentication for your account.</li>
+</ol>
+<blockquote><p><span class="Note"><strong>NOTE: </strong></span>When disabling MFA, a confirmation message will appear, and you will have the option to enable it again.</p></blockquote>
+<h4>Related Articles</h4>
+<ul>
+<li><a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA0Qk000000227NKAQ.html" target="_blank">How to Configure MFA in Recovery for Active Directory</a></li>
+</ul>
+```</body>
+</html>
