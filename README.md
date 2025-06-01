@@ -78,23 +78,23 @@ Articles should be structured with clear headings to help readers quickly find i
 
 # Article Titles
 
-The title of a KB article is critical, as it’s often the first thing a customer or support engineer sees when searching. A clear, precise title ensures that users find information quickly.
+The title of a KB article is critical, as it's often the first thing a customer or support engineer sees when searching. A clear, precise title ensures that users find information quickly.
 
 ## Title Guidelines
 
 * **Avoid product names in titles.** Product names are in the metadata, so adding them to titles makes titles unnecessarily long and redundant.
 * **Use keywords customers will search for.** Focus especially on any words used by the customer in a ticket subject or description.
 * **Include unique identifiers like error codes.** Customers often include specific codes in their queries, so this helps
-* **Use title case.** If you’re not sure how, use <https://capitalizemytitle.com/> and choose Chicago style.
+* **Use title case.** If you're not sure how, use <https://capitalizemytitle.com/> and choose Chicago style.
 * **Avoid vagueness and ambiguity.** The clearer the title, the more findable it is.
 
 ## Article Title Rules
 
 | **Article Type**  | **Corresponding Ticket Type\*** | **Content Type Data Category** | **Format** | **Description**  | **Bad Example**s | **Good Example**s |
 |----|----|----|----|----|----|----|
-| **Error Resolution**  | Error | Troubleshooting | Error: \[Unique Error Code/Message\] | Focused on a specific error. The title should include the most unique part of the error message. If the error message contains the word “error”, don’t start the title with “Error:” | Error: Can’t Process Request **(too generic, not findable)** Event collection failed: Event log read failure. Error details: Data error (cyclic redundancy check). Error number: 0x80004005 **(too detailed)** | Error: Event Collection Failed 0x80004005 **(most unique part of message)**  An Unknown Error Occurred While Processing the Request on the Server **(didn’t start with “Error:” because “error” in the message)** |
+| **Error Resolution**  | Error | Troubleshooting | Error: \[Unique Error Code/Message\] | Focused on a specific error. The title should include the most unique part of the error message. If the error message contains the word "error", don't start the title with "Error:". | Error: Can't Process Request **(too generic, not findable)** Event collection failed: Event log read failure. Error details: Data error (cyclic redundancy check). Error number: 0x80004005 **(too detailed)** | Error: Event Collection Failed 0x80004005 **(most unique part of message)**  An Unknown Error Occurred While Processing the Request on the Server **(didn't start with "Error:" because "error" in the message)** |
 | **Symptom Resolution** | Unexpected Behavior, Performance | Troubleshooting | \[Feature or Component\] \[Symptom or Issue\] \[Optional: Condition or Context\] | Focused on resolving behavioral or performance issues that do not produce explicit errors. The title should clearly summarize the symptom or issue the user experiences. Avoid vague or overly broad titles. | AD not working right **(too vague)**  Reports slow and sometimes fail when running a report in the web interface **(too wordy)** | Active Directory Users Missing from Search Results **(clear)**  Reports Time Out in Web Interface **(concise, specific)** |
-| **How To** | Question | How To | \[Action Gerund\] \[Specific Task\] | Focused on answering a specific question, accomplishing a specific goal, or using a specific feature.  | How to Modify SSRS Report Timeouts? **(starts with “how to”, ends in a question mark)** Auditing a non-trusted domain **(sentence case)** | Modifying SSRS Report Timeouts **(starts with gerund, no punctuation)** Auditing a Non-trusted Domain **(title case)** |
+| **How To** | Question | How To | \[Action Gerund\] \[Specific Task\] | Focused on answering a specific question, accomplishing a specific goal, or using a specific feature.  | How to Modify SSRS Report Timeouts? **(starts with "how to", ends in a question mark)** Auditing a non-trusted domain **(sentence case)** | Modifying SSRS Report Timeouts **(starts with gerund, no punctuation)** Auditing a Non-trusted Domain **(title case)** |
 
 \*Ticket types generally align with these types of articles, but there may be exceptions.
 
@@ -126,7 +126,7 @@ Our KB articles should maintain a consistent voice and tone.
 
 ## Words and Phrases to Avoid
 
-* Colloquialisms and idioms (e.g., instead of “hang,” use “stop loading”)
+* Colloquialisms and idioms (e.g., instead of "hang," use "stop loading")
 * Vague terms like "simply," "just," "easy," or "obviously"
 * Unnecessarily complex terminology when simpler terms will do
 * Humor (rarely translates well across cultures)
@@ -167,17 +167,17 @@ Use markdown conventions in all KB articles:
   >
   > **NOTE:** ... 
 * **Bold** (`**...**`) for UI elements, actions, buttons, menu items, tabs, checkboxes, dropdown options, navigation steps, and form fields.
-  * Buttons, menu items, tabs, checkboxes, dropdown options, and other interactive elements (e.g., “Click **Submit** to complete the process.”) 
+  * Buttons, menu items, tabs, checkboxes, dropdown options, and other interactive elements (e.g., "Click **Submit** to complete the process.") 
 
 
-  * Fields, form labels, and field names in databases or applications (e.g., “Enter your email address in the **Email** field.”) 
+  * Fields, form labels, and field names in databases or applications (e.g., "Enter your email address in the **Email** field.") 
 
 
-  * Use bold for user-initiated actions such as clicking, selecting, or pressing keys (e.g., “Select **File** > **Save As** to save the document.”) 
+  * Use bold for user-initiated actions such as clicking, selecting, or pressing keys (e.g., "Select **File** > **Save As** to save the document.") 
 
 
-  * Tab names, page sections, and navigation steps (e.g., “Navigate to the **Settings** tab and select **Security**.”) 
-  * Exception: Use single backticks `` ` `` for command-line inputs (e.g., “Type `git status` and press **Enter**.”) 
+  * Tab names, page sections, and navigation steps (e.g., "Navigate to the **Settings** tab and select **Security**.") 
+  * Exception: Use single backticks `` ` `` for command-line inputs (e.g., "Type `git status` and press **Enter**.") 
 
 # Optimizing for Retrieval-Augmented Generation (RAG) AI
 
@@ -260,22 +260,22 @@ Use the following long and short product names in KB articles. Do NOT use produc
 
 ## When to Use Long and Short Names
 
-Use a full product name, such as “Netwrix Auditor”,
+Use a full product name, such as "Netwrix Auditor",
 
 * Every time you introduce a product for the first time
 
 
-* When mentioning service names (e.g., “Netwrix Auditor for File Servers Service”)
+* When mentioning service names (e.g., "Netwrix Auditor for File Servers Service")
 
 
-* With log names (e.g., “Netwrix Auditor Health Log”)
+* With log names (e.g., "Netwrix Auditor Health Log")
 
-Use a short product name, such as “Auditor”, 
+Use a short product name, such as "Auditor", 
 
 * Every time after the first mention of the product
 
 
-* With the words “server” and “client”
+* With the words "server" and "client"
 
 Don't use a product name for product components if the product name has already been introduced. For example,  
 
@@ -297,7 +297,7 @@ Don't use a product name for product components if the product name has already 
 
 * Write in title case (use <https://capitalizemytitle.com/>).
   * Prepositions are capitalized only in case they exceed 4 letters.
-  * Prepositions that are part of a phrasal verb (e.g., “Set Up”) should be capitalized.
+  * Prepositions that are part of a phrasal verb (e.g., "Set Up") should be capitalized.
   * Avoid punctuation marks.
 * Avoid passive voice.
 * Maine article section headings start with `##`.
@@ -316,7 +316,7 @@ The KB maintains consistent punctuation standards to ensure clarity and professi
 
 ### Punctuation Guidelines
 
-* **Colons:** Use only at the end of complete sentences to introduce lists or explanations (e.g., “Refer to the following steps:”). Capitalize the first word after a colon only if it begins a complete sentence.
+* **Colons:** Use only at the end of complete sentences to introduce lists or explanations (e.g., "Refer to the following steps:"). Capitalize the first word after a colon only if it begins a complete sentence.
 * **Semicolons:** Use to separate closely related independent clauses or to separate items in a complex list where the items themselves contain commas.
 * **Hyphens and Dashes:**
   * Use hyphens (-) for compound modifiers before nouns (e.g., "well-known feature").
@@ -369,7 +369,7 @@ Screenshots are a welcome addition to an article to clarify exactly where in a u
 ### List Rules
 
 
-1. Capitalize the first word of each item on every list, unless not needed by design (e.g., “gMSA”). 
+1. Capitalize the first word of each item on every list, unless not needed by design (e.g., "gMSA"). 
 2. Adopt consistent punctuation. For example, all list items should end in a period or none should.
 
    
@@ -388,16 +388,16 @@ Screenshots are a welcome addition to an article to clarify exactly where in a u
 
 When referring to Netwrix documentation articles, follow these recommendations:
 
-* Avoid the “Read here” pattern. Be more descriptive of where a reader can expect the link to take them.
+* Avoid the "Read here" pattern. Be more descriptive of where a reader can expect the link to take them.
 * When referring to a subsection, orient the reader by adding a subsection name and a parent section name.
 * Insert links to a document article related to the latest product version.
-* Add a version to a referencing article’s name.
+* Add a version to a referencing article's name.
 
 ## Links to External Content
 
 When referring to third-party company articles, make sure that the referenced article name adheres to the following structure:
 
-* An article’s name and a third-party company name are separated by a middot (`⸱`), with spaces before and after the middot.
+* An article's name and a third-party company name are separated by a middot (`⸱`), with spaces before and after the middot.
 * There is a space and then a wide-headed northeast light barb arrow (`🡥`) after the company name.
 
 Example:
@@ -405,3 +405,30 @@ Example:
 ```markup
 Learn more in Learn more in [SMB Security Enhancements ⸱ Microsoft 🡥](https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-security)
 ```
+
+# VS Code Tasks for KB Article Updates
+
+This repository includes VS Code tasks for updating KB articles using the latest product documentation. These tasks make it easy to rewrite articles from PDFs, process entire product documentation, and more.
+
+## File Storage
+
+The KB enhancement tool stores all intermediate files locally within the tool directory structure:
+
+- `kb-tools/kb_enhance/extracted/` - Contains extracted text from PDFs
+- `kb-tools/kb_enhance/chunked/` - Contains JSON files with semantic chunks
+- `kb-tools/kb_enhance/embeddings/` - Contains JSONL files with vector embeddings
+
+This design ensures portability - the tool will work regardless of where the repository is cloned.
+
+## Using the VS Code Tasks
+
+1. Open this repository in VS Code
+2. Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac)
+3. Type "Tasks: Run Task" and select the appropriate KB refresh task
+
+Available tasks include:
+- Enhancing KB articles using product PDFs
+- Extracting and chunking PDF content
+- Generating embeddings for semantic search
+
+For detailed instructions on using these tasks, see the [VS Code tasks README](.vscode/README.md).

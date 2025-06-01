@@ -1,0 +1,293 @@
+[
+  {
+    "status": "needs_update",
+    "priority": "medium",
+    "score": 65,
+    "age_assessment": "The article appears to be relatively current, but lacks clarity and completeness in its instructions.",
+    "accuracy_assessment": "The steps provided are mostly accurate but lack context and detail compared to the reference documentation.",
+    "completeness_assessment": "The article is incomplete as it does not cover all necessary steps or considerations for enabling advanced SQL tracing.",
+    "technical_assessment": "The technical instructions are partially correct but could lead to confusion due to missing details and formatting issues.",
+    "gaps": [
+      "Missing detailed explanations for each step.",
+      "No mention of prerequisites or configurations needed before enabling tracing.",
+      "Lack of clarity on the purpose of the files mentioned.",
+      "Formatting issues that make it hard to read (e.g., missing spaces, unclear instructions)."
+    ],
+    "recommendation": "update",
+    "summary": "The article provides a basic overview of enabling advanced SQL tracing but requires significant updates for clarity, completeness, and accuracy. It should include more detailed instructions and context to ensure users can successfully follow the steps.",
+    "article_path": "all-articles-html\\auditor\\ka04u0000001B1iAAE.html",
+    "title": "How to manually enable advanced SQL tracing",
+    "assessed_at": "2025-06-01T08:06:37.306328",
+    "relative_path": "all-articles-html\\auditor\\ka04u0000001B1iAAE.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_1295",
+        "text": "Follow the steps to change trace log location. Step 1 \u2013 On Netwrix Auditor server, go to %Netwrix Auditor installation folder%\\SQL Server Auditing folder. Step 2 \u2013 Locate the pathstotracelogs.txt file and open it for editing. Step 3 \u2013 Specify SQL Server instance that you need to audit and enter a UNC path to the folder where you want the trace logs to be stored.",
+        "chunk_index": 1295,
+        "total_chunks": 6108,
+        "similarity_score": 0.6939485637605671
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_1292",
+        "text": "Step 1 \u2013 On Netwrix Auditor server, go to the %Netwrix Auditor installation folder%\\SQL Server Auditing folder. Step 2 \u2013 Locate the omittracelist.txt file and open it for editing. Step 3 \u2013 Specify SQL Server instances that you want to exclude from switching trace logging on automatically. Syntax: server\\instance name Each entry must be a separate line.",
+        "chunk_index": 1292,
+        "total_chunks": 6108,
+        "similarity_score": 0.6691119517738481
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_236",
+        "text": "When prompted to configure the Audit database settings, proceed using the dedicated SQL Server and Reporting Services. v10.7 Data Source Configuration With the Netwrix Auditor, the following Data Sources can be monitored: Active Directory AD FS Exchange File Servers \u25e6\u25e6 Dell Data Storage \u25e6\u25e6 Dell Isilon/PowerScale \u25e6\u25e6 NetApp Data ONTAP \u25e6\u25e6 Nutanix \u25e6\u25e6 Qumulo \u25e6\u25e6 Synology \u25e6\u25e6 Windows File Servers Group Policy Logon Activity Microsoft 365 \u25e6\u25e6 Exchange Online \u25e6\u25e6 Microsoft Entra ID \u25e6\u25e6 SharePoint Online \u25e6\u25e6 MS Teams Network Devices Oracle Database SharePoint v10.7 SQL Server User Activity VMware Windows Server Active Directory Netwrix Auditor relies on native logs for collecting audit data. Therefore, successful change and access auditing requires a certain configuration of native audit settings in the audited environment and on the Auditor console computer. Configuring your IT infrastructure may also include enabling certain built-in Windows services, etc.",
+        "chunk_index": 236,
+        "total_chunks": 6108,
+        "similarity_score": 0.6687660061397542
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3858",
+        "text": "The option is not available for auditing User Activity as well Netwrix Auditor tools. Table 2: Option Description Write data to Audit Database and enable reports Select if you want to generate reports. Even if you do not select this checkbox now, you will still be able to configure these settings later, but already collected audit data will not be imported in the Audit Database. Write event descriptions to Audit Database Select if you want to see the exact error or warning text.",
+        "chunk_index": 3858,
+        "total_chunks": 6108,
+        "similarity_score": 0.649955150000173
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3806",
+        "text": "Audit Database settings are properly configured for each data source individually and Disable security intelligence and make data available only in activity summaries is cleared. Netwrix recommends to store all audit data on the same default SQL Server instance. Contact your Auditor Global administrator or \"No plans found\" text in the Monitoring plan field. Configurator to make sure that the monitoring plans exist and are properly configured.",
+        "chunk_index": 3806,
+        "total_chunks": 6108,
+        "similarity_score": 0.649255030484502
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "outdated",
+    "priority": "high",
+    "score": 45,
+    "age_assessment": "The article lacks specific details and context, making it difficult to determine its relevance to current practices.",
+    "accuracy_assessment": "The article does not provide accurate or detailed solutions, and it lacks references to the specific errors mentioned in the reference documentation.",
+    "completeness_assessment": "The article is incomplete as it does not include step-by-step instructions or detailed explanations for resolving pre-authentication errors.",
+    "technical_assessment": "The technical content is vague and does not align with the detailed troubleshooting steps provided in the reference documentation.",
+    "gaps": [
+      "Lack of specific symptoms and detailed solutions for pre-authentication errors.",
+      "No step-by-step troubleshooting guide or references to relevant logs and diagnostics.",
+      "Absence of context regarding the Netwrix Server and SQL Server integration."
+    ],
+    "recommendation": "update",
+    "summary": "The article is outdated and lacks critical information needed to effectively troubleshoot pre-authentication errors. It requires significant updates to align with current practices and provide comprehensive guidance.",
+    "article_path": "all-articles-html\\auditor\\ka04u000000HcaBAAS.html",
+    "title": "How to Fix Pre-Authentication Errors Between Netwrix Server and SQL Server\\DC",
+    "assessed_at": "2025-06-01T08:06:42.686051",
+    "relative_path": "all-articles-html\\auditor\\ka04u000000HcaBAAS.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_5859",
+        "text": "Then click OK to confirm. The Database service account password has been updated. Diagnostics Page Download logs and enable debug log level for troubleshooting with Netwrix Support on the Diagnostics page of the Configuration interface. v10.7 When requested by Netwrix Support, click Download Logs to download the archive of all application logs.",
+        "chunk_index": 5859,
+        "total_chunks": 6108,
+        "similarity_score": 0.6018906019077056
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_5861",
+        "text": "Step 2 \u2013 Click Save. Step 3 \u2013 Reproduce the issue you are having. Step 4 \u2013 On the Diagnostics page, click Download Logs. The downloaded logs have the debug logging information and can be sent to Netwrix Support.",
+        "chunk_index": 5861,
+        "total_chunks": 6108,
+        "similarity_score": 0.5719712417921957
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_5718",
+        "text": "See this Knowledge Base article for more inf ormation on the program. Table 2: Symptom Cause Solution In the environments with root/child domains, you may receive the \u201cCould not query ComputerName. Access is denied.\u201d error. The account used to run Netwrix Account Lockout Examiner is not a member of the local Administrators Make sure this account is included in the local Administrators group.",
+        "chunk_index": 5718,
+        "total_chunks": 6108,
+        "similarity_score": 0.5636517779364869
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3810",
+        "text": "This may happen due to Secondary Logon Service When trying to collect event data from Active disabled state. To collect event data from the domain, Directory domain, an error message like this appears this service must be up and running. Open its in Netwrix Health Log: properties and start the service. Table 1: Issue Reason and solution Monitoring Plan: <Monitoring_Plan_Name> The following error has occurred while processing '<Item_Name>': Error collecting the security log of the domain <Domain_Name>.",
+        "chunk_index": 3810,
+        "total_chunks": 6108,
+        "similarity_score": 0.5621179007623465
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_1827",
+        "text": "Ensure that your account meets the requirements and has all server roles assigned. Follow these steps to enable and configure Sensitive Data Discovery: Step 1 \u2013 In Netwrix Auditor, navigate to Setting in the upper right corner. Step 2 \u2013 Select Sensitive Data Discovery. Step 3 \u2013 Configure the following settings: Enable NDC SQL Database Provider \u2013 Select Enable in the Connect to NDC SQL database field and then click Configure to specify NDC SQL database connection settings.",
+        "chunk_index": 1827,
+        "total_chunks": 6108,
+        "similarity_score": 0.5533139100308022
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "needs_update",
+    "priority": "medium",
+    "score": 65,
+    "age_assessment": "The article appears to be relatively current but lacks specific details that may have changed in recent updates.",
+    "accuracy_assessment": "The information provided is mostly accurate but does not fully align with the latest reference documentation regarding account permissions and configurations.",
+    "completeness_assessment": "The article lacks comprehensive details about the necessary permissions and configurations for both SSRS-based and search-based reports.",
+    "technical_assessment": "The technical details regarding account usage for subscriptions are partially correct, but the article does not mention the implications of using Group Managed Service Accounts (gMSA) as highlighted in the reference documentation.",
+    "gaps": [
+      "Missing details on the required permissions for the accounts used in SSRS-based subscriptions.",
+      "No mention of the implications of using Group Managed Service Accounts (gMSA) for report generation.",
+      "Lack of information on troubleshooting steps for the 'Access is denied' error."
+    ],
+    "recommendation": "update",
+    "summary": "The article provides a basic overview of the issue but requires updates to include more detailed and accurate information regarding account permissions and configurations, as well as troubleshooting steps for the reported error.",
+    "article_path": "all-articles-html\\auditor\\ka04u000000HcaIAAS.html",
+    "title": "Netwrix Auditor was Unable to Deliver the subscription due to following error: \"Access is denied\"",
+    "assessed_at": "2025-06-01T08:06:47.616500",
+    "relative_path": "all-articles-html\\auditor\\ka04u000000HcaIAAS.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_1934",
+        "text": "User name This account must be granted the database owner (db_owner) role and the dbcreator server role. Password Enter a password. NOTE: If you want to use Group Managed Service Account (gMSA) to access the SQL Server instance hosting the database, consider that in this case Netwrix Auditor will not be able to generate SSRS-based reports (due to the following Microsoft article: Configure the Unattended Execution Account (Report Server Configuration Manager). Database Settings At this step, you need to specify a database where Netwrix Auditor will store data collected from the data sources included in this monitoring plan.",
+        "chunk_index": 1934,
+        "total_chunks": 6108,
+        "similarity_score": 0.7178122587491442
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_2598",
+        "text": "Refer to the Netwrix Privilege Secure documentation to learn more about Access Policies. In this case, you need to provide the username of the account managed by Netwrix Privilege Secure, and to which Netwrix Auditor has the access through a Credential-based access policy. NOTE: Netwrix recommends using different credentials for different monitoring plans and data sources. v10.7 The second option is Resource-based.",
+        "chunk_index": 2598,
+        "total_chunks": 6108,
+        "similarity_score": 0.7171284402632683
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_778",
+        "text": "Refer to the Netwrix Privilege Secure documentation to learn more about Access Policies. In this case, you need to provide the username of the account managed by Netwrix Privilege Secure, and to which Netwrix Auditor has the access through a Credential-based access policy. NOTE: Netwrix recommends using different credentials for different monitoring plans and data sources. The second option is Resource-based.",
+        "chunk_index": 778,
+        "total_chunks": 6108,
+        "similarity_score": 0.7153943867454073
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_2058",
+        "text": "v10.7 In this case, you need to provide the username of the account managed by Netwrix Privilege Secure, and to which Netwrix Auditor has the access through a Credential-based access policy. NOTE: Netwrix recommends using different credentials for different monitoring plans and data sources. The second option is Resource-based. To use this option, you need to provide the Activity and Resource names, assigned to Netwrix Auditor in the corresponding Resource-based policy.",
+        "chunk_index": 2058,
+        "total_chunks": 6108,
+        "similarity_score": 0.6988978358983804
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3015",
+        "text": "In this case, you need to provide the username of the account managed by Netwrix Privilege Secure, and to which Netwrix Auditor has the access through a Credential-based access policy. NOTE: Netwrix recommends using different credentials for different monitoring plans and data sources. v10.7 The second option is Resource-based. To use this option, you need to provide the Activity and Resource names, assigned to Netwrix Auditor in the corresponding Resource-based policy.",
+        "chunk_index": 3015,
+        "total_chunks": 6108,
+        "similarity_score": 0.6968993187263806
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "outdated",
+    "priority": "high",
+    "score": 35,
+    "age_assessment": "The article lacks specific details and context, making it appear outdated and insufficient for current user needs.",
+    "accuracy_assessment": "The article does not provide accurate or relevant information regarding counting network devices, as it lacks any actionable steps or guidance.",
+    "completeness_assessment": "The article is incomplete; it does not include any methods or procedures for counting network devices, nor does it reference relevant tools or commands.",
+    "technical_assessment": "The technical content is minimal and does not align with the reference documentation, which discusses syslog server configuration rather than counting devices.",
+    "gaps": [
+      "No specific methods or tools for counting network devices are mentioned.",
+      "Lack of step-by-step instructions or examples.",
+      "No reference to relevant commands or software that could assist in counting devices."
+    ],
+    "recommendation": "rewrite",
+    "summary": "The article is significantly outdated and lacks essential information on how to count network devices. It requires a complete rewrite to provide accurate, actionable guidance based on current practices.",
+    "article_path": "all-articles-html\\auditor\\ka04u000000HcMbAAK.html",
+    "title": "How to count the number of your network devices in your configuration?",
+    "assessed_at": "2025-06-01T08:06:51.089837",
+    "relative_path": "all-articles-html\\auditor\\ka04u000000HcMbAAK.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_1066",
+        "text": "See theNetwork Devices topic for additional information. Roles Select the following roles: \u2022 Appliance event log \u2022 Switch event log \u2022 Wireless event log v10.7 Step 3 \u2013 Locate the Reporting section and click Add a syslog server. Step 4 \u2013 In the dialog that opens, complete the following fields: Option Description Provide the IP address of the computer that hosts your Server IP Netwrix Auditor Server. Provide the port configured in your monitoring plan Port for Network Devices (514 by default).",
+        "chunk_index": 1066,
+        "total_chunks": 6108,
+        "similarity_score": 0.42611387158308445
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3839",
+        "text": "Use semicolon to separate several addresses. Monitored computers \u2014 Select items that you want to audit. You can add several items to your monitoring plan. Click Add and complete the following: Option Description Allows specifying a single computer by entering its FQDN, NETBIOS or IP address.",
+        "chunk_index": 3839,
+        "total_chunks": 6108,
+        "similarity_score": 0.4206553551068119
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_4047",
+        "text": "Devices 514 UDP Service host devices However, you can Privileged configure another User UDP port for that Monitoring purpose. General Linux Syslog 53 UDP Service host DNS server DNS Client 515 TCP Script host ArcSight Logger \u2014 514 UDP Script host ArcSight Logger \u2014 HPE ArcSight 53 UDP/TCP Script host DNS server DNS Client 53 UDP Script host DNS server DNS Client Table 1: Add-on Port Protocol Source Target Purpose RADIUS Server 139 TCP Script host RADIUS server RPC/NP Eventlog 445 TCP Script host RADIUS server RPC/NP Eventlog 137 UDP Script host RADIUS server RPC/NP Eventlog 138 UDP Script host RADIUS server RPC/NP Eventlog 135 TCP Script host RADIUS server RPC Endpoint Mapper Eventlog 1024 \u2013 65535 (Dynamically assigned) TCP Script host RADIUS server RPC Eventlog 53 UDP/TCP Script host DNS server DNS Client v10.7 Add-on Port Protocol Source Target Purpose RPC/NP 139 TCP Script host RADIUS server Eventlog RPC/NP 445 TCP Script host RADIUS server Eventlog RPC/NP 137 UDP Script host RADIUS server Eventlog RADIUS Server RPC/NP 138 UDP Script host RADIUS server Eventlog RPC Endpoint Mapper 135 TCP Script host RADIUS server Eventlog 1024 \u2013 65535 RPC (Dynamically TCP Script host RADIUS server assigned) Eventlog 53 UDP/TCP Script host DNS server DNS Client Table 1: Method Endpoint POST Data Description GET /netwrix/api/v1/ activity_records/enum \u2014 Returns Activity Records. Retrieve Activity Records POST /netwrix/api/v1/ activity_records/enum Continuation Mark Returns next 1,000 A ctivity Records. Continuation Mark POST /netwrix/api/v1/ activity_records/search Search Parameters Returns Activity Records matching a criteria de fined in search parameters.",
+        "chunk_index": 4047,
+        "total_chunks": 6108,
+        "similarity_score": 0.420048791552926
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_2626",
+        "text": "Enter the IP subrange you want to exclude, and click Add. Specify port and protocol for incoming connections Use Port and Protocol to provide the port required for incoming connections (default is UDP port 514). Devices Configure monitoring rules for required network devices: \u2022 Cisco (ASA, IOS, FTD, Meraki) \u2022 Fortinet (FortiGate FortiOS) \u2022 Juniper (Junos OS) \u2022 Palo Alto (PAN-OS) \u2022 Sonic Wall (NS, SMA, WAF) \u2022 HPE (ArubaOS) \u2022 Pulse Secure v10.7 Option Description General Select one of the following: Host or network source name \u2014 Provide a server name by entering its FQDN, NETBIOS or IPv4 address. You can click Browse Specify syslog host or network source to select a computer from the list of computers in your network.",
+        "chunk_index": 2626,
+        "total_chunks": 6108,
+        "similarity_score": 0.4191514722782634
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_1114",
+        "text": "1166.. Start Netwrix Auditor. 1177.. Navigate to your monitoring plan for Network Devices. See Monitoring Plans 1188.. Provide the IP address of the interface you specified on the step 14 as the Computer item for your monitoring plan.",
+        "chunk_index": 1114,
+        "total_chunks": 6108,
+        "similarity_score": 0.4165788914488386
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "needs_update",
+    "priority": "medium",
+    "score": 65,
+    "age_assessment": "The article appears to be relatively current, but it lacks context and additional details that are present in the reference documentation.",
+    "accuracy_assessment": "The instructions provided are mostly accurate, but there are some inconsistencies in the registry key path formatting and missing details that could lead to confusion.",
+    "completeness_assessment": "The article lacks completeness as it does not provide a comprehensive overview of the Password Expiration Notifier's functionality or the broader context of excluding users from monitoring.",
+    "technical_assessment": "The technical instructions are mostly correct, but the formatting of the registry key path is inconsistent with standard practices, which could lead to errors during implementation.",
+    "gaps": [
+      "Missing detailed steps on how to navigate to the registry key.",
+      "Lack of explanation regarding the implications of setting the registry value to 1.",
+      "No mention of the alternative method of excluding users via the omitoulist.txt file."
+    ],
+    "recommendation": "update",
+    "summary": "The article provides basic instructions for excluding Smart Card users from monitoring but lacks completeness and clarity. It needs updates to improve accuracy, provide additional context, and include alternative methods for user exclusion.",
+    "article_path": "all-articles-html\\auditor\\ka04u000000HcMkAAK.html",
+    "title": "How to exclude Smart Card users from monitoring by Password Expiration Notifier?",
+    "assessed_at": "2025-06-01T08:06:54.329004",
+    "relative_path": "all-articles-html\\auditor\\ka04u000000HcMkAAK.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3970",
+        "text": "Besides, Netwrix Auditor Password Expiration Notifier allows checking the effects of a password policy change before applying it to the managed domain. Windows Server 2025 Windows Server 2022 Windows Server 2019 Windows Server 2016 Windows Server 2012 R2 Windows Server 2012 Review the following for additional information: Configure Password Expiration Alerting Registry Key Configuration Password Expiration Notifier Ports Password Expiration Monitoring Scope Configure Password Expiration Alerting Follow the steps to configure password expiration alerting. Step 1 \u2013 Navigate to Start > Netwrix Auditor > Password Expiration Notifier. Step 2 \u2013 On the main page, you will be prompted to select a monitoring plan.",
+        "chunk_index": 3970,
+        "total_chunks": 6108,
+        "similarity_score": 0.7005537108939448
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_4026",
+        "text": "Follow the steps to exclude data from the Active Directory monitoring scope. Step 1 \u2013 Navigate to the %Netwrix Auditor installation folder%\\Password Expiration Alertingfolder. Step 2 \u2013 Edit the omitoulist.txt file, based on the following guidelines: Each entry must be a separate line. A wildcard (*) is supported.",
+        "chunk_index": 4026,
+        "total_chunks": 6108,
+        "similarity_score": 0.6767927113409111
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_4023",
+        "text": "In the Maximum Password Age Setting dialog that opens, select domain policy settings or specify the maximum password age in days. Table 1: Registry key (REG_DWORD type) Description / Value HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Netwrix Auditor\\Password Expiration Notifier HideEmailAdditionalInfo Defines whether to show or hide the header and footer in emails sent to users and their managers (emails sent to administrators always have default header and footer): \u2022 0\u2014Show \u2022 Any other number\u2014Hide v10.7 Registry Key Configuration Review the basic registry keys that you may need to configure for monitoring expiring passwords within your Active Directory domain with Netwrix Auditor. Navigate to Start > Run and type \"regedit\". Registry key (REG_DWORD type) Description / Value HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Netwrix Auditor\\Password Expiration Notifier Defines whether to show or hide the header and footer in emails sent to users and their managers (emails sent to administrators always have default HideEmailAdditionalInfo header and footer): 0\u2014Show Any other number\u2014Hide Password Expiration Notifier Ports Review a protocol and port required for Netwrix Auditor Password Expiration Notifier.",
+        "chunk_index": 4023,
+        "total_chunks": 6108,
+        "similarity_score": 0.635697050254132
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_4025",
+        "text": "Name For example: *OU=C,OU=B,OU=A* v10.7 NOTE: Tip for reading the table \u2013 On the compuer where the Netwrix Auditor server resides (source), allow outbound connections to remote 389 the TCP port. On domain controllers in your domain (target), allow inbound connections to the local 389 TCP port. Port Protocol Source Target Purpose Password Expiration Notifier LDAP Netwrix Auditor 389 TCP Domain controllers Server Common queries Password Expiration Monitoring Scope You can fine-tune Netwrix Auditor by specifying data that you want to exclude from monitoring and alerting on password expiration. Follow the steps to exclude data from the Active Directory monitoring scope.",
+        "chunk_index": 4025,
+        "total_chunks": 6108,
+        "similarity_score": 0.6291732457331773
+      },
+      {
+        "chunk_id": "netwrix_auditor_v10_7_2025-05-31-22-09-58_extracted_3968",
+        "text": "Wait until the tool has finished restoring the selected objects. On the last step, review the results and click Finish to exit the wizard. Password Expiration Notifier Netwrix Auditor Password Expiration Notifier standalone tool checks which domain accounts or passwords are about to expire in the specified number of days and sends notifications to users. It also generates summary reports that can be delivered to system administrators and/or users' Table 1: Option Description Enable password expiration alerting or inactive user tracking Select the checkbox to discover expiring passwords or inactive users in your Active Directory domain.",
+        "chunk_index": 3968,
+        "total_chunks": 6108,
+        "similarity_score": 0.6266253532101755
+      }
+    ],
+    "potential_duplicates": []
+  }
+]

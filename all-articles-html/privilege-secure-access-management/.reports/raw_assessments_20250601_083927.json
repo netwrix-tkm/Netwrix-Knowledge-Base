@@ -1,0 +1,287 @@
+[
+  {
+    "status": "outdated",
+    "priority": "high",
+    "score": 65,
+    "age_assessment": "The article references PostgreSQL 12, which is outdated as newer versions have been released since then, potentially affecting compatibility and features.",
+    "accuracy_assessment": "The article accurately describes the high availability setup process for SbPAM with PostgreSQL 12, but it lacks updates regarding newer PostgreSQL versions and their features.",
+    "completeness_assessment": "The article provides a detailed step-by-step guide for setting up high availability, but it does not mention the implications of using newer PostgreSQL versions or the differences in configurations.",
+    "technical_assessment": "The technical instructions are mostly accurate for PostgreSQL 12, but the lack of mention of newer versions may lead to confusion for users looking for current best practices.",
+    "gaps": [
+      "No mention of PostgreSQL versions beyond 12, which may lead to compatibility issues.",
+      "Lack of information on the differences in high availability configurations for newer PostgreSQL versions.",
+      "Absence of troubleshooting tips for common issues that may arise during setup."
+    ],
+    "recommendation": "update",
+    "summary": "The article provides a solid foundation for setting up high availability with PostgreSQL 12, but it is outdated and needs to be updated to reflect current best practices and newer PostgreSQL versions. Immediate attention is required to ensure users have the most relevant and accurate information.",
+    "article_path": "all-articles-html\\privilege-secure-access-management\\ka04u0000001COnAAM.html",
+    "title": "SbPAM: PostgreSQL 12 High Availability (HA) Set-up",
+    "assessed_at": "2025-06-01T08:39:15.781918",
+    "relative_path": "all-articles-html\\privilege-secure-access-management\\ka04u0000001COnAAM.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_73",
+        "text": "All subsequent communication is over: Leaf nodes port TCP 6523 Cluster nodes Port TCP 6524 Active-Passive Database Deployment with PostgreSQL Database For high-availability, the application allows two identical servers to be configured such that at any one time, all components of all hosts are active for the purposes of load-balancing and redundancy, with a replicated database pair. When the Primary becomes unavailable, a highavailability configuration tool is used to manually instigate failover. All external components on operational resources continue to service requests. The Active-Passive configuration, which is only available with the PostgreSQL database, allows you to leverage the embedded database.",
+        "chunk_index": 73,
+        "total_chunks": 1649,
+        "similarity_score": 0.6444329184195866
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_75",
+        "text": "Active-Active Database Deployment The Active-Active configuration for high-availability is available for both the PostgreSQL and SQL Server database options. No manual intervention is required. Many application servers can be added to the database for redundancy and scalability. However, setup is more complex than an Active-Passive configuration.",
+        "chunk_index": 75,
+        "total_chunks": 1649,
+        "similarity_score": 0.6163042736143988
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_74",
+        "text": "The Active-Passive configuration, which is only available with the PostgreSQL database, allows you to leverage the embedded database. It is also the simplest option for configuring highavailability. However, it does require the manual intervention to failover. Active-Active Database Deployment The Active-Active configuration for high-availability is available for both the PostgreSQL and SQL Server database options.",
+        "chunk_index": 74,
+        "total_chunks": 1649,
+        "similarity_score": 0.6128365790866499
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_72",
+        "text": "The Service Mesh connects remote services to the central Web service. Each remote \u201cleaf\u201d node is configured as a mesh so traffic may be routed via the most efficient route back to the web service. The Service Mesh registers to the Web service on TCP 6520. All subsequent communication is over: Leaf nodes port TCP 6523 Cluster nodes Port TCP 6524 Active-Passive Database Deployment with PostgreSQL Database For high-availability, the application allows two identical servers to be configured such that at any one time, all components of all hosts are active for the purposes of load-balancing and redundancy, with a replicated database pair.",
+        "chunk_index": 72,
+        "total_chunks": 1649,
+        "similarity_score": 0.4147448681283078
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_76",
+        "text": "However, setup is more complex than an Active-Passive configuration. Also, you will need an additional server for the database. Cloud-Native Database Deployment Cloud-native databases can be used for Active-Active configuration. They benefit from having built-in high-availability and auto-scaling.",
+        "chunk_index": 76,
+        "total_chunks": 1649,
+        "similarity_score": 0.38163136112524587
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "outdated",
+    "priority": "high",
+    "score": 45,
+    "age_assessment": "The article lacks detailed instructions and context, making it feel incomplete and outdated.",
+    "accuracy_assessment": "The article does not accurately reflect the necessary steps and information provided in the reference documentation.",
+    "completeness_assessment": "The article is very brief and lacks essential details on configuring LAPS integration, making it incomplete.",
+    "technical_assessment": "The technical content is insufficient and does not provide the necessary guidance for users to implement LAPS integration effectively.",
+    "gaps": [
+      "Detailed steps for installing LAPS in Active Directory are missing.",
+      "Instructions for setting up the Privilege Secure vault connector are not included.",
+      "Information on user permissions and rights management is absent.",
+      "No mention of the cmdlet SetAdmPwdReadPasswordPermission or its importance."
+    ],
+    "recommendation": "update",
+    "summary": "The article is outdated and lacks critical information needed for configuring LAPS integration. It requires significant updates to align with the reference documentation and provide users with a comprehensive guide.",
+    "article_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca2AAC.html",
+    "title": "How to Configure Local Administrator Password Solution (LAPS) Integration",
+    "assessed_at": "2025-06-01T08:39:19.619332",
+    "relative_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca2AAC.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1326",
+        "text": "The connector is added. LAPS Integration Privilege Secure contains a built-in vault for credential management, but can uniquely map to a LAPS vault. The Local Administrator Password Solution (LAPS) provides management of local account passwords of domain joined computers. Passwords are stored in Active Directory.",
+        "chunk_index": 1326,
+        "total_chunks": 1649,
+        "similarity_score": 0.7257425164283615
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1327",
+        "text": "Passwords are stored in Active Directory. The LAPS vault connector can be used for connecting as a service account for host scans, and for activities where the local Administrator account is required. Install LAPS in Your Active Directory Domain Install LAPS in your Active Directory domain and configure the desired hosts to connect to with Privilege Secure to use LAPS. LAPS limits which users have access to the password attributes that are contained in Active Directory.",
+        "chunk_index": 1327,
+        "total_chunks": 1649,
+        "similarity_score": 0.6545791030483095
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1328",
+        "text": "LAPS limits which users have access to the password attributes that are contained in Active Directory. Make sure to create an account for Privilege Secure to use that has appropriate rights. Set the rights for a user with the SetAdmPwdReadPasswordPermission cmdlet. This cmdlet is included in the LAPS installation package which can be downloaded from the Microsoft website.",
+        "chunk_index": 1328,
+        "total_chunks": 1649,
+        "similarity_score": 0.6145945422914737
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1329",
+        "text": "This cmdlet is included in the LAPS installation package which can be downloaded from the Microsoft website. Add a Vault Connector for LAPS Follow the steps to add a vault connector for LAPS. Step 1 \u2013 Navigate to the Configuration > Integration Connectors. Step 2 \u2013 In the Integration Connector list, click the Add Integration Connector icon.",
+        "chunk_index": 1329,
+        "total_chunks": 1649,
+        "similarity_score": 0.5784181013282264
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_78",
+        "text": "Third-Party Vault Integration Often it is desirable to pull managed credentials from existing vaults into Privilege Secure activities. Benefits include: Faster deployment Consolidate multiple vendors into a single user interface Onboard credentials without having to change API references in applications Build on existing infrastructure LAPS Integration Microsoft Active Directory supports the changing of local Administrator passwords. The LAPS integration allows those passwords to be utilized for Privilege Secure activities. Benefits include: Leverage existing investment in local password management Faster deployment time Offboard password changing process to Active Directory Install Components & Methods The NPS.zip file that can be downloaded from the Netwrix Customer portal contains the following: NPS_Setup.exe \u2013 Opens the Netwrix Setup Launcher to install the Privilege Secure components: Prerequisites Setup \u2013 Checks for prerequisites.",
+        "chunk_index": 78,
+        "total_chunks": 1649,
+        "similarity_score": 0.5590881462056716
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "needs_update",
+    "priority": "medium",
+    "score": 65,
+    "age_assessment": "The article appears to be relatively recent but lacks detailed content that reflects current practices and configurations.",
+    "accuracy_assessment": "The article does not provide specific examples or detailed instructions that align with the reference documentation, which may lead to confusion.",
+    "completeness_assessment": "The article is incomplete as it lacks detailed steps, examples, and explanations necessary for resolving the 'Invalid Connection String' issue effectively.",
+    "technical_assessment": "Technical accuracy is questionable due to the absence of critical details from the reference documentation that are necessary for proper configuration.",
+    "gaps": [
+      "Lack of specific examples of valid connection strings.",
+      "Missing detailed instructions on how to configure DirectConnect.",
+      "No mention of the implications of SAML or OIDC authentication connectors.",
+      "Absence of troubleshooting steps for common issues related to connection strings."
+    ],
+    "recommendation": "update",
+    "summary": "The article requires updates to enhance its accuracy and completeness. It should include specific examples, detailed instructions, and address potential issues related to authentication connectors.",
+    "article_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca3AAC.html",
+    "title": "Resolving \"Invalid Connection String\" for DirectConnect in mRemoteNG",
+    "assessed_at": "2025-06-01T08:39:22.756380",
+    "relative_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca3AAC.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1560",
+        "text": "Configure DirectConnect for Remote Desktop Connection The Netwrix Privilege Secure proxy service can be used to launch DirectConnect sessions via third-party Remote Desktop Connection Management software. Passing a DirectConnect string to the proxy server will launch an RDP connection. This topic explains the formatting for the connection string, with specific examples given for some popular Remote Desktop Connection Management programs. NOTE: If a SAML or OIDC authentication connector is enabled for the requesting user, DirectConnect functionality cannot be used.",
+        "chunk_index": 1560,
+        "total_chunks": 1649,
+        "similarity_score": 0.4321259981596648
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1561",
+        "text": "NOTE: If a SAML or OIDC authentication connector is enabled for the requesting user, DirectConnect functionality cannot be used. To configure the remote connection client, use a connection string with the following parameters, separated by \u201c+\u201d to the appropriate port on the proxy: Username \u2013 The user name used to sign into Active Directory in the following format: domain\\username, user@domain, user@domain.suffix Activity \u2013 The activity to perform Resource \u2013 The DNS host name of the resource to run the activity on Access Policy (optional) \u2013 The Access Policy to invoke (if more than one) Notes (optional) \u2013 User notes about the session Connection String Format: <username>+<activity>+<resource>+<access policy>+<notes> Connection String Example: Netwrix\\JonSmith+Local Admin+SQL1.netwrix.com JonSmith@netwrix.com+Local_Admin+SQL1.netwrix.com Note that some clients require you to use the \u201c_\u201d (underscore) character as a replacement for a space in Activity names that are made up of multiple words, for example: Netwrix\\JonSmith+Add_to_Local_Administrators+SQL1 If you wish to add notes, make sure to add the appropriate number of \u201c+\u201d delimiters if you are not defining an access policy: Netwrix\\JonSmith+Local Admin+SQL1.netwrix.com++Server Maintenance PuTTY (SSH) Configuration parameters for PuTTY (SSH). Host Name Format: <connection string>@<proxyhostname> Host Name Example: Netwrix\\JonSmith+rootAccess+centos1.lab.local@sbpamhost Port: Port \u2013 The SSH listening port on the proxy Default port \u2013 4422 MobaXterm (SSH) Configuration parameters for MobaXterm (SSH). Remote Host Format: <connection string>@<proxyhostname> Resource Host Example: Netwrix\\JonSmith+rootAccess+centos1.lab.local@sbpamhost Port: Port \u2013 The SSH listening port on the proxy Default port \u2013 4422 Uncheck the checkboxes under Advanced SSH Settings and Bookmark Settings.",
+        "chunk_index": 1561,
+        "total_chunks": 1649,
+        "similarity_score": 0.4283669015532521
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_362",
+        "text": "Remember, a connection profile is required to create an access policy. You can create one ahead of time on the Connection Profiles Page page or use the arrow button to create one during these steps. Step 1 \u2013 Navigate to the Policy > Access Policies page. Step 2 \u2013 In the Access Policy list, click the Plus icon.",
+        "chunk_index": 362,
+        "total_chunks": 1649,
+        "similarity_score": 0.32501180548885533
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_267",
+        "text": "DirectConnect Inline Password Prompt RDP DirectConnect now supports the prompting of users for password, removing the old requirement to modify group/local policy to force RDP password prompts. If a password is entered outside of the RDP session, this will be automatically be used and the inline password prompt will not display, unless there is an authentication error. Live Session Viewer Window The Live Session Viewer window allows a user with the Administrator role to watch a live activity session. Activity sessions are monitored when the Record Proxy Sessions checkbox is selected in the connection profile assigned to the access policy.",
+        "chunk_index": 267,
+        "total_chunks": 1649,
+        "similarity_score": 0.3220988393971699
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1307",
+        "text": "For more information on the Central Credential Provider you can reference Central Cr edential Provider Webservice Configuration The application id to be used by $Options.Connector.Options.Appid privilegesecure Privilege Secure to make requests. Thumbprint of certificate to use for client certificate authentica tion, $Options.Connector.Options.Client leave empty if client certificates are 64D25855C84CCDC581799b49362B Certificate not used. The certificate must be A13DB66BD795 installed into the certificate store of the ActionService machine. True $Options.Connector.Options.SkipC Whether or not to skip the ertificateCheck certificate check.",
+        "chunk_index": 1307,
+        "total_chunks": 1649,
+        "similarity_score": 0.3207077572940009
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "outdated",
+    "priority": "high",
+    "score": 45,
+    "age_assessment": "The article appears to be outdated as it lacks detailed information about the specific release and its features.",
+    "accuracy_assessment": "The article does not provide accurate or relevant information compared to the reference documentation, which discusses various features and configurations.",
+    "completeness_assessment": "The article is incomplete as it only contains a summary header without any detailed content or context regarding the release notes.",
+    "technical_assessment": "The technical accuracy cannot be assessed due to the lack of substantive content in the article.",
+    "gaps": [
+      "No detailed release notes or features of SbPAM 3.5 CU1 are provided.",
+      "Lack of context or explanation regarding the significance of the release.",
+      "No information on changes, bug fixes, or enhancements in this version."
+    ],
+    "recommendation": "rewrite",
+    "summary": "The article is significantly outdated and lacks essential information regarding the SbPAM 3.5 CU1 release. It requires a complete rewrite to include detailed release notes, features, and any relevant changes from the previous version.",
+    "article_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca8AAC.html",
+    "title": "SbPAM 3.5 CU1 (3.5.1206) Release Notes",
+    "assessed_at": "2025-06-01T08:39:25.127130",
+    "relative_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca8AAC.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1276",
+        "text": "Enter SbPAM. Client Certificate \u2013 The base 64 string from the certificate file being used to authenticate to the vault. Leave blank. Advanced \u2013 Use this section to override the default behavior of the connector by providing a custom PowerShell script.",
+        "chunk_index": 1276,
+        "total_chunks": 1649,
+        "similarity_score": 0.3315364593249119
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1349",
+        "text": "Privilege Secure can output events to third-party SIEM solutions for reporting, correlation, and notification. The SIEM Templates page determine the format and the nature of the event data. Two out of the box templates are provided for most common use cases, CEF and LEEF. New templates can be configured according to the requirements of the target SIEM solution, and the specific event data that needs to be sent.",
+        "chunk_index": 1349,
+        "total_chunks": 1649,
+        "similarity_score": 0.30731512192754595
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1147",
+        "text": "The activities are added to the activity group. Configuration Interface The Configuration interface provides information and management options for advanced configuration settings. Expand the Configuration menu in the Navigation pane for related pages: Service Accounts Page \u2014 Add or modify service accounts Service Nodes: Service Nodes Page \u2014 View the status and details of Privilege Secure Services Scheduled Tasks Page \u2014 View or modify recurring tasks System Settings \u2014 Modify the system settings: Action Service Settings Page Database Page Email Configuration Page Global Settings Page Local Account Password Options Page Password History Options Page Local Account Password Options Page Services Page Authentication Page \u2014 Add or modify multi-factor authentication (MFA) Integration Connectors Page \u2014 Configure settings for integration with other applications SIEM: SIEM Server Page \u2014 Add or modify SIEM servers SIEM Templates Page \u2014 Add or modify SIEM templates Service Accounts Page The Service Accounts page is accessible from the Navigation pane under Configuration. It shows the configured service accounts required by Privilege Secure services.",
+        "chunk_index": 1147,
+        "total_chunks": 1649,
+        "similarity_score": 0.30631695882281706
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_211",
+        "text": "See the Configuration Interface topic for additional information. Audit & Reporting Interface \u2014 Audit user access entitlement (Access C ertification) and view activity statistics and reports. See the Audit & Reporting Interface topic for additional information. Help \u2014 Opens the Netwrix Privilege Secure documentation in the in another browser tab Table 1: Icon Interface My Activities Dashboard Policy User Menu \u2014 Click to open the drop-down menu: Dark Mode \u2014 Toggle \u201cDark Mode\u201d for the console.",
+        "chunk_index": 211,
+        "total_chunks": 1649,
+        "similarity_score": 0.3030458209763266
+      }
+    ],
+    "potential_duplicates": []
+  },
+  {
+    "status": "needs_update",
+    "priority": "medium",
+    "score": 65,
+    "age_assessment": "The article appears to be relatively recent but may not reflect the latest practices or configurations post-upgrade.",
+    "accuracy_assessment": "The instructions provided are generally accurate but lack context regarding the importance of certificate management and potential pitfalls.",
+    "completeness_assessment": "The article is somewhat complete but misses additional troubleshooting steps and considerations related to certificate management and IIS configurations.",
+    "technical_assessment": "The technical details are mostly correct, but there is a lack of depth in explaining the implications of the changes being made.",
+    "gaps": [
+      "Lack of detailed troubleshooting steps if the issue persists after following the instructions.",
+      "No mention of verifying the certificate's validity or checking for common issues related to SSL certificates.",
+      "Absence of context regarding the importance of matching the certificate with the expected hostname."
+    ],
+    "recommendation": "update",
+    "summary": "The article provides a basic guide to resolving the NET::ERR_CERT_AUTHORITY_INVALID error but requires updates to enhance accuracy, completeness, and technical depth. Additional troubleshooting steps and context regarding certificate management should be included.",
+    "article_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca9AAC.html",
+    "title": "Resolving NET::ERR_CERT_AUTHORITY_INVALID Error When Navigating to SbPAM Web App After Upgrade",
+    "assessed_at": "2025-06-01T08:39:27.621359",
+    "relative_path": "all-articles-html\\privilege-secure-access-management\\ka04u000000Hca9AAC.html",
+    "relevant_chunks": [
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1276",
+        "text": "Enter SbPAM. Client Certificate \u2013 The base 64 string from the certificate file being used to authenticate to the vault. Leave blank. Advanced \u2013 Use this section to override the default behavior of the connector by providing a custom PowerShell script.",
+        "chunk_index": 1276,
+        "total_chunks": 1649,
+        "similarity_score": 0.6019206606235699
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_160",
+        "text": "Step 1 \u2013 Validate the existence of the sbpam_node.json file in the installation directory. The default location is C:\\ProgramData\\Stealthbits\\PAM\\ProxyService. Step 2 \u2013 Open the JSON file as an administrator (via administrator command prompt) on both servers. Step 3 \u2013 (Optional) This step is only necessary if FQDN is required for DNS, otherwise do not change and move to step four.",
+        "chunk_index": 160,
+        "total_chunks": 1649,
+        "similarity_score": 0.4840217348120779
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1196",
+        "text": "If the Web Services are set to the wrong address, the services will show offline in the Services Node area. NOTE: Make sure that the web certificate is updated in IIS prior to setting a new value in Netwrix Privilege Secure. It is important to ensure the Binding Hostname in IIS, the c ertificate Subject, and the NPS Rest URL value in the Services page exactly match. NOTE: The Services Settings page has the following features: NPS Rest URL \u2014 The full qualified domain name (FQDN) of the new IIS web certificate Ignore HTTPS Certificate Errors \u2014 When checked, the console will ignore any HTTPS certificate errors (not recommended for production environments) Register Services \u2014 Applies the new URL value to the Netwrix Privilege Secure web services and re-registers them Save button (only visible when editing) \u2014 Saves changes Cancel button (only visible when editing) \u2014 Discards changes Authentication Page The Authentication page is accessible from the Navigation pane under Configuration.",
+        "chunk_index": 1196,
+        "total_chunks": 1649,
+        "similarity_score": 0.4781368399450948
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_196",
+        "text": "Upgrade Procedure This chapter describes the basic steps needed to upgrade Netwrix Privilege Secure. NOTE: As part of the upgrade process, the Privilege Secure installer will complete a mandatory encryption key rotation. Customers who are running Privilege Secure in high-availability mode or use distributed Action Service or Proxy components should refer to the Upgrading to Privilege Secure (fomerly SbPAM) 3.6 or Higher - High Availability and Remote Services Configurations knowledge base article before beginning an upgrade. Considerations It is not necessary to uninstall the previous version of Privilege Secure.",
+        "chunk_index": 196,
+        "total_chunks": 1649,
+        "similarity_score": 0.4779287941983867
+      },
+      {
+        "chunk_id": "netwrix_privilege_secure_for_access_management_v4_2_2025-05-27-04-21-38_1197",
+        "text": "NOTE: The Services Settings page has the following features: NPS Rest URL \u2014 The full qualified domain name (FQDN) of the new IIS web certificate Ignore HTTPS Certificate Errors \u2014 When checked, the console will ignore any HTTPS certificate errors (not recommended for production environments) Register Services \u2014 Applies the new URL value to the Netwrix Privilege Secure web services and re-registers them Save button (only visible when editing) \u2014 Saves changes Cancel button (only visible when editing) \u2014 Discards changes Authentication Page The Authentication page is accessible from the Navigation pane under Configuration. It shows the configured multi-factor authentication (MFA) or other third-party authentication connectors such as OpenID Connect and SAML. Once configured, an authentication method may be assigned to any users who will use the method for accessing the application. See the Authentication Connector Tab topic for additional information.",
+        "chunk_index": 1197,
+        "total_chunks": 1649,
+        "similarity_score": 0.4610680597439161
+      }
+    ],
+    "potential_duplicates": []
+  }
+]

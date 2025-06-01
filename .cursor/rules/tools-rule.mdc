@@ -1,6 +1,11 @@
 ---
-description: 
+description: This rule helps when calling the 'edit_file' tool fails by breaking complex changes into smaller, sequential steps for better success rates, particularly for large-scale edits.
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
-When using the tool 'edit_file', first develop a numbered outline of your plan with clear sections, then execute each section sequentially in small chunks. Do not attempt to edit an entire file in one go.
+- When using the tool 'edit_file', break edits into smaller, focused changes of no more than 20-30 lines each.
+- If an edit_file operation fails, immediately retry with a smaller change scope.
+- For complex multi-part edits, make changes sequentially and wait for user confirmation between steps.
+- When editing system-critical files, first develop a clear outline of changes, then implement them in small chunks.
+
+- Never attempt to update multiple distinct sections of a file in a single edit operation.

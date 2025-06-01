@@ -1,0 +1,171 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "KB: Enhance Current Article",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\kb-tools\\kb_enhance\\main.py",
+        "--article-path",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "KB: Extract PDF",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\kb-tools\\kb_enhance\\main.py",
+        "--pdf-path",
+        "${input:pdfPath}",
+        "--extract-only",
+        "--output-dir",
+        "${workspaceFolder}\\kb-tools\\docs_references\\extracted"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "KB: Chunk Text File",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\kb-tools\\kb_enhance\\main.py",
+        "--chunk",
+        "${input:textFilePath}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "KB: Embed Chunks",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\kb-tools\\kb_enhance\\main.py",
+        "--embed",
+        "${input:chunkedFilePath}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "KB: Evaluate Product",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\kb-tools\\kb_evaluate\\evaluate.py",
+        "--folder",
+        "${input:productFolder}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "KB: Update Product List",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\kb-tools\\kb_evaluate\\update_tasks.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "pdfPath",
+      "description": "Path to PDF file",
+      "type": "promptString",
+      "default": "product-name/new-document.pdf"
+    },
+    {
+      "id": "textFilePath",
+      "description": "Path to extracted text file to chunk",
+      "type": "promptString",
+      "default": "${workspaceFolder}/kb-tools/docs_references/extracted/document_extracted.txt"
+    },
+    {
+      "id": "chunkedFilePath",
+      "description": "Path to chunked JSON file for embedding",
+      "type": "promptString",
+      "default": "${workspaceFolder}/kb-tools/docs_references/chunked/document_chunked.json"
+    },
+    {
+      "id": "articlePath",
+      "description": "Path to HTML article file",
+      "type": "promptString",
+      "default": "${workspaceFolder}/all-articles-html/product-name/article.html"
+    },
+    {
+      "id": "productFolder",
+      "type": "pickString",
+      "description": "Select product folder to evaluate",
+      "options": [
+        "1secure",
+        "access-analyzer",
+        "access-information-center",
+        "activity-monitor",
+        "auditor",
+        "change-tracker",
+        "data-classification",
+        "directory-manager",
+        "endpoint-policy-manager",
+        "endpoint-protector",
+        "log-tracker",
+        "password-policy-enforcer",
+        "password-reset",
+        "privilege-secure-access-management",
+        "privilege-secure-discovery",
+        "recovery-for-active-directory",
+        "threat-manager",
+        "threat-prevention",
+        "uncategorized",
+        "vulnerability-tracker"
+      ]
+    }
+  ]
+}
