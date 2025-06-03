@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Netwrix Auditor Health Log Contains EventID 3230</title>
+<meta content="ka0Qk000000B3YrIAK" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="0050g000006HS99AAG" name="articlecreatedbyid"/>
+<meta content="2023-09-20T14:16:59.000Z" name="articlecreateddate"/>
+<meta content="000008812" name="articlenumber"/>
+<meta content="Validated" name="confidence-level"/>
+<meta content="0050g000006HS99AAG" name="createdbyid"/>
+<meta content="2024-11-12T20:04:58.000Z" name="createddate"/>
+<meta content="2023-09-20T14:17:06.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA04u00000111ELCAY" name="knowledgearticleid"/>
+<meta content="kA04u00000111ELCAY" name="knowledge-article-id"/>
+<meta content="005Qk000001wMM9IAM" name="lastmodifiedbyid"/>
+<meta content="2024-11-12T20:12:46.000Z" name="lastmodifieddate"/>
+<meta content="2023-10-02T16:37:04.000Z" name="lastpublisheddate"/>
+<meta content="This article contains resolution steps for the Event ID 3230." name="meta-description"/>
+<meta content="Netwrix Auditor Health Log Contains EventID 3230" name="meta-title"/>
+<meta content="0050g000006HS99AAG" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="8812" name="urlname"/>
+<meta content="3" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u00000111ELCAY.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+<style>
+                .updated {
+                    color: darkgreen;
+                }
+                .removed {
+                    text-decoration: line-through;
+                    color: darkred;
+                }
+                .new-content {
+                    color: darkblue;
+                    font-weight: 500;
+                }
+                </style></head>
+<body><!-- 
+CHANGE SUMMARY:
+- Updated the article for clarity and corrected formatting issues.
+- Added a caution regarding antivirus exclusions based on reference documentation.
+- Improved the structure and readability of the content.
+-->
+<h1>Netwrix Auditor Health Log Contains EventID 3230</h1>
+<h2>Symptom</h2>
+<p>Netwrix Auditor (Auditor) System Health Log contains EventID 3230 for a SharePoint Online monitoring plan.</p>
+<h2>Cause</h2>
+<p>The lock status for a site collection indicates that this is a personal site collection that has been locked. Personal site collections are not intended to be collected, and the error with <code class="lang-Registry">No access lock status</code> can be fixed by unlocking the site. Auditor for SharePoint is intended as an enterprise solution and should be configured for public documents only.</p>
+<span class="new-content">
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>This event does not affect data collection.</p>
+</blockquote>
+</span>
+<!-- 
+ADDITION EXPLANATION:
+Documentation reference: "IMPORTANT: Please consider that this event does not affect data collection."
+Added: Clarified that the event does not impact data collection for better understanding.
+-->
+<h2>Resolution</h2>
+<p>As a workaround, you can exclude personal site collections from being audited by editing the <code class="lang-Registry">OmitSitScStoreList.txt</code> file located in the following default path:</p>
+<p><code class="lang-Registry">C:\ProgramData\Netwrix Auditor\</code></p>
+<span class="updated">
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>To determine your Working Folder location, you can run the following PowerShell command. If this script does not return a value, then your Working Folder is the default location of <code class="lang-Registry">C:\ProgramData\Netwrix Auditor\</code>.</p>
+</blockquote>
+</span>
+<!-- 
+CHANGE EXPLANATION:
+Documentation reference: "If this script does not return a value, then your Working Folder is our default location of C:\ProgramData\Netwrix Auditor."
+Updated: Clarified the note for better readability and consistency.
+-->
+<p>For additional information on how to configure your SharePoint Online monitoring scope, refer to the following article: <a href="https://URL" target="_blank">SharePoint Online Monitoring Plans – Monitoring Scope – v10.6</a>.</p>
+<span class="new-content">
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>The folder associated with Netwrix Auditor must be excluded from antivirus scanning. See the Antivirus Exclusions for Netwrix Auditor knowledge base article for additional information.</p>
+</blockquote>
+</span>
+<!-- 
+ADDITION EXPLANATION:
+Documentation reference: "CAUTION: Folder associated with NETWRIX AUDITOR must be excluded from antivirus scanning."
+Added: Included a caution regarding antivirus exclusions to ensure proper functionality of the Auditor.
+-->
+<h2>Related Articles</h2>
+<ul>
+<li><a href="https://URL" target="_blank">SharePoint Online Monitoring Plans – Monitoring Scope – v10.6</a></li>
+</ul></body>
+</html>

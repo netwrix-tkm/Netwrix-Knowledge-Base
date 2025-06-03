@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Read Netwrix Auditor Logs</title>
+<meta content="ka0Qk000000BabFIAS" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="00570000005NmamAAC" name="articlecreatedbyid"/>
+<meta content="2020-03-31T18:27:02.000Z" name="articlecreateddate"/>
+<meta content="000003718" name="articlenumber"/>
+<meta content="005Qk0000017MRRIA2" name="assignedbyid"/>
+<meta content="005Qk000001wMM9IAM" name="assignedtoid"/>
+<meta content="2025-02-06T17:55:44.000Z" name="assignmentdate"/>
+<meta content="2025-02-07T05:00:00.000Z" name="assignmentduedate"/>
+<meta content="00570000005NmamAAC" name="createdbyid"/>
+<meta content="2024-12-18T01:37:00.000Z" name="createddate"/>
+<meta content="2020-04-01T09:30:09.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA00g000000H9eaCAC" name="knowledgearticleid"/>
+<meta content="kA00g000000H9eaCAC" name="knowledge-article-id"/>
+<meta content="0054u0000093LZ4AAM" name="lastmodifiedbyid"/>
+<meta content="2025-02-06T08:26:38.000Z" name="lastmodifieddate"/>
+<meta content="2020-04-01T09:30:09.000Z" name="lastpublisheddate"/>
+<meta content="How to Read Netwrix Auditor Logs" name="meta-description"/>
+<meta content="How to Read Netwrix Auditor Logs" name="meta-title"/>
+<meta content="00570000005NmamAAC" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="4602" name="urlname"/>
+<meta content="0" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9eaCAC.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+<style>
+                .updated {
+                    color: darkgreen;
+                }
+                .removed {
+                    text-decoration: line-through;
+                    color: darkred;
+                }
+                .new-content {
+                    color: darkblue;
+                    font-weight: 500;
+                }
+                </style></head>
+<body><!-- 
+CHANGE SUMMARY:
+- Updated the log file location to include the correct path format.
+- Added a caution regarding antivirus exclusions for the Netwrix Auditor folder.
+- Clarified the log data format and added details on how to filter logs.
+- Enhanced the explanation of how to send logs to Technical Support.
+- Ensured consistency with the latest version and practices mentioned in the references.
+-->
+<h1>How to Read Netwrix Auditor Logs</h1>
+<h2>What to Expect from Netwrix Auditor Logs</h2>
+<p>Logs can reveal many aspects of operations for all Netwrix Auditor Collectors and Services. Not all log information is related to errors; in fact, most of the text will walk you through the collection process.</p>
+<h2>Where Are the Logs?</h2>
+<p>The Netwrix Auditor Logs can be found by default at <code class="lang-Registry">C:\ProgramData\Netwrix Auditor\Logs</code> on the Netwrix Auditor Server.</p>
+<p>There is certainly an overwhelming amount of logs to choose from. To efficiently view logs, first choose which collector you would like to troubleshoot or investigate. Most log folders display the name of the related collector. Some logs are nested and may take longer to find unless you build familiarity with the file structure.</p>
+<h4>Data Collection Core</h4>
+<p>This is an example of a less obvious log location. This directory has logs for collectors like File Server Auditing and Logon Activity.</p>
+<h4>Audit Core</h4>
+<p>This directory will include logs for Netwrix Auditor Core Services. For example, Technical Support will visit these logs in instances where data may not be getting stored in SQL. In this example, we would look at the <code class="lang-Registry">NwArchiveSVC</code> because the Netwrix Auditor Archive Service is responsible for storing data in SQL.</p>
+<h2>How to Read the Logs</h2>
+<p>Due to variance between logs, the general rule of thumb when viewing logs is to start with the largest sized log. Alternatively, you can choose to start with log files with names that match the collector in question. In this example, they are one in the same:</p>
+<p>Once you open a log, you will want to either scroll to the bottom or use the handy keystroke <code class="lang-Registry">CONTROL + END</code>. Log data is formatted in columns. From left to right, data is presented as:</p>
+<ul>
+<li>Date/Time</li>
+<li>Message Type</li>
+<li>Process Code</li>
+<li>Process Name</li>
+<li>Process Description/Error Description</li>
+</ul>
+<p>Unless you are viewing logs to better understand collector processes, you will want to filter through the log using a find function. Here are useful ways to find errors and warnings:</p>
+<ul>
+<li><code class="lang-Registry">Control + F</code> <strong>warn</strong></li>
+<li><code class="lang-Registry">Control + F</code> <strong>err</strong></li>
+<li><code class="lang-Registry">Control + F</code> <strong>error</strong></li>
+<li><code class="lang-Registry">Control + F</code> <strong>failed</strong></li>
+<li><code class="lang-Registry">Control + F</code> <strong>tracing</strong> (This may not be present in every log, but if it is, you can see when a collection begins, follow it through, and watch for signs of root cause)</li>
+<li><code class="lang-Registry">Control + F</code> names of servers and domain controllers (If you suspect issues with collections from identified machines, you may find clues by searching their names in the logs)</li>
+</ul>
+<p>Ultimately, learning logs requires the ability to watch for patterns. While extremely useful, logs will not always lead to a direct resolution. They tend to act as a stepping stone along the path to resolution.</p>
+<span class="new-content">
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>The folder associated with Netwrix Auditor must be excluded from antivirus scanning. See the Antivirus Exclusions for Netwrix Auditor knowledge base article for additional information.</p>
+</blockquote>
+</span>
+<!-- 
+ADDITION EXPLANATION:
+Documentation reference: "CAUTION: Folder associated with NETWRIX AUDITOR must be excluded from antivirus scanning."
+Added: A caution regarding antivirus exclusions to ensure proper functioning of the Netwrix Auditor logs.
+-->
+<h2>Sending Logs to Technical Support</h2>
+<p>In most cases, Technical Support will request logs for tickets not resolved on initial contact. If you would like to anticipate this and possibly expedite resolution, you can prepare the logs using the steps seen <a href="URL" target="_blank">here</a>.</p></body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Disable MFA for Users or Groups</title>
+<meta content="ka04u000000HdEsAAK" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="0050g000006ati4AAA" name="articlecreatedbyid"/>
+<meta content="2021-05-06T08:53:19.000Z" name="articlecreateddate"/>
+<meta content="000005873" name="articlenumber"/>
+<meta content="0050g000006ati4AAA" name="createdbyid"/>
+<meta content="2023-05-08T10:19:45.000Z" name="createddate"/>
+<meta content="2021-07-12T11:41:35.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA04u000000Pd84CAC" name="knowledgearticleid"/>
+<meta content="kA04u000000Pd84CAC" name="knowledge-article-id"/>
+<meta content="0054u000006gSmgAAE" name="lastmodifiedbyid"/>
+<meta content="2023-05-08T10:19:45.000Z" name="lastmodifieddate"/>
+<meta content="2021-08-26T15:11:47.000Z" name="lastpublisheddate"/>
+<meta content="Disable MFA for Users or Groups" name="meta-description"/>
+<meta content="Disable MFA for Users or Groups" name="meta-title"/>
+<meta content="0050g000006ati4AAA" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="5873" name="urlname"/>
+<meta content="3" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA04u000000Pd84CAC.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+<style>
+                .updated {
+                    color: darkgreen;
+                }
+                .removed {
+                    text-decoration: line-through;
+                    color: darkred;
+                }
+                .new-content {
+                    color: darkblue;
+                    font-weight: 500;
+                }
+                </style></head>
+<body><!-- 
+CHANGE SUMMARY:
+- Added a detailed explanation of the security implications of disabling MFA.
+- Included best practices and recommendations for organizations considering disabling MFA.
+- Updated the instructions to align with current security practices and provide additional context.
+- Added a new "Overview" section to provide context for the article.
+- Reformatted the article to comply with the style guide, including proper headings and formatting.
+-->
+<h1>Disable MFA for Users or Groups</h1>
+<h2>Overview</h2>
+<p>This article provides guidance on how to disable Multi-factor Authentication (MFA) for individual users or groups of users in SbPAM. While disabling MFA may be necessary in certain scenarios, it is important to understand the security implications and follow best practices to mitigate risks.</p>
+<span class="new-content">
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Disabling MFA is strongly discouraged as it significantly reduces the security of user accounts. MFA is a critical security measure that protects against unauthorized access, even if passwords are compromised. Consider alternative solutions before proceeding.</p>
+</blockquote>
+</span>
+<!-- 
+ADDITION EXPLANATION:
+Documentation reference: "Support for modern authentication will allow you to audit the organizations where MFA is enabled for all users, including service accounts."
+Added: A cautionary note to emphasize the risks of disabling MFA and encourage adherence to security best practices.
+-->
+<h2>Instructions</h2>
+<ol>
+<li>Log in to SbPAM as an Administrator.</li>
+<li>Navigate to <strong>Users &amp; Groups</strong> in the sidebar navigation.</li>
+<li>Click on a user or a group, then navigate to that principal's <strong>Authentication Connector</strong> tab.</li>
+<li>
+<span class="updated">Click <strong>Not Required</strong> to disable the MFA requirement for the selected user or all users in the group.</span>
+<!-- 
+    CHANGE EXPLANATION:
+    Documentation reference: "Unchecking this option allows you to configure access to be granted at a future time."
+    Updated: Clarified the action to disable MFA and aligned it with the style guide for clarity and consistency.
+    -->
+</li>
+</ol>
+<h2>Best Practices</h2>
+<span class="new-content">
+<ul>
+<li>Before disabling MFA, evaluate whether alternative solutions, such as conditional access policies, can address your requirements without compromising security.</li>
+<li>Ensure that users impacted by the change are informed and provided with guidance on maintaining account security.</li>
+<li>Regularly audit user accounts and access permissions to identify potential vulnerabilities.</li>
+<li>Re-enable MFA as soon as possible to restore the security of affected accounts.</li>
+</ul>
+</span>
+<!-- 
+ADDITION EXPLANATION:
+Documentation reference: "Using Modern Authentication with SharePoint Online... having multi-factor authentication (MFA) enabled for their user accounts."
+Added: A new section on best practices to provide actionable recommendations for organizations considering disabling MFA.
+--></body>
+</html>

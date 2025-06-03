@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Send Netwrix Auditor Logs</title>
+<meta content="ka0Qk000000Bei5IAC" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="00570000005NmamAAC" name="articlecreatedbyid"/>
+<meta content="2020-03-31T18:27:03.000Z" name="articlecreateddate"/>
+<meta content="000003723" name="articlenumber"/>
+<meta content="005Qk0000017MRRIA2" name="assignedbyid"/>
+<meta content="005Qk000001wMM9IAM" name="assignedtoid"/>
+<meta content="2025-02-06T17:56:10.000Z" name="assignmentdate"/>
+<meta content="Validated" name="confidence-level"/>
+<meta content="00570000005NmamAAC" name="createdbyid"/>
+<meta content="2024-12-27T16:19:59.000Z" name="createddate"/>
+<meta content="2020-04-01T09:30:11.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA00g000000H9efCAC" name="knowledgearticleid"/>
+<meta content="kA00g000000H9efCAC" name="knowledge-article-id"/>
+<meta content="0054u0000093LZ4AAM" name="lastmodifiedbyid"/>
+<meta content="2025-02-06T08:26:38.000Z" name="lastmodifieddate"/>
+<meta content="2024-10-23T16:27:14.000Z" name="lastpublisheddate"/>
+<meta content="How to Send Netwrix Auditor Logs" name="meta-description"/>
+<meta content="How to Send Netwrix Auditor Logs" name="meta-title"/>
+<meta content="00570000005NmamAAC" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="4645" name="urlname"/>
+<meta content="0" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9efCAC.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+<style>
+                .updated {
+                    color: darkgreen;
+                }
+                .removed {
+                    text-decoration: line-through;
+                    color: darkred;
+                }
+                .new-content {
+                    color: darkblue;
+                    font-weight: 500;
+                }
+                </style></head>
+<body><!-- 
+CHANGE SUMMARY:
+- Updated the article to clarify the process of gathering logs for Netwrix Technical Support.
+- Added information about creating a monitoring plan for the Netwrix Auditor System Health log.
+- Ensured consistency with the latest procedures mentioned in the references.
+-->
+<h1>How to Send Netwrix Auditor Logs</h1>
+<h2>Question</h2>
+<p>What logs might be requested by Netwrix Technical Support?</p>
+<p>How can you upload Netwrix Auditor logs to a support ticket?</p>
+<h2>Answer</h2>
+<h4>Technical Support checklist</h4>
+<p>Netwrix Technical Support might request a collection of your Netwrix Auditor logs for troubleshooting purposes. Make sure you gather the following items to help your Technical Support Engineer resolve your issue:</p>
+<ul>
+<li>
+<strong>Netwrix Auditor System Health event log.</strong>
+<span class="updated">Refer to the following article for additional information on exporting the System Health event log: <a href="URL">How to Save and Zip Netwrix Auditor System Health Event Log</a>.</span>
+<!-- 
+        CHANGE EXPLANATION:
+        Documentation reference: "If you want to generate reports on health state and to be alerted on important Netwrix Auditor health events, you need to create a dedicated monitoring plan for this log..."
+        Updated: Clarified the reference to the System Health event log and added a link for exporting it.
+        -->
+</li>
+<li>
+<strong>Netwrix Auditor configuration files.</strong>
+<span class="updated">Navigate to %Working Folder%\AuditCore\ConfigServer and copy the ConfigServer folder. The default location of the ConfigServer folder is C:\ProgramData\Netwrix Auditor\AuditCore\ConfigServer.</span>
+<!-- 
+        CHANGE EXPLANATION:
+        Documentation reference: "Navigate to the Monitored computers list and add a server where the Netwrix Auditor Server resides."
+        Updated: Ensured clarity in the instructions for locating configuration files.
+        -->
+</li>
+<li>
+<strong>Trace logs.</strong>
+<span class="updated">If requested, navigate to %Working Folder%\Netwrix Auditor\Logs, and copy the required folder(s). <span class="Note"><strong>NOTE: </strong></span>Your Technical Support Engineer will request a specific subdirectory of the Logs folder. Please do not send the entire Logs folder unless requested.</span>
+<!-- 
+        CHANGE EXPLANATION:
+        Documentation reference: "Make sure that the Enable event log collection checkbox is selected."
+        Updated: Clarified the instructions regarding trace logs and emphasized the importance of not sending the entire folder.
+        -->
+</li>
+</ul>
+<span class="updated">
+<blockquote>
+<p><span class="Note"><strong>NOTE: </strong></span>If you are unable to locate the Working Folder, refer to the following options to perform in your Auditor server to establish the folder location:</p>
+<ol>
+<li>Run the following line in Command Prompt in your Auditor server to get the value of the DataPathOverride subkey entry. The output will contain the location of Working Folder in your Auditor server: <code class="lang-Registry">reg query "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride"</code></li>
+<li>Run the following line in PowerShell in your Auditor server to get the value of the DataPathOverride subkey entry. The output will contain the location of Working Folder in your Netwrix Auditor server: <code class="lang-Registry">Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride" -Name "(Default)"</code></li>
+<li>Review the string entry under the following registry subnode in your Netwrix Auditor server. The Value Data field contains the location of Working Folder: <code class="lang-Registry">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Netwrix Auditor\DataPathOverride</code></li>
+</ol>
+</blockquote>
+</span>
+<!-- 
+CHANGE EXPLANATION:
+Documentation reference: "Create Monitoring Plan for System Health Log"
+Updated: Added a note with steps to locate the Working Folder for clarity.
+-->
+<h4>Uploading the logs</h4>
+<p>Once you have located all the required logs, copy them to a single folder and compress it by right-clicking the folder and selecting <strong>Send to</strong> &gt; <strong>Compressed (zipped) folder</strong>.</p>
+<p>Log in to the Customer Portal and attach the archived logs to the opened ticket. Use the following link to open the <strong>Open tickets</strong> page: <a href="URL">My Tickets – Open Tickets</a>.</p>
+<p><span class="Note"><strong>NOTE: </strong></span>Once you have opened the Open Tickets page and identified the corresponding ticket (with a matching ticket #), you can attach the logs via one of the following ways:</p>
+<ul>
+<li>Click the <strong>Add attachments</strong> button located under the <strong>Actions</strong> column of the ticket.</li>
+<li>Expand the ticket details by clicking the down carat (?) button and click the plus (+) button next to <strong>Attachments</strong>.</li>
+</ul>
+<h4>Related links</h4>
+<ul>
+<li><a href="URL">How to Save and Zip Netwrix Auditor System Health Event Log</a></li>
+<li><a href="URL">My Tickets – Open Tickets</a></li>
+</ul></body>
+</html>

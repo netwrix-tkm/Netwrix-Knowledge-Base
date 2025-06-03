@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exporting information on account lockout events</title>
+<meta content="ka04u000000HcN3AAK" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="00570000005NmamAAC" name="articlecreatedbyid"/>
+<meta content="2020-03-31T16:40:10.000Z" name="articlecreateddate"/>
+<meta content="000003027" name="articlenumber"/>
+<meta content="00570000005NmamAAC" name="createdbyid"/>
+<meta content="2023-05-08T09:45:53.000Z" name="createddate"/>
+<meta content="2020-04-01T09:32:50.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA00g000000H9THCA0" name="knowledgearticleid"/>
+<meta content="kA00g000000H9THCA0" name="knowledge-article-id"/>
+<meta content="0054u000006gSmgAAE" name="lastmodifiedbyid"/>
+<meta content="2023-05-08T09:45:53.000Z" name="lastmodifieddate"/>
+<meta content="2020-04-01T09:32:50.000Z" name="lastpublisheddate"/>
+<meta content="ALE Account Lockout Examiner export events" name="meta-description"/>
+<meta content="Exporting information on account lockout events" name="meta-title"/>
+<meta content="00570000005NmamAAC" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="602" name="urlname"/>
+<meta content="1" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9THCA0.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+<style>
+                .updated {
+                    color: darkgreen;
+                }
+                .removed {
+                    text-decoration: line-through;
+                    color: darkred;
+                }
+                .new-content {
+                    color: darkblue;
+                    font-weight: 500;
+                }
+                </style></head>
+<body><!-- 
+CHANGE SUMMARY:
+- Added detailed instructions for auditing account lockout events using Netwrix Account Lockout Examiner based on Reference 2 and Reference 4.
+- Included information on advanced and basic audit policies for account lockout monitoring from Reference 2.
+- Updated the overview section to reflect the capabilities of Netwrix Account Lockout Examiner as described in Reference 5.
+- Removed outdated or irrelevant content that did not align with the current documentation.
+- Ensured compliance with the KB Article Mini Style Guide for formatting and structure.
+-->
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Exporting Information on Account Lockout Events</title>
+</head>
+<body>
+<h1>Exporting Information on Account Lockout Events</h1>
+<h2>Overview</h2>
+<p><span class="updated">Netwrix Account Lockout Examiner helps IT administrators discover why an Active Directory account keeps locking out. By identifying the lockout reason, administrators can quickly restore normal operations and prevent future occurrences.</span>
+<!-- 
+    CHANGE EXPLANATION:
+    Documentation reference: "Netwrix Account Lockout Examiner helps IT administrators to discover why an Active Directory account keeps locking out..."
+    Updated: Expanded the overview to include the purpose and benefits of using Netwrix Account Lockout Examiner.
+    -->
+</p>
+<h2>Instructions</h2>
+<h4>Step 1: Set Up Auditing</h4>
+<p><span class="new-content">To monitor account lockout events effectively, enable the appropriate audit policies on the target machines:</span>
+<!-- 
+    ADDITION EXPLANATION:
+    Documentation reference: "Enable the following Advanced audit policies for the target machines..."
+    Added: Detailed steps for setting up auditing based on advanced and basic audit policies.
+    -->
+</p>
+<ul>
+<li><strong>Advanced Audit Policies:</strong>
+<ul>
+<li>Audit Credential Validation (Event ID: 4776, Failure)</li>
+<li>Audit Kerberos Authentication (Event ID: 4771, Failure)</li>
+<li>Audit Other Account Logon Events (Event ID: 4776, Failure)</li>
+<li>Audit User Account Management (Event ID: 4740, Success)</li>
+<li>Audit Logon (Event ID: 4625, Failure)</li>
+<li>Audit Account Lockout (Event ID: 4625, Failure)</li>
+</ul>
+</li>
+<li><strong>Basic Audit Policies:</strong>
+<ul>
+<li>Audit Logon Events (Event ID: 4625, Failure)</li>
+<li>Audit Account Logon Events (Event IDs: 4776, 4771, Failure)</li>
+<li>Audit Account Management (Event ID: 4740, Success)</li>
+</ul>
+</li>
+</ul>
+<h4>Step 2: Download and Install Netwrix Account Lockout Examiner</h4>
+<p><span class="new-content">Download the application from the Netwrix website onto a computer within the domain where lockouts occur. Run the application and accept the end-user license agreement when prompted.</span>
+<!-- 
+    ADDITION EXPLANATION:
+    Documentation reference: "Download the application onto a computer within the domain where lockouts happen..."
+    Added: Instructions for downloading and installing Netwrix Account Lockout Examiner.
+    -->
+</p>
+<h4>Step 3: Examine Account Lockouts</h4>
+<p><span class="new-content">Once installed, use Netwrix Account Lockout Examiner to analyze lockout events. Select the option to examine all domain controllers to detect potential lockout reasons. After the examination completes, the tool will present a list of reasons for the account lockout.</span>
+<!-- 
+    ADDITION EXPLANATION:
+    Documentation reference: "Select this option if you want to examine all domain controllers to detect potential lockout reason..."
+    Added: Detailed steps for using the tool to examine account lockouts.
+    -->
+</p>
+<h4>Step 4: Export Data</h4>
+<p><span class="updated">To export filtered data on account lockout events, click <strong>Export Data</strong> in the application. You can choose to export the data in PDF or CSV format for further analysis.</span>
+<!-- 
+    CHANGE EXPLANATION:
+    Documentation reference: "To export filtered data to PDF or CSV, click Export data..."
+    Updated: Clarified the export functionality and added details on supported formats.
+    -->
+</p>
+<h2>Additional Notes</h2>
+<span class="new-content">
+<blockquote>
+<p><span class="Caution"><strong>IMPORTANT: </strong></span>Ensure that auditing is properly configured on all domain controllers to capture relevant account lockout events.</p>
+</blockquote>
+</span>
+<!-- 
+    ADDITION EXPLANATION:
+    Documentation reference: "Set up the auditing as described in Planning and Preparation section..."
+    Added: Important note emphasizing the need for proper auditing configuration.
+    -->
+</body>
+</html></body>
+</html>

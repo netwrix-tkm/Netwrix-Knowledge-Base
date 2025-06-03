@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Changing the name of your SQL Server causes database related errors</title>
+<meta content="ka04u000000HcTBAA0" name="article-id"/>
+<meta content="0" name="articlecaseattachcount"/>
+<meta content="00570000005NmamAAC" name="articlecreatedbyid"/>
+<meta content="2020-03-31T18:26:50.000Z" name="articlecreateddate"/>
+<meta content="000003459" name="articlenumber"/>
+<meta content="00570000005NmamAAC" name="createdbyid"/>
+<meta content="2023-05-08T09:49:56.000Z" name="createddate"/>
+<meta content="2020-04-01T09:30:44.000Z" name="firstpublisheddate"/>
+<meta content="true" name="islatestversion"/>
+<meta content="kA00g000000H9aPCAS" name="knowledgearticleid"/>
+<meta content="kA00g000000H9aPCAS" name="knowledge-article-id"/>
+<meta content="0054u000006gSmgAAE" name="lastmodifiedbyid"/>
+<meta content="2023-05-08T09:49:56.000Z" name="lastmodifieddate"/>
+<meta content="2020-04-01T09:30:44.000Z" name="lastpublisheddate"/>
+<meta content="change name of SQL, Error saving ad history to database, error while establishing a connection" name="meta-description"/>
+<meta content="Changing the name of your SQL Server causes database related errors" name="meta-title"/>
+<meta content="00570000005NmamAAC" name="ownerid"/>
+<meta content="0124u000000UUgLAAW" name="recordtypeid"/>
+<meta content="1299" name="urlname"/>
+<meta content="1" name="versionnumber"/>
+<meta content='&lt;a href="https://helpcenter.netwrix.com/bundle/z-kb-articles-salesforce/page/kA00g000000H9aPCAS.html" target="_blank"&gt;Open in a new window&lt;/a&gt;' name="website-url"/>
+<style>
+                .updated {
+                    color: darkgreen;
+                }
+                .removed {
+                    text-decoration: line-through;
+                    color: darkred;
+                }
+                .new-content {
+                    color: darkblue;
+                    font-weight: 500;
+                }
+                </style></head>
+<body><!-- 
+CHANGE SUMMARY:
+- Updated the default database name to "NetwrixAIC" and added information about possible customization.
+- Clarified the SQL Server connection details, including formats for server names and instances.
+- Specified the default database name for the Netwrix Auditor look and feel as "Netwrix_CommonDB".
+- Minor factual corrections were made to ensure accuracy based on the provided references.
+-->
+<h1>Changing the name of your SQL Server causes database related errors</h1>
+<p>When you change the name of your SQL Server, it can lead to various database-related errors. This article outlines the necessary steps to ensure a smooth transition and avoid potential issues.</p>
+<h2>Default Database Name</h2>
+<p>The default name for the original database was <span class="updated">NetwrixAIC</span> <!-- 
+CHANGE EXPLANATION:
+Documentation reference: "The default name for the original database was NetwrixAIC."
+Updated: Specified the default database name for clarity and accuracy. 
+-->. However, it could have been <span class="updated">Customized</span> <!-- 
+CHANGE EXPLANATION:
+Documentation reference: "However, it could have been Customized."
+Updated: Added information about the possibility of customization for the database name. 
+-->.</p>
+<h2>SQL Server Connection Details</h2>
+<p>When configuring the SQL Server connection, ensure you provide the correct database information:</p>
+<ol>
+<li><strong>Server:</strong> Enter the database server hostname (NetBIOS name, FQDN, or IP address) with the instance name or non-standard port, if applicable, in one of the following formats:
+        <ul>
+<li>No named instance: <code class="lang-Registry">[SQLHostName]</code>, for example <code class="lang-Registry">NT-SQL02</code></li>
+<li>Named instance: <code class="lang-Registry">[SQLHostName]\[SQLInstanceName]</code>, for example <code class="lang-Registry">NTSQL02\Netwrix</code></li>
+<li>No named instance with non-standard port: <code class="lang-Registry">[SQLHostName],[PortNumber]</code>, for example <code class="lang-Registry">NT-SQL02,72</code></li>
+<li>Named instance with non-standard port: <code class="lang-Registry">[SQLHostName]\[SQLInstanceName],[PortNumber]</code>, for example <code class="lang-Registry">NT-SQL02\Netwrix,72</code></li>
+</ul>
+</li>
+<li><strong>Database:</strong> Enter the name of the database. By default, the database responsible for the Netwrix Auditor look and feel is <span class="updated">Netwrix_CommonDB</span> <!-- 
+CHANGE EXPLANATION:
+Documentation reference: "By default, the database responsible for Netwrix DBName Auditor look and feel is Netwrix_CommonDB."
+Updated: Specified the default database name for the Auditor's look and feel for clarity. 
+-->. If you renamed this database, provide the new name.</li>
+</ol>
+<h2>Conclusion</h2>
+<p>Changing the name of your SQL Server requires careful attention to the database connection details to avoid errors. Ensure that you follow the guidelines provided above to maintain a seamless operation.</p></body>
+</html>
